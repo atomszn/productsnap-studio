@@ -2746,43 +2746,43 @@
       "data_points": [
         {
           "date": "2025-06",
-          "value": 15.9
+          "value": -1.4
         },
         {
           "date": "2025-07",
-          "value": 17.6
+          "value": 11.4
         },
         {
           "date": "2025-08",
-          "value": -0.3
+          "value": 0.7
         },
         {
           "date": "2025-09",
-          "value": 23.2
+          "value": 19.5
         },
         {
           "date": "2025-10",
-          "value": -12.8
+          "value": -10.1
         },
         {
           "date": "2025-11",
-          "value": -1.7
+          "value": 0.6
         },
         {
           "date": "2025-12",
-          "value": -10.2
+          "value": -8.8
         },
         {
           "date": "2026-01",
-          "value": 44.3
+          "value": 12.6
         },
         {
           "date": "2026-02",
-          "value": 18.1
+          "value": 16.3
         },
         {
           "date": "2026-03",
-          "value": 12.5
+          "value": 18.1
         },
         {
           "date": "2026-04",
@@ -2795,25 +2795,25 @@
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "up",
-          "delta_pct": 12.4,
-          "tone": "green"
+          "direction": "down",
+          "delta_pct": -1,
+          "tone": "amber"
         },
         "vs_12mo": {
-          "direction": "down",
-          "delta_pct": -16.3,
-          "tone": "amber"
+          "direction": "up",
+          "delta_pct": 0.3,
+          "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -17,
+          "delta_pct": -13.4,
           "tone": "amber"
         }
       },
       "percentile": {
-        "value": 42,
+        "value": 27,
         "lookback_years": 10,
-        "label": "Lower than 58% of observations in the last 10 years"
+        "label": "Lower than 73% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -2886,85 +2886,85 @@
           "gloss": "the Dallas Fed's monthly survey of service-sector firms in Texas — a regional proxy for U.S. services activity, used here because no comparable national services index is freely auto-fetchable"
         }
       ],
-      "current_value": "-9.9",
+      "current_value": "-5",
       "current_unit": "diffusion index, seasonally adjusted",
       "status": "contracting",
       "status_tone": "amber",
       "confidence": "medium",
-      "last_updated": "2026-04-01",
+      "last_updated": "2026-05-01",
       "tier": 1,
       "source_note": "Dallas Fed Texas Service Sector Outlook Survey · via FRED",
       "data_points": [
         {
-          "date": "2025-05",
-          "value": -4.4
-        },
-        {
           "date": "2025-06",
-          "value": -2.7
+          "value": -6.7
         },
         {
           "date": "2025-07",
-          "value": -0.9
+          "value": -2.7
         },
         {
           "date": "2025-08",
-          "value": 5.4
+          "value": 3.9
         },
         {
           "date": "2025-09",
-          "value": -1.3
+          "value": -11.2
         },
         {
           "date": "2025-10",
-          "value": -6.4
+          "value": -17.1
         },
         {
           "date": "2025-11",
-          "value": -3.2
+          "value": -9.2
         },
         {
           "date": "2025-12",
-          "value": -1.9
+          "value": -5.8
         },
         {
           "date": "2026-01",
-          "value": 3.1
+          "value": 2.7
         },
         {
           "date": "2026-02",
-          "value": -4.7
+          "value": 0.6
         },
         {
           "date": "2026-03",
-          "value": -13.3
+          "value": -7.3
         },
         {
           "date": "2026-04",
-          "value": -9.9
+          "value": -5.6
+        },
+        {
+          "date": "2026-05",
+          "value": -5
         }
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "down",
-          "delta_pct": -3.5,
-          "tone": "amber"
+          "direction": "up",
+          "delta_pct": 4.2,
+          "tone": "green"
         },
         "vs_12mo": {
-          "direction": "down",
-          "delta_pct": -5.5,
-          "tone": "amber"
+          "direction": "up",
+          "delta_pct": 3.4,
+          "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -19.9,
+          "delta_pct": -18,
           "tone": "amber"
         }
       },
       "percentile": {
-        "value": 22,
+        "value": 34,
         "lookback_years": 10,
-        "label": "Lower than 78% of observations in the last 10 years"
+        "label": "Lower than 66% of observations in the last 10 years"
       },
       "chain": [
         {
