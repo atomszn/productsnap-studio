@@ -713,7 +713,7 @@
       "status": "tightening",
       "status_tone": "amber",
       "confidence": "high",
-      "last_updated": "2026-05-01",
+      "last_updated": "2026-05-27",
       "tier": 1,
       "source_note": "Fed balance sheet · weekly",
       "data_points": [
@@ -770,17 +770,17 @@
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 2.3,
-          "tone": "amber"
+          "tone": "green"
         },
         "vs_12mo": {
           "direction": "up",
           "delta_pct": 0.5,
-          "tone": "amber"
+          "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "up",
           "delta_pct": 61.5,
-          "tone": "amber"
+          "tone": "green"
         }
       },
       "percentile": {
@@ -862,7 +862,7 @@
       "status": "rangebound",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-05-01",
+      "last_updated": "2026-05-27",
       "tier": 1,
       "source_note": "FRED DGS10 · daily",
       "data_points": [
@@ -2010,17 +2010,17 @@
         "vs_6mo": {
           "direction": "down",
           "delta_pct": -7.1,
-          "tone": "green"
+          "tone": "amber"
         },
         "vs_12mo": {
           "direction": "down",
           "delta_pct": -4.6,
-          "tone": "green"
+          "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "down",
           "delta_pct": -50.1,
-          "tone": "green"
+          "tone": "amber"
         }
       },
       "percentile": {
@@ -2319,17 +2319,17 @@
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 182.1,
-          "tone": "amber"
+          "tone": "green"
         },
         "vs_12mo": {
           "direction": "up",
           "delta_pct": 6.5,
-          "tone": "amber"
+          "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "down",
           "delta_pct": -51.5,
-          "tone": "green"
+          "tone": "amber"
         }
       },
       "percentile": {
