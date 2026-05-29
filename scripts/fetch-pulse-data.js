@@ -31,7 +31,9 @@ const AUTO_SIGNAL_IDS = [
   "10y-treasury",
   "retail-sales",
   "consumer-confidence",
-  "nonfarm-payrolls"
+  "nonfarm-payrolls",
+  "mfg-activity",
+  "services-activity"
 ];
 
 const HAND_CURATED_SIGNAL_IDS = [
@@ -158,6 +160,34 @@ const SIGNAL_CONFIG = {
         }
       ]
     }
+  },
+  "mfg-activity": {
+    // Philadelphia Fed Manufacturing Business Outlook Survey, Current General
+    // Activity Diffusion Index, seasonally adjusted. Monthly. Free via FRED.
+    // This is a REGIONAL proxy for national manufacturing activity, not the
+    // proprietary ISM Manufacturing PMI. Diffusion-index level (typical range
+    // ~-40 to +40), positive = expanding, negative = contracting.
+    provider: "fred",
+    seriesId: "GACDFSA066MSFRBPHI",
+    transform: "level_monthly_last",
+    valueFormat: "number_1",
+    compareMode: "points",
+    sourceNote: "Philadelphia Fed Manufacturing Business Outlook Survey · via FRED",
+    cadence: "monthly"
+  },
+  "services-activity": {
+    // Dallas Fed Texas Service Sector Outlook Survey, Current General Business
+    // Activity Diffusion Index, seasonally adjusted. Monthly. Free via FRED.
+    // This is a REGIONAL proxy for national services activity, not the
+    // proprietary ISM Services PMI. Diffusion-index level, positive =
+    // expanding, negative = contracting.
+    provider: "fred",
+    seriesId: "TSSOSBACTUAMFRBDAL",
+    transform: "level_monthly_last",
+    valueFormat: "number_1",
+    compareMode: "points",
+    sourceNote: "Dallas Fed Texas Service Sector Outlook Survey · via FRED",
+    cadence: "monthly"
   }
 };
 
@@ -169,7 +199,9 @@ const PRE_2020_BASELINES = {
   "fed-net-liquidity": { date: "2020-01" },
   "10y-treasury": { date: "2020-01" },
   "retail-sales": { date: "2020-01" },
-  "consumer-confidence": { date: "2020-01" }
+  "consumer-confidence": { date: "2020-01" },
+  "mfg-activity": { date: "2020-01" },
+  "services-activity": { date: "2020-01" }
 };
 
 // Per-signal tone policy. Direction is computed mechanically from the delta,
@@ -187,7 +219,9 @@ const TONE_POLICY = {
   "fed-net-liquidity": "up_good",   // tightening liquidity is amber
   "consumer-confidence": "up_good", // lower sentiment is amber
   "retail-sales": "up_good",        // sharp slowdown is amber
-  "nonfarm-payrolls": "up_good"     // sharp cooling is amber
+  "nonfarm-payrolls": "up_good",    // sharp cooling is amber
+  "mfg-activity": "up_good",        // rising diffusion = expansion = green
+  "services-activity": "up_good"    // rising diffusion = expansion = green
 };
 
 const FLAT_THRESHOLD_DEFAULT = 0.05;

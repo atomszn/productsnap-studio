@@ -245,6 +245,17 @@
       "signal_ids": [
         "ai-regulation"
       ]
+    },
+    {
+      "id": "activity",
+      "label": "Business Activity",
+      "kicker": "what's actually getting made and sold",
+      "color": "sand",
+      "note_token": "--note-sand",
+      "signal_ids": [
+        "mfg-activity",
+        "services-activity"
+      ]
     }
   ],
   "signals": [
@@ -572,7 +583,7 @@
       "confidence": "high",
       "last_updated": "2026-04-01",
       "tier": 1,
-      "source_note": "BEA · monthly release",
+      "source_note": "FRED PCEPILFE · monthly release",
       "data_points": [
         {
           "date": "2025-05",
@@ -674,7 +685,7 @@
       ],
       "why_we_think_this": {
         "signals_used": [
-          "BEA PCE",
+          "FRED PCEPILFE (Core PCE)",
           "BLS CPI"
         ],
         "reasoning": "Core PCE has remained in a narrow band above target for an extended period.",
@@ -686,8 +697,8 @@
       },
       "sources": [
         {
-          "name": "BEA PCE",
-          "url": "https://www.bea.gov/data/personal-consumption-expenditures-price-index",
+          "name": "Core PCE Price Index (FRED PCEPILFE)",
+          "url": "https://fred.stlouisfed.org/series/PCEPILFE",
           "tier": 1
         }
       ],
@@ -1815,7 +1826,7 @@
       "confidence": "high",
       "last_updated": "2026-04-01",
       "tier": 1,
-      "source_note": "Census · monthly release",
+      "source_note": "FRED RSAFS · monthly release",
       "data_points": [
         {
           "date": "2025-05",
@@ -1917,8 +1928,8 @@
       ],
       "why_we_think_this": {
         "signals_used": [
-          "Census Retail Sales",
-          "Conference Board confidence",
+          "FRED RSAFS (Advance Retail Sales)",
+          "University of Michigan Consumer Sentiment",
           "Major retailer commentary"
         ],
         "reasoning": "Headline retail sales have stayed in a tight range; survey data hasn't broken either direction.",
@@ -1930,8 +1941,8 @@
       },
       "sources": [
         {
-          "name": "Census Retail Sales",
-          "url": "https://www.census.gov/retail/",
+          "name": "Advance Retail Sales (FRED RSAFS)",
+          "url": "https://fred.stlouisfed.org/series/RSAFS",
           "tier": 1
         }
       ],
@@ -2066,8 +2077,7 @@
       ],
       "why_we_think_this": {
         "signals_used": [
-          "Conference Board confidence",
-          "Michigan sentiment"
+          "Michigan sentiment (UMCSENT via FRED)"
         ],
         "reasoning": "The Michigan headline is sitting at levels historically associated with major shocks, and inflation expectations within the same survey are elevated. Survey weakness has been broad rather than concentrated in one demographic slice.",
         "counterarguments": [
@@ -2708,6 +2718,308 @@
         "product_takeaway": "Anywhere your product makes a decision about a person, write down today how you’d explain it tomorrow."
       },
       "pill_label_short": "State-level AI rules picking up"
+    },
+    {
+      "id": "mfg-activity",
+      "category": "activity",
+      "category_label": "Business Activity",
+      "title": "Regional manufacturing activity slipped back negative",
+      "summary": "The Philadelphia Fed's monthly read on factory activity flipped from clearly expanding to flat-to-contracting in a single month. It is a regional proxy, not the proprietary national ISM PMI — but the swings show up here first.",
+      "term_glossary": [
+        {
+          "term": "diffusion index",
+          "gloss": "the share of firms reporting growth minus the share reporting contraction — above zero means more firms are growing than shrinking"
+        },
+        {
+          "term": "Philly Fed survey",
+          "gloss": "the Federal Reserve Bank of Philadelphia's monthly survey of manufacturers in its district (eastern PA, southern NJ, Delaware) — a regional proxy for U.S. factory activity"
+        }
+      ],
+      "current_value": "-0.4",
+      "current_unit": "diffusion index, seasonally adjusted",
+      "status": "contracting modestly",
+      "status_tone": "amber",
+      "confidence": "medium",
+      "last_updated": "2026-05-01",
+      "tier": 1,
+      "source_note": "Philadelphia Fed Manufacturing Business Outlook Survey · via FRED",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 15.9
+        },
+        {
+          "date": "2025-07",
+          "value": 17.6
+        },
+        {
+          "date": "2025-08",
+          "value": -0.3
+        },
+        {
+          "date": "2025-09",
+          "value": 23.2
+        },
+        {
+          "date": "2025-10",
+          "value": -12.8
+        },
+        {
+          "date": "2025-11",
+          "value": -1.7
+        },
+        {
+          "date": "2025-12",
+          "value": -10.2
+        },
+        {
+          "date": "2026-01",
+          "value": 44.3
+        },
+        {
+          "date": "2026-02",
+          "value": 18.1
+        },
+        {
+          "date": "2026-03",
+          "value": 12.5
+        },
+        {
+          "date": "2026-04",
+          "value": 26.7
+        },
+        {
+          "date": "2026-05",
+          "value": -0.4
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "up",
+          "delta_pct": 12.4,
+          "tone": "green"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -16.3,
+          "tone": "amber"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -17,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 42,
+        "lookback_years": 10,
+        "label": "Lower than 58% of observations in the last 10 years"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "The Philadelphia Fed's monthly survey of manufacturers — a regional proxy for national factory activity — dropped from clearly expanding to barely-below-zero in a single month. New orders and shipments fell with it.",
+          "expansion": "The diffusion index moves in big monthly steps because it captures change-from-last-month, not levels. The honest read is direction-of-travel, not the absolute number."
+        },
+        {
+          "label": "Meaning",
+          "text": "Factory orders aren't growing right now. Survey moves this sharp usually show up in hard manufacturing data — production, shipments, hiring — a few months later.",
+          "expansion": "Regional Fed surveys lead the national hard data by roughly two to three months. A single soft month is noise; a second one is a pattern."
+        },
+        {
+          "label": "Product impact",
+          "text": "If you sell into manufacturers, procurement cycles tighten quickly when surveys turn. If your product depends on the goods economy moving (logistics, hardware, B2B physical-world tools), this is a leading tell.",
+          "expansion": "Software margins insulate you, but pipeline timelines from industrial buyers stretch when their own forward orders soften."
+        },
+        {
+          "label": "Example",
+          "text": "B2B vendors selling to industrial customers reporting longer sales cycles when regional Fed surveys turn negative. Capital-equipment trials get parked behind cash-preservation discussions.",
+          "expansion": "Watch for renewal-rate drift before churn — industrial buyers downgrade tiers before they cancel."
+        },
+        {
+          "label": "PM question",
+          "text": "If factory activity stays soft, which forecast in your plan secretly assumes industrial buyers keep spending the way they did a quarter ago?",
+          "expansion": "Worth flagging that assumption explicitly rather than letting it ride."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "Philadelphia Fed Manufacturing Business Outlook Survey (FRED GACDFSA066MSFRBPHI)"
+        ],
+        "reasoning": "We use the Philly Fed's monthly diffusion index as our manufacturing-activity proxy because it is the most established free regional Fed survey of factory conditions, is published with no paywall via FRED, and has historically tracked national manufacturing turns reasonably well. We do not publish the proprietary ISM Manufacturing PMI — that data is not freely auto-fetchable.",
+        "counterarguments": [
+          "This is one Federal Reserve district, not the national economy — single-month moves can reflect local effects.",
+          "The diffusion index captures month-over-month change, not absolute levels, so it can whipsaw."
+        ],
+        "what_would_make_us_wrong": "Two consecutive months back above +10 would weaken the soft-activity read."
+      },
+      "sources": [
+        {
+          "name": "Philadelphia Fed Manufacturing Business Outlook Survey (via FRED GACDFSA066MSFRBPHI)",
+          "url": "https://fred.stlouisfed.org/series/GACDFSA066MSFRBPHI",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "watch closely",
+      "reference_point": "regional Fed proxy · not the proprietary national ISM PMI",
+      "refined_why": {
+        "evidence": "The Philly Fed's monthly read on factory activity flipped from clearly expanding to flat-to-negative in a single month. New orders and shipments fell with it.",
+        "counter_signal": "Two months back above +10 would weaken this read.",
+        "product_takeaway": "If you sell into manufacturers or the goods economy, pipeline forecasts that assume the last quarter's buying pace are worth re-examining."
+      },
+      "pill_label_short": "Factory activity flipped soft"
+    },
+    {
+      "id": "services-activity",
+      "category": "activity",
+      "category_label": "Business Activity",
+      "title": "Regional services activity still in contraction",
+      "summary": "The Dallas Fed's monthly read on services-firm business activity has been negative for several months. It is a regional proxy, not the proprietary national ISM Services PMI — but services activity matters because services are most of the economy.",
+      "term_glossary": [
+        {
+          "term": "services activity",
+          "gloss": "growth or contraction at non-manufacturing firms — restaurants, software, professional services, transport, healthcare"
+        },
+        {
+          "term": "Texas Service Sector Outlook Survey",
+          "gloss": "the Dallas Fed's monthly survey of service-sector firms in Texas — a regional proxy for U.S. services activity, used here because no comparable national services index is freely auto-fetchable"
+        }
+      ],
+      "current_value": "-9.9",
+      "current_unit": "diffusion index, seasonally adjusted",
+      "status": "contracting",
+      "status_tone": "amber",
+      "confidence": "medium",
+      "last_updated": "2026-04-01",
+      "tier": 1,
+      "source_note": "Dallas Fed Texas Service Sector Outlook Survey · via FRED",
+      "data_points": [
+        {
+          "date": "2025-05",
+          "value": -4.4
+        },
+        {
+          "date": "2025-06",
+          "value": -2.7
+        },
+        {
+          "date": "2025-07",
+          "value": -0.9
+        },
+        {
+          "date": "2025-08",
+          "value": 5.4
+        },
+        {
+          "date": "2025-09",
+          "value": -1.3
+        },
+        {
+          "date": "2025-10",
+          "value": -6.4
+        },
+        {
+          "date": "2025-11",
+          "value": -3.2
+        },
+        {
+          "date": "2025-12",
+          "value": -1.9
+        },
+        {
+          "date": "2026-01",
+          "value": 3.1
+        },
+        {
+          "date": "2026-02",
+          "value": -4.7
+        },
+        {
+          "date": "2026-03",
+          "value": -13.3
+        },
+        {
+          "date": "2026-04",
+          "value": -9.9
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -3.5,
+          "tone": "amber"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -5.5,
+          "tone": "amber"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -19.9,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 22,
+        "lookback_years": 10,
+        "label": "Lower than 78% of observations in the last 10 years"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "The Dallas Fed's monthly survey of service-sector firms — our regional proxy for national services activity — has been below zero for several consecutive months. The latest read got worse, not better.",
+          "expansion": "Services are roughly 70% of U.S. economic activity, so a multi-month soft patch in a representative regional survey is worth tracking even if it isn't the national ISM."
+        },
+        {
+          "label": "Meaning",
+          "text": "Services firms are reporting more contraction than expansion month after month. That lines up with the soft consumer-sentiment read elsewhere in Pulse — soft data is broad-based right now, not isolated.",
+          "expansion": "A single negative diffusion month is normal noise. Several in a row, paired with weak sentiment, is a pattern that usually precedes slower services hiring."
+        },
+        {
+          "label": "Product impact",
+          "text": "If you sell into services businesses — agencies, restaurants, professional firms, healthcare practices — budget conversations tighten quickly when survey data sits negative for months. Renewals get scrutinized; new tools get deferred.",
+          "expansion": "B2B SaaS pipelines into services verticals are the most exposed; consumer-facing software is exposed indirectly via softer hiring at those firms."
+        },
+        {
+          "label": "Example",
+          "text": "Vertical SaaS tools for service businesses (salons, agencies, clinics, contractors) reporting longer evaluation cycles and more 'pause' decisions than usual.",
+          "expansion": "Watch for trial-to-paid conversion to slow before churn picks up — buyers stretch evaluations before they outright leave."
+        },
+        {
+          "label": "PM question",
+          "text": "Where does your roadmap assume services-sector customers are still in growth mode? Pick the one most exposed and ask whether it deserves a downside scenario this quarter.",
+          "expansion": "The honest answer to 'are services-sector buyers spending like a year ago?' right now is: not really."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "Dallas Fed Texas Service Sector Outlook Survey (FRED TSSOSBACTUAMFRBDAL)"
+        ],
+        "reasoning": "We use the Dallas Fed's monthly services diffusion index as our services-activity proxy because it is the most established free regional Fed survey of services conditions, is published with no paywall via FRED, and covers a large, diversified state economy. We do not publish the proprietary ISM Services PMI — that data is not freely auto-fetchable.",
+        "counterarguments": [
+          "This is one state, not the U.S. — Texas-specific factors (energy mix, immigration policy) can pull the index around.",
+          "Diffusion indexes capture month-over-month change, so they can lag turning points in absolute levels."
+        ],
+        "what_would_make_us_wrong": "Two consecutive months back above zero would weaken the soft-services read."
+      },
+      "sources": [
+        {
+          "name": "Dallas Fed Texas Service Sector Outlook Survey (via FRED TSSOSBACTUAMFRBDAL)",
+          "url": "https://fred.stlouisfed.org/series/TSSOSBACTUAMFRBDAL",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "watch closely",
+      "reference_point": "regional Fed proxy · not the proprietary national ISM Services PMI",
+      "refined_why": {
+        "evidence": "The Dallas Fed services survey has been negative for several months in a row, with the latest read worse than the one before it. Soft survey data is broad-based right now, not isolated.",
+        "counter_signal": "Two months back above zero would weaken this read.",
+        "product_takeaway": "If you sell into services businesses, plans that assume the last year's buying pace deserve a downside scenario this quarter."
+      },
+      "pill_label_short": "Services activity still soft"
     }
   ],
   "source_philosophy": {
