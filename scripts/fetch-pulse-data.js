@@ -107,7 +107,8 @@ const SIGNAL_CONFIG = {
     transform: "level_monthly_last",
     valueFormat: "trillions",
     compareMode: "percent",
-    sourceNote: "FRED WALCL · weekly"
+    sourceNote: "FRED WALCL · weekly",
+    latestFromRaw: true
   },
   "10y-treasury": {
     provider: "fred",
@@ -115,7 +116,8 @@ const SIGNAL_CONFIG = {
     transform: "level_monthly_last",
     valueFormat: "percent",
     compareMode: "points",
-    sourceNote: "FRED DGS10 · daily"
+    sourceNote: "FRED DGS10 · daily",
+    latestFromRaw: true
   },
   "retail-sales": {
     provider: "census",
@@ -166,6 +168,27 @@ const PRE_2020_BASELINES = {
   "retail-sales": { date: "2020-01" },
   "consumer-confidence": { date: "2020-01" }
 };
+
+// Per-signal tone policy. Direction is computed mechanically from the delta,
+// but tone reflects product interpretation:
+//   - "up_bad"  : an increase is amber, a decrease is green
+//   - "up_good" : an increase is green, a decrease is amber
+//   - "neutral" : no opinion either way; tone stays neutral
+// The previous default treated every "up" as amber, which produced wrong
+// reads (e.g. consumer sentiment falling marked green).
+const TONE_POLICY = {
+  "cpi-headline": "up_bad",        // higher inflation is amber
+  "ppi": "up_bad",                  // higher producer prices is amber
+  "pce": "up_bad",                  // higher core PCE is amber
+  "10y-treasury": "up_bad",         // higher borrowing costs is amber
+  "fed-net-liquidity": "up_good",   // tightening liquidity is amber
+  "consumer-confidence": "up_good", // lower sentiment is amber
+  "retail-sales": "up_good",        // sharp slowdown is amber
+  "nonfarm-payrolls": "up_good"     // sharp cooling is amber
+};
+
+const FLAT_THRESHOLD_DEFAULT = 0.05;
+const NEUTRAL_TONE_THRESHOLD_DEFAULT = 0.1;
 
 function parseArgs(argv) {
   const args = {
@@ -289,7 +312,8 @@ async function fetchFredUpdate(id, config) {
   const key = requireEnv("FRED_API_KEY");
   const observations = await getFredObservations(config.seriesId, key, yearsAgoDate(11));
   const prepared = prepareSeries(observations, config.transform);
-  return buildUpdateFromSeries(id, config, prepared);
+  const rawLatest = observations.length ? observations[observations.length - 1] : null;
+  return buildUpdateFromSeries(id, { ...config, rawLatest }, prepared);
 }
 
 async function fetchBlsUpdate(id, config) {
@@ -304,15 +328,39 @@ async function fetchBlsUpdate(id, config) {
 
 async function fetchBeaUpdate(id, config) {
   const key = requireEnv("BEA_API_KEY");
-  const line = await discoverBeaCorePceLine(key, config);
-  const observations = await getBeaNipaSeries(key, line.tableName, line.lineNumber);
+  let line;
+  try {
+    line = await discoverBeaCorePceLine(key, config);
+  } catch (err) {
+    throw new Error(`BEA line discovery failed (tables=${(config.tableCandidates || []).join("|")}, needles=${(config.lineDescriptionNeedles || []).join("|")}): ${err.message}`);
+  }
+  log(`  bea: using table ${line.tableName} line ${line.lineNumber} — "${line.description}"`);
+  let observations;
+  try {
+    observations = await getBeaNipaSeries(key, line.tableName, line.lineNumber);
+  } catch (err) {
+    throw new Error(`BEA GetData failed (table=${line.tableName}, line=${line.lineNumber}): ${err.message}`);
+  }
+  if (!observations.length) {
+    throw new Error(`BEA returned zero observations (table=${line.tableName}, line=${line.lineNumber}). Check NIPA frequency support.`);
+  }
   const prepared = prepareSeries(observations, config.transform);
   return buildUpdateFromSeries(id, config, prepared);
 }
 
 async function fetchCensusUpdate(id, config) {
   const key = requireEnv("CENSUS_API_KEY");
-  const observations = await getCensusMartsSeries(key, config);
+  let observations;
+  try {
+    observations = await getCensusMartsSeries(key, config);
+  } catch (err) {
+    const ctx = `dataset=${config.dataset}, category_code=${config.params?.category_code}, data_type_code=${config.params?.data_type_code}`;
+    throw new Error(`Census MARTS failed (${ctx}): ${err.message}`);
+  }
+  if (!observations.length) {
+    throw new Error(`Census MARTS returned zero usable rows for category_code=${config.params?.category_code}. Check that data_type_code/seasonally_adj are valid for this dataset.`);
+  }
+  log(`  census: ${observations.length} observation(s), latest ${observations[observations.length - 1].date}`);
   const prepared = prepareSeries(observations, config.transform);
   return buildUpdateFromSeries(id, config, prepared);
 }
@@ -367,6 +415,7 @@ async function getBlsSeries(seriesIds, apiKey, startYear, endYear) {
 
 async function discoverBeaCorePceLine(apiKey, config) {
   const needles = config.lineDescriptionNeedles || [];
+  const triedSummaries = [];
   for (const tableName of config.tableCandidates || []) {
     const url = new URL("https://apps.bea.gov/api/data");
     url.searchParams.set("UserID", apiKey);
@@ -378,7 +427,9 @@ async function discoverBeaCorePceLine(apiKey, config) {
     url.searchParams.set("ResultFormat", "JSON");
 
     const json = await fetchJson(url);
+    assertBeaNoApiError(json, `discovery table=${tableName}`);
     const values = json.BEAAPI?.Results?.ParamValue || [];
+    triedSummaries.push(`${tableName}:${values.length}lines`);
     const match = values.find((v) => {
       const desc = String(v.Desc || v.Description || v.LineDescription || "").toLowerCase();
       return needles.some((needle) => desc.includes(needle));
@@ -387,7 +438,7 @@ async function discoverBeaCorePceLine(apiKey, config) {
       return { tableName, lineNumber: String(match.Key || match.LineNumber || match.Value), description: match.Desc || match.Description || "" };
     }
   }
-  throw new Error("Could not discover BEA core PCE line from candidate NIPA tables");
+  throw new Error(`No matching line description found. Tried [${triedSummaries.join(", ")}]`);
 }
 
 async function getBeaNipaSeries(apiKey, tableName, lineNumber) {
@@ -402,6 +453,7 @@ async function getBeaNipaSeries(apiKey, tableName, lineNumber) {
   url.searchParams.set("ResultFormat", "JSON");
 
   const json = await fetchJson(url);
+  assertBeaNoApiError(json, `GetData table=${tableName} line=${lineNumber}`);
   const rows = json.BEAAPI?.Results?.Data || [];
   return rows
     .map((r) => ({
@@ -412,6 +464,23 @@ async function getBeaNipaSeries(apiKey, tableName, lineNumber) {
     .sort((a, b) => a.date.localeCompare(b.date));
 }
 
+// BEA returns HTTP 200 with an Error object inside BEAAPI.Results when keys,
+// table names, or parameters are wrong. Surfacing that as a real error makes
+// failures diagnosable instead of looking like "0 observations".
+function assertBeaNoApiError(json, ctx) {
+  const results = json?.BEAAPI?.Results;
+  const errArr = Array.isArray(results) ? results : (results ? [results] : []);
+  for (const r of errArr) {
+    if (r && r.Error) {
+      const desc = r.Error.APIErrorDescription || r.Error.APIErrorDescription_ || r.Error.ErrorDetail?.Description || JSON.stringify(r.Error);
+      throw new Error(`BEAAPI error (${ctx}): ${desc}`);
+    }
+  }
+  if (json?.BEAAPI?.Error) {
+    throw new Error(`BEAAPI envelope error (${ctx}): ${JSON.stringify(json.BEAAPI.Error).slice(0, 200)}`);
+  }
+}
+
 async function getCensusMartsSeries(apiKey, config) {
   const url = new URL(`https://api.census.gov/data/${config.dataset}`);
   Object.entries(config.params).forEach(([k, v]) => url.searchParams.set(k, v));
@@ -419,11 +488,16 @@ async function getCensusMartsSeries(apiKey, config) {
   url.searchParams.set("key", apiKey);
 
   const rows = await fetchJson(url);
-  if (!Array.isArray(rows) || rows.length < 2) throw new Error("Census MARTS returned no rows");
+  if (!Array.isArray(rows)) {
+    throw new Error(`response was not an array (got ${typeof rows}); endpoint may have returned an error envelope`);
+  }
+  if (rows.length < 2) throw new Error("returned no data rows (only header)");
   const header = rows[0];
   const cellIdx = header.indexOf("cell_value");
   const timeIdx = header.indexOf("time_slot_id") >= 0 ? header.indexOf("time_slot_id") : header.indexOf("time");
-  if (cellIdx < 0 || timeIdx < 0) throw new Error("Census MARTS response missing expected columns");
+  if (cellIdx < 0 || timeIdx < 0) {
+    throw new Error(`response missing expected columns (header=[${header.join(", ")}])`);
+  }
 
   return rows.slice(1)
     .map((r) => ({
@@ -473,13 +547,22 @@ function buildUpdateFromSeries(id, config, series) {
     current_value: formatCurrentValue(latest.value, config.valueFormat),
     data_points: last12,
     compared_to: {
-      vs_6mo: compare(latest.value, valueMonthsAgo(series, latest.date, 6), config.compareMode),
-      vs_12mo: compare(latest.value, valueMonthsAgo(series, latest.date, 12), config.compareMode),
-      vs_pre_2020: compare(latest.value, pre2020?.value, config.compareMode)
+      vs_6mo: compare(latest.value, valueMonthsAgo(series, latest.date, 6), config.compareMode, id),
+      vs_12mo: compare(latest.value, valueMonthsAgo(series, latest.date, 12), config.compareMode, id),
+      vs_pre_2020: compare(latest.value, pre2020?.value, config.compareMode, id)
     },
     percentile: percentile(latest.value, tenYears),
     last_updated: normalizeLastUpdated(latest.date)
   };
+
+  // For sub-monthly cadence series (FRED daily/weekly), the monthly sparkline
+  // is the right shape for data_points, but current_value/last_updated should
+  // reflect the latest actual raw observation rather than the month-aggregated
+  // value. Otherwise a Wednesday rate print disappears behind a stale month-end.
+  if (config.latestFromRaw && config.rawLatest) {
+    update.current_value = formatCurrentValue(config.rawLatest.value, config.valueFormat);
+    update.last_updated = normalizeLastUpdated(config.rawLatest.date);
+  }
 
   if (config.sourceOverride) Object.assign(update, config.sourceOverride);
   return update;
@@ -600,14 +683,14 @@ function findBaseline(series, baselineMonth) {
     series.find((r) => r.date > baselineMonth);
 }
 
-function compare(latest, previous, mode) {
+function compare(latest, previous, mode, signalId) {
   if (previous == null || !Number.isFinite(previous)) {
     return { direction: "flat", delta_pct: 0, tone: "neutral" };
   }
   const delta = mode === "percent" ? pctChange(latest, previous) : latest - previous;
   const rounded = round1(delta);
-  const direction = rounded > 0.05 ? "up" : (rounded < -0.05 ? "down" : "flat");
-  return { direction, delta_pct: rounded, tone: toneForDelta(rounded) };
+  const direction = rounded > FLAT_THRESHOLD_DEFAULT ? "up" : (rounded < -FLAT_THRESHOLD_DEFAULT ? "down" : "flat");
+  return { direction, delta_pct: rounded, tone: toneForDelta(rounded, signalId) };
 }
 
 function percentile(value, series) {
@@ -624,8 +707,13 @@ function percentile(value, series) {
   };
 }
 
-function toneForDelta(delta) {
-  if (Math.abs(delta) < 0.1) return "neutral";
+function toneForDelta(delta, signalId) {
+  if (Math.abs(delta) < NEUTRAL_TONE_THRESHOLD_DEFAULT) return "neutral";
+  const policy = TONE_POLICY[signalId];
+  if (policy === "up_good") return delta > 0 ? "green" : "amber";
+  if (policy === "neutral") return "neutral";
+  // Default: "up_bad" — higher value is amber, lower is green. Used for
+  // inflation-style series (CPI, PPI, PCE) and borrowing costs (10y).
   return delta > 0 ? "amber" : "green";
 }
 
