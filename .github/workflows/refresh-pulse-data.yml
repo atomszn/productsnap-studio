@@ -1,0 +1,48 @@
+name: Refresh Pulse data
+
+on:
+  schedule:
+    # 10am Central during daylight time, safely after 8:30am ET economic releases
+    # and 9:30am ET market open. Kept as fixed UTC per Pass B decision.
+    - cron: "0 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-pulse-data:
+    name: Refresh public signal data
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Refresh Pulse data JSON
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+          BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+        run: node scripts/fetch-pulse-data.js
+
+      - name: Commit refreshed data if changed
+        run: |
+          if git diff --quiet -- data/pulse-content.json; then
+            echo "No Pulse data changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pulse-content.json
+          git commit -m "chore(data): refresh pulse signals"
+          git push

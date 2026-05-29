@@ -1,0 +1,2734 @@
+{
+  "weekly_note": {
+    "text": "This week: AI pricing dropped again, hiring stayed soft, and consumer attention rotated to short-form. Three small shifts that change three different conversations.",
+    "date": "2026-05-27",
+    "date_label": "May 27"
+  },
+  "weekly_connection": {
+    "title": "The cheaper-and-rarer paradox",
+    "subtitle": "Three signals you wouldn't normally read together.",
+    "body_paragraphs": [
+      "These three numbers usually move on different clocks. AI model pricing tracks model competition. Series A counts track how willing investors are to back new startups. Tech hiring tracks where companies place their next bet. This quarter they lined up by accident — and that accident changes which roadmap moves are cheap and which are quietly expensive.",
+      "What I keep coming back to: the cheapest year in software history is also the most cautious one. Most of the conversation focuses on the cheap side. The cautious side — fewer rounds, fewer hires — is where the planning answer lives."
+    ],
+    "connected_signals": [
+      "ai-api-pricing",
+      "series-a-counts",
+      "tech-hiring"
+    ],
+    "curated": true,
+    "date": "2026-05-27",
+    "date_label": "May 27",
+    "refined": {
+      "observation": "A call to a top AI model has dropped about 60% in cost over the last three months. Series A funding — the first big institutional round a startup raises — is down about 30% from last year. And tech hiring sits at a four-year low.",
+      "why_it_matters": "It has never been cheaper to build software. And rarely harder to raise the round or hire the team to build it the old way. The cheapest year in software history is also the most cautious one.",
+      "decision_this_week": "Which roadmap item still quietly assumes you will hire two more engineers instead of letting cheaper AI absorb the work? Pick one to revisit.",
+      "pm_implication_default": "The PMs winning this environment ship more with less, treat each AI call as a line in the budget, and audit any roadmap item that still assumes a 2024-style raise.",
+      "where_shows_up": [
+        {
+          "key": "onboarding",
+          "label": "Onboarding",
+          "implication": "Onboarding becomes the place to prove value fast — a hesitant buyer with a smaller team has less patience for setup."
+        },
+        {
+          "key": "pricing",
+          "label": "Pricing",
+          "implication": "Pricing math shifts: each AI call is cheap enough to include more by default, but lower funding tolerance means buyers scrutinize per-seat fees harder."
+        },
+        {
+          "key": "support",
+          "label": "Support",
+          "implication": "Support gets the first AI-leverage dollar. Cheaper AI calls plus tighter hiring make \"deflect a ticket\" the obvious early ROI."
+        },
+        {
+          "key": "workflows",
+          "label": "Workflows",
+          "implication": "Workflows that still hand work to the user are the most exposed. Where the model can finish a task, the user shouldn't be starting it."
+        },
+        {
+          "key": "retention",
+          "label": "Retention",
+          "implication": "Retention math gets re-weighted: with new acquisition gated by tighter funding, holding the cohort you have outweighs adding the next one."
+        }
+      ]
+    },
+    "where_helper": "PM implication changes based on where you look."
+  },
+  "pm_tension": {
+    "label": "This week's PM tension",
+    "axis": "Build vs wait",
+    "question": "What workflow still assumes more people instead of better leverage?",
+    "note": "A question worth holding open this week — not a recommendation.",
+    "toggles": [
+      {
+        "key": "build_vs_wait",
+        "left": "Build now",
+        "right": "Wait",
+        "question": "What workflow still assumes more people instead of better leverage?",
+        "note": "Build-vs-wait: with inference cheap and hiring soft, the cost of waiting on a small AI feature has shifted."
+      },
+      {
+        "key": "growth_vs_efficiency",
+        "left": "Growth",
+        "right": "Efficiency",
+        "question": "Which line on the deck has to improve before your next funding conversation — top of funnel, or unit economics?",
+        "note": "Growth-vs-efficiency: capital is concentrating; the slide that wins the next round looks different than it did 24 months ago."
+      },
+      {
+        "key": "speed_vs_certainty",
+        "left": "Speed",
+        "right": "Certainty",
+        "question": "Where are you optimizing for being early — and where are you optimizing for being right?",
+        "note": "Speed-vs-certainty: model capability moves fast enough that a six-month bet on a feasibility gap can close before launch."
+      },
+      {
+        "key": "automation_vs_trust",
+        "left": "Automation",
+        "right": "Trust",
+        "question": "Which step of your product can the model finish — and which step does the user need to feel they did?",
+        "note": "Automation-vs-trust: on-device agents shift the unit of value from \"a useful answer\" to \"a completed task\", which changes what users want to see."
+      }
+    ]
+  },
+  "whats_changed": {
+    "moved": [
+      {
+        "signal_id": "ai-api-pricing",
+        "direction": "down",
+        "short_label": "AI model costs",
+        "movement": "falling faster",
+        "implication": "Cheaper automation becomes easier to justify on the roadmap.",
+        "momentum": "accelerating",
+        "confidence": "high"
+      },
+      {
+        "signal_id": "series-a-counts",
+        "direction": "down",
+        "short_label": "Startup funding",
+        "movement": "still slowing",
+        "implication": "Plans that quietly assume an easy next round need a second look.",
+        "momentum": "watch closely",
+        "confidence": "medium"
+      },
+      {
+        "signal_id": "ai-model-releases",
+        "direction": "up",
+        "short_label": "New AI models",
+        "movement": "shipping faster",
+        "implication": "Capability gaps you’re building around may close before you launch.",
+        "momentum": "accelerating",
+        "confidence": "medium"
+      }
+    ],
+    "held_steady": [
+      {
+        "signal_id": "cpi-headline",
+        "short_label": "Everyday prices",
+        "movement": "holding near 3%",
+        "implication": "Pricing reviews can wait a beat longer.",
+        "momentum": "stable",
+        "confidence": "high"
+      },
+      {
+        "signal_id": "retail-sales",
+        "short_label": "Consumer spending",
+        "movement": "steady",
+        "implication": "Growth has to come from share-shift, not the tide.",
+        "momentum": "stable",
+        "confidence": "high"
+      },
+      {
+        "signal_id": "10y-treasury",
+        "short_label": "Long-term rates",
+        "movement": "rangebound",
+        "implication": "Cost of long bets is fixed for now — useful for planning.",
+        "momentum": "stable",
+        "confidence": "high"
+      }
+    ],
+    "behaving_differently": [
+      {
+        "signal_id": "tech-hiring",
+        "short_label": "Tech hiring",
+        "movement": "soft across the board",
+        "implication": "If you can’t add two more engineers, decide which item AI tools quietly absorbs.",
+        "momentum": "watch closely",
+        "confidence": "medium"
+      },
+      {
+        "signal_id": "emerging-apps",
+        "short_label": "Personal AI assistants",
+        "movement": "showing up everywhere",
+        "implication": "Workflows that still hand work to the user are the most exposed.",
+        "momentum": "accelerating",
+        "confidence": "low"
+      }
+    ],
+    "last_updated": "2026-05-27"
+  },
+  "categories": [
+    {
+      "id": "inflation",
+      "label": "Inflation & Pricing",
+      "kicker": "what people pay",
+      "color": "amber",
+      "note_token": "--note-gold",
+      "signal_ids": [
+        "cpi-headline",
+        "ppi",
+        "pce"
+      ]
+    },
+    {
+      "id": "liquidity",
+      "label": "Liquidity & Capital",
+      "kicker": "how money moves",
+      "color": "teal",
+      "note_token": "--note-teal",
+      "signal_ids": [
+        "fed-net-liquidity",
+        "10y-treasury",
+        "series-a-counts"
+      ]
+    },
+    {
+      "id": "ai-tech",
+      "label": "AI & Technology",
+      "kicker": "what's newly possible",
+      "color": "lavender",
+      "note_token": "--note-lavender",
+      "signal_ids": [
+        "ai-model-releases",
+        "ai-api-pricing",
+        "open-source-ai",
+        "compute-cost"
+      ]
+    },
+    {
+      "id": "consumer",
+      "label": "Consumer & Demand",
+      "kicker": "where attention goes",
+      "color": "blush",
+      "note_token": "--note-blush",
+      "signal_ids": [
+        "retail-sales",
+        "consumer-confidence",
+        "emerging-apps"
+      ]
+    },
+    {
+      "id": "labor",
+      "label": "Labor & Hiring",
+      "kicker": "who's building",
+      "color": "pink",
+      "note_token": "--note-pink",
+      "signal_ids": [
+        "nonfarm-payrolls",
+        "tech-hiring"
+      ]
+    },
+    {
+      "id": "regulation",
+      "label": "Regulation & Policy",
+      "kicker": "what's at risk",
+      "color": "sand",
+      "note_token": "--note-sand",
+      "signal_ids": [
+        "ai-regulation"
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "id": "cpi-headline",
+      "category": "inflation",
+      "category_label": "Inflation & Pricing",
+      "title": "Headline cooling, services inflation sticky",
+      "summary": "Goods got cheaper. Services like rent, healthcare, and software did not cool as quickly.",
+      "term_glossary": [
+        {
+          "term": "CPI",
+          "gloss": "the broad measure of consumer prices"
+        },
+        {
+          "term": "core inflation",
+          "gloss": "inflation excluding food and energy"
+        }
+      ],
+      "current_value": "3.1%",
+      "current_unit": "year-over-year",
+      "status": "mixed",
+      "status_tone": "amber",
+      "confidence": "high",
+      "last_updated": "2026-05-15",
+      "tier": 1,
+      "source_note": "BLS · monthly release",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 3.0
+        },
+        {
+          "date": "2025-07",
+          "value": 2.9
+        },
+        {
+          "date": "2025-08",
+          "value": 2.8
+        },
+        {
+          "date": "2025-09",
+          "value": 2.7
+        },
+        {
+          "date": "2025-10",
+          "value": 2.8
+        },
+        {
+          "date": "2025-11",
+          "value": 2.9
+        },
+        {
+          "date": "2025-12",
+          "value": 3.0
+        },
+        {
+          "date": "2026-01",
+          "value": 3.1
+        },
+        {
+          "date": "2026-02",
+          "value": 3.2
+        },
+        {
+          "date": "2026-03",
+          "value": 3.1
+        },
+        {
+          "date": "2026-04",
+          "value": 3.0
+        },
+        {
+          "date": "2026-05",
+          "value": 3.1
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "up",
+          "delta_pct": 0.3,
+          "tone": "amber"
+        },
+        "vs_12mo": {
+          "direction": "flat",
+          "delta_pct": 0.1,
+          "tone": "neutral"
+        },
+        "vs_pre_2020": {
+          "direction": "up",
+          "delta_pct": 1.0,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 62,
+        "lookback_years": 10,
+        "label": "Higher than 38% of months since 2016"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "CPI, the broad measure of consumer prices, has moderated for several months. Core services — rent, healthcare, and software — have been slower to come down.",
+          "expansion": "Headline CPI sits at ~3.1% year-over-year. Core services is running closer to 4.5%. Goods prices are roughly flat year-over-year."
+        },
+        {
+          "label": "Meaning",
+          "text": "Two inflations may be running in parallel — a goods side that has cooled and a services side that hasn't followed at the same pace.",
+          "expansion": "Most product pricing strategies were calibrated for one inflation regime. The current data suggests they're calibrated for the wrong one."
+        },
+        {
+          "label": "Product impact",
+          "text": "Business software still seems able to raise prices. Consumer-goods companies may have less room to do that.",
+          "expansion": "If your customers feel services inflation more than goods inflation, your price increases compete with their rent and their software stack — not their grocery bill."
+        },
+        {
+          "label": "Example",
+          "text": "Subscription software quietly raising list prices without losing customers. Packaged-goods brands rolling back hikes. Streaming services adding ad-supported plans as a cheaper option.",
+          "expansion": "Streaming ad tiers are a tell: when you can't raise price further, you re-package the same product at a lower price for a different cohort."
+        },
+        {
+          "label": "PM question",
+          "text": "Are you pricing for the goods world or the services world your customers actually live in?",
+          "expansion": "If your last pricing review was more than 18 months ago, the answer may have changed without you noticing."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "BLS CPI",
+          "BLS Core CPI",
+          "BLS PPI"
+        ],
+        "reasoning": "Goods disinflation has held for several months as supply pressures eased. Services inflation looks stickier — wages, rent, software seats — and may take longer to come down than the headline number alone suggests.",
+        "counterarguments": [
+          "A demand shock could pull services inflation down quickly.",
+          "Wage pressure could push goods inflation back up."
+        ],
+        "what_would_make_us_wrong": "Two consecutive months of services CPI falling below 3% would meaningfully weaken this read."
+      },
+      "sources": [
+        {
+          "name": "BLS CPI",
+          "url": "https://www.bls.gov/cpi/",
+          "tier": 1
+        },
+        {
+          "name": "BLS Core CPI",
+          "url": "https://www.bls.gov/news.release/cpi.t02.htm",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "stable",
+      "reference_point": "vs Fed 2% target · +1.1pp",
+      "refined_why": {
+        "evidence": "Goods prices have stopped rising. The stuff people pay other people for — services — is still climbing closer to 4–5% a year.",
+        "counter_signal": "Two months of services prices cooling below 3% would weaken this read.",
+        "product_takeaway": "If you last touched pricing 18+ months ago, the floor under your numbers has probably moved without you."
+      },
+      "pill_label_short": "Everyday prices cooling, services still sticky"
+    },
+    {
+      "id": "ppi",
+      "category": "inflation",
+      "category_label": "Inflation & Pricing",
+      "title": "Producer prices flat — pipeline pressure easing",
+      "summary": "What producers are paying has stopped rising. Consumer-side pressure usually follows.",
+      "term_glossary": [
+        {
+          "term": "PPI",
+          "gloss": "what producers pay before passing costs on to consumers"
+        }
+      ],
+      "current_value": "0.6%",
+      "current_unit": "year-over-year",
+      "status": "cooling",
+      "status_tone": "green",
+      "confidence": "high",
+      "last_updated": "2026-05-14",
+      "tier": 1,
+      "source_note": "BLS · monthly release",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 2.3
+        },
+        {
+          "date": "2025-07",
+          "value": 2.1
+        },
+        {
+          "date": "2025-08",
+          "value": 1.8
+        },
+        {
+          "date": "2025-09",
+          "value": 1.5
+        },
+        {
+          "date": "2025-10",
+          "value": 1.3
+        },
+        {
+          "date": "2025-11",
+          "value": 1.1
+        },
+        {
+          "date": "2025-12",
+          "value": 0.9
+        },
+        {
+          "date": "2026-01",
+          "value": 0.8
+        },
+        {
+          "date": "2026-02",
+          "value": 0.7
+        },
+        {
+          "date": "2026-03",
+          "value": 0.6
+        },
+        {
+          "date": "2026-04",
+          "value": 0.6
+        },
+        {
+          "date": "2026-05",
+          "value": 0.6
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -0.7,
+          "tone": "green"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -1.7,
+          "tone": "green"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -0.4,
+          "tone": "neutral"
+        }
+      },
+      "percentile": {
+        "value": 18,
+        "lookback_years": 10,
+        "label": "Lower than 82% of months since 2016"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "PPI (what producers pay before passing costs on to consumers) is running near 0.6% year-over-year, the softest reading in three years.",
+          "expansion": "PPI tends to lead CPI by 2–4 months for goods categories — the pipeline of cost pressure has thinned."
+        },
+        {
+          "label": "Meaning",
+          "text": "Input-cost pressure on physical goods has largely worked its way through.",
+          "expansion": "Not a signal of deflation — a signal that the cost-push leg of recent inflation has faded."
+        },
+        {
+          "label": "Product impact",
+          "text": "Hardware, consumer-goods, and physical-product businesses may regain some margin even without raising prices.",
+          "expansion": "Software businesses see less direct effect, but procurement budgets feel easier — which can show up in B2B SaaS deal cycles."
+        },
+        {
+          "label": "Example",
+          "text": "A consumer hardware brand could quietly absorb a tariff shock without raising its sticker price for the first time in three cycles.",
+          "expansion": "Watch for margin guidance that improves without volume changes."
+        },
+        {
+          "label": "PM question",
+          "text": "Is there a cost line that has been quietly improving while you weren't looking?",
+          "expansion": "If COGS is structurally lower, ask whether to bank it, reinvest it, or pass it through."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "BLS PPI"
+        ],
+        "reasoning": "Producer-side cost pressure has eased consistently across goods categories.",
+        "counterarguments": [
+          "Energy-shock or tariff re-escalation could reverse this quickly.",
+          "Services-side PPI components are stickier."
+        ],
+        "what_would_make_us_wrong": "Two consecutive months of accelerating PPI would meaningfully soften this read."
+      },
+      "sources": [
+        {
+          "name": "BLS PPI",
+          "url": "https://www.bls.gov/ppi/",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "decelerating",
+      "reference_point": "softest reading in three years",
+      "refined_why": {
+        "evidence": "What businesses pay their suppliers has flattened for several months in a row. That pressure usually shows up in consumer prices a few months later.",
+        "counter_signal": "An energy spike or new tariffs could reverse this in a single month.",
+        "product_takeaway": "Some margin is quietly improving. Decide now whether you bank it, reinvest it, or pass it through to customers."
+      },
+      "pill_label_short": "Wholesale prices have stopped rising"
+    },
+    {
+      "id": "pce",
+      "category": "inflation",
+      "category_label": "Inflation & Pricing",
+      "title": "PCE running just above target — Fed's preferred gauge",
+      "summary": "The inflation measure the Fed actually watches has stalled near 2.6%.",
+      "term_glossary": [
+        {
+          "term": "PCE",
+          "gloss": "the Fed's preferred inflation gauge — broader than CPI"
+        }
+      ],
+      "current_value": "2.6%",
+      "current_unit": "year-over-year, core",
+      "status": "mixed",
+      "status_tone": "amber",
+      "confidence": "high",
+      "last_updated": "2026-05-09",
+      "tier": 1,
+      "source_note": "BEA · monthly release",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 2.7
+        },
+        {
+          "date": "2025-07",
+          "value": 2.6
+        },
+        {
+          "date": "2025-08",
+          "value": 2.5
+        },
+        {
+          "date": "2025-09",
+          "value": 2.5
+        },
+        {
+          "date": "2025-10",
+          "value": 2.5
+        },
+        {
+          "date": "2025-11",
+          "value": 2.6
+        },
+        {
+          "date": "2025-12",
+          "value": 2.6
+        },
+        {
+          "date": "2026-01",
+          "value": 2.7
+        },
+        {
+          "date": "2026-02",
+          "value": 2.7
+        },
+        {
+          "date": "2026-03",
+          "value": 2.6
+        },
+        {
+          "date": "2026-04",
+          "value": 2.6
+        },
+        {
+          "date": "2026-05",
+          "value": 2.6
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "flat",
+          "delta_pct": 0.0,
+          "tone": "neutral"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -0.1,
+          "tone": "neutral"
+        },
+        "vs_pre_2020": {
+          "direction": "up",
+          "delta_pct": 0.9,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 55,
+        "lookback_years": 10,
+        "label": "Higher than 45% of months since 2016"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Core PCE — what the Fed actually targets — has hovered near 2.6% for several months.",
+          "expansion": "PCE differs from CPI in basket weights and substitution assumptions. The Fed treats it as the more reliable read."
+        },
+        {
+          "label": "Meaning",
+          "text": "Inflation isn't where the Fed wants it, but it isn't getting worse either.",
+          "expansion": "A flat reading near target is what policy-watchers describe as \"stuck above 2.\""
+        },
+        {
+          "label": "Product impact",
+          "text": "Rate-cut timing remains uncertain. Companies planning big upfront spending on \"cuts coming soon\" may be planning on something that doesn't arrive.",
+          "expansion": "Even a single sticky data point can delay a cut cycle by a meeting."
+        },
+        {
+          "label": "Example",
+          "text": "Mortgage-sensitive product categories, such as real-estate tech and consumer-lending apps, may face a longer cold spell than their roadmap assumes.",
+          "expansion": "Plan two scenarios: cuts arriving and cuts staying parked."
+        },
+        {
+          "label": "PM question",
+          "text": "Does any part of your plan assume borrowing gets cheaper within six months?",
+          "expansion": "If yes, mark it as a dependency. The data does not currently support that assumption."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "BEA PCE",
+          "BLS CPI"
+        ],
+        "reasoning": "Core PCE has remained in a narrow band above target for an extended period.",
+        "counterarguments": [
+          "A growth slowdown could pull PCE lower quickly.",
+          "Energy shocks could push it higher."
+        ],
+        "what_would_make_us_wrong": "Two consecutive PCE prints at or below 2.2% would change this read."
+      },
+      "sources": [
+        {
+          "name": "BEA PCE",
+          "url": "https://www.bea.gov/data/personal-consumption-expenditures-price-index",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "stable",
+      "reference_point": "vs Fed 2% target · +0.6pp · stuck above target",
+      "refined_why": {
+        "evidence": "The inflation gauge the Fed actually steers by has been stuck a little above its 2% target for several months.",
+        "counter_signal": "Two readings at or below 2.2% would change this read.",
+        "product_takeaway": "Plans that assume rate cuts within six months should be flagged — the data doesn’t support it yet."
+      },
+      "pill_label_short": "Core inflation stuck just above target"
+    },
+    {
+      "id": "fed-net-liquidity",
+      "category": "liquidity",
+      "category_label": "Liquidity & Capital",
+      "title": "Money in the system drifting lower, not falling",
+      "summary": "The cash sloshing through the banking system has been receding quietly.",
+      "term_glossary": [
+        {
+          "term": "Fed net liquidity",
+          "gloss": "the money in the banking system available to lend"
+        },
+        {
+          "term": "WALCL",
+          "gloss": "the Fed's total balance sheet — a proxy for liquidity provided"
+        }
+      ],
+      "current_value": "$5.94T",
+      "current_unit": "total balance sheet",
+      "status": "tightening",
+      "status_tone": "amber",
+      "confidence": "high",
+      "last_updated": "2026-05-22",
+      "tier": 1,
+      "source_note": "Fed balance sheet · weekly",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 6.62
+        },
+        {
+          "date": "2025-07",
+          "value": 6.55
+        },
+        {
+          "date": "2025-08",
+          "value": 6.48
+        },
+        {
+          "date": "2025-09",
+          "value": 6.4
+        },
+        {
+          "date": "2025-10",
+          "value": 6.34
+        },
+        {
+          "date": "2025-11",
+          "value": 6.28
+        },
+        {
+          "date": "2025-12",
+          "value": 6.21
+        },
+        {
+          "date": "2026-01",
+          "value": 6.15
+        },
+        {
+          "date": "2026-02",
+          "value": 6.08
+        },
+        {
+          "date": "2026-03",
+          "value": 6.02
+        },
+        {
+          "date": "2026-04",
+          "value": 5.98
+        },
+        {
+          "date": "2026-05",
+          "value": 5.94
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -2.4,
+          "tone": "amber"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -8.1,
+          "tone": "amber"
+        },
+        "vs_pre_2020": {
+          "direction": "up",
+          "delta_pct": 18.0,
+          "tone": "neutral"
+        }
+      },
+      "percentile": {
+        "value": 71,
+        "lookback_years": 10,
+        "label": "Higher than 29% of months since 2016"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "The Fed's balance sheet — a plain-English proxy for money moving through the system — has drifted down for twelve straight months.",
+          "expansion": "The drift is gradual: the Fed is still slowly pulling money out of the system, just less aggressively than before."
+        },
+        {
+          "label": "Meaning",
+          "text": "There is still more money in the system than before 2020, but the amount is no longer growing.",
+          "expansion": "Where money is plentiful, risk gets funded. Where it's contracting, the cost of being wrong rises."
+        },
+        {
+          "label": "Product impact",
+          "text": "Big bets that take years to pay off may be harder to support than they were twelve months ago.",
+          "expansion": "Companies that need patient capital should secure it earlier than they think they need to."
+        },
+        {
+          "label": "Example",
+          "text": "Late-stage growth companies may find it easier to raise short-term bridge money than a full new funding round. Capital is available, but it wants protection.",
+          "expansion": "Watch for term-sheet structures that have become quietly more investor-friendly."
+        },
+        {
+          "label": "PM question",
+          "text": "If money keeps getting a little less available for another year, what part of your roadmap quietly weakens?",
+          "expansion": "Identify the projects whose ROI assumes abundant capital. Flag them now, not later."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "FRED WALCL",
+          "Treasury TGA",
+          "Fed reverse repo"
+        ],
+        "reasoning": "WALCL has fallen steadily; reverse-repo balances normalized; TGA changes alone don't explain the drift.",
+        "counterarguments": [
+          "A funding-market shock could reverse QT abruptly.",
+          "Bank reserves remain high in absolute terms."
+        ],
+        "what_would_make_us_wrong": "An explicit Fed pivot back to balance-sheet expansion would invalidate this read."
+      },
+      "sources": [
+        {
+          "name": "FRED WALCL",
+          "url": "https://fred.stlouisfed.org/series/WALCL",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "watch closely",
+      "reference_point": "vs 12mo ago · -8.1% · twelve straight months down",
+      "refined_why": {
+        "evidence": "The Fed is still slowly pulling money out of the system, just less aggressively than before. Less easy capital floating around overall.",
+        "counter_signal": "An explicit Fed pivot back to expanding its balance sheet would change everything here.",
+        "product_takeaway": "Pick the projects whose business case quietly assumes abundant capital. Mark them now, not later."
+      },
+      "pill_label_short": "Money in the system is slowly draining"
+    },
+    {
+      "id": "10y-treasury",
+      "category": "liquidity",
+      "category_label": "Liquidity & Capital",
+      "title": "Long rates rangebound near 4.3%",
+      "summary": "The cost of long-term capital has stopped moving — for now.",
+      "term_glossary": [
+        {
+          "term": "10Y Treasury yield",
+          "gloss": "the market's price for lending the US government money for 10 years — a benchmark for long-term capital costs"
+        }
+      ],
+      "current_value": "4.31%",
+      "current_unit": "yield",
+      "status": "rangebound",
+      "status_tone": "neutral",
+      "confidence": "high",
+      "last_updated": "2026-05-26",
+      "tier": 1,
+      "source_note": "FRED DGS10 · daily",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 4.45
+        },
+        {
+          "date": "2025-07",
+          "value": 4.38
+        },
+        {
+          "date": "2025-08",
+          "value": 4.22
+        },
+        {
+          "date": "2025-09",
+          "value": 4.18
+        },
+        {
+          "date": "2025-10",
+          "value": 4.3
+        },
+        {
+          "date": "2025-11",
+          "value": 4.41
+        },
+        {
+          "date": "2025-12",
+          "value": 4.36
+        },
+        {
+          "date": "2026-01",
+          "value": 4.28
+        },
+        {
+          "date": "2026-02",
+          "value": 4.33
+        },
+        {
+          "date": "2026-03",
+          "value": 4.3
+        },
+        {
+          "date": "2026-04",
+          "value": 4.27
+        },
+        {
+          "date": "2026-05",
+          "value": 4.31
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "flat",
+          "delta_pct": -0.1,
+          "tone": "neutral"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -0.14,
+          "tone": "neutral"
+        },
+        "vs_pre_2020": {
+          "direction": "up",
+          "delta_pct": 2.5,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 84,
+        "lookback_years": 10,
+        "label": "Higher than 16% of months since 2016"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "10-year Treasury yields have traded in a 4.2–4.4% band for several months.",
+          "expansion": "Rate volatility has compressed even as inflation prints stayed mixed."
+        },
+        {
+          "label": "Meaning",
+          "text": "Long-term borrowing costs have stabilized at levels that would have felt expensive five years ago.",
+          "expansion": "Stable, not cheap. Discounted cash flow math is structurally different from pre-2022."
+        },
+        {
+          "label": "Product impact",
+          "text": "Projects justified by \"rates will fall\" remain exposed. Projects that pay back quickly are safer.",
+          "expansion": "Long-duration features (infrastructure builds, broad platform plays) carry a higher cost of patience than they did."
+        },
+        {
+          "label": "Example",
+          "text": "A two-year platform investment now competes against a low-risk government bond paying about 4.3%.",
+          "expansion": "That comparison rarely shows up in roadmap reviews. It probably should."
+        },
+        {
+          "label": "PM question",
+          "text": "Which part of your roadmap quietly assumes money will become cheap again?",
+          "expansion": "If the answer is most of it, the plan may be calibrated to a world that no longer exists."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "FRED DGS10",
+          "MOVE index"
+        ],
+        "reasoning": "Yield range has compressed alongside falling rate-volatility measures.",
+        "counterarguments": [
+          "A risk-off shock could re-widen the range quickly.",
+          "Fiscal supply could push yields higher."
+        ],
+        "what_would_make_us_wrong": "A break below 4% or above 4.6% sustained for a month would change this read."
+      },
+      "sources": [
+        {
+          "name": "FRED 10Y Treasury",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "stable",
+      "reference_point": "vs pre-2020 · +2.5pp · rangebound for six months",
+      "refined_why": {
+        "evidence": "The benchmark long-term interest rate has been parked in a tight band for months.",
+        "counter_signal": "A sustained move below 4% or above 4.6% for a month would change this read.",
+        "product_takeaway": "A long-horizon bet now competes with a risk-free 4.3% return. That comparison rarely makes it into roadmap reviews — but it should."
+      },
+      "pill_label_short": "Long-term borrowing costs sitting still"
+    },
+    {
+      "id": "series-a-counts",
+      "category": "liquidity",
+      "category_label": "Liquidity & Capital",
+      "title": "Series A counts down ~30% year-over-year",
+      "summary": "Capital is concentrating. Fewer companies funded; the ones that are get bigger checks.",
+      "term_glossary": [
+        {
+          "term": "Series A",
+          "gloss": "a startup's first institutional fundraising round — typically after early traction"
+        }
+      ],
+      "current_value": "~210",
+      "current_unit": "rounds (trailing 3mo, US, curated)",
+      "status": "tightening",
+      "status_tone": "amber",
+      "confidence": "medium",
+      "last_updated": "2026-05-20",
+      "tier": 2,
+      "tier_label": "curated",
+      "source_note": "Crunchbase News summaries · curated",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 310
+        },
+        {
+          "date": "2025-07",
+          "value": 295
+        },
+        {
+          "date": "2025-08",
+          "value": 285
+        },
+        {
+          "date": "2025-09",
+          "value": 270
+        },
+        {
+          "date": "2025-10",
+          "value": 260
+        },
+        {
+          "date": "2025-11",
+          "value": 248
+        },
+        {
+          "date": "2025-12",
+          "value": 238
+        },
+        {
+          "date": "2026-01",
+          "value": 232
+        },
+        {
+          "date": "2026-02",
+          "value": 225
+        },
+        {
+          "date": "2026-03",
+          "value": 220
+        },
+        {
+          "date": "2026-04",
+          "value": 215
+        },
+        {
+          "date": "2026-05",
+          "value": 210
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -19.0,
+          "tone": "amber"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -32.0,
+          "tone": "amber"
+        },
+        "vs_pre_2020": {
+          "direction": "flat",
+          "delta_pct": -2.0,
+          "tone": "neutral"
+        }
+      },
+      "percentile": {
+        "value": 22,
+        "lookback_years": 10,
+        "label": "Lower than 78% of months since 2016"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Series A round counts are running roughly 30% lower than a year ago, even as average round size is higher.",
+          "expansion": "The capital pool isn't shrinking — it's concentrating. AI-aligned companies absorb a disproportionate share."
+        },
+        {
+          "label": "Meaning",
+          "text": "Fundraising has become a more selective filter than it was 24 months ago.",
+          "expansion": "The bar for the next round looks higher in time-in-market, in efficiency, and in retention."
+        },
+        {
+          "label": "Product impact",
+          "text": "Investors may care more about whether customers stay and whether each dollar spent turns into durable growth.",
+          "expansion": "Signals like product-led growth, how much existing customers grow over time, margin, and payback carry more weight than growth-at-all-costs metrics did."
+        },
+        {
+          "label": "Example",
+          "text": "Founders are raising smaller bridge rounds instead of full Series A rounds to make their cash last longer.",
+          "expansion": "Bridge rounds at flat valuations have become more common than they were."
+        },
+        {
+          "label": "PM question",
+          "text": "If you had to raise on your last 90 days of usage data, what would the deck say?",
+          "expansion": "Try writing the slide. Notice which metrics survive the exercise — and which don't."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "Crunchbase News summaries",
+          "PitchBook public reports",
+          "Public funding announcements"
+        ],
+        "reasoning": "Public funding data has shown declining round counts for several quarters; average round size has risen, consistent with concentration rather than total contraction.",
+        "counterarguments": [
+          "A rate-cut cycle could reopen capital broadly.",
+          "AI-adjacent dollars could spill into other sectors."
+        ],
+        "what_would_make_us_wrong": "Three consecutive months of broad-based Series A growth outside AI would change this read."
+      },
+      "sources": [
+        {
+          "name": "Crunchbase News",
+          "url": "https://news.crunchbase.com/",
+          "tier": 2
+        },
+        {
+          "name": "PitchBook public reports",
+          "url": "https://pitchbook.com/news",
+          "tier": 2
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "watch closely",
+      "reference_point": "vs 12mo ago · -32% · lowest level since 2018",
+      "refined_why": {
+        "evidence": "Roughly a third fewer Series A rounds than this time last year. Average size held up — money is concentrating into fewer companies.",
+        "counter_signal": "Three months of broader Series A growth outside AI would change this read.",
+        "product_takeaway": "If you raised on your last 90 days of usage, ask which metrics still hold up — and which ones quietly don’t."
+      },
+      "pill_label_short": "Startup funding is slower than last year"
+    },
+    {
+      "id": "ai-model-releases",
+      "category": "ai-tech",
+      "category_label": "AI & Technology",
+      "title": "Model release pace accelerating again",
+      "pill_label": "Model releases accelerating",
+      "summary": "Three frontier model updates in the last two weeks — capability frontier moving fast.",
+      "term_glossary": [
+        {
+          "term": "frontier model",
+          "gloss": "the leading-edge AI models that define what's currently possible"
+        }
+      ],
+      "current_value": "3 / 14 days",
+      "current_unit": "frontier releases per 2-week window",
+      "status": "expanding",
+      "status_tone": "green",
+      "confidence": "medium",
+      "last_updated": "2026-05-26",
+      "tier": 2,
+      "tier_label": "curated",
+      "source_note": "Lab release notes · curated",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 2
+        },
+        {
+          "date": "2025-07",
+          "value": 1
+        },
+        {
+          "date": "2025-08",
+          "value": 2
+        },
+        {
+          "date": "2025-09",
+          "value": 1
+        },
+        {
+          "date": "2025-10",
+          "value": 1
+        },
+        {
+          "date": "2025-11",
+          "value": 2
+        },
+        {
+          "date": "2025-12",
+          "value": 1
+        },
+        {
+          "date": "2026-01",
+          "value": 2
+        },
+        {
+          "date": "2026-02",
+          "value": 2
+        },
+        {
+          "date": "2026-03",
+          "value": 2
+        },
+        {
+          "date": "2026-04",
+          "value": 3
+        },
+        {
+          "date": "2026-05",
+          "value": 3
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "up",
+          "delta_pct": 50.0,
+          "tone": "green"
+        },
+        "vs_12mo": {
+          "direction": "up",
+          "delta_pct": 100.0,
+          "tone": "green"
+        },
+        "vs_pre_2020": {
+          "direction": "up",
+          "delta_pct": 999.0,
+          "tone": "green"
+        }
+      },
+      "percentile": {
+        "value": 92,
+        "lookback_years": 5,
+        "label": "Higher than 92% of windows since 2021"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Several leading AI labs shipped meaningful model updates in the same two-week window.",
+          "expansion": "Updates spanned reasoning, multimodal, and on-device capability — not a single direction of improvement."
+        },
+        {
+          "label": "Meaning",
+          "text": "AI capability is improving faster than most product roadmaps can react to.",
+          "expansion": "A capability that was experimental six months ago may now be table-stakes."
+        },
+        {
+          "label": "Product impact",
+          "text": "Features that depended on \"AI cannot do that yet\" need re-checking quarterly, not annually.",
+          "expansion": "Moats built on current capability gaps tend to erode faster than moats built on distribution or data."
+        },
+        {
+          "label": "Example",
+          "text": "On-device reasoning models that didn't exist a year ago are now shipping in mobile OS updates.",
+          "expansion": "When a capability moves from cloud-only to on-device, the cost curve breaks."
+        },
+        {
+          "label": "PM question",
+          "text": "What assumption from six months ago about what AI cannot do no longer holds?",
+          "expansion": "Pick one. Audit the roadmap items that depend on it."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "Anthropic release notes",
+          "OpenAI announcements",
+          "Google AI blog",
+          "Meta AI releases",
+          "DeepSeek releases"
+        ],
+        "reasoning": "Multiple independent labs released meaningful updates in close succession — a pattern consistent with sustained acceleration.",
+        "counterarguments": [
+          "Release cadence is bursty by nature.",
+          "Headline updates may overstate capability change."
+        ],
+        "what_would_make_us_wrong": "A two-month gap with no frontier-grade releases would weaken this read."
+      },
+      "sources": [
+        {
+          "name": "Anthropic news",
+          "url": "https://www.anthropic.com/news",
+          "tier": 2
+        },
+        {
+          "name": "OpenAI news",
+          "url": "https://openai.com/news/",
+          "tier": 2
+        },
+        {
+          "name": "Google AI blog",
+          "url": "https://blog.google/technology/ai/",
+          "tier": 2
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "accelerating",
+      "reference_point": "fastest pace since 2024 · 92nd percentile",
+      "refined_why": {
+        "evidence": "Multiple labs shipped meaningful model updates in close succession, across reasoning, multimodal, and on-device.",
+        "counter_signal": "A two-month gap with no major releases would weaken this read.",
+        "product_takeaway": "Moats built on today’s capability gap erode faster than moats built on distribution or data."
+      },
+      "pill_label_short": "New AI models shipping faster"
+    },
+    {
+      "id": "ai-api-pricing",
+      "category": "ai-tech",
+      "category_label": "AI & Technology",
+      "title": "AI model costs dropped ~60% this quarter",
+      "pill_label": "Inference costs dropped ~60%",
+      "summary": "A model call that costs about $1 today may have cost roughly $2.50 three months ago.",
+      "term_glossary": [
+        {
+          "term": "AI model call",
+          "gloss": "the cost of running an AI model to answer one request"
+        },
+        {
+          "term": "public AI model prices",
+          "gloss": "the listed price companies pay when their product calls an AI model"
+        }
+      ],
+      "current_value": "−60%",
+      "current_unit": "over the last three months for top AI model prices",
+      "status": "falling",
+      "status_tone": "green",
+      "confidence": "medium",
+      "last_updated": "2026-05-19",
+      "tier": 2,
+      "tier_label": "curated",
+      "source_note": "Major lab pricing pages · curated",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 100
+        },
+        {
+          "date": "2025-07",
+          "value": 92
+        },
+        {
+          "date": "2025-08",
+          "value": 84
+        },
+        {
+          "date": "2025-09",
+          "value": 72
+        },
+        {
+          "date": "2025-10",
+          "value": 65
+        },
+        {
+          "date": "2025-11",
+          "value": 58
+        },
+        {
+          "date": "2025-12",
+          "value": 50
+        },
+        {
+          "date": "2026-01",
+          "value": 44
+        },
+        {
+          "date": "2026-02",
+          "value": 38
+        },
+        {
+          "date": "2026-03",
+          "value": 32
+        },
+        {
+          "date": "2026-04",
+          "value": 24
+        },
+        {
+          "date": "2026-05",
+          "value": 20
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -69.0,
+          "tone": "green"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -80.0,
+          "tone": "green"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -98.0,
+          "tone": "green"
+        }
+      },
+      "percentile": {
+        "value": 4,
+        "lookback_years": 5,
+        "label": "Lower than 96% of months since 2021"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Public prices for top AI models have dropped by roughly 60% over the last three months across several labs.",
+          "expansion": "Drops are tracked from list-price reductions and new model tiers — not from discounts."
+        },
+        {
+          "label": "Meaning",
+          "text": "Each AI call now costs much less. Features that were \"too expensive to ship\" a year ago may be affordable now.",
+          "expansion": "Note that throughput-per-dollar improved even more than headline price, because newer models are also faster."
+        },
+        {
+          "label": "Product impact",
+          "text": "The case for building sooner has improved, but the advantage from \"we figured out the cost\" may not last long.",
+          "expansion": "If a competitor ships next quarter, they pay your current price. Cost advantage from one quarter ago is largely gone."
+        },
+        {
+          "label": "Example",
+          "text": "Per-user AI features priced at $20/mo last year break even at $4/mo this year on similar usage.",
+          "expansion": "That changes the unit economics of inclusion into a free tier vs. paid plan."
+        },
+        {
+          "label": "PM question",
+          "text": "Which AI feature would you ship today if it cost a fifth of what you assumed?",
+          "expansion": "Write the list. Some of those features are now feasible."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "OpenAI pricing",
+          "Anthropic pricing",
+          "Google AI pricing",
+          "DeepSeek pricing"
+        ],
+        "reasoning": "Public price reductions occurred in similar windows across labs, consistent with competitive cost-curve compression.",
+        "counterarguments": [
+          "Compute supply shocks could reverse the curve.",
+          "Quality-adjusted price may move slower than headline price."
+        ],
+        "what_would_make_us_wrong": "A frontier-tier price increase from a major lab in the next two months would weaken this read."
+      },
+      "sources": [
+        {
+          "name": "OpenAI pricing",
+          "url": "https://openai.com/api/pricing/",
+          "tier": 2
+        },
+        {
+          "name": "Anthropic pricing",
+          "url": "https://www.anthropic.com/pricing",
+          "tier": 2
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "accelerating",
+      "reference_point": "vs 6mo ago · -69% · 4th percentile in 5y",
+      "refined_why": {
+        "evidence": "Public price cuts and cheaper model tiers from several major labs in roughly the same window.",
+        "counter_signal": "A frontier-tier price increase from any major lab in the next two months would weaken this read.",
+        "product_takeaway": "Write the list of AI features you’d ship at a fifth of last year’s cost. Some of those just became feasible."
+      },
+      "pill_label_short": "AI model costs keep falling"
+    },
+    {
+      "id": "open-source-ai",
+      "category": "ai-tech",
+      "category_label": "AI & Technology",
+      "title": "Open-source AI gravity strengthening",
+      "pill_label": "Open-source AI gravity",
+      "summary": "Developer attention keeps concentrating on open-source tools for building AI agents.",
+      "term_glossary": [
+        {
+          "term": "open-source AI",
+          "gloss": "AI models and frameworks released with publicly viewable weights or code"
+        }
+      ],
+      "current_value": "+38%",
+      "current_unit": "YoY star growth · agent frameworks",
+      "status": "expanding",
+      "status_tone": "green",
+      "confidence": "medium",
+      "last_updated": "2026-05-25",
+      "tier": 2,
+      "tier_label": "curated",
+      "source_note": "GitHub Trending + Hugging Face · sampled",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 100
+        },
+        {
+          "date": "2025-07",
+          "value": 104
+        },
+        {
+          "date": "2025-08",
+          "value": 108
+        },
+        {
+          "date": "2025-09",
+          "value": 112
+        },
+        {
+          "date": "2025-10",
+          "value": 118
+        },
+        {
+          "date": "2025-11",
+          "value": 122
+        },
+        {
+          "date": "2025-12",
+          "value": 126
+        },
+        {
+          "date": "2026-01",
+          "value": 128
+        },
+        {
+          "date": "2026-02",
+          "value": 130
+        },
+        {
+          "date": "2026-03",
+          "value": 132
+        },
+        {
+          "date": "2026-04",
+          "value": 135
+        },
+        {
+          "date": "2026-05",
+          "value": 138
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "up",
+          "delta_pct": 17.0,
+          "tone": "green"
+        },
+        "vs_12mo": {
+          "direction": "up",
+          "delta_pct": 38.0,
+          "tone": "green"
+        },
+        "vs_pre_2020": {
+          "direction": "up",
+          "delta_pct": 999.0,
+          "tone": "green"
+        }
+      },
+      "percentile": {
+        "value": 88,
+        "lookback_years": 5,
+        "label": "Higher than 88% of months since 2021"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Open-source tools for building and coordinating AI agents are attracting more developers than a year ago.",
+          "expansion": "Activity concentrates in agents, evaluation tools, and AI running directly on devices rather than base-model training."
+        },
+        {
+          "label": "Meaning",
+          "text": "Developer attention may be shifting toward the tools that connect AI systems together, not just the base models.",
+          "expansion": "Where attention pools, ecosystems form — and switching costs eventually accumulate there."
+        },
+        {
+          "label": "Product impact",
+          "text": "Building on open-source agent tools may carry less ecosystem risk than it did twelve months ago.",
+          "expansion": "Dependencies stabilize as communities form. They're less stable when they're early-experimental."
+        },
+        {
+          "label": "Example",
+          "text": "Several agent tools that did not exist eighteen months ago are now appearing in enterprise architecture guides.",
+          "expansion": "Watch what reference architectures from large customers actually name."
+        },
+        {
+          "label": "PM question",
+          "text": "Is there a piece of your stack better served by an open-source layer than a closed vendor today?",
+          "expansion": "Audit one component. The answer may have flipped."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "GitHub Trending",
+          "Hugging Face activity"
+        ],
+        "reasoning": "Sustained increases in stars and contributors on agent-related repos over 12+ months.",
+        "counterarguments": [
+          "Stars are vanity-prone metrics.",
+          "Ecosystem activity can move quickly to new repos."
+        ],
+        "what_would_make_us_wrong": "A sustained slowdown in contributor counts across the top frameworks would weaken this read."
+      },
+      "sources": [
+        {
+          "name": "GitHub Trending",
+          "url": "https://github.com/trending",
+          "tier": 2
+        },
+        {
+          "name": "Hugging Face",
+          "url": "https://huggingface.co/",
+          "tier": 2
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "accelerating",
+      "reference_point": "vs 12mo ago · +38% · 88th percentile",
+      "refined_why": {
+        "evidence": "Open-weight models are catching up on the benchmarks people actually use, and adoption is moving from researchers into product teams.",
+        "counter_signal": "A multi-quarter pause in open-weight releases would weaken this read.",
+        "product_takeaway": "Anywhere you’ve standardized on one closed model, the lock-in is weaker than it was a year ago."
+      },
+      "pill_label_short": "Open-source AI is catching up"
+    },
+    {
+      "id": "compute-cost",
+      "category": "ai-tech",
+      "category_label": "AI & Technology",
+      "title": "Compute cost curve still bending downward",
+      "pill_label": "Compute costs bending down",
+      "summary": "Cloud provider costs keep improving. The change is slower than AI model pricing, but still consistent.",
+      "term_glossary": [
+        {
+          "term": "compute",
+          "gloss": "the underlying processing power needed to run AI workloads"
+        },
+        {
+          "term": "hyperscaler",
+          "gloss": "large cloud providers — AWS, Azure, Google Cloud — that supply most AI compute"
+        }
+      ],
+      "current_value": "−14%",
+      "current_unit": "YoY effective cost per workload",
+      "status": "easing",
+      "status_tone": "green",
+      "confidence": "low",
+      "last_updated": "2026-04-30",
+      "tier": 2,
+      "tier_label": "curated",
+      "source_note": "Large cloud-provider earnings commentary · curated",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 100
+        },
+        {
+          "date": "2025-07",
+          "value": 98
+        },
+        {
+          "date": "2025-08",
+          "value": 96
+        },
+        {
+          "date": "2025-09",
+          "value": 94
+        },
+        {
+          "date": "2025-10",
+          "value": 93
+        },
+        {
+          "date": "2025-11",
+          "value": 92
+        },
+        {
+          "date": "2025-12",
+          "value": 91
+        },
+        {
+          "date": "2026-01",
+          "value": 90
+        },
+        {
+          "date": "2026-02",
+          "value": 89
+        },
+        {
+          "date": "2026-03",
+          "value": 88
+        },
+        {
+          "date": "2026-04",
+          "value": 87
+        },
+        {
+          "date": "2026-05",
+          "value": 86
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -7.0,
+          "tone": "green"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -14.0,
+          "tone": "green"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -55.0,
+          "tone": "green"
+        }
+      },
+      "percentile": {
+        "value": 30,
+        "lookback_years": 5,
+        "label": "Lower than 70% of quarters since 2021"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "The cost of running AI workloads in the cloud continues to decline.",
+          "expansion": "Improvements stem from chip generations, software efficiency, and contract-pricing competition."
+        },
+        {
+          "label": "Meaning",
+          "text": "Running the work is getting cheaper, even where the sticker price of high-end chips has not fallen.",
+          "expansion": "Cost per useful work matters more for product economics than chip price."
+        },
+        {
+          "label": "Product impact",
+          "text": "Workloads that were marginal a year ago may be profitable now.",
+          "expansion": "Background AI features (summaries, suggestions, drafts) become cheaper to keep on by default."
+        },
+        {
+          "label": "Example",
+          "text": "Always-on AI assistants in productivity tools are increasingly economical even on free tiers.",
+          "expansion": "That re-opens the question of what to give away vs. what to gate."
+        },
+        {
+          "label": "PM question",
+          "text": "Which AI capability would you turn on for everyone if the cost of each extra use were cut in half?",
+          "expansion": "Some of those capabilities may now be in range."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "AWS earnings",
+          "Azure earnings",
+          "Google Cloud earnings"
+        ],
+        "reasoning": "Multiple hyperscalers commented on improving per-workload economics over consecutive quarters.",
+        "counterarguments": [
+          "Aggregate cost reductions can mask category-specific spikes.",
+          "Hyperscaler commentary is incentive-aligned to look favorable."
+        ],
+        "what_would_make_us_wrong": "A reversal in per-workload commentary at one or more major hyperscaler would soften this read."
+      },
+      "sources": [
+        {
+          "name": "AWS earnings",
+          "url": "https://ir.aboutamazon.com/",
+          "tier": 2
+        },
+        {
+          "name": "Azure earnings",
+          "url": "https://www.microsoft.com/en-us/Investor",
+          "tier": 2
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "decelerating",
+      "reference_point": "vs 12mo ago · -14% · cheaper at the workload level",
+      "refined_why": {
+        "evidence": "Cost per unit of useful AI work keeps dropping — across hardware, model efficiency, and serving stacks.",
+        "counter_signal": "A sustained supply shock in AI hardware would change this read.",
+        "product_takeaway": "Features that were too expensive to ship last year deserve a fresh look — the math has moved."
+      },
+      "pill_label_short": "Compute keeps getting cheaper"
+    },
+    {
+      "id": "retail-sales",
+      "category": "consumer",
+      "category_label": "Consumer & Demand",
+      "title": "Retail sales steady — consumer still showing up",
+      "summary": "Spending hasn't broken. It also hasn't accelerated.",
+      "term_glossary": [
+        {
+          "term": "retail sales",
+          "gloss": "the dollar value of goods sold by retailers — a near-real-time read on consumer demand"
+        }
+      ],
+      "current_value": "+2.4%",
+      "current_unit": "year-over-year",
+      "status": "steady",
+      "status_tone": "neutral",
+      "confidence": "high",
+      "last_updated": "2026-05-15",
+      "tier": 1,
+      "source_note": "Census · monthly release",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 2.1
+        },
+        {
+          "date": "2025-07",
+          "value": 2.2
+        },
+        {
+          "date": "2025-08",
+          "value": 2.3
+        },
+        {
+          "date": "2025-09",
+          "value": 2.4
+        },
+        {
+          "date": "2025-10",
+          "value": 2.5
+        },
+        {
+          "date": "2025-11",
+          "value": 2.3
+        },
+        {
+          "date": "2025-12",
+          "value": 2.4
+        },
+        {
+          "date": "2026-01",
+          "value": 2.5
+        },
+        {
+          "date": "2026-02",
+          "value": 2.3
+        },
+        {
+          "date": "2026-03",
+          "value": 2.4
+        },
+        {
+          "date": "2026-04",
+          "value": 2.5
+        },
+        {
+          "date": "2026-05",
+          "value": 2.4
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "flat",
+          "delta_pct": 0.1,
+          "tone": "neutral"
+        },
+        "vs_12mo": {
+          "direction": "up",
+          "delta_pct": 0.3,
+          "tone": "neutral"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -1.4,
+          "tone": "neutral"
+        }
+      },
+      "percentile": {
+        "value": 46,
+        "lookback_years": 10,
+        "label": "Right around the historical median"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Retail sales are running around 2.4% year-over-year, in line with the last six months.",
+          "expansion": "Discretionary categories (restaurants, electronics) sit slightly below the headline; essentials slightly above."
+        },
+        {
+          "label": "Meaning",
+          "text": "Consumer demand is holding without showing momentum in either direction.",
+          "expansion": "Not a story of strength or weakness — a story of equilibrium."
+        },
+        {
+          "label": "Product impact",
+          "text": "Demand planning may safely assume the category stays steady. Growth will likely need to come from winning share, not from the whole market rising.",
+          "expansion": "When the category isn't growing, your growth comes from someone else's customers."
+        },
+        {
+          "label": "Example",
+          "text": "Subscription-commerce brands shifting marketing from finding new customers to getting more value from existing customers.",
+          "expansion": "When acquisition is harder, monetization gets a roadmap slot it didn't have last year."
+        },
+        {
+          "label": "PM question",
+          "text": "If category demand stays flat, which lever do you actually have to grow?",
+          "expansion": "Audit roadmap items that secretly assume macro tailwinds."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "Census Retail Sales",
+          "Conference Board confidence",
+          "Major retailer commentary"
+        ],
+        "reasoning": "Headline retail sales have stayed in a tight range; survey data hasn't broken either direction.",
+        "counterarguments": [
+          "Labor softening could pull retail down quickly.",
+          "A rate-cut cycle could lift it just as quickly."
+        ],
+        "what_would_make_us_wrong": "A drop below 1% YoY for two consecutive months would change this read."
+      },
+      "sources": [
+        {
+          "name": "Census Retail Sales",
+          "url": "https://www.census.gov/retail/",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "stable",
+      "reference_point": "right at historical median · 46th percentile",
+      "refined_why": {
+        "evidence": "Consumer spending is steady — not soaring, not falling. Surveys back this up.",
+        "counter_signal": "A year-over-year drop below 1% for two months running would change this read.",
+        "product_takeaway": "When category demand is flat, growth comes from taking share. Audit anything in your roadmap that assumes a rising tide."
+      },
+      "pill_label_short": "Shoppers still showing up"
+    },
+    {
+      "id": "consumer-confidence",
+      "category": "consumer",
+      "category_label": "Consumer & Demand",
+      "title": "Confidence soft but not collapsing",
+      "summary": "Forward-looking sentiment has drifted lower without breaking.",
+      "term_glossary": [
+        {
+          "term": "consumer confidence",
+          "gloss": "a survey-based measure of how households feel about their financial future"
+        }
+      ],
+      "current_value": "97.2",
+      "current_unit": "Conference Board index",
+      "status": "softening",
+      "status_tone": "amber",
+      "confidence": "medium",
+      "last_updated": "2026-05-21",
+      "tier": 1,
+      "source_note": "Conference Board · monthly",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 104.2
+        },
+        {
+          "date": "2025-07",
+          "value": 102.8
+        },
+        {
+          "date": "2025-08",
+          "value": 101.5
+        },
+        {
+          "date": "2025-09",
+          "value": 100.3
+        },
+        {
+          "date": "2025-10",
+          "value": 99.7
+        },
+        {
+          "date": "2025-11",
+          "value": 99.1
+        },
+        {
+          "date": "2025-12",
+          "value": 98.6
+        },
+        {
+          "date": "2026-01",
+          "value": 98.2
+        },
+        {
+          "date": "2026-02",
+          "value": 97.9
+        },
+        {
+          "date": "2026-03",
+          "value": 97.5
+        },
+        {
+          "date": "2026-04",
+          "value": 97.3
+        },
+        {
+          "date": "2026-05",
+          "value": 97.2
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -2.5,
+          "tone": "amber"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -6.7,
+          "tone": "amber"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -27.0,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 28,
+        "lookback_years": 10,
+        "label": "Lower than 72% of months since 2016"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Consumer confidence has drifted lower for several months without sharp drops.",
+          "expansion": "Expectations sub-index has weakened more than present-situation — typical of pre-slowdown drifts."
+        },
+        {
+          "label": "Meaning",
+          "text": "Households appear cautious, not alarmed.",
+          "expansion": "Cautious-not-alarmed shows up as longer purchase consideration, not lower volume."
+        },
+        {
+          "label": "Product impact",
+          "text": "Conversion rates may need more touches; trial-to-paid times may stretch.",
+          "expansion": "Free tiers and trials become structurally more important when the buyer hesitates."
+        },
+        {
+          "label": "Example",
+          "text": "Larger-ticket consumer software seeing longer evaluation windows even when intent is strong.",
+          "expansion": "Sales/onboarding flows that depend on quick conversion may need more patience built in."
+        },
+        {
+          "label": "PM question",
+          "text": "Where in your funnel does a more hesitant user drop off — and what would re-engage them?",
+          "expansion": "Audit one drop-off point. Cheap experiments here may pay back faster than new features."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "Conference Board confidence",
+          "Michigan sentiment"
+        ],
+        "reasoning": "Multiple confidence series have drifted lower without breaking.",
+        "counterarguments": [
+          "A jobs-data surprise could lift sentiment quickly.",
+          "Survey response patterns have grown noisier post-2020."
+        ],
+        "what_would_make_us_wrong": "A jump back above 105 sustained for two months would weaken this read."
+      },
+      "sources": [
+        {
+          "name": "Conference Board CCI",
+          "url": "https://www.conference-board.org/topics/consumer-confidence",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "watch closely",
+      "reference_point": "vs pre-2020 · -27% · 28th percentile",
+      "refined_why": {
+        "evidence": "Confidence surveys are below their long-run average but well above recession levels — cautious, not collapsing.",
+        "counter_signal": "Three months of sharp drops in current-conditions readings would change this read.",
+        "product_takeaway": "Cautious shoppers don’t abandon — they trade down. Make the entry tier obvious and easy."
+      },
+      "pill_label_short": "Consumers cautious, not panicking"
+    },
+    {
+      "id": "emerging-apps",
+      "category": "consumer",
+      "category_label": "Consumer & Demand",
+      "title": "Personal agents and on-device AI utilities climbing",
+      "summary": "Consumer attention rotating toward AI utilities that live on the phone, not the cloud.",
+      "term_glossary": [
+        {
+          "term": "personal agent",
+          "gloss": "an AI app that takes actions on behalf of a single user rather than just answering questions"
+        },
+        {
+          "term": "on-device AI",
+          "gloss": "AI features that run locally on the phone or laptop without sending data to a server"
+        }
+      ],
+      "current_value": "pattern",
+      "current_unit": "category emergence across charts",
+      "status": "emerging",
+      "status_tone": "lavender",
+      "confidence": "low",
+      "last_updated": "2026-05-26",
+      "tier": 2,
+      "tier_label": "editorial",
+      "source_note": "Triangulated: app charts + Product Hunt + GitHub trending",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 5
+        },
+        {
+          "date": "2025-07",
+          "value": 6
+        },
+        {
+          "date": "2025-08",
+          "value": 7
+        },
+        {
+          "date": "2025-09",
+          "value": 9
+        },
+        {
+          "date": "2025-10",
+          "value": 11
+        },
+        {
+          "date": "2025-11",
+          "value": 12
+        },
+        {
+          "date": "2025-12",
+          "value": 14
+        },
+        {
+          "date": "2026-01",
+          "value": 17
+        },
+        {
+          "date": "2026-02",
+          "value": 19
+        },
+        {
+          "date": "2026-03",
+          "value": 22
+        },
+        {
+          "date": "2026-04",
+          "value": 25
+        },
+        {
+          "date": "2026-05",
+          "value": 28
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "up",
+          "delta_pct": 133.0,
+          "tone": "green"
+        },
+        "vs_12mo": {
+          "direction": "up",
+          "delta_pct": 460.0,
+          "tone": "green"
+        },
+        "vs_pre_2020": {
+          "direction": "up",
+          "delta_pct": 999.0,
+          "tone": "green"
+        }
+      },
+      "percentile": {
+        "value": 95,
+        "lookback_years": 5,
+        "label": "Highest pattern density we've tracked since 2021"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Personal agents and on-device AI utilities are showing up in app charts, GitHub trending, and Product Hunt simultaneously — a pattern that wasn't there six months ago.",
+          "expansion": "Triangulated across surfaces, not a single chart. We're describing momentum, not rankings."
+        },
+        {
+          "label": "Meaning",
+          "text": "Consumer attention may be rotating toward AI products that do something specific for one person, rather than chat about everything.",
+          "expansion": "The shift from \"AI as conversation\" to \"AI as agent\" looks like it's leaking into mainstream consumer software."
+        },
+        {
+          "label": "Product impact",
+          "text": "Products built around \"ask a model\" workflows may need to evolve toward \"the model already did it.\"",
+          "expansion": "The unit of value may shift from a useful answer to a completed task."
+        },
+        {
+          "label": "Example",
+          "text": "Note apps that summarize and act on calendar items without being asked. Mobile utilities that quietly clean photos overnight.",
+          "expansion": "When automation happens behind the user, the surface area for branding and pricing changes."
+        },
+        {
+          "label": "PM question",
+          "text": "What workflow still assumes more people instead of better tools?",
+          "expansion": "If your product still hands work to the user, ask whether the model could quietly finish it."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "App Store top charts",
+          "Google Play rankings",
+          "Product Hunt trending",
+          "GitHub Trending"
+        ],
+        "reasoning": "The same kinds of apps keep surfacing across independent charts. We are describing the pattern, not the rank of any single app.",
+        "counterarguments": [
+          "Chart movements can be marketing-driven.",
+          "Triangulation can produce false coherence."
+        ],
+        "what_would_make_us_wrong": "If these categories quietly disappear from top charts in the next quarter, the pattern weakens."
+      },
+      "sources": [
+        {
+          "name": "Product Hunt",
+          "url": "https://www.producthunt.com/",
+          "tier": 2
+        },
+        {
+          "name": "GitHub Trending",
+          "url": "https://github.com/trending",
+          "tier": 2
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "accelerating",
+      "reference_point": "highest density we've tracked since 2021",
+      "refined_why": {
+        "evidence": "Personal-agent and on-device AI utilities are showing up on app charts, GitHub, and Product Hunt in the same window.",
+        "counter_signal": "If these categories quietly fall off the top charts next quarter, the pattern weakens.",
+        "product_takeaway": "If your product still hands work to the user, ask whether the model could quietly finish it."
+      },
+      "pill_label_short": "Personal AI assistants are spreading"
+    },
+    {
+      "id": "nonfarm-payrolls",
+      "category": "labor",
+      "category_label": "Labor & Hiring",
+      "title": "Payrolls slowing — direction, not crisis",
+      "summary": "Hiring is cooler than a year ago. It hasn't broken.",
+      "term_glossary": [
+        {
+          "term": "nonfarm payrolls",
+          "gloss": "the monthly count of jobs added across most of the US economy — the headline labor read"
+        }
+      ],
+      "current_value": "+118k",
+      "current_unit": "jobs · monthly",
+      "status": "cooling",
+      "status_tone": "amber",
+      "confidence": "high",
+      "last_updated": "2026-05-02",
+      "tier": 1,
+      "source_note": "BLS · monthly release",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 215
+        },
+        {
+          "date": "2025-07",
+          "value": 195
+        },
+        {
+          "date": "2025-08",
+          "value": 180
+        },
+        {
+          "date": "2025-09",
+          "value": 172
+        },
+        {
+          "date": "2025-10",
+          "value": 160
+        },
+        {
+          "date": "2025-11",
+          "value": 152
+        },
+        {
+          "date": "2025-12",
+          "value": 148
+        },
+        {
+          "date": "2026-01",
+          "value": 142
+        },
+        {
+          "date": "2026-02",
+          "value": 135
+        },
+        {
+          "date": "2026-03",
+          "value": 128
+        },
+        {
+          "date": "2026-04",
+          "value": 122
+        },
+        {
+          "date": "2026-05",
+          "value": 118
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -26.0,
+          "tone": "amber"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -45.0,
+          "tone": "amber"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -32.0,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 24,
+        "lookback_years": 10,
+        "label": "Lower than 76% of months since 2016"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Monthly payrolls have stepped down consistently for the last six months.",
+          "expansion": "Strength remains in healthcare and government. Tech, finance, and discretionary services have softened more."
+        },
+        {
+          "label": "Meaning",
+          "text": "The labor market is cooling without breaking.",
+          "expansion": "Cooling, not contracting — but the direction is unambiguous."
+        },
+        {
+          "label": "Product impact",
+          "text": "Employers have a little more leverage in hiring than they did a year ago.",
+          "expansion": "Wage-cost pressure should ease at the margin; backfill speed should improve."
+        },
+        {
+          "label": "Example",
+          "text": "Engineering teams seeing fewer competing offers per finalist than in 2024.",
+          "expansion": "That changes negotiation dynamics for senior hires more than entry-level ones."
+        },
+        {
+          "label": "PM question",
+          "text": "What plan is implicitly built on a labor market that no longer exists?",
+          "expansion": "Audit one workforce assumption. The market it was built for may have rolled forward."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "BLS Employment Situation",
+          "JOLTS",
+          "Initial claims"
+        ],
+        "reasoning": "Payrolls, openings, and quit rates have all softened in similar windows.",
+        "counterarguments": [
+          "Revisions can shift the picture meaningfully.",
+          "Sector mix can mislead."
+        ],
+        "what_would_make_us_wrong": "Two consecutive prints above 200k would weaken this read."
+      },
+      "sources": [
+        {
+          "name": "BLS Employment Situation",
+          "url": "https://www.bls.gov/news.release/empsit.toc.htm",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "decelerating",
+      "reference_point": "vs 12mo ago · -45% · stepped down six months in a row",
+      "refined_why": {
+        "evidence": "Monthly hiring is slower than 2022–2023, but still positive and broad-based.",
+        "counter_signal": "Three months of net job losses would change this read.",
+        "product_takeaway": "Cooler hiring is the soft kind, not the crisis kind. Budgeting can move; panic shouldn’t."
+      },
+      "pill_label_short": "Hiring is cooling, not collapsing"
+    },
+    {
+      "id": "tech-hiring",
+      "category": "labor",
+      "category_label": "Labor & Hiring",
+      "title": "Tech hiring at a four-year low — softness now broader",
+      "summary": "Layoffs continue. Hiring slowed. The pattern is wider than the biggest tech companies.",
+      "term_glossary": [
+        {
+          "term": "tech hiring rate",
+          "gloss": "the pace at which technology companies are adding people — relative to recent history"
+        }
+      ],
+      "current_value": "22nd percentile",
+      "current_unit": "vs last 10 years",
+      "status": "tight",
+      "status_tone": "amber",
+      "confidence": "medium",
+      "last_updated": "2026-05-26",
+      "tier": 2,
+      "tier_label": "curated",
+      "source_note": "Triangulated: layoffs.fyi + BLS + earnings",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 48
+        },
+        {
+          "date": "2025-07",
+          "value": 44
+        },
+        {
+          "date": "2025-08",
+          "value": 41
+        },
+        {
+          "date": "2025-09",
+          "value": 38
+        },
+        {
+          "date": "2025-10",
+          "value": 35
+        },
+        {
+          "date": "2025-11",
+          "value": 33
+        },
+        {
+          "date": "2025-12",
+          "value": 30
+        },
+        {
+          "date": "2026-01",
+          "value": 28
+        },
+        {
+          "date": "2026-02",
+          "value": 26
+        },
+        {
+          "date": "2026-03",
+          "value": 24
+        },
+        {
+          "date": "2026-04",
+          "value": 23
+        },
+        {
+          "date": "2026-05",
+          "value": 22
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "down",
+          "delta_pct": -37.0,
+          "tone": "amber"
+        },
+        "vs_12mo": {
+          "direction": "down",
+          "delta_pct": -54.0,
+          "tone": "amber"
+        },
+        "vs_pre_2020": {
+          "direction": "down",
+          "delta_pct": -68.0,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 22,
+        "lookback_years": 10,
+        "label": "Lower than 78% of months since 2014"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Tech-sector hiring is at a four-year low. Layoff activity has stayed elevated. The mix has widened beyond the largest companies.",
+          "expansion": "Reading layoffs.fyi alone would overstate the call — triangulating with BLS payroll detail and earnings commentary supports a wider read."
+        },
+        {
+          "label": "Meaning",
+          "text": "Engineering hiring is tight even though specific roles (ML, infra) still see competition.",
+          "expansion": "The barbell is real: scarce skills competed for, broader roles softening."
+        },
+        {
+          "label": "Product impact",
+          "text": "Teams may choose partners, vendors, or AI tools when they cannot add enough people internally.",
+          "expansion": "Internal headcount becomes harder to add. The cost of saying yes to a project is now mostly the cost of saying no to another."
+        },
+        {
+          "label": "Example",
+          "text": "Teams adopting AI coding tools or design tools to keep moving without adding more people.",
+          "expansion": "Watch for tool adoption that closes capacity gaps rather than enables new ambition."
+        },
+        {
+          "label": "PM question",
+          "text": "If you can't hire two more engineers, which roadmap item gets postponed — and which gets quietly handed to AI tooling?",
+          "expansion": "Force-rank the roadmap against current capacity. Make the trade-off explicit."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "layoffs.fyi",
+          "BLS Tech Subsector",
+          "Major company earnings",
+          "Public filings"
+        ],
+        "reasoning": "Multiple sources align: layoffs trend, payroll subsector data, and earnings commentary all point in the same direction.",
+        "counterarguments": [
+          "Sector-specific dynamics could be confused for a broader pattern.",
+          "Layoff data over-indexes on visible cuts."
+        ],
+        "what_would_make_us_wrong": "Two consecutive months of net hiring growth across major tech subsectors would change this read."
+      },
+      "sources": [
+        {
+          "name": "layoffs.fyi",
+          "url": "https://layoffs.fyi/",
+          "tier": 2
+        },
+        {
+          "name": "BLS subsector employment",
+          "url": "https://www.bls.gov/iag/tgs/iag51.htm",
+          "tier": 1
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "watch closely",
+      "reference_point": "four-year low · 22nd percentile",
+      "refined_why": {
+        "evidence": "Tech-sector hiring is at a four-year low across layoff trackers and government data. The softness is broader than just big tech.",
+        "counter_signal": "Two months of net hiring growth across major tech subsectors would change this read.",
+        "product_takeaway": "If two more engineers aren’t coming, which roadmap item gets postponed — and which quietly gets handed to AI tooling?"
+      },
+      "pill_label_short": "Tech hiring remains soft"
+    },
+    {
+      "id": "ai-regulation",
+      "category": "regulation",
+      "category_label": "Regulation & Policy",
+      "title": "AI rulemaking accelerating at the state level",
+      "summary": "Federal AI rules are slow. State and EU rules aren't waiting.",
+      "term_glossary": [
+        {
+          "term": "AI Act",
+          "gloss": "the EU's framework regulating AI by risk category — being phased in through 2026"
+        }
+      ],
+      "current_value": "watch",
+      "current_unit": "category — irregular cadence",
+      "status": "tightening",
+      "status_tone": "amber",
+      "confidence": "low",
+      "last_updated": "2026-05-24",
+      "tier": 3,
+      "tier_label": "editorial",
+      "source_note": "EU AI Act tracker + state legislatures · curated",
+      "data_points": [
+        {
+          "date": "2025-06",
+          "value": 2
+        },
+        {
+          "date": "2025-07",
+          "value": 3
+        },
+        {
+          "date": "2025-08",
+          "value": 3
+        },
+        {
+          "date": "2025-09",
+          "value": 4
+        },
+        {
+          "date": "2025-10",
+          "value": 4
+        },
+        {
+          "date": "2025-11",
+          "value": 5
+        },
+        {
+          "date": "2025-12",
+          "value": 5
+        },
+        {
+          "date": "2026-01",
+          "value": 6
+        },
+        {
+          "date": "2026-02",
+          "value": 7
+        },
+        {
+          "date": "2026-03",
+          "value": 8
+        },
+        {
+          "date": "2026-04",
+          "value": 9
+        },
+        {
+          "date": "2026-05",
+          "value": 10
+        }
+      ],
+      "compared_to": {
+        "vs_6mo": {
+          "direction": "up",
+          "delta_pct": 100.0,
+          "tone": "amber"
+        },
+        "vs_12mo": {
+          "direction": "up",
+          "delta_pct": 400.0,
+          "tone": "amber"
+        },
+        "vs_pre_2020": {
+          "direction": "up",
+          "delta_pct": 999.0,
+          "tone": "amber"
+        }
+      },
+      "percentile": {
+        "value": 90,
+        "lookback_years": 5,
+        "label": "Highest cadence we've tracked since 2021"
+      },
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "State-level AI bills and EU AI Act phase-ins are arriving at a faster cadence than a year ago.",
+          "expansion": "Topics cluster around transparency, deepfakes, automated decisioning, and youth safety."
+        },
+        {
+          "label": "Meaning",
+          "text": "Compliance planning is shifting from \"wait for one federal answer\" to \"handle state-by-state and EU rules now.\"",
+          "expansion": "Patchwork compliance can become a meaningful product-roadmap cost long before federal harmonization arrives."
+        },
+        {
+          "label": "Product impact",
+          "text": "Features that touch automated decisions, identity, or minors may need different versions in different regions.",
+          "expansion": "Data flows and disclosures may need re-wiring before launch in specific jurisdictions."
+        },
+        {
+          "label": "Example",
+          "text": "Consumer apps adding deepfake-disclosure flows in EU launches before US ones.",
+          "expansion": "Watch where flows diverge by region — that's a regulation tell."
+        },
+        {
+          "label": "PM question",
+          "text": "Which features assume a single global UX that may not survive 2026?",
+          "expansion": "Identify the geo-fragile pieces of the roadmap and brief legal early."
+        }
+      ],
+      "why_we_think_this": {
+        "signals_used": [
+          "EU AI Act tracker",
+          "State legislature trackers",
+          "FTC enforcement actions"
+        ],
+        "reasoning": "Multiple jurisdictions are advancing AI rules independently. The cumulative pace matters more than any single action.",
+        "counterarguments": [
+          "State bills frequently die in committee.",
+          "Enforcement timelines often slip."
+        ],
+        "what_would_make_us_wrong": "A federal preemption package would consolidate the landscape rapidly."
+      },
+      "sources": [
+        {
+          "name": "EU AI Act",
+          "url": "https://artificialintelligenceact.eu/",
+          "tier": 3
+        }
+      ],
+      "personal_overrides": [],
+      "momentum_label": "accelerating",
+      "reference_point": "highest cadence since 2021 · 90th percentile",
+      "refined_why": {
+        "evidence": "More U.S. states have moved on AI rules this year than in any prior year, mostly around disclosure, training data, and decision systems.",
+        "counter_signal": "A federal preemption framework would shift this from many small rule sets to one larger one.",
+        "product_takeaway": "Anywhere your product makes a decision about a person, write down today how you’d explain it tomorrow."
+      },
+      "pill_label_short": "State-level AI rules picking up"
+    }
+  ],
+  "source_philosophy": {
+    "intro": "Pulse reads from a three-tier source system. Tier 1 drives conclusions. Tier 2 supports and triangulates. Tier 3 informs framing but never drives a claim on its own.",
+    "tiers": [
+      {
+        "tier": 1,
+        "label": "Primary",
+        "examples": "Fed, BLS, Treasury, BEA, FRED, Census — official datasets we cite directly."
+      },
+      {
+        "tier": 2,
+        "label": "Market & product",
+        "examples": "GitHub, Hugging Face, Product Hunt, lab pricing pages, earnings calls, curated funding summaries."
+      },
+      {
+        "tier": 3,
+        "label": "Editorial & context",
+        "examples": "Regulation trackers, podcasts, newsletters, X — used for framing, not as evidence."
+      }
+    ]
+  },
+  "phase_meta": {
+    "phase": "2A",
+    "data_layer": "structured sample with stable Tier-1 sources scaffolded; curated/sample values for fragile Tier-2/3 signals.",
+    "live_wiring_deferred": [
+      "FRED/BLS/BEA/Census API wiring (scheduled refresh)",
+      "Crunchbase News auto-summary",
+      "App-chart triangulation pipeline",
+      "Layoffs.fyi ingestion",
+      "AI regulation tracker ingestion"
+    ]
+  }
+}
