@@ -565,85 +565,85 @@
           "gloss": "the Fed's preferred inflation gauge — broader than CPI"
         }
       ],
-      "current_value": "2.6%",
+      "current_value": "3.29%",
       "current_unit": "year-over-year, core",
       "status": "mixed",
       "status_tone": "amber",
       "confidence": "high",
-      "last_updated": "2026-05-09",
+      "last_updated": "2026-04-01",
       "tier": 1,
       "source_note": "BEA · monthly release",
       "data_points": [
         {
+          "date": "2025-05",
+          "value": 2.8
+        },
+        {
           "date": "2025-06",
-          "value": 2.7
+          "value": 2.8
         },
         {
           "date": "2025-07",
-          "value": 2.6
+          "value": 2.9
         },
         {
           "date": "2025-08",
-          "value": 2.5
+          "value": 2.9
         },
         {
           "date": "2025-09",
-          "value": 2.5
+          "value": 2.8
         },
         {
           "date": "2025-10",
-          "value": 2.5
+          "value": 2.8
         },
         {
           "date": "2025-11",
-          "value": 2.6
+          "value": 2.8
         },
         {
           "date": "2025-12",
-          "value": 2.6
+          "value": 3
         },
         {
           "date": "2026-01",
-          "value": 2.7
+          "value": 3.1
         },
         {
           "date": "2026-02",
-          "value": 2.7
+          "value": 3
         },
         {
           "date": "2026-03",
-          "value": 2.6
+          "value": 3.2
         },
         {
           "date": "2026-04",
-          "value": 2.6
-        },
-        {
-          "date": "2026-05",
-          "value": 2.6
+          "value": 3.3
         }
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "flat",
-          "delta_pct": 0,
-          "tone": "neutral"
+          "direction": "up",
+          "delta_pct": 0.5,
+          "tone": "amber"
         },
         "vs_12mo": {
-          "direction": "down",
-          "delta_pct": -0.1,
-          "tone": "neutral"
+          "direction": "up",
+          "delta_pct": 0.7,
+          "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 0.9,
+          "delta_pct": 1.7,
           "tone": "amber"
         }
       },
       "percentile": {
-        "value": 55,
+        "value": 74,
         "lookback_years": 10,
-        "label": "Higher than 45% of months since 2016"
+        "label": "Higher than 26% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -1808,38 +1808,42 @@
           "gloss": "the dollar value of goods sold by retailers — a near-real-time read on consumer demand"
         }
       ],
-      "current_value": "+2.4%",
+      "current_value": "4.87%",
       "current_unit": "year-over-year",
       "status": "steady",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-05-15",
+      "last_updated": "2026-04-01",
       "tier": 1,
       "source_note": "Census · monthly release",
       "data_points": [
         {
+          "date": "2025-05",
+          "value": 3.4
+        },
+        {
           "date": "2025-06",
-          "value": 2.1
+          "value": 4.4
         },
         {
           "date": "2025-07",
-          "value": 2.2
+          "value": 4.1
         },
         {
           "date": "2025-08",
-          "value": 2.3
+          "value": 5
         },
         {
           "date": "2025-09",
-          "value": 2.4
+          "value": 4.1
         },
         {
           "date": "2025-10",
-          "value": 2.5
+          "value": 3.2
         },
         {
           "date": "2025-11",
-          "value": 2.3
+          "value": 3.2
         },
         {
           "date": "2025-12",
@@ -1847,46 +1851,42 @@
         },
         {
           "date": "2026-01",
-          "value": 2.5
+          "value": 3.3
         },
         {
           "date": "2026-02",
-          "value": 2.3
+          "value": 4.2
         },
         {
           "date": "2026-03",
-          "value": 2.4
+          "value": 4.2
         },
         {
           "date": "2026-04",
-          "value": 2.5
-        },
-        {
-          "date": "2026-05",
-          "value": 2.4
+          "value": 4.9
         }
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "flat",
-          "delta_pct": 0.1,
-          "tone": "neutral"
+          "direction": "up",
+          "delta_pct": 1.7,
+          "tone": "green"
         },
         "vs_12mo": {
-          "direction": "up",
-          "delta_pct": 0.3,
-          "tone": "neutral"
+          "direction": "down",
+          "delta_pct": -0.1,
+          "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -1.4,
-          "tone": "neutral"
+          "delta_pct": -0.2,
+          "tone": "amber"
         }
       },
       "percentile": {
-        "value": 46,
+        "value": 63,
         "lookback_years": 10,
-        "label": "Right around the historical median"
+        "label": "Higher than 37% of observations in the last 10 years"
       },
       "chain": [
         {
