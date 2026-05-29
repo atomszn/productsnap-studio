@@ -72,7 +72,8 @@ const SIGNAL_CONFIG = {
     transform: "index_yoy",
     valueFormat: "percent",
     compareMode: "points",
-    sourceNote: "BLS CPI · monthly release"
+    sourceNote: "BLS CPI · monthly release",
+    cadence: "monthly"
   },
   "ppi": {
     provider: "bls",
@@ -80,7 +81,8 @@ const SIGNAL_CONFIG = {
     transform: "index_yoy",
     valueFormat: "percent",
     compareMode: "points",
-    sourceNote: "BLS PPI Final Demand · monthly release"
+    sourceNote: "BLS PPI Final Demand · monthly release",
+    cadence: "monthly"
   },
   "nonfarm-payrolls": {
     provider: "bls",
@@ -88,18 +90,23 @@ const SIGNAL_CONFIG = {
     transform: "monthly_change",
     valueFormat: "jobs_k",
     compareMode: "percent",
-    sourceNote: "BLS Employment Situation · monthly release"
+    sourceNote: "BLS Employment Situation · monthly release",
+    cadence: "monthly"
   },
   "pce": {
     provider: "bea",
     // The script discovers and validates the line description before using it.
     // Expected concept: PCE price index excluding food and energy / core PCE.
+    // Monthly NIPA tables only: T20804 is the monthly PCE price index table.
+    // T20304 is quarterly, kept as a defensive fallback for line-name lookup
+    // but skipped automatically if its monthly frequency yields no values.
     tableCandidates: ["T20804", "T20304"],
     lineDescriptionNeedles: ["excluding food and energy", "less food and energy"],
     transform: "index_yoy",
     valueFormat: "percent",
     compareMode: "points",
-    sourceNote: "BEA core PCE price index · monthly release"
+    sourceNote: "BEA core PCE price index · monthly release",
+    cadence: "monthly"
   },
   "fed-net-liquidity": {
     provider: "fred",
@@ -108,7 +115,8 @@ const SIGNAL_CONFIG = {
     valueFormat: "trillions",
     compareMode: "percent",
     sourceNote: "FRED WALCL · weekly",
-    latestFromRaw: true
+    latestFromRaw: true,
+    cadence: "weekly"
   },
   "10y-treasury": {
     provider: "fred",
@@ -117,7 +125,8 @@ const SIGNAL_CONFIG = {
     valueFormat: "percent",
     compareMode: "points",
     sourceNote: "FRED DGS10 · daily",
-    latestFromRaw: true
+    latestFromRaw: true,
+    cadence: "daily"
   },
   "retail-sales": {
     provider: "census",
@@ -133,7 +142,8 @@ const SIGNAL_CONFIG = {
     transform: "index_yoy",
     valueFormat: "percent",
     compareMode: "points",
-    sourceNote: "Census Monthly Retail Trade · monthly release"
+    sourceNote: "Census Monthly Retail Trade · monthly release",
+    cadence: "monthly"
   },
   "consumer-confidence": {
     provider: "fred",
@@ -142,6 +152,7 @@ const SIGNAL_CONFIG = {
     valueFormat: "number_1",
     compareMode: "percent",
     sourceNote: "University of Michigan Consumer Sentiment · via FRED",
+    cadence: "monthly",
     sourceOverride: {
       current_unit: "University of Michigan index",
       source_note: "University of Michigan Consumer Sentiment · via FRED",
@@ -189,6 +200,24 @@ const TONE_POLICY = {
 
 const FLAT_THRESHOLD_DEFAULT = 0.05;
 const NEUTRAL_TONE_THRESHOLD_DEFAULT = 0.1;
+
+// Freshness thresholds (in days) past which the latest observation is flagged
+// as older than expected for its source cadence. Warnings only — never a hard
+// failure, because some source lag is genuine (e.g. BEA core PCE for month M
+// publishes ~last week of month M+1). The intent is visibility, so a stale
+// signal does not silently persist across multiple refreshes unnoticed.
+//
+// Age is computed from the *end* of the labeled period, not from period-start.
+// Monthly economic series carry a period-start date (e.g. 2026-04-01 for April
+// data), but the release lands ~mid-to-late of the following month. Measuring
+// from period-end keeps the threshold meaningful: ~45 days past the period end
+// is roughly two missed releases for monthly, which is the point at which a
+// stuck fetch becomes actionable rather than just expected lag.
+const FRESHNESS_THRESHOLD_DAYS = {
+  daily: 4,
+  weekly: 14,
+  monthly: 45
+};
 
 function parseArgs(argv) {
   const args = {
@@ -260,6 +289,8 @@ async function main() {
   }
 
   assertEditorialPreserved(original, next);
+
+  runFreshnessGuard(next);
 
   if (successCount === 0) {
     log("No signals refreshed successfully. Leaving JSON untouched.");
@@ -612,6 +643,48 @@ function assertEditorialPreserved(before, after) {
   }
 }
 
+// Warn (never fail) when any auto-fetched signal's latest observation date is
+// older than its expected cadence allows. Runs against the post-merge state,
+// so it also catches signals whose fetch failed and stuck on last-known-good.
+// Output is parseable from Actions logs: lines start with "⚠ FRESHNESS:".
+function runFreshnessGuard(data) {
+  const today = new Date();
+  const stale = [];
+  for (const id of AUTO_SIGNAL_IDS) {
+    const config = SIGNAL_CONFIG[id];
+    const signal = (data.signals || []).find((s) => s.id === id);
+    if (!signal || !config?.cadence) continue;
+    const threshold = FRESHNESS_THRESHOLD_DAYS[config.cadence];
+    if (!threshold) continue;
+    const lastUpdatedRaw = signal.last_updated;
+    if (!lastUpdatedRaw) {
+      log(`⚠ FRESHNESS: ${id} has no last_updated; expected ${config.cadence} cadence`);
+      stale.push(id);
+      continue;
+    }
+    const normalized = normalizeLastUpdated(lastUpdatedRaw);
+    const lastDate = new Date(`${normalized}T00:00:00Z`);
+    if (Number.isNaN(lastDate.getTime())) {
+      log(`⚠ FRESHNESS: ${id} last_updated is unparseable (${lastUpdatedRaw})`);
+      stale.push(id);
+      continue;
+    }
+    // For monthly signals the date marks the period start; treat the end of
+    // that month as "data is at least this fresh" before counting age.
+    const referenceDate = config.cadence === "monthly"
+      ? endOfMonth(lastDate)
+      : lastDate;
+    const ageDays = Math.floor((today.getTime() - referenceDate.getTime()) / (24 * 60 * 60 * 1000));
+    if (ageDays > threshold) {
+      log(`⚠ FRESHNESS: ${id} latest point is ${lastUpdatedRaw} (${ageDays}d past period-end), older than expected for ${config.cadence} cadence (>${threshold}d)`);
+      stale.push(id);
+    }
+  }
+  if (!stale.length) {
+    log(`Freshness OK: all ${AUTO_SIGNAL_IDS.length} auto signals within cadence thresholds.`);
+  }
+}
+
 function stripMutableData(data) {
   for (const signal of data.signals || []) {
     if (!AUTO_SIGNAL_IDS.includes(signal.id)) continue;
@@ -664,6 +737,10 @@ function normalizeLastUpdated(date) {
   if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return date;
   if (/^\d{4}-\d{2}$/.test(date)) return `${date}-01`;
   return date;
+}
+
+function endOfMonth(date) {
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0));
 }
 
 function shiftMonth(yyyyMm, delta) {
