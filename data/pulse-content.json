@@ -339,7 +339,7 @@
         {
           "label": "Signal",
           "text": "CPI, the broad measure of consumer prices, has moderated for several months. Core services — rent, healthcare, and software — have been slower to come down.",
-          "expansion": "Headline CPI sits at ~3.1% year-over-year. Core services is running closer to 4.5%. Goods prices are roughly flat year-over-year."
+          "expansion": "Headline CPI sits above the Fed's 2% target. Core services remains noticeably hotter than headline. Goods prices are roughly flat year-over-year."
         },
         {
           "label": "Meaning",
@@ -492,7 +492,7 @@
       "chain": [
         {
           "label": "Signal",
-          "text": "PPI (what producers pay before passing costs on to consumers) is running near 0.6% year-over-year, the softest reading in three years.",
+          "text": "PPI (what producers pay before passing costs on to consumers) has largely stopped rising — one of the softest stretches in recent years.",
           "expansion": "PPI tends to lead CPI by 2–4 months for goods categories — the pipeline of cost pressure has thinned."
         },
         {
@@ -549,7 +549,7 @@
       "category": "inflation",
       "category_label": "Inflation & Pricing",
       "title": "PCE running just above target — Fed's preferred gauge",
-      "summary": "The inflation measure the Fed actually watches has stalled near 2.6%.",
+      "summary": "The inflation measure the Fed actually watches has stalled — close to its target but not yet at it.",
       "term_glossary": [
         {
           "term": "PCE",
@@ -639,7 +639,7 @@
       "chain": [
         {
           "label": "Signal",
-          "text": "Core PCE — what the Fed actually targets — has hovered near 2.6% for several months.",
+          "text": "Core PCE — what the Fed actually targets — has hovered just above target for several months.",
           "expansion": "PCE differs from CPI in basket weights and substitution assumptions. The Fed treats it as the more reliable read."
         },
         {
@@ -849,7 +849,7 @@
       "id": "10y-treasury",
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
-      "title": "Long rates rangebound near 4.3%",
+      "title": "Long rates rangebound at elevated levels",
       "summary": "The cost of long-term capital has stopped moving — for now.",
       "term_glossary": [
         {
@@ -940,7 +940,7 @@
       "chain": [
         {
           "label": "Signal",
-          "text": "10-year Treasury yields have traded in a 4.2–4.4% band for several months.",
+          "text": "10-year Treasury yields have traded in a narrow band for several months.",
           "expansion": "Rate volatility has compressed even as inflation prints stayed mixed."
         },
         {
@@ -955,7 +955,7 @@
         },
         {
           "label": "Example",
-          "text": "A two-year platform investment now competes against a low-risk government bond paying about 4.3%.",
+          "text": "A two-year platform investment now competes against a low-risk government bond paying a real yield with zero execution risk.",
           "expansion": "That comparison rarely shows up in roadmap reviews. It probably should."
         },
         {
@@ -989,7 +989,7 @@
       "refined_why": {
         "evidence": "The benchmark long-term interest rate has been parked in a tight band for months.",
         "counter_signal": "A sustained move below 4% or above 4.6% for a month would change this read.",
-        "product_takeaway": "A long-horizon bet now competes with a risk-free 4.3% return. That comparison rarely makes it into roadmap reviews — but it should."
+        "product_takeaway": "A long-horizon bet now competes with a meaningful risk-free return. That comparison rarely makes it into roadmap reviews — but it should."
       },
       "pill_label_short": "Long-term borrowing costs sitting still"
     },
@@ -1882,7 +1882,7 @@
       "chain": [
         {
           "label": "Signal",
-          "text": "Retail sales are running around 2.4% year-over-year, in line with the last six months.",
+          "text": "Retail sales are running roughly in line with the last six months — steady, neither accelerating nor breaking.",
           "expansion": "Discretionary categories (restaurants, electronics) sit slightly below the headline; essentials slightly above."
         },
         {
