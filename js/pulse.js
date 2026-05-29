@@ -25,7 +25,8 @@
     "ai-tech":     "var(--note-lavender)",
     "consumer":    "var(--note-blush)",
     "labor":       "var(--note-pink)",
-    "regulation":  "var(--note-sand)"
+    "regulation":  "var(--note-sand)",
+    "activity":    "var(--note-sand)"
   };
 
   const CATEGORY_TONE_CLASS = {
@@ -34,7 +35,8 @@
     "ai-tech":     "tone-lavender",
     "consumer":    "tone-blush",
     "labor":       "tone-pink",
-    "regulation":  "tone-sand"
+    "regulation":  "tone-sand",
+    "activity":    "tone-sand"
   };
 
   const STATUS_TONE_CLASS = {
@@ -623,7 +625,8 @@
       "ai-tech":    "#d4c2ee",
       "consumer":   "#f5cfc1",
       "labor":      "#f7c2c2",
-      "regulation": "#e6c98a"
+      "regulation": "#e6c98a",
+      "activity":   "#e6c98a"
     };
     return map[category] || "#e6d9bd";
   }
