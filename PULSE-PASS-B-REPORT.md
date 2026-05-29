@@ -86,3 +86,15 @@ On each scheduled/manual run:
 - Local workspace testing does not use real API keys by design. The first real data population should happen in GitHub Actions.
 - BEA core PCE discovery is intentionally defensive: the script validates the line description before using the series. If BEA metadata differs from the expected table/line descriptions, the PCE signal will fail safely and keep its last-known-good value rather than shipping a wrong number.
 - Census MARTS requires a valid Census key. The endpoint shape was checked locally and returned a “Missing Key” response, which confirms the endpoint requires the configured secret before returning data.
+
+## Pass B.1 hotfix
+
+Targeted follow-up to the first GitHub-Actions-refreshed JSON. No visual, architectural, or editorial changes; only `scripts/fetch-pulse-data.js`.
+
+1. Daily/weekly FRED signals (`10y-treasury`, `fed-net-liquidity`) now use the latest **raw** observation date and value for `current_value` and `last_updated`. The 12-point monthly sparkline (`data_points`) is unchanged. Controlled by a per-signal `latestFromRaw` flag so monthly signals stay month-aligned.
+2. Tone is now per-signal via a `TONE_POLICY` map. Previously every "up" was painted amber; that misread series where direction reverses interpretation. Policy:
+   - `up_bad` (higher is amber): `cpi-headline`, `ppi`, `pce`, `10y-treasury`
+   - `up_good` (higher is green): `fed-net-liquidity`, `consumer-confidence`, `retail-sales`, `nonfarm-payrolls`
+3. BEA and Census paths now emit diagnostic context on failure: BEA's 200-OK error envelopes (`BEAAPI.Results[].Error` and `BEAAPI.Error`) are surfaced as real errors; line discovery reports which candidate tables were tried and how many lines each returned; Census reports dataset/category context and header columns when the response shape is wrong. All failures still fall through to last-known-good data.
+
+Guardrails are unchanged: only approved data/source fields are mutated; the `assertEditorialPreserved` check still runs before write; hand-curated signals are untouched; the dry-run path needs no secrets.
