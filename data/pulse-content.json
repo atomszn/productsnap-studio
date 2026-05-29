@@ -2077,8 +2077,7 @@
       ],
       "why_we_think_this": {
         "signals_used": [
-          "Conference Board confidence",
-          "Michigan sentiment"
+          "Michigan sentiment (UMCSENT via FRED)"
         ],
         "reasoning": "The Michigan headline is sitting at levels historically associated with major shocks, and inflation expectations within the same survey are elevated. Survey weakness has been broad rather than concentrated in one demographic slice.",
         "counterarguments": [
