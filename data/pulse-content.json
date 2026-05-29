@@ -255,85 +255,85 @@
           "gloss": "inflation excluding food and energy"
         }
       ],
-      "current_value": "3.1%",
+      "current_value": "3.81%",
       "current_unit": "year-over-year",
       "status": "mixed",
       "status_tone": "amber",
       "confidence": "high",
-      "last_updated": "2026-05-15",
+      "last_updated": "2026-04-01",
       "tier": 1,
       "source_note": "BLS · monthly release",
       "data_points": [
         {
+          "date": "2025-04",
+          "value": 2.3
+        },
+        {
+          "date": "2025-05",
+          "value": 2.4
+        },
+        {
           "date": "2025-06",
-          "value": 3.0
-        },
-        {
-          "date": "2025-07",
-          "value": 2.9
-        },
-        {
-          "date": "2025-08",
-          "value": 2.8
-        },
-        {
-          "date": "2025-09",
           "value": 2.7
         },
         {
-          "date": "2025-10",
-          "value": 2.8
+          "date": "2025-07",
+          "value": 2.7
         },
         {
-          "date": "2025-11",
+          "date": "2025-08",
           "value": 2.9
         },
         {
+          "date": "2025-09",
+          "value": 3
+        },
+        {
+          "date": "2025-11",
+          "value": 2.7
+        },
+        {
           "date": "2025-12",
-          "value": 3.0
+          "value": 2.7
         },
         {
           "date": "2026-01",
-          "value": 3.1
+          "value": 2.4
         },
         {
           "date": "2026-02",
-          "value": 3.2
+          "value": 2.4
         },
         {
           "date": "2026-03",
-          "value": 3.1
+          "value": 3.3
         },
         {
           "date": "2026-04",
-          "value": 3.0
-        },
-        {
-          "date": "2026-05",
-          "value": 3.1
+          "value": 3.8
         }
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "up",
-          "delta_pct": 0.3,
-          "tone": "amber"
+          "direction": "flat",
+          "delta_pct": 0,
+          "tone": "neutral"
         },
         "vs_12mo": {
-          "direction": "flat",
-          "delta_pct": 0.1,
-          "tone": "neutral"
+          "direction": "up",
+          "delta_pct": 1.5,
+          "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 1.0,
+          "delta_pct": 1.3,
           "tone": "amber"
         }
       },
       "percentile": {
-        "value": 62,
+        "value": 78,
         "lookback_years": 10,
-        "label": "Higher than 38% of months since 2016"
+        "label": "Higher than 22% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -409,85 +409,85 @@
           "gloss": "what producers pay before passing costs on to consumers"
         }
       ],
-      "current_value": "0.6%",
+      "current_value": "5.99%",
       "current_unit": "year-over-year",
       "status": "cooling",
       "status_tone": "green",
       "confidence": "high",
-      "last_updated": "2026-05-14",
+      "last_updated": "2026-04-01",
       "tier": 1,
       "source_note": "BLS · monthly release",
       "data_points": [
         {
+          "date": "2025-05",
+          "value": 2.7
+        },
+        {
           "date": "2025-06",
-          "value": 2.3
+          "value": 2.4
         },
         {
           "date": "2025-07",
-          "value": 2.1
+          "value": 3.2
         },
         {
           "date": "2025-08",
-          "value": 1.8
+          "value": 2.7
         },
         {
           "date": "2025-09",
-          "value": 1.5
+          "value": 3
         },
         {
           "date": "2025-10",
-          "value": 1.3
+          "value": 2.8
         },
         {
           "date": "2025-11",
-          "value": 1.1
+          "value": 3.1
         },
         {
           "date": "2025-12",
-          "value": 0.9
+          "value": 3.1
         },
         {
           "date": "2026-01",
-          "value": 0.8
+          "value": 3
         },
         {
           "date": "2026-02",
-          "value": 0.7
+          "value": 3.4
         },
         {
           "date": "2026-03",
-          "value": 0.6
+          "value": 4.3
         },
         {
           "date": "2026-04",
-          "value": 0.6
-        },
-        {
-          "date": "2026-05",
-          "value": 0.6
+          "value": 6
         }
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "down",
-          "delta_pct": -0.7,
-          "tone": "green"
+          "direction": "up",
+          "delta_pct": 3.2,
+          "tone": "amber"
         },
         "vs_12mo": {
-          "direction": "down",
-          "delta_pct": -1.7,
-          "tone": "green"
+          "direction": "up",
+          "delta_pct": 3.6,
+          "tone": "amber"
         },
         "vs_pre_2020": {
-          "direction": "down",
-          "delta_pct": -0.4,
-          "tone": "neutral"
+          "direction": "up",
+          "delta_pct": 4.1,
+          "tone": "amber"
         }
       },
       "percentile": {
-        "value": 18,
+        "value": 83,
         "lookback_years": 10,
-        "label": "Lower than 82% of months since 2016"
+        "label": "Higher than 17% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -617,7 +617,7 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "flat",
-          "delta_pct": 0.0,
+          "delta_pct": 0,
           "tone": "neutral"
         },
         "vs_12mo": {
@@ -708,85 +708,85 @@
           "gloss": "the Fed's total balance sheet — a proxy for liquidity provided"
         }
       ],
-      "current_value": "$5.94T",
+      "current_value": "$6.7T",
       "current_unit": "total balance sheet",
       "status": "tightening",
       "status_tone": "amber",
       "confidence": "high",
-      "last_updated": "2026-05-22",
+      "last_updated": "2026-05-01",
       "tier": 1,
       "source_note": "Fed balance sheet · weekly",
       "data_points": [
         {
           "date": "2025-06",
-          "value": 6.62
+          "value": 6662200
         },
         {
           "date": "2025-07",
-          "value": 6.55
+          "value": 6642578
         },
         {
           "date": "2025-08",
-          "value": 6.48
+          "value": 6603384
         },
         {
           "date": "2025-09",
-          "value": 6.4
+          "value": 6608395
         },
         {
           "date": "2025-10",
-          "value": 6.34
+          "value": 6587034
         },
         {
           "date": "2025-11",
-          "value": 6.28
+          "value": 6552419
         },
         {
           "date": "2025-12",
-          "value": 6.21
+          "value": 6640618
         },
         {
           "date": "2026-01",
-          "value": 6.15
+          "value": 6587568
         },
         {
           "date": "2026-02",
-          "value": 6.08
+          "value": 6613797
         },
         {
           "date": "2026-03",
-          "value": 6.02
+          "value": 6657161
         },
         {
           "date": "2026-04",
-          "value": 5.98
+          "value": 6699950
         },
         {
           "date": "2026-05",
-          "value": 5.94
+          "value": 6704383
         }
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "down",
-          "delta_pct": -2.4,
+          "direction": "up",
+          "delta_pct": 2.3,
           "tone": "amber"
         },
         "vs_12mo": {
-          "direction": "down",
-          "delta_pct": -8.1,
+          "direction": "up",
+          "delta_pct": 0.5,
           "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 18.0,
-          "tone": "neutral"
+          "delta_pct": 61.5,
+          "tone": "amber"
         }
       },
       "percentile": {
-        "value": 71,
+        "value": 50,
         "lookback_years": 10,
-        "label": "Higher than 29% of months since 2016"
+        "label": "Higher than 50% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -857,50 +857,50 @@
           "gloss": "the market's price for lending the US government money for 10 years — a benchmark for long-term capital costs"
         }
       ],
-      "current_value": "4.31%",
+      "current_value": "4.48%",
       "current_unit": "yield",
       "status": "rangebound",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-05-26",
+      "last_updated": "2026-05-01",
       "tier": 1,
       "source_note": "FRED DGS10 · daily",
       "data_points": [
         {
           "date": "2025-06",
-          "value": 4.45
+          "value": 4.2
         },
         {
           "date": "2025-07",
-          "value": 4.38
+          "value": 4.4
         },
         {
           "date": "2025-08",
-          "value": 4.22
+          "value": 4.2
         },
         {
           "date": "2025-09",
-          "value": 4.18
+          "value": 4.2
         },
         {
           "date": "2025-10",
-          "value": 4.3
+          "value": 4.1
         },
         {
           "date": "2025-11",
-          "value": 4.41
+          "value": 4
         },
         {
           "date": "2025-12",
-          "value": 4.36
+          "value": 4.2
         },
         {
           "date": "2026-01",
-          "value": 4.28
+          "value": 4.3
         },
         {
           "date": "2026-02",
-          "value": 4.33
+          "value": 4
         },
         {
           "date": "2026-03",
@@ -908,34 +908,34 @@
         },
         {
           "date": "2026-04",
-          "value": 4.27
+          "value": 4.4
         },
         {
           "date": "2026-05",
-          "value": 4.31
+          "value": 4.5
         }
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "flat",
-          "delta_pct": -0.1,
-          "tone": "neutral"
+          "direction": "up",
+          "delta_pct": 0.5,
+          "tone": "amber"
         },
         "vs_12mo": {
-          "direction": "down",
-          "delta_pct": -0.14,
-          "tone": "neutral"
+          "direction": "up",
+          "delta_pct": 0.1,
+          "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 2.5,
+          "delta_pct": 3,
           "tone": "amber"
         }
       },
       "percentile": {
-        "value": 84,
+        "value": 95,
         "lookback_years": 10,
-        "label": "Higher than 16% of months since 2016"
+        "label": "Higher than 5% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -1067,17 +1067,17 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "down",
-          "delta_pct": -19.0,
+          "delta_pct": -19,
           "tone": "amber"
         },
         "vs_12mo": {
           "direction": "down",
-          "delta_pct": -32.0,
+          "delta_pct": -32,
           "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "flat",
-          "delta_pct": -2.0,
+          "delta_pct": -2,
           "tone": "neutral"
         }
       },
@@ -1223,17 +1223,17 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 50.0,
+          "delta_pct": 50,
           "tone": "green"
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 100.0,
+          "delta_pct": 100,
           "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 999.0,
+          "delta_pct": 999,
           "tone": "green"
         }
       },
@@ -1390,17 +1390,17 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "down",
-          "delta_pct": -69.0,
+          "delta_pct": -69,
           "tone": "green"
         },
         "vs_12mo": {
           "direction": "down",
-          "delta_pct": -80.0,
+          "delta_pct": -80,
           "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -98.0,
+          "delta_pct": -98,
           "tone": "green"
         }
       },
@@ -1547,17 +1547,17 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 17.0,
+          "delta_pct": 17,
           "tone": "green"
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 38.0,
+          "delta_pct": 38,
           "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 999.0,
+          "delta_pct": 999,
           "tone": "green"
         }
       },
@@ -1706,17 +1706,17 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "down",
-          "delta_pct": -7.0,
+          "delta_pct": -7,
           "tone": "green"
         },
         "vs_12mo": {
           "direction": "down",
-          "delta_pct": -14.0,
+          "delta_pct": -14,
           "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -55.0,
+          "delta_pct": -55,
           "tone": "green"
         }
       },
@@ -1948,85 +1948,85 @@
           "gloss": "a survey-based measure of how households feel about their financial future"
         }
       ],
-      "current_value": "97.2",
-      "current_unit": "Conference Board index",
+      "current_value": "49.8",
+      "current_unit": "University of Michigan index",
       "status": "softening",
       "status_tone": "amber",
       "confidence": "medium",
-      "last_updated": "2026-05-21",
+      "last_updated": "2026-04-01",
       "tier": 1,
-      "source_note": "Conference Board · monthly",
+      "source_note": "University of Michigan Consumer Sentiment · via FRED",
       "data_points": [
         {
+          "date": "2025-05",
+          "value": 52.2
+        },
+        {
           "date": "2025-06",
-          "value": 104.2
+          "value": 60.7
         },
         {
           "date": "2025-07",
-          "value": 102.8
+          "value": 61.7
         },
         {
           "date": "2025-08",
-          "value": 101.5
+          "value": 58.2
         },
         {
           "date": "2025-09",
-          "value": 100.3
+          "value": 55.1
         },
         {
           "date": "2025-10",
-          "value": 99.7
+          "value": 53.6
         },
         {
           "date": "2025-11",
-          "value": 99.1
+          "value": 51
         },
         {
           "date": "2025-12",
-          "value": 98.6
+          "value": 52.9
         },
         {
           "date": "2026-01",
-          "value": 98.2
+          "value": 56.4
         },
         {
           "date": "2026-02",
-          "value": 97.9
+          "value": 56.6
         },
         {
           "date": "2026-03",
-          "value": 97.5
+          "value": 53.3
         },
         {
           "date": "2026-04",
-          "value": 97.3
-        },
-        {
-          "date": "2026-05",
-          "value": 97.2
+          "value": 49.8
         }
       ],
       "compared_to": {
         "vs_6mo": {
           "direction": "down",
-          "delta_pct": -2.5,
-          "tone": "amber"
+          "delta_pct": -7.1,
+          "tone": "green"
         },
         "vs_12mo": {
           "direction": "down",
-          "delta_pct": -6.7,
-          "tone": "amber"
+          "delta_pct": -4.6,
+          "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -27.0,
-          "tone": "amber"
+          "delta_pct": -50.1,
+          "tone": "green"
         }
       },
       "percentile": {
-        "value": 28,
+        "value": 1,
         "lookback_years": 10,
-        "label": "Lower than 72% of months since 2016"
+        "label": "Lower than 99% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -2069,8 +2069,8 @@
       },
       "sources": [
         {
-          "name": "Conference Board CCI",
-          "url": "https://www.conference-board.org/topics/consumer-confidence",
+          "name": "University of Michigan Consumer Sentiment (via FRED)",
+          "url": "https://fred.stlouisfed.org/series/UMCSENT",
           "tier": 1
         }
       ],
@@ -2082,7 +2082,8 @@
         "counter_signal": "Three months of sharp drops in current-conditions readings would change this read.",
         "product_takeaway": "Cautious shoppers don’t abandon — they trade down. Make the entry tier obvious and easy."
       },
-      "pill_label_short": "Consumers cautious, not panicking"
+      "pill_label_short": "Consumers cautious, not panicking",
+      "tier_label": "primary"
     },
     {
       "id": "emerging-apps",
@@ -2162,17 +2163,17 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 133.0,
+          "delta_pct": 133,
           "tone": "green"
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 460.0,
+          "delta_pct": 460,
           "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 999.0,
+          "delta_pct": 999,
           "tone": "green"
         }
       },
@@ -2256,85 +2257,85 @@
           "gloss": "the monthly count of jobs added across most of the US economy — the headline labor read"
         }
       ],
-      "current_value": "+118k",
+      "current_value": "+115k",
       "current_unit": "jobs · monthly",
       "status": "cooling",
       "status_tone": "amber",
       "confidence": "high",
-      "last_updated": "2026-05-02",
+      "last_updated": "2026-04-01",
       "tier": 1,
       "source_note": "BLS · monthly release",
       "data_points": [
         {
+          "date": "2025-05",
+          "value": 13
+        },
+        {
           "date": "2025-06",
-          "value": 215
+          "value": -20
         },
         {
           "date": "2025-07",
-          "value": 195
+          "value": 64
         },
         {
           "date": "2025-08",
-          "value": 180
+          "value": -70
         },
         {
           "date": "2025-09",
-          "value": 172
+          "value": 76
         },
         {
           "date": "2025-10",
-          "value": 160
+          "value": -140
         },
         {
           "date": "2025-11",
-          "value": 152
+          "value": 41
         },
         {
           "date": "2025-12",
-          "value": 148
+          "value": -17
         },
         {
           "date": "2026-01",
-          "value": 142
+          "value": 160
         },
         {
           "date": "2026-02",
-          "value": 135
+          "value": -156
         },
         {
           "date": "2026-03",
-          "value": 128
+          "value": 185
         },
         {
           "date": "2026-04",
-          "value": 122
-        },
-        {
-          "date": "2026-05",
-          "value": 118
+          "value": 115
         }
       ],
       "compared_to": {
         "vs_6mo": {
-          "direction": "down",
-          "delta_pct": -26.0,
+          "direction": "up",
+          "delta_pct": 182.1,
           "tone": "amber"
         },
         "vs_12mo": {
-          "direction": "down",
-          "delta_pct": -45.0,
+          "direction": "up",
+          "delta_pct": 6.5,
           "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -32.0,
-          "tone": "amber"
+          "delta_pct": -51.5,
+          "tone": "green"
         }
       },
       "percentile": {
-        "value": 24,
+        "value": 29,
         "lookback_years": 10,
-        "label": "Lower than 76% of months since 2016"
+        "label": "Lower than 71% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -2467,17 +2468,17 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "down",
-          "delta_pct": -37.0,
+          "delta_pct": -37,
           "tone": "amber"
         },
         "vs_12mo": {
           "direction": "down",
-          "delta_pct": -54.0,
+          "delta_pct": -54,
           "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -68.0,
+          "delta_pct": -68,
           "tone": "amber"
         }
       },
@@ -2623,17 +2624,17 @@
       "compared_to": {
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 100.0,
+          "delta_pct": 100,
           "tone": "amber"
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 400.0,
+          "delta_pct": 400,
           "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 999.0,
+          "delta_pct": 999,
           "tone": "amber"
         }
       },
