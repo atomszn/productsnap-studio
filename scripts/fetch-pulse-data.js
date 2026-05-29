@@ -14,7 +14,7 @@
      node scripts/fetch-pulse-data.js
 
    Required secrets in GitHub Actions:
-     FRED_API_KEY, BLS_API_KEY, BEA_API_KEY, CENSUS_API_KEY
+     FRED_API_KEY, BLS_API_KEY
    ======================================================================== */
 
 const fs = require("fs");
@@ -94,18 +94,15 @@ const SIGNAL_CONFIG = {
     cadence: "monthly"
   },
   "pce": {
-    provider: "bea",
-    // The script discovers and validates the line description before using it.
-    // Expected concept: PCE price index excluding food and energy / core PCE.
-    // Monthly NIPA tables only: T20804 is the monthly PCE price index table.
-    // T20304 is quarterly, kept as a defensive fallback for line-name lookup
-    // but skipped automatically if its monthly frequency yields no values.
-    tableCandidates: ["T20804", "T20304"],
-    lineDescriptionNeedles: ["excluding food and energy", "less food and energy"],
+    provider: "fred",
+    // FRED series PCEPILFE: Personal Consumption Expenditures Excluding Food
+    // and Energy (Chain-Type Price Index). Monthly index; YoY % change is
+    // computed against the same month of the prior year.
+    seriesId: "PCEPILFE",
     transform: "index_yoy",
     valueFormat: "percent",
     compareMode: "points",
-    sourceNote: "BEA core PCE price index · monthly release",
+    sourceNote: "FRED PCEPILFE · monthly release",
     cadence: "monthly"
   },
   "fed-net-liquidity": {
@@ -129,20 +126,15 @@ const SIGNAL_CONFIG = {
     cadence: "daily"
   },
   "retail-sales": {
-    provider: "census",
-    // U.S. total retail and food services, adjusted sales. The endpoint is
-    // intentionally isolated so failure keeps the last-known-good value.
-    dataset: "timeseries/eits/marts",
-    params: {
-      get: "cell_value,time_slot_id",
-      category_code: "44X72",
-      data_type_code: "SM",
-      seasonally_adj: "yes"
-    },
+    provider: "fred",
+    // FRED series RSAFS: Advance Retail Sales — Retail and Food Services,
+    // Total. Monthly level; YoY % change is computed against the same month
+    // of the prior year.
+    seriesId: "RSAFS",
     transform: "index_yoy",
     valueFormat: "percent",
     compareMode: "points",
-    sourceNote: "Census Monthly Retail Trade · monthly release",
+    sourceNote: "FRED RSAFS · monthly release",
     cadence: "monthly"
   },
   "consumer-confidence": {
@@ -203,7 +195,7 @@ const NEUTRAL_TONE_THRESHOLD_DEFAULT = 0.1;
 
 // Freshness thresholds (in days) past which the latest observation is flagged
 // as older than expected for its source cadence. Warnings only — never a hard
-// failure, because some source lag is genuine (e.g. BEA core PCE for month M
+// failure, because some source lag is genuine (e.g. core PCE for month M
 // publishes ~last week of month M+1). The intent is visibility, so a stale
 // signal does not silently persist across multiple refreshes unnoticed.
 //
@@ -284,13 +276,13 @@ async function main() {
       log(`✓ ${id}: refreshed ${update.current_value} (${update.last_updated})`);
     } catch (err) {
       failures.push({ id, error: err.message });
-      log(`× ${id}: ${err.message}; kept last-known-good data`);
+      log(`⚠ FETCH FAILURE: ${id} failed this run; kept last-known-good data (${err.message})`);
     }
   }
 
   assertEditorialPreserved(original, next);
 
-  runFreshnessGuard(next);
+  runFreshnessGuard(next, new Set(failures.map((f) => f.id)));
 
   if (successCount === 0) {
     log("No signals refreshed successfully. Leaving JSON untouched.");
@@ -322,8 +314,6 @@ async function main() {
 async function fetchSignalUpdate(id, config) {
   if (config.provider === "fred") return fetchFredUpdate(id, config);
   if (config.provider === "bls") return fetchBlsUpdate(id, config);
-  if (config.provider === "bea") return fetchBeaUpdate(id, config);
-  if (config.provider === "census") return fetchCensusUpdate(id, config);
   throw new Error(`Unsupported provider: ${config.provider}`);
 }
 
@@ -353,45 +343,6 @@ async function fetchBlsUpdate(id, config) {
   const seriesMap = await getBlsSeries(seriesIds, key, new Date().getFullYear() - 11, new Date().getFullYear());
   const observations = seriesMap[config.seriesId];
   if (!observations || observations.length < 13) throw new Error(`BLS series ${config.seriesId} returned too few observations`);
-  const prepared = prepareSeries(observations, config.transform);
-  return buildUpdateFromSeries(id, config, prepared);
-}
-
-async function fetchBeaUpdate(id, config) {
-  const key = requireEnv("BEA_API_KEY");
-  let line;
-  try {
-    line = await discoverBeaCorePceLine(key, config);
-  } catch (err) {
-    throw new Error(`BEA line discovery failed (tables=${(config.tableCandidates || []).join("|")}, needles=${(config.lineDescriptionNeedles || []).join("|")}): ${err.message}`);
-  }
-  log(`  bea: using table ${line.tableName} line ${line.lineNumber} — "${line.description}"`);
-  let observations;
-  try {
-    observations = await getBeaNipaSeries(key, line.tableName, line.lineNumber);
-  } catch (err) {
-    throw new Error(`BEA GetData failed (table=${line.tableName}, line=${line.lineNumber}): ${err.message}`);
-  }
-  if (!observations.length) {
-    throw new Error(`BEA returned zero observations (table=${line.tableName}, line=${line.lineNumber}). Check NIPA frequency support.`);
-  }
-  const prepared = prepareSeries(observations, config.transform);
-  return buildUpdateFromSeries(id, config, prepared);
-}
-
-async function fetchCensusUpdate(id, config) {
-  const key = requireEnv("CENSUS_API_KEY");
-  let observations;
-  try {
-    observations = await getCensusMartsSeries(key, config);
-  } catch (err) {
-    const ctx = `dataset=${config.dataset}, category_code=${config.params?.category_code}, data_type_code=${config.params?.data_type_code}`;
-    throw new Error(`Census MARTS failed (${ctx}): ${err.message}`);
-  }
-  if (!observations.length) {
-    throw new Error(`Census MARTS returned zero usable rows for category_code=${config.params?.category_code}. Check that data_type_code/seasonally_adj are valid for this dataset.`);
-  }
-  log(`  census: ${observations.length} observation(s), latest ${observations[observations.length - 1].date}`);
   const prepared = prepareSeries(observations, config.transform);
   return buildUpdateFromSeries(id, config, prepared);
 }
@@ -442,101 +393,6 @@ async function getBlsSeries(seriesIds, apiKey, startYear, endYear) {
       .sort((a, b) => a.date.localeCompare(b.date));
   }
   return out;
-}
-
-async function discoverBeaCorePceLine(apiKey, config) {
-  const needles = config.lineDescriptionNeedles || [];
-  const triedSummaries = [];
-  for (const tableName of config.tableCandidates || []) {
-    const url = new URL("https://apps.bea.gov/api/data");
-    url.searchParams.set("UserID", apiKey);
-    url.searchParams.set("method", "GETPARAMETERVALUESFILTERED");
-    url.searchParams.set("datasetname", "NIPA");
-    url.searchParams.set("TargetParameter", "LineNumber");
-    url.searchParams.set("TableName", tableName);
-    url.searchParams.set("Frequency", "M");
-    url.searchParams.set("ResultFormat", "JSON");
-
-    const json = await fetchJson(url);
-    assertBeaNoApiError(json, `discovery table=${tableName}`);
-    const values = json.BEAAPI?.Results?.ParamValue || [];
-    triedSummaries.push(`${tableName}:${values.length}lines`);
-    const match = values.find((v) => {
-      const desc = String(v.Desc || v.Description || v.LineDescription || "").toLowerCase();
-      return needles.some((needle) => desc.includes(needle));
-    });
-    if (match) {
-      return { tableName, lineNumber: String(match.Key || match.LineNumber || match.Value), description: match.Desc || match.Description || "" };
-    }
-  }
-  throw new Error(`No matching line description found. Tried [${triedSummaries.join(", ")}]`);
-}
-
-async function getBeaNipaSeries(apiKey, tableName, lineNumber) {
-  const url = new URL("https://apps.bea.gov/api/data");
-  url.searchParams.set("UserID", apiKey);
-  url.searchParams.set("method", "GetData");
-  url.searchParams.set("datasetname", "NIPA");
-  url.searchParams.set("TableName", tableName);
-  url.searchParams.set("LineNumber", lineNumber);
-  url.searchParams.set("Frequency", "M");
-  url.searchParams.set("Year", "X");
-  url.searchParams.set("ResultFormat", "JSON");
-
-  const json = await fetchJson(url);
-  assertBeaNoApiError(json, `GetData table=${tableName} line=${lineNumber}`);
-  const rows = json.BEAAPI?.Results?.Data || [];
-  return rows
-    .map((r) => ({
-      date: normalizeBeaPeriod(r.TimePeriod),
-      value: Number(String(r.DataValue || "").replace(/,/g, ""))
-    }))
-    .filter((r) => r.date && Number.isFinite(r.value))
-    .sort((a, b) => a.date.localeCompare(b.date));
-}
-
-// BEA returns HTTP 200 with an Error object inside BEAAPI.Results when keys,
-// table names, or parameters are wrong. Surfacing that as a real error makes
-// failures diagnosable instead of looking like "0 observations".
-function assertBeaNoApiError(json, ctx) {
-  const results = json?.BEAAPI?.Results;
-  const errArr = Array.isArray(results) ? results : (results ? [results] : []);
-  for (const r of errArr) {
-    if (r && r.Error) {
-      const desc = r.Error.APIErrorDescription || r.Error.APIErrorDescription_ || r.Error.ErrorDetail?.Description || JSON.stringify(r.Error);
-      throw new Error(`BEAAPI error (${ctx}): ${desc}`);
-    }
-  }
-  if (json?.BEAAPI?.Error) {
-    throw new Error(`BEAAPI envelope error (${ctx}): ${JSON.stringify(json.BEAAPI.Error).slice(0, 200)}`);
-  }
-}
-
-async function getCensusMartsSeries(apiKey, config) {
-  const url = new URL(`https://api.census.gov/data/${config.dataset}`);
-  Object.entries(config.params).forEach(([k, v]) => url.searchParams.set(k, v));
-  url.searchParams.set("time", "from 2015-01");
-  url.searchParams.set("key", apiKey);
-
-  const rows = await fetchJson(url);
-  if (!Array.isArray(rows)) {
-    throw new Error(`response was not an array (got ${typeof rows}); endpoint may have returned an error envelope`);
-  }
-  if (rows.length < 2) throw new Error("returned no data rows (only header)");
-  const header = rows[0];
-  const cellIdx = header.indexOf("cell_value");
-  const timeIdx = header.indexOf("time_slot_id") >= 0 ? header.indexOf("time_slot_id") : header.indexOf("time");
-  if (cellIdx < 0 || timeIdx < 0) {
-    throw new Error(`response missing expected columns (header=[${header.join(", ")}])`);
-  }
-
-  return rows.slice(1)
-    .map((r) => ({
-      date: normalizeMonth(String(r[timeIdx])),
-      value: Number(String(r[cellIdx]).replace(/,/g, ""))
-    }))
-    .filter((r) => r.date && Number.isFinite(r.value))
-    .sort((a, b) => a.date.localeCompare(b.date));
 }
 
 function prepareSeries(observations, transform) {
@@ -646,14 +502,21 @@ function assertEditorialPreserved(before, after) {
 // Warn (never fail) when any auto-fetched signal's latest observation date is
 // older than its expected cadence allows. Runs against the post-merge state,
 // so it also catches signals whose fetch failed and stuck on last-known-good.
-// Output is parseable from Actions logs: lines start with "⚠ FRESHNESS:".
-function runFreshnessGuard(data) {
+// Output is parseable from Actions logs: lines start with "⚠ FRESHNESS:" or
+// "⚠ FETCH FAILURE:". A signal that failed to fetch this run is always flagged,
+// even if last_known_good has a recent timestamp.
+function runFreshnessGuard(data, failedIds = new Set()) {
   const today = new Date();
   const stale = [];
   for (const id of AUTO_SIGNAL_IDS) {
     const config = SIGNAL_CONFIG[id];
     const signal = (data.signals || []).find((s) => s.id === id);
     if (!signal || !config?.cadence) continue;
+    if (failedIds.has(id)) {
+      log(`⚠ FETCH FAILURE: ${id} failed this run; last_updated=${signal.last_updated || "n/a"} kept (last-known-good)`);
+      stale.push(id);
+      continue;
+    }
     const threshold = FRESHNESS_THRESHOLD_DAYS[config.cadence];
     if (!threshold) continue;
     const lastUpdatedRaw = signal.last_updated;
@@ -724,13 +587,6 @@ function normalizeMonth(s) {
   const compact = str.match(/^(\d{4})(\d{2})$/);
   if (compact) return `${compact[1]}-${compact[2]}`;
   return null;
-}
-
-function normalizeBeaPeriod(s) {
-  const str = String(s || "");
-  const m = str.match(/^(\d{4})M(\d{1,2})$/);
-  if (m) return `${m[1]}-${m[2].padStart(2, "0")}`;
-  return normalizeMonth(str);
 }
 
 function normalizeLastUpdated(date) {
