@@ -54,6 +54,14 @@
     neutral: "cmp-tone-neutral"
   };
 
+  // Diffusion-index signals are centered at 0 (growth vs contraction), not
+  // PMI's 50. A quiet scale note clarifies this near the current value.
+  // Applies ONLY to these signals.
+  const ACTIVITY_SCALE_NOTE = {
+    "mfg-activity":      "0 = neutral \u00b7 above = growth, below = contraction",
+    "services-activity": "0 = neutral \u00b7 above = growth, below = contraction"
+  };
+
   const STALE_AFTER_DAYS_BY_SIGNAL = {
     "10y-treasury": 3,
     "fed-net-liquidity": 15,
@@ -104,6 +112,16 @@
     return Math.floor((today - d) / 86400000);
   }
 
+  // Format an ISO date "2026-05-28" as "May 28, 2026". Returns "" if invalid.
+  function fmtLongDate(iso) {
+    if (!iso || !/^\d{4}-\d{2}-\d{2}/.test(iso)) return "";
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const y = iso.slice(0, 4);
+    const m = parseInt(iso.slice(5, 7), 10);
+    const d = parseInt(iso.slice(8, 10), 10);
+    return months[m - 1] + " " + d + ", " + y;
+  }
+
   /* ---------- inline SVG helpers ---------- */
   function arrowSVG() {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 H19 M13 6 L19 12 L13 18"/></svg>';
@@ -118,6 +136,25 @@
     }
     // flat
     return '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8 H13 M10 5 L13 8 L10 11"/></svg>';
+  }
+
+  /* =====================================================================
+     RENDER: data freshness line
+     Derived on load from the most recent last_updated across all signals,
+     independent of the weekly-note date. Updates from data, not by hand.
+     ===================================================================== */
+  function renderFreshness(signals) {
+    const el = $("#pulse-freshness");
+    if (!el) return;
+    const dates = (signals || [])
+      .map((s) => s && s.last_updated)
+      .filter((v) => v && /^\d{4}-\d{2}-\d{2}/.test(v))
+      .sort();
+    const latest = dates.length ? dates[dates.length - 1] : "";
+    const label = fmtLongDate(latest);
+    if (!label) { el.hidden = true; return; }
+    el.textContent = "Signals refreshed \u00b7 " + label;
+    el.hidden = false;
   }
 
   /* =====================================================================
@@ -472,6 +509,19 @@
     // current value
     $("#px-current-val").textContent = signal.current_value || "—";
     $("#px-current-unit").textContent = signal.current_unit || "";
+
+    // diffusion-index scale note — only for the two activity signals
+    const scaleEl = $("#px-scale-note");
+    if (scaleEl) {
+      const note = ACTIVITY_SCALE_NOTE[signal.id];
+      if (note) {
+        scaleEl.textContent = note;
+        scaleEl.hidden = false;
+      } else {
+        scaleEl.textContent = "";
+        scaleEl.hidden = true;
+      }
+    }
 
     // reference point — the comparison line that makes the value meaningful
     const refEl = $("#px-reference");
@@ -1074,6 +1124,7 @@
     DATA = data;
 
     renderWeeklyNote(data.weekly_note);
+    renderFreshness(data.signals);
     renderWeeklyConnection(data.weekly_connection);
     renderWhatsChanged(data.whats_changed);
 

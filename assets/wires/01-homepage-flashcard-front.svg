@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <pattern id="paper1" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#paper1)"/>
+
+  <text x="40" y="56" class="h" font-size="34" fill="#2d2620">ProductSnap · Home (front of flashcard)</text>
+  <text x="40" y="84" class="b" font-size="16" fill="#6b6356">v0.3 wireframe · early sketch · pre-build</text>
+  <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+  <g transform="translate(220 130)">
+    <path class="px" d="M 6 6 Q 0 0 24 0 L 416 0 Q 440 0 440 24 L 440 836 Q 440 860 416 860 L 24 860 Q 0 860 0 836 L 0 24 Q 0 6 6 6 Z"/>
+
+    <text x="20" y="28" class="b ghost" font-size="13">12:24</text>
+    <text x="380" y="28" class="b ghost" font-size="13">wifi · 65%</text>
+    <line x1="14" y1="42" x2="426" y2="42" class="px-l"/>
+
+    <text x="20" y="74" class="b ink" font-size="22">≡</text>
+    <text x="160" y="74" class="h" font-size="28" fill="#d6477c">ProductSnap</text>
+    <circle cx="412" cy="64" r="14" class="px-l"/>
+    <text x="404" y="70" class="b" font-size="14" fill="#c69200">☾</text>
+    <line x1="14" y1="92" x2="426" y2="92" class="px-l"/>
+
+    <text x="60" y="128" class="h" font-size="24">Good afternoon ·</text>
+    <text x="260" y="128" class="h" font-size="24">Sat, May 2</text>
+    <text x="50" y="156" class="b ghost" font-size="14">"Done is better than perfect."  — Sheryl Sandberg</text>
+
+    <g transform="translate(36 184)">
+      <path class="px" d="M 4 12 Q 0 0 20 0 L 348 0 Q 368 0 368 20 L 368 484 Q 368 504 348 504 L 20 504 Q 0 504 0 484 L 0 20 Q 0 4 4 12 Z"/>
+      <g stroke="#b9aedb" stroke-width="0.8" opacity="0.55">
+        <line x1="10" y1="20" x2="358" y2="20"/>
+        <line x1="10" y1="35" x2="358" y2="35"/>
+        <line x1="10" y1="50" x2="358" y2="50"/>
+        <line x1="10" y1="65" x2="358" y2="65"/>
+        <line x1="10" y1="80" x2="358" y2="80"/>
+        <line x1="10" y1="450" x2="358" y2="450"/>
+        <line x1="10" y1="465" x2="358" y2="465"/>
+        <line x1="10" y1="480" x2="358" y2="480"/>
+      </g>
+
+      <circle cx="334" cy="36" r="16" class="px-l" fill="#fdfaf0"/>
+      <path d="M328 30 L328 46 L334 42 L340 46 L340 30 Z" stroke="#2d2620" stroke-width="1.4" fill="none"/>
+
+      <rect x="60" y="80" width="248" height="34" rx="17" class="px-l" fill="#fdfaf0"/>
+      <text x="184" y="103" text-anchor="middle" class="b ink" font-size="13" font-weight="700">PRIORITIZATION &amp; ROADMAPPING</text>
+
+      <text x="184" y="240" text-anchor="middle" font-size="42">⚡</text>
+
+      <text x="184" y="296" text-anchor="middle" class="h" font-size="26" fill="#3a3128">What is the Impact vs. Effort</text>
+      <text x="184" y="326" text-anchor="middle" class="h" font-size="26" fill="#3a3128">Matrix and when is it most</text>
+      <text x="184" y="356" text-anchor="middle" class="h" font-size="26" fill="#3a3128">useful?</text>
+
+      <text x="100" y="450" class="b ghost" font-size="13">👆 Tap card to reveal</text>
+      <rect x="278" y="436" width="64" height="22" rx="11" class="px-l" fill="#fdfaf0"/>
+      <text x="310" y="452" text-anchor="middle" class="b ghost" font-size="12">1 / 108</text>
+    </g>
+
+    <g transform="translate(120 712)">
+      <circle cx="14" cy="14" r="14" class="px-l" fill="#fdfaf0"/>
+      <text x="14" y="20" text-anchor="middle" class="b ink" font-size="16">‹</text>
+      <rect x="50" y="0" width="100" height="28" rx="14" class="px-l" fill="#fdfaf0"/>
+      <text x="100" y="20" text-anchor="middle" class="b ink" font-size="13">1 / 108</text>
+      <circle cx="186" cy="14" r="14" class="px-l" fill="#fdfaf0"/>
+      <text x="186" y="20" text-anchor="middle" class="b ink" font-size="16">›</text>
+    </g>
+
+    <g transform="translate(108 752)">
+      <path class="px" d="M 4 4 Q 0 0 14 0 L 210 0 Q 224 0 224 14 L 224 44 Q 224 58 210 58 L 14 58 Q 0 58 0 44 L 0 14 Q 0 4 4 4 Z" fill="#e7e1fb"/>
+      <text x="112" y="36" text-anchor="middle" class="b" font-size="16" font-weight="700" fill="#5a4ec7">👆  Reveal Answer</text>
+    </g>
+
+    <line x1="14" y1="816" x2="426" y2="816" class="px-l"/>
+    <g class="b" font-size="11" fill="#6b6356">
+      <text x="42" y="852" text-anchor="middle">🏠</text><text x="42" y="868" text-anchor="middle" fill="#6b5fd6">Home</text>
+      <text x="124" y="852" text-anchor="middle">📚</text><text x="124" y="868" text-anchor="middle">Browse</text>
+      <text x="220" y="852" text-anchor="middle">🏋</text><text x="220" y="868" text-anchor="middle">Gym</text>
+      <text x="316" y="852" text-anchor="middle">📰</text><text x="316" y="868" text-anchor="middle">Stories</text>
+      <text x="398" y="852" text-anchor="middle">📈</text><text x="398" y="868" text-anchor="middle">Progress</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 280)">
+    <text class="annot" font-size="22" x="0" y="0">handwritten</text>
+    <text class="annot" font-size="22" x="0" y="26">greeting +</text>
+    <text class="annot" font-size="22" x="0" y="52">daily quote.</text>
+    <text class="b ink" font-size="13" x="0" y="74">sets a warm, personal</text>
+    <text class="b ink" font-size="13" x="0" y="90">tone — not a dashboard.</text>
+    <path class="annot-line" d="M 130 60 Q 180 90 230 70"/>
+    <polygon points="232,68 222,68 226,76" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(40 480)">
+    <text class="annot" font-size="22" x="0" y="0">ONE card</text>
+    <text class="annot" font-size="22" x="0" y="26">at a time.</text>
+    <text class="b ink" font-size="13" x="0" y="48">no infinite scroll.</text>
+    <text class="b ink" font-size="13" x="0" y="64">forces focus + recall.</text>
+    <text class="b ink" font-size="13" x="0" y="80">→ feels like a deck,</text>
+    <text class="b ink" font-size="13" x="0" y="96">  not a feed.</text>
+    <path class="annot-line" d="M 130 30 Q 180 80 240 130"/>
+    <polygon points="242,128 234,124 234,132" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 360)">
+    <rect x="0" y="0" width="170" height="120" class="sticky" transform="rotate(3)"/>
+    <g transform="rotate(3)">
+      <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">Question side</text>
+      <text x="14" y="52" class="b" font-size="13" fill="#3a3128">gradient bg, big</text>
+      <text x="14" y="70" class="b" font-size="13" fill="#3a3128">handwritten Q,</text>
+      <text x="14" y="88" class="b" font-size="13" fill="#3a3128">bolt = "snap"</text>
+      <text x="14" y="106" class="b" font-size="13" fill="#3a3128">moment of judgment.</text>
+    </g>
+    <path class="annot-line" d="M -10 60 Q -50 80 -90 80"/>
+    <polygon points="-92,80 -84,76 -84,84" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 740)">
+    <text class="annot" font-size="22" x="0" y="0">PRIMARY action</text>
+    <text class="b ink" font-size="13" x="0" y="24">whole screen earns</text>
+    <text class="b ink" font-size="13" x="0" y="40">this single tap.</text>
+    <text class="b ink" font-size="13" x="0" y="56">card itself is also</text>
+    <text class="b ink" font-size="13" x="0" y="72">tappable (redundant).</text>
+    <path class="annot-line" d="M -10 0 Q -50 10 -100 50"/>
+    <polygon points="-102,50 -94,44 -94,54" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 940)">
+    <text class="annot" font-size="22" x="0" y="0">5-tab nav</text>
+    <text class="b ink" font-size="13" x="0" y="24">Home / Browse / Gym /</text>
+    <text class="b ink" font-size="13" x="0" y="40">Stories / Progress.</text>
+    <text class="b ink" font-size="13" x="0" y="56">emoji icons keep it</text>
+    <text class="b ink" font-size="13" x="0" y="72">warm + sketchbook-y.</text>
+    <path class="annot-line" d="M -10 4 Q -60 0 -110 -6"/>
+    <polygon points="-112,-6 -104,-10 -104,-2" fill="#c44569"/>
+  </g>
+
+  <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+  <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">screen 01 / 06</text>
+</svg>

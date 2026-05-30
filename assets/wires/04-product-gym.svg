@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <pattern id="paper4" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#paper4)"/>
+
+  <text x="40" y="56" class="h" font-size="34" fill="#2d2620">ProductSnap · Product Gym (PM reps)</text>
+  <text x="40" y="84" class="b" font-size="16" fill="#6b6356">v0.3 wireframe · practice as a metaphor, not a leaderboard</text>
+  <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+  <g transform="translate(220 130)">
+    <path class="px" d="M 6 6 Q 0 0 24 0 L 416 0 Q 440 0 440 24 L 440 836 Q 440 860 416 860 L 24 860 Q 0 860 0 836 L 0 24 Q 0 6 6 6 Z"/>
+
+    <text x="20" y="28" class="b ghost" font-size="13">12:25</text>
+    <text x="380" y="28" class="b ghost" font-size="13">wifi · 64%</text>
+    <line x1="14" y1="42" x2="426" y2="42" class="px-l"/>
+
+    <text x="20" y="74" class="b ink" font-size="22">≡</text>
+    <text x="160" y="74" class="b ink" font-size="22" font-weight="700">🏋  Product Gym</text>
+    <circle cx="412" cy="64" r="14" class="px-l"/>
+    <text x="404" y="70" class="b" font-size="14" fill="#c69200">☾</text>
+    <line x1="14" y1="92" x2="426" y2="92" class="px-l"/>
+
+    <g transform="translate(20 116)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 158 Q 400 172 386 172 L 14 172 Q 0 172 0 158 L 0 14 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+      <text x="200" y="48" text-anchor="middle" class="h" font-size="30" fill="#2d2620">Five quick PM reps</text>
+      <text x="200" y="78" text-anchor="middle" class="b ink" font-size="14">Practice product judgment in bite-sized sets</text>
+      <rect x="32" y="106" width="120" height="38" rx="19" class="px-l" fill="#fff3d6"/>
+      <text x="92" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#8a5e10">🏋 112 questions</text>
+      <rect x="160" y="106" width="100" height="38" rx="19" class="px-l" fill="#e3f5e3"/>
+      <text x="210" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2a7a4a">⚡ 5 per set</text>
+      <rect x="270" y="106" width="118" height="38" rx="19" class="px-l" fill="#d9f1ff"/>
+      <text x="329" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2870a0">💡 Review misses</text>
+    </g>
+
+    <text x="20" y="320" class="b ghost" font-size="12" font-weight="700">SET 1 · 2/5 ANSWERED</text>
+
+    <g transform="translate(20 336)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 96 Q 400 110 386 110 L 14 110 Q 0 110 0 96 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="110" fill="#6b5fd6"/>
+      <text x="20" y="32" class="h" font-size="22" fill="#2d2620">Frameworks &amp; Models</text>
+      <text x="240" y="32" class="b ghost" font-size="13">+20 reps</text>
+      <rect x="296" y="14" width="92" height="28" rx="14" fill="#ffe1ec" stroke="#c43360" stroke-width="1"/>
+      <text x="342" y="33" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#c43360">💡 Review</text>
+      <text x="20" y="60" class="b ink" font-size="13">1. Jobs to Be Done (JTBD) theory says</text>
+      <text x="20" y="78" class="b ink" font-size="13">customers 'hire' products. What does this</text>
+      <text x="20" y="96" class="b ink" font-size="13">mean for competitive analysis?</text>
+    </g>
+
+    <g transform="translate(20 460)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 96 Q 400 110 386 110 L 14 110 Q 0 110 0 96 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="110" fill="#d4b85e"/>
+      <text x="20" y="32" class="h" font-size="22" fill="#2d2620">Discovery &amp; Ideas</text>
+      <text x="240" y="32" class="b ghost" font-size="13">+20 reps</text>
+      <rect x="328" y="14" width="62" height="28" rx="14" class="px-l" fill="#fdfaf0"/>
+      <text x="359" y="33" text-anchor="middle" class="b" font-size="13" fill="#2d2620">Start</text>
+      <text x="20" y="60" class="b ink" font-size="13">2. 7 of 8 interviewed customers say "I'd</text>
+      <text x="20" y="78" class="b ink" font-size="13">definitely pay for this!" What's your next</text>
+      <text x="20" y="96" class="b ink" font-size="13">move?</text>
+    </g>
+
+    <g transform="translate(20 584)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 96 Q 400 110 386 110 L 14 110 Q 0 110 0 96 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="110" fill="#d6477c"/>
+      <text x="20" y="32" class="h" font-size="22" fill="#2d2620">Product Strategy</text>
+      <text x="240" y="32" class="b ghost" font-size="13">+20 reps</text>
+      <rect x="328" y="14" width="62" height="28" rx="14" class="px-l" fill="#fdfaf0"/>
+      <text x="359" y="33" text-anchor="middle" class="b" font-size="13" fill="#2d2620">Start</text>
+      <text x="20" y="60" class="b ink" font-size="13">3. Amazon's 'Working Backwards' process</text>
+      <text x="20" y="78" class="b ink" font-size="13">starts product development with…</text>
+    </g>
+
+    <g transform="translate(20 708)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 78 L 0 78 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="78" fill="#2da7a0"/>
+      <text x="20" y="32" class="h" font-size="22" fill="#2d2620">AI Agents &amp; Multimodal</text>
+      <text x="20" y="58" class="h" font-size="22" fill="#2d2620">Systems</text>
+      <text x="240" y="32" class="b ghost" font-size="13">+20 reps</text>
+      <rect x="328" y="14" width="62" height="28" rx="14" class="px-l" fill="#fdfaf0"/>
+      <text x="359" y="33" text-anchor="middle" class="b" font-size="13" fill="#2d2620">Start</text>
+    </g>
+
+    <line x1="14" y1="816" x2="426" y2="816" class="px-l"/>
+    <g class="b" font-size="11" fill="#6b6356">
+      <text x="42" y="852" text-anchor="middle">🏠</text><text x="42" y="868" text-anchor="middle">Home</text>
+      <text x="124" y="852" text-anchor="middle">📚</text><text x="124" y="868" text-anchor="middle">Browse</text>
+      <text x="220" y="852" text-anchor="middle">🏋</text><text x="220" y="868" text-anchor="middle" fill="#6b5fd6">Gym</text>
+      <text x="316" y="852" text-anchor="middle">📰</text><text x="316" y="868" text-anchor="middle">Stories</text>
+      <text x="398" y="852" text-anchor="middle">📈</text><text x="398" y="868" text-anchor="middle">Progress</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 200)">
+    <text class="annot" font-size="22" x="0" y="0">"reps" not</text>
+    <text class="annot" font-size="22" x="0" y="26">"questions"</text>
+    <text class="b ink" font-size="13" x="0" y="50">borrowing the gym</text>
+    <text class="b ink" font-size="13" x="0" y="66">metaphor: small</text>
+    <text class="b ink" font-size="13" x="0" y="82">consistent effort</text>
+    <text class="b ink" font-size="13" x="0" y="98">builds judgment.</text>
+    <text class="b ink" font-size="13" x="0" y="118">5 / set keeps it</text>
+    <text class="b ink" font-size="13" x="0" y="134">non-intimidating.</text>
+    <path class="annot-line" d="M 130 70 Q 180 90 230 70"/>
+    <polygon points="232,68 222,68 226,76" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 380)">
+    <rect x="0" y="0" width="180" height="130" class="sticky" transform="rotate(-3)"/>
+    <g transform="rotate(-3)">
+      <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">"Review" pill</text>
+      <text x="14" y="50" class="b" font-size="13" fill="#3a3128">card you got wrong</text>
+      <text x="14" y="66" class="b" font-size="13" fill="#3a3128">resurfaces — but quietly.</text>
+      <text x="14" y="90" class="b" font-size="12" fill="#3a3128">no streak counter,</text>
+      <text x="14" y="106" class="b" font-size="12" fill="#3a3128">no shame language.</text>
+    </g>
+    <path class="annot-line" d="M -10 60 Q -50 70 -90 60"/>
+    <polygon points="-92,60 -84,56 -84,64" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(40 600)">
+    <text class="annot" font-size="22" x="0" y="0">stacked cards =</text>
+    <text class="annot" font-size="22" x="0" y="26">visible progress</text>
+    <text class="b ink" font-size="13" x="0" y="50">you can see the next</text>
+    <text class="b ink" font-size="13" x="0" y="66">3 reps before you start.</text>
+    <text class="b ink" font-size="13" x="0" y="82">expectations set up front.</text>
+    <path class="annot-line" d="M 170 30 Q 200 50 230 60"/>
+    <polygon points="232,60 224,56 224,64" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 780)">
+    <text class="annot" font-size="22" x="0" y="0">category colours</text>
+    <text class="b ink" font-size="13" x="0" y="22">same spine system as</text>
+    <text class="b ink" font-size="13" x="0" y="38">bookmarks — coherent.</text>
+    <text class="b ink" font-size="13" x="0" y="58">user learns the colour</text>
+    <text class="b ink" font-size="13" x="0" y="74">language across the app.</text>
+    <path class="annot-line" d="M -10 30 Q -60 0 -110 -40"/>
+    <polygon points="-112,-40 -104,-44 -104,-36" fill="#c44569"/>
+  </g>
+
+  <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+  <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">screen 04 / 06</text>
+</svg>

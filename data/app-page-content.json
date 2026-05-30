@@ -1,0 +1,132 @@
+{
+  "hero": {
+    "title": "ProductSnap",
+    "sub": "A mobile learning app for product managers. Flashcards, real product stories, practice reps, and forward-looking PM signals — built around one idea: PMs don’t need more content, they need better judgment.",
+    "status_lines": [
+      "iOS · live on the App Store · May 28, 2026",
+      "Google Play · in review"
+    ],
+    "status_note": "Build 9 is the release candidate.",
+    "margin_note": "Not a concept. A real app in store review right now.",
+    "cta_primary": { "label": "Join the launch list", "href": "#launch-list" },
+    "cta_secondary": { "label": "See how it was built", "href": "#how" },
+    "store_note": "The App Store link is live. Google Play is still working through review."
+  },
+  "modules": [
+    {
+      "icon": "🏠",
+      "name": "Home · Flashcards",
+      "desc": "Daily reps. One card at a time, spaced enough to stick.",
+      "screenshot": "assets/screens/01-ProductSnap-Home-FlashCardAns.jpg",
+      "alt": "Home flashcard screen with WHAT, WHY IT MATTERS, and a real example."
+    },
+    {
+      "icon": "📚",
+      "name": "Browse Topics",
+      "desc": "9 categories, 108 concepts. Color-coded for muscle memory.",
+      "screenshot": "assets/screens/03-ProductSnap-BrowseTopics.jpg",
+      "alt": "Browse Topics with categories like Strategy, Discovery, AI Agents."
+    },
+    {
+      "icon": "🏋",
+      "name": "Product Gym",
+      "desc": "Quick PM reps: five questions per set, real-time feedback.",
+      "screenshot": "assets/screens/05-ProductSnap-Gym.jpg",
+      "alt": "Product Gym home with five-rep sets."
+    },
+    {
+      "icon": "📰",
+      "name": "Product Stories",
+      "desc": "Real product decisions broken into PROBLEM → MOVE → RESULT → TAKEAWAY.",
+      "screenshot": "assets/screens/07-ProductSnap-Stories.jpg",
+      "alt": "Product Stories list view."
+    },
+    {
+      "icon": "🔭",
+      "name": "Future PM",
+      "desc": "Forward-looking trend cards: what’s happening, why PMs should care, what it could look like.",
+      "screenshot": "assets/screens/09-ProductSnap-FuturePM.jpg",
+      "alt": "Future PM trend list."
+    },
+    {
+      "icon": "📈",
+      "name": "My Progress",
+      "desc": "PM Muscle Score, learning momentum, contextual ‘what to do next’.",
+      "screenshot": "assets/screens/12-ProductSnap-MyProgress01.jpg",
+      "alt": "My Progress dashboard."
+    }
+  ],
+  "flashcard": {
+    "category": "PRIORITIZATION & ROADMAPPING",
+    "counter": "1 / 108",
+    "front_emoji": "⚡",
+    "question": "What is the Impact vs. Effort Matrix and when is it most useful?",
+    "front_hint": "Tap card to reveal",
+    "answer": {
+      "what": "An Impact vs. Effort Matrix plots ideas by expected user or business value against the work required to deliver them.",
+      "why": "It quickly exposes quick wins, big bets, distractions, and time-wasters. Use it when teams need fast alignment, not perfect math.",
+      "example": "A team ships a copy fix that improves checkout clarity before starting a multi-month redesign with uncertain payoff. Sequence wisely."
+    },
+    "footer_note": "This exact card lives in the app. The full deck has 108 of them, across 9 categories."
+  },
+  "build": {
+    "timeline": [
+      {
+        "tool": "Claude Cowork",
+        "date": "March 2026",
+        "note": "Started here. Generated the first HTML prototypes — homepage, flashcard mockups, browse view. Hit the limit of what static HTML could do, but it was the right place to figure out what the app even wanted to be."
+      },
+      {
+        "tool": "Perplexity Computer",
+        "date": "April – May 2026",
+        "note": "Switched here once I needed real cross-platform React Native. Faster visual iteration loop. Most of the actual app got built in this stretch."
+      },
+      {
+        "tool": "Claude Code",
+        "date": "throughout",
+        "note": "Used in parallel for code review, sanity checks, and brainstorming when Perplexity output needed a second opinion. Not where the building happened — where the questioning happened."
+      },
+      {
+        "tool": "Grok + ChatGPT",
+        "date": "throughout",
+        "note": "The research stack. What should this app actually be? What’s the right content shape for a PM flashcard? Which categories matter? These were the tools I argued with while figuring out the product."
+      }
+    ],
+    "qa_stack": [
+      { "icon": "📱", "name": "Samsung S24 Ultra", "note": "primary daily driver" },
+      { "icon": "📱", "name": "iPhone 16 Pro Max", "note": "borrowed from family" },
+      { "icon": "🔥", "name": "Firebase Test Lab", "note": "automated device-matrix testing" },
+      { "icon": "🧪", "name": "Prime Test Lab", "note": "third-party manual QA" }
+    ],
+    "builds": [
+      { "id": "4e", "note": "first end-to-end build" },
+      { "id": "4f", "note": "flashcard interactions" },
+      { "id": "4g", "note": "Product Gym scoring" },
+      { "id": "4h", "note": "Future PM detail screens" },
+      { "id": "4i", "note": "responsiveness fixes" },
+      { "id": "--note--", "marker": "+ builds 5, 6, 7, 8 along the way — each one a smaller fix or a polish pass" },
+      { "id": "9",  "note": "the build that went live on the App Store · May 28, 2026" }
+    ]
+  },
+  "wireframes": [
+    { "src": "assets/wires/01-homepage-flashcard-front.jpg", "caption": "Homepage · flashcard front. Notes: one card at a time, no infinite scroll." },
+    { "src": "assets/wires/02-homepage-flashcard-back.jpg", "caption": "Homepage · flashcard back. WHAT / WHY / EXAMPLE structure decided here." },
+    { "src": "assets/wires/03-bookmarks.jpg", "caption": "Bookmarks. Saved cards live alongside saved stories." },
+    { "src": "assets/wires/04-product-gym.jpg", "caption": "Product Gym. Reps, not questions. Stacked cards as visible progress." },
+    { "src": "assets/wires/05-product-stories.jpg", "caption": "Product Stories. PROBLEM → MOVE → RESULT → TAKEAWAY laid out as a story, not a card." },
+    { "src": "assets/wires/06-future-pm.jpg", "caption": "Future PM. Three lenses on every trend. Deep link into trend detail." }
+  ],
+  "hard_parts": [
+    "Responsive layouts across devices — flashcards rendering well on a Pixel and an iPhone Pro Max are different problems.",
+    "Being your own QA at 11 PM on a Sunday.",
+    "Store submission — every screenshot, copy line, age rating, and content compliance form is its own small project.",
+    "Knowing when to stop iterating. Build 4e → 4i → 9 is a lot of rebuilds."
+  ],
+  "whats_next": [
+    { "tag": "v1.1", "note": "Firebase Analytics + Crashlytics, content refinement." },
+    { "tag": "v1.5", "note": "Personalization (cards recommended from engagement), smarter review prompts, streaks." },
+    { "tag": "v2.0", "note": "Macro Product Insights — the Pulse layer feeding into the app." },
+    { "tag": "Exploring", "note": "an in-app study assistant that explains a card deeper and quizzes you on the app’s own content.", "tentative": true }
+  ],
+  "learning": "Building this let me ship the things I used to only spec. I’m still learning what the AI actually built on my behalf, where my own judgment mattered most, and where I’d do things differently next time."
+}

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6efe1" />
+
+    <title>ProductSnap Studio — a living notebook for product judgment</title>
+    <meta
+      name="description"
+      content="A living notebook for product judgment. Where product thinking meets live market signals — and turns into things you can actually use. A working notebook from one product person exploring what AI makes possible."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ProductSnap Studio — a living notebook for product judgment" />
+    <meta
+      property="og:description"
+      content="Where product thinking meets live market signals — and turns into things you can actually use."
+    />
+    <meta property="og:site_name" content="ProductSnap Studio" />
+    <meta property="og:url" content="https://productsnap.studio" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ProductSnap Studio" />
+    <meta
+      name="twitter:description"
+      content="A living notebook for product judgment. Built by Jeevan."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="canonical" href="https://productsnap.studio" />
+
+    <!-- Fonts: Caveat / Kalam (handwritten), Inter (body), Fraunces (serif accent) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Paper texture background -->
+    <div class="paper" aria-hidden="true"></div>
+    <div class="paper-dots" aria-hidden="true"></div>
+
+    <!-- Unified top nav — identical chrome on every page (four-route arch) -->
+    <header class="topnav">
+      <a href="index.html" class="brand" aria-label="ProductSnap Studio home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="7" width="22" height="26" rx="2.5" />
+            <path d="M6 13 H28 M6 19 H28 M6 25 H28" stroke-opacity="0.35" stroke-width="1.4" />
+            <circle cx="6" cy="11" r="1.1" />
+            <circle cx="6" cy="17" r="1.1" />
+            <circle cx="6" cy="23" r="1.1" />
+            <circle cx="6" cy="29" r="1.1" />
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z" fill="#fff7df" />
+            <path d="M27 31 h3" stroke-width="2" />
+            <path d="M35 14 l2 -2 M35 22 l2 2 M37 18 h2" stroke-opacity="0.6" stroke-width="1.6" />
+          </svg>
+        </span>
+        <span class="brand-word">
+          <span class="brand-word-1">ProductSnap</span>
+          <span class="brand-word-2">Studio</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav (>760px) -->
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" class="is-active" aria-current="page">Home</a>
+        <a href="app.html">App</a>
+        <a href="pulse.html">Pulse</a>
+        <a href="notes.html">Notes</a>
+      </nav>
+
+      <!-- Mobile menu button (<=760px) -->
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <!-- Mobile nav panel (<=760px) -->
+      <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <a href="index.html" class="is-active" aria-current="page">Home</a>
+        <a href="app.html">App</a>
+        <a href="pulse.html">Pulse</a>
+        <a href="notes.html">Notes</a>
+      </nav>
+    </header>
+
+    <a id="top"></a>
+
+    <main>
+      <!-- ============================================================ -->
+      <!-- HERO                                                           -->
+      <!-- ============================================================ -->
+      <section class="hero section" id="hero">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <span class="margin-label">Notebook entry · 01</span>
+            <h1 class="hero-headline">
+              A <span class="hl-underline">living notebook</span>
+              for product
+              <span class="hl-circle">judgment</span>.
+            </h1>
+            <p class="hero-sub">
+              Where product thinking meets live market signals — and turns into
+              things you can actually use. A working notebook from one product
+              person exploring what AI makes possible.
+            </p>
+            <p class="hero-identity pencil-note">
+              AI finally gave me the ability to build the things I used to only
+              spec. Some days it feels like magic. Most days it feels like
+              learning.
+            </p>
+
+            <div class="cta-row">
+              <a href="pulse.html" class="btn btn-primary">
+                Read this week's Pulse
+                <svg width="18" height="14" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9 H21 M14 2 L21 9 L14 16"/></svg>
+              </a>
+              <a href="app.html" class="btn btn-ghost">Explore the app</a>
+              <a href="notes.html" class="btn btn-link">
+                What I'm reading
+                <span class="link-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <p class="hero-foot pencil-note">
+              <span class="caret">↳</span> Built by <span class="hl-name">Jeevan</span> — a working notebook, not a polished article. The smudges are intentional.
+            </p>
+          </div>
+
+          <div class="hero-right" aria-hidden="false">
+            <div class="sketch-canvas">
+              <!-- Brain / lightbulb hand-drawn SVG (unchanged) -->
+              <svg class="brain-sketch" viewBox="0 0 400 360" fill="none" aria-label="Hand-drawn brain and lightbulb sketch">
+                <defs>
+                  <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" />
+                    <feDisplacementMap in="SourceGraphic" scale="1.4" />
+                  </filter>
+                </defs>
+                <g stroke="#1d1f1d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#rough)">
+                  <path d="M200 60 C 140 60, 110 110, 130 165 C 142 195, 165 205, 168 230 L 232 230 C 235 205, 258 195, 270 165 C 290 110, 260 60, 200 60 Z" />
+                  <path d="M168 235 L 232 235 M172 250 L 228 250 M178 265 L 222 265" />
+                  <path d="M170 140 C 185 120, 215 120, 230 140 C 215 155, 205 145, 200 160 C 195 145, 185 155, 170 140 Z" />
+                  <path d="M165 175 C 180 165, 200 175, 200 185 C 200 195, 220 195, 235 180" stroke-opacity="0.85"/>
+                  <path d="M200 35 L 200 20 M260 60 L 275 45 M140 60 L 125 45 M295 130 L 315 125 M105 130 L 85 125 M285 85 L 305 75 M115 85 L 95 75"
+                        stroke-width="2.4" stroke-opacity="0.85"/>
+                </g>
+                <g fill="#15605a">
+                  <circle cx="318" cy="55" r="2.6" />
+                  <circle cx="82" cy="65" r="2.2" />
+                  <circle cx="330" cy="180" r="2.4" />
+                  <circle cx="70" cy="170" r="2.0" />
+                </g>
+              </svg>
+
+              <!-- Sticky notes — Studio themes -->
+              <div class="sticky sticky-yellow" style="--rot:-7deg; top:6%; left:-2%;">
+                <span class="sticky-pin"></span>
+                Macro signals
+                <small>liquidity · inflation · demand</small>
+              </div>
+              <div class="sticky sticky-pink" style="--rot:5deg; top:0%; right:-1%;">
+                <span class="sticky-pin"></span>
+                Real decisions
+                <small>why companies pivot</small>
+              </div>
+              <div class="sticky sticky-teal" style="--rot:-3deg; top:36%; left:-8%;">
+                <span class="sticky-pin"></span>
+                Product strategy
+                <small>prioritization · tradeoffs</small>
+              </div>
+              <div class="sticky sticky-cream" style="--rot:6deg; top:62%; right:32%;">
+                <span class="sticky-pin"></span>
+                Customer behavior
+                <small>habits · trust · attention</small>
+              </div>
+              <div class="sticky sticky-purple" style="--rot:-4deg; bottom:-2%; left:-2%;">
+                <span class="sticky-pin"></span>
+                Tech shifts
+                <small>AI agents · multimodal · on-device</small>
+              </div>
+              <div class="sticky sticky-yellow" style="--rot:4deg; bottom:-2%; right:-2%;">
+                <span class="sticky-pin"></span>
+                Future PM
+                <small>outcomes, not features</small>
+              </div>
+              <div class="sticky sticky-pink" style="--rot:-9deg; top:36%; right:-2%;">
+                <span class="sticky-pin"></span>
+                Practical learning
+                <small>learn by doing</small>
+              </div>
+
+              <span class="tape tape-1" aria-hidden="true"></span>
+              <span class="tape tape-2" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-hint">
+          <svg viewBox="0 0 60 80" width="46" height="62" fill="none" stroke="#1d1f1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M30 6 C 22 22, 38 38, 28 56" />
+            <path d="M20 50 L 28 60 L 36 50" />
+          </svg>
+          <span class="hand">turn the page</span>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ① THE APP                                                      -->
+      <!-- ============================================================ -->
+      <section class="section home-app" id="app">
+        <div class="section-head">
+          <span class="kicker">the thing I shipped</span>
+          <h2 class="section-title">
+            ProductSnap — <span class="hl-underline">live on the App Store</span>.
+          </h2>
+          <p class="section-lead">
+            A mobile app for product thinkers — flashcards, real product stories,
+            practice reps, and forward-looking PM trends. It went live on the App
+            Store on May 28, 2026 (Android's still working through review). Free,
+            built solo in about twelve weeks, with AI as the whole team. No
+            engineers were harmed; none were hired either.
+          </p>
+        </div>
+
+        <div class="home-app-row">
+          <figure class="home-app-shot">
+            <img
+              src="assets/screens/01-ProductSnap-Home-FlashCardAns.jpg"
+              alt="ProductSnap flashcard answer screen with What, Why It Matters, and a real-world example"
+              loading="lazy" width="540" height="1170" />
+            <figcaption>live on iOS · v1</figcaption>
+          </figure>
+          <div class="home-app-cta">
+            <a href="https://apps.apple.com/us/app/productsnap-pm/id6767971547"
+               class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Download on the App Store
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.6c0-2.3 1.9-3.4 2-3.4-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.6.8-.7 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.9 2.4-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.8 3.1-.8 1.4 0 1.8.8 3.1.8 1.3 0 2.1-1.1 2.9-2.2.9-1.2 1.3-2.4 1.3-2.5 0 0-2.5-1-2.5-3zm-2.4-6c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.3-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.4 2.7-1.1z"/></svg>
+            </a>
+            <a href="app.html" class="btn btn-link">
+              See how it came together
+              <span class="link-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ② PULSE — live hook                                            -->
+      <!-- ============================================================ -->
+      <section class="section home-pulse" id="pulse">
+        <div class="section-head">
+          <span class="kicker">this week, live</span>
+          <h2 class="section-title">
+            Pulse — where <span class="hl-circle">signals</span> become product questions.
+          </h2>
+          <p class="section-lead">
+            AI costs. Hiring trends. Inflation. Consumer behavior. Most people
+            see them separately. Pulse connects them and asks the question that
+            matters most: what should a product team pay attention to next?
+          </p>
+        </div>
+
+        <div class="pulse-live-card" id="home-pulse-live" aria-live="polite">
+          <span class="plc-tape" aria-hidden="true"></span>
+          <span class="plc-eyebrow">this week's weekly connection</span>
+          <h3 class="plc-title" id="home-pulse-title">Loading this week's connection…</h3>
+          <p class="plc-line" id="home-pulse-line"></p>
+          <a href="pulse.html" class="btn btn-link plc-link">
+            Read this week's Pulse
+            <span class="link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ③ WHERE IDEAS START                                            -->
+      <!-- ============================================================ -->
+      <section class="section home-ideas" id="ideas">
+        <div class="section-head">
+          <span class="kicker">where ideas start</span>
+          <h2 class="section-title">
+            Everything here started as a <span class="hl-underline">pencil sketch</span>.
+          </h2>
+          <p class="section-lead">
+            I think on paper first — messy boxes, margin notes, arrows that argue
+            with each other. Before there were screens, there were rough sketches
+            trying to answer the same question: does this actually make sense?
+            Here's a peek at two of them. One became the ProductSnap app. The
+            other became Pulse, after a brief detour where it looked suspiciously
+            like a Bloomberg terminal. The full sketchbooks live on their own pages.
+          </p>
+        </div>
+
+        <div class="ideas-sketches">
+          <figure class="idea-sketch">
+            <a href="app.html" aria-label="See the app's sketches">
+              <img src="assets/wires/01-homepage-flashcard-front.jpg"
+                   alt="Hand-drawn wireframe of the ProductSnap flashcard home screen with margin notes about one card at a time"
+                   loading="lazy" width="1000" height="1180" />
+            </a>
+            <figcaption>the app · one card at a time</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="pulse.html" aria-label="See how Pulse evolved">
+              <img src="assets/wires/pulse-dashboard-to-thinking.svg"
+                   alt="Hand-drawn sketch: a rejected Bloomberg-style dashboard crossed out, then a clean Signal to Meaning to Product question chain"
+                   loading="lazy" width="880" height="1040" />
+            </a>
+            <figcaption>pulse · from terminal to one question</figcaption>
+          </figure>
+        </div>
+
+        <div class="ideas-links">
+          <a href="app.html" class="btn btn-link">the app's sketches <span class="link-arrow" aria-hidden="true">→</span></a>
+          <a href="pulse.html" class="btn btn-link">how Pulse evolved <span class="link-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ④ NOTES                                                        -->
+      <!-- ============================================================ -->
+      <section class="section home-notes" id="notes">
+        <div class="section-head">
+          <span class="kicker">what's on my mind</span>
+          <h2 class="section-title">
+            Notes from the <span class="hl-circle">edge of the map</span>.
+          </h2>
+          <p class="section-lead">
+            Some ideas arrive fully formed. Most don't. This is where I work
+            through them anyway. AI, product strategy, markets, technology, and
+            the occasional idea that refuses to leave me alone. Some notes will be
+            observations. Some will be experiments. A few will be wrong. That's
+            part of the deal. Notes is where the unfinished thinking lives.
+          </p>
+        </div>
+        <p class="notes-link-wrap">
+          <a href="notes.html" class="btn btn-ghost notes-soon-link">
+            explore the notes
+            <span class="link-arrow" aria-hidden="true">→</span>
+            <span class="soon-pill">coming soon</span>
+          </a>
+        </p>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ABOUT STRIP                                                    -->
+      <!-- ============================================================ -->
+      <section class="section about-strip" id="about">
+        <div class="about-card">
+          <p class="about-body">
+            I'm Jeevan. I work in product, and I got curious about what one
+            person could build with AI. So I spent a few months finding out.
+            ProductSnap, Pulse, and this notebook are the result. This site is
+            the receipt.
+          </p>
+          <figure class="atom-doodle" aria-label="A hand-drawn portrait of Atom the dog">
+            <img src="assets/wires/atom.png"
+                 alt="Hand-drawn pencil sketch of Atom, a black Labrador, doing a curious head-tilt"
+                 loading="lazy" width="220" height="220" />
+            <figcaption class="atom-note">Atom — chief morale officer</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer home-footer">
+      <div class="foot-inner">
+        <span class="foot-brand">
+          <svg width="20" height="20" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="7" width="22" height="26" rx="2.5"/>
+            <circle cx="6" cy="14" r="1"/>
+            <circle cx="6" cy="20" r="1"/>
+            <circle cx="6" cy="26" r="1"/>
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z"/>
+          </svg>
+          ProductSnap Studio
+        </span>
+        <p class="foot-line">Made with AI, evenings, and a healthy amount of stubbornness.</p>
+        <p class="foot-contact">
+          Say hi on
+          <a href="https://www.linkedin.com/in/jeevan99" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          or at
+          <a href="mailto:atomszn.ai@gmail.com">atomszn.ai@gmail.com</a><span class="foot-paw" aria-hidden="true">🐾</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

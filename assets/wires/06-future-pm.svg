@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <pattern id="paper6" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#paper6)"/>
+
+  <text x="40" y="56" class="h" font-size="34" fill="#2d2620">ProductSnap · Future PM (what's coming next)</text>
+  <text x="40" y="84" class="b" font-size="16" fill="#6b6356">v0.3 wireframe · signal → interpretation → PM move</text>
+  <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+  <g transform="translate(220 130)">
+    <path class="px" d="M 6 6 Q 0 0 24 0 L 416 0 Q 440 0 440 24 L 440 836 Q 440 860 416 860 L 24 860 Q 0 860 0 836 L 0 24 Q 0 6 6 6 Z"/>
+
+    <text x="20" y="28" class="b ghost" font-size="13">12:27</text>
+    <text x="380" y="28" class="b ghost" font-size="13">wifi · 63%</text>
+    <line x1="14" y1="42" x2="426" y2="42" class="px-l"/>
+
+    <text x="20" y="74" class="b ink" font-size="22">≡</text>
+    <text x="170" y="74" class="b ink" font-size="22" font-weight="700">🔭  Future PM</text>
+    <circle cx="412" cy="64" r="14" class="px-l"/>
+    <text x="404" y="70" class="b" font-size="14" fill="#c69200">☾</text>
+    <line x1="14" y1="92" x2="426" y2="92" class="px-l"/>
+
+    <g transform="translate(20 116)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 158 Q 400 172 386 172 L 14 172 Q 0 172 0 158 L 0 14 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+      <text x="200" y="50" text-anchor="middle" class="h" font-size="32" fill="#2d2620">What's Coming Next</text>
+      <text x="200" y="80" text-anchor="middle" class="b ink" font-size="14">The exciting, the scary, and the game-changing.</text>
+      <rect x="32" y="106" width="120" height="38" rx="19" class="px-l" fill="#fff3d6"/>
+      <text x="92" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#8a5e10">🔮 Future signals</text>
+      <rect x="160" y="106" width="100" height="38" rx="19" class="px-l" fill="#e3f5e3"/>
+      <text x="210" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2a7a4a">🧭 PM lens</text>
+      <rect x="266" y="106" width="122" height="38" rx="19" class="px-l" fill="#d9f1ff"/>
+      <text x="327" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2870a0">⚡ Actionable moves</text>
+    </g>
+
+    <g transform="translate(20 308)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 38 Q 400 52 386 52 L 14 52 Q 0 52 0 38 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <text x="16" y="34" class="b ghost" font-size="13">Search trends — AI, Web3, climate…</text>
+    </g>
+
+    <text x="20" y="396" class="b ghost" font-size="12">25 trends · All lenses</text>
+
+    <g transform="translate(20 416)">
+      <rect x="0" y="0" width="92" height="34" rx="17" fill="#d9f1ff" stroke="#2870a0" stroke-width="1.4"/>
+      <text x="46" y="22" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2870a0">All Trends</text>
+      <rect x="104" y="0" width="112" height="34" rx="17" class="px-l" fill="#fdfaf0"/>
+      <text x="160" y="22" text-anchor="middle" class="b" font-size="13" fill="#2d2620">AI &amp; Agents</text>
+      <rect x="228" y="0" width="142" height="34" rx="17" class="px-l" fill="#fdfaf0"/>
+      <text x="299" y="22" text-anchor="middle" class="b" font-size="13" fill="#2d2620">Blockchain &amp; Web3</text>
+    </g>
+
+    <g transform="translate(20 470)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 162 Q 400 176 386 176 L 14 176 Q 0 176 0 162 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="176" fill="#3a78d6"/>
+      <rect x="20" y="14" width="120" height="26" rx="13" class="px-l" fill="#fdfaf0"/>
+      <text x="80" y="32" text-anchor="middle" class="b" font-size="11" fill="#2d2620">Happening now</text>
+      <rect x="148" y="14" width="118" height="26" rx="13" fill="#e3f5e3" stroke="#2a7a4a" stroke-width="1"/>
+      <text x="207" y="32" text-anchor="middle" class="b" font-size="11" font-weight="700" fill="#2a7a4a">Game changer</text>
+      <circle cx="374" cy="26" r="14" class="px-l"/>
+      <path d="M369 20 L369 34 L374 31 L379 34 L379 20 Z" stroke="#2d2620" stroke-width="1.2" fill="none"/>
+      <rect x="20" y="52" width="108" height="24" rx="12" fill="#d9f6f4"/>
+      <text x="74" y="68" text-anchor="middle" class="b" font-size="10" font-weight="700" fill="#1f7a78">AI &amp; AGENTS</text>
+      <text x="20" y="104" class="h" font-size="24" fill="#2d2620">AI Agents Are Becoming Co-PMs</text>
+      <text x="20" y="128" class="b ink" font-size="13">AI agents are moving from chat to workflow</text>
+      <text x="20" y="144" class="b ink" font-size="13">ownership, shifting PMs from task execution to hum…</text>
+      <path class="px-l" d="M 14 154 Q 12 150 22 150 L 130 150 Q 140 150 140 160 L 140 170 Q 140 178 130 178 L 22 178 Q 12 178 12 170 L 12 160 Q 12 154 14 154 Z" fill="#a8c3f0"/>
+      <text x="76" y="170" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#1f4a90">🔭 Read Trend</text>
+    </g>
+
+    <g transform="translate(20 660)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 130 L 0 130 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="130" fill="#3a78d6"/>
+      <rect x="20" y="14" width="120" height="26" rx="13" class="px-l" fill="#fdfaf0"/>
+      <text x="80" y="32" text-anchor="middle" class="b" font-size="11" fill="#2d2620">Happening now</text>
+      <rect x="148" y="14" width="106" height="26" rx="13" fill="#d9f1ff" stroke="#2870a0" stroke-width="1"/>
+      <text x="201" y="32" text-anchor="middle" class="b" font-size="11" font-weight="700" fill="#2870a0">High impact</text>
+      <circle cx="374" cy="26" r="14" class="px-l"/>
+      <path d="M369 20 L369 34 L374 31 L379 34 L379 20 Z" stroke="#2d2620" stroke-width="1.2" fill="none"/>
+      <rect x="20" y="52" width="108" height="24" rx="12" fill="#d9f6f4"/>
+      <text x="74" y="68" text-anchor="middle" class="b" font-size="10" font-weight="700" fill="#1f7a78">AI &amp; AGENTS</text>
+      <text x="20" y="104" class="h" font-size="22" fill="#2d2620">Personalization Is Moving From</text>
+      <text x="20" y="124" class="h" font-size="22" fill="#2d2620">Segments to Individuals</text>
+    </g>
+
+    <line x1="14" y1="816" x2="426" y2="816" class="px-l"/>
+    <g class="b" font-size="11" fill="#6b6356">
+      <text x="42" y="852" text-anchor="middle">🏠</text><text x="42" y="868" text-anchor="middle">Home</text>
+      <text x="124" y="852" text-anchor="middle">📚</text><text x="124" y="868" text-anchor="middle">Browse</text>
+      <text x="220" y="852" text-anchor="middle">🏋</text><text x="220" y="868" text-anchor="middle">Gym</text>
+      <text x="316" y="852" text-anchor="middle">📰</text><text x="316" y="868" text-anchor="middle" fill="#6b5fd6">Stories</text>
+      <text x="398" y="852" text-anchor="middle">📈</text><text x="398" y="868" text-anchor="middle">Progress</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 180)">
+    <text class="annot" font-size="22" x="0" y="0">3 lenses on</text>
+    <text class="annot" font-size="22" x="0" y="26">every trend</text>
+    <text class="b ink" font-size="13" x="0" y="50">future signal · PM lens ·</text>
+    <text class="b ink" font-size="13" x="0" y="66">actionable move.</text>
+    <text class="b ink" font-size="13" x="0" y="86">→ this is THE core</text>
+    <text class="b ink" font-size="13" x="0" y="102">  product philosophy:</text>
+    <text class="b ink" font-size="13" x="0" y="118">  signal → interpretation</text>
+    <text class="b ink" font-size="13" x="0" y="134">  → action.</text>
+    <path class="annot-line" d="M 160 70 Q 200 100 240 90"/>
+    <polygon points="242,90 234,86 234,94" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 340)">
+    <rect x="0" y="0" width="180" height="130" class="sticky" transform="rotate(-2)"/>
+    <g transform="rotate(-2)">
+      <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">status pills</text>
+      <text x="14" y="50" class="b" font-size="12" fill="#3a3128">"Happening now" /</text>
+      <text x="14" y="66" class="b" font-size="12" fill="#3a3128">"Game changer" /</text>
+      <text x="14" y="82" class="b" font-size="12" fill="#3a3128">"High impact"</text>
+      <text x="14" y="104" class="b" font-size="11" fill="#3a3128">tells you WHY this trend</text>
+      <text x="14" y="120" class="b" font-size="11" fill="#3a3128">matters before you tap.</text>
+    </g>
+    <path class="annot-line" d="M -10 60 Q -50 90 -100 130"/>
+    <polygon points="-102,130 -94,126 -94,134" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(40 600)">
+    <text class="annot" font-size="22" x="0" y="0">NOT a dashboard</text>
+    <text class="b ink" font-size="13" x="0" y="22">no charts. no ticker.</text>
+    <text class="b ink" font-size="13" x="0" y="38">trends as STORIES, not</text>
+    <text class="b ink" font-size="13" x="0" y="54">data. PMs already drown</text>
+    <text class="b ink" font-size="13" x="0" y="70">in dashboards.</text>
+    <path class="annot-line" d="M 170 30 Q 200 50 230 60"/>
+    <polygon points="232,60 224,56 224,64" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 690)">
+    <text class="annot" font-size="22" x="0" y="0">deep link →</text>
+    <text class="annot" font-size="22" x="0" y="26">trend detail</text>
+    <text class="b ink" font-size="13" x="0" y="50">"Read Trend" opens the</text>
+    <text class="b ink" font-size="13" x="0" y="66">full signal → PM lens →</text>
+    <text class="b ink" font-size="13" x="0" y="82">company example flow.</text>
+    <path class="annot-line" d="M -10 40 Q -60 30 -110 0"/>
+    <polygon points="-112,0 -104,-4 -104,4" fill="#c44569"/>
+  </g>
+
+  <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+  <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">screen 06 / 06</text>
+</svg>

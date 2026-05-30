@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pulse sketch: a rejected Bloomberg-style dashboard crossed out, an arrow, and a clean Signal to Meaning to Product question chain.">
+  <defs>
+    <pattern id="pl-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+    <filter id="pl-rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.4"/>
+    </filter>
+    <style>
+      .h     { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+      .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+      .b     { font-family: 'Inter','Segoe UI',sans-serif; }
+      .ink   { fill: #2d2620; }
+      .ghost { fill: #6b6356; }
+      .px    { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+      .px-l  { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+      .pencil { fill: none; stroke: #2d2620; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .pencil-soft { fill: none; stroke: #6b6356; stroke-width: 1.4; stroke-linecap: round; }
+      .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+    </style>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#pl-paper)"/>
+
+  <!-- Title -->
+  <text x="40" y="58" class="h ink" font-size="36">Pulse started as a dashboard.</text>
+  <text x="40" y="100" class="h" font-size="36" fill="#15605a">Then I deleted the dashboard.</text>
+  <text x="40" y="128" class="b ghost" font-size="16">v0.1 sketch · the detour that almost shipped</text>
+  <path class="px-l" d="M40 142 Q 440 146 840 142"/>
+
+  <!-- ============ LEFT: the rejected dashboard ============ -->
+  <text x="60" y="196" class="annot" font-size="24">the rejected idea</text>
+  <g filter="url(#pl-rough)">
+    <!-- outer dashboard frame -->
+    <rect x="60" y="214" width="360" height="470" rx="8" class="px"/>
+    <!-- top bar with fake tickers -->
+    <line x1="60" y1="252" x2="420" y2="252" class="px-l"/>
+    <text x="74" y="242" class="b ink" font-size="13" font-weight="700">MARKETS TERMINAL</text>
+    <text x="300" y="242" class="b ghost" font-size="11">live · 14:32:07</text>
+
+    <!-- ticker row -->
+    <g class="b" font-size="11">
+      <text x="74"  y="276" fill="#15605a">CPI 3.4 ▲</text>
+      <text x="156" y="276" fill="#c44569">SENT 61 ▼</text>
+      <text x="244" y="276" fill="#15605a">API -38% ▼</text>
+      <text x="340" y="276" fill="#c69200">RATE 5.5</text>
+    </g>
+    <line x1="74" y1="286" x2="406" y2="286" class="pencil-soft"/>
+
+    <!-- grid of tiny charts -->
+    <!-- chart 1: line -->
+    <rect x="74" y="300" width="150" height="90" rx="5" class="px-l"/>
+    <polyline class="pencil-soft" points="82,372 102,356 122,364 142,338 162,346 182,318 202,330 214,310"/>
+    <text x="80" y="316" class="b ghost" font-size="9">AI cost</text>
+    <!-- chart 2: bars -->
+    <rect x="240" y="300" width="150" height="90" rx="5" class="px-l"/>
+    <g class="pencil" stroke-width="6">
+      <line x1="258" y1="380" x2="258" y2="356"/>
+      <line x1="278" y1="380" x2="278" y2="340"/>
+      <line x1="298" y1="380" x2="298" y2="350"/>
+      <line x1="318" y1="380" x2="318" y2="332"/>
+      <line x1="338" y1="380" x2="338" y2="360"/>
+      <line x1="358" y1="380" x2="358" y2="346"/>
+    </g>
+    <text x="246" y="316" class="b ghost" font-size="9">hiring</text>
+    <!-- chart 3: numbers block -->
+    <rect x="74" y="402" width="150" height="84" rx="5" class="px-l"/>
+    <text x="84" y="430" class="h ink" font-size="26">3.4%</text>
+    <text x="84" y="452" class="b ghost" font-size="10">headline inflation</text>
+    <text x="84" y="472" class="h" font-size="20" fill="#c44569">-12 pts</text>
+    <!-- chart 4: candlesticks -->
+    <rect x="240" y="402" width="150" height="84" rx="5" class="px-l"/>
+    <g class="pencil-soft">
+      <line x1="258" y1="412" x2="258" y2="476"/><rect x="252" y="430" width="12" height="22" class="px"/>
+      <line x1="282" y1="418" x2="282" y2="470"/><rect x="276" y="436" width="12" height="18" class="px"/>
+      <line x1="306" y1="414" x2="306" y2="478"/><rect x="300" y="428" width="12" height="28" class="px"/>
+      <line x1="330" y1="420" x2="330" y2="466"/><rect x="324" y="440" width="12" height="16" class="px"/>
+      <line x1="356" y1="410" x2="356" y2="474"/><rect x="350" y="426" width="12" height="24" class="px"/>
+    </g>
+    <!-- dense table of numbers -->
+    <rect x="74" y="498" width="316" height="170" rx="5" class="px-l"/>
+    <g class="b ghost" font-size="10">
+      <text x="84" y="518">SYM</text><text x="180" y="518">LAST</text><text x="260" y="518">CHG</text><text x="330" y="518">VOL</text>
+    </g>
+    <g class="b ink" font-size="10">
+      <text x="84" y="540">CPI</text><text x="180" y="540">3.40</text><text x="260" y="540" fill="#15605a">+0.3</text><text x="330" y="540">1.2M</text>
+      <text x="84" y="562">SENT</text><text x="180" y="562">61.2</text><text x="260" y="562" fill="#c44569">-4.1</text><text x="330" y="562">880K</text>
+      <text x="84" y="584">API</text><text x="180" y="584">0.62</text><text x="260" y="584" fill="#c44569">-38%</text><text x="330" y="584">4.0M</text>
+      <text x="84" y="606">RATE</text><text x="180" y="606">5.50</text><text x="260" y="606">0.00</text><text x="330" y="606">—</text>
+      <text x="84" y="628">JOBS</text><text x="180" y="628">216K</text><text x="260" y="628" fill="#15605a">+9K</text><text x="330" y="628">2.1M</text>
+      <text x="84" y="650">PCE</text><text x="180" y="650">2.80</text><text x="260" y="650" fill="#c69200">+0.1</text><text x="330" y="650">760K</text>
+    </g>
+  </g>
+
+  <!-- big hand-drawn X over the dashboard -->
+  <g filter="url(#pl-rough)">
+    <path class="pencil" stroke="#c44569" stroke-width="6" d="M78 232 L 404 666"/>
+    <path class="pencil" stroke="#c44569" stroke-width="6" d="M404 232 L 78 666"/>
+  </g>
+
+  <!-- margin note: too much -->
+  <g transform="translate(60 712)">
+    <text class="annot" font-size="24" x="0" y="0">too much.</text>
+    <text class="b ink" font-size="14" x="0" y="26">nobody needs another</text>
+    <text class="b ink" font-size="14" x="0" y="46">terminal.</text>
+    <path class="annot-line" d="M 150 -8 Q 200 -40 240 -70"/>
+    <polygon points="242,-72 232,-72 238,-62" fill="#c44569"/>
+  </g>
+
+  <!-- ============ ARROW ============ -->
+  <g filter="url(#pl-rough)" transform="translate(0 6)">
+    <path class="pencil" stroke-width="4" d="M438 446 Q 478 430 512 446"/>
+    <polygon points="512,446 496,436 498,456" fill="#2d2620"/>
+  </g>
+  <text x="438" y="420" class="annot" font-size="20">so I cut it</text>
+
+  <!-- ============ RIGHT: the idea that stuck ============ -->
+  <text x="560" y="196" class="annot" font-size="24" fill="#15605a">the idea that stuck</text>
+  <g filter="url(#pl-rough)">
+    <!-- clean card -->
+    <rect x="540" y="214" width="300" height="360" rx="14" class="px"/>
+    <text x="690" y="252" text-anchor="middle" class="h ink" font-size="22">this week, in one line</text>
+    <line x1="566" y1="266" x2="814" y2="266" class="pencil-soft"/>
+
+    <!-- Signal box -->
+    <rect x="588" y="292" width="204" height="56" rx="10" class="px-l"/>
+    <text x="690" y="318" text-anchor="middle" class="h" font-size="22" fill="#c44569">Signal</text>
+    <text x="690" y="338" text-anchor="middle" class="b ghost" font-size="11">what the world just did</text>
+    <!-- arrow down -->
+    <path class="pencil" stroke-width="3" d="M690 354 L 690 380"/>
+    <polygon points="690,384 682,372 698,372" fill="#2d2620"/>
+
+    <!-- Meaning box -->
+    <rect x="588" y="388" width="204" height="56" rx="10" class="px-l"/>
+    <text x="690" y="414" text-anchor="middle" class="h" font-size="22" fill="#15605a">Meaning</text>
+    <text x="690" y="434" text-anchor="middle" class="b ghost" font-size="11">why it matters to us</text>
+    <!-- arrow down -->
+    <path class="pencil" stroke-width="3" d="M690 450 L 690 476"/>
+    <polygon points="690,480 682,468 698,468" fill="#2d2620"/>
+
+    <!-- Product question box -->
+    <rect x="572" y="484" width="236" height="62" rx="10" class="px" fill="#e7e1fb"/>
+    <text x="690" y="512" text-anchor="middle" class="h" font-size="22" fill="#5a4ec7">Product question</text>
+    <text x="690" y="532" text-anchor="middle" class="b ghost" font-size="11">what should we do about it?</text>
+  </g>
+
+  <!-- margin note: one signal -->
+  <g transform="translate(560 612)">
+    <text class="annot" font-size="24" fill="#15605a">one signal.</text>
+    <text class="annot" font-size="24" fill="#15605a" y="28">one question.</text>
+    <text class="b ink" font-size="14" y="54">that's the whole idea.</text>
+    <path class="annot-line" stroke="#15605a" d="M 150 -8 Q 200 -34 236 -52"/>
+    <polygon points="238,-54 228,-54 234,-44" fill="#15605a"/>
+  </g>
+
+  <!-- footer line -->
+  <text x="40" y="1006" class="b ghost" font-size="12">Pulse · early sketch · from terminal to one question</text>
+  <text x="840" y="1006" text-anchor="end" class="b ghost" font-size="12">sketch · pulse 01</text>
+</svg>

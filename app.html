@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6efe1" />
+
+    <title>App — ProductSnap Studio</title>
+    <meta
+      name="description"
+      content="ProductSnap is a mobile learning app for product managers. Built solo with AI tools in about twelve weeks, now live on the App Store (Android still in review). Try a real flashcard right in the browser."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The ProductSnap app — built solo, with AI, in 12 weeks" />
+    <meta
+      property="og:description"
+      content="A mobile learning app for product managers. In store review. Try a real flashcard right in the browser."
+    />
+    <meta property="og:site_name" content="ProductSnap Studio" />
+    <meta property="og:url" content="https://productsnap.studio/app" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The ProductSnap app — ProductSnap Studio" />
+    <meta
+      name="twitter:description"
+      content="A mobile learning app for PMs. Built solo with AI tools. Try a real flashcard in the browser."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="canonical" href="https://productsnap.studio/app" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body class="page-app">
+    <!-- Paper texture background (matches index) -->
+    <div class="paper" aria-hidden="true"></div>
+    <div class="paper-dots" aria-hidden="true"></div>
+
+    <!-- Top nav (five-route arch) -->
+    <!-- Unified top nav — identical chrome on every page (five-route arch) -->
+    <header class="topnav">
+      <a href="index.html" class="brand" aria-label="ProductSnap Studio home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="7" width="22" height="26" rx="2.5" />
+            <path d="M6 13 H28 M6 19 H28 M6 25 H28" stroke-opacity="0.35" stroke-width="1.4" />
+            <circle cx="6" cy="11" r="1.1" />
+            <circle cx="6" cy="17" r="1.1" />
+            <circle cx="6" cy="23" r="1.1" />
+            <circle cx="6" cy="29" r="1.1" />
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z" fill="#fff7df" />
+            <path d="M27 31 h3" stroke-width="2" />
+            <path d="M35 14 l2 -2 M35 22 l2 2 M37 18 h2" stroke-opacity="0.6" stroke-width="1.6" />
+          </svg>
+        </span>
+        <span class="brand-word">
+          <span class="brand-word-1">ProductSnap</span>
+          <span class="brand-word-2">Studio</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav (>760px) -->
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="app.html" class="is-active" aria-current="page">App</a>
+        <a href="pulse.html">Pulse</a>
+        <a href="notes.html">Notes</a>
+      </nav>
+
+      <!-- Mobile menu button (<=760px) -->
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <!-- Mobile nav panel (<=760px) -->
+      <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <a href="index.html">Home</a>
+        <a href="app.html" class="is-active" aria-current="page">App</a>
+        <a href="pulse.html">Pulse</a>
+        <a href="notes.html">Notes</a>
+      </nav>
+    </header>
+
+    <main id="app-page">
+      <!-- ============================================================ -->
+      <!-- HERO                                                            -->
+      <!-- ============================================================ -->
+      <section class="section app-hero" id="app-hero">
+        <div class="app-hero-grid">
+          <div class="app-hero-left">
+            <div class="app-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" width="76" height="76" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="7" width="22" height="26" rx="2.5" />
+                <path d="M6 13 H28 M6 19 H28 M6 25 H28" stroke-opacity="0.35" stroke-width="1.4" />
+                <circle cx="6" cy="11" r="1.1" />
+                <circle cx="6" cy="17" r="1.1" />
+                <circle cx="6" cy="23" r="1.1" />
+                <circle cx="6" cy="29" r="1.1" />
+                <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z" fill="#fff7df" />
+                <path d="M27 31 h3" stroke-width="2" />
+                <path d="M35 14 l2 -2 M35 22 l2 2 M37 18 h2" stroke-opacity="0.6" stroke-width="1.6" />
+              </svg>
+            </div>
+
+            <span class="margin-label">/app · notebook entry 02</span>
+            <h1 class="app-h1">ProductSnap</h1>
+            <p class="app-hero-sub" id="app-hero-sub">
+              A mobile learning app for product managers. Flashcards, real
+              product stories, practice reps, and forward-looking PM signals —
+              built around one idea: PMs don’t need more content, they need
+              better judgment.
+            </p>
+
+            <div class="status-badge" role="group" aria-label="App store status">
+              <span class="status-pin" aria-hidden="true"></span>
+              <ul class="status-lines" id="status-lines">
+                <li>iOS · live on the App Store · May 28, 2026</li>
+                <li>Google Play · in review</li>
+              </ul>
+              <p class="status-note pencil-note">
+                <span class="caret">↳</span>
+                Build 9 went live on iOS. Android is still working through review.
+              </p>
+            </div>
+
+            <div class="cta-row">
+              <a href="#what" class="btn btn-primary">
+                Explore the app
+                <svg width="18" height="14" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9 H21 M14 2 L21 9 L14 16"/></svg>
+              </a>
+              <a href="#how" class="btn btn-ghost">See how it was built</a>
+            </div>
+
+            <div class="store-row" aria-label="Store badges">
+              <a class="store-pill is-live" href="https://apps.apple.com/us/app/productsnap-pm/id6767971547" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.6c0-2.3 1.9-3.4 2-3.4-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.6.8-.7 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.9 2.4-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.3 1.2 0 1.6-.8 3.1-.8 1.4 0 1.8.8 3.1.8 1.3 0 2.1-1.1 2.9-2.2.9-1.2 1.3-2.4 1.3-2.5 0 0-2.5-1-2.5-3zm-2.4-6c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.3-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.4 2.7-1.1z"/></svg>
+                Download on the App Store
+              </a>
+              <span class="store-pill is-pending" aria-disabled="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 2.4C3.2 2.7 3 3.3 3 4v16c0 .7.2 1.3.6 1.6l9.4-9.6L3.6 2.4zM14.7 13.1l2.9 3 3.4-2c.7-.4.7-1.4 0-1.8l-3.4-2-2.9 2.8zm-1.2-1.1L4.6 21.5c.3.1.6.1.9 0l9.4-5.5-1.4-2zM4.6 2.5l8.9 9.4 1.4-1.4L5.5 2c-.3-.1-.6 0-.9.5z"/></svg>
+                Google Play · coming soon
+              </span>
+              <p class="store-foot pencil-note">
+                <span class="caret">↳</span> iOS is live now — the Android link lands once it clears review.
+              </p>
+            </div>
+          </div>
+
+          <aside class="app-hero-right" aria-label="A handwritten note">
+            <div class="app-hero-note" role="note">
+              <p class="ahn-text">Not a concept. A real app, live on the App Store right now.</p>
+              <p class="ahn-foot">— built solo · about twelve weeks · evenings &amp; weekends</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="scroll-hint">
+          <svg viewBox="0 0 60 80" width="42" height="56" fill="none" stroke="#1d1f1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M30 6 C 22 22, 38 38, 28 56" />
+            <path d="M20 50 L 28 60 L 36 50" />
+          </svg>
+          <span class="hand">keep going — the story is below.</span>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 2 · what ProductSnap is (60-sec version)               -->
+      <!-- ============================================================ -->
+      <section class="section app-what" id="what">
+        <div class="section-head">
+          <span class="kicker">Chapter 01 · the product in 60 seconds</span>
+          <h2 class="section-title">
+            What ProductSnap <span class="hl-underline">actually does</span>
+          </h2>
+          <p class="section-lead">
+            Six small modules. One core loop: discover a concept, understand
+            it quickly, connect it to a real example, practice the thinking,
+            return often enough to build instinct.
+          </p>
+        </div>
+
+        <div class="module-grid-wrap">
+          <div class="module-grid" id="module-grid"><!-- populated by js/app.js --></div>
+          <div class="module-dots" id="module-dots" aria-hidden="true"></div>
+        </div>
+
+        <p class="module-note pencil-note">
+          <span class="caret">↳</span> every module is one idea, not a kitchen sink.
+        </p>
+        <p class="module-mobile-hint pencil-note" aria-hidden="true">
+          easier to flip through on a phone — try it →
+        </p>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 3 · INTERACTIVE FLASHCARD                              -->
+      <!-- ============================================================ -->
+      <section class="section app-flashcard" id="try-flashcard">
+        <div class="section-head">
+          <span class="kicker">Chapter 02 · don’t take my word for it</span>
+          <h2 class="section-title">
+            Try a real <span class="hl-circle">flashcard</span>
+          </h2>
+          <p class="section-lead">
+            This is a working version of one card from the app. Tap to flip.
+            Same content, same structure, same product thinking.
+          </p>
+        </div>
+
+        <div class="flashcard-stage">
+          <div class="phone-frame" aria-label="ProductSnap flashcard demo">
+            <span class="phone-notch" aria-hidden="true"></span>
+            <div
+              class="flashcard"
+              id="flashcard-demo"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+              aria-label="Flashcard. Press Enter or Space to flip."
+            >
+              <div class="fc-face fc-front">
+                <span class="fc-category">PRIORITIZATION &amp; ROADMAPPING</span>
+                <span class="fc-bolt" aria-hidden="true">⚡</span>
+                <p class="fc-question">
+                  What is the Impact vs. Effort Matrix and when is it most useful?
+                </p>
+                <span class="fc-hint">👆 Tap card to reveal</span>
+                <span class="fc-counter">1 / 108</span>
+              </div>
+
+              <div class="fc-face fc-back" aria-hidden="true">
+                <span class="fc-spine" aria-hidden="true"></span>
+                <span class="fc-category fc-category-back">PRIORITIZATION &amp; ROADMAPPING</span>
+
+                <div class="fc-block fc-block-what">
+                  <span class="fc-label">WHAT</span>
+                  <p>An Impact vs. Effort Matrix plots ideas by expected user or business value against the work required to deliver them.</p>
+                </div>
+
+                <div class="fc-block fc-block-why">
+                  <span class="fc-label">WHY IT MATTERS</span>
+                  <p>It quickly exposes quick wins, big bets, distractions, and time-wasters. Use it when teams need fast alignment, not perfect math.</p>
+                </div>
+
+                <div class="fc-block fc-block-example">
+                  <span class="fc-label">REAL-WORLD EXAMPLE</span>
+                  <p>A team ships a quick copy fix that clears up checkout confusion before committing to a multi-month redesign with uncertain payoff. Sequence the easy win first.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fc-controls">
+            <button class="fc-btn fc-btn-review" type="button" id="fc-review">
+              <span aria-hidden="true">🔄</span> Review Again
+            </button>
+            <button class="fc-btn fc-btn-got" type="button" id="fc-got">
+              <span aria-hidden="true">✓</span> Got it
+            </button>
+          </div>
+
+          <p class="fc-foot-note pencil-note">
+            <span class="caret">↳</span> this exact card lives in the app.
+            The full deck has 108 of them, across 9 categories.
+          </p>
+
+          <p class="fc-mobile-hint pencil-note" aria-hidden="true">
+            tap or pull down to flip — closer to the real thing than on a laptop.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 4 · LIVE APP SCREENSHOTS (proof grid)                  -->
+      <!-- ============================================================ -->
+      <section class="section app-proof" id="proof">
+        <div class="section-head">
+          <span class="kicker">Chapter 03 · the app, in real screens</span>
+          <h2 class="section-title">
+            Real <span class="hl-underline">screenshots</span> from build 9
+          </h2>
+          <p class="section-lead">
+            Captured from the device, not a mockup. Three deep-dive screens —
+            the kind of secondary states the module grid couldn’t show.
+          </p>
+        </div>
+
+        <div class="deepdive" aria-label="ProductSnap deep-dive screens">
+          <div class="deepdive-track" id="deepdive-track" role="list">
+            <figure class="deepdive-shot" role="listitem">
+              <div class="dd-frame">
+                <img src="assets/screens/08-ProductSnap-StoriesDetails.jpg" alt="Product Stories — detail view of a single story" loading="lazy" decoding="async" width="540" height="1170" />
+              </div>
+              <figcaption>
+                <strong>Stories · inside one decision.</strong>
+                The PROBLEM → MOVE → RESULT → TAKEAWAY structure unfolds vertically so the story reads like a memo, not a card.
+              </figcaption>
+            </figure>
+            <figure class="deepdive-shot" role="listitem">
+              <div class="dd-frame">
+                <img src="assets/screens/06-ProductSnap-GymQuizQn.jpg" alt="Product Gym — mid-quiz with a multiple-choice prompt and progress dots" loading="lazy" decoding="async" width="540" height="1170" />
+              </div>
+              <figcaption>
+                <strong>Gym · mid-question.</strong>
+                Five reps per set. Progress dots up top so the visitor knows the end is close — quiz fatigue was the thing this had to design around.
+              </figcaption>
+            </figure>
+            <figure class="deepdive-shot" role="listitem">
+              <div class="dd-frame">
+                <img src="assets/screens/04-ProductSnap-BrowseTopicsCategory.jpg" alt="Browse Topics — a category expanded, showing every concept inside it" loading="lazy" decoding="async" width="540" height="1170" />
+              </div>
+              <figcaption>
+                <strong>Browse · inside a category.</strong>
+                Every concept in one place, color-coded for muscle memory. This is the screen visitors keep open while they’re actually studying.
+              </figcaption>
+            </figure>
+          </div>
+          <div class="deepdive-dots" id="deepdive-dots" role="tablist" aria-label="Screen indicator">
+            <button class="dd-dot is-active" type="button" data-dd-index="0" aria-label="Screen 1"></button>
+            <button class="dd-dot" type="button" data-dd-index="1" aria-label="Screen 2"></button>
+            <button class="dd-dot" type="button" data-dd-index="2" aria-label="Screen 3"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 5 · HOW IT WAS BUILT                                   -->
+      <!-- ============================================================ -->
+      <section class="section app-how" id="how">
+        <div class="section-head">
+          <span class="kicker">Chapter 04 · how a product person became a one-person studio</span>
+          <h2 class="section-title">
+            Built solo, with AI as the team, in
+            <span class="hl-circle">12 weeks</span>
+          </h2>
+          <p class="section-lead">
+            I work in product. Building this meant wearing every other hat too:
+            design, UX, engineering, QA, and plenty of “wait, why did that
+            break?” moments. AI became the rest of the team.
+          </p>
+        </div>
+
+        <div class="how-grid">
+          <div class="how-col how-tools">
+            <h3 class="how-h3">The tooling journey</h3>
+            <ol class="timeline" id="timeline"><!-- populated by JS --></ol>
+          </div>
+
+          <div class="how-col how-qa">
+            <h3 class="how-h3">The testing rig</h3>
+            <div class="qa-grid" id="qa-grid"><!-- populated by JS --></div>
+            <p class="qa-foot pencil-note">
+              <span class="caret">↳</span> own QA budget. own bug list.
+              own 11&nbsp;PM Sunday.
+            </p>
+          </div>
+        </div>
+
+        <div class="builds-strip" id="builds-strip" aria-label="Build iteration history"><!-- populated by JS --></div>
+
+        <p class="builds-caption pencil-note">
+          <span class="caret">↳</span> A few of the visible milestones.
+          There were many more in between — the build that finally went to
+          review is build 9.
+        </p>
+
+        <p class="builds-stamp">
+          <span class="stamp">BUILD 9 · live on the App Store · May 28, 2026</span>
+        </p>
+
+        <!-- Behind the prompt -->
+        <div class="prompts-block" id="prompts">
+          <h3 class="prompts-h3">What the work actually looked like</h3>
+          <p class="prompts-sub">
+            This wasn’t writing code. It was conversations — plain English,
+            repeated until the AI got it right.
+          </p>
+
+          <!--
+            These three prompt cards are paraphrased–yet–close-to-verbatim
+            snippets from real Perplexity Computer conversations Jeevan had
+            while building ProductSnap. They preserve the natural conversational
+            tone (run-on sentences, "I mean" tics, hedges). Pulled from session
+            turns 0133, 0220, 0270. Jeevan to confirm/replace with exact
+            verbatim before publish.
+          -->
+          <div class="prompt-cards">
+            <article class="prompt-card prompt-yellow">
+              <span class="prompt-pin" aria-hidden="true"></span>
+              <p class="prompt-text">
+                “Okay, so here are both the screenshots, right? I mean, look at
+                the real estate spacing above the bottom nav bar on the Samsung
+                and the iPhone 16 Pro Max. You tell me, is this acceptable? But
+                here’s the important thing — I don’t want us to break everything
+                else and redo the entire format. At the end of the day, this is
+                the home screen. I want it to be pleasing on the eye.”
+              </p>
+              <p class="prompt-foot">→ resulted in: the home flashcard layout, post-Build 4f</p>
+            </article>
+            <article class="prompt-card prompt-pink">
+              <span class="prompt-pin" aria-hidden="true"></span>
+              <p class="prompt-text">
+                “I come to the flashcard screen and after maybe three, four,
+                five seconds the card automatically expands. The bottom nav bar
+                disappears too. Why? On the homepage — three seconds, five
+                seconds, seven seconds, no change. The card length is static.
+                So why this behavior on Browse and Gym? Don’t make any changes
+                yet. Let’s first discuss please.”
+              </p>
+              <p class="prompt-foot">→ resulted in: the flashcard resize fix across Browse + Gym</p>
+            </article>
+            <article class="prompt-card prompt-teal">
+              <span class="prompt-pin" aria-hidden="true"></span>
+              <p class="prompt-text">
+                “Why are we changing the process? Why don’t you just give me
+                the QR code which I can scan using the Expo Go app and then
+                test it? It should be as simple as that, right? Walk me
+                through the exact steps.”
+              </p>
+              <p class="prompt-foot">→ resulted in: the Expo Go testing loop used to validate every build</p>
+            </article>
+          </div>
+
+          <p class="prompts-foot pencil-note">
+            <span class="caret">↳</span> no magic. just plain English, repeated until the AI got it right.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 6 · WIREFRAMES                                         -->
+      <!-- ============================================================ -->
+      <section class="section app-wires" id="wireframes">
+        <div class="section-head">
+          <span class="kicker">Chapter 05 · sketches before screens</span>
+          <h2 class="section-title">
+            What the app looked like as a
+            <span class="hl-underline">pencil sketch</span>
+          </h2>
+          <p class="section-lead">
+            Before any code, I sketched the experience. Margin notes captured
+            the reasoning. The sketches stayed close to the final build —
+            most decisions held up.
+          </p>
+        </div>
+
+        <div class="wire-gallery" id="wire-gallery" role="list"><!-- populated by JS --></div>
+        <div class="wire-dots" id="wire-dots" aria-hidden="true"></div>
+        <p class="wire-foot pencil-note">
+          <span class="caret">↳</span> hover (or tap) to lean in.
+          The notes in the margins are where the thinking lives.
+        </p>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 7 · HARD PARTS / NEXT / LEARNING                       -->
+      <!-- ============================================================ -->
+      <section class="section app-honest" id="honest">
+        <div class="section-head">
+          <span class="kicker">Chapter 06 · the honest read</span>
+          <h2 class="section-title">
+            What was hard · what’s next · what I’m still
+            <span class="hl-underline">learning</span>
+          </h2>
+        </div>
+
+        <div class="honest-grid">
+          <article class="honest-block honest-hard">
+            <h3>What was hard</h3>
+            <ul id="hard-list"><!-- populated by JS --></ul>
+          </article>
+
+          <article class="honest-block honest-next">
+            <h3>What’s coming after launch</h3>
+            <ul class="roadmap-list" id="next-list"><!-- populated by JS --></ul>
+          </article>
+
+          <article class="honest-block honest-learn">
+            <h3>What I’m still learning</h3>
+            <p id="learning-text">
+              Building this let me ship the things I used to only spec. I’m
+              still learning what the AI actually built on my behalf, where my
+              own judgment mattered most, and where I’d do things differently
+              next time.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- STORE-LINK PLACEHOLDER                                         -->
+      <!-- ============================================================ -->
+      <section class="section app-launch" id="launch-list">
+        <div class="launch-card">
+          <span class="conv-tape" aria-hidden="true"></span>
+          <h2 class="section-title-sm">ProductSnap is live on the App Store</h2>
+          <p class="launch-body">
+            iOS is live now — you can
+            <a href="https://apps.apple.com/us/app/productsnap-pm/id6767971547" target="_blank" rel="noopener noreferrer">download it on the App Store</a>.
+            Android is still working through review; the Play Store link lands
+            here the moment it clears.
+          </p>
+          <p class="launch-foot pencil-note">
+            <span class="caret">↳</span> one store down, one to go.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="foot-inner">
+        <span class="foot-brand">
+          <svg width="20" height="20" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="7" width="22" height="26" rx="2.5"/>
+            <circle cx="6" cy="14" r="1"/>
+            <circle cx="6" cy="20" r="1"/>
+            <circle cx="6" cy="26" r="1"/>
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z"/>
+          </svg>
+          ProductSnap Studio
+        </span>
+        <span class="foot-meta">ProductSnap Studio · App</span>
+        <span class="foot-hand">built by Jeevan · made by hand, mostly</span>
+      </div>
+    </footer>
+
+    <!-- Lightbox for wireframes -->
+    <div class="wire-lightbox" id="wire-lightbox" hidden role="dialog" aria-modal="true" aria-label="Wireframe">
+      <div class="wl-backdrop" data-wl-close></div>
+      <div class="wl-card" role="document">
+        <button class="wl-close" type="button" data-wl-close aria-label="Close">×</button>
+        <img id="wl-img" alt="" />
+        <p class="wl-caption" id="wl-caption"></p>
+      </div>
+    </div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

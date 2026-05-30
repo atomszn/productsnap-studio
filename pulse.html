@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6efe1" />
+
+    <title>Pulse — ProductSnap Studio</title>
+    <meta
+      name="description"
+      content="A weekly editorial read on signals from AI, capital, consumer demand, labor, inflation and regulation — read in combination, translated into product questions."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pulse — ProductSnap Studio" />
+    <meta
+      property="og:description"
+      content="A weekly editorial layer on signals shaping product decisions. 16 signals, six categories, one weekly connection."
+    />
+    <meta property="og:site_name" content="ProductSnap Studio" />
+    <meta property="og:url" content="https://productsnap.studio/pulse" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="canonical" href="https://productsnap.studio/pulse" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/pulse.css" />
+  </head>
+  <body class="page-pulse">
+    <!-- Paper texture background (matches index) -->
+    <div class="paper" aria-hidden="true"></div>
+    <div class="paper-dots" aria-hidden="true"></div>
+
+    <!-- Top nav (matches index) -->
+    <!-- Unified top nav — identical chrome on every page (five-route arch) -->
+    <header class="topnav">
+      <a href="index.html" class="brand" aria-label="ProductSnap Studio home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="7" width="22" height="26" rx="2.5" />
+            <path d="M6 13 H28 M6 19 H28 M6 25 H28" stroke-opacity="0.35" stroke-width="1.4" />
+            <circle cx="6" cy="11" r="1.1" />
+            <circle cx="6" cy="17" r="1.1" />
+            <circle cx="6" cy="23" r="1.1" />
+            <circle cx="6" cy="29" r="1.1" />
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z" fill="#fff7df" />
+            <path d="M27 31 h3" stroke-width="2" />
+            <path d="M35 14 l2 -2 M35 22 l2 2 M37 18 h2" stroke-opacity="0.6" stroke-width="1.6" />
+          </svg>
+        </span>
+        <span class="brand-word">
+          <span class="brand-word-1">ProductSnap</span>
+          <span class="brand-word-2">Studio</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav (>760px) -->
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="app.html">App</a>
+        <a href="pulse.html" class="is-active" aria-current="page">Pulse</a>
+        <a href="notes.html">Notes</a>
+      </nav>
+
+      <!-- Mobile menu button (<=760px) -->
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <!-- Mobile nav panel (<=760px) -->
+      <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <a href="index.html">Home</a>
+        <a href="app.html">App</a>
+        <a href="pulse.html" class="is-active" aria-current="page">Pulse</a>
+        <a href="notes.html">Notes</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ============================================================ -->
+      <!-- PULSE HERO — weekly note + Weekly Connection (the centerpiece) -->
+      <!-- ============================================================ -->
+      <section class="section pulse-hero" id="pulse-hero">
+        <div class="pulse-hero-head">
+          <span class="kicker">/pulse · weekly read · <span id="hero-date">May 27</span></span>
+          <h1 class="pulse-h1">
+            World <span class="hl-underline">signals</span>,
+            read in <span class="hl-circle">combination</span>.
+          </h1>
+          <p class="pulse-h1-sub">
+            A weekly read for product people. One unexpected connection.
+            Eighteen signals behind it. No dashboard energy.
+          </p>
+          <!-- Data freshness — derived on load from the most recent last_updated
+               across all signals. Distinct from the weekly-note date. -->
+          <span class="pulse-freshness" id="pulse-freshness" aria-live="polite" hidden></span>
+        </div>
+
+        <!-- Handwritten weekly note -->
+        <div class="weekly-note" id="weekly-note" aria-live="polite">
+          <span class="wn-quote-open" aria-hidden="true">“</span>
+          <p class="wn-text" id="wn-text">Loading this week’s note…</p>
+          <p class="wn-meta">
+            <span class="wn-dash">—</span>
+            <span id="wn-date">May 27</span>
+          </p>
+        </div>
+
+        <!-- WEEKLY CONNECTION — the hero, structured for scanability -->
+        <article class="weekly-connection" id="weekly-connection" aria-labelledby="wc-title">
+          <span class="wc-tape wc-tape-1" aria-hidden="true"></span>
+          <span class="wc-tape wc-tape-2" aria-hidden="true"></span>
+
+          <header class="wc-head">
+            <span class="wc-eyebrow">connection of the week</span>
+            <span class="wc-date" id="wc-date">May 27</span>
+          </header>
+
+          <h2 class="wc-title" id="wc-title">Loading the week’s connection…</h2>
+          <p class="wc-subtitle" id="wc-subtitle"></p>
+
+          <!-- Structured triad: Observation / Why it matters / PM implication -->
+          <dl class="wc-triad" id="wc-triad">
+            <div class="wc-triad-row wc-triad-obs">
+              <dt class="wc-triad-label">Observation</dt>
+              <dd class="wc-triad-text" id="wc-observation"></dd>
+            </div>
+            <div class="wc-triad-row wc-triad-why">
+              <dt class="wc-triad-label">Why it matters</dt>
+              <dd class="wc-triad-text" id="wc-why"></dd>
+            </div>
+            <div class="wc-triad-row wc-triad-pm" id="wc-triad-pm-row">
+              <dt class="wc-triad-label">
+                PM implication
+                <span class="wc-triad-focus" id="wc-implication-focus" aria-live="polite" style="display:none;"></span>
+              </dt>
+              <dd class="wc-triad-text" id="wc-implication"></dd>
+            </div>
+            <div class="wc-triad-row wc-triad-decision" id="wc-triad-decision-row">
+              <dt class="wc-triad-label">The decision this forces this week</dt>
+              <dd class="wc-triad-text wc-triad-decision-text" id="wc-decision"></dd>
+            </div>
+          </dl>
+
+          <!-- Where would this show up first? — interactive -->
+          <div class="wc-where" id="wc-where" role="group" aria-label="Where this connection shows up first">
+            <span class="wc-where-label">Where would this show up first?</span>
+            <div class="wc-where-tabs" id="wc-where-tabs" role="tablist"></div>
+            <span class="wc-where-helper" id="wc-where-helper"></span>
+          </div>
+
+          <details class="wc-extras" id="wc-extras">
+            <summary class="wc-extras-summary">
+              <span class="wc-extras-caret" aria-hidden="true">▸</span>
+              <span>Read the full thread</span>
+              <span class="wc-extras-hint">a little nuance behind the read</span>
+            </summary>
+            <div class="wc-body" id="wc-body"></div>
+          </details>
+
+          <footer class="wc-foot">
+            <span class="wc-foot-label">Connected signals</span>
+            <div class="wc-signals" id="wc-signals" role="list"></div>
+            <span class="wc-curated" title="Hand-curated editorial — not auto-generated">
+              <span class="wc-dot" aria-hidden="true"></span>
+              hand-curated
+            </span>
+          </footer>
+        </article>
+
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- WHAT'S CHANGED                                                 -->
+      <!-- ============================================================ -->
+      <section class="section whats-changed-section" id="whats-changed-section">
+        <div class="section-head whats-changed-head">
+          <span class="kicker">since last week</span>
+          <h2 class="section-title">
+            What’s <span class="hl-underline">changed</span>
+          </h2>
+          <p class="section-lead">
+            A fast scan of shifts since last week. One signal, one movement, one product implication — in a line.
+          </p>
+        </div>
+
+        <div class="whats-changed whats-changed-simple" id="whats-changed">
+          <div class="wch-row wch-moved">
+            <span class="wch-label">
+              <span class="wch-label-text">moved this week</span>
+            </span>
+            <ul class="wch-list wch-list-stack" id="wch-moved" role="list"></ul>
+          </div>
+          <div class="wch-row wch-held">
+            <span class="wch-label">
+              <span class="wch-label-text">held steady</span>
+            </span>
+            <ul class="wch-list wch-list-stack" id="wch-held" role="list"></ul>
+          </div>
+          <div class="wch-row wch-diff">
+            <span class="wch-label">
+              <span class="wch-label-text">behaving differently</span>
+            </span>
+            <ul class="wch-list wch-list-stack" id="wch-diff" role="list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ACTIVE CHAIN — one signal at a time, the editorial spine        -->
+      <!-- ============================================================ -->
+      <section class="section pulse-explorer-section" id="pulse-explorer-section">
+        <div class="section-head explorer-head">
+          <span class="kicker">the chain · one signal at a time</span>
+          <h2 class="section-title">
+            From <span class="hl-circle">signal</span> to product question
+          </h2>
+          <p class="section-lead">
+            Pick one signal and watch it become product thinking, five steps at a time. Tap a step to open its note — just one at a time, so the thread stays clear.
+          </p>
+        </div>
+
+        <!-- Category picker -->
+        <div class="signal-picker" role="tablist" aria-label="Switch category">
+          <span class="picker-label">Category</span>
+          <div class="picker-pills" id="category-pills">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <!-- Signal pills (within active category) -->
+        <div class="signal-subpicker" role="tablist" aria-label="Switch signal in category">
+          <span class="picker-label picker-label-sm">Signal</span>
+          <div class="picker-pills picker-pills-sm" id="signal-pills">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <!-- The active chain -->
+        <article class="pulse-explorer" id="pulse-explorer" aria-live="polite">
+          <header class="px-head">
+            <div class="px-head-left">
+              <span class="px-category" id="px-category">AI &amp; Technology</span>
+              <h3 class="px-title" id="px-title">Loading signal…</h3>
+              <p class="px-summary" id="px-summary"></p>
+            </div>
+            <div class="px-head-right">
+              <div class="px-pills">
+                <span class="status-pill" id="status-pill">—</span>
+                <span class="confidence-pill" id="confidence-pill">— confidence</span>
+              </div>
+
+              <!-- Current value + reference point -->
+              <div class="px-current">
+                <span class="px-current-val" id="px-current-val">—</span>
+                <span class="px-current-unit" id="px-current-unit"></span>
+                <!-- Quiet scale note — shown only for diffusion-index signals
+                     (mfg-activity, services-activity) which are centered at 0. -->
+                <span class="px-scale-note" id="px-scale-note" hidden></span>
+                <span class="px-reference" id="px-reference" title="Reference point — what makes this value meaningful"></span>
+              </div>
+
+              <!-- Sparkline -->
+              <div class="px-sparkline">
+                <div class="sparkline-svg" id="sparkline-svg" role="img" aria-label="12-month trend sparkline"></div>
+                <span class="sparkline-caption">12-month trend</span>
+              </div>
+
+              <!-- Compared-to widget -->
+              <div class="compared-to" id="compared-to" role="group" aria-label="Compared to reference periods"></div>
+
+              <!-- Percentile pill -->
+              <div class="percentile-pill" id="percentile-pill" role="img" aria-label="Percentile in history"></div>
+            </div>
+          </header>
+
+          <!-- Chain (5 steps, expandable on tap) -->
+          <ol class="chain" id="chain">
+            <!-- populated by JS -->
+          </ol>
+          <p class="chain-hint" id="chain-hint">
+            <span aria-hidden="true">＋</span> tap any step to open its supporting note — one at a time
+          </p>
+
+          <!-- Why I think this — simplified to Evidence / Counter-signal / Product takeaway -->
+          <details class="why-drawer" id="why-drawer">
+            <summary class="why-summary">
+              <span class="why-caret" aria-hidden="true">▸</span>
+              <span class="why-label">Why I think this</span>
+              <span class="why-hint">evidence · counter-signal · product takeaway</span>
+            </summary>
+            <div class="why-body why-body-3" id="why-body"></div>
+          </details>
+
+          <!-- Source / tier / last-updated footnote -->
+          <footer class="px-footnote" id="px-footnote">
+            <!-- populated by JS -->
+          </footer>
+        </article>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- QUIET FOOTER SIGNAL INDEX — utility directory, not a hero      -->
+      <!-- ============================================================ -->
+      <section class="section footer-signal-index" id="footer-signal-index" aria-label="All signals directory">
+        <div class="fsi-inner">
+          <header class="fsi-head">
+            <span class="fsi-eyebrow">all eighteen signals</span>
+            <span class="fsi-hint">jump to any signal in the explorer above</span>
+          </header>
+          <div class="fsi-grid" id="fsi-grid" role="list">
+            <!-- populated by JS — 6 small category groups, each a list of signal links -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SOURCE PHILOSOPHY (footer strip)                               -->
+      <!-- ============================================================ -->
+      <section class="section source-philosophy-strip" id="source-philosophy">
+        <div class="sp-inner">
+          <span class="sp-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4V4z"/><path d="M4 8h12M4 14h12"/></svg>
+          </span>
+          <p class="sp-text" id="sp-text">
+            Pulse reads from a three-tier source system. <strong>Tier&nbsp;1</strong> (Fed, BLS, Treasury, BEA, FRED, Census) drives conclusions.
+            <strong>Tier&nbsp;2</strong> (market &amp; product surfaces) supports and triangulates.
+            <strong>Tier&nbsp;3</strong> (editorial &amp; context) informs framing, not evidence.
+          </p>
+          <button class="sp-cta btn-link" type="button" id="sources-philosophy-btn">
+            Read the source philosophy
+            <span class="link-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- SOURCES MODAL                                                  -->
+    <!-- ============================================================ -->
+    <div class="modal" id="sources-modal" hidden role="dialog" aria-modal="true" aria-labelledby="sources-modal-title">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-card" role="document">
+        <button class="modal-close" type="button" aria-label="Close" data-close>×</button>
+        <header class="modal-head">
+          <span class="kicker">Sources</span>
+          <h3 id="sources-modal-title" class="modal-title">Where this week’s read comes from</h3>
+        </header>
+        <div class="modal-body" id="modal-body">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="foot-inner">
+        <span class="foot-brand">
+          <svg width="20" height="20" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="7" width="22" height="26" rx="2.5"/>
+            <circle cx="6" cy="14" r="1"/>
+            <circle cx="6" cy="20" r="1"/>
+            <circle cx="6" cy="26" r="1"/>
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z"/>
+          </svg>
+          ProductSnap Studio
+        </span>
+        <span class="foot-meta">ProductSnap Studio · Pulse</span>
+        <span class="foot-hand">a working notebook · still being drafted</span>
+      </div>
+    </footer>
+
+    <!-- Hand-drawn arrow filter (shared across page) -->
+    <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+      <defs>
+        <filter id="rough-arrow" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" />
+          <feDisplacementMap in="SourceGraphic" scale="1.2" />
+        </filter>
+        <filter id="rough-line" x="-2%" y="-15%" width="104%" height="130%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="3" />
+          <feDisplacementMap in="SourceGraphic" scale="1.6" />
+        </filter>
+      </defs>
+    </svg>
+
+    <script src="js/nav.js"></script>
+    <script src="js/pulse.js"></script>
+  </body>
+</html>

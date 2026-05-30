@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <pattern id="paper3" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#paper3)"/>
+
+  <text x="40" y="56" class="h" font-size="34" fill="#2d2620">ProductSnap · Bookmarks (saved for later)</text>
+  <text x="40" y="84" class="b" font-size="16" fill="#6b6356">v0.3 wireframe · one library, three content types</text>
+  <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+  <g transform="translate(220 130)">
+    <path class="px" d="M 6 6 Q 0 0 24 0 L 416 0 Q 440 0 440 24 L 440 836 Q 440 860 416 860 L 24 860 Q 0 860 0 836 L 0 24 Q 0 6 6 6 Z"/>
+
+    <text x="20" y="28" class="b ghost" font-size="13">12:27</text>
+    <text x="380" y="28" class="b ghost" font-size="13">wifi · 63%</text>
+    <line x1="14" y1="42" x2="426" y2="42" class="px-l"/>
+
+    <text x="20" y="74" class="b ink" font-size="22">≡</text>
+    <text x="170" y="74" class="b ink" font-size="22" font-weight="700">🔖  Bookmarks</text>
+    <circle cx="412" cy="64" r="14" class="px-l"/>
+    <text x="404" y="70" class="b" font-size="14" fill="#c69200">☾</text>
+    <line x1="14" y1="92" x2="426" y2="92" class="px-l"/>
+
+    <g transform="translate(20 116)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 138 Q 400 152 386 152 L 14 152 Q 0 152 0 138 L 0 14 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+      <text x="200" y="48" text-anchor="middle" class="h" font-size="28" fill="#2d2620">Saved for Later</text>
+      <text x="200" y="76" text-anchor="middle" class="b ink" font-size="14">Flashcards, stories, and future signals to revisit.</text>
+      <rect x="40" y="98" width="100" height="34" rx="17" class="px-l" fill="#fff3d6"/>
+      <text x="90" y="120" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#8a5e10">4 flashcards</text>
+      <rect x="150" y="98" width="100" height="34" rx="17" class="px-l" fill="#e3f5e3"/>
+      <text x="200" y="120" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2a7a4a">3 stories</text>
+      <rect x="260" y="98" width="100" height="34" rx="17" class="px-l" fill="#d9f1ff"/>
+      <text x="310" y="120" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2870a0">2 trends</text>
+    </g>
+
+    <g transform="translate(20 286)">
+      <rect x="0" y="0" width="62" height="34" rx="17" class="px-l" fill="#e7e1fb"/>
+      <text x="31" y="22" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#5a4ec7">All ✓</text>
+      <rect x="74" y="0" width="116" height="34" rx="17" class="px-l" fill="#fdfaf0"/>
+      <text x="132" y="22" text-anchor="middle" class="b" font-size="13" fill="#2d2620">Flashcards (4)</text>
+      <rect x="202" y="0" width="94" height="34" rx="17" class="px-l" fill="#fdfaf0"/>
+      <text x="249" y="22" text-anchor="middle" class="b" font-size="13" fill="#2d2620">Stories (3)</text>
+      <rect x="308" y="0" width="100" height="34" rx="17" class="px-l" fill="#fdfaf0"/>
+      <text x="358" y="22" text-anchor="middle" class="b" font-size="13" fill="#2d2620">Future PM</text>
+    </g>
+
+    <text x="20" y="354" class="b ghost" font-size="13" font-weight="700">FLASHCARDS</text>
+
+    <g transform="translate(20 370)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 116 Q 400 130 386 130 L 14 130 Q 0 130 0 116 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="130" fill="#6b5fd6"/>
+      <text x="20" y="28" class="b" font-size="12" font-weight="700" fill="#5a4ec7">FLASHCARD</text>
+      <rect x="116" y="14" width="160" height="22" rx="11" fill="#ebe6fc"/>
+      <text x="196" y="29" text-anchor="middle" class="b" font-size="11" font-weight="700" fill="#5a4ec7">Frameworks &amp; Models</text>
+      <text x="20" y="58" class="h" font-size="20" fill="#2d2620">⚡ What is Marty Cagan's Product Operating</text>
+      <text x="20" y="78" class="h" font-size="20" fill="#2d2620">Model?</text>
+      <text x="20" y="100" class="b ink" font-size="12">Marty Cagan's model says product teams should be</text>
+      <text x="20" y="116" class="b" font-size="12" font-weight="700" fill="#5a4ec7">Open flashcard ›</text>
+    </g>
+
+    <g transform="translate(20 510)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 116 Q 400 130 386 130 L 14 130 Q 0 130 0 116 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="130" fill="#d4b85e"/>
+      <text x="20" y="28" class="b" font-size="12" font-weight="700" fill="#8a5e10">FLASHCARD</text>
+      <rect x="116" y="14" width="120" height="22" rx="11" fill="#fff3d6"/>
+      <text x="176" y="29" text-anchor="middle" class="b" font-size="11" font-weight="700" fill="#8a5e10">Discovery &amp; Ideas</text>
+      <text x="20" y="58" class="h" font-size="20" fill="#2d2620">🔍 What is Product Discovery and why is it the</text>
+      <text x="20" y="78" class="h" font-size="20" fill="#2d2620">most important PM skill?</text>
+      <text x="20" y="100" class="b ink" font-size="12">Product discovery is the ongoing work of learning…</text>
+      <text x="20" y="116" class="b" font-size="12" font-weight="700" fill="#8a5e10">Open flashcard ›</text>
+    </g>
+
+    <g transform="translate(20 650)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 116 Q 400 130 386 130 L 14 130 Q 0 130 0 116 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="130" fill="#2da7a0"/>
+      <text x="20" y="28" class="b" font-size="12" font-weight="700" fill="#1f7a78">FLASHCARD</text>
+      <rect x="116" y="14" width="220" height="22" rx="11" fill="#d9f6f4"/>
+      <text x="226" y="29" text-anchor="middle" class="b" font-size="11" font-weight="700" fill="#1f7a78">AI Agents &amp; Multimodal Systems</text>
+      <text x="20" y="58" class="h" font-size="20" fill="#2d2620">🏗 What is end-to-end AI system design?</text>
+      <text x="20" y="80" class="b ink" font-size="12">End-to-end AI system design combines models…</text>
+      <text x="20" y="116" class="b" font-size="12" font-weight="700" fill="#1f7a78">Open flashcard ›</text>
+    </g>
+
+    <line x1="14" y1="816" x2="426" y2="816" class="px-l"/>
+    <g class="b" font-size="11" fill="#6b6356">
+      <text x="42" y="852" text-anchor="middle">🏠</text><text x="42" y="868" text-anchor="middle">Home</text>
+      <text x="124" y="852" text-anchor="middle">📚</text><text x="124" y="868" text-anchor="middle">Browse</text>
+      <text x="220" y="852" text-anchor="middle">🏋</text><text x="220" y="868" text-anchor="middle">Gym</text>
+      <text x="316" y="852" text-anchor="middle">📰</text><text x="316" y="868" text-anchor="middle" fill="#6b5fd6">Stories</text>
+      <text x="398" y="852" text-anchor="middle">📈</text><text x="398" y="868" text-anchor="middle">Progress</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 220)">
+    <text class="annot" font-size="22" x="0" y="0">one library,</text>
+    <text class="annot" font-size="22" x="0" y="26">three lenses</text>
+    <text class="b ink" font-size="13" x="0" y="50">flashcards + stories +</text>
+    <text class="b ink" font-size="13" x="0" y="66">future signals all live</text>
+    <text class="b ink" font-size="13" x="0" y="82">in one place — bookmarks</text>
+    <text class="b ink" font-size="13" x="0" y="98">aren't siloed by source.</text>
+    <path class="annot-line" d="M 160 30 Q 200 60 240 70"/>
+    <polygon points="242,70 234,66 234,74" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 240)">
+    <rect x="0" y="0" width="180" height="120" class="sticky" transform="rotate(2)"/>
+    <g transform="rotate(2)">
+      <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">why colour spines?</text>
+      <text x="14" y="50" class="b" font-size="12" fill="#3a3128">each category has its</text>
+      <text x="14" y="66" class="b" font-size="12" fill="#3a3128">own colour — user starts</text>
+      <text x="14" y="82" class="b" font-size="12" fill="#3a3128">building muscle memory</text>
+      <text x="14" y="98" class="b" font-size="12" fill="#3a3128">for the taxonomy.</text>
+    </g>
+    <path class="annot-line" d="M -10 60 Q -50 70 -90 70"/>
+    <polygon points="-92,70 -84,66 -84,74" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(40 540)">
+    <text class="annot" font-size="22" x="0" y="0">filter chips =</text>
+    <text class="annot" font-size="22" x="0" y="26">low cognitive load</text>
+    <text class="b ink" font-size="13" x="0" y="50">tabs would feel rigid.</text>
+    <text class="b ink" font-size="13" x="0" y="66">chips invite browsing.</text>
+    <path class="annot-line" d="M 160 -240 Q 200 -220 230 -240"/>
+    <polygon points="232,-240 224,-244 224,-236" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 700)">
+    <text class="annot" font-size="22" x="0" y="0">card teaser</text>
+    <text class="b ink" font-size="13" x="0" y="22">enough to remember</text>
+    <text class="b ink" font-size="13" x="0" y="38">why you saved it.</text>
+    <text class="b ink" font-size="13" x="0" y="58">not the whole answer —</text>
+    <text class="b ink" font-size="13" x="0" y="74">that earns the next tap.</text>
+    <path class="annot-line" d="M -10 30 Q -60 30 -100 0"/>
+    <polygon points="-102,0 -94,-4 -94,4" fill="#c44569"/>
+  </g>
+
+  <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+  <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">screen 03 / 06</text>
+</svg>

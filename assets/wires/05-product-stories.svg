@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <pattern id="paper5" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#paper5)"/>
+
+  <text x="40" y="56" class="h" font-size="34" fill="#2d2620">ProductSnap · Product Stories</text>
+  <text x="40" y="84" class="b" font-size="16" fill="#6b6356">v0.3 wireframe · "what really happened" — bite-sized case studies</text>
+  <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+  <g transform="translate(220 130)">
+    <path class="px" d="M 6 6 Q 0 0 24 0 L 416 0 Q 440 0 440 24 L 440 836 Q 440 860 416 860 L 24 860 Q 0 860 0 836 L 0 24 Q 0 6 6 6 Z"/>
+
+    <text x="20" y="28" class="b ghost" font-size="13">12:26</text>
+    <text x="380" y="28" class="b ghost" font-size="13">wifi · 64%</text>
+    <line x1="14" y1="42" x2="426" y2="42" class="px-l"/>
+
+    <text x="20" y="74" class="b ink" font-size="22">≡</text>
+    <text x="160" y="74" class="b ink" font-size="22" font-weight="700">📰  Product Stories</text>
+    <circle cx="412" cy="64" r="14" class="px-l"/>
+    <text x="404" y="70" class="b" font-size="14" fill="#c69200">☾</text>
+    <line x1="14" y1="92" x2="426" y2="92" class="px-l"/>
+
+    <g transform="translate(20 116)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 158 Q 400 172 386 172 L 14 172 Q 0 172 0 158 L 0 14 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+      <text x="200" y="50" text-anchor="middle" class="h" font-size="32" fill="#2d2620">What Really Happened</text>
+      <text x="200" y="80" text-anchor="middle" class="b ink" font-size="14">The good, the messy, and the brilliant.</text>
+      <rect x="40" y="106" width="110" height="38" rx="19" class="px-l" fill="#fff3d6"/>
+      <text x="95" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#8a5e10">💬 55 stories</text>
+      <rect x="158" y="106" width="100" height="38" rx="19" class="px-l" fill="#e3f5e3"/>
+      <text x="208" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2a7a4a">📂 9 themes</text>
+      <rect x="266" y="106" width="110" height="38" rx="19" class="px-l" fill="#d9f1ff"/>
+      <text x="321" y="130" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2870a0">⚡ Bite-sized</text>
+    </g>
+
+    <g transform="translate(20 308)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 38 Q 400 52 386 52 L 14 52 Q 0 52 0 38 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <text x="16" y="34" class="b ghost" font-size="13">Search stories — Airbnb, Agentforce, pricing…</text>
+    </g>
+
+    <text x="20" y="396" class="b ghost" font-size="12">27 stories · 3 themes</text>
+    <rect x="290" y="378" width="130" height="28" rx="14" class="px-l" fill="#fff3d6"/>
+    <text x="355" y="396" text-anchor="middle" class="b" font-size="12" font-weight="700" fill="#8a5e10">Clear filters</text>
+
+    <g transform="translate(20 416)">
+      <rect x="0" y="0" width="222" height="34" rx="17" class="px-l" fill="#d6f0d8"/>
+      <text x="111" y="22" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#2a7a4a">✓ Market &amp; Competitive Analysis</text>
+      <rect x="232" y="0" width="170" height="34" rx="17" class="px-l" fill="#fff3d6"/>
+      <text x="317" y="22" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#8a5e10">✓ Discovery &amp; Ideas</text>
+    </g>
+
+    <g transform="translate(20 470)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 158 Q 400 172 386 172 L 14 172 Q 0 172 0 158 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="172" fill="#d4b85e"/>
+      <text x="20" y="32" class="b ink" font-size="14" font-weight="700">Airbnb · 2009</text>
+      <circle cx="374" cy="26" r="14" class="px-l"/>
+      <path d="M369 20 L369 34 L374 31 L379 34 L379 20 Z" stroke="#2d2620" stroke-width="1.2" fill="none"/>
+      <rect x="14" y="48" width="148" height="26" rx="13" fill="#fff3d6"/>
+      <text x="88" y="65" text-anchor="middle" class="b" font-size="11" font-weight="700" fill="#8a5e10">DISCOVERY &amp; IDEAS</text>
+      <text x="20" y="100" class="h" font-size="24" fill="#2d2620">The Camera That Doubled Revenue</text>
+      <text x="20" y="124" class="b ink" font-size="13">In early 2009, Airbnb had reasonable website traffic</text>
+      <text x="20" y="140" class="b ink" font-size="13">but very few actual bookings. The founders could n…</text>
+      <path class="px-l" d="M 14 152 Q 12 148 22 148 L 130 148 Q 140 148 140 158 L 140 166 Q 140 174 130 174 L 22 174 Q 12 174 12 166 L 12 158 Q 12 152 14 152 Z" fill="#c8c0f1"/>
+      <text x="76" y="167" text-anchor="middle" class="b" font-size="13" font-weight="700" fill="#5a4ec7">📖 Read story</text>
+    </g>
+
+    <g transform="translate(20 654)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 122 Q 400 136 386 136 L 14 136 Q 0 136 0 122 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <rect x="0" y="0" width="6" height="136" fill="#d6477c"/>
+      <text x="20" y="32" class="b ink" font-size="14" font-weight="700">Amazon · 2004–present</text>
+      <circle cx="374" cy="26" r="14" class="px-l"/>
+      <path d="M369 20 L369 34 L374 31 L379 34 L379 20 Z" stroke="#2d2620" stroke-width="1.2" fill="none"/>
+      <rect x="14" y="48" width="148" height="26" rx="13" fill="#ffe1ec"/>
+      <text x="88" y="65" text-anchor="middle" class="b" font-size="11" font-weight="700" fill="#c43360">PRODUCT STRATEGY</text>
+      <text x="20" y="100" class="h" font-size="24" fill="#2d2620">Working Backwards: Starting with</text>
+      <text x="20" y="124" class="h" font-size="24" fill="#2d2620">the Press Release</text>
+    </g>
+
+    <line x1="14" y1="816" x2="426" y2="816" class="px-l"/>
+    <g class="b" font-size="11" fill="#6b6356">
+      <text x="42" y="852" text-anchor="middle">🏠</text><text x="42" y="868" text-anchor="middle">Home</text>
+      <text x="124" y="852" text-anchor="middle">📚</text><text x="124" y="868" text-anchor="middle">Browse</text>
+      <text x="220" y="852" text-anchor="middle">🏋</text><text x="220" y="868" text-anchor="middle">Gym</text>
+      <text x="316" y="852" text-anchor="middle">📰</text><text x="316" y="868" text-anchor="middle" fill="#6b5fd6">Stories</text>
+      <text x="398" y="852" text-anchor="middle">📈</text><text x="398" y="868" text-anchor="middle">Progress</text>
+    </g>
+  </g>
+
+  <g transform="translate(40 190)">
+    <text class="annot" font-size="22" x="0" y="0">"what really</text>
+    <text class="annot" font-size="22" x="0" y="26">happened" framing</text>
+    <text class="b ink" font-size="13" x="0" y="50">not "case studies" —</text>
+    <text class="b ink" font-size="13" x="0" y="66">that word feels academic.</text>
+    <text class="b ink" font-size="13" x="0" y="82">this promises the inside</text>
+    <text class="b ink" font-size="13" x="0" y="98">story. messier. truer.</text>
+    <path class="annot-line" d="M 160 30 Q 200 60 240 70"/>
+    <polygon points="242,70 234,66 234,74" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 320)">
+    <rect x="0" y="0" width="180" height="120" class="sticky" transform="rotate(2)"/>
+    <g transform="rotate(2)">
+      <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">filter, don't taxonomy</text>
+      <text x="14" y="52" class="b" font-size="12" fill="#3a3128">show active filters as</text>
+      <text x="14" y="68" class="b" font-size="12" fill="#3a3128">chips with ✓ — easy</text>
+      <text x="14" y="84" class="b" font-size="12" fill="#3a3128">to remove. no left-rail</text>
+      <text x="14" y="100" class="b" font-size="12" fill="#3a3128">nav. PMs aren't IA fans.</text>
+    </g>
+    <path class="annot-line" d="M -10 60 Q -50 90 -110 110"/>
+    <polygon points="-112,110 -104,106 -104,114" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(40 620)">
+    <text class="annot" font-size="22" x="0" y="0">narrative titles</text>
+    <text class="b ink" font-size="13" x="0" y="22">"The Camera That</text>
+    <text class="b ink" font-size="13" x="0" y="38">Doubled Revenue" —</text>
+    <text class="b ink" font-size="13" x="0" y="54">tells you the outcome</text>
+    <text class="b ink" font-size="13" x="0" y="70">+ the surprise.</text>
+    <text class="b ink" font-size="13" x="0" y="90">earns the tap.</text>
+    <path class="annot-line" d="M 170 30 Q 200 50 230 60"/>
+    <polygon points="232,60 224,56 224,64" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 700)">
+    <text class="annot" font-size="22" x="0" y="0">company · year</text>
+    <text class="b ink" font-size="13" x="0" y="22">tiny metadata strip</text>
+    <text class="b ink" font-size="13" x="0" y="38">grounds the story.</text>
+    <text class="b ink" font-size="13" x="0" y="58">tells user this is</text>
+    <text class="b ink" font-size="13" x="0" y="74">real, not theory.</text>
+    <path class="annot-line" d="M -10 0 Q -60 -10 -100 -30"/>
+    <polygon points="-102,-30 -94,-34 -94,-26" fill="#c44569"/>
+  </g>
+
+  <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+  <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">screen 05 / 06</text>
+</svg>
