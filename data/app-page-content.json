@@ -8,8 +8,14 @@
     ],
     "status_note": "Build 9 is the release candidate.",
     "margin_note": "Not a concept. A real app in store review right now.",
-    "cta_primary": { "label": "Join the launch list", "href": "#launch-list" },
-    "cta_secondary": { "label": "See how it was built", "href": "#how" },
+    "cta_primary": {
+      "label": "Join the launch list",
+      "href": "#launch-list"
+    },
+    "cta_secondary": {
+      "label": "See how it was built",
+      "href": "#how"
+    },
     "store_note": "The App Store link is live. Google Play is still working through review."
   },
   "modules": [
@@ -93,40 +99,108 @@
       }
     ],
     "qa_stack": [
-      { "icon": "📱", "name": "Samsung S24 Ultra", "note": "primary daily driver" },
-      { "icon": "📱", "name": "iPhone 16 Pro Max", "note": "borrowed from family" },
-      { "icon": "🔥", "name": "Firebase Test Lab", "note": "automated device-matrix testing" },
-      { "icon": "🧪", "name": "Prime Test Lab", "note": "third-party manual QA" }
+      {
+        "icon": "📱",
+        "name": "Samsung S24 Ultra",
+        "note": "primary daily driver"
+      },
+      {
+        "icon": "📱",
+        "name": "iPhone 16 Pro Max",
+        "note": "borrowed from family"
+      },
+      {
+        "icon": "🔥",
+        "name": "Firebase Test Lab",
+        "note": "automated device-matrix testing"
+      },
+      {
+        "icon": "🧪",
+        "name": "Prime Test Lab",
+        "note": "third-party manual QA"
+      }
     ],
     "builds": [
-      { "id": "4e", "note": "first end-to-end build" },
-      { "id": "4f", "note": "flashcard interactions" },
-      { "id": "4g", "note": "Product Gym scoring" },
-      { "id": "4h", "note": "Future PM detail screens" },
-      { "id": "4i", "note": "responsiveness fixes" },
-      { "id": "--note--", "marker": "+ builds 5, 6, 7, 8 along the way — each one a smaller fix or a polish pass" },
-      { "id": "9",  "note": "the build that went live on the App Store · May 28, 2026" }
+      {
+        "id": "4e",
+        "note": "first end-to-end build"
+      },
+      {
+        "id": "4f",
+        "note": "flashcard interactions"
+      },
+      {
+        "id": "4g",
+        "note": "Product Gym scoring"
+      },
+      {
+        "id": "4h",
+        "note": "Future PM detail screens"
+      },
+      {
+        "id": "4i",
+        "note": "responsiveness fixes"
+      },
+      {
+        "id": "--note--",
+        "marker": "+ builds 5, 6, 7, 8 along the way — each one a smaller fix or a polish pass"
+      },
+      {
+        "id": "9",
+        "note": "the build that went live on the App Store · May 28, 2026"
+      }
     ]
   },
   "wireframes": [
-    { "src": "assets/wires/01-homepage-flashcard-front.jpg", "caption": "Homepage · flashcard front. Notes: one card at a time, no infinite scroll." },
-    { "src": "assets/wires/02-homepage-flashcard-back.jpg", "caption": "Homepage · flashcard back. WHAT / WHY / EXAMPLE structure decided here." },
-    { "src": "assets/wires/03-bookmarks.jpg", "caption": "Bookmarks. Saved cards live alongside saved stories." },
-    { "src": "assets/wires/04-product-gym.jpg", "caption": "Product Gym. Reps, not questions. Stacked cards as visible progress." },
-    { "src": "assets/wires/05-product-stories.jpg", "caption": "Product Stories. PROBLEM → MOVE → RESULT → TAKEAWAY laid out as a story, not a card." },
-    { "src": "assets/wires/06-future-pm.jpg", "caption": "Future PM. Three lenses on every trend. Deep link into trend detail." }
+    {
+      "src": "assets/wires/01-homepage-flashcard-front.jpg",
+      "caption": "Homepage · flashcard front. Notes: one card at a time, no infinite scroll."
+    },
+    {
+      "src": "assets/wires/02-homepage-flashcard-back.jpg",
+      "caption": "Homepage · flashcard back. WHAT / WHY / EXAMPLE structure decided here."
+    },
+    {
+      "src": "assets/wires/03-bookmarks.jpg",
+      "caption": "Bookmarks. Saved cards live alongside saved stories."
+    },
+    {
+      "src": "assets/wires/04-product-gym.jpg",
+      "caption": "Product Gym. Reps, not questions. Stacked cards as visible progress."
+    },
+    {
+      "src": "assets/wires/05-product-stories.jpg",
+      "caption": "Product Stories. PROBLEM → MOVE → RESULT → TAKEAWAY laid out as a story, not a card."
+    },
+    {
+      "src": "assets/wires/06-future-pm.jpg",
+      "caption": "Future PM. Three lenses on every trend. Deep link into trend detail."
+    }
   ],
   "hard_parts": [
-    "Responsive layouts across devices — flashcards rendering well on a Pixel and an iPhone Pro Max are different problems.",
+    "Responsive layouts across the device zoo — a flashcard that looks right on a small Android, a Samsung Ultra, and an iPhone are three different problems.",
     "Being your own QA at 11 PM on a Sunday.",
     "Store submission — every screenshot, copy line, age rating, and content compliance form is its own small project.",
     "Knowing when to stop iterating. Build 4e → 4i → 9 is a lot of rebuilds."
   ],
   "whats_next": [
-    { "tag": "v1.1", "note": "Firebase Analytics + Crashlytics, content refinement." },
-    { "tag": "v1.5", "note": "Personalization (cards recommended from engagement), smarter review prompts, streaks." },
-    { "tag": "v2.0", "note": "Macro Product Insights — the Pulse layer feeding into the app." },
-    { "tag": "Exploring", "note": "an in-app study assistant that explains a card deeper and quizzes you on the app’s own content.", "tentative": true }
+    {
+      "tag": "v1.1",
+      "note": "Firebase Analytics + Crashlytics, content refinement."
+    },
+    {
+      "tag": "v1.5",
+      "note": "Personalization (cards recommended from engagement), smarter review prompts, streaks."
+    },
+    {
+      "tag": "v2.0",
+      "note": "Macro Product Insights — the Pulse layer feeding into the app."
+    },
+    {
+      "tag": "Exploring",
+      "note": "an in-app study assistant that explains a card deeper and quizzes you on the app’s own content.",
+      "tentative": true
+    }
   ],
   "learning": "Building this let me ship the things I used to only spec. I’m still learning what the AI actually built on my behalf, where my own judgment mattered most, and where I’d do things differently next time."
 }

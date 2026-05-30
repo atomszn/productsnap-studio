@@ -1283,12 +1283,17 @@
   transition: background .15s ease, border-color .15s ease, transform .15s ease;
 }
 .wc-where-tab:hover { background: var(--note-gold); }
+/* Fix 5: selected chip = solid teal fill with cream text so the active
+   state is unmistakable against the warm background. Unselected chips keep
+   their outline. Uses the existing teal primary + the cream already used
+   elsewhere (e.g. picker pills) — no new colors introduced. */
 .wc-where-tab[aria-selected="true"] {
-  background: var(--note-teal);
+  background: var(--teal);
   border-color: var(--teal);
-  color: var(--teal);
+  color: #fffaeb;
   font-weight: 600;
 }
+.wc-where-tab[aria-selected="true"]:hover { background: var(--teal); }
 
 .wc-extras {
   margin: 8px 0 14px;

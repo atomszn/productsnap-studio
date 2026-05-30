@@ -546,6 +546,7 @@ html,
   transition: background 0.18s ease;
 }
 .dd-dot.is-active { background: var(--teal); }
+.deepdive-swipe-hint { display: none; } /* mobile-only affordance */
 
 /* ============================================================ */
 /* SECTION 5 · HOW IT WAS BUILT                                 */
@@ -1132,8 +1133,19 @@ html,
     transform: rotate(0deg);
   }
   .module-card:hover { transform: none; }
-  /* .mc-thumb sizes to its 9:19.5 screenshot on mobile too — no
-     aspect-ratio/max-height override that reintroduced side gutters. */
+  /* The module screenshots share the deep-dive "too tall on phones"
+     issue, so cap the thumb image with the same viewport-relative value.
+     object-fit: cover keeps it full-width and undistorted (no side
+     gutters); the card + its text now fit on screen with the next card
+     peeking to cue the horizontal swipe. */
+  .mc-thumb img {
+    height: 52dvh;
+    height: 52svh;
+    max-height: 52dvh;
+    max-height: 52svh;
+    object-fit: cover;
+    object-position: top center;
+  }
   .module-dots {
     display: flex;
     justify-content: center;
@@ -1178,8 +1190,13 @@ html,
   }
   .phone-notch { display: none; }
   .flashcard {
-    /* size to content on mobile too — no fixed height, no clipping */
-    min-height: 0;
+    /* Portrait flashcard proportion (~3:4) on mobile so it reads like a
+       real card instead of a short/squished box. min-height is tied to the
+       same fluid width formula as the phone frame (min(360px, 92vw)), so it
+       scales across every phone width with no device-specific values. The
+       card may still grow taller than 3:4 if an answer needs it — it never
+       shrinks below portrait and never scrolls internally. */
+    min-height: calc(min(360px, 92vw) * 4 / 3);
     border: 1.5px solid var(--ink);
     border-radius: 22px;
     box-shadow: 4px 5px 0 var(--ink);
@@ -1187,9 +1204,23 @@ html,
     /* sketchbook treatment */
   }
   .flashcard-stage .flashcard-shell { min-height: 0; }
-  .fc-face { border-radius: 22px; padding: 22px 18px; }
+  .fc-face {
+    border-radius: 22px;
+    padding: 22px 18px;
+  }
+  /* The front is absolutely positioned (inset:0) so it already fills the
+     box; force it to span the full portrait height so the front matches the
+     back exactly with no size jump on flip. The back stays in flow and
+     defines the box, so it must NOT take a percentage min-height. */
+  .fc-front { min-height: 100%; height: 100%; }
   .fc-question { font-size: 22px; }
   .fc-bolt { font-size: 52px; margin-top: 18px; }
+  /* Scale the back-face type down slightly rather than ever scrolling, so
+     the longest answer in the deck stays fully visible. */
+  .fc-back { padding: 20px 16px 20px 22px; gap: 12px; }
+  .fc-back .fc-label { font-size: 16px; }
+  .fc-back .fc-block p { font-size: 13.5px; line-height: 1.4; }
+  .fc-back .fc-block-why { padding: 9px 11px; }
   .fc-mobile-hint { display: block; }
 
   /* ---------- 6.4 Deep-dive Real Screenshots carousel ---------- */
@@ -1206,11 +1237,35 @@ html,
   }
   .deepdive-track::-webkit-scrollbar { display: none; }
   .deepdive-shot {
-    flex: 0 0 calc(100vw - 72px);
-    scroll-snap-align: center;
+    /* Slightly narrower than full width so the next card always peeks at
+       the right edge — the cue that the row swipes. */
+    flex: 0 0 calc(100vw - 84px);
+    scroll-snap-align: start;
   }
   .dd-frame { transform: none; max-width: 100%; }
+  /* Cap the screenshot height to ~70% of the (dynamic) viewport so a full
+     frame fits on screen regardless of phone size or browser chrome.
+     object-fit: cover keeps the image undistorted and full-width (no side
+     gutters) — the tall screenshot is gently cropped at the bottom rather
+     than letterboxed. dvh/svh react to mobile UI bars. */
+  .dd-frame img {
+    height: 70dvh;
+    height: 70svh;
+    max-height: 70dvh;
+    max-height: 70svh;
+    object-fit: cover;
+    object-position: top center;
+  }
   .deepdive-dots { display: flex; }
+  /* Quiet horizontal-scroll affordance below the rail. */
+  .deepdive-swipe-hint {
+    display: block;
+    text-align: center;
+    margin: 4px 0 0;
+    font-family: var(--hand);
+    font-size: 17px;
+    color: var(--purple);
+  }
 
   /* ---------- 6.5 How it was built — vertical journey ---------- */
   .how-grid {
