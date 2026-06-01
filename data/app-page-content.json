@@ -3,11 +3,10 @@
     "title": "ProductSnap",
     "sub": "A mobile learning app for product managers. Flashcards, real product stories, practice reps, and forward-looking PM signals — built around one idea: PMs don’t need more content, they need better judgment.",
     "status_lines": [
-      "iOS · live on the App Store · May 28, 2026",
-      "Google Play · in review"
+      "Live on the App Store and Google Play."
     ],
-    "status_note": "Build 9 is the release candidate.",
-    "margin_note": "Not a concept. A real app in store review right now.",
+    "status_note": "Build 9 shipped to both stores. Still slightly amazed.",
+    "margin_note": "Not a concept. A real app, live on both stores right now.",
     "cta_primary": {
       "label": "Join the launch list",
       "href": "#launch-list"
@@ -16,7 +15,7 @@
       "label": "See how it was built",
       "href": "#how"
     },
-    "store_note": "The App Store link is live. Google Play is still working through review."
+    "store_note": "Both stores. One phone. Live."
   },
   "modules": [
     {
@@ -147,7 +146,7 @@
       },
       {
         "id": "9",
-        "note": "the build that went live on the App Store · May 28, 2026"
+        "note": "the build that shipped to both stores"
       }
     ]
   },
