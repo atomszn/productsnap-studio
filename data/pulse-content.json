@@ -527,9 +527,9 @@
         }
       },
       "percentile": {
-        "value": 83,
+        "value": 82,
         "lookback_years": 10,
-        "label": "Higher than 17% of observations in the last 10 years"
+        "label": "Higher than 18% of observations in the last 10 years"
       },
       "chain": [
         {
