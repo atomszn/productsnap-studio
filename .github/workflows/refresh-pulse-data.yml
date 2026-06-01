@@ -32,6 +32,9 @@ jobs:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
         run: node scripts/fetch-pulse-data.js
 
+      - name: Validate refreshed Pulse data (gate before commit)
+        run: node scripts/validate-pulse-data.js --check
+
       - name: Commit refreshed data if changed
         run: |
           if git diff --quiet -- data/pulse-content.json; then

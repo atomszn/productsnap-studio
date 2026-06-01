@@ -1,0 +1,441 @@
+{
+  "generated_at": "2026-06-01T02:04:25.992Z",
+  "registry_version": "1.0.0",
+  "signal_count": 18,
+  "summary": {
+    "verified": 10,
+    "stale": 0,
+    "needs_review": 0,
+    "failed": 0,
+    "manual": 8,
+    "alignment_mismatches": 0,
+    "updated": 0,
+    "unchanged": 18
+  },
+  "signals": [
+    {
+      "signal_id": "cpi-headline",
+      "name": "Headline CPI (YoY)",
+      "category": "inflation",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "3.81%",
+      "last_updated": "2026-04-01",
+      "editorial_status": "stale",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "BLS CPI",
+          "url": "https://www.bls.gov/cpi/",
+          "tier": 1
+        },
+        {
+          "name": "BLS Core CPI",
+          "url": "https://www.bls.gov/news.release/cpi.t02.htm",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "ppi",
+      "name": "Producer Price Index (YoY)",
+      "category": "inflation",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "5.99%",
+      "last_updated": "2026-04-01",
+      "editorial_status": "stale",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "BLS PPI",
+          "url": "https://www.bls.gov/ppi/",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "pce",
+      "name": "Core PCE (YoY)",
+      "category": "inflation",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "3.29%",
+      "last_updated": "2026-04-01",
+      "editorial_status": "stale",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "Core PCE Price Index (FRED PCEPILFE)",
+          "url": "https://fred.stlouisfed.org/series/PCEPILFE",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "fed-net-liquidity",
+      "name": "Fed Net Liquidity / Balance Sheet",
+      "category": "liquidity",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "$6.7T",
+      "last_updated": "2026-05-27",
+      "editorial_status": "current",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "FRED WALCL",
+          "url": "https://fred.stlouisfed.org/series/WALCL",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "10y-treasury",
+      "name": "10-Year Treasury Yield",
+      "category": "liquidity",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "4.45%",
+      "last_updated": "2026-05-28",
+      "editorial_status": "current",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "FRED 10Y Treasury",
+          "url": "https://fred.stlouisfed.org/series/DGS10",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "series-a-counts",
+      "name": "Series A Round Counts (trailing 3mo, US)",
+      "category": "liquidity",
+      "status": "manual",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "~210",
+      "last_updated": "2026-05-20",
+      "editorial_status": "current",
+      "reason": "Manual/event-driven signal accepted (human-curated)",
+      "sources": [
+        {
+          "name": "Crunchbase News",
+          "url": "https://news.crunchbase.com/",
+          "tier": 2
+        },
+        {
+          "name": "PitchBook public reports",
+          "url": "https://pitchbook.com/news",
+          "tier": 2
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "ai-model-releases",
+      "name": "Frontier AI Model Release Activity",
+      "category": "ai-tech",
+      "status": "manual",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "3 / 14 days",
+      "last_updated": "2026-05-26",
+      "editorial_status": "current",
+      "reason": "Manual/event-driven signal accepted (human-curated)",
+      "sources": [
+        {
+          "name": "Anthropic news",
+          "url": "https://www.anthropic.com/news",
+          "tier": 2
+        },
+        {
+          "name": "OpenAI news",
+          "url": "https://openai.com/news/",
+          "tier": 2
+        },
+        {
+          "name": "Google AI blog",
+          "url": "https://blog.google/technology/ai/",
+          "tier": 2
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "ai-api-pricing",
+      "name": "AI API / Inference Pricing Trend",
+      "category": "ai-tech",
+      "status": "manual",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "−60%",
+      "last_updated": "2026-05-19",
+      "editorial_status": "current",
+      "reason": "Manual/event-driven signal accepted (human-curated)",
+      "sources": [
+        {
+          "name": "OpenAI pricing",
+          "url": "https://openai.com/api/pricing/",
+          "tier": 2
+        },
+        {
+          "name": "Anthropic pricing",
+          "url": "https://www.anthropic.com/pricing",
+          "tier": 2
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "open-source-ai",
+      "name": "Open-Source AI Momentum (agent frameworks)",
+      "category": "ai-tech",
+      "status": "manual",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "+38%",
+      "last_updated": "2026-05-25",
+      "editorial_status": "current",
+      "reason": "Manual/event-driven signal accepted (human-curated)",
+      "sources": [
+        {
+          "name": "GitHub Trending",
+          "url": "https://github.com/trending",
+          "tier": 2
+        },
+        {
+          "name": "Hugging Face",
+          "url": "https://huggingface.co/",
+          "tier": 2
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "compute-cost",
+      "name": "Effective Compute Cost per Workload",
+      "category": "ai-tech",
+      "status": "manual",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "−14%",
+      "last_updated": "2026-04-30",
+      "editorial_status": "aging",
+      "reason": "Manual/event-driven signal accepted (human-curated)",
+      "sources": [
+        {
+          "name": "AWS earnings",
+          "url": "https://ir.aboutamazon.com/",
+          "tier": 2
+        },
+        {
+          "name": "Azure earnings",
+          "url": "https://www.microsoft.com/en-us/Investor",
+          "tier": 2
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "retail-sales",
+      "name": "Retail Sales (YoY)",
+      "category": "consumer",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "4.87%",
+      "last_updated": "2026-04-01",
+      "editorial_status": "stale",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "Advance Retail Sales (FRED RSAFS)",
+          "url": "https://fred.stlouisfed.org/series/RSAFS",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "consumer-confidence",
+      "name": "Consumer Sentiment (U. Michigan)",
+      "category": "consumer",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "49.8",
+      "last_updated": "2026-04-01",
+      "editorial_status": "stale",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "University of Michigan Consumer Sentiment (via FRED)",
+          "url": "https://fred.stlouisfed.org/series/UMCSENT",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "emerging-apps",
+      "name": "Emerging App Category Patterns",
+      "category": "consumer",
+      "status": "manual",
+      "alignment_status": "unknown",
+      "review_required": false,
+      "current_value": "pattern",
+      "last_updated": "2026-05-26",
+      "editorial_status": "current",
+      "reason": "Manual/event-driven signal accepted (human-curated)",
+      "sources": [
+        {
+          "name": "Product Hunt",
+          "url": "https://www.producthunt.com/",
+          "tier": 2
+        },
+        {
+          "name": "GitHub Trending",
+          "url": "https://github.com/trending",
+          "tier": 2
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "nonfarm-payrolls",
+      "name": "Nonfarm Payrolls (monthly change)",
+      "category": "labor",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "+115k",
+      "last_updated": "2026-04-01",
+      "editorial_status": "stale",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "BLS Employment Situation",
+          "url": "https://www.bls.gov/news.release/empsit.toc.htm",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "tech-hiring",
+      "name": "Tech Hiring Intensity (percentile)",
+      "category": "labor",
+      "status": "manual",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "22nd percentile",
+      "last_updated": "2026-05-26",
+      "editorial_status": "current",
+      "reason": "Manual/event-driven signal accepted (human-curated)",
+      "sources": [
+        {
+          "name": "layoffs.fyi",
+          "url": "https://layoffs.fyi/",
+          "tier": 2
+        },
+        {
+          "name": "BLS subsector employment",
+          "url": "https://www.bls.gov/iag/tgs/iag51.htm",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "ai-regulation",
+      "name": "AI Regulation & Policy Developments",
+      "category": "regulation",
+      "status": "manual",
+      "alignment_status": "unknown",
+      "review_required": false,
+      "current_value": "watch",
+      "last_updated": "2026-05-24",
+      "editorial_status": "current",
+      "reason": "Manual/event-driven signal accepted (human-curated)",
+      "sources": [
+        {
+          "name": "EU AI Act",
+          "url": "https://artificialintelligenceact.eu/",
+          "tier": 3
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "mfg-activity",
+      "name": "Manufacturing Activity (diffusion index)",
+      "category": "activity",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "-0.4",
+      "last_updated": "2026-05-01",
+      "editorial_status": "aging",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "Philadelphia Fed Manufacturing Business Outlook Survey (via FRED GACDFSA066MSFRBPHI)",
+          "url": "https://fred.stlouisfed.org/series/GACDFSA066MSFRBPHI",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    },
+    {
+      "signal_id": "services-activity",
+      "name": "Services Activity (diffusion index)",
+      "category": "activity",
+      "status": "verified",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "-5",
+      "last_updated": "2026-05-01",
+      "editorial_status": "aging",
+      "reason": "All checks passed",
+      "sources": [
+        {
+          "name": "Dallas Fed Texas Service Sector Outlook Survey (via FRED TSSOSBACTUAMFRBDAL)",
+          "url": "https://fred.stlouisfed.org/series/TSSOSBACTUAMFRBDAL",
+          "tier": 1
+        }
+      ],
+      "checked_at": "2026-06-01T02:04:25.992Z"
+    }
+  ],
+  "alignment_mismatches": [],
+  "failures": [],
+  "needs_review": [],
+  "editorial": {
+    "weekly_connection": {
+      "editorial_status": "aging",
+      "age_days": 5,
+      "review_required": false,
+      "review_note": "",
+      "mismatched_connected_signals": []
+    }
+  },
+  "integrity": {
+    "signal_count_before": 18,
+    "signal_count_after": 18,
+    "count_preserved": true,
+    "has_mfg_activity": true,
+    "has_services_activity": true
+  }
+}

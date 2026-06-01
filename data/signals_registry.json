@@ -1,0 +1,1251 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-06-01T01:12:38.722Z",
+  "description": "Master trust registry for Pulse signals. Single source of truth for validation, threshold/outlier, cadence, alignment and editorial rules. Scalable to 25+/40+ signals \u2014 add one object per signal.",
+  "status_model": [
+    "verified",
+    "stale",
+    "needs_review",
+    "failed",
+    "manual"
+  ],
+  "alignment_status_values": [
+    "aligned",
+    "mismatch",
+    "unknown"
+  ],
+  "stance_vocabulary": {
+    "rising": "up",
+    "climbing": "up",
+    "accelerating": "up",
+    "reaccelerating": "up",
+    "heating": "up",
+    "heated up": "up",
+    "hotter": "up",
+    "surging": "up",
+    "expanding": "up",
+    "growing": "up",
+    "strengthening": "up",
+    "improving_up": "up",
+    "cooling": "down",
+    "easing": "down",
+    "falling": "down",
+    "slowing": "down",
+    "weakening": "down",
+    "softening": "down",
+    "contracting": "down",
+    "declining": "down",
+    "cheaper": "down",
+    "dropping": "down",
+    "tightening_down": "down"
+  },
+  "stance_antonyms": [
+    [
+      "rising",
+      "cooling"
+    ],
+    [
+      "rising",
+      "falling"
+    ],
+    [
+      "climbing",
+      "falling"
+    ],
+    [
+      "accelerating",
+      "slowing"
+    ],
+    [
+      "accelerating",
+      "decelerating"
+    ],
+    [
+      "improving",
+      "weakening"
+    ],
+    [
+      "strengthening",
+      "weakening"
+    ],
+    [
+      "expanding",
+      "contracting"
+    ],
+    [
+      "tightening",
+      "easing"
+    ],
+    [
+      "heating up",
+      "cooling"
+    ],
+    [
+      "hotter",
+      "cooler"
+    ],
+    [
+      "growing",
+      "shrinking"
+    ]
+  ],
+  "category_defaults": {
+    "inflation": {
+      "value_type": "percent",
+      "expected_range": [
+        -5,
+        20
+      ],
+      "max_abs_step": 3,
+      "max_pct_step": 200,
+      "cadence": "monthly",
+      "cadence_grace_days": 20,
+      "direction_field": "compared_to.vs_12mo.direction"
+    },
+    "liquidity": {
+      "value_type": "mixed",
+      "cadence": "weekly",
+      "cadence_grace_days": 14,
+      "direction_field": "compared_to.vs_12mo.direction"
+    },
+    "labor": {
+      "value_type": "mixed",
+      "cadence": "monthly",
+      "cadence_grace_days": 20,
+      "direction_field": "compared_to.vs_12mo.direction"
+    },
+    "consumer": {
+      "value_type": "mixed",
+      "cadence": "monthly",
+      "cadence_grace_days": 20,
+      "direction_field": "compared_to.vs_12mo.direction"
+    },
+    "ai-tech": {
+      "value_type": "mixed",
+      "cadence": "event-driven",
+      "cadence_grace_days": 45,
+      "direction_field": "compared_to.vs_12mo.direction"
+    },
+    "regulation": {
+      "value_type": "categorical",
+      "cadence": "event-driven",
+      "cadence_grace_days": 60,
+      "direction_field": "compared_to.vs_12mo.direction"
+    },
+    "activity": {
+      "value_type": "index",
+      "expected_range": [
+        -60,
+        60
+      ],
+      "max_abs_step": 20,
+      "cadence": "monthly",
+      "cadence_grace_days": 20,
+      "direction_field": "compared_to.vs_12mo.direction"
+    }
+  },
+  "editorial_freshness_policy": {
+    "weekly_connection_expires_after_days": 7,
+    "per_signal_thesis_expires_after_days": 35,
+    "editorial_status_values": [
+      "current",
+      "aging",
+      "stale"
+    ],
+    "tracked_fields": [
+      "last_editorial_reviewed",
+      "expires_after_days",
+      "editorial_status"
+    ]
+  },
+  "signal_count": 18,
+  "signals": [
+    {
+      "signal_id": "cpi-headline",
+      "name": "Headline CPI (YoY)",
+      "category": "inflation",
+      "category_label": "Inflation & Pricing",
+      "source": "BLS",
+      "source_series": {
+        "provider": "BLS",
+        "series_id": "CUUR0000SA0",
+        "transform": "index_yoy"
+      },
+      "unit": "year-over-year %",
+      "refresh_frequency": "monthly",
+      "status_type": "automated",
+      "editorial_owner": "macro-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "percent",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -2,
+          18
+        ],
+        "max_abs_step": 2.5,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 65
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_negative",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "3.81%",
+      "current_last_updated_ref": "2026-04-01"
+    },
+    {
+      "signal_id": "ppi",
+      "name": "Producer Price Index (YoY)",
+      "category": "inflation",
+      "category_label": "Inflation & Pricing",
+      "source": "BLS",
+      "source_series": {
+        "provider": "BLS",
+        "series_id": "WPSFD4",
+        "transform": "index_yoy"
+      },
+      "unit": "year-over-year %",
+      "refresh_frequency": "monthly",
+      "status_type": "automated",
+      "editorial_owner": "macro-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "percent",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -8,
+          20
+        ],
+        "max_abs_step": 3.5,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 65
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_negative",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "5.99%",
+      "current_last_updated_ref": "2026-04-01"
+    },
+    {
+      "signal_id": "pce",
+      "name": "Core PCE (YoY)",
+      "category": "inflation",
+      "category_label": "Inflation & Pricing",
+      "source": "BEA",
+      "source_series": {
+        "provider": "FRED",
+        "series_id": "PCEPILFE",
+        "transform": "index_yoy"
+      },
+      "unit": "year-over-year %, core",
+      "refresh_frequency": "monthly",
+      "status_type": "automated",
+      "editorial_owner": "macro-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "percent",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -2,
+          12
+        ],
+        "max_abs_step": 2,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 65
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_negative",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "3.29%",
+      "current_last_updated_ref": "2026-04-01"
+    },
+    {
+      "signal_id": "fed-net-liquidity",
+      "name": "Fed Net Liquidity / Balance Sheet",
+      "category": "liquidity",
+      "category_label": "Liquidity & Capital",
+      "source": "Federal Reserve (H.4.1)",
+      "source_series": {
+        "provider": "FRED",
+        "series_id": "WALCL",
+        "transform": "level_monthly_last"
+      },
+      "unit": "USD trillions (total balance sheet)",
+      "refresh_frequency": "weekly",
+      "status_type": "automated",
+      "editorial_owner": "macro-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          3,
+          12
+        ],
+        "max_abs_step": null,
+        "max_abs_step_hard": null,
+        "max_pct_step": 8,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "weekly",
+        "cadence": "weekly",
+        "cadence_grace_days": 14,
+        "stale_after_days": 15
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "neutral",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "$6.7T",
+      "current_last_updated_ref": "2026-05-27"
+    },
+    {
+      "signal_id": "10y-treasury",
+      "name": "10-Year Treasury Yield",
+      "category": "liquidity",
+      "category_label": "Liquidity & Capital",
+      "source": "U.S. Treasury / FRED",
+      "source_series": {
+        "provider": "FRED",
+        "series_id": "DGS10",
+        "transform": "level_monthly_last"
+      },
+      "unit": "yield %",
+      "refresh_frequency": "daily",
+      "status_type": "automated",
+      "editorial_owner": "macro-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          0,
+          10
+        ],
+        "max_abs_step": 0.5,
+        "max_abs_step_hard": 2,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "daily",
+        "cadence": "daily",
+        "cadence_grace_days": 4,
+        "stale_after_days": 4
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_negative",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "4.45%",
+      "current_last_updated_ref": "2026-05-28"
+    },
+    {
+      "signal_id": "series-a-counts",
+      "name": "Series A Round Counts (trailing 3mo, US)",
+      "category": "liquidity",
+      "category_label": "Liquidity & Capital",
+      "source": "Crunchbase News (curated)",
+      "source_series": {
+        "provider": "manual",
+        "series_id": null,
+        "transform": "count"
+      },
+      "unit": "rounds (trailing 3mo, US, curated)",
+      "refresh_frequency": "weekly-curated",
+      "status_type": "manual",
+      "editorial_owner": "venture-editor",
+      "tier": 2,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          0,
+          2000
+        ],
+        "max_abs_step": null,
+        "max_abs_step_hard": null,
+        "max_pct_step": 60,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "weekly-curated",
+        "cadence": "weekly",
+        "cadence_grace_days": 21,
+        "stale_after_days": 21
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "~210",
+      "current_last_updated_ref": "2026-05-20"
+    },
+    {
+      "signal_id": "ai-model-releases",
+      "name": "Frontier AI Model Release Activity",
+      "category": "ai-tech",
+      "category_label": "AI & Technology",
+      "source": "Editorial tracker (release logs)",
+      "source_series": {
+        "provider": "manual",
+        "series_id": null,
+        "transform": "count"
+      },
+      "unit": "frontier releases per 2-week window",
+      "refresh_frequency": "event-driven",
+      "status_type": "manual",
+      "editorial_owner": "ai-editor",
+      "tier": 2,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          0,
+          40
+        ],
+        "max_abs_step": 12,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "event-driven",
+        "cadence": "event-driven",
+        "cadence_grace_days": 45,
+        "stale_after_days": 45
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "3 / 14 days",
+      "current_last_updated_ref": "2026-05-26"
+    },
+    {
+      "signal_id": "ai-api-pricing",
+      "name": "AI API / Inference Pricing Trend",
+      "category": "ai-tech",
+      "category_label": "AI & Technology",
+      "source": "Editorial pricing tracker (vendor price sheets)",
+      "source_series": {
+        "provider": "manual",
+        "series_id": null,
+        "transform": "pct_change"
+      },
+      "unit": "% change, trailing 3mo, top model prices",
+      "refresh_frequency": "event-driven",
+      "status_type": "manual",
+      "editorial_owner": "ai-editor",
+      "tier": 2,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -95,
+          50
+        ],
+        "max_abs_step": 40,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "event-driven",
+        "cadence": "event-driven",
+        "cadence_grace_days": 45,
+        "stale_after_days": 45
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_down_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "\u221260%",
+      "current_last_updated_ref": "2026-05-19"
+    },
+    {
+      "signal_id": "open-source-ai",
+      "name": "Open-Source AI Momentum (agent frameworks)",
+      "category": "ai-tech",
+      "category_label": "AI & Technology",
+      "source": "GitHub (curated repo set)",
+      "source_series": {
+        "provider": "manual",
+        "series_id": null,
+        "transform": "yoy_pct"
+      },
+      "unit": "YoY star growth % \u00b7 agent frameworks",
+      "refresh_frequency": "weekly-curated",
+      "status_type": "manual",
+      "editorial_owner": "ai-editor",
+      "tier": 2,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -50,
+          500
+        ],
+        "max_abs_step": null,
+        "max_abs_step_hard": null,
+        "max_pct_step": 100,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "weekly-curated",
+        "cadence": "event-driven",
+        "cadence_grace_days": 45,
+        "stale_after_days": 21
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "+38%",
+      "current_last_updated_ref": "2026-05-25"
+    },
+    {
+      "signal_id": "compute-cost",
+      "name": "Effective Compute Cost per Workload",
+      "category": "ai-tech",
+      "category_label": "AI & Technology",
+      "source": "Editorial cost model (cloud GPU price sheets)",
+      "source_series": {
+        "provider": "manual",
+        "series_id": null,
+        "transform": "yoy_pct"
+      },
+      "unit": "YoY effective cost per workload %",
+      "refresh_frequency": "monthly-curated",
+      "status_type": "manual",
+      "editorial_owner": "ai-editor",
+      "tier": 2,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -80,
+          50
+        ],
+        "max_abs_step": 30,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly-curated",
+        "cadence": "event-driven",
+        "cadence_grace_days": 45,
+        "stale_after_days": 75
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_down_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "\u221214%",
+      "current_last_updated_ref": "2026-04-30"
+    },
+    {
+      "signal_id": "retail-sales",
+      "name": "Retail Sales (YoY)",
+      "category": "consumer",
+      "category_label": "Consumer & Demand",
+      "source": "U.S. Census Bureau",
+      "source_series": {
+        "provider": "FRED",
+        "series_id": "RSAFS",
+        "transform": "index_yoy"
+      },
+      "unit": "year-over-year %",
+      "refresh_frequency": "monthly",
+      "status_type": "automated",
+      "editorial_owner": "consumer-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -20,
+          25
+        ],
+        "max_abs_step": 6,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 65
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "4.87%",
+      "current_last_updated_ref": "2026-04-01"
+    },
+    {
+      "signal_id": "consumer-confidence",
+      "name": "Consumer Sentiment (U. Michigan)",
+      "category": "consumer",
+      "category_label": "Consumer & Demand",
+      "source": "University of Michigan / FRED",
+      "source_series": {
+        "provider": "FRED",
+        "series_id": "UMCSENT",
+        "transform": "level_monthly_last"
+      },
+      "unit": "University of Michigan index",
+      "refresh_frequency": "monthly",
+      "status_type": "automated",
+      "editorial_owner": "consumer-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          40,
+          120
+        ],
+        "max_abs_step": 15,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 65
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "49.8",
+      "current_last_updated_ref": "2026-04-01"
+    },
+    {
+      "signal_id": "emerging-apps",
+      "name": "Emerging App Category Patterns",
+      "category": "consumer",
+      "category_label": "Consumer & Demand",
+      "source": "Editorial app-chart triangulation",
+      "source_series": {
+        "provider": "manual",
+        "series_id": null,
+        "transform": "pattern"
+      },
+      "unit": "category emergence across charts",
+      "refresh_frequency": "event-driven",
+      "status_type": "manual",
+      "editorial_owner": "consumer-editor",
+      "tier": 2,
+      "validation": {
+        "require_numeric": false,
+        "value_type": "categorical",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": null,
+        "max_abs_step": null,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "event-driven",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 45
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "pattern",
+      "current_last_updated_ref": "2026-05-26"
+    },
+    {
+      "signal_id": "nonfarm-payrolls",
+      "name": "Nonfarm Payrolls (monthly change)",
+      "category": "labor",
+      "category_label": "Labor & Hiring",
+      "source": "BLS",
+      "source_series": {
+        "provider": "BLS",
+        "series_id": "CES0000000001",
+        "transform": "monthly_change"
+      },
+      "unit": "jobs \u00b7 monthly change",
+      "refresh_frequency": "monthly",
+      "status_type": "automated",
+      "editorial_owner": "labor-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -1000,
+          1200
+        ],
+        "max_abs_step": 600,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 65
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "chain",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "+115k",
+      "current_last_updated_ref": "2026-04-01"
+    },
+    {
+      "signal_id": "tech-hiring",
+      "name": "Tech Hiring Intensity (percentile)",
+      "category": "labor",
+      "category_label": "Labor & Hiring",
+      "source": "Editorial (job postings / layoffs.fyi blend)",
+      "source_series": {
+        "provider": "manual",
+        "series_id": null,
+        "transform": "percentile"
+      },
+      "unit": "percentile vs last 10 years",
+      "refresh_frequency": "weekly-curated",
+      "status_type": "manual",
+      "editorial_owner": "labor-editor",
+      "tier": 2,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "mixed",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          0,
+          100
+        ],
+        "max_abs_step": 30,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "weekly-curated",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 21
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "22nd percentile",
+      "current_last_updated_ref": "2026-05-26"
+    },
+    {
+      "signal_id": "ai-regulation",
+      "name": "AI Regulation & Policy Developments",
+      "category": "regulation",
+      "category_label": "Regulation & Policy",
+      "source": "Editorial AI regulation tracker",
+      "source_series": {
+        "provider": "manual",
+        "series_id": null,
+        "transform": "categorical"
+      },
+      "unit": "category \u2014 irregular cadence",
+      "refresh_frequency": "event-driven",
+      "status_type": "manual",
+      "editorial_owner": "policy-editor",
+      "tier": 3,
+      "validation": {
+        "require_numeric": false,
+        "value_type": "categorical",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": null,
+        "max_abs_step": null,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "event-driven",
+        "cadence": "event-driven",
+        "cadence_grace_days": 60,
+        "stale_after_days": 45
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_negative",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "watch",
+      "current_last_updated_ref": "2026-05-24"
+    },
+    {
+      "signal_id": "mfg-activity",
+      "name": "Manufacturing Activity (diffusion index)",
+      "category": "activity",
+      "category_label": "Business Activity",
+      "source": "Regional Fed / ISM-style (curated)",
+      "source_series": {
+        "provider": "FRED",
+        "series_id": "GACDFSA066MSFRBPHI",
+        "transform": "level_monthly_last"
+      },
+      "unit": "diffusion index, seasonally adjusted",
+      "refresh_frequency": "monthly",
+      "status_type": "automated",
+      "editorial_owner": "activity-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "index",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -60,
+          60
+        ],
+        "max_abs_step": 25,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": true,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 65
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "-0.4",
+      "current_last_updated_ref": "2026-05-01"
+    },
+    {
+      "signal_id": "services-activity",
+      "name": "Services Activity (diffusion index)",
+      "category": "activity",
+      "category_label": "Business Activity",
+      "source": "Regional Fed / ISM-style (curated)",
+      "source_series": {
+        "provider": "FRED",
+        "series_id": "TSSOSBACTUAMFRBDAL",
+        "transform": "level_monthly_last"
+      },
+      "unit": "diffusion index, seasonally adjusted",
+      "refresh_frequency": "monthly",
+      "status_type": "automated",
+      "editorial_owner": "activity-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "index",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          -60,
+          60
+        ],
+        "max_abs_step": 25,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": true,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 65
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": "-5",
+      "current_last_updated_ref": "2026-05-01"
+    }
+  ],
+  "_integrity": {
+    "content_signal_count": 18,
+    "missing_from_registry": []
+  }
+}

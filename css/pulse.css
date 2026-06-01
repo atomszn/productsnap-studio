@@ -1876,3 +1876,12 @@
     grid-column: auto;
   }
 }
+
+/* =====================================================================
+   Trust guardrails (Pass D) — neutral "interpretation under review" copy.
+   Intentionally subtle: muted, italic, matches existing tone. Not a banner.
+   ===================================================================== */
+.px-review-note {
+  font-style: italic;
+  color: var(--ink-soft, #7A7974);
+}

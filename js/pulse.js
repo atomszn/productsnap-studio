@@ -73,6 +73,21 @@
     "nonfarm-payrolls": 65
   };
 
+  // Trust guardrails (Pass D). Neutral fallback copy shown when a signal's
+  // numbers moved enough that the written interpretation may no longer hold.
+  // These read additive metadata (status_meta / alignment_status /
+  // review_required) written by scripts/validate-pulse-data.js. When the
+  // metadata is absent (older data files), every helper returns false / no-op
+  // so rendering is identical to before — strictly non-breaking.
+  const TRUST_FALLBACK_COPY =
+    "This signal moved enough to revisit the interpretation. Updated context coming soon.";
+  const TRUST_FALLBACK_SHORT = "Interpretation under review.";
+
+  function signalNeedsReview(signal) {
+    if (!signal) return false;
+    return signal.review_required === true || signal.alignment_status === "mismatch";
+  }
+
   let DATA = null;
   let CURRENT_SIGNAL_ID = null;
   let CURRENT_CATEGORY_ID = null;
@@ -182,11 +197,18 @@
     // Structured triad (refined). Falls back to body paragraphs if missing.
     // Pass A folds the old standalone PM tension into the WC as a new closing
     // beat: “The decision this forces this week”.
+    // Trust guardrails: if the Weekly Connection is flagged for review (stale
+    // past 7 days, or a connected signal moved against the interpretation),
+    // hold the confident interpretive lines and show neutral copy. The title,
+    // date and connected-signal pills still render unchanged. Non-breaking:
+    // absent metadata => wcUnderReview is false => original behavior.
+    const wcUnderReview = conn.review_required === true;
+
     const refined = conn.refined || null;
     if (refined) {
-      $("#wc-observation").textContent = refined.observation || "";
-      $("#wc-why").textContent = refined.why_it_matters || "";
-      $("#wc-implication").textContent = refined.pm_implication_default || "";
+      $("#wc-observation").textContent = wcUnderReview ? TRUST_FALLBACK_COPY : (refined.observation || "");
+      $("#wc-why").textContent = wcUnderReview ? TRUST_FALLBACK_SHORT : (refined.why_it_matters || "");
+      $("#wc-implication").textContent = wcUnderReview ? "" : (refined.pm_implication_default || "");
       const decEl = $("#wc-decision");
       const decRow = $("#wc-triad-decision-row");
       const decText = refined.decision_this_week || "";
@@ -492,9 +514,16 @@
   function renderExplorer(signal) {
     if (!signal) return;
 
+    const underReview = signalNeedsReview(signal);
+
     $("#px-category").textContent = signal.category_label || "";
     $("#px-title").textContent = signal.title || "";
-    $("#px-summary").innerHTML = glossifyText(signal.summary || "", signal.term_glossary);
+    // When the interpretation is under review, lead with neutral copy instead
+    // of the confident written summary. The numbers/value/chart still render —
+    // only the interpretive sentence is held back.
+    $("#px-summary").innerHTML = underReview
+      ? '<span class="px-review-note">' + escapeHTML(TRUST_FALLBACK_COPY) + '</span>'
+      : glossifyText(signal.summary || "", signal.term_glossary);
 
     // status pill
     const sp = $("#status-pill");
@@ -574,7 +603,19 @@
     const rw = signal.refined_why || null;
     const w  = signal.why_we_think_this || {};
     let whyHTML;
-    if (rw) {
+    if (underReview) {
+      // Hold the confident product takeaway; show neutral review copy instead.
+      // Evidence (the raw observation) is factual and stays.
+      whyHTML =
+        '<div class="wb-block wb-evidence">' +
+          '<span class="wb-block-label">Evidence</span>' +
+          '<p class="wb-text">' + escapeHTML((rw && rw.evidence) || (w && w.reasoning) || "") + '</p>' +
+        '</div>' +
+        '<div class="wb-block wb-takeaway">' +
+          '<span class="wb-block-label">Interpretation</span>' +
+          '<p class="wb-text wb-takeaway-text">' + escapeHTML(TRUST_FALLBACK_COPY) + '</p>' +
+        '</div>';
+    } else if (rw) {
       whyHTML =
         '<div class="wb-block wb-evidence">' +
           '<span class="wb-block-label">Evidence</span>' +

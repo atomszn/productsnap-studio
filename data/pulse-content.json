@@ -52,7 +52,15 @@
         }
       ]
     },
-    "where_helper": "PM implication changes based on where you look."
+    "where_helper": "PM implication changes based on where you look.",
+    "editorial_freshness": {
+      "last_editorial_reviewed": "2026-05-27",
+      "expires_after_days": 7,
+      "editorial_status": "aging",
+      "age_days": 5
+    },
+    "review_required": false,
+    "review_note": ""
   },
   "pm_tension": {
     "label": "This week's PM tension",
@@ -415,7 +423,21 @@
         "counter_signal": "Two consecutive monthly prints back below 3% would weaken this read.",
         "product_takeaway": "Plans that quietly assumed inflation kept fading should be revisited — the current read says households are absorbing fresh pressure on essentials."
       },
-      "pill_label_short": "Headline inflation heated up again"
+      "pill_label_short": "Headline inflation heated up again",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-04-01",
+        "expires_after_days": 35,
+        "editorial_status": "stale",
+        "age_days": 61
+      }
     },
     {
       "id": "ppi",
@@ -562,7 +584,21 @@
         "counter_signal": "Two months of producer prices stepping back down toward 3% YoY would soften this read.",
         "product_takeaway": "Margin pressure is back on the table. If pricing was on autopilot during the calmer months, this is the moment to re-open the conversation."
       },
-      "pill_label_short": "Producer prices reaccelerating"
+      "pill_label_short": "Producer prices reaccelerating",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-04-01",
+        "expires_after_days": 35,
+        "editorial_status": "stale",
+        "age_days": 61
+      }
     },
     {
       "id": "pce",
@@ -710,7 +746,21 @@
         "counter_signal": "A sustained move clearly below the recent range would change this read.",
         "product_takeaway": "Plans that assume rate cuts within six months should be flagged — the data doesn't support it yet."
       },
-      "pill_label_short": "Core inflation still above target"
+      "pill_label_short": "Core inflation still above target",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-04-01",
+        "expires_after_days": 35,
+        "editorial_status": "stale",
+        "age_days": 61
+      }
     },
     {
       "id": "fed-net-liquidity",
@@ -863,7 +913,21 @@
         "counter_signal": "A sustained resumption of monthly drawdowns — or an explicit Fed pivot to outright expansion — would change this read.",
         "product_takeaway": "The capital backdrop is neutral rather than easing. Plans that lean on liquidity loosening from here should be flagged as a dependency, not assumed."
       },
-      "pill_label_short": "Liquidity has steadied, not flooded"
+      "pill_label_short": "Liquidity has steadied, not flooded",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-27",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 5
+      }
     },
     {
       "id": "10y-treasury",
@@ -1011,7 +1075,21 @@
         "counter_signal": "A sustained move clearly below the recent range — or clearly above it — for a month would change this read.",
         "product_takeaway": "A long-horizon bet now competes with a meaningful risk-free return. That comparison rarely makes it into roadmap reviews — but it should."
       },
-      "pill_label_short": "Long-term borrowing costs still elevated"
+      "pill_label_short": "Long-term borrowing costs still elevated",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-28",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 4
+      }
     },
     {
       "id": "series-a-counts",
@@ -1166,7 +1244,21 @@
         "counter_signal": "Three months of broader Series A growth outside AI would change this read.",
         "product_takeaway": "If you had to raise on your last 90 days of usage, ask which metrics still hold up — and which ones quietly don't."
       },
-      "pill_label_short": "Startup funding still concentrating into AI"
+      "pill_label_short": "Startup funding still concentrating into AI",
+      "status_meta": {
+        "status": "manual",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "Manual/event-driven signal accepted (human-curated)",
+        "status_type": "manual"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-20",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 12
+      }
     },
     {
       "id": "ai-model-releases",
@@ -1329,7 +1421,21 @@
         "counter_signal": "A two-month gap with no major releases would weaken this read.",
         "product_takeaway": "Moats built on today’s capability gap erode faster than moats built on distribution or data."
       },
-      "pill_label_short": "New AI models shipping faster"
+      "pill_label_short": "New AI models shipping faster",
+      "status_meta": {
+        "status": "manual",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "Manual/event-driven signal accepted (human-curated)",
+        "status_type": "manual"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-26",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 6
+      }
     },
     {
       "id": "ai-api-pricing",
@@ -1490,7 +1596,21 @@
         "counter_signal": "A frontier-tier price increase from any major lab in the next two months would weaken this read.",
         "product_takeaway": "Write the list of AI features you would ship at a fraction of last year's cost. Some of those just became feasible."
       },
-      "pill_label_short": "AI model costs keep falling"
+      "pill_label_short": "AI model costs keep falling",
+      "status_meta": {
+        "status": "manual",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "Manual/event-driven signal accepted (human-curated)",
+        "status_type": "manual"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-19",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 13
+      }
     },
     {
       "id": "open-source-ai",
@@ -1645,7 +1765,21 @@
         "counter_signal": "A multi-quarter pause in open-weight releases would weaken this read.",
         "product_takeaway": "Anywhere you’ve standardized on one closed model, the lock-in is weaker than it was a year ago."
       },
-      "pill_label_short": "Open-source AI is catching up"
+      "pill_label_short": "Open-source AI is catching up",
+      "status_meta": {
+        "status": "manual",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "Manual/event-driven signal accepted (human-curated)",
+        "status_type": "manual"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-25",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 7
+      }
     },
     {
       "id": "compute-cost",
@@ -1805,7 +1939,21 @@
         "counter_signal": "A sustained supply shock in AI hardware would change this read.",
         "product_takeaway": "Features that were too expensive to ship last year deserve a fresh look — the math has moved."
       },
-      "pill_label_short": "Compute keeps getting cheaper"
+      "pill_label_short": "Compute keeps getting cheaper",
+      "status_meta": {
+        "status": "manual",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "Manual/event-driven signal accepted (human-curated)",
+        "status_type": "manual"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-04-30",
+        "expires_after_days": 35,
+        "editorial_status": "aging",
+        "age_days": 32
+      }
     },
     {
       "id": "retail-sales",
@@ -1954,7 +2102,21 @@
         "counter_signal": "A year-over-year drop below 1% for two months running would change this read.",
         "product_takeaway": "When category demand is flat, growth comes from taking share. Audit anything in your roadmap that assumes a rising tide."
       },
-      "pill_label_short": "Shoppers still showing up"
+      "pill_label_short": "Shoppers still showing up",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-04-01",
+        "expires_after_days": 35,
+        "editorial_status": "stale",
+        "age_days": 61
+      }
     },
     {
       "id": "consumer-confidence",
@@ -2102,7 +2264,21 @@
         "product_takeaway": "When households feel this stressed and expect prices to keep rising, the cheaper path through your product matters more than the premium one."
       },
       "pill_label_short": "Sentiment near record lows",
-      "tier_label": "primary"
+      "tier_label": "primary",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-04-01",
+        "expires_after_days": 35,
+        "editorial_status": "stale",
+        "age_days": 61
+      }
     },
     {
       "id": "emerging-apps",
@@ -2262,7 +2438,21 @@
         "counter_signal": "If these categories quietly fall off the top charts next quarter, the pattern weakens.",
         "product_takeaway": "If your product still hands work to the user, ask whether the model could quietly finish it."
       },
-      "pill_label_short": "Personal AI assistants are spreading"
+      "pill_label_short": "Personal AI assistants are spreading",
+      "status_meta": {
+        "status": "manual",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "Manual/event-driven signal accepted (human-curated)",
+        "status_type": "manual"
+      },
+      "alignment_status": "unknown",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-26",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 6
+      }
     },
     {
       "id": "nonfarm-payrolls",
@@ -2411,7 +2601,21 @@
         "counter_signal": "Three months of net job losses would change this read.",
         "product_takeaway": "Cooler hiring is the soft kind, not the crisis kind. Budgeting can move; panic shouldn’t."
       },
-      "pill_label_short": "Hiring is cooling, not collapsing"
+      "pill_label_short": "Hiring is cooling, not collapsing",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-04-01",
+        "expires_after_days": 35,
+        "editorial_status": "stale",
+        "age_days": 61
+      }
     },
     {
       "id": "tech-hiring",
@@ -2567,7 +2771,21 @@
         "counter_signal": "Two months of net hiring growth across major tech subsectors would change this read.",
         "product_takeaway": "If two more engineers aren't coming, which roadmap item gets postponed — and which quietly gets handed to AI tooling?"
       },
-      "pill_label_short": "Tech hiring remains soft"
+      "pill_label_short": "Tech hiring remains soft",
+      "status_meta": {
+        "status": "manual",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "Manual/event-driven signal accepted (human-curated)",
+        "status_type": "manual"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-26",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 6
+      }
     },
     {
       "id": "ai-regulation",
@@ -2717,7 +2935,21 @@
         "counter_signal": "A federal preemption framework would shift this from many small rule sets to one larger one.",
         "product_takeaway": "Anywhere your product makes a decision about a person, write down today how you’d explain it tomorrow."
       },
-      "pill_label_short": "State-level AI rules picking up"
+      "pill_label_short": "State-level AI rules picking up",
+      "status_meta": {
+        "status": "manual",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "Manual/event-driven signal accepted (human-curated)",
+        "status_type": "manual"
+      },
+      "alignment_status": "unknown",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-24",
+        "expires_after_days": 35,
+        "editorial_status": "current",
+        "age_days": 8
+      }
     },
     {
       "id": "mfg-activity",
@@ -2868,7 +3100,21 @@
         "counter_signal": "Two months back above +10 would weaken this read.",
         "product_takeaway": "If you sell into manufacturers or the goods economy, pipeline forecasts that assume the last quarter's buying pace are worth re-examining."
       },
-      "pill_label_short": "Factory activity flipped soft"
+      "pill_label_short": "Factory activity flipped soft",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-01",
+        "expires_after_days": 35,
+        "editorial_status": "aging",
+        "age_days": 31
+      }
     },
     {
       "id": "services-activity",
@@ -3019,7 +3265,21 @@
         "counter_signal": "Two months back above zero would weaken this read.",
         "product_takeaway": "If you sell into services businesses, plans that assume the last year's buying pace deserve a downside scenario this quarter."
       },
-      "pill_label_short": "Services activity still soft"
+      "pill_label_short": "Services activity still soft",
+      "status_meta": {
+        "status": "verified",
+        "checked_at": "2026-06-01T02:04:25.992Z",
+        "reason": "All checks passed",
+        "status_type": "automated"
+      },
+      "alignment_status": "aligned",
+      "review_required": false,
+      "editorial_freshness": {
+        "last_editorial_reviewed": "2026-05-01",
+        "expires_after_days": 35,
+        "editorial_status": "aging",
+        "age_days": 31
+      }
     }
   ],
   "source_philosophy": {
