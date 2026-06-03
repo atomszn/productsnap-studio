@@ -3418,7 +3418,7 @@
       "Layoffs.fyi ingestion",
       "AI regulation tracker ingestion"
     ],
-    "last_pipeline_refresh": "2026-06-02T15:00:00Z"
+    "last_pipeline_refresh": "2026-06-03T18:40:25.477Z"
   },
   "regional_vs_national_note": {
     "text": "National ISM shows broad U.S. business activity. Regional Fed surveys (Philly Fed, Dallas Fed) show local business conditions. When they disagree, that disagreement is itself the signal: it usually means activity is uneven across the country, with some regions or sectors leading or lagging the national picture. Right now those two views diverge — and the gap is worth watching.",
