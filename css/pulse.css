@@ -1922,3 +1922,323 @@
   line-height: 1.45;
   color: var(--ink-soft, #7A7974);
 }
+
+/* =====================================================================
+   PASS H — THINKING LAYER (through-line + lens tabs + active lens)
+   Mobile-first: the through-line, lens tabs and active lens content fit the
+   first viewport at 360–414px. The signal library is collapsed below.
+   The personality lives in the writing; motion is three tiny pencil-strokes.
+   ===================================================================== */
+.pulse-think {
+  padding-top: clamp(28px, 5vw, 56px);
+  padding-bottom: clamp(24px, 4vw, 40px);
+  max-width: 880px;
+}
+.pt-kicker { display: block; margin-bottom: 14px; }
+
+/* World shift — one sentence, large, no label above it. */
+.pulse-throughline {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(28px, 5.2vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0 0 clamp(20px, 3vw, 30px);
+  max-width: 20ch;
+}
+
+/* ---------- Lens tabs ---------- */
+.lens-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(6px, 1.5vw, 18px);
+  margin: 0 0 clamp(18px, 2.5vw, 26px);
+  /* Horizontal scroll on narrow screens rather than wrapping/clipping. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+.lens-tabs::-webkit-scrollbar { display: none; }
+
+.lens-tab {
+  position: relative;
+  appearance: none;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: var(--body);
+  font-size: clamp(14px, 1.6vw, 16px);
+  font-weight: 500;
+  color: var(--ink-faded);
+  padding: 8px 4px 12px;          /* ≥44px tall hit area with the line below */
+  min-height: 44px;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  transition: color .18s ease;
+}
+.lens-tab:hover { color: var(--ink-soft); }
+.lens-tab[aria-selected="true"] {
+  color: var(--ink);
+  font-weight: 600;
+}
+.lens-tab:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.lens-tab-label { display: inline-block; }
+
+/* Hand-drawn active underline. Animation A draws it in left→right on switch
+   using a clip-path reveal; the imperfect line comes from the rough-underline
+   SVG filter. Inactive tabs have no underline. */
+.lens-underline {
+  position: absolute;
+  left: 2px; right: 2px; bottom: 4px;
+  height: 5px;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg,
+      var(--ink) 0%, var(--ink) 60%,
+      rgba(43,37,28,0.7) 100%);
+  filter: url(#rough-underline);
+  transform-origin: left center;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);   /* hidden: clipped from the right */
+}
+.lens-tab[aria-selected="true"] .lens-underline {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  animation: lens-underline-draw 300ms ease-out;
+}
+@keyframes lens-underline-draw {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+/* ---------- Active lens content ---------- */
+.lens-panel { max-width: 64ch; }
+.lens-pattern {
+  font-family: var(--body);
+  font-size: clamp(16px, 1.9vw, 20px);
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 clamp(14px, 2vw, 18px);
+}
+.lens-action {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.45;
+  color: var(--ink);
+  margin: clamp(14px, 2vw, 20px) 0 0;
+  padding-left: 14px;
+  border-left: 2.5px solid var(--teal);
+  max-width: 54ch;
+}
+
+/* Sketchbook aside — handwritten margin note. Animation C: pencil-in. */
+.lens-sketchbook {
+  display: block;
+  font-family: var(--hand);
+  font-size: clamp(18px, 2.2vw, 23px);
+  color: var(--ink-faded);
+  transform: rotate(-1.5deg);
+  margin: 4px 0 0;
+  padding-left: 6px;
+}
+.lens-sketchbook[hidden] { display: none; }
+.lens-sketchbook.is-penciling {
+  animation: sketchbook-pencil-in 400ms ease-out;
+}
+@keyframes sketchbook-pencil-in {
+  from { clip-path: inset(0 100% 0 0); opacity: 0.2; }
+  to   { clip-path: inset(0 0 0 0);   opacity: 1; }
+}
+
+/* ---------- Inline evidence chips ---------- */
+.evidence-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  font-family: var(--body);
+  font-size: 0.92em;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  background: var(--note-gold, #f3e2b0);
+  border: 1.4px solid var(--ink);
+  border-radius: 8px;
+  padding: 1px 8px 2px;
+  margin: 0 1px;
+  cursor: pointer;
+  vertical-align: baseline;
+  transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.evidence-chip:hover { background: #f7ecc6; }
+.evidence-chip:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+.evidence-chip.is-open {
+  background: var(--ink);
+  color: #fffaeb;
+}
+.evidence-chip .chip-sep { color: inherit; opacity: 0.55; }
+.evidence-chip .chip-value { font-variant-numeric: tabular-nums lining-nums; }
+
+/* Animation B — chip pairing highlight (~600ms). Subtle background + stronger
+   border on all chips in the same paragraph. */
+.evidence-chip.chip-paired-highlight {
+  background: var(--note-teal, #b9e0d6);
+  border-color: var(--teal);
+  box-shadow: 0 0 0 1px var(--teal);
+  transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.evidence-chip.is-open.chip-paired-highlight {
+  background: var(--ink);
+  color: #fffaeb;
+}
+
+/* ---------- Chip detail (inline, below the pattern) ---------- */
+.chip-detail {
+  margin: 14px 0 4px;
+}
+.chip-detail[hidden] { display: none; }
+.chip-detail-inner {
+  background: #fffdf6;
+  border: 1.4px solid var(--ink);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--ink);
+  padding: 14px 16px 12px;
+}
+.chip-detail-rows {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.chip-detail-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 6px 14px;
+  align-items: baseline;
+}
+.chip-detail-row dt {
+  font-family: var(--hand);
+  font-size: 17px;
+  color: var(--teal);
+  margin: 0;
+  line-height: 1.2;
+}
+.chip-detail-row dd {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.chip-detail-source {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1.2px dashed rgba(45,33,18,0.25);
+  font-family: var(--hand-2);
+  font-size: 13px;
+  color: var(--ink-faded);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- "Explore the signals behind this" — margin annotation ---------- */
+.explore-affordance {
+  margin: clamp(28px, 4vw, 44px) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.explore-rule {
+  display: block;
+  width: 64px;
+  height: 0;
+  border-top: 1.6px dashed rgba(45,33,18,0.4);
+}
+.explore-signals {
+  appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--hand);
+  font-size: clamp(20px, 2.4vw, 24px);
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 6px;
+  min-height: 44px;
+  transform: rotate(-1deg);
+  transition: color .18s ease;
+}
+.explore-signals:hover { color: var(--purple); }
+.explore-signals:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.explore-caret {
+  display: inline-block;
+  transition: transform .2s ease;
+}
+.explore-signals.is-open .explore-caret { transform: rotate(180deg); }
+
+/* ---------- Signal library — collapsed appendix, visually secondary ---------- */
+.signal-library {
+  /* Quieter than the thinking layer above: dim slightly and shrink the hero
+     so the appendix never competes with the active lens. */
+  opacity: 0.96;
+}
+.signal-library[hidden] { display: none; }
+/* The old hero h1 is demoted to a section heading inside the library. */
+.signal-library .pulse-hero { padding-top: clamp(24px, 4vw, 40px); }
+.signal-library .pulse-h1 {
+  font-size: clamp(24px, 3.4vw, 34px);
+}
+
+/* =====================================================================
+   PASS H — mobile-first tuning (360–414px)
+   The through-line + lens tabs + active lens pattern/action lead the first
+   viewport. Tap targets ≥ 44px. No hover-only behavior (hover merely echoes
+   the tap-driven pairing highlight).
+   ===================================================================== */
+@media (max-width: 720px) {
+  .pulse-think { padding-top: 18px; }
+  .pulse-throughline { max-width: 100%; }
+  .lens-tab { font-size: 14px; padding: 8px 2px 12px; }
+  .chip-detail-row { grid-template-columns: 1fr; gap: 2px; }
+  .chip-detail-row dt { font-size: 16px; }
+}
+@media (max-width: 414px) {
+  .pulse-throughline { font-size: clamp(24px, 7vw, 30px); }
+  .lens-pattern { font-size: 16px; }
+  .evidence-chip { font-size: 0.95em; padding: 2px 8px 3px; }
+}
+
+/* =====================================================================
+   PASS H — prefers-reduced-motion: reduce
+   All three animations collapse to instant state changes; no motion.
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .lens-tab[aria-selected="true"] .lens-underline {
+    animation: none;
+    clip-path: inset(0 0 0 0);
+  }
+  .lens-sketchbook.is-penciling {
+    animation: none;
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  .evidence-chip,
+  .evidence-chip.chip-paired-highlight {
+    transition: none !important;
+  }
+  .lens-tab, .explore-caret, .explore-signals { transition: none !important; }
+}

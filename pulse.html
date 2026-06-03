@@ -89,15 +89,56 @@
 
     <main>
       <!-- ============================================================ -->
-      <!-- PULSE HERO — weekly note + Weekly Connection (the centerpiece) -->
+      <!-- PULSE THINKING LAYER — through-line + lens tabs + active lens   -->
+      <!-- (Pass H) The first viewport on mobile: a world-shift headline,  -->
+      <!-- four lenses, and the active lens's pattern (with inline chips)  -->
+      <!-- and action. The signal library lives below, collapsed.         -->
       <!-- ============================================================ -->
+      <section class="section pulse-think" id="pulse-think" aria-labelledby="pt-throughline">
+        <span class="kicker pt-kicker">/pulse · a weekly read · <span id="pt-date">this week</span></span>
+
+        <!-- World shift — one sentence, no label above it -->
+        <h1 class="pulse-throughline" id="pt-throughline">Loading this week’s read…</h1>
+
+        <!-- Lens tabs -->
+        <div class="lens-tabs" id="lens-tabs" role="tablist" aria-label="Choose a lens">
+          <!-- populated by JS -->
+        </div>
+
+        <!-- Active lens content: pattern (with inline chips) + sketchbook aside + action -->
+        <div class="lens-panel" id="lens-panel" aria-live="polite">
+          <p class="lens-pattern" id="lens-pattern"></p>
+          <aside class="lens-sketchbook" id="lens-sketchbook" hidden></aside>
+          <!-- Inline chip detail mounts here, directly below the pattern -->
+          <div class="chip-detail" id="chip-detail" role="region" aria-live="polite" hidden></div>
+          <p class="lens-action" id="lens-action"></p>
+        </div>
+
+        <!-- Margin-annotation affordance to reveal the signal library -->
+        <div class="explore-affordance">
+          <span class="explore-rule" aria-hidden="true"></span>
+          <button type="button" class="explore-signals" id="explore-signals"
+                  aria-expanded="false" aria-controls="signal-library">
+            Explore the signals behind this
+            <span class="explore-caret" aria-hidden="true">↓</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SIGNAL LIBRARY — the appendix. Collapsed by default; revealed   -->
+      <!-- by "Explore the signals behind this". Holds the prior weekly    -->
+      <!-- note, weekly connection, what's-changed, explorer, signal index -->
+      <!-- and source philosophy — content preserved, visually secondary.  -->
+      <!-- ============================================================ -->
+      <div class="signal-library" id="signal-library" hidden>
       <section class="section pulse-hero" id="pulse-hero">
         <div class="pulse-hero-head">
           <span class="kicker">/pulse · weekly read · <span id="hero-date">May 27</span></span>
-          <h1 class="pulse-h1">
+          <h2 class="pulse-h1">
             World <span class="hl-underline">signals</span>,
             read in <span class="hl-circle">combination</span>.
-          </h1>
+          </h2>
           <p class="pulse-h1-sub">
             A weekly read for product people. One unexpected connection.
             Eighteen signals behind it. No dashboard energy.
@@ -350,6 +391,7 @@
           </button>
         </div>
       </section>
+      </div><!-- /.signal-library -->
     </main>
 
     <!-- ============================================================ -->
@@ -396,6 +438,11 @@
         <filter id="rough-line" x="-2%" y="-15%" width="104%" height="130%">
           <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="3" />
           <feDisplacementMap in="SourceGraphic" scale="1.6" />
+        </filter>
+        <!-- Pass H: slightly imperfect underline stroke for the active lens tab -->
+        <filter id="rough-underline" x="-4%" y="-40%" width="108%" height="180%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" />
+          <feDisplacementMap in="SourceGraphic" scale="1.5" />
         </filter>
       </defs>
     </svg>

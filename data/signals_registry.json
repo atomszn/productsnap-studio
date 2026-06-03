@@ -163,6 +163,7 @@
     {
       "signal_id": "cpi-headline",
       "name": "Headline CPI (YoY)",
+      "chip_label": "Consumer prices",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
       "source": "BLS",
@@ -224,6 +225,7 @@
     {
       "signal_id": "ppi",
       "name": "Producer Price Index (YoY)",
+      "chip_label": "Wholesale prices",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
       "source": "BLS",
@@ -285,6 +287,7 @@
     {
       "signal_id": "pce",
       "name": "Core PCE (YoY)",
+      "chip_label": "Core inflation",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
       "source": "BEA",
@@ -346,6 +349,7 @@
     {
       "signal_id": "fed-net-liquidity",
       "name": "Fed Net Liquidity / Balance Sheet",
+      "chip_label": "Money in the system",
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
       "source": "Federal Reserve (H.4.1)",
@@ -407,6 +411,7 @@
     {
       "signal_id": "10y-treasury",
       "name": "10-Year Treasury Yield",
+      "chip_label": "10-year borrowing cost",
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
       "source": "U.S. Treasury / FRED",
@@ -468,6 +473,7 @@
     {
       "signal_id": "series-a-counts",
       "name": "Series A Round Counts (trailing 3mo, US)",
+      "chip_label": "Startup funding pace",
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
       "source": "Crunchbase News (curated)",
@@ -528,6 +534,7 @@
     {
       "signal_id": "ai-model-releases",
       "name": "Frontier AI Model Release Activity",
+      "chip_label": "AI model launches",
       "category": "ai-tech",
       "category_label": "AI & Technology",
       "source": "Editorial tracker (release logs)",
@@ -588,6 +595,7 @@
     {
       "signal_id": "ai-api-pricing",
       "name": "AI API / Inference Pricing Trend",
+      "chip_label": "AI API prices",
       "category": "ai-tech",
       "category_label": "AI & Technology",
       "source": "Editorial pricing tracker (vendor price sheets)",
@@ -649,6 +657,7 @@
     {
       "signal_id": "open-source-ai",
       "name": "Open-Source AI Momentum (agent frameworks)",
+      "chip_label": "Open-source AI momentum",
       "category": "ai-tech",
       "category_label": "AI & Technology",
       "source": "GitHub (curated repo set)",
@@ -709,6 +718,7 @@
     {
       "signal_id": "compute-cost",
       "name": "Effective Compute Cost per Workload",
+      "chip_label": "Compute cost",
       "category": "ai-tech",
       "category_label": "AI & Technology",
       "source": "Editorial cost model (cloud GPU price sheets)",
@@ -769,6 +779,7 @@
     {
       "signal_id": "retail-sales",
       "name": "Retail Sales (YoY)",
+      "chip_label": "Retail spending",
       "category": "consumer",
       "category_label": "Consumer & Demand",
       "source": "U.S. Census Bureau",
@@ -830,6 +841,7 @@
     {
       "signal_id": "consumer-confidence",
       "name": "Consumer Sentiment (U. Michigan)",
+      "chip_label": "Consumer sentiment",
       "category": "consumer",
       "category_label": "Consumer & Demand",
       "source": "University of Michigan / FRED",
@@ -891,6 +903,7 @@
     {
       "signal_id": "emerging-apps",
       "name": "Emerging App Category Patterns",
+      "chip_label": "Emerging app categories",
       "category": "consumer",
       "category_label": "Consumer & Demand",
       "source": "Editorial app-chart triangulation",
@@ -948,6 +961,7 @@
     {
       "signal_id": "nonfarm-payrolls",
       "name": "Nonfarm Payrolls (monthly change)",
+      "chip_label": "Jobs added",
       "category": "labor",
       "category_label": "Labor & Hiring",
       "source": "BLS",
@@ -1009,6 +1023,7 @@
     {
       "signal_id": "tech-hiring",
       "name": "Tech Hiring Intensity (percentile)",
+      "chip_label": "Tech hiring",
       "category": "labor",
       "category_label": "Labor & Hiring",
       "source": "Editorial (job postings / layoffs.fyi blend)",
@@ -1069,6 +1084,7 @@
     {
       "signal_id": "ai-regulation",
       "name": "AI Regulation & Policy Developments",
+      "chip_label": "AI regulation activity",
       "category": "regulation",
       "category_label": "Regulation & Policy",
       "source": "Editorial AI regulation tracker",
@@ -1126,6 +1142,7 @@
     {
       "signal_id": "mfg-activity",
       "name": "Regional Manufacturing Activity (Philly Fed)",
+      "chip_label": "Factory activity (Philly)",
       "category": "activity",
       "category_label": "Business Activity",
       "source": "Philadelphia Fed (regional survey, via FRED)",
@@ -1186,6 +1203,7 @@
     {
       "signal_id": "services-activity",
       "name": "Regional Services Activity (Dallas Fed)",
+      "chip_label": "Services activity (Dallas)",
       "category": "activity",
       "category_label": "Business Activity",
       "source": "Dallas Fed (regional survey, via FRED)",
@@ -1246,6 +1264,7 @@
     {
       "signal_id": "ism-manufacturing-pmi",
       "name": "ISM Manufacturing PMI (National)",
+      "chip_label": "Manufacturing (national)",
       "category": "activity",
       "category_label": "Business Activity",
       "source": "Institute for Supply Management (ISM) — pending automation (Pass G)",
@@ -1306,6 +1325,7 @@
     {
       "signal_id": "ism-services-pmi",
       "name": "ISM Services PMI (National)",
+      "chip_label": "Services (national)",
       "category": "activity",
       "category_label": "Business Activity",
       "source": "Institute for Supply Management (ISM) — pending automation (Pass G)",

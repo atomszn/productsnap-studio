@@ -113,6 +113,63 @@
   let CURRENT_SIGNAL_ID = null;
   let CURRENT_CATEGORY_ID = null;
 
+  /* ---------- Pass H: lens + chip state ---------- */
+  const LENS_ORDER = ["build", "customer", "business", "future"];
+  const LENS_STORAGE_KEY = "pulse.activeLens";
+  let ACTIVE_LENS = null;
+  let OPEN_CHIP_ID = null; // signal id of the currently-open chip detail, if any
+  let REGISTRY = null;     // optional registry (chip_label source of truth)
+
+  // Plain-language fallback chain for a chip's label:
+  //   1) registry chip_label (signals_registry.json) — first
+  //   2) content signal chip_label (pulse-content.json signal) — second
+  //   3) existing human fallback (pill_label_short / pill_label / title prefix)
+  function chipLabelFor(signal) {
+    if (!signal) return "";
+    const id = signal.id || signal.signal_id;
+    // 1) registry
+    if (REGISTRY && Array.isArray(REGISTRY.signals)) {
+      const r = REGISTRY.signals.find((s) => s.signal_id === id);
+      if (r && r.chip_label) return r.chip_label;
+    }
+    // 2) content signal chip_label
+    if (signal.chip_label) return signal.chip_label;
+    // 3) existing fallback
+    return shortSignalLabel(signal);
+  }
+
+  // The technical full name shown only in the chip-detail footer ("source:").
+  // Prefer the registry name, then a cited source name, then the editorial title.
+  function chipTechnicalName(signal) {
+    if (!signal) return "";
+    const id = signal.id || signal.signal_id;
+    if (REGISTRY && Array.isArray(REGISTRY.signals)) {
+      const r = REGISTRY.signals.find((s) => s.signal_id === id);
+      if (r) {
+        const base = r.name || "";
+        const src = r.source || (signal.sources && signal.sources[0] && signal.sources[0].name) || "";
+        if (base && src) return base + ", " + src;
+        return base || src || signal.title || "";
+      }
+    }
+    const src0 = (signal.sources && signal.sources[0] && signal.sources[0].name) || signal.source_note || "";
+    return src0 || signal.title || "";
+  }
+
+  // The compact value/direction string shown in the chip itself, after the label.
+  function chipValueDirection(signal) {
+    if (!signal) return "";
+    const val = signal.current_value || "";
+    const dir = signal.compared_to && signal.compared_to.vs_12mo && signal.compared_to.vs_12mo.direction;
+    const glyph = dir === "up" ? "↑" : (dir === "down" ? "↓" : "");
+    // For percent-style values, prefix the direction glyph (e.g. "↑3.81%").
+    // For non-numeric values (e.g. "22nd percentile", "$6.7T", "watch"), show
+    // the value as-is — the glyph would read oddly.
+    if (!val) return "";
+    if (glyph && /[%]/.test(val)) return glyph + val;
+    return val;
+  }
+
   /* ---------- utils ---------- */
   const $  = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
@@ -1092,6 +1149,254 @@
   }
 
   /* =====================================================================
+     PASS H — THINKING LAYER: through-line + lens tabs + active lens
+     ===================================================================== */
+
+  // Resolve the initial lens with precedence: URL ?lens= wins, then
+  // localStorage, then weekly_thought.default_lens, then "build".
+  function resolveInitialLens(thought) {
+    const valid = (k) => LENS_ORDER.indexOf(k) !== -1;
+    // 1) URL param wins for this visit
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const fromUrl = params.get("lens");
+      if (fromUrl && valid(fromUrl)) return fromUrl;
+    } catch (e) { /* no-op */ }
+    // 2) localStorage (last-picked persists across visits)
+    try {
+      const stored = window.localStorage.getItem(LENS_STORAGE_KEY);
+      if (stored && valid(stored)) return stored;
+    } catch (e) { /* no-op */ }
+    // 3) content default, 4) hard default
+    const def = thought && thought.default_lens;
+    return valid(def) ? def : "build";
+  }
+
+  function persistLens(key) {
+    try { window.localStorage.setItem(LENS_STORAGE_KEY, key); } catch (e) { /* no-op */ }
+  }
+
+  function renderThroughline(thought) {
+    const el = $("#pt-throughline");
+    if (el) el.textContent = (thought && thought.headline) || "";
+    // Quiet date kicker — reuse the weekly-note date if present.
+    const dateEl = $("#pt-date");
+    if (dateEl) {
+      const wn = DATA && DATA.weekly_note;
+      const d = (wn && (wn.date_label || wn.date)) || "";
+      if (d) dateEl.textContent = d;
+    }
+  }
+
+  function renderLensTabs(thought) {
+    const root = $("#lens-tabs");
+    if (!root || !thought || !thought.lenses) return;
+    root.innerHTML = LENS_ORDER.map((key) => {
+      const lens = thought.lenses[key];
+      if (!lens) return "";
+      const selected = key === ACTIVE_LENS;
+      return (
+        '<button type="button" class="lens-tab" role="tab"' +
+        ' data-lens="' + escapeHTML(key) + '"' +
+        ' id="lens-tab-' + escapeHTML(key) + '"' +
+        ' aria-selected="' + (selected ? "true" : "false") + '"' +
+        ' tabindex="' + (selected ? "0" : "-1") + '">' +
+          '<span class="lens-tab-label">' + escapeHTML(lens.label || key) + '</span>' +
+          '<span class="lens-underline" aria-hidden="true"></span>' +
+        '</button>'
+      );
+    }).join("");
+  }
+
+  // Replace [chip:signal-id] tokens in a pattern string with tappable chip
+  // buttons. Non-chip text is escaped. Returns an HTML string. Unknown ids are
+  // left as plain (escaped) text so a typo never breaks rendering.
+  function renderPatternHTML(pattern) {
+    if (!pattern) return "";
+    let html = "";
+    const re = /\[chip:([a-z0-9-]+)\]/gi;
+    let lastIndex = 0;
+    let m;
+    while ((m = re.exec(pattern)) !== null) {
+      html += escapeHTML(pattern.slice(lastIndex, m.index));
+      const id = m[1];
+      const signal = DATA && DATA.signals && DATA.signals.find((s) => s.id === id);
+      if (signal) {
+        const label = chipLabelFor(signal);
+        const vd = chipValueDirection(signal);
+        html +=
+          '<button type="button" class="evidence-chip" data-chip="' + escapeHTML(id) + '"' +
+          ' aria-expanded="false" aria-label="' + escapeHTML(label + (vd ? " · " + vd : "")) +
+          '. Tap for detail.">' +
+            '<span class="chip-label">' + escapeHTML(label) + '</span>' +
+            (vd ? '<span class="chip-sep" aria-hidden="true">·</span>' +
+                  '<span class="chip-value">' + escapeHTML(vd) + '</span>' : '') +
+          '</button>';
+      } else {
+        // Unknown signal id — render the plain token text, escaped.
+        html += escapeHTML(m[0]);
+      }
+      lastIndex = re.lastIndex;
+    }
+    html += escapeHTML(pattern.slice(lastIndex));
+    return html;
+  }
+
+  function renderLens(key, opts) {
+    const thought = DATA && DATA.weekly_thought;
+    if (!thought || !thought.lenses) return;
+    const lens = thought.lenses[key];
+    if (!lens) return;
+    ACTIVE_LENS = key;
+
+    // Close any open chip detail when switching lenses.
+    closeChipDetail();
+
+    // Tab selected-state + roving tabindex
+    $$("#lens-tabs .lens-tab").forEach((t) => {
+      const on = t.dataset.lens === key;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.setAttribute("tabindex", on ? "0" : "-1");
+      t.classList.toggle("is-active", on);
+    });
+
+    // Pattern with inline chips
+    const patternEl = $("#lens-pattern");
+    if (patternEl) patternEl.innerHTML = renderPatternHTML(lens.pattern || "");
+
+    // Action
+    const actionEl = $("#lens-action");
+    if (actionEl) actionEl.textContent = lens.action || "";
+
+    // Sketchbook aside (Animation C: pencil-in on render)
+    const noteEl = $("#lens-sketchbook");
+    if (noteEl) {
+      const note = lens.sketchbook_note;
+      if (note) {
+        noteEl.textContent = note;
+        noteEl.hidden = false;
+        // Re-trigger the pencil-in animation by toggling the class.
+        noteEl.classList.remove("is-penciling");
+        // force reflow so the animation restarts
+        void noteEl.offsetWidth;
+        noteEl.classList.add("is-penciling");
+      } else {
+        noteEl.textContent = "";
+        noteEl.hidden = true;
+      }
+    }
+
+    if (!opts || opts.persist !== false) persistLens(key);
+  }
+
+  /* ---------- chip detail expansion ---------- */
+  // Build the inline detail card for a chip. Three short lines + source footer.
+  //   What changed?         — current_value + status
+  //   Compared to what?     — compared_to.vs_12mo
+  //   Why does this matter? — refined_why.product_takeaway || summary
+  //   source: <technical name>
+  function buildChipDetail(signal) {
+    const status = signal.status ? (" — " + signal.status) : "";
+    const whatChanged = (signal.current_value || "—") +
+      (signal.current_unit ? " " + signal.current_unit : "") + status;
+
+    let comparedTo = "";
+    const c12 = signal.compared_to && signal.compared_to.vs_12mo;
+    if (c12) {
+      const dir = c12.direction || "flat";
+      const word = dir === "up" ? "higher" : (dir === "down" ? "lower" : "about the same");
+      const delta = (typeof c12.delta_pct === "number" && c12.delta_pct !== 0)
+        ? " (" + fmtSignedPct(c12.delta_pct) + ")" : "";
+      comparedTo = word + " than a year ago" + delta;
+    } else {
+      comparedTo = "—";
+    }
+
+    const why = (signal.refined_why && signal.refined_why.product_takeaway) ||
+      signal.summary || "";
+
+    const tech = chipTechnicalName(signal);
+
+    return (
+      '<div class="chip-detail-inner">' +
+        '<dl class="chip-detail-rows">' +
+          '<div class="chip-detail-row">' +
+            '<dt>What changed?</dt><dd>' + escapeHTML(whatChanged) + '</dd>' +
+          '</div>' +
+          '<div class="chip-detail-row">' +
+            '<dt>Compared to what?</dt><dd>' + escapeHTML(comparedTo) + '</dd>' +
+          '</div>' +
+          '<div class="chip-detail-row">' +
+            '<dt>Why does this matter?</dt><dd>' + escapeHTML(why) + '</dd>' +
+          '</div>' +
+        '</dl>' +
+        (tech ? '<p class="chip-detail-source">source: ' + escapeHTML(tech) + '</p>' : '') +
+      '</div>'
+    );
+  }
+
+  function openChipDetail(id) {
+    const signal = DATA && DATA.signals && DATA.signals.find((s) => s.id === id);
+    const box = $("#chip-detail");
+    if (!signal || !box) return;
+    box.innerHTML = buildChipDetail(signal);
+    box.hidden = false;
+    OPEN_CHIP_ID = id;
+    // Mark the originating chip(s) open (there can be repeats in theory).
+    $$('#lens-pattern .evidence-chip').forEach((c) => {
+      c.setAttribute("aria-expanded", c.dataset.chip === id ? "true" : "false");
+      c.classList.toggle("is-open", c.dataset.chip === id);
+    });
+  }
+
+  function closeChipDetail() {
+    const box = $("#chip-detail");
+    if (box) { box.hidden = true; box.innerHTML = ""; }
+    OPEN_CHIP_ID = null;
+    $$('#lens-pattern .evidence-chip').forEach((c) => {
+      c.setAttribute("aria-expanded", "false");
+      c.classList.remove("is-open");
+    });
+  }
+
+  function toggleChipDetail(id) {
+    if (OPEN_CHIP_ID === id) { closeChipDetail(); }
+    else { openChipDetail(id); }
+  }
+
+  /* ---------- Animation B: chip pairing highlight ---------- */
+  // When a chip is hovered/focused/tapped, briefly highlight all sibling chips
+  // in the SAME paragraph to visualize the connection. Lifts after ~600ms or on
+  // hover-out. Respects prefers-reduced-motion (handled in CSS).
+  let pairingTimer = null;
+  function highlightPairing(originChip) {
+    const p = originChip && originChip.closest("p, .lens-pattern");
+    if (!p) return;
+    const chips = Array.from(p.querySelectorAll(".evidence-chip"));
+    chips.forEach((c) => c.classList.add("chip-paired-highlight"));
+    if (pairingTimer) clearTimeout(pairingTimer);
+    pairingTimer = setTimeout(() => {
+      chips.forEach((c) => c.classList.remove("chip-paired-highlight"));
+      pairingTimer = null;
+    }, 600);
+  }
+  function clearPairing() {
+    if (pairingTimer) { clearTimeout(pairingTimer); pairingTimer = null; }
+    $$('#lens-pattern .evidence-chip.chip-paired-highlight')
+      .forEach((c) => c.classList.remove("chip-paired-highlight"));
+  }
+
+  /* ---------- signal library collapse ---------- */
+  function setLibraryOpen(open) {
+    const lib = $("#signal-library");
+    const btn = $("#explore-signals");
+    if (!lib || !btn) return;
+    lib.hidden = !open;
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.classList.toggle("is-open", open);
+  }
+
+  /* =====================================================================
      SELECTION
      ===================================================================== */
   function selectSignal(id, opts) {
@@ -1137,6 +1442,81 @@
      EVENT WIRING
      ===================================================================== */
   function bindEvents() {
+    // ---- Pass H: lens tabs ----
+    const lensTabs = $("#lens-tabs");
+    if (lensTabs) {
+      lensTabs.addEventListener("click", (e) => {
+        const tab = e.target.closest(".lens-tab");
+        if (tab && tab.dataset.lens) renderLens(tab.dataset.lens);
+      });
+      // Keyboard: arrow keys move between tabs (roving tabindex), Home/End jump.
+      lensTabs.addEventListener("keydown", (e) => {
+        const tabs = $$("#lens-tabs .lens-tab");
+        if (!tabs.length) return;
+        const curIdx = tabs.findIndex((t) => t.dataset.lens === ACTIVE_LENS);
+        let next = -1;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (curIdx + 1) % tabs.length;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (curIdx - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabs.length - 1;
+        if (next !== -1) {
+          e.preventDefault();
+          const key = tabs[next].dataset.lens;
+          renderLens(key);
+          const el = $("#lens-tab-" + key);
+          if (el) el.focus();
+        }
+      });
+    }
+
+    // ---- Pass H: inline evidence chips (tap to toggle detail) ----
+    const lensPanel = $("#lens-panel");
+    if (lensPanel) {
+      lensPanel.addEventListener("click", (e) => {
+        const chip = e.target.closest(".evidence-chip");
+        if (chip && chip.dataset.chip) {
+          e.stopPropagation();
+          toggleChipDetail(chip.dataset.chip);
+        }
+      });
+      // Animation B: pairing highlight on hover + focus (no hover-only behavior;
+      // tap also triggers it via the click path's focus). Pointer hover-out clears.
+      lensPanel.addEventListener("mouseover", (e) => {
+        const chip = e.target.closest(".evidence-chip");
+        if (chip) highlightPairing(chip);
+      });
+      lensPanel.addEventListener("mouseout", (e) => {
+        if (e.target.closest(".evidence-chip")) clearPairing();
+      });
+      lensPanel.addEventListener("focusin", (e) => {
+        const chip = e.target.closest(".evidence-chip");
+        if (chip) highlightPairing(chip);
+      });
+    }
+    // Tapping anywhere outside an open chip detail closes it (one open at a time).
+    document.addEventListener("click", (e) => {
+      if (!OPEN_CHIP_ID) return;
+      if (e.target.closest("#chip-detail")) return;       // clicks inside detail keep it open
+      if (e.target.closest(".evidence-chip")) return;     // handled by the chip handler
+      closeChipDetail();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && OPEN_CHIP_ID) closeChipDetail();
+    });
+
+    // ---- Pass H: "Explore the signals behind this" collapse toggle ----
+    const exploreBtn = $("#explore-signals");
+    if (exploreBtn) {
+      exploreBtn.addEventListener("click", () => {
+        const lib = $("#signal-library");
+        const willOpen = lib && lib.hidden;
+        setLibraryOpen(willOpen);
+        if (willOpen && lib && lib.scrollIntoView) {
+          lib.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    }
+
     // Category picker
     $("#category-pills").addEventListener("click", (e) => {
       const b = e.target.closest("[data-category]");
@@ -1258,6 +1638,18 @@
   function init(data) {
     DATA = data;
 
+    // Pass H: thinking layer (through-line + lens tabs + active lens).
+    // Rendered first so it owns the first viewport. Degrades gracefully if the
+    // weekly_thought block is absent (older data files): the section stays on
+    // its loading copy and the signal library can still be revealed.
+    const thought = data.weekly_thought;
+    if (thought && thought.lenses) {
+      ACTIVE_LENS = resolveInitialLens(thought);
+      renderThroughline(thought);
+      renderLensTabs(thought);
+      renderLens(ACTIVE_LENS, { persist: false });
+    }
+
     renderWeeklyNote(data.weekly_note);
     renderFreshness(data.signals, data.phase_meta);
     renderWeeklyConnection(data.weekly_connection);
@@ -1282,12 +1674,26 @@
 
   /* ---------- load JSON ---------- */
   function loadData() {
-    fetch("data/pulse-content.json", { cache: "no-cache" })
-      .then((r) => {
+    // The registry is the source of truth for chip_label and the technical
+    // name. It's optional: if the fetch fails, the fallback chain uses the
+    // content signal's chip_label, then the existing human label. We resolve
+    // the registry first (best-effort) so labels are correct on first paint,
+    // then load content and render.
+    const registryReq = fetch("data/signals_registry.json", { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null);
+
+    Promise.all([
+      fetch("data/pulse-content.json", { cache: "no-cache" }).then((r) => {
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.json();
+      }),
+      registryReq
+    ])
+      .then(([content, registry]) => {
+        REGISTRY = registry || null;
+        init(content);
       })
-      .then(init)
       .catch((err) => {
         console.error("Pulse: failed to load content", err);
         if (window.PULSE_FALLBACK) init(window.PULSE_FALLBACK);

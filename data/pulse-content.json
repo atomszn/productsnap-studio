@@ -63,6 +63,37 @@
     "review_note": "Weekly Connection narrative reads 'down' but 11 of 17 directional signals (65%) are moving the opposite way: cpi-headline, ppi, pce, fed-net-liquidity, ai-model-releases, open-source-ai, emerging-apps, nonfarm-payrolls, ai-regulation, mfg-activity, services-activity.",
     "narrative_review_required": true
   },
+  "weekly_thought": {
+    "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",
+    "last_editorial_reviewed": "2026-06-07",
+    "default_lens": "build",
+    "lenses": {
+      "build": {
+        "label": "Build Decisions",
+        "pattern": "Most people aren't holding both of these in their head at once. [chip:tech-hiring] is at its lowest in a decade, while [chip:ai-api-pricing] just hit the cheapest it's ever been. Roadmap items you deferred for headcount last quarter might be shippable this quarter — for a completely different reason.",
+        "action": "Which project on your deferred list assumes you need to hire to ship it?",
+        "sketchbook_note": "this surprised me"
+      },
+      "customer": {
+        "label": "Customer Behavior",
+        "pattern": "Your buyers are quieter, not poorer. [chip:consumer-confidence] has cratered, but [chip:retail-sales] is still running near 5% year-over-year. Sentiment surveys are louder than wallets right now — and the gap between them is widening.",
+        "action": "When your users tell you they're tightening their belts, which number do you trust — what they say, or what they spend?",
+        "sketchbook_note": "worth watching"
+      },
+      "business": {
+        "label": "Business Reality",
+        "pattern": "Budgets for next quarter are being written around two numbers moving in opposite directions. Teams plan headcount against [chip:tech-hiring] staying tight, then quietly fund tooling against [chip:compute-cost] falling. The line item that used to read 'hire two engineers' is becoming 'buy more inference.'",
+        "action": "Open next quarter's plan and find the one hire you'd swap for tooling if the model could do 70% of the job.",
+        "sketchbook_note": "the tension is here"
+      },
+      "future": {
+        "label": "Future Signals",
+        "pattern": "The thing to watch isn't the price drop itself — it's how fast new models keep landing. [chip:ai-model-releases] are shipping faster than they have since 2024, and each one resets what 'too expensive to automate' means. The deferred-work list isn't fixed; it shrinks every few weeks on its own.",
+        "action": "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true.",
+        "sketchbook_note": null
+      }
+    }
+  },
   "pm_tension": {
     "label": "This week's PM tension",
     "axis": "Stressed buyer vs cheaper build",
