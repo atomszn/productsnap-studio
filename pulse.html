@@ -247,11 +247,17 @@
           </div>
         </div>
 
+        <!-- One-time Regional vs National educational note (Pass F). Subtle,
+             single block — populated by JS from content.regional_vs_national_note.
+             Hidden until populated; absent => never shown. -->
+        <aside class="pulse-regional-note" id="pulse-regional-note" role="note" hidden></aside>
+
         <!-- The active chain -->
         <article class="pulse-explorer" id="pulse-explorer" aria-live="polite">
           <header class="px-head">
             <div class="px-head-left">
               <span class="px-category" id="px-category">AI &amp; Technology</span>
+              <span class="px-display-name" id="px-display-name" hidden></span>
               <h3 class="px-title" id="px-title">Loading signal…</h3>
               <p class="px-summary" id="px-summary"></p>
             </div>

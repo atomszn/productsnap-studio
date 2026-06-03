@@ -464,6 +464,185 @@ function editorialFreshness(lastReviewedISO, expiresAfterDays, now) {
   return { editorial_status: status, age_days: age, expires_after_days: exp };
 }
 
+/* ---------- cross-signal narrative alignment (Pass F) ---------- */
+/*
+  Pass D's checkEditorialAlignment is PER-SIGNAL: does one signal's status word
+  match its own data direction? Pass F adds a CROSS-SIGNAL check: does the
+  Weekly Connection's narrative ("things are slowing") agree with the aggregate
+  direction of the published signals?
+
+  Approach (deliberately conservative — flag only, never auto-rewrite):
+    1. Scan the Weekly Connection prose for direction words and pick the
+       dominant narrative direction (up / down) by frequency.
+    2. Count published CONTENT signals by their authoritative data direction
+       (compared_to.vs_12mo.direction), interpreted as up/down via the same
+       recognized direction vocabulary. A signal is only "usable" when that
+       direction maps to a recognized word — pending_automation registry stubs
+       (which never appear in content) and signals with missing / null /
+       unrecognized direction are skipped and counted as skipped.
+    3. Minimum-count guard: if fewer than MIN_USABLE_NARRATIVE_SIGNALS signals
+       have a usable direction, do NOT flag a mismatch (too little signal to
+       judge the narrative against).
+    4. Mismatch when the narrative's dominant direction is clear AND more than
+       NARRATIVE_MISMATCH_FRACTION of usable signals move the OPPOSITE way.
+
+  Returns a plain object; the validator decides what to write.
+*/
+
+// Narrative direction vocabulary. Maps the prose/data direction words listed in
+// the Pass F brief to a coarse value-direction. "up" = expanding / accelerating
+// / heating; "down" = slowing / cooling / softening / contracting. This is the
+// recognized-word set referenced by clarification #4; it is intentionally a
+// superset-compatible companion to STATUS_WORD_DIRECTION (same up/down spirit).
+const NARRATIVE_DIRECTION_WORDS = {
+  // upward / strengthening
+  improving: "up", strengthening: "up", reaccelerating: "up",
+  accelerating: "up", expanding: "up", rising: "up", climbing: "up",
+  heating: "up", surging: "up", growing: "up",
+  // downward / weakening
+  slowing: "down", cooling: "down", softening: "down", weakening: "down",
+  contracting: "down", easing: "down", tightening: "down", falling: "down",
+  declining: "down", dropping: "down"
+};
+
+const MIN_USABLE_NARRATIVE_SIGNALS = 4;
+const NARRATIVE_MISMATCH_FRACTION = 0.6;
+
+// Map a signal's authoritative data direction to up/down using the recognized
+// vocabulary. The direction field carries "up"/"down"/"flat" already; we accept
+// the literal up/down and treat anything else (flat, null, missing) as unusable.
+function usableDataDirection(signal) {
+  const cmp = signal && signal.compared_to && signal.compared_to.vs_12mo;
+  const dir = cmp && cmp.direction;
+  if (dir === "up" || dir === "down") return dir;
+  return null;
+}
+
+// Scan free text for recognized direction words; return counts + dominant.
+function scanNarrativeDirection(text) {
+  const counts = { up: 0, down: 0 };
+  const hits = [];
+  const hay = String(text || "").toLowerCase();
+  for (const word of Object.keys(NARRATIVE_DIRECTION_WORDS)) {
+    const re = new RegExp("\\b" + word + "\\b", "g");
+    const m = hay.match(re);
+    if (m && m.length) {
+      counts[NARRATIVE_DIRECTION_WORDS[word]] += m.length;
+      hits.push({ word, dir: NARRATIVE_DIRECTION_WORDS[word], n: m.length });
+    }
+  }
+  let dominant = null;
+  if (counts.up > counts.down) dominant = "up";
+  else if (counts.down > counts.up) dominant = "down";
+  return { counts, hits, dominant };
+}
+
+// Gather the Weekly Connection narrative prose from its various fields.
+function weeklyConnectionNarrativeText(weeklyConnection) {
+  if (!weeklyConnection) return "";
+  const r = weeklyConnection.refined || {};
+  const parts = [
+    weeklyConnection.title,
+    weeklyConnection.subtitle,
+    r.observation, r.why_it_matters, r.decision_this_week, r.pm_implication_default,
+    ...(Array.isArray(weeklyConnection.body_paragraphs) ? weeklyConnection.body_paragraphs : [])
+  ];
+  return parts.filter(Boolean).join(" ");
+}
+
+function checkNarrativeAlignment(weeklyConnection, signals, registry) {
+  const result = {
+    narrative_review_required: false,
+    dominant_direction_in_narrative: null,
+    narrative_direction_counts: { up: 0, down: 0 },
+    signals_moving_with_narrative: [],
+    signals_moving_against_narrative: [],
+    usable_count: 0,
+    skipped_count: 0,
+    minimum_count: MIN_USABLE_NARRATIVE_SIGNALS,
+    minimum_count_met: false,
+    mismatch_fraction_threshold: NARRATIVE_MISMATCH_FRACTION,
+    against_fraction: 0,
+    review_note: ""
+  };
+
+  const text = weeklyConnectionNarrativeText(weeklyConnection);
+  const scan = scanNarrativeDirection(text);
+  result.dominant_direction_in_narrative = scan.dominant;
+  result.narrative_direction_counts = scan.counts;
+
+  const content = Array.isArray(signals) ? signals : [];
+  const withDir = [];
+  const againstDir = [];
+  let usable = 0;
+  let skipped = 0;
+
+  for (const s of content) {
+    // Skip registry-only pending_automation stubs defensively (they should not
+    // appear in content at all, but never count them if they somehow do).
+    const entry = registry ? getRegistryEntry(registry, s.id) : null;
+    if (entry && entry.status_type === "pending_automation") { skipped++; continue; }
+    const dir = usableDataDirection(s);
+    if (!dir) { skipped++; continue; }
+    usable++;
+    if (scan.dominant) {
+      if (dir === scan.dominant) withDir.push(s.id);
+      else againstDir.push(s.id);
+    }
+  }
+
+  result.usable_count = usable;
+  result.skipped_count = skipped;
+  result.minimum_count_met = usable >= MIN_USABLE_NARRATIVE_SIGNALS;
+  result.signals_moving_with_narrative = withDir;
+  result.signals_moving_against_narrative = againstDir;
+
+  // No clear narrative direction => nothing to contradict.
+  if (!scan.dominant) {
+    result.review_note = "No dominant direction word found in the Weekly Connection narrative; nothing to contradict.";
+    return result;
+  }
+  // Too few usable signals => do not flag (minimum-count guard).
+  if (!result.minimum_count_met) {
+    result.review_note = "Only " + usable + " signal(s) have a usable direction (minimum " +
+      MIN_USABLE_NARRATIVE_SIGNALS + "); narrative mismatch not evaluated.";
+    return result;
+  }
+
+  const against = againstDir.length;
+  const fraction = usable > 0 ? against / usable : 0;
+  result.against_fraction = Math.round(fraction * 1000) / 1000;
+
+  if (fraction > NARRATIVE_MISMATCH_FRACTION) {
+    result.narrative_review_required = true;
+    result.review_note = "Weekly Connection narrative reads '" + scan.dominant +
+      "' but " + against + " of " + usable + " directional signals (" +
+      Math.round(fraction * 100) + "%) are moving the opposite way: " +
+      againstDir.join(", ") + ".";
+  } else {
+    result.review_note = "Narrative direction '" + scan.dominant + "' is consistent with " +
+      withDir.length + " of " + usable + " directional signals (" +
+      against + " against, below the " + Math.round(NARRATIVE_MISMATCH_FRACTION * 100) + "% threshold).";
+  }
+  return result;
+}
+
+// Front-end / validator helper: should the Weekly Connection's interpretive
+// prose fall back to neutral copy? True when the narrative was flagged for
+// review OR any connected signal is in alignment mismatch. Strictly defensive:
+// missing fields => false.
+function weeklyConnectionNeedsReview(weeklyConnection, signals) {
+  if (!weeklyConnection) return false;
+  if (weeklyConnection.narrative_review_required === true) return true;
+  if (weeklyConnection.review_required === true) return true;
+  const connected = weeklyConnection.connected_signals || [];
+  const content = Array.isArray(signals) ? signals : [];
+  return connected.some((id) => {
+    const s = content.find((x) => x && x.id === id);
+    return s && s.alignment_status === "mismatch";
+  });
+}
+
 /* ---------- last-known-good protection ---------- */
 /*
   Given the previous trusted signal object and a validation verdict, decide
@@ -521,5 +700,11 @@ module.exports = {
   computeDataDirection,
   inferEditorialStance,
   editorialFreshness,
-  applyVerdict
+  checkNarrativeAlignment,
+  weeklyConnectionNeedsReview,
+  applyVerdict,
+  STATUS_WORD_DIRECTION,
+  NARRATIVE_DIRECTION_WORDS,
+  MIN_USABLE_NARRATIVE_SIGNALS,
+  NARRATIVE_MISMATCH_FRACTION
 };

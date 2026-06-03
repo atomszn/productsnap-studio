@@ -204,21 +204,80 @@ function main() {
     };
   }
 
-  // --- integrity guard: never reduce signal count ---
+  // --- cross-signal narrative alignment (Pass F) ---
+  // Flag-only: never auto-rewrites the Weekly Connection. Writes
+  // narrative_review_required / review_note additively (preserving any per-signal
+  // mismatch note already produced above) and records a full narrative_review
+  // block in the report.
+  const narrative = trust.checkNarrativeAlignment(
+    content.weekly_connection, content.signals || [], registry);
+  if (wc) {
+    wc.narrative_review_required = narrative.narrative_review_required;
+    // Combine the existing editorial/connected-signal review with the narrative
+    // outcome so review_required reflects either trigger; don't clobber a note.
+    wc.review_required = !!wc.review_required || narrative.narrative_review_required;
+    if (narrative.narrative_review_required) {
+      wc.review_note = wc.review_note
+        ? (wc.review_note + " | " + narrative.review_note)
+        : narrative.review_note;
+    }
+  }
+  report.narrative_review = {
+    narrative_review_required: narrative.narrative_review_required,
+    dominant_direction_in_narrative: narrative.dominant_direction_in_narrative,
+    narrative_direction_counts: narrative.narrative_direction_counts,
+    signals_moving_with_narrative: narrative.signals_moving_with_narrative,
+    signals_moving_against_narrative: narrative.signals_moving_against_narrative,
+    usable_count: narrative.usable_count,
+    skipped_count: narrative.skipped_count,
+    minimum_count: narrative.minimum_count,
+    minimum_count_met: narrative.minimum_count_met,
+    mismatch_fraction_threshold: narrative.mismatch_fraction_threshold,
+    against_fraction: narrative.against_fraction,
+    review_note: narrative.review_note
+  };
+
+  // --- integrity guard: dynamic content/registry reconciliation ---
+  // Expected content signals are computed from the registry, not hardcoded:
+  // every registry signal whose status_type !== "pending_automation" MUST have
+  // a matching entry in pulse-content.json. status_type "pending_automation"
+  // signals (the ISM stubs) may exist registry-only and must NOT be rendered.
   const afterCount = (content.signals || []).length;
+  const contentIds = new Set((content.signals || []).map((s) => s.id));
+  const regSignals = registry.signals || [];
+  const expectedContentSignals = regSignals
+    .filter((s) => s.status_type !== "pending_automation")
+    .map((s) => s.signal_id);
+  const pendingAutomationSignals = regSignals
+    .filter((s) => s.status_type === "pending_automation")
+    .map((s) => s.signal_id);
+  const missingFromContent = expectedContentSignals.filter((id) => !contentIds.has(id));
+  // A pending_automation stub leaking into content would be a hard error.
+  const pendingLeakedIntoContent = pendingAutomationSignals.filter((id) => contentIds.has(id));
+  const expectedContentCount = expectedContentSignals.length;
   report.integrity = {
     signal_count_before: beforeCount,
     signal_count_after: afterCount,
-    count_preserved: beforeCount === afterCount && afterCount === 18,
-    has_mfg_activity: !!(content.signals || []).find((s) => s.id === "mfg-activity"),
-    has_services_activity: !!(content.signals || []).find((s) => s.id === "services-activity")
+    registry_signal_count: regSignals.length,
+    expected_content_count: expectedContentCount,
+    pending_automation_signals: pendingAutomationSignals,
+    missing_from_content: missingFromContent,
+    pending_leaked_into_content: pendingLeakedIntoContent,
+    count_preserved: beforeCount === afterCount &&
+      afterCount === expectedContentCount &&
+      missingFromContent.length === 0 &&
+      pendingLeakedIntoContent.length === 0,
+    has_mfg_activity: contentIds.has("mfg-activity"),
+    has_services_activity: contentIds.has("services-activity")
   };
 
   // --- write outputs (DEFAULT mode only; --dry-run and --check never write) ---
   if (WRITE) {
-    if (afterCount !== beforeCount || afterCount !== 18) {
-      console.error("ABORT: signal count integrity check failed (" +
-        beforeCount + " -> " + afterCount + "). No files written.");
+    if (!report.integrity.count_preserved) {
+      console.error("ABORT: content/registry integrity check failed (" +
+        beforeCount + " -> " + afterCount + ", expected " + expectedContentCount +
+        "; missing_from_content=[" + missingFromContent.join(",") +
+        "] pending_leaked=[" + pendingLeakedIntoContent.join(",") + "]). No files written.");
       process.exit(2);
     }
     fs.writeFileSync(CONTENT_PATH, JSON.stringify(content, null, 2) + "\n", "utf8");
@@ -237,7 +296,15 @@ function main() {
   console.log("  verified=" + s.verified + " stale=" + s.stale +
     " needs_review=" + s.needs_review + " failed=" + s.failed + " manual=" + s.manual);
   console.log("  alignment_mismatches=" + s.alignment_mismatches);
-  console.log("  integrity: 18 signals=" + report.integrity.count_preserved +
+  console.log("  narrative_review_required=" + report.narrative_review.narrative_review_required +
+    " (usable=" + report.narrative_review.usable_count +
+    " skipped=" + report.narrative_review.skipped_count +
+    " min=" + report.narrative_review.minimum_count +
+    " min_met=" + report.narrative_review.minimum_count_met + ")");
+  console.log("  integrity: content=" + report.integrity.signal_count_after +
+    "/" + report.integrity.expected_content_count + " preserved=" + report.integrity.count_preserved +
+    " registry=" + report.integrity.registry_signal_count +
+    " pending=[" + report.integrity.pending_automation_signals.join(",") + "]" +
     " mfg=" + report.integrity.has_mfg_activity +
     " services=" + report.integrity.has_services_activity);
 

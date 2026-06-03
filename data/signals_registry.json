@@ -158,7 +158,7 @@
       "editorial_status"
     ]
   },
-  "signal_count": 18,
+  "signal_count": 20,
   "signals": [
     {
       "signal_id": "cpi-headline",
@@ -1125,10 +1125,10 @@
     },
     {
       "signal_id": "mfg-activity",
-      "name": "Manufacturing Activity (diffusion index)",
+      "name": "Regional Manufacturing Activity (Philly Fed)",
       "category": "activity",
       "category_label": "Business Activity",
-      "source": "Regional Fed / ISM-style (curated)",
+      "source": "Philadelphia Fed (regional survey, via FRED)",
       "source_series": {
         "provider": "FRED",
         "series_id": "GACDFSA066MSFRBPHI",
@@ -1185,10 +1185,10 @@
     },
     {
       "signal_id": "services-activity",
-      "name": "Services Activity (diffusion index)",
+      "name": "Regional Services Activity (Dallas Fed)",
       "category": "activity",
       "category_label": "Business Activity",
-      "source": "Regional Fed / ISM-style (curated)",
+      "source": "Dallas Fed (regional survey, via FRED)",
       "source_series": {
         "provider": "FRED",
         "series_id": "TSSOSBACTUAMFRBDAL",
@@ -1242,10 +1242,135 @@
       },
       "current_value_ref": "-5",
       "current_last_updated_ref": "2026-05-01"
+    },
+    {
+      "signal_id": "ism-manufacturing-pmi",
+      "name": "ISM Manufacturing PMI (National)",
+      "category": "activity",
+      "category_label": "Business Activity",
+      "source": "Institute for Supply Management (ISM) — pending automation (Pass G)",
+      "source_series": {
+        "provider": "ISM-pending",
+        "series_id": null,
+        "transform": "level_monthly_last"
+      },
+      "unit": "PMI index (50 = neutral)",
+      "refresh_frequency": "monthly",
+      "status_type": "pending_automation",
+      "editorial_owner": "activity-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "index",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          30,
+          70
+        ],
+        "max_abs_step": 10,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 45
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": null,
+      "current_last_updated_ref": null
+    },
+    {
+      "signal_id": "ism-services-pmi",
+      "name": "ISM Services PMI (National)",
+      "category": "activity",
+      "category_label": "Business Activity",
+      "source": "Institute for Supply Management (ISM) — pending automation (Pass G)",
+      "source_series": {
+        "provider": "ISM-pending",
+        "series_id": null,
+        "transform": "level_monthly_last"
+      },
+      "unit": "PMI index (50 = neutral)",
+      "refresh_frequency": "monthly",
+      "status_type": "pending_automation",
+      "editorial_owner": "activity-editor",
+      "tier": 1,
+      "validation": {
+        "require_numeric": true,
+        "value_type": "index",
+        "require_value_present": true,
+        "require_unit_match": true,
+        "require_source_mapping": true,
+        "require_valid_date": true,
+        "reject_future_dates": true,
+        "require_nondecreasing_date": true,
+        "require_within_expected_range": true
+      },
+      "thresholds": {
+        "expected_range": [
+          30,
+          70
+        ],
+        "max_abs_step": 10,
+        "max_abs_step_hard": null,
+        "max_pct_step": 200,
+        "centered_zero": false,
+        "outlier_action": "needs_review"
+      },
+      "cadence": {
+        "refresh_frequency": "monthly",
+        "cadence": "monthly",
+        "cadence_grace_days": 20,
+        "stale_after_days": 45
+      },
+      "alignment": {
+        "direction_field": "compared_to.vs_12mo.direction",
+        "editorial_polarity": "value_up_is_positive",
+        "editorial_blocks": [
+          "summary",
+          "status",
+          "refined_why"
+        ],
+        "mismatch_action": {
+          "alignment_status": "mismatch",
+          "review_required": true
+        }
+      },
+      "current_value_ref": null,
+      "current_last_updated_ref": null
     }
   ],
   "_integrity": {
     "content_signal_count": 18,
+    "registry_signal_count": 20,
+    "pending_automation_registry_only": [
+      "ism-manufacturing-pmi",
+      "ism-services-pmi"
+    ],
     "missing_from_registry": []
   }
 }

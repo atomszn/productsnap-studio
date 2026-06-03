@@ -467,6 +467,16 @@
   color: var(--teal); transform: rotate(-1.5deg);
   display: inline-block; margin-bottom: 6px;
 }
+.px-display-name {
+  display: block;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft, #7A7974);
+  margin: 0 0 4px;
+}
 .px-title {
   font-family: var(--body); font-weight: 700;
   font-size: clamp(24px, 2.8vw, 32px);
@@ -1883,5 +1893,32 @@
    ===================================================================== */
 .px-review-note {
   font-style: italic;
+  color: var(--ink-soft, #7A7974);
+}
+
+/* =====================================================================
+   Regional vs National educational note (Pass F) — one-time, subtle.
+   A quiet margin note, not a callout. Reuses paper/ink tokens so it reads
+   as an editorial aside rather than a UI banner.
+   ===================================================================== */
+.pulse-regional-note {
+  margin: 0.9rem 0 0.2rem;
+  padding: 0.7rem 0.9rem;
+  border-left: 2px solid var(--hand-2, #c9b58a);
+  background: rgba(0, 0, 0, 0.015);
+  border-radius: 0 6px 6px 0;
+}
+.pulse-regional-note .prn-label {
+  display: block;
+  font-family: var(--font-hand, "Caveat", cursive);
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft, #7A7974);
+  margin-bottom: 0.15rem;
+}
+.pulse-regional-note .prn-text {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
   color: var(--ink-soft, #7A7974);
 }

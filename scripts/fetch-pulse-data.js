@@ -52,7 +52,13 @@ const MUTABLE_DATA_FIELDS = new Set([
   "data_points",
   "compared_to",
   "percentile",
-  "last_updated"
+  "last_updated",
+  // Pass F: per-signal timestamps object. Only latest_source_data_date is
+  // touched by the fetcher (when the source publishes a newer observation).
+  // last_editorial_reviewed is never written here — it moves only on prose
+  // edits. There is NO per-signal pipeline timestamp; the single site-level
+  // phase_meta.last_pipeline_refresh proves the pipeline is alive (see below).
+  "timestamps"
 ]);
 
 // Consumer-confidence moves from proprietary Conference Board CCI to the
@@ -288,6 +294,15 @@ async function main() {
 
   assertExpectedSignals(next);
 
+  // Pass F: stamp the single site-level pipeline-refresh timestamp on every
+  // run, regardless of whether any source data changed. This proves the cron
+  // is alive (it "checked" all signals — including manual/event-driven ones,
+  // which it skips) and produces only a small top-level diff on quiet days.
+  // No per-signal pipeline timestamp is written, so quiet days never churn the
+  // signals array.
+  next.phase_meta = next.phase_meta || {};
+  next.phase_meta.last_pipeline_refresh = new Date().toISOString();
+
   let successCount = 0;
   const failures = [];
 
@@ -496,10 +511,28 @@ function applyAllowedUpdate(signal, update, id) {
     if (!isAllowed) throw new Error(`Refusing to update non-data field ${id}.${key}`);
     signal[key] = value;
   }
+  // Pass F: keep the per-signal timestamps block in sync with the newly applied
+  // source observation. latest_source_data_date tracks the freshness of the
+  // number (mirrors last_updated, kept for backward compatibility). The fetcher
+  // NEVER touches last_editorial_reviewed — that moves only on prose edits — so
+  // it is preserved as-is. No per-signal pipeline timestamp is written.
+  if (update.last_updated != null) {
+    const prevTs = (signal.timestamps && typeof signal.timestamps === "object")
+      ? signal.timestamps : {};
+    signal.timestamps = {
+      latest_source_data_date: update.last_updated,
+      last_editorial_reviewed: prevTs.last_editorial_reviewed != null
+        ? prevTs.last_editorial_reviewed
+        : null
+    };
+  }
 }
 
 function validateUpdate(id, update) {
   for (const field of MUTABLE_DATA_FIELDS) {
+    // timestamps is derived by applyAllowedUpdate from last_updated rather than
+    // produced by the source-fetch builders, so it is not a required input.
+    if (field === "timestamps") continue;
     if (!(field in update)) throw new Error(`${id} update missing ${field}`);
   }
   if (!Array.isArray(update.data_points) || update.data_points.length < 12) {
@@ -589,6 +622,12 @@ function stripMutableData(data) {
     if (signal.id === "consumer-confidence") {
       for (const key of CONSUMER_CONFIDENCE_SOURCE_FIELDS) delete signal[key];
     }
+  }
+  // Pass F: the site-level pipeline-refresh timestamp is intentionally rewritten
+  // on every run, so exclude it from the editorial-preservation comparison.
+  // Everything else under phase_meta stays guarded.
+  if (data.phase_meta && typeof data.phase_meta === "object") {
+    delete data.phase_meta.last_pipeline_refresh;
   }
   return data;
 }

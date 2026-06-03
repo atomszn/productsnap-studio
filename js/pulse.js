@@ -88,6 +88,27 @@
     return signal.review_required === true || signal.alignment_status === "mismatch";
   }
 
+  // Pass F: Weekly Connection neutral fallback. Mirrors signalNeedsReview but at
+  // the cross-signal/narrative level. Returns true when the validator flagged a
+  // narrative mismatch (narrative_review_required), when the Weekly Connection
+  // is otherwise flagged for review (review_required), or when any connected
+  // signal is itself in alignment mismatch. Strictly non-breaking: when none of
+  // these fields are present (older data files) it returns false and rendering
+  // is identical to before.
+  const WC_FALLBACK_COPY =
+    "This week's interpretation is under review — the signal picture has shifted. Updated context coming soon.";
+
+  function weeklyConnectionNeedsReview(conn) {
+    if (!conn) return false;
+    if (conn.narrative_review_required === true) return true;
+    if (conn.review_required === true) return true;
+    const connected = (conn.connected_signals || []);
+    return connected.some((id) => {
+      const s = DATA && DATA.signals && DATA.signals.find((x) => x.id === id);
+      return s && s.alignment_status === "mismatch";
+    });
+  }
+
   let DATA = null;
   let CURRENT_SIGNAL_ID = null;
   let CURRENT_CATEGORY_ID = null;
@@ -158,17 +179,65 @@
      Derived on load from the most recent last_updated across all signals,
      independent of the weekly-note date. Updates from data, not by hand.
      ===================================================================== */
-  function renderFreshness(signals) {
+  function renderFreshness(signals, phaseMeta) {
     const el = $("#pulse-freshness");
     if (!el) return;
     const dates = (signals || [])
-      .map((s) => s && s.last_updated)
+      .map((s) => (s && s.timestamps && s.timestamps.latest_source_data_date) || (s && s.last_updated))
       .filter((v) => v && /^\d{4}-\d{2}-\d{2}/.test(v))
       .sort();
     const latest = dates.length ? dates[dates.length - 1] : "";
     const label = fmtLongDate(latest);
-    if (!label) { el.hidden = true; return; }
-    el.textContent = "Signals refreshed \u00b7 " + label;
+
+    // Pass F: site-level "pipeline is alive" indicator. Distinct from the
+    // freshness-of-the-number above: this is when the cron last *attempted* a
+    // refresh, written by scripts/fetch-pulse-data.js on every run. Optional —
+    // absent phase_meta.last_pipeline_refresh => only the data-freshness line
+    // shows (non-breaking for older data files).
+    const pipelineLabel = fmtPipelineRefresh(phaseMeta && phaseMeta.last_pipeline_refresh);
+
+    const parts = [];
+    if (label) parts.push("Signals refreshed \u00b7 " + label);
+    if (pipelineLabel) parts.push("pipeline last refreshed " + pipelineLabel);
+    if (!parts.length) { el.hidden = true; return; }
+    el.textContent = parts.join(" \u00b7 ");
+    el.hidden = false;
+  }
+
+  // Format an ISO timestamp like "2026-06-02T15:00:00Z" as "June 2, 10:00 AM CT".
+  // 15:00 UTC = 10:00 AM US Central (CDT), the cron's daily run time. Returns ""
+  // for absent/invalid input.
+  function fmtPipelineRefresh(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return "";
+    const monthsLong = ["January","February","March","April","May","June",
+      "July","August","September","October","November","December"];
+    // Central time = UTC-5 during daylight saving (the cron comment notes 10am CT).
+    const ct = new Date(d.getTime() - 5 * 3600000);
+    const mon = monthsLong[ct.getUTCMonth()];
+    const day = ct.getUTCDate();
+    let h = ct.getUTCHours();
+    const min = ct.getUTCMinutes();
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12; if (h === 0) h = 12;
+    const mm = (min < 10 ? "0" : "") + min;
+    return mon + " " + day + ", " + h + ":" + mm + " " + ampm + " CT";
+  }
+
+  /* =====================================================================
+     RENDER: Regional vs National educational note (Pass F)
+     One-time, subtle context block — NOT a per-signal repeat. Rendered only
+     when content.regional_vs_national_note is present (non-breaking otherwise).
+     Plain language; reuses the sketchbook sticky-note aesthetic.
+     ===================================================================== */
+  function renderRegionalNote(note) {
+    const el = $("#pulse-regional-note");
+    if (!el) return;
+    if (!note || !note.text) { el.hidden = true; return; }
+    el.innerHTML =
+      '<span class="prn-label" aria-hidden="true">regional vs national</span>' +
+      '<p class="prn-text">' + escapeHTML(note.text) + '</p>';
     el.hidden = false;
   }
 
@@ -202,21 +271,30 @@
     // hold the confident interpretive lines and show neutral copy. The title,
     // date and connected-signal pills still render unchanged. Non-breaking:
     // absent metadata => wcUnderReview is false => original behavior.
-    const wcUnderReview = conn.review_required === true;
+    // Pass F: cross-signal/narrative fallback. True when the validator flagged a
+    // narrative mismatch, when the WC is otherwise under review, or when any
+    // connected signal is in alignment mismatch. Only the interpretive lines
+    // fall back — title, date and connected-signal pills still render below.
+    const wcUnderReview = weeklyConnectionNeedsReview(conn);
 
     const refined = conn.refined || null;
     if (refined) {
-      $("#wc-observation").textContent = wcUnderReview ? TRUST_FALLBACK_COPY : (refined.observation || "");
+      $("#wc-observation").textContent = wcUnderReview ? WC_FALLBACK_COPY : (refined.observation || "");
       $("#wc-why").textContent = wcUnderReview ? TRUST_FALLBACK_SHORT : (refined.why_it_matters || "");
       $("#wc-implication").textContent = wcUnderReview ? "" : (refined.pm_implication_default || "");
       const decEl = $("#wc-decision");
       const decRow = $("#wc-triad-decision-row");
-      const decText = refined.decision_this_week || "";
+      // The "decision this week" line is interpretive too — hold it under review.
+      const decText = wcUnderReview ? "" : (refined.decision_this_week || "");
       if (decEl && decText) {
         decEl.textContent = decText;
       } else if (decRow) {
         decRow.style.display = "none";
       }
+      // Mark the observation line as a review note so it reads as held-back
+      // context, reusing the Pass D .px-review-note treatment.
+      const obsEl = $("#wc-observation");
+      if (obsEl) obsEl.classList.toggle("px-review-note", wcUnderReview);
     } else {
       $("#wc-triad").style.display = "none";
     }
@@ -517,6 +595,18 @@
     const underReview = signalNeedsReview(signal);
 
     $("#px-category").textContent = signal.category_label || "";
+    // Explicit signal label (e.g. the approved regional name). Distinct from the
+    // editorial headline in `title`; shown only when a signal defines it.
+    const displayNameEl = $("#px-display-name");
+    if (displayNameEl) {
+      if (signal.display_name) {
+        displayNameEl.textContent = signal.display_name;
+        displayNameEl.hidden = false;
+      } else {
+        displayNameEl.textContent = "";
+        displayNameEl.hidden = true;
+      }
+    }
     $("#px-title").textContent = signal.title || "";
     // When the interpretation is under review, lead with neutral copy instead
     // of the confident written summary. The numbers/value/chart still render —
@@ -770,7 +860,11 @@
     const tier = signal.tier || 3;
     const tierLabel = ["", "Tier 1", "Tier 2", "Tier 3"][tier];
     const tierType = signal.tier_label || (tier === 1 ? "primary" : (tier === 2 ? "market" : "editorial"));
-    const lu = signal.last_updated || "";
+    // Pass F: prefer the explicit source-data date (freshness of the number).
+    // Falls back to the legacy last_updated field when timestamps is absent, so
+    // older data files render identically.
+    const lu = (signal.timestamps && signal.timestamps.latest_source_data_date)
+      || signal.last_updated || "";
     // Format like "May 19, 2026" from ISO "2026-05-19"
     let luLabel = "—";
     if (lu && /^\d{4}-\d{2}-\d{2}/.test(lu)) {
@@ -791,7 +885,7 @@
       '<span class="tier-badge tier-' + tier + '"><span class="tier-dot"></span>' + tierLabel + ' · ' + escapeHTML(tierType) + '</span>' +
       '<span class="fn-source">' + escapeHTML(signal.source_note || "") + '</span>' +
       '<span class="fn-sep">·</span>' +
-      '<span class="fn-updated">last updated ' + escapeHTML(luLabel) + '</span>' +
+      '<span class="fn-updated">data from ' + escapeHTML(luLabel) + '</span>' +
       (stale ? '<span class="fn-stale">data may be stale</span>' : '') +
       '<button class="sp-cta btn-link" type="button" id="px-sources-btn" style="font-size:15px;margin-left:auto;">' +
         'Sources (' + srcCount + ') ' +
@@ -1165,8 +1259,9 @@
     DATA = data;
 
     renderWeeklyNote(data.weekly_note);
-    renderFreshness(data.signals);
+    renderFreshness(data.signals, data.phase_meta);
     renderWeeklyConnection(data.weekly_connection);
+    renderRegionalNote(data.regional_vs_national_note);
     renderWhatsChanged(data.whats_changed);
 
     renderCategoryPills();

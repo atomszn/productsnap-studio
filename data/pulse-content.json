@@ -57,10 +57,11 @@
       "last_editorial_reviewed": "2026-05-27",
       "expires_after_days": 7,
       "editorial_status": "aging",
-      "age_days": 5
+      "age_days": 7
     },
-    "review_required": false,
-    "review_note": ""
+    "review_required": true,
+    "review_note": "Weekly Connection narrative reads 'down' but 11 of 17 directional signals (65%) are moving the opposite way: cpi-headline, ppi, pce, fed-net-liquidity, ai-model-releases, open-source-ai, emerging-apps, nonfarm-payrolls, ai-regulation, mfg-activity, services-activity.",
+    "narrative_review_required": true
   },
   "pm_tension": {
     "label": "This week's PM tension",
@@ -426,7 +427,7 @@
       "pill_label_short": "Headline inflation heated up again",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -436,7 +437,11 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 61
+        "age_days": 63
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-04-01",
+        "last_editorial_reviewed": "2026-04-01"
       }
     },
     {
@@ -587,7 +592,7 @@
       "pill_label_short": "Producer prices reaccelerating",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -597,7 +602,11 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 61
+        "age_days": 63
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-04-01",
+        "last_editorial_reviewed": "2026-04-01"
       }
     },
     {
@@ -749,7 +758,7 @@
       "pill_label_short": "Core inflation still above target",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -759,7 +768,11 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 61
+        "age_days": 63
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-04-01",
+        "last_editorial_reviewed": "2026-04-01"
       }
     },
     {
@@ -916,7 +929,7 @@
       "pill_label_short": "Liquidity has steadied, not flooded",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -926,7 +939,11 @@
         "last_editorial_reviewed": "2026-05-27",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 5
+        "age_days": 7
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-27",
+        "last_editorial_reviewed": "2026-05-27"
       }
     },
     {
@@ -1077,9 +1094,9 @@
       },
       "pill_label_short": "Long-term borrowing costs still elevated",
       "status_meta": {
-        "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
-        "reason": "All checks passed",
+        "status": "stale",
+        "checked_at": "2026-06-03T02:07:30.180Z",
+        "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
       "alignment_status": "aligned",
@@ -1088,7 +1105,11 @@
         "last_editorial_reviewed": "2026-05-28",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 4
+        "age_days": 6
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-28",
+        "last_editorial_reviewed": "2026-05-28"
       }
     },
     {
@@ -1247,7 +1268,7 @@
       "pill_label_short": "Startup funding still concentrating into AI",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1257,7 +1278,11 @@
         "last_editorial_reviewed": "2026-05-20",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 12
+        "age_days": 14
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-20",
+        "last_editorial_reviewed": "2026-05-20"
       }
     },
     {
@@ -1424,7 +1449,7 @@
       "pill_label_short": "New AI models shipping faster",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1434,7 +1459,11 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 6
+        "age_days": 8
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-26",
+        "last_editorial_reviewed": "2026-05-26"
       }
     },
     {
@@ -1599,7 +1628,7 @@
       "pill_label_short": "AI model costs keep falling",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1609,7 +1638,11 @@
         "last_editorial_reviewed": "2026-05-19",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 13
+        "age_days": 15
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-19",
+        "last_editorial_reviewed": "2026-05-19"
       }
     },
     {
@@ -1768,7 +1801,7 @@
       "pill_label_short": "Open-source AI is catching up",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1778,7 +1811,11 @@
         "last_editorial_reviewed": "2026-05-25",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 7
+        "age_days": 9
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-25",
+        "last_editorial_reviewed": "2026-05-25"
       }
     },
     {
@@ -1942,7 +1979,7 @@
       "pill_label_short": "Compute keeps getting cheaper",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1952,7 +1989,11 @@
         "last_editorial_reviewed": "2026-04-30",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 32
+        "age_days": 34
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-04-30",
+        "last_editorial_reviewed": "2026-04-30"
       }
     },
     {
@@ -2105,7 +2146,7 @@
       "pill_label_short": "Shoppers still showing up",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -2115,7 +2156,11 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 61
+        "age_days": 63
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-04-01",
+        "last_editorial_reviewed": "2026-04-01"
       }
     },
     {
@@ -2267,7 +2312,7 @@
       "tier_label": "primary",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -2277,7 +2322,11 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 61
+        "age_days": 63
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-04-01",
+        "last_editorial_reviewed": "2026-04-01"
       }
     },
     {
@@ -2441,7 +2490,7 @@
       "pill_label_short": "Personal AI assistants are spreading",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2451,7 +2500,11 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 6
+        "age_days": 8
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-26",
+        "last_editorial_reviewed": "2026-05-26"
       }
     },
     {
@@ -2604,7 +2657,7 @@
       "pill_label_short": "Hiring is cooling, not collapsing",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -2614,7 +2667,11 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 61
+        "age_days": 63
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-04-01",
+        "last_editorial_reviewed": "2026-04-01"
       }
     },
     {
@@ -2774,7 +2831,7 @@
       "pill_label_short": "Tech hiring remains soft",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2784,7 +2841,11 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 6
+        "age_days": 8
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-26",
+        "last_editorial_reviewed": "2026-05-26"
       }
     },
     {
@@ -2938,7 +2999,7 @@
       "pill_label_short": "State-level AI rules picking up",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2948,15 +3009,20 @@
         "last_editorial_reviewed": "2026-05-24",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 8
+        "age_days": 10
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-24",
+        "last_editorial_reviewed": "2026-05-24"
       }
     },
     {
       "id": "mfg-activity",
       "category": "activity",
       "category_label": "Business Activity",
+      "display_name": "Regional Manufacturing Activity (Philly Fed)",
       "title": "Regional manufacturing activity slipped back negative",
-      "summary": "The Philadelphia Fed's monthly read on factory activity flipped from clearly expanding to flat-to-contracting in a single month. It is a regional proxy, not the proprietary national ISM PMI — but the swings show up here first.",
+      "summary": "Philly Fed manufacturers were modestly downbeat last month — one regional read, not the national picture. ISM, the national index, is running more upbeat right now; the gap between them is the part worth watching.",
       "term_glossary": [
         {
           "term": "diffusion index",
@@ -3100,10 +3166,10 @@
         "counter_signal": "Two months back above +10 would weaken this read.",
         "product_takeaway": "If you sell into manufacturers or the goods economy, pipeline forecasts that assume the last quarter's buying pace are worth re-examining."
       },
-      "pill_label_short": "Factory activity flipped soft",
+      "pill_label_short": "Regional mfg (Philly Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3113,15 +3179,20 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 31
+        "age_days": 33
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-01",
+        "last_editorial_reviewed": "2026-05-01"
       }
     },
     {
       "id": "services-activity",
       "category": "activity",
       "category_label": "Business Activity",
+      "display_name": "Regional Services Activity (Dallas Fed)",
       "title": "Regional services activity still in contraction",
-      "summary": "The Dallas Fed's monthly read on services-firm business activity has been negative for several months. It is a regional proxy, not the proprietary national ISM Services PMI — but services activity matters because services are most of the economy.",
+      "summary": "Dallas Fed services firms reported softening conditions — a Texas-skewed read, not national. Watch whether ISM Services, the national equivalent, confirms or diverges over the next release cycle.",
       "term_glossary": [
         {
           "term": "services activity",
@@ -3265,10 +3336,10 @@
         "counter_signal": "Two months back above zero would weaken this read.",
         "product_takeaway": "If you sell into services businesses, plans that assume the last year's buying pace deserve a downside scenario this quarter."
       },
-      "pill_label_short": "Services activity still soft",
+      "pill_label_short": "Regional services (Dallas Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-01T02:04:25.992Z",
+        "checked_at": "2026-06-03T02:07:30.180Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3278,7 +3349,11 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 31
+        "age_days": 33
+      },
+      "timestamps": {
+        "latest_source_data_date": "2026-05-01",
+        "last_editorial_reviewed": "2026-05-01"
       }
     }
   ],
@@ -3311,6 +3386,15 @@
       "App-chart triangulation pipeline",
       "Layoffs.fyi ingestion",
       "AI regulation tracker ingestion"
-    ]
+    ],
+    "last_pipeline_refresh": "2026-06-02T15:00:00Z"
+  },
+  "regional_vs_national_note": {
+    "text": "National ISM shows broad U.S. business activity. Regional Fed surveys (Philly Fed, Dallas Fed) show local business conditions. When they disagree, that disagreement is itself the signal: it usually means activity is uneven across the country, with some regions or sectors leading or lagging the national picture. Right now those two views diverge — and the gap is worth watching.",
+    "applies_to": [
+      "mfg-activity",
+      "services-activity"
+    ],
+    "category": "activity"
   }
 }
