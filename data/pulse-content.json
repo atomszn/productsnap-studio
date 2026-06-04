@@ -989,19 +989,15 @@
           "gloss": "the market's price for lending the US government money for 10 years — a benchmark for long-term capital costs"
         }
       ],
-      "current_value": "4.45%",
+      "current_value": "4.46%",
       "current_unit": "yield",
       "status": "rangebound",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-05-28",
+      "last_updated": "2026-06-02",
       "tier": 1,
       "source_note": "FRED DGS10 · daily",
       "data_points": [
-        {
-          "date": "2025-06",
-          "value": 4.2
-        },
         {
           "date": "2025-07",
           "value": 4.4
@@ -1045,22 +1041,26 @@
         {
           "date": "2026-05",
           "value": 4.5
+        },
+        {
+          "date": "2026-06",
+          "value": 4.5
         }
       ],
       "compared_to": {
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 0.4,
+          "delta_pct": 0.3,
           "tone": "amber"
         },
         "vs_12mo": {
-          "direction": "flat",
-          "delta_pct": 0,
-          "tone": "neutral"
+          "direction": "up",
+          "delta_pct": 0.2,
+          "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 2.9,
+          "delta_pct": 3,
           "tone": "amber"
         }
       },
@@ -1139,7 +1139,7 @@
         "age_days": 6
       },
       "timestamps": {
-        "latest_source_data_date": "2026-05-28",
+        "latest_source_data_date": "2026-06-02",
         "last_editorial_reviewed": "2026-05-28"
       }
     },
@@ -3418,6 +3418,6 @@
       "Layoffs.fyi ingestion",
       "AI regulation tracker ingestion"
     ],
-    "last_pipeline_refresh": "2026-06-03T18:40:25.477Z"
+    "last_pipeline_refresh": "2026-06-04T19:01:00.538Z"
   }
 }
