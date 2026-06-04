@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6efe1" />
+
+    <title>Sketches — ProductSnap Studio</title>
+    <meta
+      name="description"
+      content="The sketchbook behind ProductSnap Studio. Every screen and signal started as a pencil sketch — messy boxes, margin notes, and the questions that came before the product."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sketches — ProductSnap Studio" />
+    <meta
+      property="og:description"
+      content="Paper first, product second. The sketchbook that became the ProductSnap app and Pulse."
+    />
+    <meta property="og:site_name" content="ProductSnap Studio" />
+    <meta property="og:url" content="https://productsnap.studio/sketches" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sketches — ProductSnap Studio" />
+    <meta name="twitter:description" content="Paper first, product second. The sketchbook behind the work." />
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="canonical" href="https://productsnap.studio/sketches" />
+
+    <!-- Fonts: Caveat / Kalam (handwritten), Inter (body), Fraunces (serif accent) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-sketches">
+    <!-- Paper texture background -->
+    <div class="paper" aria-hidden="true"></div>
+    <div class="paper-dots" aria-hidden="true"></div>
+
+    <!-- Unified top nav — identical chrome on every page (five-route arch) -->
+    <header class="topnav">
+      <a href="index.html" class="brand" aria-label="ProductSnap Studio home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="7" width="22" height="26" rx="2.5" />
+            <path d="M6 13 H28 M6 19 H28 M6 25 H28" stroke-opacity="0.35" stroke-width="1.4" />
+            <circle cx="6" cy="11" r="1.1" />
+            <circle cx="6" cy="17" r="1.1" />
+            <circle cx="6" cy="23" r="1.1" />
+            <circle cx="6" cy="29" r="1.1" />
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z" fill="#fff7df" />
+            <path d="M27 31 h3" stroke-width="2" />
+            <path d="M35 14 l2 -2 M35 22 l2 2 M37 18 h2" stroke-opacity="0.6" stroke-width="1.6" />
+          </svg>
+        </span>
+        <span class="brand-word">
+          <span class="brand-word-1">ProductSnap</span>
+          <span class="brand-word-2">Studio</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav (>760px) -->
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="sketches.html" class="is-active" aria-current="page">Sketches</a>
+        <a href="app.html">App</a>
+        <a href="pulse.html">Pulse</a>
+        <a href="notes.html">Notes</a>
+      </nav>
+
+      <!-- Mobile menu button (<=760px) -->
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <!-- Mobile nav panel (<=760px) -->
+      <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <a href="index.html">Home</a>
+        <a href="sketches.html" class="is-active" aria-current="page">Sketches</a>
+        <a href="app.html">App</a>
+        <a href="pulse.html">Pulse</a>
+        <a href="notes.html">Notes</a>
+      </nav>
+    </header>
+
+    <main class="page-sketches-main">
+      <!-- ============================================================ -->
+      <!-- HERO                                                           -->
+      <!-- ============================================================ -->
+      <section class="section sketches-hero" id="sketches-hero">
+        <div class="section-head">
+          <span class="kicker">Chapter 02 · where the ideas start</span>
+          <h1 class="section-title">
+            Everything here started as a <span class="hl-underline">pencil sketch</span>.
+          </h1>
+          <p class="section-lead">
+            I think on paper first. Messy boxes, margin notes, arrows that argue
+            with each other. Before there were screens, there were rough sketches
+            trying to answer the same question: does this actually make sense?
+          </p>
+          <p class="section-lead">
+            Here is where most of those questions started — paper first, product
+            second.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- THE APP — one card at a time                                   -->
+      <!-- ============================================================ -->
+      <section class="section sketches-app" id="sketches-app">
+        <div class="section-head">
+          <span class="kicker">the app · one card at a time</span>
+          <h2 class="section-title">
+            From paper to the <span class="hl-circle">flashcard</span>
+          </h2>
+          <p class="section-lead">
+            The same wireframes that explain the app on its own page sit here in a
+            different frame — not as instructions, but as the loops the thinking
+            went through before any of it had a screen.
+          </p>
+        </div>
+
+        <div class="ideas-sketches sketches-grid">
+          <figure class="idea-sketch">
+            <a href="app.html#wireframes" aria-label="The flashcard front, on the app page">
+              <img src="assets/wires/01-homepage-flashcard-front.jpg"
+                   alt="Hand-drawn wireframe of the flashcard home screen with margin notes about one card at a time"
+                   loading="lazy" width="1000" height="1180" />
+            </a>
+            <figcaption>where the flashcard idea first showed up — one card, nothing else on the page.</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="app.html#wireframes" aria-label="The flashcard back, on the app page">
+              <img src="assets/wires/02-homepage-flashcard-back.jpg"
+                   alt="Hand-drawn wireframe of the flashcard answer side, with What, Why It Matters, and a real-world example blocked out"
+                   loading="lazy" width="1000" height="1180" />
+            </a>
+            <figcaption>the back of the card — what / why / example, before it had names.</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="app.html#wireframes" aria-label="The bookmarks sketch, on the app page">
+              <img src="assets/wires/03-bookmarks.jpg"
+                   alt="Hand-drawn wireframe of the bookmarks screen"
+                   loading="lazy" width="1000" height="1180" />
+            </a>
+            <figcaption>bookmarks — the argument was whether saving things even belonged in v1.</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="app.html#wireframes" aria-label="The product gym sketch, on the app page">
+              <img src="assets/wires/04-product-gym.jpg"
+                   alt="Hand-drawn wireframe of the product gym quiz screen"
+                   loading="lazy" width="1000" height="1180" />
+            </a>
+            <figcaption>the gym — reps, not lessons. This one took three sketches to get honest.</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="app.html#wireframes" aria-label="The product stories sketch, on the app page">
+              <img src="assets/wires/05-product-stories.jpg"
+                   alt="Hand-drawn wireframe of the product stories screen"
+                   loading="lazy" width="1000" height="1180" />
+            </a>
+            <figcaption>stories — a card felt wrong, so this one wanted to read like a memo.</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="app.html#wireframes" aria-label="The future PM sketch, on the app page">
+              <img src="assets/wires/06-future-pm.jpg"
+                   alt="Hand-drawn wireframe of the future PM trends screen"
+                   loading="lazy" width="1000" height="1180" />
+            </a>
+            <figcaption>future PM — the section I kept redrawing because I wasn't sure it earned a spot.</figcaption>
+          </figure>
+        </div>
+
+        <p class="sketches-note pencil-note">
+          <span class="caret">↳</span> the same screens, explained module-by-module,
+          live on the <a href="app.html#wireframes">app page</a>. Here they're just
+          the thinking, in order.
+        </p>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- PULSE — from terminal to one question                          -->
+      <!-- ============================================================ -->
+      <section class="section sketches-pulse" id="sketches-pulse">
+        <div class="section-head">
+          <span class="kicker">pulse · from terminal to one question</span>
+          <h2 class="section-title">
+            How Pulse stopped being a <span class="hl-underline">dashboard</span>
+          </h2>
+          <p class="section-lead">
+            Pulse very nearly became a Bloomberg-style terminal — every signal,
+            every chart, all at once. This is the sketch where that idea got
+            crossed out and replaced with one question per signal.
+          </p>
+        </div>
+
+        <div class="ideas-sketches sketches-grid sketches-grid-single">
+          <figure class="idea-sketch">
+            <a href="pulse.html" aria-label="See Pulse, live">
+              <img src="assets/wires/pulse-dashboard-to-thinking.svg"
+                   alt="Hand-drawn sketch: a rejected Bloomberg-style dashboard crossed out, then a clean Signal to Meaning to Product question chain"
+                   loading="lazy" width="880" height="1040" />
+            </a>
+            <figcaption>
+              the detour, in pencil: a dense dashboard, crossed out — then signal →
+              meaning → one product question. The version on the right is the one
+              that shipped.
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="sketches-note pencil-note">
+          <span class="caret">↳</span> the question that survived: not "what's the
+          number?" but "what should a product team do about it?"
+        </p>
+      </section>
+    </main>
+
+    <p class="next-chapter">
+      <a href="app.html">↳ next chapter — see what actually shipped →</a>
+    </p>
+
+    <footer class="footer">
+      <div class="foot-inner">
+        <span class="foot-brand">
+          <svg width="20" height="20" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="7" width="22" height="26" rx="2.5"/>
+            <circle cx="6" cy="14" r="1"/>
+            <circle cx="6" cy="20" r="1"/>
+            <circle cx="6" cy="26" r="1"/>
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z"/>
+          </svg>
+          ProductSnap Studio
+        </span>
+        <span class="foot-meta">ProductSnap Studio · Sketches</span>
+        <span class="foot-hand">built by Jeevan · made by hand, mostly</span>
+      </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+  </body>
+</html>

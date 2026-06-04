@@ -65,6 +65,7 @@
       <!-- Desktop nav (>760px) -->
       <nav class="nav-links" aria-label="Primary">
         <a href="index.html">Home</a>
+        <a href="sketches.html">Sketches</a>
         <a href="app.html">App</a>
         <a href="pulse.html" class="is-active" aria-current="page">Pulse</a>
         <a href="notes.html">Notes</a>
@@ -81,6 +82,7 @@
       <!-- Mobile nav panel (<=760px) -->
       <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
         <a href="index.html">Home</a>
+        <a href="sketches.html">Sketches</a>
         <a href="app.html">App</a>
         <a href="pulse.html" class="is-active" aria-current="page">Pulse</a>
         <a href="notes.html">Notes</a>
@@ -95,7 +97,7 @@
       <!-- and action. The signal library lives below, collapsed.         -->
       <!-- ============================================================ -->
       <section class="section pulse-think" id="pulse-think" aria-labelledby="pt-throughline">
-        <span class="kicker pt-kicker">/pulse · a weekly read · <span id="pt-date">this week</span></span>
+        <span class="kicker pt-kicker">Chapter 04 · this week's thought</span>
 
         <!-- World shift — one sentence, no label above it -->
         <h1 class="pulse-throughline" id="pt-throughline">Loading this week’s read…</h1>
@@ -288,11 +290,6 @@
           </div>
         </div>
 
-        <!-- One-time Regional vs National educational note (Pass F). Subtle,
-             single block — populated by JS from content.regional_vs_national_note.
-             Hidden until populated; absent => never shown. -->
-        <aside class="pulse-regional-note" id="pulse-regional-note" role="note" hidden></aside>
-
         <!-- The active chain -->
         <article class="pulse-explorer" id="pulse-explorer" aria-live="polite">
           <header class="px-head">
@@ -392,6 +389,12 @@
         </div>
       </section>
       </div><!-- /.signal-library -->
+
+      <!-- Honest statement of what Pulse is — a margin annotation, not legalese. -->
+      <p class="pulse-disclaimer">
+        ↳ Pulse connects public signals into product questions. It's a thinking
+        tool, not investment, financial, or business advice.
+      </p>
     </main>
 
     <!-- ============================================================ -->
@@ -410,6 +413,10 @@
         </div>
       </div>
     </div>
+
+    <p class="next-chapter">
+      <a href="notes.html">↳ next chapter — the unfinished thinking →</a>
+    </p>
 
     <footer class="footer">
       <div class="foot-inner">

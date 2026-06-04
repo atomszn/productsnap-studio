@@ -403,6 +403,76 @@ header, main, footer { position: relative; z-index: 1; }
 }
 .caret { color: var(--teal); margin-right: 4px; }
 
+/* Next-chapter connective line — a margin annotation, not a CTA. Sits just
+   above the footer on every page; handwritten, small, slightly indented. */
+.next-chapter {
+  max-width: var(--content);
+  margin: clamp(28px, 5vw, 48px) auto 0;
+  padding: 0 var(--pad);
+}
+.next-chapter a {
+  font-family: var(--hand);
+  font-size: 22px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 10px;
+  transform: rotate(-1.2deg);
+  transition: color .18s ease, transform .18s ease;
+}
+.next-chapter a:hover {
+  color: var(--teal);
+  transform: rotate(-1.2deg) translateX(3px);
+}
+
+/* Notes loop-back line — the next-chapter line, embedded in the Notes body. */
+.cs-loop { margin: 22px 0 0; }
+.cs-loop-link {
+  font-family: var(--hand);
+  font-size: 22px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  display: inline-block;
+  transform: rotate(-1.2deg);
+  transition: color .18s ease, transform .18s ease;
+}
+.cs-loop-link:hover {
+  color: var(--teal);
+  transform: rotate(-1.2deg) translateX(3px);
+}
+
+/* Sketchbook page — reuses .ideas-sketches / .idea-sketch, but the app grid
+   holds more than two and gets a curatorial caption treatment. */
+.sketches-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 26px;
+}
+.sketches-grid .idea-sketch:nth-child(odd) a { transform: rotate(-1deg); }
+.sketches-grid .idea-sketch:nth-child(even) a { transform: rotate(1.1deg); }
+.sketches-grid .idea-sketch figcaption {
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.35;
+}
+.sketches-grid-single {
+  grid-template-columns: minmax(0, 520px);
+  justify-content: center;
+}
+.sketches-note {
+  max-width: 760px;
+  margin: 26px 0 0;
+}
+.sketches-note a { color: var(--teal); }
+@media (max-width: 900px) {
+  .sketches-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .sketches-grid { grid-template-columns: 1fr; gap: 28px; }
+  .sketches-grid .idea-sketch:nth-child(odd) a,
+  .sketches-grid .idea-sketch:nth-child(even) a { transform: rotate(0deg); }
+}
+
 /* ===================================================================
    HERO
    =================================================================== */

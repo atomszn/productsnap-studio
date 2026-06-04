@@ -283,22 +283,6 @@
   }
 
   /* =====================================================================
-     RENDER: Regional vs National educational note (Pass F)
-     One-time, subtle context block — NOT a per-signal repeat. Rendered only
-     when content.regional_vs_national_note is present (non-breaking otherwise).
-     Plain language; reuses the sketchbook sticky-note aesthetic.
-     ===================================================================== */
-  function renderRegionalNote(note) {
-    const el = $("#pulse-regional-note");
-    if (!el) return;
-    if (!note || !note.text) { el.hidden = true; return; }
-    el.innerHTML =
-      '<span class="prn-label" aria-hidden="true">regional vs national</span>' +
-      '<p class="prn-text">' + escapeHTML(note.text) + '</p>';
-    el.hidden = false;
-  }
-
-  /* =====================================================================
      RENDER: weekly note
      ===================================================================== */
   function renderWeeklyNote(note) {
@@ -1179,13 +1163,6 @@
   function renderThroughline(thought) {
     const el = $("#pt-throughline");
     if (el) el.textContent = (thought && thought.headline) || "";
-    // Quiet date kicker — reuse the weekly-note date if present.
-    const dateEl = $("#pt-date");
-    if (dateEl) {
-      const wn = DATA && DATA.weekly_note;
-      const d = (wn && (wn.date_label || wn.date)) || "";
-      if (d) dateEl.textContent = d;
-    }
   }
 
   function renderLensTabs(thought) {
@@ -1653,7 +1630,6 @@
     renderWeeklyNote(data.weekly_note);
     renderFreshness(data.signals, data.phase_meta);
     renderWeeklyConnection(data.weekly_connection);
-    renderRegionalNote(data.regional_vs_national_note);
     renderWhatsChanged(data.whats_changed);
 
     renderCategoryPills();

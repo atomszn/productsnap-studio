@@ -1897,30 +1897,19 @@
 }
 
 /* =====================================================================
-   Regional vs National educational note (Pass F) — one-time, subtle.
-   A quiet margin note, not a callout. Reuses paper/ink tokens so it reads
-   as an editorial aside rather than a UI banner.
+   Pulse disclaimer (Pass I) — an honest margin annotation of what Pulse is.
+   Same handwritten treatment as the next-chapter line; not legalese, not a
+   banner. Sits below the signal library, above the footer.
    ===================================================================== */
-.pulse-regional-note {
-  margin: 0.9rem 0 0.2rem;
-  padding: 0.7rem 0.9rem;
-  border-left: 2px solid var(--hand-2, #c9b58a);
-  background: rgba(0, 0, 0, 0.015);
-  border-radius: 0 6px 6px 0;
-}
-.pulse-regional-note .prn-label {
-  display: block;
-  font-family: var(--font-hand, "Caveat", cursive);
-  font-size: 0.92rem;
-  letter-spacing: 0.02em;
-  color: var(--ink-soft, #7A7974);
-  margin-bottom: 0.15rem;
-}
-.pulse-regional-note .prn-text {
-  margin: 0;
-  font-size: 0.86rem;
-  line-height: 1.45;
-  color: var(--ink-soft, #7A7974);
+.pulse-disclaimer {
+  max-width: 880px;
+  margin: clamp(20px, 3vw, 32px) auto 0;
+  padding: 0 var(--pad, 20px);
+  font-family: var(--hand, "Caveat", cursive);
+  font-size: 19px;
+  line-height: 1.4;
+  color: var(--ink-faded, #7A7974);
+  transform: rotate(-0.6deg);
 }
 
 /* =====================================================================
@@ -2217,8 +2206,29 @@
   .chip-detail-row dt { font-size: 16px; }
 }
 @media (max-width: 414px) {
-  .pulse-throughline { font-size: clamp(24px, 7vw, 30px); }
-  .lens-pattern { font-size: 16px; }
+  /* First viewport must hold: through-line (full) + four lens tabs + the
+     active lens pattern, sketchbook note and action. Pass I added an example
+     bridge to each pattern, lengthening it; tighten leading/spacing (CSS only,
+     headline untouched) so the action still lands above the fold at 360px. */
+  .pulse-think { padding-top: 12px; padding-bottom: 20px; }
+  .pt-kicker { margin-bottom: 10px; }
+  .pulse-throughline {
+    font-size: clamp(24px, 7vw, 30px);
+    margin-bottom: 16px;
+  }
+  .lens-tabs { margin-bottom: 14px; }
+  .lens-pattern {
+    font-size: 14.5px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .lens-action {
+    font-size: 15.5px;
+    line-height: 1.32;
+    margin-top: 8px;
+    padding-left: 12px;
+  }
+  .lens-sketchbook { font-size: 16px; margin-top: 1px; }
   .evidence-chip { font-size: 0.95em; padding: 2px 8px 3px; }
 }
 

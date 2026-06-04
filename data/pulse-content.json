@@ -70,25 +70,25 @@
     "lenses": {
       "build": {
         "label": "Build Decisions",
-        "pattern": "Most people aren't holding both of these in their head at once. [chip:tech-hiring] is at its lowest in a decade, while [chip:ai-api-pricing] just hit the cheapest it's ever been. Roadmap items you deferred for headcount last quarter might be shippable this quarter — for a completely different reason.",
+        "pattern": "Most people aren't holding both of these in their head at once. [chip:tech-hiring] is at its lowest in a decade, while [chip:ai-api-pricing] just hit the cheapest it's ever been. Roadmap items you deferred for headcount last quarter might be shippable this quarter — for a completely different reason. For example: a support team that couldn't get two more engineers six months ago could now ship a deflection feature that the model finishes for them.",
         "action": "Which project on your deferred list assumes you need to hire to ship it?",
         "sketchbook_note": "this surprised me"
       },
       "customer": {
         "label": "Customer Behavior",
-        "pattern": "Your buyers are quieter, not poorer. [chip:consumer-confidence] has cratered, but [chip:retail-sales] is still running near 5% year-over-year. Sentiment surveys are louder than wallets right now — and the gap between them is widening.",
+        "pattern": "Your buyers are quieter, not poorer. [chip:consumer-confidence] has cratered, but [chip:retail-sales] is still running near 5% year-over-year. Sentiment surveys are louder than wallets right now — and the gap between them is widening. For example: a SaaS team running a Pro tier upgrade campaign might find their conversion math is unchanged but their churn-risk profile quietly worse.",
         "action": "When your users tell you they're tightening their belts, which number do you trust — what they say, or what they spend?",
         "sketchbook_note": "worth watching"
       },
       "business": {
         "label": "Business Reality",
-        "pattern": "Budgets for next quarter are being written around two numbers moving in opposite directions. Teams plan headcount against [chip:tech-hiring] staying tight, then quietly fund tooling against [chip:compute-cost] falling. The line item that used to read 'hire two engineers' is becoming 'buy more inference.'",
+        "pattern": "Budgets for next quarter are being written around two numbers moving in opposite directions. Teams plan headcount against [chip:tech-hiring] staying tight, then quietly fund tooling against [chip:compute-cost] falling. The line item that used to read 'hire two engineers' is becoming 'buy more inference.' For example: an early-stage team writing their Q3 plan might cap headcount one head lower and add a $2K/month tooling line — and still ship more.",
         "action": "Open next quarter's plan and find the one hire you'd swap for tooling if the model could do 70% of the job.",
         "sketchbook_note": "the tension is here"
       },
       "future": {
         "label": "Future Signals",
-        "pattern": "The thing to watch isn't the price drop itself — it's how fast new models keep landing. [chip:ai-model-releases] are shipping faster than they have since 2024, and each one resets what 'too expensive to automate' means. The deferred-work list isn't fixed; it shrinks every few weeks on its own.",
+        "pattern": "The thing to watch isn't the price drop itself — it's how fast new models keep landing. [chip:ai-model-releases] are shipping faster than they have since 2024, and each one resets what 'too expensive to automate' means. The deferred-work list isn't fixed; it shrinks every few weeks on its own. For example: a workflow you ruled out as 'too expensive to automate' six months ago might be cheap enough now that it's the obvious next feature.",
         "action": "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true.",
         "sketchbook_note": null
       }
@@ -989,15 +989,19 @@
           "gloss": "the market's price for lending the US government money for 10 years — a benchmark for long-term capital costs"
         }
       ],
-      "current_value": "4.46%",
+      "current_value": "4.45%",
       "current_unit": "yield",
       "status": "rangebound",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-06-02",
+      "last_updated": "2026-05-28",
       "tier": 1,
       "source_note": "FRED DGS10 · daily",
       "data_points": [
+        {
+          "date": "2025-06",
+          "value": 4.2
+        },
         {
           "date": "2025-07",
           "value": 4.4
@@ -1041,26 +1045,22 @@
         {
           "date": "2026-05",
           "value": 4.5
-        },
-        {
-          "date": "2026-06",
-          "value": 4.5
         }
       ],
       "compared_to": {
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 0.3,
+          "delta_pct": 0.4,
           "tone": "amber"
         },
         "vs_12mo": {
-          "direction": "up",
-          "delta_pct": 0.2,
-          "tone": "amber"
+          "direction": "flat",
+          "delta_pct": 0,
+          "tone": "neutral"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 3,
+          "delta_pct": 2.9,
           "tone": "amber"
         }
       },
@@ -1139,7 +1139,7 @@
         "age_days": 6
       },
       "timestamps": {
-        "latest_source_data_date": "2026-06-02",
+        "latest_source_data_date": "2026-05-28",
         "last_editorial_reviewed": "2026-05-28"
       }
     },
@@ -3418,14 +3418,6 @@
       "Layoffs.fyi ingestion",
       "AI regulation tracker ingestion"
     ],
-    "last_pipeline_refresh": "2026-06-04T17:39:24.698Z"
-  },
-  "regional_vs_national_note": {
-    "text": "National ISM shows broad U.S. business activity. Regional Fed surveys (Philly Fed, Dallas Fed) show local business conditions. When they disagree, that disagreement is itself the signal: it usually means activity is uneven across the country, with some regions or sectors leading or lagging the national picture. Right now those two views diverge — and the gap is worth watching.",
-    "applies_to": [
-      "mfg-activity",
-      "services-activity"
-    ],
-    "category": "activity"
+    "last_pipeline_refresh": "2026-06-03T18:40:25.477Z"
   }
 }
