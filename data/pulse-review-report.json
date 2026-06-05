@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-03T02:07:30.180Z",
+  "generated_at": "2026-06-05T21:45:51.376Z",
   "registry_version": "1.0.0",
   "signal_count": 18,
   "summary": {
-    "verified": 9,
-    "stale": 1,
+    "verified": 10,
+    "stale": 0,
     "needs_review": 0,
     "failed": 0,
     "manual": 8,
@@ -36,7 +36,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "ppi",
@@ -56,7 +56,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "pce",
@@ -76,7 +76,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "fed-net-liquidity",
@@ -85,8 +85,8 @@
       "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "$6.7T",
-      "last_updated": "2026-05-27",
+      "current_value": "$6.71T",
+      "last_updated": "2026-06-03",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -96,19 +96,19 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "10y-treasury",
       "name": "10-Year Treasury Yield",
       "category": "liquidity",
-      "status": "stale",
+      "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "4.45%",
-      "last_updated": "2026-05-28",
+      "current_value": "4.49%",
+      "last_updated": "2026-06-03",
       "editorial_status": "current",
-      "reason": "Data older than cadence stale threshold",
+      "reason": "All checks passed",
       "sources": [
         {
           "name": "FRED 10Y Treasury",
@@ -116,7 +116,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "series-a-counts",
@@ -141,7 +141,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "ai-model-releases",
@@ -171,7 +171,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "ai-api-pricing",
@@ -196,7 +196,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "open-source-ai",
@@ -221,7 +221,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "compute-cost",
@@ -232,7 +232,7 @@
       "review_required": false,
       "current_value": "−14%",
       "last_updated": "2026-04-30",
-      "editorial_status": "aging",
+      "editorial_status": "stale",
       "reason": "Manual/event-driven signal accepted (human-curated)",
       "sources": [
         {
@@ -246,7 +246,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "retail-sales",
@@ -266,7 +266,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "consumer-confidence",
@@ -286,7 +286,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "emerging-apps",
@@ -311,7 +311,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "nonfarm-payrolls",
@@ -320,9 +320,9 @@
       "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "+115k",
-      "last_updated": "2026-04-01",
-      "editorial_status": "stale",
+      "current_value": "+172k",
+      "last_updated": "2026-05-01",
+      "editorial_status": "aging",
       "reason": "All checks passed",
       "sources": [
         {
@@ -331,7 +331,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "tech-hiring",
@@ -356,7 +356,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "ai-regulation",
@@ -376,7 +376,7 @@
           "tier": 3
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "mfg-activity",
@@ -396,7 +396,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     },
     {
       "signal_id": "services-activity",
@@ -416,7 +416,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-03T02:07:30.180Z"
+      "checked_at": "2026-06-05T21:45:51.376Z"
     }
   ],
   "alignment_mismatches": [],
@@ -424,10 +424,10 @@
   "needs_review": [],
   "editorial": {
     "weekly_connection": {
-      "editorial_status": "aging",
-      "age_days": 7,
-      "review_required": false,
-      "review_note": "",
+      "editorial_status": "stale",
+      "age_days": 9,
+      "review_required": true,
+      "review_note": "Weekly Connection is older than 7 days",
       "mismatched_connected_signals": []
     }
   },
@@ -451,6 +451,7 @@
       "ppi",
       "pce",
       "fed-net-liquidity",
+      "10y-treasury",
       "ai-model-releases",
       "open-source-ai",
       "emerging-apps",
@@ -459,13 +460,13 @@
       "mfg-activity",
       "services-activity"
     ],
-    "usable_count": 17,
-    "skipped_count": 1,
+    "usable_count": 18,
+    "skipped_count": 0,
     "minimum_count": 4,
     "minimum_count_met": true,
     "mismatch_fraction_threshold": 0.6,
-    "against_fraction": 0.647,
-    "review_note": "Weekly Connection narrative reads 'down' but 11 of 17 directional signals (65%) are moving the opposite way: cpi-headline, ppi, pce, fed-net-liquidity, ai-model-releases, open-source-ai, emerging-apps, nonfarm-payrolls, ai-regulation, mfg-activity, services-activity."
+    "against_fraction": 0.667,
+    "review_note": "Weekly Connection narrative reads 'down' but 12 of 18 directional signals (67%) are moving the opposite way: cpi-headline, ppi, pce, fed-net-liquidity, 10y-treasury, ai-model-releases, open-source-ai, emerging-apps, nonfarm-payrolls, ai-regulation, mfg-activity, services-activity."
   },
   "integrity": {
     "signal_count_before": 18,

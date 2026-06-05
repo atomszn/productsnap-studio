@@ -56,11 +56,11 @@
     "editorial_freshness": {
       "last_editorial_reviewed": "2026-05-27",
       "expires_after_days": 7,
-      "editorial_status": "aging",
-      "age_days": 7
+      "editorial_status": "stale",
+      "age_days": 9
     },
     "review_required": true,
-    "review_note": "Weekly Connection narrative reads 'down' but 11 of 17 directional signals (65%) are moving the opposite way: cpi-headline, ppi, pce, fed-net-liquidity, ai-model-releases, open-source-ai, emerging-apps, nonfarm-payrolls, ai-regulation, mfg-activity, services-activity.",
+    "review_note": "Weekly Connection is older than 7 days | Weekly Connection narrative reads 'down' but 12 of 18 directional signals (67%) are moving the opposite way: cpi-headline, ppi, pce, fed-net-liquidity, 10y-treasury, ai-model-releases, open-source-ai, emerging-apps, nonfarm-payrolls, ai-regulation, mfg-activity, services-activity.",
     "narrative_review_required": true
   },
   "weekly_thought": {
@@ -304,7 +304,7 @@
       "category": "inflation",
       "category_label": "Inflation & Pricing",
       "title": "Headline inflation reaccelerating — energy doing the lifting",
-      "summary": "Consumer prices heated back up, with energy responsible for most of the monthly jump. Services have stayed sticky underneath.",
+      "summary": "Everyday prices climbed again, mostly because of energy. And the cost of services keeps creeping up underneath, even when goods cool off.",
       "term_glossary": [
         {
           "term": "CPI",
@@ -458,7 +458,7 @@
       "pill_label_short": "Headline inflation heated up again",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -468,7 +468,7 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 63
+        "age_days": 65
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
@@ -480,7 +480,7 @@
       "category": "inflation",
       "category_label": "Inflation & Pricing",
       "title": "Producer prices reaccelerating sharply — pipeline pressure is back",
-      "summary": "What businesses pay before passing costs through has jumped to the fastest pace in years. That kind of move shows up in consumer prices a few months later.",
+      "summary": "The prices businesses pay are rising at the fastest pace in years — and that usually reaches store shelves a few months later.",
       "term_glossary": [
         {
           "term": "PPI",
@@ -623,7 +623,7 @@
       "pill_label_short": "Producer prices reaccelerating",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -633,7 +633,7 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 63
+        "age_days": 65
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
@@ -645,7 +645,7 @@
       "category": "inflation",
       "category_label": "Inflation & Pricing",
       "title": "PCE running just above target — Fed's preferred gauge",
-      "summary": "The inflation measure the Fed actually watches has stalled — close to its target but not yet at it.",
+      "summary": "The inflation gauge the Fed cares about most has stalled — close to where they want it, but not there yet.",
       "term_glossary": [
         {
           "term": "PCE",
@@ -789,7 +789,7 @@
       "pill_label_short": "Core inflation still above target",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -799,7 +799,7 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 63
+        "age_days": 65
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
@@ -811,7 +811,7 @@
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
       "title": "Money in the system has nudged back up — still below pre-tightening peaks",
-      "summary": "After a long stretch of slow drainage, the cash sloshing through the banking system has crept higher again over recent months without returning to old highs.",
+      "summary": "After months of slowly draining, the spare cash banks have on hand to lend has crept up again — but it isn't back to old highs.",
       "term_glossary": [
         {
           "term": "Fed net liquidity",
@@ -960,17 +960,17 @@
       "pill_label_short": "Liquidity has steadied, not flooded",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
       "alignment_status": "aligned",
       "review_required": false,
       "editorial_freshness": {
-        "last_editorial_reviewed": "2026-05-27",
+        "last_editorial_reviewed": "2026-06-03",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 7
+        "age_days": 2
       },
       "timestamps": {
         "latest_source_data_date": "2026-06-03",
@@ -982,7 +982,7 @@
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
       "title": "Long rates rangebound at elevated levels",
-      "summary": "The cost of long-term capital has stopped moving — for now.",
+      "summary": "What it costs to borrow money for a long time has gone quiet — for now.",
       "term_glossary": [
         {
           "term": "10Y Treasury yield",
@@ -1125,18 +1125,18 @@
       },
       "pill_label_short": "Long-term borrowing costs still elevated",
       "status_meta": {
-        "status": "stale",
-        "checked_at": "2026-06-03T02:07:30.180Z",
-        "reason": "Data older than cadence stale threshold",
+        "status": "verified",
+        "checked_at": "2026-06-05T21:45:51.376Z",
+        "reason": "All checks passed",
         "status_type": "automated"
       },
       "alignment_status": "aligned",
       "review_required": false,
       "editorial_freshness": {
-        "last_editorial_reviewed": "2026-05-28",
+        "last_editorial_reviewed": "2026-06-03",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 6
+        "age_days": 2
       },
       "timestamps": {
         "latest_source_data_date": "2026-06-03",
@@ -1148,7 +1148,7 @@
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
       "title": "Series A deal volume materially below last year — capital concentrating",
-      "summary": "Fewer companies are getting funded than a year ago, but average round sizes have held up. The pool isn't shrinking — it's pooling into fewer winners, with AI absorbing a disproportionate share.",
+      "summary": "Fewer companies are getting funded than a year ago, but the checks are still big. The money isn't drying up — it's going to fewer companies, and AI is taking the biggest share.",
       "term_glossary": [
         {
           "term": "Series A",
@@ -1299,7 +1299,7 @@
       "pill_label_short": "Startup funding still concentrating into AI",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1309,7 +1309,7 @@
         "last_editorial_reviewed": "2026-05-20",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 14
+        "age_days": 16
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-20",
@@ -1322,7 +1322,7 @@
       "category_label": "AI & Technology",
       "title": "Model release pace accelerating again",
       "pill_label": "Model releases accelerating",
-      "summary": "Three frontier model updates in the last two weeks — capability frontier moving fast.",
+      "summary": "Three major new AI models in the last two weeks — the top of the field is moving fast.",
       "term_glossary": [
         {
           "term": "frontier model",
@@ -1480,7 +1480,7 @@
       "pill_label_short": "New AI models shipping faster",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1490,7 +1490,7 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 8
+        "age_days": 10
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -1503,7 +1503,7 @@
       "category_label": "AI & Technology",
       "title": "AI model costs keep falling sharply",
       "pill_label": "Inference costs falling sharply",
-      "summary": "Public list prices for comparable AI capability have continued to drop fast across major labs. The math on shipping AI features has moved meaningfully in the last few months.",
+      "summary": "The price of comparable AI keeps dropping fast across the major labs. Shipping an AI feature costs a lot less than it did a few months ago.",
       "term_glossary": [
         {
           "term": "AI model call",
@@ -1659,7 +1659,7 @@
       "pill_label_short": "AI model costs keep falling",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1669,7 +1669,7 @@
         "last_editorial_reviewed": "2026-05-19",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 15
+        "age_days": 17
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-19",
@@ -1682,7 +1682,7 @@
       "category_label": "AI & Technology",
       "title": "Open-source AI gravity strengthening",
       "pill_label": "Open-source AI gravity",
-      "summary": "Developer attention keeps concentrating on open-source tools for building AI agents.",
+      "summary": "More and more developers are gathering around free, open tools for building AI agents.",
       "term_glossary": [
         {
           "term": "open-source AI",
@@ -1832,7 +1832,7 @@
       "pill_label_short": "Open-source AI is catching up",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1842,7 +1842,7 @@
         "last_editorial_reviewed": "2026-05-25",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 9
+        "age_days": 11
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-25",
@@ -1855,7 +1855,7 @@
       "category_label": "AI & Technology",
       "title": "Compute cost curve still bending downward",
       "pill_label": "Compute costs bending down",
-      "summary": "Cloud provider costs keep improving. The change is slower than AI model pricing, but still consistent.",
+      "summary": "The cost of cloud computing keeps falling. Slower than AI model prices, but steadily.",
       "term_glossary": [
         {
           "term": "compute",
@@ -2010,7 +2010,7 @@
       "pill_label_short": "Compute keeps getting cheaper",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2019,8 +2019,8 @@
       "editorial_freshness": {
         "last_editorial_reviewed": "2026-04-30",
         "expires_after_days": 35,
-        "editorial_status": "aging",
-        "age_days": 34
+        "editorial_status": "stale",
+        "age_days": 36
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-30",
@@ -2177,7 +2177,7 @@
       "pill_label_short": "Shoppers still showing up",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -2187,7 +2187,7 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 63
+        "age_days": 65
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
@@ -2199,7 +2199,7 @@
       "category": "consumer",
       "category_label": "Consumer & Demand",
       "title": "Consumer confidence near record lows — inflation expectations elevated",
-      "summary": "How households feel about the economy has crumbled to readings rarely seen. Year-ahead inflation expectations are uncomfortably high underneath.",
+      "summary": "How households feel about the economy has dropped to levels we rarely see. And underneath, people expect prices to keep climbing over the next year.",
       "term_glossary": [
         {
           "term": "consumer confidence",
@@ -2343,7 +2343,7 @@
       "tier_label": "primary",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -2353,7 +2353,7 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 63
+        "age_days": 65
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
@@ -2365,7 +2365,7 @@
       "category": "consumer",
       "category_label": "Consumer & Demand",
       "title": "Personal agents and on-device AI utilities climbing",
-      "summary": "Consumer attention rotating toward AI utilities that live on the phone, not the cloud.",
+      "summary": "People are shifting toward AI tools that run right on the phone instead of in the cloud.",
       "term_glossary": [
         {
           "term": "personal agent",
@@ -2521,7 +2521,7 @@
       "pill_label_short": "Personal AI assistants are spreading",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2531,7 +2531,7 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 8
+        "age_days": 10
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -2688,17 +2688,17 @@
       "pill_label_short": "Hiring is cooling, not collapsing",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
       "alignment_status": "aligned",
       "review_required": false,
       "editorial_freshness": {
-        "last_editorial_reviewed": "2026-04-01",
+        "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
-        "editorial_status": "stale",
-        "age_days": 63
+        "editorial_status": "aging",
+        "age_days": 35
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
@@ -2710,7 +2710,7 @@
       "category": "labor",
       "category_label": "Labor & Hiring",
       "title": "Tech hiring remains near multi-year lows — softness broad",
-      "summary": "Layoffs continue. Hiring stays soft. The pattern is wider than the biggest tech companies, not just headline-name cuts.",
+      "summary": "Layoffs keep happening and hiring stays slow — and it's not just the big-name companies, it's wider than that.",
       "term_glossary": [
         {
           "term": "tech hiring rate",
@@ -2862,7 +2862,7 @@
       "pill_label_short": "Tech hiring remains soft",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2872,7 +2872,7 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 8
+        "age_days": 10
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -3030,7 +3030,7 @@
       "pill_label_short": "State-level AI rules picking up",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -3040,7 +3040,7 @@
         "last_editorial_reviewed": "2026-05-24",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 10
+        "age_days": 12
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-24",
@@ -3053,7 +3053,7 @@
       "category_label": "Business Activity",
       "display_name": "Regional Manufacturing Activity (Philly Fed)",
       "title": "Regional manufacturing activity slipped back negative",
-      "summary": "Philly Fed manufacturers were modestly downbeat last month — one regional read, not the national picture. ISM, the national index, is running more upbeat right now; the gap between them is the part worth watching.",
+      "summary": "Factories around Philadelphia sounded a little gloomy last month — but that's one region, not the whole country. The national index (ISM) is more upbeat right now, and the gap between the two is the part worth watching.",
       "term_glossary": [
         {
           "term": "diffusion index",
@@ -3200,7 +3200,7 @@
       "pill_label_short": "Regional mfg (Philly Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3210,7 +3210,7 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 33
+        "age_days": 35
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
@@ -3223,7 +3223,7 @@
       "category_label": "Business Activity",
       "display_name": "Regional Services Activity (Dallas Fed)",
       "title": "Regional services activity still in contraction",
-      "summary": "Dallas Fed services firms reported softening conditions — a Texas-skewed read, not national. Watch whether ISM Services, the national equivalent, confirms or diverges over the next release cycle.",
+      "summary": "Service businesses around Dallas said things were slowing — but that's a Texas read, not the whole country. Worth watching whether the national gauge (ISM Services) agrees or not in the next update.",
       "term_glossary": [
         {
           "term": "services activity",
@@ -3370,7 +3370,7 @@
       "pill_label_short": "Regional services (Dallas Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-03T02:07:30.180Z",
+        "checked_at": "2026-06-05T21:45:51.376Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3380,7 +3380,7 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 33
+        "age_days": 35
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
