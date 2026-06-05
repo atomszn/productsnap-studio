@@ -46,7 +46,8 @@
     <div class="paper-dots" aria-hidden="true"></div>
 
     <!-- Unified top nav — identical chrome on every page (four-route arch) -->
-    <header class="topnav">
+    <header class="topnav-wrap">
+      <div class="topnav">
       <a href="index.html" class="brand" aria-label="ProductSnap Studio home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -92,6 +93,7 @@
         <a href="pulse.html">Pulse</a>
         <a href="notes.html">Notes</a>
       </nav>
+    </div>
     </header>
 
     <a id="top"></a>
@@ -216,7 +218,50 @@
       </section>
 
       <!-- ============================================================ -->
-      <!-- ① THE APP                                                      -->
+      <!-- ① SKETCHES · WHERE IDEAS START                                            -->
+      <!-- ============================================================ -->
+      <section class="section home-ideas" id="ideas">
+        <div class="section-head">
+          <span class="kicker">where ideas start</span>
+          <h2 class="section-title">
+            Everything here started as a <span class="hl-underline">pencil sketch</span>.
+          </h2>
+          <p class="section-lead">
+            I think on paper first — messy boxes, margin notes, arrows that argue
+            with each other. Before there were screens, there were rough sketches
+            trying to answer the same question: does this actually make sense?
+            Here's a peek at two of them. One became the ProductSnap app. The
+            other became Pulse, after a brief detour where it looked suspiciously
+            like a Bloomberg terminal. The full sketchbooks live on their own pages.
+          </p>
+        </div>
+
+        <div class="ideas-sketches">
+          <figure class="idea-sketch">
+            <a href="sketches.html" aria-label="See the sketchbook">
+              <img src="assets/wires/01-homepage-flashcard-front.jpg"
+                   alt="Hand-drawn wireframe of the ProductSnap flashcard home screen with margin notes about one card at a time"
+                   loading="lazy" width="1000" height="1180" />
+            </a>
+            <figcaption>the app · one card at a time</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="sketches.html" aria-label="See the sketchbook">
+              <img src="assets/wires/pulse-dashboard-to-thinking.svg"
+                   alt="Hand-drawn sketch: a rejected Bloomberg-style dashboard crossed out, then a clean Signal to Meaning to Product question chain"
+                   loading="lazy" width="880" height="1040" />
+            </a>
+            <figcaption>pulse · from terminal to one question</figcaption>
+          </figure>
+        </div>
+
+        <div class="ideas-links">
+          <a href="sketches.html" class="btn btn-link">open the full sketchbook <span class="link-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- ② THE APP                                                      -->
       <!-- ============================================================ -->
       <section class="section home-app" id="app">
         <div class="section-head">
@@ -260,7 +305,7 @@
       </section>
 
       <!-- ============================================================ -->
-      <!-- ② PULSE — live hook                                            -->
+      <!-- ③ PULSE — live hook                                            -->
       <!-- ============================================================ -->
       <section class="section home-pulse" id="pulse">
         <div class="section-head">
@@ -284,49 +329,6 @@
             Read this week's Pulse
             <span class="link-arrow" aria-hidden="true">→</span>
           </a>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- ③ WHERE IDEAS START                                            -->
-      <!-- ============================================================ -->
-      <section class="section home-ideas" id="ideas">
-        <div class="section-head">
-          <span class="kicker">where ideas start</span>
-          <h2 class="section-title">
-            Everything here started as a <span class="hl-underline">pencil sketch</span>.
-          </h2>
-          <p class="section-lead">
-            I think on paper first — messy boxes, margin notes, arrows that argue
-            with each other. Before there were screens, there were rough sketches
-            trying to answer the same question: does this actually make sense?
-            Here's a peek at two of them. One became the ProductSnap app. The
-            other became Pulse, after a brief detour where it looked suspiciously
-            like a Bloomberg terminal. The full sketchbooks live on their own pages.
-          </p>
-        </div>
-
-        <div class="ideas-sketches">
-          <figure class="idea-sketch">
-            <a href="sketches.html" aria-label="See the sketchbook">
-              <img src="assets/wires/01-homepage-flashcard-front.jpg"
-                   alt="Hand-drawn wireframe of the ProductSnap flashcard home screen with margin notes about one card at a time"
-                   loading="lazy" width="1000" height="1180" />
-            </a>
-            <figcaption>the app · one card at a time</figcaption>
-          </figure>
-          <figure class="idea-sketch">
-            <a href="sketches.html" aria-label="See the sketchbook">
-              <img src="assets/wires/pulse-dashboard-to-thinking.svg"
-                   alt="Hand-drawn sketch: a rejected Bloomberg-style dashboard crossed out, then a clean Signal to Meaning to Product question chain"
-                   loading="lazy" width="880" height="1040" />
-            </a>
-            <figcaption>pulse · from terminal to one question</figcaption>
-          </figure>
-        </div>
-
-        <div class="ideas-links">
-          <a href="sketches.html" class="btn btn-link">open the full sketchbook <span class="link-arrow" aria-hidden="true">→</span></a>
         </div>
       </section>
 
