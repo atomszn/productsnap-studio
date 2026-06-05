@@ -6,7 +6,7 @@
   },
   "weekly_connection": {
     "title": "The squeezed customer, the cheaper build",
-    "subtitle": "Inflation pressure and weak sentiment are climbing while the cost of building with AI keeps falling — the economy split into two stories at once.",
+    "subtitle": "Prices are up and people feel worse about money — yet building with AI keeps getting cheaper. The economy is telling two opposite stories at once.",
     "body_paragraphs": [
       "These three numbers usually don't all move in the same week. Consumer prices reaccelerated. Consumer sentiment dropped to readings rarely seen. And AI model costs continued to fall fast. Two of those make customers tougher to win; one makes it cheaper than ever to ship the thing that could earn them.",
       "What I keep coming back to: the customer side and the build side are pulling in opposite directions. The product moves that work right now are the ones that build on the deflationary side of the split — leveraging cheap AI to do more for a stressed buyer — rather than the ones that count on the buyer feeling flush."
@@ -20,35 +20,35 @@
     "date": "2026-05-27",
     "date_label": "May 27",
     "refined": {
-      "observation": "Headline inflation heated back up rather than cooling — with energy doing most of the lifting. Consumer sentiment is sitting near record-low readings and households expect prices to keep rising. Meanwhile, AI model costs keep falling sharply across major labs.",
-      "why_it_matters": "Your customer is feeling worse and paying more for the things they can't avoid. Your cost of shipping AI capability into your product has rarely been lower. Plans calibrated for a calmer, more confident consumer need a second look — and plans that lean on AI leverage just got cheaper to test.",
-      "decision_this_week": "Which roadmap item still assumes a confident buyer with extra discretionary spend? Pick one and ask whether the cheaper-AI side of the split changes how you'd ship it.",
-      "pm_implication_default": "The PMs winning this environment make the cheap path through the product obvious, use cheaper AI to do more for a stressed buyer instead of charging them more, and stop assuming the customer feels the way they did six months ago.",
+      "observation": "Everyday prices climbed again instead of cooling — mostly because of energy. People feel about as bad about the economy as they ever have, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge to use their tools.",
+      "why_it_matters": "Your customer feels worse and is paying more for things they can't skip. Meanwhile, adding AI to your product has rarely been cheaper. Any plan that assumes a relaxed, confident customer is worth a second look — and any plan that leans on AI just got cheaper to try.",
+      "decision_this_week": "Which item on your plan still assumes a confident customer with money to spare? Pick one and ask whether cheaper AI changes how you'd build it.",
+      "pm_implication_default": "The teams winning right now do three things: they make the cheapest option easy to find, they use cheaper AI to do more for a stretched customer instead of charging them more, and they stop assuming the customer feels the same as six months ago.",
       "where_shows_up": [
         {
           "key": "onboarding",
           "label": "Onboarding",
-          "implication": "A stressed buyer with elevated inflation expectations has less patience for setup. Time-to-first-value matters more than the breadth of the tour."
+          "implication": "A stretched customer who expects prices to keep rising has no patience for a long setup. Getting them to one useful moment fast beats showing them everything."
         },
         {
           "key": "pricing",
           "label": "Pricing",
-          "implication": "Make the cheap path obvious. Cheaper AI calls let you include more in lower tiers without breaking the math — that lands better than a price hike right now."
+          "implication": "Make the cheap option easy to find. Because AI costs less now, you can put more into your lower-priced plans without losing money — and that lands far better than raising prices right now."
         },
         {
           "key": "support",
           "label": "Support",
-          "implication": "Support is where AI leverage pays back fastest. Cheaper calls plus a stressed customer make \"deflect with a useful answer\" the easiest ROI to show."
+          "implication": "Support is where AI pays off fastest. With AI cheap and customers on edge, answering common questions automatically — before a person ever has to step in — is the easiest win to prove."
         },
         {
           "key": "workflows",
           "label": "Workflows",
-          "implication": "Workflows that still hand work to the user are exposed. Cheaper inference means the model can quietly finish more steps without costing you the margin."
+          "implication": "Any step where your product still makes the user do the work is at risk. Because AI is cheaper now, it can quietly finish more of those steps without eating your profit."
         },
         {
           "key": "retention",
           "label": "Retention",
-          "implication": "Downgrade paths matter more than churn-prevention emails. Make the cheaper plan visible before the cancel button is."
+          "implication": "Showing people a cheaper plan beats sending 'please stay' emails. Let them find the smaller plan before they find the cancel button."
         }
       ]
     },
@@ -70,25 +70,25 @@
     "lenses": {
       "build": {
         "label": "Build Decisions",
-        "pattern": "Most people aren't holding both of these in their head at once. [chip:tech-hiring] is at its lowest in a decade, while [chip:ai-api-pricing] just hit the cheapest it's ever been. Roadmap items you deferred for headcount last quarter might be shippable this quarter — for a completely different reason. For example: a support team that couldn't get two more engineers six months ago could now ship a deflection feature that the model finishes for them.",
-        "action": "Which project on your deferred list assumes you need to hire to ship it?",
+        "pattern": "Most people aren't holding both of these in their head at once. [chip:tech-hiring] is at its lowest in a decade, while [chip:ai-api-pricing] just hit the cheapest it's ever been. Roadmap items you deferred for headcount last quarter might be shippable this quarter — for a completely different reason. For example: a support team that couldn't get two more engineers six months ago could now add a feature that answers common questions automatically — the AI handles it for them.",
+        "action": "Which project you put on hold assumes you have to hire someone before you can build it?",
         "sketchbook_note": "this surprised me"
       },
       "customer": {
         "label": "Customer Behavior",
-        "pattern": "Your buyers are quieter, not poorer. [chip:consumer-confidence] has cratered, but [chip:retail-sales] is still running near 5% year-over-year. Sentiment surveys are louder than wallets right now — and the gap between them is widening. For example: a SaaS team running a Pro tier upgrade campaign might find their conversion math is unchanged but their churn-risk profile quietly worse.",
+        "pattern": "Your customers are quieter, not broke. How people feel about money [chip:consumer-confidence] has dropped hard, but spending [chip:retail-sales] is still up about 5% from a year ago. What people say is louder than what they actually spend right now — and the gap between them is widening. For example: a team running an upgrade campaign might see the same number of upgrades, but more of those customers are quietly closer to leaving.",
         "action": "When your users tell you they're tightening their belts, which number do you trust — what they say, or what they spend?",
         "sketchbook_note": "worth watching"
       },
       "business": {
         "label": "Business Reality",
-        "pattern": "Budgets for next quarter are being written around two numbers moving in opposite directions. Teams plan headcount against [chip:tech-hiring] staying tight, then quietly fund tooling against [chip:compute-cost] falling. The line item that used to read 'hire two engineers' is becoming 'buy more inference.' For example: an early-stage team writing their Q3 plan might cap headcount one head lower and add a $2K/month tooling line — and still ship more.",
-        "action": "Open next quarter's plan and find the one hire you'd swap for tooling if the model could do 70% of the job.",
+        "pattern": "Next quarter's budgets are being built around two numbers moving in opposite directions. Teams keep hiring [chip:tech-hiring] tight, then quietly spend more on tools because computing power [chip:compute-cost] keeps getting cheaper. The budget line that used to say 'hire two engineers' now says 'pay for more AI.' For example: an early team writing their Q3 plan might cap hiring one person lower, add a $2K/month software line — and still ship more.",
+        "action": "Open next quarter's plan and find the one hire you'd trade for software if AI could do 70% of that job.",
         "sketchbook_note": "the tension is here"
       },
       "future": {
         "label": "Future Signals",
-        "pattern": "The thing to watch isn't the price drop itself — it's how fast new models keep landing. [chip:ai-model-releases] are shipping faster than they have since 2024, and each one resets what 'too expensive to automate' means. The deferred-work list isn't fixed; it shrinks every few weeks on its own. For example: a workflow you ruled out as 'too expensive to automate' six months ago might be cheap enough now that it's the obvious next feature.",
+        "pattern": "The thing to watch isn't the price drop itself — it's how fast new models keep landing. [chip:ai-model-releases] are shipping faster than they have since 2024, and each new model resets what counts as 'too expensive to automate.' Your list of things-not-worth-doing-yet keeps shrinking on its own every few weeks. For example: a workflow you ruled out as 'too expensive to automate' six months ago might be cheap enough now that it's the obvious next feature.",
         "action": "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true.",
         "sketchbook_note": null
       }
@@ -96,8 +96,8 @@
   },
   "pm_tension": {
     "label": "This week's PM tension",
-    "axis": "Stressed buyer vs cheaper build",
-    "question": "Does your plan still assume a buyer who feels better than the one you actually have?",
+    "axis": "Stretched customer vs cheaper to build",
+    "question": "Does your plan still assume a customer who feels better than the one you actually have?",
     "note": "A question worth holding open this week — not a recommendation.",
     "toggles": [
       {
@@ -105,14 +105,14 @@
         "left": "Build now",
         "right": "Wait",
         "question": "What workflow still assumes more people instead of better leverage?",
-        "note": "Build-vs-wait: with inference cheap and the customer stressed, the cost of waiting on a small AI feature that helps the buyer has shifted."
+        "note": "Build-vs-wait: with AI cheap and customers stretched, waiting to ship a small AI feature that helps them costs more than it used to."
       },
       {
         "key": "growth_vs_efficiency",
         "left": "Growth",
         "right": "Efficiency",
-        "question": "Which line on the deck has to improve before your next funding conversation — top of funnel, or unit economics?",
-        "note": "Growth-vs-efficiency: capital is concentrating; the slide that wins the next round looks different than it did 24 months ago."
+        "question": "Before your next fundraise, which has to improve first — how many new customers you bring in, or how much money you make per customer?",
+        "note": "Growth-vs-efficiency: investor money is going to fewer companies; what wins the next round looks different than it did two years ago."
       },
       {
         "key": "speed_vs_certainty",
@@ -126,7 +126,7 @@
         "left": "Automation",
         "right": "Trust",
         "question": "Which step of your product can the model finish — and which step does the user need to feel they did?",
-        "note": "Automation-vs-trust: on-device agents shift the unit of value from \"a useful answer\" to \"a completed task\", which changes what users want to see."
+        "note": "Automation-vs-trust: AI that runs right on the phone shifts what people value from \"a helpful answer\" to \"the task is already done\", which changes what users want to see."
       }
     ]
   },
@@ -137,7 +137,7 @@
         "direction": "up",
         "short_label": "Everyday prices",
         "movement": "heated up again",
-        "implication": "Households are absorbing fresh pressure on essentials — discretionary spend gets squeezed first.",
+        "implication": "People are paying more for things they can't skip — so the fun, optional spending is the first thing to go.",
         "momentum": "watch closely",
         "confidence": "high"
       },
@@ -146,7 +146,7 @@
         "direction": "up",
         "short_label": "Wholesale prices",
         "movement": "reaccelerating sharply",
-        "implication": "Cost pressure is back in the pipeline — pricing decisions that were on autopilot deserve a fresh look.",
+        "implication": "The prices businesses pay are rising again, which usually reaches store shelves later — so any pricing you set and forgot is worth revisiting.",
         "momentum": "accelerating",
         "confidence": "high"
       },
@@ -155,7 +155,7 @@
         "direction": "down",
         "short_label": "How people feel",
         "movement": "near record lows",
-        "implication": "Plans built on a confident buyer with extra discretionary spend need to be revisited.",
+        "implication": "Any plan that assumes a confident customer with money to spare needs a second look.",
         "momentum": "watch closely",
         "confidence": "medium"
       },
@@ -164,7 +164,7 @@
         "direction": "down",
         "short_label": "AI model costs",
         "movement": "falling fast",
-        "implication": "Cheaper inference means you can do more for a stressed buyer without charging them more.",
+        "implication": "Cheaper AI means you can do more for a stretched customer without charging them more.",
         "momentum": "accelerating",
         "confidence": "high"
       }
@@ -174,7 +174,7 @@
         "signal_id": "retail-sales",
         "short_label": "Consumer spending",
         "movement": "steady so far",
-        "implication": "Hard spending data hasn't broken to match the soft sentiment yet — but soft data this weak rarely co-exists with steady hard data for long.",
+        "implication": "People are still spending even though they feel bad about money — but feelings this negative don't usually sit next to steady spending for long.",
         "momentum": "stable",
         "confidence": "high"
       },
@@ -182,7 +182,7 @@
         "signal_id": "10y-treasury",
         "short_label": "Long-term rates",
         "movement": "in a broad range",
-        "implication": "Not cheap, not breaking lower — the discount rate underneath long-horizon bets hasn't moved your way.",
+        "implication": "Borrowing money for the long term is still expensive and isn't getting cheaper — so big, slow-payoff bets are still a hard sell.",
         "momentum": "stable",
         "confidence": "high"
       },
@@ -190,7 +190,7 @@
         "signal_id": "fed-net-liquidity",
         "short_label": "Money in the system",
         "movement": "steadied, modest uptick",
-        "implication": "Capital backdrop is neutral rather than easing — plans that lean on liquidity loosening should be flagged.",
+        "implication": "There's a normal amount of money flowing, not a flood — so plans that count on money getting easy again should be flagged.",
         "momentum": "stable",
         "confidence": "high"
       }
@@ -200,7 +200,7 @@
         "signal_id": "tech-hiring",
         "short_label": "Tech hiring",
         "movement": "near multi-year lows",
-        "implication": "If you can't add two more engineers, decide which item AI tools quietly absorbs.",
+        "implication": "If you can't hire two more engineers, decide which task AI tools quietly take over instead.",
         "momentum": "watch closely",
         "confidence": "medium"
       },
@@ -208,7 +208,7 @@
         "signal_id": "emerging-apps",
         "short_label": "Personal AI assistants",
         "movement": "showing up across surfaces",
-        "implication": "Workflows that still hand work to the user are the most exposed.",
+        "implication": "Any step where your product still makes the user do the work is the most at risk.",
         "momentum": "accelerating",
         "confidence": "low"
       }
@@ -404,17 +404,17 @@
         {
           "label": "Meaning",
           "text": "The cooling narrative from earlier this year has reversed. A shock concentrated in one category (energy) is pulling the headline number up while services pressure has not gone away.",
-          "expansion": "When one volatile category drives the print, the temptation is to look through it — but consumers don't look through it. They feel it at the pump, on the utility bill, and in shipping costs."
+          "expansion": "When one jumpy category drives the number, the temptation is to look past it — but shoppers don't look past it. They feel it at the pump, on the utility bill, and in shipping costs."
         },
         {
           "label": "Product impact",
-          "text": "Customers are absorbing a fresh round of price pressure on the things they can't avoid. Discretionary spending is the first thing that gets squeezed when energy and rent eat more of the paycheck.",
-          "expansion": "If your product competes for non-essential spend, this is the kind of period where conversion slows and downgrade requests pick up before churn shows in the dashboard."
+          "text": "Customers are absorbing a fresh round of price hikes on things they can't avoid. Optional, fun spending is the first thing that gets cut when energy and rent eat more of the paycheck.",
+          "expansion": "If your product competes for optional spending, this is the kind of stretch where sign-ups slow and downgrade requests pick up before customers actually leave."
         },
         {
           "label": "Example",
           "text": "Streaming and subscription services seeing softer upgrade rates when fuel and utility bills jump. Consumer-software trials taking longer to convert when households re-budget around essentials.",
-          "expansion": "Watch for revenue mix to shift toward the cheaper tier rather than churn outright."
+          "expansion": "Watch for more people picking the cheaper plan rather than canceling outright."
         },
         {
           "label": "PM question",
@@ -575,7 +575,7 @@
         },
         {
           "label": "Meaning",
-          "text": "Input-cost pressure is back, not fading. The cost-push leg of inflation that looked like it had quieted earlier this year has reasserted itself.",
+          "text": "The pressure from higher costs is back, not fading. The part of rising prices that comes from companies paying more to make things — which looked like it had quieted earlier this year — has returned.",
           "expansion": "Energy-linked categories appear to be carrying a meaningful share, but the breadth across services and goods means it isn't purely a single-category story."
         },
         {
@@ -591,7 +591,7 @@
         {
           "label": "PM question",
           "text": "Is there a cost line creeping back up while your pricing model still assumes it stays flat?",
-          "expansion": "If COGS is moving against you, the conversation shifts from \"bank it\" to \"how do we hold price without bleeding customers.\""
+          "expansion": "If the cost of making your product is rising, the conversation shifts from \"bank the savings\" to \"how do we hold our price without losing customers.\""
         }
       ],
       "why_we_think_this": {
@@ -735,8 +735,8 @@
       "chain": [
         {
           "label": "Signal",
-          "text": "Core PCE — what the Fed actually targets — continues to run above its 2% goal. With CPI and PPI both reasserting upward pressure recently, the burden is on the Fed's preferred gauge to confirm whether disinflation is still on track.",
-          "expansion": "PCE differs from CPI in basket weights and substitution assumptions. The Fed treats it as the more reliable read."
+          "text": "Core PCE — the inflation measure the Fed actually targets — continues to run above its 2% goal. With everyday prices (CPI) and business prices (PPI) both pushing up again recently, it's on the Fed's preferred gauge to show whether prices are really still cooling.",
+          "expansion": "PCE and CPI measure the same idea — inflation — but weigh everyday purchases a little differently. The Fed trusts PCE more."
         },
         {
           "label": "Meaning",
@@ -1250,7 +1250,7 @@
         {
           "label": "Product impact",
           "text": "Investors may care more about whether customers stay and whether each dollar spent turns into durable growth.",
-          "expansion": "Signals like product-led growth, how much existing customers grow over time, margin, and payback carry more weight than growth-at-all-costs metrics did."
+          "expansion": "Things like whether customers find you on their own, how much existing customers grow over time, profit per sale, and how fast you earn back what you spent now carry more weight than growth-at-any-cost numbers did."
         },
         {
           "label": "Example",
@@ -1604,7 +1604,7 @@
         {
           "label": "Meaning",
           "text": "Each AI call now costs meaningfully less than it did at the start of the year. Features that were \"too expensive to ship\" a year ago deserve a fresh look.",
-          "expansion": "Throughput-per-dollar has often improved even faster than headline price, because newer models are also faster."
+          "expansion": "How much work you get per dollar has often improved even faster than the price, because newer models are also faster."
         },
         {
           "label": "Product impact",
@@ -1614,7 +1614,7 @@
         {
           "label": "Example",
           "text": "AI features that broke even only at premium tiers a year ago now fit comfortably inside a lower paid tier — and in some cases inside a free tier — on similar usage.",
-          "expansion": "That changes the unit economics of inclusion into a free tier vs. paid plan."
+          "expansion": "That changes the math on whether you can afford to include the feature in a free plan instead of a paid one."
         },
         {
           "label": "PM question",
@@ -2294,18 +2294,18 @@
         },
         {
           "label": "Meaning",
-          "text": "This isn't cautious-not-alarmed anymore. Sentiment is at the kind of level that historically lines up with households tightening, trading down, and stalling discretionary purchases.",
-          "expansion": "Hard data (jobs, retail) hasn't broken to match yet — but soft data this weak rarely co-exists with hard data this steady for long."
+          "text": "This isn't cautious-but-calm anymore. People feel about as bad about money as they do during major shocks — the kind of level that historically lines up with households cutting back, trading down, and pausing optional purchases.",
+          "expansion": "The hard numbers (jobs, spending) haven't dropped to match yet — but feelings this negative rarely sit next to steady spending for long."
         },
         {
           "label": "Product impact",
-          "text": "Discretionary purchases, premium tiers, and bigger-ticket consumer spend are where this shows up first. Free tiers and obvious entry points become more important than they were three months ago.",
+          "text": "Optional purchases, premium plans, and bigger-ticket consumer spending are where this shows up first. Free plans and obvious cheap entry points matter more than they did three months ago.",
           "expansion": "When households expect prices to keep rising, the willingness to lock in a new monthly bill drops noticeably."
         },
         {
           "label": "Example",
           "text": "Premium subscription downgrades picking up before churn shows. Bigger-ticket consumer software trials taking longer to convert, with more requests for cheaper plans.",
-          "expansion": "Sales and onboarding flows that depend on quick conversion may need more patience — and a cheaper landing tier — built in."
+          "expansion": "Sign-up and onboarding flows that count on a quick yes may need more patience — and a cheaper starting plan — built in."
         },
         {
           "label": "PM question",
@@ -2802,12 +2802,12 @@
         {
           "label": "Signal",
           "text": "Tech-sector hiring remains near multi-year lows by our composite tracking. Layoff activity has stayed elevated. The softness has widened beyond the largest companies.",
-          "expansion": "Reading layoffs.fyi alone would overstate the call — triangulating with BLS payroll detail and earnings commentary supports a wider read."
+          "expansion": "Looking at one layoff tracker alone would overstate it — cross-checking with government jobs data and company earnings calls supports the wider read."
         },
         {
           "label": "Meaning",
           "text": "Engineering hiring is tight even though specific roles (ML, infra) still see competition.",
-          "expansion": "The barbell is real: scarce skills competed for, broader roles softening."
+          "expansion": "It's split at two extremes: a few scarce skills are fought over, while most other roles are softening."
         },
         {
           "label": "Product impact",
@@ -2821,7 +2821,7 @@
         },
         {
           "label": "PM question",
-          "text": "If you can't hire two more engineers, which roadmap item gets postponed — and which gets quietly handed to AI tooling?",
+          "text": "If you can't hire two more engineers, which item on your plan gets postponed — and which gets quietly handed to AI tools?",
           "expansion": "Force-rank the roadmap against current capacity. Make the trade-off explicit."
         }
       ],
@@ -3053,7 +3053,7 @@
       "category_label": "Business Activity",
       "display_name": "Regional Manufacturing Activity (Philly Fed)",
       "title": "Regional manufacturing activity slipped back negative",
-      "summary": "Factories around Philadelphia sounded a little gloomy last month — but that's one region, not the whole country. The national index (ISM) is more upbeat right now, and the gap between the two is the part worth watching.",
+      "summary": "Factories around Philadelphia sounded a little gloomy last month — but that's one region, not the whole country. The national factory gauge is more upbeat right now, and the gap between the two is the part worth watching.",
       "term_glossary": [
         {
           "term": "diffusion index",
@@ -3148,7 +3148,7 @@
         {
           "label": "Signal",
           "text": "The Philadelphia Fed's monthly survey of manufacturers — a regional proxy for national factory activity — dropped from clearly expanding to barely-below-zero in a single month. New orders and shipments fell with it.",
-          "expansion": "The diffusion index moves in big monthly steps because it captures change-from-last-month, not levels. The honest read is direction-of-travel, not the absolute number."
+          "expansion": "This kind of survey measures the change from last month, not the total level — so it can swing in big steps. The honest read is the direction things are heading, not the exact number."
         },
         {
           "label": "Meaning",
@@ -3163,7 +3163,7 @@
         {
           "label": "Example",
           "text": "B2B vendors selling to industrial customers reporting longer sales cycles when regional Fed surveys turn negative. Capital-equipment trials get parked behind cash-preservation discussions.",
-          "expansion": "Watch for renewal-rate drift before churn — industrial buyers downgrade tiers before they cancel."
+          "expansion": "Watch for renewals to slip before customers actually cancel — industrial buyers downgrade to a cheaper plan first."
         },
         {
           "label": "PM question",
@@ -3223,7 +3223,7 @@
       "category_label": "Business Activity",
       "display_name": "Regional Services Activity (Dallas Fed)",
       "title": "Regional services activity still in contraction",
-      "summary": "Service businesses around Dallas said things were slowing — but that's a Texas read, not the whole country. Worth watching whether the national gauge (ISM Services) agrees or not in the next update.",
+      "summary": "Service businesses around Dallas said things were slowing — but that's a Texas read, not the whole country. Worth watching whether the national services gauge agrees or not in the next update.",
       "term_glossary": [
         {
           "term": "services activity",
@@ -3318,12 +3318,12 @@
         {
           "label": "Signal",
           "text": "The Dallas Fed's monthly survey of service-sector firms — our regional proxy for national services activity — has been below zero for several consecutive months. The latest read got worse, not better.",
-          "expansion": "Services are roughly 70% of U.S. economic activity, so a multi-month soft patch in a representative regional survey is worth tracking even if it isn't the national ISM."
+          "expansion": "Services are roughly 70% of U.S. economic activity, so a multi-month soft patch in a representative regional survey is worth tracking even if it isn't the national gauge."
         },
         {
           "label": "Meaning",
-          "text": "Services firms are reporting more contraction than expansion month after month. That lines up with the soft consumer-sentiment read elsewhere in Pulse — soft data is broad-based right now, not isolated.",
-          "expansion": "A single negative diffusion month is normal noise. Several in a row, paired with weak sentiment, is a pattern that usually precedes slower services hiring."
+          "text": "Service firms are reporting more shrinking than growing, month after month. That lines up with how bad people say they feel about money elsewhere in Pulse — the worry is broad right now, not isolated.",
+          "expansion": "One negative month is normal noise. Several in a row, paired with people feeling bad about money, is a pattern that usually comes before slower hiring at service firms."
         },
         {
           "label": "Product impact",
@@ -3333,7 +3333,7 @@
         {
           "label": "Example",
           "text": "Vertical SaaS tools for service businesses (salons, agencies, clinics, contractors) reporting longer evaluation cycles and more 'pause' decisions than usual.",
-          "expansion": "Watch for trial-to-paid conversion to slow before churn picks up — buyers stretch evaluations before they outright leave."
+          "expansion": "Watch for fewer trials turning into paying customers before anyone actually cancels — buyers drag out their decision before they leave."
         },
         {
           "label": "PM question",
