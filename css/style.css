@@ -2193,3 +2193,82 @@ header.topnav-wrap {
   .atom-doodle img { width: 132px; }
   .pulse-live-card { padding: 22px 18px 18px; }
 }
+
+/* =====================================================================
+   PASS K — "living notebook" motion
+   ---------------------------------------------------------------------
+   Extends the existing reveal-on-scroll system WITHOUT changing its safety
+   contract. Everything here is gated on `html.js.reveal-on` (a class
+   js/reveal.js only adds when it can actually animate) AND on
+   prefers-reduced-motion: no-preference. If JS bails or the user prefers
+   reduced motion, NONE of these hidden states apply and content is fully
+   visible. The Pulse explorer stepIn animation (~line 1009) is untouched.
+
+   Design intent: a page settling like someone's notebook — items in a group
+   arrive a beat after one another, sketches feel "placed on the desk", and
+   small handwritten notes/carets are discovered last. Subtle, fast, the wow
+   coming from rhythm and personality, not heavy animation.
+   ===================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  /* Per-element stagger: reveal.js sets --reveal-delay (ms) on grouped items.
+     Defaults to 0 so a missing value never delays anything. */
+  html.js.reveal-on .section-head,
+  html.js.reveal-on .phone-real,
+  html.js.reveal-on .screen-thumb,
+  html.js.reveal-on .pair,
+  html.js.reveal-on .teardown,
+  html.js.reveal-on .future-card,
+  html.js.reveal-on .hub-card,
+  html.js.reveal-on .conv-card,
+  html.js.reveal-on .idea-sketch,
+  html.js.reveal-on .sketches-featured {
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Sketches get a gentler "placed down" feel: a hair of scale + lift.
+     The base hidden rule already sets opacity:0; translate:0 14px — we add a
+     subtle scale so the sketch resolves into place rather than just sliding. */
+  html.js.reveal-on .idea-sketch {
+    transform: scale(0.985);
+    transform-origin: 50% 80%;
+    transition:
+      opacity .6s ease,
+      translate .6s cubic-bezier(.2,.8,.2,1),
+      transform .6s cubic-bezier(.2,.8,.2,1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  html.js.reveal-on .idea-sketch.is-revealed {
+    transform: scale(1);
+  }
+
+  /* Discovery moments: handwritten notes + carets arrive last, drifting up a
+     touch more so they read like an afterthought scribbled in the margin.
+     These are NOT in the JS safety SEL list as load-critical content — they
+     are decorative connective tissue, so a stricter hidden state is safe. */
+  html.js.reveal-on .sketches-note,
+  html.js.reveal-on .pencil-note {
+    opacity: 0;
+    translate: 0 18px;
+    transition:
+      opacity .7s ease,
+      translate .7s cubic-bezier(.2,.8,.2,1);
+    transition-delay: var(--reveal-delay, 120ms);
+  }
+  html.js.reveal-on .sketches-note.is-revealed,
+  html.js.reveal-on .pencil-note.is-revealed {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Belt-and-suspenders: if the user prefers reduced motion, force every reveal
+   target fully visible and static, regardless of JS state. */
+@media (prefers-reduced-motion: reduce) {
+  .section-head, .phone-real, .screen-thumb, .pair, .teardown,
+  .future-card, .hub-card, .conv-card, .idea-sketch, .sketches-featured,
+  .sketches-note, .pencil-note {
+    opacity: 1 !important;
+    translate: 0 0 !important;
+    transform: none !important;
+  }
+}
