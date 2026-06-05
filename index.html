@@ -2,7 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <script>document.documentElement.className += ' js';</script>
+    <script>
+      /* Pre-paint reveal gate. Add `js` always, and `reveal-on` only when we
+         can actually run the scroll reveal (motion allowed + IntersectionObserver).
+         The hidden start-state CSS requires BOTH classes, so if this check fails
+         (or JS is off) content stays visible instead of being permanently hidden. */
+      (function () {
+        var c = ' js';
+        try {
+          var ok =
+            'IntersectionObserver' in window &&
+            !(window.matchMedia &&
+              window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+          if (ok) c += ' reveal-on';
+        } catch (e) {}
+        document.documentElement.className += c;
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f6efe1" />
 
@@ -407,6 +423,7 @@
     </footer>
 
     <script src="js/nav.js"></script>
+    <script src="js/reveal.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

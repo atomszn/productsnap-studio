@@ -270,34 +270,9 @@
     });
   }
 
-  /* ---------- Reveal-on-scroll ---------- */
-  function initReveal() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const els = document.querySelectorAll(
-      ".section-head, .phone-real, .screen-thumb, .pair, .teardown, .future-card, .hub-card, .conv-card"
-    );
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.style.opacity = "1";
-            e.target.style.translate = "0 0";
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.10, rootMargin: "0px 0px -40px 0px" }
-    );
-    els.forEach((el) => {
-      // The hidden start state (opacity:0 / translate) now lives in CSS,
-      // gated on html.js, so it applies before first paint and there's no
-      // visible->hidden flash. We only attach the transition + observer here;
-      // the IntersectionObserver fades each element in exactly as before.
-      el.style.transition =
-        "opacity .55s ease, translate .55s cubic-bezier(.2,.8,.2,1)";
-      io.observe(el);
-    });
-  }
+  /* ---------- Reveal-on-scroll ----------
+     Moved to the shared js/reveal.js so EVERY page (not just index) runs the
+     same reveal logic. Keeping it here too would double-observe on index. */
 
   /* ---------- Homepage live Pulse insert ----------
      Pulls this week's Weekly Connection (title + one line) from
@@ -337,7 +312,6 @@
     initExplorer();
     initSticky();
     initSmoothScroll();
-    initReveal();
     initHomePulse();
   });
 })();
