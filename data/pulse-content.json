@@ -822,19 +822,15 @@
           "gloss": "the Fed's total balance sheet — a proxy for liquidity provided"
         }
       ],
-      "current_value": "$6.7T",
+      "current_value": "$6.71T",
       "current_unit": "total balance sheet",
       "status": "mixed",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-05-27",
+      "last_updated": "2026-06-03",
       "tier": 1,
       "source_note": "Fed balance sheet · weekly",
       "data_points": [
-        {
-          "date": "2025-06",
-          "value": 6662200
-        },
         {
           "date": "2025-07",
           "value": 6642578
@@ -878,29 +874,33 @@
         {
           "date": "2026-05",
           "value": 6704383
+        },
+        {
+          "date": "2026-06",
+          "value": 6711495
         }
       ],
       "compared_to": {
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 2.3,
+          "delta_pct": 1.1,
           "tone": "green"
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 0.5,
+          "delta_pct": 0.7,
           "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 61.5,
+          "delta_pct": 61.7,
           "tone": "green"
         }
       },
       "percentile": {
-        "value": 50,
+        "value": 51,
         "lookback_years": 10,
-        "label": "Higher than 50% of observations in the last 10 years"
+        "label": "Higher than 49% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -973,7 +973,7 @@
         "age_days": 7
       },
       "timestamps": {
-        "latest_source_data_date": "2026-05-27",
+        "latest_source_data_date": "2026-06-03",
         "last_editorial_reviewed": "2026-05-27"
       }
     },
@@ -989,12 +989,12 @@
           "gloss": "the market's price for lending the US government money for 10 years — a benchmark for long-term capital costs"
         }
       ],
-      "current_value": "4.46%",
+      "current_value": "4.49%",
       "current_unit": "yield",
       "status": "rangebound",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-06-02",
+      "last_updated": "2026-06-03",
       "tier": 1,
       "source_note": "FRED DGS10 · daily",
       "data_points": [
@@ -1055,7 +1055,7 @@
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 0.2,
+          "delta_pct": 0.3,
           "tone": "amber"
         },
         "vs_pre_2020": {
@@ -1139,7 +1139,7 @@
         "age_days": 6
       },
       "timestamps": {
-        "latest_source_data_date": "2026-06-02",
+        "latest_source_data_date": "2026-06-03",
         "last_editorial_reviewed": "2026-05-28"
       }
     },
@@ -2550,19 +2550,15 @@
           "gloss": "the monthly count of jobs added across most of the US economy — the headline labor read"
         }
       ],
-      "current_value": "+115k",
+      "current_value": "+172k",
       "current_unit": "jobs · monthly",
       "status": "cooling",
       "status_tone": "amber",
       "confidence": "high",
-      "last_updated": "2026-04-01",
+      "last_updated": "2026-05-01",
       "tier": 1,
       "source_note": "BLS · monthly release",
       "data_points": [
-        {
-          "date": "2025-05",
-          "value": 13
-        },
         {
           "date": "2025-06",
           "value": -20
@@ -2601,34 +2597,38 @@
         },
         {
           "date": "2026-03",
-          "value": 185
+          "value": 214
         },
         {
           "date": "2026-04",
-          "value": 115
+          "value": 179
+        },
+        {
+          "date": "2026-05",
+          "value": 172
         }
       ],
       "compared_to": {
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 182.1,
+          "delta_pct": 319.5,
           "tone": "green"
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 6.5,
+          "delta_pct": 1223.1,
           "tone": "green"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -51.5,
+          "delta_pct": -27.4,
           "tone": "amber"
         }
       },
       "percentile": {
-        "value": 29,
+        "value": 43,
         "lookback_years": 10,
-        "label": "Lower than 71% of observations in the last 10 years"
+        "label": "Lower than 57% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -2701,7 +2701,7 @@
         "age_days": 63
       },
       "timestamps": {
-        "latest_source_data_date": "2026-04-01",
+        "latest_source_data_date": "2026-05-01",
         "last_editorial_reviewed": "2026-04-01"
       }
     },
@@ -3418,6 +3418,6 @@
       "Layoffs.fyi ingestion",
       "AI regulation tracker ingestion"
     ],
-    "last_pipeline_refresh": "2026-06-04T19:01:00.538Z"
+    "last_pipeline_refresh": "2026-06-05T17:08:19.852Z"
   }
 }
