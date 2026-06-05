@@ -110,15 +110,29 @@ body::before {
 }
 
 /* layered z above textures */
-header, main, footer { position: relative; z-index: 1; }
+main, footer { position: relative; z-index: 1; }
 /* header chrome (incl. mobile nav panel) must overlay page content */
 .topnav { z-index: 60; }
 
 /* ---------- nav ---------- */
+/* Sticky paper header: the <header> is a full-width band pinned to the top
+   of the viewport; .topnav is the constrained flex row inside it. No
+   hide-on-scroll — it simply stays put as a thin paper rail (~58px). */
+header.topnav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(246, 239, 225, 0.86); /* var(--paper) at 86% */
+  -webkit-backdrop-filter: saturate(118%) blur(8px);
+  backdrop-filter: saturate(118%) blur(8px);
+  border-bottom: 1.5px solid var(--paper-edge);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset,
+              0 6px 16px -12px rgba(29, 31, 29, 0.5);
+}
 .topnav {
   display: flex; align-items: center; justify-content: space-between;
   gap: 24px;
-  padding: 18px var(--pad);
+  padding: 9px var(--pad);
   max-width: var(--content);
   margin: 0 auto;
   position: relative; /* anchor for mobile nav panel */
@@ -199,6 +213,9 @@ header, main, footer { position: relative; z-index: 1; }
 @media (max-width: 760px) {
   /* hide desktop links, show menu button */
   .nav-links { display: none; }
+
+  /* keep the sticky rail ~58px even with the 44px touch target */
+  .topnav { padding-top: 7px; padding-bottom: 7px; }
 
   .nav-toggle {
     display: inline-flex;
@@ -458,6 +475,37 @@ header, main, footer { position: relative; z-index: 1; }
 .sketches-grid-single {
   grid-template-columns: minmax(0, 520px);
   justify-content: center;
+}
+
+/* Inline SVG sketches (new wireframes) — behave like the <img> inside the
+   framed link, but render with the page's handwritten font instead of a
+   sandboxed <img> fallback. */
+.idea-sketch a > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Featured inline wireframes: a calmer single/2-up column, a touch wider than
+   the app-thumbnail grid so the on-screen text stays legible. */
+.sketches-featured {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px 30px;
+  align-items: start;
+}
+.sketches-featured .idea-sketch figcaption {
+  max-width: 38ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.35;
+}
+.sketches-featured-single {
+  grid-template-columns: minmax(0, 600px);
+  justify-content: center;
+}
+@media (max-width: 760px) {
+  .sketches-featured { grid-template-columns: 1fr; gap: 30px; }
+  .sketches-featured .idea-sketch:nth-child(odd) a,
+  .sketches-featured .idea-sketch:nth-child(even) a { transform: rotate(0deg); }
 }
 .sketches-note {
   max-width: 760px;
@@ -1413,6 +1461,30 @@ header, main, footer { position: relative; z-index: 1; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- reveal-on-scroll: pre-paint hidden state (blink fix) ----------
+   Reveal-on-scroll used to set opacity:0 from JS *after* the page had already
+   painted, so on a fast load the section briefly flashed visible, then snapped
+   hidden, then faded back in. Defining the hidden start state in CSS — gated on
+   the `js` class that a tiny synchronous <head> script adds before paint —
+   removes that flash. initReveal() then fades each element in as before, and
+   the IntersectionObserver / transition timing are unchanged. Under
+   prefers-reduced-motion the JS bails out, so this rule is disabled too,
+   leaving everything fully visible. The Pulse explorer's stepIn animation is
+   untouched. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .section-head,
+  html.js .phone-real,
+  html.js .screen-thumb,
+  html.js .pair,
+  html.js .teardown,
+  html.js .future-card,
+  html.js .hub-card,
+  html.js .conv-card {
+    opacity: 0;
+    translate: 0 14px;
   }
 }
 

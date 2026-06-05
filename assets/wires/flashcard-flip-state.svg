@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="ProductSnap sketch: the flashcard, front and back. Front asks one question; the flip reveals What, Why it matters, and a real example. No watch-out box, no scrolling inside the card.">
+  <defs>
+    <pattern id="ffs-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+    <filter id="ffs-rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.3"/>
+    </filter>
+    <style>
+      .h     { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+      .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+      .b     { font-family: 'Inter','Segoe UI',sans-serif; }
+      .ink   { fill: #2d2620; }
+      .ghost { fill: #6b6356; }
+      .px    { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+      .px-l  { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+      .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+      .sticky { fill: #fde7a3; stroke: #d9b94e; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#ffs-paper)"/>
+
+  <!-- Title -->
+  <text x="40" y="56" class="h ink" font-size="34">ProductSnap · the flashcard, both sides</text>
+  <text x="40" y="84" class="b ghost" font-size="16">v0.5 wireframe · one card flips · what it is, why it matters, a real example — nothing else</text>
+  <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+  <!-- ============ FRONT (left phone) ============ -->
+  <text x="120" y="146" class="annot" font-size="24">front · the question</text>
+  <g transform="translate(80 158)">
+    <path class="px" d="M 6 6 Q 0 0 20 0 L 312 0 Q 332 0 332 20 L 332 688 Q 332 708 312 708 L 20 708 Q 0 708 0 688 L 0 20 Q 0 6 6 6 Z"/>
+
+    <text x="18" y="26" class="b ghost" font-size="12">12:25</text>
+    <text x="286" y="26" class="b ghost" font-size="12">wifi · 64%</text>
+    <line x1="12" y1="38" x2="320" y2="38" class="px-l"/>
+
+    <text x="18" y="68" class="b ink" font-size="18">&#9776;</text>
+    <text x="166" y="68" text-anchor="middle" class="b ink" font-size="18" font-weight="700">Today's card</text>
+    <text x="166" y="90" text-anchor="middle" class="b ghost" font-size="12">1 of 1 · flip to reveal</text>
+    <line x1="12" y1="104" x2="320" y2="104" class="px-l"/>
+
+    <!-- the card front, fills the space -->
+    <g transform="translate(20 124)">
+      <path class="px-l" d="M 8 8 Q 0 0 22 0 L 270 0 Q 292 0 292 22 L 292 512 Q 292 534 270 534 L 22 534 Q 0 534 0 512 L 0 22 Q 0 8 8 8 Z" fill="#fffdf6"/>
+      <rect x="0" y="0" width="292" height="8" rx="4" fill="#6b5fd6"/>
+      <text x="24" y="44" class="b ghost" font-size="12" font-weight="700">FRAMEWORKS &amp; MODELS</text>
+      <text x="24" y="132" class="b ink" font-size="24" font-weight="700">Is a PM the</text>
+      <text x="24" y="166" class="b ink" font-size="24" font-weight="700">CEO of the</text>
+      <text x="24" y="200" class="b ink" font-size="24" font-weight="700">product?</text>
+      <text x="24" y="244" class="b ghost" font-size="14">A line you'll hear in every PM</text>
+      <text x="24" y="266" class="b ghost" font-size="14">interview. Is it actually true?</text>
+      <!-- big flip affordance fills the lower card, no empty dead space -->
+      <g transform="translate(146 398)">
+        <circle cx="0" cy="0" r="44" class="px-l" fill="#fff3d6"/>
+        <path class="px-l" d="M -22 -8 A 24 24 0 1 1 -18 14" fill="none" stroke-width="2.4"/>
+        <polygon points="-18,18 -28,8 -8,6" fill="#2d2620"/>
+        <text x="0" y="72" text-anchor="middle" class="b ink" font-size="14" font-weight="700">Tap to flip</text>
+      </g>
+    </g>
+    <line x1="12" y1="672" x2="320" y2="672" class="px-l"/>
+    <text x="166" y="695" text-anchor="middle" class="b ghost" font-size="11">&#8249; prev      next &#8250;</text>
+  </g>
+
+  <!-- flip arrow between the two phones -->
+  <g transform="translate(430 500)">
+    <path class="px-l" d="M -8 0 Q 18 -26 44 0" stroke-width="2.4"/>
+    <polygon points="44,0 34,-8 36,8" fill="#2d2620"/>
+    <text x="18" y="-32" text-anchor="middle" class="annot" font-size="22">flip</text>
+  </g>
+
+  <!-- ============ BACK (right phone) ============ -->
+  <text x="556" y="146" class="annot" font-size="24">back · the answer</text>
+  <g transform="translate(490 158)">
+    <path class="px" d="M 6 6 Q 0 0 20 0 L 312 0 Q 332 0 332 20 L 332 688 Q 332 708 312 708 L 20 708 Q 0 708 0 688 L 0 20 Q 0 6 6 6 Z"/>
+
+    <text x="18" y="26" class="b ghost" font-size="12">12:25</text>
+    <text x="286" y="26" class="b ghost" font-size="12">wifi · 64%</text>
+    <line x1="12" y1="38" x2="320" y2="38" class="px-l"/>
+
+    <text x="18" y="68" class="b ink" font-size="18">&#9776;</text>
+    <text x="166" y="68" text-anchor="middle" class="b ink" font-size="18" font-weight="700">The short answer</text>
+    <text x="166" y="90" text-anchor="middle" class="b ghost" font-size="12">flip back any time</text>
+    <line x1="12" y1="104" x2="320" y2="104" class="px-l"/>
+
+    <!-- back of card: three labeled blocks fill the card, no scroll -->
+    <g transform="translate(20 124)">
+      <path class="px-l" d="M 8 8 Q 0 0 22 0 L 270 0 Q 292 0 292 22 L 292 512 Q 292 534 270 534 L 22 534 Q 0 534 0 512 L 0 22 Q 0 8 8 8 Z" fill="#fffdf6"/>
+      <rect x="0" y="0" width="8" height="534" rx="4" fill="#6b5fd6"/>
+
+      <!-- WHAT -->
+      <text x="24" y="36" class="b ghost" font-size="12" font-weight="700">WHAT</text>
+      <text x="24" y="60" class="b ink" font-size="14">Not really. A PM has the vision</text>
+      <text x="24" y="80" class="b ink" font-size="14">but not the authority — you lead</text>
+      <text x="24" y="100" class="b ink" font-size="14">by influence, not command.</text>
+      <line x1="24" y1="118" x2="268" y2="118" class="px-l"/>
+
+      <!-- WHY IT MATTERS -->
+      <text x="24" y="148" class="b ghost" font-size="12" font-weight="700">WHY IT MATTERS</text>
+      <text x="24" y="172" class="b ink" font-size="14">Acting like a CEO of the product</text>
+      <text x="24" y="192" class="b ink" font-size="14">is how new PMs lose engineering's</text>
+      <text x="24" y="212" class="b ink" font-size="14">trust. The job is alignment, not</text>
+      <text x="24" y="232" class="b ink" font-size="14">orders.</text>
+      <line x1="24" y1="250" x2="268" y2="250" class="px-l"/>
+
+      <!-- REAL EXAMPLE -->
+      <text x="24" y="280" class="b ghost" font-size="12" font-weight="700">A REAL EXAMPLE</text>
+      <g transform="translate(24 294)">
+        <path class="px-l" d="M 4 4 Q 0 0 12 0 L 232 0 Q 244 0 244 12 L 244 210 Q 244 222 232 222 L 12 222 Q 0 222 0 210 L 0 12 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+        <text x="18" y="32" class="b ink" font-size="14">A PM wants to cut a feature to</text>
+        <text x="18" y="52" class="b ink" font-size="14">hit a date. A CEO could just</text>
+        <text x="18" y="72" class="b ink" font-size="14">decide. A PM has to bring eng,</text>
+        <text x="18" y="92" class="b ink" font-size="14">design, and sales to the same</text>
+        <text x="18" y="112" class="b ink" font-size="14">conclusion — with evidence.</text>
+        <text x="18" y="146" class="b ghost" font-size="13">The trade-off only sticks if the</text>
+        <text x="18" y="166" class="b ghost" font-size="13">team owns it too.</text>
+        <text x="18" y="200" class="h" font-size="20" fill="#6b5fd6">influence &gt; authority</text>
+      </g>
+    </g>
+    <line x1="12" y1="672" x2="320" y2="672" class="px-l"/>
+    <text x="166" y="695" text-anchor="middle" class="b ghost" font-size="11">&#9733; save      &#8250; next card</text>
+  </g>
+
+  <!-- ============ MARGIN ANNOTATIONS ============ -->
+  <g transform="translate(44 916)">
+    <text class="annot" font-size="22" x="0" y="0">three blocks, no fourth</text>
+    <text class="b ink" font-size="13" x="0" y="26">what / why / example. there is no "watch out for"</text>
+    <text class="b ink" font-size="13" x="0" y="44">box — the real app doesn't have one, so this can't either.</text>
+    <path class="annot-line" d="M 470 -6 Q 540 -30 600 -190"/>
+    <polygon points="600,-190 593,-184 607,-184" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(636 884)">
+    <rect x="0" y="0" width="208" height="96" class="sticky" transform="rotate(2.5)"/>
+    <g transform="rotate(2.5)">
+      <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">the card fits.</text>
+      <text x="14" y="50" class="b" font-size="12" fill="#3a3128">everything sits on one</text>
+      <text x="14" y="66" class="b" font-size="12" fill="#3a3128">face. you flip — you</text>
+      <text x="14" y="82" class="b" font-size="12" fill="#3a3128">never scroll inside it.</text>
+    </g>
+    <path class="annot-line" d="M 20 -6 Q 0 -40 -30 -90"/>
+    <polygon points="-30,-90 -36,-82 -23,-84" fill="#c44569"/>
+  </g>
+
+  <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+  <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">sketch · card 01</text>
+</svg>

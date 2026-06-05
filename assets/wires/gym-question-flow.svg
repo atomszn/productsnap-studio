@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="ProductSnap sketch: one Product Gym rep, shown as a single question with four answer options, then a study-concept reveal you can collapse and expand.">
+  <defs>
+    <pattern id="gqf-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+    <filter id="gqf-rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.3"/>
+    </filter>
+    <style>
+      .h     { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+      .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+      .b     { font-family: 'Inter','Segoe UI',sans-serif; }
+      .ink   { fill: #2d2620; }
+      .ghost { fill: #6b6356; }
+      .px    { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+      .px-l  { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+      .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+      .sticky { fill: #fde7a3; stroke: #d9b94e; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#gqf-paper)"/>
+
+  <!-- Title -->
+  <text x="40" y="56" class="h ink" font-size="34">ProductSnap · Product Gym (one rep)</text>
+  <text x="40" y="84" class="b ghost" font-size="16">v0.4 wireframe · one question, four options, then why — not a wall of categories</text>
+  <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+  <!-- ============ PHONE FRAME ============ -->
+  <g transform="translate(220 130)">
+    <path class="px" d="M 6 6 Q 0 0 24 0 L 416 0 Q 440 0 440 24 L 440 836 Q 440 860 416 860 L 24 860 Q 0 860 0 836 L 0 24 Q 0 6 6 6 Z"/>
+
+    <text x="20" y="28" class="b ghost" font-size="13">12:25</text>
+    <text x="380" y="28" class="b ghost" font-size="13">wifi · 64%</text>
+    <line x1="14" y1="42" x2="426" y2="42" class="px-l"/>
+
+    <text x="20" y="74" class="b ink" font-size="22">&#8249;</text>
+    <text x="150" y="74" class="b ink" font-size="22" font-weight="700">&#127947;  Product Gym</text>
+    <text x="20" y="92" class="b ghost" font-size="13">Frameworks &amp; Models · rep 2 of 5</text>
+    <line x1="14" y1="104" x2="426" y2="104" class="px-l"/>
+
+    <!-- progress dots -->
+    <g transform="translate(20 124)">
+      <circle cx="10" cy="6" r="7" class="px-l" fill="#2da7a0"/>
+      <circle cx="34" cy="6" r="7" class="px-l" fill="#2da7a0"/>
+      <circle cx="58" cy="6" r="7" class="px-l" fill="#fff3d6"/>
+      <circle cx="82" cy="6" r="7" class="px-l" fill="#fdfaf0"/>
+      <circle cx="106" cy="6" r="7" class="px-l" fill="#fdfaf0"/>
+      <text x="360" y="11" class="b ghost" font-size="12" text-anchor="end">no timer · no leaderboard</text>
+    </g>
+
+    <!-- THE QUESTION -->
+    <g transform="translate(20 150)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 120 Q 400 134 386 134 L 14 134 Q 0 134 0 120 L 0 14 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+      <text x="20" y="34" class="b ghost" font-size="12" font-weight="700">THE QUESTION</text>
+      <text x="20" y="64" class="b ink" font-size="15">Jobs to Be Done says customers</text>
+      <text x="20" y="86" class="b ink" font-size="15">"hire" a product to get a job done.</text>
+      <text x="20" y="108" class="b ink" font-size="15">What does that change about how</text>
+      <text x="20" y="124" class="b ink" font-size="15" font-weight="700">you size up the competition?</text>
+    </g>
+
+    <!-- FOUR OPTIONS -->
+    <g transform="translate(20 300)">
+      <!-- A -->
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 56 Q 400 70 386 70 L 14 70 Q 0 70 0 56 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+      <circle cx="26" cy="35" r="13" class="px-l"/>
+      <text x="26" y="40" text-anchor="middle" class="b ink" font-size="14" font-weight="700">A</text>
+      <text x="52" y="32" class="b ink" font-size="13">Only other JTBD apps count as</text>
+      <text x="52" y="50" class="b ink" font-size="13">rivals.</text>
+      <!-- B (selected, correct) -->
+      <path class="px-l" d="M 4 84 Q 0 80 14 80 L 386 80 Q 400 80 400 94 L 400 136 Q 400 150 386 150 L 14 150 Q 0 150 0 136 L 0 94 Q 0 84 4 84 Z" fill="#e3f5e3" stroke="#2a7a4a" stroke-width="2"/>
+      <circle cx="26" cy="115" r="13" fill="#2a7a4a" stroke="#2a7a4a"/>
+      <text x="26" y="120" text-anchor="middle" class="b" font-size="14" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="52" y="112" class="b ink" font-size="13">Anything the customer could "hire"</text>
+      <text x="52" y="130" class="b ink" font-size="13">instead — even a spreadsheet.</text>
+      <!-- C -->
+      <path class="px-l" d="M 4 164 Q 0 160 14 160 L 386 160 Q 400 160 400 174 L 400 216 Q 400 230 386 230 L 14 230 Q 0 230 0 216 L 0 174 Q 0 164 4 164 Z" fill="#fdfaf0"/>
+      <circle cx="26" cy="195" r="13" class="px-l"/>
+      <text x="26" y="200" text-anchor="middle" class="b ink" font-size="14" font-weight="700">C</text>
+      <text x="52" y="192" class="b ink" font-size="13">Competition only matters at the</text>
+      <text x="52" y="210" class="b ink" font-size="13">pricing stage.</text>
+      <!-- D -->
+      <path class="px-l" d="M 4 244 Q 0 240 14 240 L 386 240 Q 400 240 400 254 L 400 296 Q 400 310 386 310 L 14 310 Q 0 310 0 296 L 0 254 Q 0 244 4 244 Z" fill="#fdfaf0"/>
+      <circle cx="26" cy="275" r="13" class="px-l"/>
+      <text x="26" y="280" text-anchor="middle" class="b ink" font-size="14" font-weight="700">D</text>
+      <text x="52" y="272" class="b ink" font-size="13">JTBD says to ignore competitors</text>
+      <text x="52" y="290" class="b ink" font-size="13">entirely.</text>
+    </g>
+
+    <!-- STUDY CONCEPT (revealed, collapsible) -->
+    <g transform="translate(20 632)">
+      <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 150 Q 400 164 386 164 L 14 164 Q 0 164 0 150 L 0 14 Q 0 4 4 4 Z" fill="#fff8e6"/>
+      <rect x="0" y="0" width="6" height="164" fill="#d4b85e"/>
+      <text x="22" y="30" class="b ghost" font-size="12" font-weight="700">&#128161; STUDY CONCEPT</text>
+      <text x="372" y="30" class="b ink" font-size="18" text-anchor="end">&#8211;</text>
+      <text x="22" y="58" class="b ink" font-size="13">JTBD widens the field. If a customer</text>
+      <text x="22" y="76" class="b ink" font-size="13">"hires" your product for a job, your</text>
+      <text x="22" y="94" class="b ink" font-size="13">real rivals are whatever else could do</text>
+      <text x="22" y="112" class="b ink" font-size="13">that job — a rival app, a workaround,</text>
+      <text x="22" y="130" class="b ink" font-size="13">or doing nothing at all.</text>
+      <text x="22" y="152" class="b ghost" font-size="12">tap the &#8211; to collapse · swipe for the next rep</text>
+    </g>
+  </g>
+
+  <!-- ============ MARGIN ANNOTATIONS ============ -->
+  <g transform="translate(40 230)">
+    <text class="annot" font-size="22" x="0" y="0">one question,</text>
+    <text class="annot" font-size="22" x="0" y="26">not a list of</text>
+    <text class="annot" font-size="22" x="0" y="52">categories</text>
+    <text class="b ink" font-size="13" x="0" y="78">the old sketch showed</text>
+    <text class="b ink" font-size="13" x="0" y="94">five category boxes.</text>
+    <text class="b ink" font-size="13" x="0" y="110">a rep is one question</text>
+    <text class="b ink" font-size="13" x="0" y="126">you actually answer.</text>
+    <path class="annot-line" d="M 150 90 Q 185 110 218 120"/>
+    <polygon points="220,120 212,116 212,124" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(680 470)">
+    <rect x="0" y="0" width="184" height="118" class="sticky" transform="rotate(-3)"/>
+    <g transform="rotate(-3)">
+      <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">answer first,</text>
+      <text x="14" y="50" class="b" font-size="13" fill="#3a3128">then the why.</text>
+      <text x="14" y="72" class="b" font-size="12" fill="#3a3128">the concept only opens</text>
+      <text x="14" y="88" class="b" font-size="12" fill="#3a3128">after you commit — so</text>
+      <text x="14" y="104" class="b" font-size="12" fill="#3a3128">you're learning, not</text>
+      <text x="14" y="120" class="b" font-size="12" fill="#3a3128">guessing.</text>
+    </g>
+    <path class="annot-line" d="M -10 60 Q -50 55 -90 30"/>
+    <polygon points="-92,30 -84,28 -86,36" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(40 780)">
+    <text class="annot" font-size="22" x="0" y="0">collapsible</text>
+    <text class="b ink" font-size="13" x="0" y="24">expand to study, collapse</text>
+    <text class="b ink" font-size="13" x="0" y="40">to keep moving. no internal</text>
+    <text class="b ink" font-size="13" x="0" y="56">scroll inside the card.</text>
+    <path class="annot-line" d="M 150 30 Q 185 40 218 30"/>
+    <polygon points="220,30 212,26 212,34" fill="#c44569"/>
+  </g>
+
+  <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+  <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">sketch · gym 01</text>
+</svg>

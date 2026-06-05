@@ -289,8 +289,10 @@
       { threshold: 0.10, rootMargin: "0px 0px -40px 0px" }
     );
     els.forEach((el) => {
-      el.style.opacity = "0";
-      el.style.translate = "0 14px";
+      // The hidden start state (opacity:0 / translate) now lives in CSS,
+      // gated on html.js, so it applies before first paint and there's no
+      // visible->hidden flash. We only attach the transition + observer here;
+      // the IntersectionObserver fades each element in exactly as before.
       el.style.transition =
         "opacity .55s ease, translate .55s cubic-bezier(.2,.8,.2,1)";
       io.observe(el);
