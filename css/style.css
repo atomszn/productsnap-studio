@@ -459,6 +459,37 @@ header, main, footer { position: relative; z-index: 1; }
   grid-template-columns: minmax(0, 520px);
   justify-content: center;
 }
+
+/* Inline SVG sketches (new wireframes) — behave like the <img> inside the
+   framed link, but render with the page's handwritten font instead of a
+   sandboxed <img> fallback. */
+.idea-sketch a > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Featured inline wireframes: a calmer single/2-up column, a touch wider than
+   the app-thumbnail grid so the on-screen text stays legible. */
+.sketches-featured {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px 30px;
+  align-items: start;
+}
+.sketches-featured .idea-sketch figcaption {
+  max-width: 38ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.35;
+}
+.sketches-featured-single {
+  grid-template-columns: minmax(0, 600px);
+  justify-content: center;
+}
+@media (max-width: 760px) {
+  .sketches-featured { grid-template-columns: 1fr; gap: 30px; }
+  .sketches-featured .idea-sketch:nth-child(odd) a,
+  .sketches-featured .idea-sketch:nth-child(even) a { transform: rotate(0deg); }
+}
 .sketches-note {
   max-width: 760px;
   margin: 26px 0 0;

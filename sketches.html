@@ -129,6 +129,322 @@
           </p>
         </div>
 
+        <!-- BUILD:APP-FEATURED:START -->
+        <div class="ideas-sketches sketches-grid sketches-featured">
+          <figure class="idea-sketch">
+            <a href="app.html#wireframes" aria-label="The flashcard, front and back">
+              <svg id="svg-flashcard-flip-state" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="ProductSnap sketch: the flashcard, front and back. Front asks one question; the flip reveals What, Why it matters, and a real example. No watch-out box, no scrolling inside the card.">
+                <defs>
+                  <pattern id="ffs-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+                    <rect width="8" height="8" fill="#f7f1e2"/>
+                    <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+                    <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+                  </pattern>
+                  <filter id="ffs-rough" x="-5%" y="-5%" width="110%" height="110%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+                    <feDisplacementMap in="SourceGraphic" scale="1.3"/>
+                  </filter>
+                  <style>
+                    #svg-flashcard-flip-state .h { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+                    #svg-flashcard-flip-state .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+                    #svg-flashcard-flip-state .b { font-family: 'Inter','Segoe UI',sans-serif; }
+                    #svg-flashcard-flip-state .ink { fill: #2d2620; }
+                    #svg-flashcard-flip-state .ghost { fill: #6b6356; }
+                    #svg-flashcard-flip-state .px { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+                    #svg-flashcard-flip-state .px-l { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-flashcard-flip-state .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-flashcard-flip-state .sticky { fill: #fde7a3; stroke: #d9b94e; stroke-width: 1.4; }
+                  </style>
+                </defs>
+
+                <rect width="880" height="1040" fill="url(#ffs-paper)"/>
+
+                <!-- Title -->
+                <text x="40" y="56" class="h ink" font-size="34">ProductSnap · the flashcard, both sides</text>
+                <text x="40" y="84" class="b ghost" font-size="16">v0.5 wireframe · one card flips · what it is, why it matters, a real example — nothing else</text>
+                <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+                <!-- ============ FRONT (left phone) ============ -->
+                <text x="120" y="146" class="annot" font-size="24">front · the question</text>
+                <g transform="translate(80 158)">
+                  <path class="px" d="M 6 6 Q 0 0 20 0 L 312 0 Q 332 0 332 20 L 332 688 Q 332 708 312 708 L 20 708 Q 0 708 0 688 L 0 20 Q 0 6 6 6 Z"/>
+
+                  <text x="18" y="26" class="b ghost" font-size="12">12:25</text>
+                  <text x="286" y="26" class="b ghost" font-size="12">wifi · 64%</text>
+                  <line x1="12" y1="38" x2="320" y2="38" class="px-l"/>
+
+                  <text x="18" y="68" class="b ink" font-size="18">&#9776;</text>
+                  <text x="166" y="68" text-anchor="middle" class="b ink" font-size="18" font-weight="700">Today's card</text>
+                  <text x="166" y="90" text-anchor="middle" class="b ghost" font-size="12">1 of 1 · flip to reveal</text>
+                  <line x1="12" y1="104" x2="320" y2="104" class="px-l"/>
+
+                  <!-- the card front, fills the space -->
+                  <g transform="translate(20 124)">
+                    <path class="px-l" d="M 8 8 Q 0 0 22 0 L 270 0 Q 292 0 292 22 L 292 512 Q 292 534 270 534 L 22 534 Q 0 534 0 512 L 0 22 Q 0 8 8 8 Z" fill="#fffdf6"/>
+                    <rect x="0" y="0" width="292" height="8" rx="4" fill="#6b5fd6"/>
+                    <text x="24" y="44" class="b ghost" font-size="12" font-weight="700">FRAMEWORKS &amp; MODELS</text>
+                    <text x="24" y="132" class="b ink" font-size="24" font-weight="700">Is a PM the</text>
+                    <text x="24" y="166" class="b ink" font-size="24" font-weight="700">CEO of the</text>
+                    <text x="24" y="200" class="b ink" font-size="24" font-weight="700">product?</text>
+                    <text x="24" y="244" class="b ghost" font-size="14">A line you'll hear in every PM</text>
+                    <text x="24" y="266" class="b ghost" font-size="14">interview. Is it actually true?</text>
+                    <!-- big flip affordance fills the lower card, no empty dead space -->
+                    <g transform="translate(146 398)">
+                      <circle cx="0" cy="0" r="44" class="px-l" fill="#fff3d6"/>
+                      <path class="px-l" d="M -22 -8 A 24 24 0 1 1 -18 14" fill="none" stroke-width="2.4"/>
+                      <polygon points="-18,18 -28,8 -8,6" fill="#2d2620"/>
+                      <text x="0" y="72" text-anchor="middle" class="b ink" font-size="14" font-weight="700">Tap to flip</text>
+                    </g>
+                  </g>
+                  <line x1="12" y1="672" x2="320" y2="672" class="px-l"/>
+                  <text x="166" y="695" text-anchor="middle" class="b ghost" font-size="11">&#8249; prev      next &#8250;</text>
+                </g>
+
+                <!-- flip arrow between the two phones -->
+                <g transform="translate(430 500)">
+                  <path class="px-l" d="M -8 0 Q 18 -26 44 0" stroke-width="2.4"/>
+                  <polygon points="44,0 34,-8 36,8" fill="#2d2620"/>
+                  <text x="18" y="-32" text-anchor="middle" class="annot" font-size="22">flip</text>
+                </g>
+
+                <!-- ============ BACK (right phone) ============ -->
+                <text x="556" y="146" class="annot" font-size="24">back · the answer</text>
+                <g transform="translate(490 158)">
+                  <path class="px" d="M 6 6 Q 0 0 20 0 L 312 0 Q 332 0 332 20 L 332 688 Q 332 708 312 708 L 20 708 Q 0 708 0 688 L 0 20 Q 0 6 6 6 Z"/>
+
+                  <text x="18" y="26" class="b ghost" font-size="12">12:25</text>
+                  <text x="286" y="26" class="b ghost" font-size="12">wifi · 64%</text>
+                  <line x1="12" y1="38" x2="320" y2="38" class="px-l"/>
+
+                  <text x="18" y="68" class="b ink" font-size="18">&#9776;</text>
+                  <text x="166" y="68" text-anchor="middle" class="b ink" font-size="18" font-weight="700">The short answer</text>
+                  <text x="166" y="90" text-anchor="middle" class="b ghost" font-size="12">flip back any time</text>
+                  <line x1="12" y1="104" x2="320" y2="104" class="px-l"/>
+
+                  <!-- back of card: three labeled blocks fill the card, no scroll -->
+                  <g transform="translate(20 124)">
+                    <path class="px-l" d="M 8 8 Q 0 0 22 0 L 270 0 Q 292 0 292 22 L 292 512 Q 292 534 270 534 L 22 534 Q 0 534 0 512 L 0 22 Q 0 8 8 8 Z" fill="#fffdf6"/>
+                    <rect x="0" y="0" width="8" height="534" rx="4" fill="#6b5fd6"/>
+
+                    <!-- WHAT -->
+                    <text x="24" y="36" class="b ghost" font-size="12" font-weight="700">WHAT</text>
+                    <text x="24" y="60" class="b ink" font-size="14">Not really. A PM has the vision</text>
+                    <text x="24" y="80" class="b ink" font-size="14">but not the authority — you lead</text>
+                    <text x="24" y="100" class="b ink" font-size="14">by influence, not command.</text>
+                    <line x1="24" y1="118" x2="268" y2="118" class="px-l"/>
+
+                    <!-- WHY IT MATTERS -->
+                    <text x="24" y="148" class="b ghost" font-size="12" font-weight="700">WHY IT MATTERS</text>
+                    <text x="24" y="172" class="b ink" font-size="14">Acting like a CEO of the product</text>
+                    <text x="24" y="192" class="b ink" font-size="14">is how new PMs lose engineering's</text>
+                    <text x="24" y="212" class="b ink" font-size="14">trust. The job is alignment, not</text>
+                    <text x="24" y="232" class="b ink" font-size="14">orders.</text>
+                    <line x1="24" y1="250" x2="268" y2="250" class="px-l"/>
+
+                    <!-- REAL EXAMPLE -->
+                    <text x="24" y="280" class="b ghost" font-size="12" font-weight="700">A REAL EXAMPLE</text>
+                    <g transform="translate(24 294)">
+                      <path class="px-l" d="M 4 4 Q 0 0 12 0 L 232 0 Q 244 0 244 12 L 244 210 Q 244 222 232 222 L 12 222 Q 0 222 0 210 L 0 12 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+                      <text x="18" y="32" class="b ink" font-size="14">A PM wants to cut a feature to</text>
+                      <text x="18" y="52" class="b ink" font-size="14">hit a date. A CEO could just</text>
+                      <text x="18" y="72" class="b ink" font-size="14">decide. A PM has to bring eng,</text>
+                      <text x="18" y="92" class="b ink" font-size="14">design, and sales to the same</text>
+                      <text x="18" y="112" class="b ink" font-size="14">conclusion — with evidence.</text>
+                      <text x="18" y="146" class="b ghost" font-size="13">The trade-off only sticks if the</text>
+                      <text x="18" y="166" class="b ghost" font-size="13">team owns it too.</text>
+                      <text x="18" y="200" class="h" font-size="20" fill="#6b5fd6">influence &gt; authority</text>
+                    </g>
+                  </g>
+                  <line x1="12" y1="672" x2="320" y2="672" class="px-l"/>
+                  <text x="166" y="695" text-anchor="middle" class="b ghost" font-size="11">&#9733; save      &#8250; next card</text>
+                </g>
+
+                <!-- ============ MARGIN ANNOTATIONS ============ -->
+                <g transform="translate(44 916)">
+                  <text class="annot" font-size="22" x="0" y="0">three blocks, no fourth</text>
+                  <text class="b ink" font-size="13" x="0" y="26">what / why / example. there is no "watch out for"</text>
+                  <text class="b ink" font-size="13" x="0" y="44">box — the real app doesn't have one, so this can't either.</text>
+                  <path class="annot-line" d="M 470 -6 Q 540 -30 600 -190"/>
+                  <polygon points="600,-190 593,-184 607,-184" fill="#c44569"/>
+                </g>
+
+                <g transform="translate(636 884)">
+                  <rect x="0" y="0" width="208" height="96" class="sticky" transform="rotate(2.5)"/>
+                  <g transform="rotate(2.5)">
+                    <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">the card fits.</text>
+                    <text x="14" y="50" class="b" font-size="12" fill="#3a3128">everything sits on one</text>
+                    <text x="14" y="66" class="b" font-size="12" fill="#3a3128">face. you flip — you</text>
+                    <text x="14" y="82" class="b" font-size="12" fill="#3a3128">never scroll inside it.</text>
+                  </g>
+                  <path class="annot-line" d="M 20 -6 Q 0 -40 -30 -90"/>
+                  <polygon points="-30,-90 -36,-82 -23,-84" fill="#c44569"/>
+                </g>
+
+                <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+                <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">sketch · card 01</text>
+              </svg>
+            </a>
+            <figcaption>the flashcard, both sides — one question, then what / why / a real example. nothing else on the card.</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="app.html#wireframes" aria-label="One Product Gym rep">
+              <svg id="svg-gym-question-flow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="ProductSnap sketch: one Product Gym rep, shown as a single question with four answer options, then a study-concept reveal you can collapse and expand.">
+                <defs>
+                  <pattern id="gqf-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+                    <rect width="8" height="8" fill="#f7f1e2"/>
+                    <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+                    <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+                  </pattern>
+                  <filter id="gqf-rough" x="-5%" y="-5%" width="110%" height="110%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7"/>
+                    <feDisplacementMap in="SourceGraphic" scale="1.3"/>
+                  </filter>
+                  <style>
+                    #svg-gym-question-flow .h { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+                    #svg-gym-question-flow .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+                    #svg-gym-question-flow .b { font-family: 'Inter','Segoe UI',sans-serif; }
+                    #svg-gym-question-flow .ink { fill: #2d2620; }
+                    #svg-gym-question-flow .ghost { fill: #6b6356; }
+                    #svg-gym-question-flow .px { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+                    #svg-gym-question-flow .px-l { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-gym-question-flow .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-gym-question-flow .sticky { fill: #fde7a3; stroke: #d9b94e; stroke-width: 1.4; }
+                  </style>
+                </defs>
+
+                <rect width="880" height="1040" fill="url(#gqf-paper)"/>
+
+                <!-- Title -->
+                <text x="40" y="56" class="h ink" font-size="34">ProductSnap · Product Gym (one rep)</text>
+                <text x="40" y="84" class="b ghost" font-size="16">v0.4 wireframe · one question, four options, then why — not a wall of categories</text>
+                <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+                <!-- ============ PHONE FRAME ============ -->
+                <g transform="translate(220 130)">
+                  <path class="px" d="M 6 6 Q 0 0 24 0 L 416 0 Q 440 0 440 24 L 440 836 Q 440 860 416 860 L 24 860 Q 0 860 0 836 L 0 24 Q 0 6 6 6 Z"/>
+
+                  <text x="20" y="28" class="b ghost" font-size="13">12:25</text>
+                  <text x="380" y="28" class="b ghost" font-size="13">wifi · 64%</text>
+                  <line x1="14" y1="42" x2="426" y2="42" class="px-l"/>
+
+                  <text x="20" y="74" class="b ink" font-size="22">&#8249;</text>
+                  <text x="150" y="74" class="b ink" font-size="22" font-weight="700">&#127947;  Product Gym</text>
+                  <text x="20" y="92" class="b ghost" font-size="13">Frameworks &amp; Models · rep 2 of 5</text>
+                  <line x1="14" y1="104" x2="426" y2="104" class="px-l"/>
+
+                  <!-- progress dots -->
+                  <g transform="translate(20 124)">
+                    <circle cx="10" cy="6" r="7" class="px-l" fill="#2da7a0"/>
+                    <circle cx="34" cy="6" r="7" class="px-l" fill="#2da7a0"/>
+                    <circle cx="58" cy="6" r="7" class="px-l" fill="#fff3d6"/>
+                    <circle cx="82" cy="6" r="7" class="px-l" fill="#fdfaf0"/>
+                    <circle cx="106" cy="6" r="7" class="px-l" fill="#fdfaf0"/>
+                    <text x="360" y="11" class="b ghost" font-size="12" text-anchor="end">no timer · no leaderboard</text>
+                  </g>
+
+                  <!-- THE QUESTION -->
+                  <g transform="translate(20 150)">
+                    <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 120 Q 400 134 386 134 L 14 134 Q 0 134 0 120 L 0 14 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+                    <text x="20" y="34" class="b ghost" font-size="12" font-weight="700">THE QUESTION</text>
+                    <text x="20" y="64" class="b ink" font-size="15">Jobs to Be Done says customers</text>
+                    <text x="20" y="86" class="b ink" font-size="15">"hire" a product to get a job done.</text>
+                    <text x="20" y="108" class="b ink" font-size="15">What does that change about how</text>
+                    <text x="20" y="124" class="b ink" font-size="15" font-weight="700">you size up the competition?</text>
+                  </g>
+
+                  <!-- FOUR OPTIONS -->
+                  <g transform="translate(20 300)">
+                    <!-- A -->
+                    <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 56 Q 400 70 386 70 L 14 70 Q 0 70 0 56 L 0 14 Q 0 4 4 4 Z" fill="#fdfaf0"/>
+                    <circle cx="26" cy="35" r="13" class="px-l"/>
+                    <text x="26" y="40" text-anchor="middle" class="b ink" font-size="14" font-weight="700">A</text>
+                    <text x="52" y="32" class="b ink" font-size="13">Only other JTBD apps count as</text>
+                    <text x="52" y="50" class="b ink" font-size="13">rivals.</text>
+                    <!-- B (selected, correct) -->
+                    <path class="px-l" d="M 4 84 Q 0 80 14 80 L 386 80 Q 400 80 400 94 L 400 136 Q 400 150 386 150 L 14 150 Q 0 150 0 136 L 0 94 Q 0 84 4 84 Z" fill="#e3f5e3" stroke="#2a7a4a" stroke-width="2"/>
+                    <circle cx="26" cy="115" r="13" fill="#2a7a4a" stroke="#2a7a4a"/>
+                    <text x="26" y="120" text-anchor="middle" class="b" font-size="14" font-weight="700" fill="#ffffff">&#10003;</text>
+                    <text x="52" y="112" class="b ink" font-size="13">Anything the customer could "hire"</text>
+                    <text x="52" y="130" class="b ink" font-size="13">instead — even a spreadsheet.</text>
+                    <!-- C -->
+                    <path class="px-l" d="M 4 164 Q 0 160 14 160 L 386 160 Q 400 160 400 174 L 400 216 Q 400 230 386 230 L 14 230 Q 0 230 0 216 L 0 174 Q 0 164 4 164 Z" fill="#fdfaf0"/>
+                    <circle cx="26" cy="195" r="13" class="px-l"/>
+                    <text x="26" y="200" text-anchor="middle" class="b ink" font-size="14" font-weight="700">C</text>
+                    <text x="52" y="192" class="b ink" font-size="13">Competition only matters at the</text>
+                    <text x="52" y="210" class="b ink" font-size="13">pricing stage.</text>
+                    <!-- D -->
+                    <path class="px-l" d="M 4 244 Q 0 240 14 240 L 386 240 Q 400 240 400 254 L 400 296 Q 400 310 386 310 L 14 310 Q 0 310 0 296 L 0 254 Q 0 244 4 244 Z" fill="#fdfaf0"/>
+                    <circle cx="26" cy="275" r="13" class="px-l"/>
+                    <text x="26" y="280" text-anchor="middle" class="b ink" font-size="14" font-weight="700">D</text>
+                    <text x="52" y="272" class="b ink" font-size="13">JTBD says to ignore competitors</text>
+                    <text x="52" y="290" class="b ink" font-size="13">entirely.</text>
+                  </g>
+
+                  <!-- STUDY CONCEPT (revealed, collapsible) -->
+                  <g transform="translate(20 632)">
+                    <path class="px-l" d="M 4 4 Q 0 0 14 0 L 386 0 Q 400 0 400 14 L 400 150 Q 400 164 386 164 L 14 164 Q 0 164 0 150 L 0 14 Q 0 4 4 4 Z" fill="#fff8e6"/>
+                    <rect x="0" y="0" width="6" height="164" fill="#d4b85e"/>
+                    <text x="22" y="30" class="b ghost" font-size="12" font-weight="700">&#128161; STUDY CONCEPT</text>
+                    <text x="372" y="30" class="b ink" font-size="18" text-anchor="end">&#8211;</text>
+                    <text x="22" y="58" class="b ink" font-size="13">JTBD widens the field. If a customer</text>
+                    <text x="22" y="76" class="b ink" font-size="13">"hires" your product for a job, your</text>
+                    <text x="22" y="94" class="b ink" font-size="13">real rivals are whatever else could do</text>
+                    <text x="22" y="112" class="b ink" font-size="13">that job — a rival app, a workaround,</text>
+                    <text x="22" y="130" class="b ink" font-size="13">or doing nothing at all.</text>
+                    <text x="22" y="152" class="b ghost" font-size="12">tap the &#8211; to collapse · swipe for the next rep</text>
+                  </g>
+                </g>
+
+                <!-- ============ MARGIN ANNOTATIONS ============ -->
+                <g transform="translate(40 230)">
+                  <text class="annot" font-size="22" x="0" y="0">one question,</text>
+                  <text class="annot" font-size="22" x="0" y="26">not a list of</text>
+                  <text class="annot" font-size="22" x="0" y="52">categories</text>
+                  <text class="b ink" font-size="13" x="0" y="78">the old sketch showed</text>
+                  <text class="b ink" font-size="13" x="0" y="94">five category boxes.</text>
+                  <text class="b ink" font-size="13" x="0" y="110">a rep is one question</text>
+                  <text class="b ink" font-size="13" x="0" y="126">you actually answer.</text>
+                  <path class="annot-line" d="M 150 90 Q 185 110 218 120"/>
+                  <polygon points="220,120 212,116 212,124" fill="#c44569"/>
+                </g>
+
+                <g transform="translate(680 470)">
+                  <rect x="0" y="0" width="184" height="118" class="sticky" transform="rotate(-3)"/>
+                  <g transform="rotate(-3)">
+                    <text x="14" y="28" class="h" font-size="20" fill="#7a5d00">answer first,</text>
+                    <text x="14" y="50" class="b" font-size="13" fill="#3a3128">then the why.</text>
+                    <text x="14" y="72" class="b" font-size="12" fill="#3a3128">the concept only opens</text>
+                    <text x="14" y="88" class="b" font-size="12" fill="#3a3128">after you commit — so</text>
+                    <text x="14" y="104" class="b" font-size="12" fill="#3a3128">you're learning, not</text>
+                    <text x="14" y="120" class="b" font-size="12" fill="#3a3128">guessing.</text>
+                  </g>
+                  <path class="annot-line" d="M -10 60 Q -50 55 -90 30"/>
+                  <polygon points="-92,30 -84,28 -86,36" fill="#c44569"/>
+                </g>
+
+                <g transform="translate(40 780)">
+                  <text class="annot" font-size="22" x="0" y="0">collapsible</text>
+                  <text class="b ink" font-size="13" x="0" y="24">expand to study, collapse</text>
+                  <text class="b ink" font-size="13" x="0" y="40">to keep moving. no internal</text>
+                  <text class="b ink" font-size="13" x="0" y="56">scroll inside the card.</text>
+                  <path class="annot-line" d="M 150 30 Q 185 40 218 30"/>
+                  <polygon points="220,30 212,26 212,34" fill="#c44569"/>
+                </g>
+
+                <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+                <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">sketch · gym 01</text>
+              </svg>
+            </a>
+            <figcaption>a gym rep, drawn honestly — one question, four options, then the why. answer first, study after.</figcaption>
+          </figure>
+        </div>
+        <!-- BUILD:APP-FEATURED:END -->
+
+        <p class="sketches-note pencil-note">
+          <span class="caret">↳</span> below: the six original screen sketches, in
+          the order the thinking happened.
+        </p>
+
         <div class="ideas-sketches sketches-grid">
           <figure class="idea-sketch">
             <a href="app.html#wireframes" aria-label="The flashcard front, on the app page">
@@ -203,12 +519,172 @@
           </p>
         </div>
 
+        <!-- BUILD:PULSE:START -->
         <div class="ideas-sketches sketches-grid sketches-grid-single">
           <figure class="idea-sketch">
             <a href="pulse.html" aria-label="See Pulse, live">
-              <img src="assets/wires/pulse-dashboard-to-thinking.svg"
-                   alt="Hand-drawn sketch: a rejected Bloomberg-style dashboard crossed out, then a clean Signal to Meaning to Product question chain"
-                   loading="lazy" width="880" height="1040" />
+              <svg id="svg-pulse-dashboard-to-thinking" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pulse sketch: a rejected Bloomberg-style dashboard crossed out, an arrow, and a clean Signal to Meaning to Product question chain.">
+                <defs>
+                  <pattern id="pl-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+                    <rect width="8" height="8" fill="#f7f1e2"/>
+                    <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+                    <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+                  </pattern>
+                  <filter id="pl-rough" x="-5%" y="-5%" width="110%" height="110%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5"/>
+                    <feDisplacementMap in="SourceGraphic" scale="1.4"/>
+                  </filter>
+                  <style>
+                    #svg-pulse-dashboard-to-thinking .h { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+                    #svg-pulse-dashboard-to-thinking .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+                    #svg-pulse-dashboard-to-thinking .b { font-family: 'Inter','Segoe UI',sans-serif; }
+                    #svg-pulse-dashboard-to-thinking .ink { fill: #2d2620; }
+                    #svg-pulse-dashboard-to-thinking .ghost { fill: #6b6356; }
+                    #svg-pulse-dashboard-to-thinking .px { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+                    #svg-pulse-dashboard-to-thinking .px-l { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-pulse-dashboard-to-thinking .pencil { fill: none; stroke: #2d2620; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+                    #svg-pulse-dashboard-to-thinking .pencil-soft { fill: none; stroke: #6b6356; stroke-width: 1.4; stroke-linecap: round; }
+                    #svg-pulse-dashboard-to-thinking .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+                  </style>
+                </defs>
+
+                <rect width="880" height="1040" fill="url(#pl-paper)"/>
+
+                <!-- Title -->
+                <text x="40" y="58" class="h ink" font-size="36">Pulse started as a dashboard.</text>
+                <text x="40" y="100" class="h" font-size="36" fill="#15605a">Then I deleted the dashboard.</text>
+                <text x="40" y="128" class="b ghost" font-size="16">v0.1 sketch · the detour that almost shipped</text>
+                <path class="px-l" d="M40 142 Q 440 146 840 142"/>
+
+                <!-- ============ LEFT: the rejected dashboard ============ -->
+                <text x="60" y="196" class="annot" font-size="24">the rejected idea</text>
+                <g filter="url(#pl-rough)">
+                  <!-- outer dashboard frame -->
+                  <rect x="60" y="214" width="360" height="470" rx="8" class="px"/>
+                  <!-- top bar with fake tickers -->
+                  <line x1="60" y1="252" x2="420" y2="252" class="px-l"/>
+                  <text x="74" y="242" class="b ink" font-size="13" font-weight="700">MARKETS TERMINAL</text>
+                  <text x="300" y="242" class="b ghost" font-size="11">live · 14:32:07</text>
+
+                  <!-- ticker row -->
+                  <g class="b" font-size="11">
+                    <text x="74"  y="276" fill="#15605a">CPI 3.4 ▲</text>
+                    <text x="156" y="276" fill="#c44569">SENT 61 ▼</text>
+                    <text x="244" y="276" fill="#15605a">API -38% ▼</text>
+                    <text x="340" y="276" fill="#c69200">RATE 5.5</text>
+                  </g>
+                  <line x1="74" y1="286" x2="406" y2="286" class="pencil-soft"/>
+
+                  <!-- grid of tiny charts -->
+                  <!-- chart 1: line -->
+                  <rect x="74" y="300" width="150" height="90" rx="5" class="px-l"/>
+                  <polyline class="pencil-soft" points="82,372 102,356 122,364 142,338 162,346 182,318 202,330 214,310"/>
+                  <text x="80" y="316" class="b ghost" font-size="9">AI cost</text>
+                  <!-- chart 2: bars -->
+                  <rect x="240" y="300" width="150" height="90" rx="5" class="px-l"/>
+                  <g class="pencil" stroke-width="6">
+                    <line x1="258" y1="380" x2="258" y2="356"/>
+                    <line x1="278" y1="380" x2="278" y2="340"/>
+                    <line x1="298" y1="380" x2="298" y2="350"/>
+                    <line x1="318" y1="380" x2="318" y2="332"/>
+                    <line x1="338" y1="380" x2="338" y2="360"/>
+                    <line x1="358" y1="380" x2="358" y2="346"/>
+                  </g>
+                  <text x="246" y="316" class="b ghost" font-size="9">hiring</text>
+                  <!-- chart 3: numbers block -->
+                  <rect x="74" y="402" width="150" height="84" rx="5" class="px-l"/>
+                  <text x="84" y="430" class="h ink" font-size="26">3.4%</text>
+                  <text x="84" y="452" class="b ghost" font-size="10">headline inflation</text>
+                  <text x="84" y="472" class="h" font-size="20" fill="#c44569">-12 pts</text>
+                  <!-- chart 4: candlesticks -->
+                  <rect x="240" y="402" width="150" height="84" rx="5" class="px-l"/>
+                  <g class="pencil-soft">
+                    <line x1="258" y1="412" x2="258" y2="476"/><rect x="252" y="430" width="12" height="22" class="px"/>
+                    <line x1="282" y1="418" x2="282" y2="470"/><rect x="276" y="436" width="12" height="18" class="px"/>
+                    <line x1="306" y1="414" x2="306" y2="478"/><rect x="300" y="428" width="12" height="28" class="px"/>
+                    <line x1="330" y1="420" x2="330" y2="466"/><rect x="324" y="440" width="12" height="16" class="px"/>
+                    <line x1="356" y1="410" x2="356" y2="474"/><rect x="350" y="426" width="12" height="24" class="px"/>
+                  </g>
+                  <!-- dense table of numbers -->
+                  <rect x="74" y="498" width="316" height="170" rx="5" class="px-l"/>
+                  <g class="b ghost" font-size="10">
+                    <text x="84" y="518">SYM</text><text x="180" y="518">LAST</text><text x="260" y="518">CHG</text><text x="330" y="518">VOL</text>
+                  </g>
+                  <g class="b ink" font-size="10">
+                    <text x="84" y="540">CPI</text><text x="180" y="540">3.40</text><text x="260" y="540" fill="#15605a">+0.3</text><text x="330" y="540">1.2M</text>
+                    <text x="84" y="562">SENT</text><text x="180" y="562">61.2</text><text x="260" y="562" fill="#c44569">-4.1</text><text x="330" y="562">880K</text>
+                    <text x="84" y="584">API</text><text x="180" y="584">0.62</text><text x="260" y="584" fill="#c44569">-38%</text><text x="330" y="584">4.0M</text>
+                    <text x="84" y="606">RATE</text><text x="180" y="606">5.50</text><text x="260" y="606">0.00</text><text x="330" y="606">—</text>
+                    <text x="84" y="628">JOBS</text><text x="180" y="628">216K</text><text x="260" y="628" fill="#15605a">+9K</text><text x="330" y="628">2.1M</text>
+                    <text x="84" y="650">PCE</text><text x="180" y="650">2.80</text><text x="260" y="650" fill="#c69200">+0.1</text><text x="330" y="650">760K</text>
+                  </g>
+                </g>
+
+                <!-- big hand-drawn X over the dashboard -->
+                <g filter="url(#pl-rough)">
+                  <path class="pencil" stroke="#c44569" stroke-width="6" d="M78 232 L 404 666"/>
+                  <path class="pencil" stroke="#c44569" stroke-width="6" d="M404 232 L 78 666"/>
+                </g>
+
+                <!-- margin note: too much -->
+                <g transform="translate(60 712)">
+                  <text class="annot" font-size="24" x="0" y="0">too much.</text>
+                  <text class="b ink" font-size="14" x="0" y="26">nobody needs another</text>
+                  <text class="b ink" font-size="14" x="0" y="46">terminal.</text>
+                  <path class="annot-line" d="M 150 -8 Q 200 -40 240 -70"/>
+                  <polygon points="242,-72 232,-72 238,-62" fill="#c44569"/>
+                </g>
+
+                <!-- ============ ARROW ============ -->
+                <g filter="url(#pl-rough)" transform="translate(0 6)">
+                  <path class="pencil" stroke-width="4" d="M438 446 Q 478 430 512 446"/>
+                  <polygon points="512,446 496,436 498,456" fill="#2d2620"/>
+                </g>
+                <text x="438" y="420" class="annot" font-size="20">so I cut it</text>
+
+                <!-- ============ RIGHT: the idea that stuck ============ -->
+                <text x="560" y="196" class="annot" font-size="24" fill="#15605a">the idea that stuck</text>
+                <g filter="url(#pl-rough)">
+                  <!-- clean card -->
+                  <rect x="540" y="214" width="300" height="360" rx="14" class="px"/>
+                  <text x="690" y="252" text-anchor="middle" class="h ink" font-size="22">this week, in one line</text>
+                  <line x1="566" y1="266" x2="814" y2="266" class="pencil-soft"/>
+
+                  <!-- Signal box -->
+                  <rect x="588" y="292" width="204" height="56" rx="10" class="px-l"/>
+                  <text x="690" y="318" text-anchor="middle" class="h" font-size="22" fill="#c44569">Signal</text>
+                  <text x="690" y="338" text-anchor="middle" class="b ghost" font-size="11">what the world just did</text>
+                  <!-- arrow down -->
+                  <path class="pencil" stroke-width="3" d="M690 354 L 690 380"/>
+                  <polygon points="690,384 682,372 698,372" fill="#2d2620"/>
+
+                  <!-- Meaning box -->
+                  <rect x="588" y="388" width="204" height="56" rx="10" class="px-l"/>
+                  <text x="690" y="414" text-anchor="middle" class="h" font-size="22" fill="#15605a">Meaning</text>
+                  <text x="690" y="434" text-anchor="middle" class="b ghost" font-size="11">why it matters to us</text>
+                  <!-- arrow down -->
+                  <path class="pencil" stroke-width="3" d="M690 450 L 690 476"/>
+                  <polygon points="690,480 682,468 698,468" fill="#2d2620"/>
+
+                  <!-- Product question box -->
+                  <rect x="572" y="484" width="236" height="62" rx="10" class="px" fill="#e7e1fb"/>
+                  <text x="690" y="512" text-anchor="middle" class="h" font-size="22" fill="#5a4ec7">Product question</text>
+                  <text x="690" y="532" text-anchor="middle" class="b ghost" font-size="11">what should we do about it?</text>
+                </g>
+
+                <!-- margin note: one signal -->
+                <g transform="translate(560 612)">
+                  <text class="annot" font-size="24" fill="#15605a">one signal.</text>
+                  <text class="annot" font-size="24" fill="#15605a" y="28">one question.</text>
+                  <text class="b ink" font-size="14" y="54">that's the whole idea.</text>
+                  <path class="annot-line" stroke="#15605a" d="M 150 -8 Q 200 -34 236 -52"/>
+                  <polygon points="238,-54 228,-54 234,-44" fill="#15605a"/>
+                </g>
+
+                <!-- footer line -->
+                <text x="40" y="1006" class="b ghost" font-size="12">Pulse · early sketch · from terminal to one question</text>
+                <text x="840" y="1006" text-anchor="end" class="b ghost" font-size="12">sketch · pulse 01</text>
+              </svg>
             </a>
             <figcaption>
               the detour, in pencil: a dense dashboard, crossed out — then signal →
@@ -217,6 +693,337 @@
             </figcaption>
           </figure>
         </div>
+
+        <p class="sketches-note pencil-note">
+          <span class="caret">↳</span> and here's how that one idea actually lays out
+          on the page — the boxes, the lenses, the chain.
+        </p>
+
+        <div class="ideas-sketches sketches-grid sketches-featured">
+          <figure class="idea-sketch">
+            <a href="pulse.html" aria-label="The signal-to-question section, laid out">
+              <svg id="svg-pulse-signal-to-question" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pulse sketch: the 'from signal to product question' section drawn as a page-layout wireframe — category and signal pills, the explorer card with its left read column and right data column, and the five-step chain that ends on the product question. Structural placeholders only, no live numbers.">
+                <defs>
+                  <pattern id="psq-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+                    <rect width="8" height="8" fill="#f7f1e2"/>
+                    <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+                    <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+                  </pattern>
+                  <style>
+                    #svg-pulse-signal-to-question .h { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+                    #svg-pulse-signal-to-question .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+                    #svg-pulse-signal-to-question .b { font-family: 'Inter','Segoe UI',sans-serif; }
+                    #svg-pulse-signal-to-question .ink { fill: #2d2620; }
+                    #svg-pulse-signal-to-question .ghost { fill: #6b6356; }
+                    #svg-pulse-signal-to-question .px { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+                    #svg-pulse-signal-to-question .px-l { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-pulse-signal-to-question .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-pulse-signal-to-question .chip { fill: #fff3d6; stroke: #c9a44e; stroke-width: 1.4; }
+                    #svg-pulse-signal-to-question .chip-on { fill: #ebe6fc; stroke: #6b5fd6; stroke-width: 2; }
+                    #svg-pulse-signal-to-question .sticky { fill: #fde7a3; stroke: #d9b54e; stroke-width: 1.4; }
+                  </style>
+                </defs>
+
+                <rect width="880" height="1040" fill="url(#psq-paper)"/>
+
+                <!-- Title / masthead -->
+                <text x="40" y="56" class="h ink" font-size="34">Pulse · from signal to product question</text>
+                <text x="40" y="84" class="b ghost" font-size="16">v0.3 wireframe · the real section layout — boxes, pills, the explorer card, the chain</text>
+                <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+                <!-- ============ SECTION HEAD ============ -->
+                <g transform="translate(150 124)">
+                  <text x="0" y="14" class="b ghost" font-size="12" font-weight="700" letter-spacing="0.5">THE CHAIN · ONE SIGNAL AT A TIME</text>
+                  <text x="0" y="48" class="h ink" font-size="26">From signal to product question</text>
+                  <text x="0" y="74" class="b ghost" font-size="13">one section lead line — what this part of the page is for</text>
+                </g>
+
+                <!-- ============ PICKER PILLS ============ -->
+                <!-- Category pills -->
+                <g transform="translate(150 214)">
+                  <text x="0" y="20" class="b ghost" font-size="12" font-weight="700">Category</text>
+                  <rect x="76" y="0" width="118" height="30" rx="15" class="chip-on"/>
+                  <text x="135" y="20" text-anchor="middle" class="b ink" font-size="12" font-weight="700">[ all signals ]</text>
+                  <rect x="204" y="0" width="120" height="30" rx="15" class="chip"/>
+                  <text x="264" y="20" text-anchor="middle" class="b ghost" font-size="12">[ category ]</text>
+                  <rect x="334" y="0" width="120" height="30" rx="15" class="chip"/>
+                  <text x="394" y="20" text-anchor="middle" class="b ghost" font-size="12">[ category ]</text>
+                  <rect x="464" y="0" width="120" height="30" rx="15" class="chip"/>
+                  <text x="524" y="20" text-anchor="middle" class="b ghost" font-size="12">[ category ]</text>
+                </g>
+                <!-- Signal pills (within active category) -->
+                <g transform="translate(150 254)">
+                  <text x="0" y="20" class="b ghost" font-size="12" font-weight="700">Signal</text>
+                  <rect x="76" y="0" width="104" height="28" rx="14" class="chip-on"/>
+                  <text x="128" y="19" text-anchor="middle" class="b ink" font-size="11" font-weight="700">[ signal ]</text>
+                  <rect x="190" y="0" width="104" height="28" rx="14" class="chip"/>
+                  <text x="242" y="19" text-anchor="middle" class="b ghost" font-size="11">[ signal ]</text>
+                  <rect x="304" y="0" width="104" height="28" rx="14" class="chip"/>
+                  <text x="356" y="19" text-anchor="middle" class="b ghost" font-size="11">[ signal ]</text>
+                  <rect x="418" y="0" width="104" height="28" rx="14" class="chip"/>
+                  <text x="470" y="19" text-anchor="middle" class="b ghost" font-size="11">[ signal ]</text>
+                  <rect x="532" y="0" width="52" height="28" rx="14" class="chip"/>
+                  <text x="558" y="19" text-anchor="middle" class="b ghost" font-size="11">···</text>
+                </g>
+
+                <!-- ============ THE EXPLORER CARD ============ -->
+                <g transform="translate(150 308)">
+                  <!-- card frame -->
+                  <path class="px" d="M 8 8 Q 0 0 26 0 L 554 0 Q 580 0 580 26 L 580 408 Q 580 434 554 434 L 26 434 Q 0 434 0 408 L 0 26 Q 0 8 8 8 Z" fill="#fffdf6"/>
+
+                  <!-- card head: left read column -->
+                  <text x="26" y="40" class="b ghost" font-size="11" font-weight="700" letter-spacing="0.5">[ CATEGORY ]</text>
+                  <text x="26" y="70" class="h ink" font-size="24">[ signal name ]</text>
+                  <text x="26" y="98" class="b ink" font-size="13">[ one-line plain-English summary of the signal — </text>
+                  <text x="26" y="116" class="b ink" font-size="13">what it is, in a sentence ]</text>
+
+                  <!-- card head: right data column -->
+                  <!-- status + confidence pills -->
+                  <rect x="384" y="22" width="80" height="26" rx="13" class="chip"/>
+                  <text x="424" y="39" text-anchor="middle" class="b ink" font-size="11" font-weight="600">[ status ]</text>
+                  <rect x="472" y="22" width="86" height="26" rx="13" class="px-l" fill="#fdfaf0"/>
+                  <text x="515" y="39" text-anchor="middle" class="b ghost" font-size="10">[ confidence ]</text>
+                  <!-- current value -->
+                  <text x="558" y="78" text-anchor="end" class="h ink" font-size="30">[ value ]</text>
+                  <text x="558" y="98" text-anchor="end" class="b ghost" font-size="11">[ unit ]</text>
+                  <!-- sparkline (direction only, no values) -->
+                  <g transform="translate(414 110)">
+                    <path class="px-l" d="M0 30 L 24 24 L 48 27 L 72 17 L 96 20 L 120 6" stroke="#6b5fd6" stroke-width="2.2"/>
+                    <circle cx="120" cy="6" r="4" fill="#6b5fd6"/>
+                    <text x="144" y="46" text-anchor="end" class="b ghost" font-size="10">12-month trend</text>
+                  </g>
+
+                  <!-- divider under head -->
+                  <line x1="26" y1="138" x2="554" y2="138" class="px-l"/>
+
+                  <!-- THE CHAIN (5 steps) -->
+                  <!-- step 01 -->
+                  <g transform="translate(26 156)">
+                    <text x="0" y="14" class="h ink" font-size="18">01</text>
+                    <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">SIGNAL</text>
+                    <text x="34" y="24" class="b ink" font-size="12">[ what moved, named — not the raw number ]</text>
+                    <text x="498" y="20" class="b ghost" font-size="13">＋</text>
+                  </g>
+                  <line x1="26" y1="190" x2="554" y2="190" class="px-l" opacity="0.5"/>
+                  <!-- step 02 -->
+                  <g transform="translate(26 204)">
+                    <text x="0" y="14" class="h ink" font-size="18">02</text>
+                    <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">MEANING</text>
+                    <text x="34" y="24" class="b ink" font-size="12">[ the same move, in plain words ]</text>
+                    <text x="498" y="20" class="b ghost" font-size="13">＋</text>
+                  </g>
+                  <line x1="26" y1="238" x2="554" y2="238" class="px-l" opacity="0.5"/>
+                  <!-- step 03 -->
+                  <g transform="translate(26 252)">
+                    <text x="0" y="14" class="h ink" font-size="18">03</text>
+                    <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">PRODUCT IMPACT</text>
+                    <text x="34" y="24" class="b ink" font-size="12">[ where this touches a product team ]</text>
+                    <text x="498" y="20" class="b ghost" font-size="13">＋</text>
+                  </g>
+                  <line x1="26" y1="286" x2="554" y2="286" class="px-l" opacity="0.5"/>
+                  <!-- step 04 -->
+                  <g transform="translate(26 300)">
+                    <text x="0" y="14" class="h ink" font-size="18">04</text>
+                    <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">EXAMPLE</text>
+                    <text x="34" y="24" class="b ink" font-size="12">[ a concrete, Monday-morning situation ]</text>
+                    <text x="498" y="20" class="b ghost" font-size="13">＋</text>
+                  </g>
+                  <line x1="26" y1="334" x2="554" y2="334" class="px-l" opacity="0.5"/>
+                  <!-- step 05 — pre-opened PM question -->
+                  <g transform="translate(26 348)">
+                    <rect x="-8" y="-8" width="546" height="74" rx="10" fill="#ebe6fc" stroke="#6b5fd6" stroke-width="1.6"/>
+                    <text x="0" y="14" class="h ink" font-size="18">05</text>
+                    <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">PM QUESTION</text>
+                    <text x="34" y="28" class="h ink" font-size="17">[ the one question this signal asks you to sit with ]</text>
+                    <text x="34" y="50" class="b ghost" font-size="11">— pre-opened · the others say “＋ tap to expand”</text>
+                  </g>
+                </g>
+
+                <!-- WHY I THINK THIS drawer (collapsed) -->
+                <g transform="translate(150 762)">
+                  <rect x="0" y="0" width="580" height="44" rx="10" class="px-l" fill="#fffdf6"/>
+                  <text x="20" y="28" class="b ink" font-size="13" font-weight="600">▸  Why I think this</text>
+                  <text x="566" y="28" text-anchor="end" class="b ghost" font-size="11">evidence · counter-signal · product takeaway</text>
+                </g>
+
+                <!-- source footnote -->
+                <g transform="translate(150 820)">
+                  <text x="0" y="14" class="b ghost" font-size="11">source · tier · last updated — [ structural footnote ]</text>
+                </g>
+
+                <!-- ============ MARGIN ANNOTATIONS ============ -->
+                <g transform="translate(40 230)">
+                  <text class="annot" font-size="22" x="0" y="0">pick a</text>
+                  <text class="annot" font-size="22" x="0" y="26">signal</text>
+                  <path class="annot-line" d="M 64 18 Q 92 24 108 30"/>
+                  <polygon points="110,30 100,28 104,38" fill="#c44569"/>
+                </g>
+
+                <g transform="translate(36 372)">
+                  <text class="annot" font-size="21" x="0" y="0">read on</text>
+                  <text class="annot" font-size="21" x="0" y="25">the left,</text>
+                  <text class="annot" font-size="21" x="0" y="50">numbers</text>
+                  <text class="annot" font-size="21" x="0" y="75">right</text>
+                  <text class="b ink" font-size="12" x="0" y="101">summary one side,</text>
+                  <text class="b ink" font-size="12" x="0" y="116">data the other.</text>
+                  <path class="annot-line" d="M 80 44 Q 104 50 116 58"/>
+                  <polygon points="118,58 108,56 110,66" fill="#c44569"/>
+                </g>
+
+                <!-- sticky note pointing at step 05 -->
+                <g transform="translate(742 668)">
+                  <rect x="0" y="0" width="120" height="116" class="sticky" transform="rotate(3)"/>
+                  <g transform="rotate(3)">
+                    <text x="12" y="26" class="h" font-size="19" fill="#3a3128">it ends on a</text>
+                    <text x="12" y="46" class="h" font-size="19" fill="#3a3128">question.</text>
+                    <text x="12" y="70" class="b" font-size="11" fill="#3a3128">the last step is</text>
+                    <text x="12" y="85" class="b" font-size="11" fill="#3a3128">already open —</text>
+                    <text x="12" y="100" class="b" font-size="11" fill="#3a3128">a question, not</text>
+                    <text x="12" y="115" class="b" font-size="11" fill="#3a3128">a verdict.</text>
+                  </g>
+                  <path class="annot-line" d="M -8 30 Q -38 22 -64 14"/>
+                  <polygon points="-66,14 -56,12 -58,22" fill="#c44569"/>
+                </g>
+
+                <!-- Footer -->
+                <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+                <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">sketch · pulse 03</text>
+              </svg>
+            </a>
+            <figcaption>the real section, in pencil: pick a signal, read it on the left, the data on the right, and the five-step chain that ends on a product question.</figcaption>
+          </figure>
+          <figure class="idea-sketch">
+            <a href="pulse.html" aria-label="One thought, read through four lenses">
+              <svg id="svg-pulse-lens-thinking-flow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pulse sketch: one through-line up top, four lens tabs to read it through, evidence chips, and the one product question each lens lands on. No live numbers.">
+                <defs>
+                  <pattern id="plt-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+                    <rect width="8" height="8" fill="#f7f1e2"/>
+                    <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+                    <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+                  </pattern>
+                  <filter id="plt-rough" x="-5%" y="-5%" width="110%" height="110%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11"/>
+                    <feDisplacementMap in="SourceGraphic" scale="1.3"/>
+                  </filter>
+                  <style>
+                    #svg-pulse-lens-thinking-flow .h { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+                    #svg-pulse-lens-thinking-flow .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+                    #svg-pulse-lens-thinking-flow .b { font-family: 'Inter','Segoe UI',sans-serif; }
+                    #svg-pulse-lens-thinking-flow .ink { fill: #2d2620; }
+                    #svg-pulse-lens-thinking-flow .ghost { fill: #6b6356; }
+                    #svg-pulse-lens-thinking-flow .px { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+                    #svg-pulse-lens-thinking-flow .px-l { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-pulse-lens-thinking-flow .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+                    #svg-pulse-lens-thinking-flow .sticky { fill: #b9e4dc; stroke: #6fb8ad; stroke-width: 1.4; }
+                    #svg-pulse-lens-thinking-flow .chip { fill: #fff3d6; stroke: #c9a44e; stroke-width: 1.3; }
+                  </style>
+                </defs>
+
+                <rect width="880" height="1040" fill="url(#plt-paper)"/>
+
+                <!-- Title -->
+                <text x="40" y="56" class="h ink" font-size="34">Pulse · one thought, four lenses</text>
+                <text x="40" y="84" class="b ghost" font-size="16">v0.2 sketch · structural layout only — real wording is generated from current data, not drawn here</text>
+                <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+                <!-- THROUGH-LINE -->
+                <g transform="translate(120 124)">
+                  <path class="px" d="M 6 6 Q 0 0 24 0 L 616 0 Q 640 0 640 24 L 640 120 Q 640 144 616 144 L 24 144 Q 0 144 0 120 L 0 24 Q 0 6 6 6 Z" fill="#fffdf6"/>
+                  <rect x="0" y="0" width="640" height="8" rx="4" fill="#15605a"/>
+                  <text x="28" y="44" class="b ghost" font-size="13" font-weight="700">THIS WEEK'S THROUGH-LINE</text>
+                  <text x="28" y="84" class="h ink" font-size="30">[ the one sentence the week is really about ]</text>
+                  <text x="28" y="118" class="b ghost" font-size="14">one plain-English idea — the single sentence the rest of the page reads through.</text>
+                </g>
+
+                <!-- LENS TABS -->
+                <g transform="translate(120 296)">
+                  <text x="0" y="-8" class="b ghost" font-size="13" font-weight="700">READ IT THROUGH ONE LENS</text>
+                  <!-- active tab: Build -->
+                  <rect x="0" y="6" width="150" height="46" rx="10" class="px-l" fill="#ebe6fc" stroke="#6b5fd6" stroke-width="2"/>
+                  <text x="75" y="35" text-anchor="middle" class="b ink" font-size="14" font-weight="700">Build Decisions</text>
+                  <rect x="0" y="48" width="150" height="4" fill="#6b5fd6"/>
+                  <!-- Customer -->
+                  <rect x="162" y="6" width="156" height="46" rx="10" class="px-l" fill="#fdfaf0"/>
+                  <text x="240" y="35" text-anchor="middle" class="b ghost" font-size="14">Customer Behavior</text>
+                  <!-- Business -->
+                  <rect x="330" y="6" width="150" height="46" rx="10" class="px-l" fill="#fdfaf0"/>
+                  <text x="405" y="35" text-anchor="middle" class="b ghost" font-size="14">Business Reality</text>
+                  <!-- Future -->
+                  <rect x="492" y="6" width="148" height="46" rx="10" class="px-l" fill="#fdfaf0"/>
+                  <text x="566" y="35" text-anchor="middle" class="b ghost" font-size="14">Future Signals</text>
+                </g>
+
+                <!-- ACTIVE LENS PANEL -->
+                <g transform="translate(120 372)">
+                  <path class="px" d="M 6 6 Q 0 0 24 0 L 616 0 Q 640 0 640 24 L 640 388 Q 640 412 616 412 L 24 412 Q 0 412 0 388 L 0 24 Q 0 6 6 6 Z" fill="#fffdf6"/>
+
+                  <text x="28" y="44" class="b ghost" font-size="12" font-weight="700">THE PATTERN</text>
+                  <text x="28" y="74" class="b ink" font-size="15">[ what this lens notices in plain language — two</text>
+                  <text x="28" y="96" class="b ink" font-size="15">signals moving in a way most people aren't holding</text>
+                  <text x="28" y="118" class="b ink" font-size="15">in their head at the same time. ]</text>
+
+                  <!-- evidence chips -->
+                  <text x="28" y="158" class="b ghost" font-size="12" font-weight="700">THE EVIDENCE</text>
+                  <rect x="28" y="170" width="170" height="38" rx="19" class="chip"/>
+                  <text x="113" y="194" text-anchor="middle" class="b ink" font-size="13" font-weight="600">[ signal A ]</text>
+                  <rect x="212" y="170" width="170" height="38" rx="19" class="chip"/>
+                  <text x="297" y="194" text-anchor="middle" class="b ink" font-size="13" font-weight="600">[ signal B ]</text>
+                  <text x="398" y="194" class="b ghost" font-size="13">named, never a raw number</text>
+
+                  <!-- for-example bridge -->
+                  <text x="28" y="250" class="b ghost" font-size="12" font-weight="700">FOR EXAMPLE</text>
+                  <text x="28" y="278" class="b ink" font-size="15">[ a Monday-morning product situation that makes the</text>
+                  <text x="28" y="300" class="b ink" font-size="15">pattern concrete — no chips, just the translation. ]</text>
+
+                  <!-- the question -->
+                  <g transform="translate(28 326)">
+                    <path class="px-l" d="M 4 4 Q 0 0 14 0 L 580 0 Q 584 0 584 14 L 584 60 Q 584 74 570 74 L 14 74 Q 0 74 0 60 L 0 14 Q 0 4 4 4 Z" fill="#ebe6fc"/>
+                    <text x="20" y="30" class="b ghost" font-size="12" font-weight="700">THE PRODUCT QUESTION</text>
+                    <text x="20" y="58" class="h ink" font-size="24">[ the one question this lens asks you to sit with ]</text>
+                  </g>
+                </g>
+
+                <!-- ============ MARGIN ANNOTATIONS ============ -->
+                <g transform="translate(40 200)">
+                  <text class="annot" font-size="22" x="0" y="0">start with the</text>
+                  <text class="annot" font-size="22" x="0" y="26">thought, not the</text>
+                  <text class="annot" font-size="22" x="0" y="52">numbers</text>
+                  <path class="annot-line" d="M 90 30 Q 105 50 78 70"/>
+                  <polygon points="78,72 76,62 86,66" fill="#c44569"/>
+                </g>
+
+                <g transform="translate(724 372)">
+                  <rect x="0" y="0" width="152" height="110" class="sticky" transform="rotate(3)"/>
+                  <g transform="rotate(3)">
+                    <text x="14" y="28" class="h" font-size="20" fill="#155">same week,</text>
+                    <text x="14" y="48" class="h" font-size="20" fill="#155">four angles.</text>
+                    <text x="14" y="70" class="b" font-size="12" fill="#3a3128">one tab is active.</text>
+                    <text x="14" y="86" class="b" font-size="12" fill="#3a3128">the other three wait —</text>
+                    <text x="14" y="102" class="b" font-size="12" fill="#3a3128">never all at once.</text>
+                  </g>
+                  <path class="annot-line" d="M -8 16 Q -36 -2 -68 -28"/>
+                  <polygon points="-70,-30 -60,-30 -64,-22" fill="#c44569"/>
+                </g>
+
+                <g transform="translate(700 600)">
+                  <text class="annot" font-size="22" x="0" y="0">it lands on a</text>
+                  <text class="annot" font-size="22" x="0" y="26">question, not a</text>
+                  <text class="annot" font-size="22" x="0" y="52">verdict</text>
+                  <text class="b ink" font-size="13" x="0" y="76">a thinking tool, not an</text>
+                  <text class="b ink" font-size="13" x="0" y="92">oracle. Pulse never tells</text>
+                  <text class="b ink" font-size="13" x="0" y="108">you what to do.</text>
+                  <path class="annot-line" d="M -10 40 Q -60 60 -120 80"/>
+                  <polygon points="-122,80 -114,76 -114,84" fill="#c44569"/>
+                </g>
+
+                <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+                <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">sketch · pulse 02</text>
+              </svg>
+            </a>
+            <figcaption>the weekly read: one through-line up top, four lenses to look through it, and the one question each lens leaves you with.</figcaption>
+          </figure>
+        </div>
+        <!-- BUILD:PULSE:END -->
 
         <p class="sketches-note pencil-note">
           <span class="caret">↳</span> the question that survived: not "what's the

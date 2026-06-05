@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1040" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Pulse sketch: the 'from signal to product question' section drawn as a page-layout wireframe — category and signal pills, the explorer card with its left read column and right data column, and the five-step chain that ends on the product question. Structural placeholders only, no live numbers.">
+  <defs>
+    <pattern id="psq-paper" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#f7f1e2"/>
+      <circle cx="1.5" cy="1.5" r="0.4" fill="#d6cdb6" opacity="0.45"/>
+      <circle cx="5.5" cy="4.5" r="0.3" fill="#cfc4ab" opacity="0.35"/>
+    </pattern>
+    <style>
+      .h     { font-family: 'Caveat','Kalam',cursive; font-weight: 700; }
+      .annot { font-family: 'Caveat','Kalam',cursive; font-weight: 700; fill: #c44569; }
+      .b     { font-family: 'Inter','Segoe UI',sans-serif; }
+      .ink   { fill: #2d2620; }
+      .ghost { fill: #6b6356; }
+      .px    { fill: #fdfaf0; stroke: #2d2620; stroke-width: 2; stroke-linejoin: round; }
+      .px-l  { fill: none; stroke: #2d2620; stroke-width: 1.6; stroke-linecap: round; }
+      .annot-line { fill: none; stroke: #c44569; stroke-width: 1.6; stroke-linecap: round; }
+      .chip  { fill: #fff3d6; stroke: #c9a44e; stroke-width: 1.4; }
+      .chip-on { fill: #ebe6fc; stroke: #6b5fd6; stroke-width: 2; }
+      .sticky { fill: #fde7a3; stroke: #d9b54e; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect width="880" height="1040" fill="url(#psq-paper)"/>
+
+  <!-- Title / masthead -->
+  <text x="40" y="56" class="h ink" font-size="34">Pulse · from signal to product question</text>
+  <text x="40" y="84" class="b ghost" font-size="16">v0.3 wireframe · the real section layout — boxes, pills, the explorer card, the chain</text>
+  <path class="px-l" d="M40 96 Q 440 100 840 96"/>
+
+  <!-- ============ SECTION HEAD ============ -->
+  <g transform="translate(150 124)">
+    <text x="0" y="14" class="b ghost" font-size="12" font-weight="700" letter-spacing="0.5">THE CHAIN · ONE SIGNAL AT A TIME</text>
+    <text x="0" y="48" class="h ink" font-size="26">From signal to product question</text>
+    <text x="0" y="74" class="b ghost" font-size="13">one section lead line — what this part of the page is for</text>
+  </g>
+
+  <!-- ============ PICKER PILLS ============ -->
+  <!-- Category pills -->
+  <g transform="translate(150 214)">
+    <text x="0" y="20" class="b ghost" font-size="12" font-weight="700">Category</text>
+    <rect x="76" y="0" width="118" height="30" rx="15" class="chip-on"/>
+    <text x="135" y="20" text-anchor="middle" class="b ink" font-size="12" font-weight="700">[ all signals ]</text>
+    <rect x="204" y="0" width="120" height="30" rx="15" class="chip"/>
+    <text x="264" y="20" text-anchor="middle" class="b ghost" font-size="12">[ category ]</text>
+    <rect x="334" y="0" width="120" height="30" rx="15" class="chip"/>
+    <text x="394" y="20" text-anchor="middle" class="b ghost" font-size="12">[ category ]</text>
+    <rect x="464" y="0" width="120" height="30" rx="15" class="chip"/>
+    <text x="524" y="20" text-anchor="middle" class="b ghost" font-size="12">[ category ]</text>
+  </g>
+  <!-- Signal pills (within active category) -->
+  <g transform="translate(150 254)">
+    <text x="0" y="20" class="b ghost" font-size="12" font-weight="700">Signal</text>
+    <rect x="76" y="0" width="104" height="28" rx="14" class="chip-on"/>
+    <text x="128" y="19" text-anchor="middle" class="b ink" font-size="11" font-weight="700">[ signal ]</text>
+    <rect x="190" y="0" width="104" height="28" rx="14" class="chip"/>
+    <text x="242" y="19" text-anchor="middle" class="b ghost" font-size="11">[ signal ]</text>
+    <rect x="304" y="0" width="104" height="28" rx="14" class="chip"/>
+    <text x="356" y="19" text-anchor="middle" class="b ghost" font-size="11">[ signal ]</text>
+    <rect x="418" y="0" width="104" height="28" rx="14" class="chip"/>
+    <text x="470" y="19" text-anchor="middle" class="b ghost" font-size="11">[ signal ]</text>
+    <rect x="532" y="0" width="52" height="28" rx="14" class="chip"/>
+    <text x="558" y="19" text-anchor="middle" class="b ghost" font-size="11">···</text>
+  </g>
+
+  <!-- ============ THE EXPLORER CARD ============ -->
+  <g transform="translate(150 308)">
+    <!-- card frame -->
+    <path class="px" d="M 8 8 Q 0 0 26 0 L 554 0 Q 580 0 580 26 L 580 408 Q 580 434 554 434 L 26 434 Q 0 434 0 408 L 0 26 Q 0 8 8 8 Z" fill="#fffdf6"/>
+
+    <!-- card head: left read column -->
+    <text x="26" y="40" class="b ghost" font-size="11" font-weight="700" letter-spacing="0.5">[ CATEGORY ]</text>
+    <text x="26" y="70" class="h ink" font-size="24">[ signal name ]</text>
+    <text x="26" y="98" class="b ink" font-size="13">[ one-line plain-English summary of the signal — </text>
+    <text x="26" y="116" class="b ink" font-size="13">what it is, in a sentence ]</text>
+
+    <!-- card head: right data column -->
+    <!-- status + confidence pills -->
+    <rect x="384" y="22" width="80" height="26" rx="13" class="chip"/>
+    <text x="424" y="39" text-anchor="middle" class="b ink" font-size="11" font-weight="600">[ status ]</text>
+    <rect x="472" y="22" width="86" height="26" rx="13" class="px-l" fill="#fdfaf0"/>
+    <text x="515" y="39" text-anchor="middle" class="b ghost" font-size="10">[ confidence ]</text>
+    <!-- current value -->
+    <text x="558" y="78" text-anchor="end" class="h ink" font-size="30">[ value ]</text>
+    <text x="558" y="98" text-anchor="end" class="b ghost" font-size="11">[ unit ]</text>
+    <!-- sparkline (direction only, no values) -->
+    <g transform="translate(414 110)">
+      <path class="px-l" d="M0 30 L 24 24 L 48 27 L 72 17 L 96 20 L 120 6" stroke="#6b5fd6" stroke-width="2.2"/>
+      <circle cx="120" cy="6" r="4" fill="#6b5fd6"/>
+      <text x="144" y="46" text-anchor="end" class="b ghost" font-size="10">12-month trend</text>
+    </g>
+
+    <!-- divider under head -->
+    <line x1="26" y1="138" x2="554" y2="138" class="px-l"/>
+
+    <!-- THE CHAIN (5 steps) -->
+    <!-- step 01 -->
+    <g transform="translate(26 156)">
+      <text x="0" y="14" class="h ink" font-size="18">01</text>
+      <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">SIGNAL</text>
+      <text x="34" y="24" class="b ink" font-size="12">[ what moved, named — not the raw number ]</text>
+      <text x="498" y="20" class="b ghost" font-size="13">＋</text>
+    </g>
+    <line x1="26" y1="190" x2="554" y2="190" class="px-l" opacity="0.5"/>
+    <!-- step 02 -->
+    <g transform="translate(26 204)">
+      <text x="0" y="14" class="h ink" font-size="18">02</text>
+      <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">MEANING</text>
+      <text x="34" y="24" class="b ink" font-size="12">[ the same move, in plain words ]</text>
+      <text x="498" y="20" class="b ghost" font-size="13">＋</text>
+    </g>
+    <line x1="26" y1="238" x2="554" y2="238" class="px-l" opacity="0.5"/>
+    <!-- step 03 -->
+    <g transform="translate(26 252)">
+      <text x="0" y="14" class="h ink" font-size="18">03</text>
+      <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">PRODUCT IMPACT</text>
+      <text x="34" y="24" class="b ink" font-size="12">[ where this touches a product team ]</text>
+      <text x="498" y="20" class="b ghost" font-size="13">＋</text>
+    </g>
+    <line x1="26" y1="286" x2="554" y2="286" class="px-l" opacity="0.5"/>
+    <!-- step 04 -->
+    <g transform="translate(26 300)">
+      <text x="0" y="14" class="h ink" font-size="18">04</text>
+      <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">EXAMPLE</text>
+      <text x="34" y="24" class="b ink" font-size="12">[ a concrete, Monday-morning situation ]</text>
+      <text x="498" y="20" class="b ghost" font-size="13">＋</text>
+    </g>
+    <line x1="26" y1="334" x2="554" y2="334" class="px-l" opacity="0.5"/>
+    <!-- step 05 — pre-opened PM question -->
+    <g transform="translate(26 348)">
+      <rect x="-8" y="-8" width="546" height="74" rx="10" fill="#ebe6fc" stroke="#6b5fd6" stroke-width="1.6"/>
+      <text x="0" y="14" class="h ink" font-size="18">05</text>
+      <text x="34" y="6" class="b ghost" font-size="11" font-weight="700">PM QUESTION</text>
+      <text x="34" y="28" class="h ink" font-size="17">[ the one question this signal asks you to sit with ]</text>
+      <text x="34" y="50" class="b ghost" font-size="11">— pre-opened · the others say “＋ tap to expand”</text>
+    </g>
+  </g>
+
+  <!-- WHY I THINK THIS drawer (collapsed) -->
+  <g transform="translate(150 762)">
+    <rect x="0" y="0" width="580" height="44" rx="10" class="px-l" fill="#fffdf6"/>
+    <text x="20" y="28" class="b ink" font-size="13" font-weight="600">▸  Why I think this</text>
+    <text x="566" y="28" text-anchor="end" class="b ghost" font-size="11">evidence · counter-signal · product takeaway</text>
+  </g>
+
+  <!-- source footnote -->
+  <g transform="translate(150 820)">
+    <text x="0" y="14" class="b ghost" font-size="11">source · tier · last updated — [ structural footnote ]</text>
+  </g>
+
+  <!-- ============ MARGIN ANNOTATIONS ============ -->
+  <g transform="translate(40 230)">
+    <text class="annot" font-size="22" x="0" y="0">pick a</text>
+    <text class="annot" font-size="22" x="0" y="26">signal</text>
+    <path class="annot-line" d="M 64 18 Q 92 24 108 30"/>
+    <polygon points="110,30 100,28 104,38" fill="#c44569"/>
+  </g>
+
+  <g transform="translate(36 372)">
+    <text class="annot" font-size="21" x="0" y="0">read on</text>
+    <text class="annot" font-size="21" x="0" y="25">the left,</text>
+    <text class="annot" font-size="21" x="0" y="50">numbers</text>
+    <text class="annot" font-size="21" x="0" y="75">right</text>
+    <text class="b ink" font-size="12" x="0" y="101">summary one side,</text>
+    <text class="b ink" font-size="12" x="0" y="116">data the other.</text>
+    <path class="annot-line" d="M 80 44 Q 104 50 116 58"/>
+    <polygon points="118,58 108,56 110,66" fill="#c44569"/>
+  </g>
+
+  <!-- sticky note pointing at step 05 -->
+  <g transform="translate(742 668)">
+    <rect x="0" y="0" width="120" height="116" class="sticky" transform="rotate(3)"/>
+    <g transform="rotate(3)">
+      <text x="12" y="26" class="h" font-size="19" fill="#3a3128">it ends on a</text>
+      <text x="12" y="46" class="h" font-size="19" fill="#3a3128">question.</text>
+      <text x="12" y="70" class="b" font-size="11" fill="#3a3128">the last step is</text>
+      <text x="12" y="85" class="b" font-size="11" fill="#3a3128">already open —</text>
+      <text x="12" y="100" class="b" font-size="11" fill="#3a3128">a question, not</text>
+      <text x="12" y="115" class="b" font-size="11" fill="#3a3128">a verdict.</text>
+    </g>
+    <path class="annot-line" d="M -8 30 Q -38 22 -64 14"/>
+    <polygon points="-66,14 -56,12 -58,22" fill="#c44569"/>
+  </g>
+
+  <!-- Footer -->
+  <text x="40" y="1018" class="b ghost" font-size="12">ProductSnap · early wireframe iteration · sketch fidelity</text>
+  <text x="840" y="1018" text-anchor="end" class="b ghost" font-size="12">sketch · pulse 03</text>
+</svg>
