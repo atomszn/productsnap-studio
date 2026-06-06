@@ -68,7 +68,10 @@
       var p = els[i].parentNode || document.body;
       if (!byParent.has(p)) byParent.set(p, 0);
       var idx = byParent.get(p);
-      var delay = Math.min(idx * 70, 280); // 70ms apart, cap 280ms
+      // Motion identity: a more pronounced cadence so a group reads as a
+      // sequence you can follow (someone laying things down one at a time),
+      // not a single blur. 110ms apart, cap 440ms.
+      var delay = Math.min(idx * 110, 440);
       if (delay > 0) els[i].style.setProperty("--reveal-delay", delay + "ms");
       byParent.set(p, idx + 1);
     }
@@ -84,7 +87,11 @@
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      // Motion identity: a larger bottom margin (-120px) so an element only
+      // reveals once it is clearly in the viewport — the visitor watches it
+      // rise into place rather than finding it already settled. threshold
+      // 0.1 keeps very tall sections from waiting too long.
+      { threshold: 0.1, rootMargin: "0px 0px -120px 0px" }
     );
     for (var i = 0; i < els.length; i++) io.observe(els[i]);
     return io;
@@ -113,8 +120,11 @@
     for (var i = 0; i < els.length; i++) {
       // Don't override the sketch's CSS transition (it also animates transform).
       if (!els[i].classList.contains("idea-sketch")) {
+        // Motion identity: a slower, more deliberate settle (was .55s). .8s
+        // on the rise + a soft opacity fade reads as "arriving", and the
+        // ease-out curve makes it land gently rather than snap.
         els[i].style.transition =
-          "opacity .55s ease, translate .55s cubic-bezier(.2,.8,.2,1)";
+          "opacity .7s ease, translate .8s cubic-bezier(.2,.8,.2,1)";
         els[i].style.transitionDelay =
           els[i].style.getPropertyValue("--reveal-delay") || "0ms";
       }
