@@ -8,6 +8,17 @@
          The hidden start-state CSS requires BOTH classes, so if this check fails
          (or JS is off) content stays visible instead of being permanently hidden. */
       (function () {
+        /* No-flash theme: set data-theme on <html> BEFORE first paint, from
+           the saved choice, else the system color-scheme preference. */
+        try {
+          var t = localStorage.getItem('psnap-theme');
+          if (t !== 'dark' && t !== 'light') {
+            t = (window.matchMedia &&
+                 window.matchMedia('(prefers-color-scheme: dark)').matches)
+              ? 'dark' : 'light';
+          }
+          if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
         var c = ' js';
         try {
           var ok =
@@ -109,6 +120,20 @@
         <a href="notes.html" class="is-active" aria-current="page">Notes</a>
       </nav>
 
+      <button class="theme-toggle theme-toggle-desktop" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
+      <button class="theme-toggle theme-toggle-compact" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
       <!-- Mobile menu button (<=760px) -->
       <button class="nav-toggle" id="nav-toggle" type="button"
               aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
@@ -119,6 +144,12 @@
 
       <!-- Mobile nav panel (<=760px) -->
       <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <button class="theme-toggle theme-toggle-panel" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+          <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+          <span class="tt-label">Late Night Mode</span>
+        </button>
         <a href="index.html">Home</a>
         <a href="sketches.html">Sketches</a>
         <a href="app.html">App</a>
@@ -135,7 +166,7 @@
             <span class="kicker">Chapter 05 · the unfinished thinking</span>
             <h1 class="cs-headline">Notes from the <span class="hl-circle">edge of the map</span>.</h1>
             <p class="cs-lead">This is where the unfinished thinking will live.</p>
-            <p class="cs-lead">The ideas I'm still arguing with. The questions I haven't answered yet. Things AI has taught me. Things I changed my mind about. The book or podcast that pulled me somewhere I didn't expect.</p>
+            <p class="cs-lead">The ideas I'm still arguing with. The questions I haven't answered yet. Things AI has taught me. Things I changed my mind about. Ideas from books, podcasts, conversations, and rabbit holes that made me rethink something.</p>
             <p class="cs-lead">Short reflections on product, AI, macro, and building — written when there's something worth committing to paper, not on a schedule.</p>
             <p class="cs-note pencil-note"><span class="caret">↳</span> Coming when there's something real to say.</p>
             <p class="cs-loop">
@@ -175,6 +206,7 @@
     </footer>
 
     <script src="js/nav.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/reveal.js"></script>
   </body>
 </html>

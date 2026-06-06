@@ -8,6 +8,17 @@
          The hidden start-state CSS requires BOTH classes, so if this check fails
          (or JS is off) content stays visible instead of being permanently hidden. */
       (function () {
+        /* No-flash theme: set data-theme on <html> BEFORE first paint, from
+           the saved choice, else the system color-scheme preference. */
+        try {
+          var t = localStorage.getItem('psnap-theme');
+          if (t !== 'dark' && t !== 'light') {
+            t = (window.matchMedia &&
+                 window.matchMedia('(prefers-color-scheme: dark)').matches)
+              ? 'dark' : 'light';
+          }
+          if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
         var c = ' js';
         try {
           var ok =
@@ -32,7 +43,7 @@
     <meta property="og:title" content="The ProductSnap app — built solo, with AI, in 12 weeks" />
     <meta
       property="og:description"
-      content="A mobile learning app for product managers. In store review. Try a real flashcard right in the browser."
+      content="ProductSnap is a mobile learning app for product thinkers, live on the App Store and Google Play. Try a real flashcard right in the browser."
     />
     <meta property="og:site_name" content="ProductSnap Studio" />
     <meta property="og:url" content="https://productsnap.studio/app" />
@@ -124,6 +135,20 @@
         <a href="notes.html">Notes</a>
       </nav>
 
+      <button class="theme-toggle theme-toggle-desktop" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
+      <button class="theme-toggle theme-toggle-compact" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
       <!-- Mobile menu button (<=760px) -->
       <button class="nav-toggle" id="nav-toggle" type="button"
               aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
@@ -134,6 +159,12 @@
 
       <!-- Mobile nav panel (<=760px) -->
       <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <button class="theme-toggle theme-toggle-panel" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+          <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+          <span class="tt-label">Late Night Mode</span>
+        </button>
         <a href="index.html">Home</a>
         <a href="sketches.html">Sketches</a>
         <a href="app.html" class="is-active" aria-current="page">App</a>
@@ -202,14 +233,14 @@
                 Get it on Google Play
               </a>
               <p class="store-foot pencil-note">
-                <span class="caret">↳</span> Free. One PM still slightly amazed.
+                <span class="caret">↳</span> Free. No paywall, no catch.
               </p>
             </div>
           </div>
 
           <aside class="app-hero-right" aria-label="A handwritten note">
             <div class="app-hero-note" role="note">
-              <p class="ahn-text">Not a concept. A real app you can download right now.</p>
+              <p class="ahn-text">A real app you can download right now.</p>
               <p class="ahn-foot">— built solo · about twelve weeks · evenings &amp; weekends</p>
             </div>
           </aside>
@@ -602,6 +633,7 @@
     </div>
 
     <script src="js/nav.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/reveal.js"></script>
     <script src="js/app.js"></script>
   </body>

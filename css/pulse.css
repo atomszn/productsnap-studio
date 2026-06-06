@@ -20,7 +20,7 @@
 
 .pulse-teaser-card {
   position: relative;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius-lg);
   padding: clamp(28px, 4vw, 44px);
@@ -166,7 +166,7 @@
    ===================================================================== */
 .weekly-connection {
   position: relative;
-  background: linear-gradient(180deg, #fffbed 0%, #fff7df 100%);
+  background: linear-gradient(180deg, var(--card-2) 0%, var(--amber-soft) 100%);
   border: 1.8px solid var(--ink);
   border-radius: var(--radius-lg);
   padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 56px) clamp(24px, 3.5vw, 40px);
@@ -247,7 +247,7 @@
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 13px; font-weight: 500;
   padding: 5px 12px;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.2px solid var(--ink);
   border-radius: 999px;
   box-shadow: 2px 2px 0 var(--ink);
@@ -302,7 +302,7 @@
   font-family: var(--body); font-size: 12px; font-weight: 600;
   letter-spacing: 0.05em; text-transform: uppercase;
   padding: 3px 10px;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.2px solid var(--ink);
   border-radius: 999px;
   color: var(--ink-soft);
@@ -362,7 +362,7 @@
 .wch-item {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--body); font-size: 14.5px; color: var(--ink);
-  background: #fffdf6;
+  background: var(--card);
   border: 1.2px solid var(--ink);
   border-radius: 999px;
   padding: 5px 12px;
@@ -385,7 +385,7 @@
   font-style: italic;
 }
 .wch-row.wch-diff .wch-item {
-  background: #fffdf6;
+  background: var(--card);
 }
 .wch-row.wch-diff .wch-item .wch-note {
   color: var(--ink);
@@ -424,7 +424,7 @@
 
 .picker-pill {
   border: 1.5px solid var(--ink);
-  background: #fffdf6;
+  background: var(--card);
   border-radius: 999px;
   padding: 8px 16px 8px 14px;
   font-size: 14.5px; font-weight: 500;
@@ -448,7 +448,7 @@
    ===================================================================== */
 .pulse-explorer {
   position: relative;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius-lg);
   padding: clamp(28px, 4vw, 44px);
@@ -499,7 +499,7 @@
   padding: 5px 12px;
   border-radius: 999px;
   border: 1.2px solid var(--ink);
-  background: #fffaeb;
+  background: var(--card-soft);
   color: var(--ink);
   font-family: var(--body);
   letter-spacing: 0.02em;
@@ -523,7 +523,7 @@
 .status-pill.tone-lavender  { background: var(--note-lavender); }
 .status-pill.tone-lavender::before  { background: var(--purple); }
 
-.confidence-pill { background: #fffdf6; font-style: italic; }
+.confidence-pill { background: var(--card); font-style: italic; }
 .confidence-pill.high    { color: var(--ink); }
 .confidence-pill.medium  { color: var(--ink-soft); }
 .confidence-pill.low     { color: var(--ink-faded); }
@@ -621,7 +621,7 @@
   width: 14px; height: 14px;
   border-radius: 50%;
   background: var(--ink);
-  border: 1.5px solid #fffdf6;
+  border: 1.5px solid var(--card);
   transform: translate(-50%, -50%);
   box-shadow: 0 0 0 1.2px var(--ink);
 }
@@ -643,7 +643,7 @@
 }
 .chain-step {
   position: relative;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: 14px;
   padding: 14px 14px 18px;
@@ -766,7 +766,7 @@
 .why-drawer {
   border: 1.5px solid var(--ink);
   border-radius: 16px;
-  background: #fffdf6;
+  background: var(--card);
   margin: 0 0 20px;
   box-shadow: 3px 3px 0 var(--ink);
   overflow: hidden;
@@ -800,7 +800,7 @@
 .wb-chip {
   display: inline-block; font-size: 13px;
   padding: 4px 10px; border-radius: 999px;
-  background: #fffdf6; border: 1.2px solid var(--ink);
+  background: var(--card); border: 1.2px solid var(--ink);
   color: var(--ink);
 }
 .wb-reasoning { font-size: 15px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
@@ -828,7 +828,7 @@
   padding: 3px 10px;
   border-radius: 999px;
   border: 1.2px solid var(--ink);
-  background: #fffdf6;
+  background: var(--card);
   font-size: 12px; font-weight: 600;
   letter-spacing: 0.03em;
   color: var(--ink);
@@ -866,7 +866,7 @@
 }
 .category-card {
   position: relative;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 22px 22px 20px;
@@ -888,7 +888,7 @@
   transform: translate(-2px,-2px) rotate(0deg);
   box-shadow: 5px 5px 0 var(--ink), var(--shadow-1);
 }
-.category-card.is-active { background: #fffbe0; }
+.category-card.is-active { background: var(--card-2); }
 
 .cc-head {
   display: flex; align-items: baseline; gap: 10px;
@@ -1120,7 +1120,7 @@
   flex-shrink: 0;
   width: 36px; height: 36px;
   border-radius: 8px;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   display: flex; align-items: center; justify-content: center;
   color: var(--teal);
@@ -1176,7 +1176,7 @@
 }
 .modal-close {
   position: absolute; top: 12px; right: 14px;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: 50%;
   width: 34px; height: 34px;
@@ -1195,7 +1195,7 @@
 
 .tier-block {
   border: 1.5px solid var(--ink);
-  background: #fffdf6;
+  background: var(--card);
   border-radius: 14px;
   padding: 16px 18px;
   box-shadow: 2px 2px 0 var(--ink);
@@ -1685,7 +1685,7 @@
   transition: background .15s ease, border-color .15s ease, transform .12s ease;
 }
 .wch-item.wch-item-row:hover {
-  background: #fffdf6;
+  background: var(--card);
   border-color: rgba(43,37,28,0.32);
   transform: none;
   box-shadow: 2px 2px 0 var(--ink);
@@ -2096,7 +2096,7 @@
 }
 .chip-detail[hidden] { display: none; }
 .chip-detail-inner {
-  background: #fffdf6;
+  background: var(--card);
   border: 1.4px solid var(--ink);
   border-radius: 12px;
   box-shadow: 3px 3px 0 var(--ink);
@@ -2280,4 +2280,14 @@
   }
   .lens-tab, .explore-caret, .explore-signals { transition: none !important; }
   .explore-caret { animation: none !important; }
+}
+
+/* One-line statement of the Pulse model, sits under the through-line.
+   Handwritten + secondary so it reads as a margin note, not a headline. */
+.pt-model {
+  margin: 8px 0 0;
+  font-family: var(--hand);
+  font-size: clamp(17px, 4vw, 20px);
+  line-height: 1.35;
+  color: var(--ink-faded);
 }

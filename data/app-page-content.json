@@ -6,7 +6,7 @@
       "Live on the App Store and Google Play."
     ],
     "status_note": "Build 9 shipped to both stores. Still slightly amazed.",
-    "margin_note": "Not a concept. A real app, live on both stores right now.",
+    "margin_note": "A real app you can download right now.",
     "cta_primary": {
       "label": "Join the launch list",
       "href": "#launch-list"
@@ -15,7 +15,7 @@
       "label": "See how it was built",
       "href": "#how"
     },
-    "store_note": "Both stores. One phone. Live."
+    "store_note": "Free. Built solo, evenings and weekends."
   },
   "modules": [
     {

@@ -9,6 +9,11 @@
   --paper-edge:   #e6d9bd;
   --grid:         rgba(45, 33, 18, 0.08);
 
+  /* card / raised paper surfaces (was hardcoded #fffdf6 throughout) */
+  --card:         #fffdf6;
+  --card-2:       #fffbed;
+  --card-soft:    #fffaeb;
+
   /* ink */
   --ink:          #1d1f1d;
   --ink-soft:     #3a3a36;
@@ -145,7 +150,7 @@ header.topnav-wrap {
   display: inline-flex; align-items: center; justify-content: center;
   width: 40px; height: 40px;
   color: var(--teal);
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: 10px;
   box-shadow: 2px 2px 0 var(--ink);
@@ -224,7 +229,7 @@ header.topnav-wrap {
     width: 44px;
     height: 44px;
     padding: 0;
-    background: #fffdf6;
+    background: var(--card);
     border: 1.5px solid var(--ink);
     border-radius: 10px;
     box-shadow: 2px 2px 0 var(--ink);
@@ -268,7 +273,7 @@ header.topnav-wrap {
     z-index: 50;
     min-width: 184px;
     padding: 10px;
-    background: #fffdf6;
+    background: var(--card);
     border: 1.5px solid var(--ink);
     border-radius: 12px;
     box-shadow: 4px 5px 0 var(--ink);
@@ -560,7 +565,7 @@ header.topnav-wrap {
   font-size: 15.5px;
   border-radius: 12px;
   border: 1.5px solid var(--ink);
-  background: #fffdf6;
+  background: var(--card);
   color: var(--ink);
   cursor: pointer;
   transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
@@ -576,7 +581,7 @@ header.topnav-wrap {
 }
 .btn-primary { background: var(--teal); color: #fff; border-color: var(--ink); }
 .btn-primary:hover { background: #0f4f4a; }
-.btn-ghost  { background: #fffdf6; }
+.btn-ghost  { background: var(--card); }
 .btn-link {
   border: none; box-shadow: none; padding: 12px 6px;
   background: transparent;
@@ -736,7 +741,7 @@ header.topnav-wrap {
   .flow-arrow { transform: rotate(90deg); margin: -8px auto; }
 }
 .flow-card {
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 26px 22px;
@@ -806,7 +811,7 @@ header.topnav-wrap {
   border-radius: 0 0 12px 12px;
 }
 .phone-screen {
-  background: linear-gradient(180deg, #fffdf6, #f6efe1);
+  background: linear-gradient(180deg, var(--card), var(--paper));
   border-radius: 32px;
   padding: 16px 14px 14px;
   min-height: 540px;
@@ -913,7 +918,7 @@ header.topnav-wrap {
 }
 @media (max-width: 560px) { .modules { grid-template-columns: 1fr; } }
 .module {
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 18px 18px 20px;
@@ -944,7 +949,7 @@ header.topnav-wrap {
    EXPLORER (signature)
    =================================================================== */
 .explorer-wrap {
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius-lg);
   padding: clamp(20px, 3vw, 36px);
@@ -972,7 +977,7 @@ header.topnav-wrap {
   font-family: var(--body);
   font-size: 14.5px;
   font-weight: 600;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: 999px;
   padding: 9px 16px;
@@ -1099,7 +1104,7 @@ header.topnav-wrap {
 
 .wall-card {
   position: relative;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 22px 20px 22px;
@@ -1108,7 +1113,7 @@ header.topnav-wrap {
 .wall-card:nth-child(1) { transform: rotate(-1.2deg); }
 .wall-card:nth-child(2) { transform: rotate(0.6deg); }
 .wall-card:nth-child(3) { transform: rotate(-0.4deg); background: var(--note-cream); }
-.wall-card:nth-child(4) { transform: rotate(0.8deg); background: #fffdf6; }
+.wall-card:nth-child(4) { transform: rotate(0.8deg); background: var(--card); }
 .wall-card:nth-child(5) { transform: rotate(-0.6deg); background: var(--note-teal); }
 .wall-card:nth-child(6) { transform: rotate(1.2deg);  background: var(--note-yellow); }
 
@@ -1218,7 +1223,7 @@ header.topnav-wrap {
 @media (max-width: 600px) { .teardown-grid { grid-template-columns: 1fr; } }
 
 .teardown {
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 22px 22px 24px;
@@ -1283,7 +1288,7 @@ header.topnav-wrap {
 @media (max-width: 520px)  { .future-wall { grid-template-columns: 1fr; } }
 
 .future-card {
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 18px 18px 20px;
@@ -1305,9 +1310,9 @@ header.topnav-wrap {
 .future-card.f-2 { background: var(--note-purple); }
 .future-card.f-3 { background: var(--note-yellow); }
 .future-card.f-4 { background: var(--note-pink); }
-.future-card.f-5 { background: #fffdf6; }
+.future-card.f-5 { background: var(--card); }
 .future-card.f-6 { background: var(--note-cream); }
-.future-card.f-7 { background: #fffdf6; }
+.future-card.f-7 { background: var(--card); }
 .future-card.f-8 { background: var(--note-teal); }
 
 /* ===================================================================
@@ -1321,7 +1326,7 @@ header.topnav-wrap {
 @media (max-width: 900px) { .log-grid { grid-template-columns: 1fr; } }
 
 .log-col {
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 22px 22px 24px;
@@ -1420,7 +1425,7 @@ header.topnav-wrap {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 12px 20px;
   font-weight: 600; font-size: 15.5px;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: 12px;
   box-shadow: 3px 3px 0 var(--ink);
@@ -1847,7 +1852,7 @@ header.topnav-wrap {
   display: flex;
   flex-direction: column;
   position: relative;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: var(--radius);
   padding: 18px 18px 20px;
@@ -2001,7 +2006,7 @@ header.topnav-wrap {
 .pulse-live-card {
   position: relative;
   max-width: 720px;
-  background: #fffdf6;
+  background: var(--card);
   border: 1.5px solid var(--ink);
   border-radius: 12px;
   padding: 26px 28px 22px;
@@ -2161,6 +2166,13 @@ header.topnav-wrap {
   color: var(--ink);
   transform: rotate(1.5deg);
 }
+.atom-note-sub {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 15px;
+  color: var(--ink-faded);
+  line-height: 1.3;
+}
 
 /* ---------- Homepage footer ---------- */
 .home-footer .foot-inner {
@@ -2281,4 +2293,334 @@ header.topnav-wrap {
     translate: 0 0 !important;
     transform: none !important;
   }
+}
+
+/* =====================================================================
+   LATE NIGHT MODE — warm dark notebook theme
+   ---------------------------------------------------------------------
+   Default theme is light. The pre-paint head script sets
+   data-theme="dark" on <html> before first paint (from localStorage, or
+   system prefers-color-scheme) so there is no flash. Strategy: override
+   the design tokens under [data-theme="dark"] so every component that
+   reads var(--paper)/var(--ink)/var(--card)/accents recolors itself, then
+   patch the handful of remaining hardcoded literals by selector. Warm
+   browns (not pure black, not terminal green), warm off-white ink, accents
+   nudged lighter for WCAG AA on the dark paper.
+   ===================================================================== */
+:root[data-theme="dark"] {
+  /* warm dark "paper" */
+  --paper:        #1f1b16;
+  --paper-2:      #262019;
+  --paper-edge:   #3a3128;
+  --grid:         rgba(245, 236, 220, 0.07);
+
+  /* raised card surfaces — a touch lighter than the page */
+  --card:         #2a241d;
+  --card-2:       #2f2820;
+  --card-soft:    #322a21;
+
+  /* warm off-white ink */
+  --ink:          #f3ead9;
+  --ink-soft:     #d8cdb9;
+  --ink-faded:    #a89c86;
+
+  /* accents tuned lighter for contrast on dark paper */
+  --teal:         #3fb8a8;
+  --teal-2:       #54cdbc;
+  --teal-soft:    #1c3f3a;
+  --purple:       #b88bff;
+  --purple-2:     #c9a4ff;
+  --pink:         #f59bc6;
+  --pink-2:       #f8bcd8;
+  --amber:        #f0c45c;
+  --amber-soft:   #45381f;
+
+  /* sticky note tones — desaturated + dimmed, still legible (dark ink on them) */
+  --note-yellow:  #b59a52;
+  --note-pink:    #b07089;
+  --note-teal:    #5f9089;
+  --note-cream:   #8a7d61;
+  --note-purple:  #8873b0;
+
+  /* softer, deeper shadows on dark */
+  --shadow-1: 0 1px 0 rgba(0,0,0,0.25),
+              0 8px 24px -10px rgba(0,0,0,0.55);
+  --shadow-2: 0 1px 0 rgba(0,0,0,0.3),
+              0 18px 40px -16px rgba(0,0,0,0.6);
+  --shadow-sticky: 2px 4px 0 rgba(0,0,0,0.28),
+                   6px 14px 26px -14px rgba(0,0,0,0.6);
+}
+
+/* Filled "ink" chips/buttons invert: their background becomes the warm
+   off-white ink in dark mode, so their (hardcoded white/cream) text must flip
+   to the dark paper color to stay legible. */
+:root[data-theme="dark"] .nav-pill.active,
+:root[data-theme="dark"] .store-pill.is-live,
+:root[data-theme="dark"] .picker-pill[aria-selected="true"],
+:root[data-theme="dark"] .gloss-term::after,
+:root[data-theme="dark"] .evidence-chip.is-open {
+  color: var(--paper);
+}
+:root[data-theme="dark"] .picker-pill[aria-selected="true"] .pp-dot {
+  border-color: var(--paper);
+}
+
+/* Closed evidence chips keep a light gold/teal "highlighter" fill in dark mode
+   (a scanned-highlight cue, intentional), so their text must stay dark ink to
+   read against that light fill. Only the OPEN chip inverts to the dark ink
+   background (handled above). */
+:root[data-theme="dark"] .evidence-chip,
+:root[data-theme="dark"] .evidence-chip.chip-paired-highlight {
+  color: var(--paper);
+}
+:root[data-theme="dark"] .evidence-chip.is-open,
+:root[data-theme="dark"] .evidence-chip.is-open.chip-paired-highlight {
+  color: var(--paper);
+}
+
+/* Sticky notes carry dark hand-ink text in dark mode for legibility */
+:root[data-theme="dark"] .sticky,
+:root[data-theme="dark"] .sticky small,
+:root[data-theme="dark"] .wall-card,
+:root[data-theme="dark"] .card-tag,
+:root[data-theme="dark"] .soon-pill {
+  color: #1a160f;
+}
+
+/* Header rail: re-tint the translucent paper band + inset highlight */
+:root[data-theme="dark"] header.topnav-wrap {
+  background: rgba(31, 27, 22, 0.88);
+  box-shadow: 0 1px 0 rgba(245,236,220,0.06) inset,
+              0 6px 16px -12px rgba(0,0,0,0.7);
+}
+
+/* Dim the paper textures so they read as faint tooth, not bright glare */
+:root[data-theme="dark"] .paper {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(255,247,225,0.05), transparent 60%),
+    radial-gradient(900px 500px at 110% 0%, rgba(255,235,180,0.05), transparent 60%),
+    radial-gradient(1100px 700px at 50% 120%, rgba(120,100,70,0.10), transparent 60%);
+}
+:root[data-theme="dark"] .paper-dots {
+  background-image: radial-gradient(rgba(245,236,220,0.10) 1px, transparent 1.4px);
+  opacity: 0.30;
+  mix-blend-mode: screen;
+}
+:root[data-theme="dark"] body::before {
+  opacity: 0.30;
+  mix-blend-mode: screen;
+}
+
+/* Hand-drawn SVGs use #1d1f1d ink strokes — flip to warm off-white so they
+   stay visible on dark paper. Targets the brain sketch, scroll hint, brand
+   marks, and any inline stroke="#1d1f1d". */
+:root[data-theme="dark"] .brain-sketch g[stroke="#1d1f1d"],
+:root[data-theme="dark"] .scroll-hint svg[stroke="#1d1f1d"],
+:root[data-theme="dark"] svg[stroke="#1d1f1d"] {
+  stroke: #e7dcc8;
+}
+:root[data-theme="dark"] .brain-sketch g[fill="#15605a"] {
+  fill: var(--teal);
+}
+
+/* Flow chips + sketch-card paper surfaces */
+:root[data-theme="dark"] .flow-curated { background: #3a3326; color: var(--ink); }
+:root[data-theme="dark"] .flow-result  { background: #332b40; color: var(--ink); }
+:root[data-theme="dark"] .idea-sketch a,
+:root[data-theme="dark"] .atom-doodle img { background: #2a241d; }
+
+/* Phone frames are already dark; nudge the inner screen so screenshots and
+   the phone-screen gradient don't glow pure-white against dark paper */
+:root[data-theme="dark"] .phone-screen {
+  background: linear-gradient(180deg, #2c261e, #211c16);
+}
+
+/* Underline / circle highlight marks keep their warm wash but slightly dimmer */
+:root[data-theme="dark"] .hl-underline,
+:root[data-theme="dark"] .hl-circle { filter: saturate(0.92) brightness(1.05); }
+
+/* Smooth, short theme fade — skipped entirely for reduced-motion users.
+   Applied to color-bearing surfaces only, never to transforms. */
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  header.topnav-wrap,
+  .sticky, .wall-card, .future-card, .teardown,
+  .pulse-live-card, .weekly-connection, .category-card,
+  .btn, .nav-panel, .idea-sketch a {
+    transition: background-color 180ms ease, color 180ms ease,
+                border-color 180ms ease, box-shadow 180ms ease;
+  }
+}
+
+/* ---------- Theme toggle UI (desktop + mobile share .theme-toggle) ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 14px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font-family: var(--hand);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-1);
+  transition: transform .15s ease, box-shadow .15s ease, background-color .18s ease;
+}
+.theme-toggle:hover { transform: translateY(-1px); }
+.theme-toggle:active { transform: translateY(0); }
+.theme-toggle .tt-icon {
+  width: 20px; height: 20px;
+  flex: 0 0 auto;
+  display: inline-block;
+}
+.theme-toggle .tt-label { white-space: nowrap; }
+
+/* Desktop toggle sits in the nav row, after the primary links */
+.theme-toggle-desktop { margin-left: 4px; }
+@media (max-width: 760px) {
+  .theme-toggle-desktop { display: none; }
+}
+
+/* Mobile: a compact icon-only toggle near the hamburger (always reachable)
+   plus a full-width labeled toggle inside the open nav panel. */
+.theme-toggle-compact {
+  display: none;
+  padding: 8px;
+  gap: 0;
+}
+.theme-toggle-compact .tt-label { display: none; }
+@media (max-width: 760px) {
+  .theme-toggle-compact { display: inline-flex; }
+}
+.theme-toggle-panel {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  margin-top: 6px;
+}
+@media (max-width: 760px) {
+  .nav-panel .theme-toggle-panel { display: inline-flex; }
+}
+
+/* Icon swap: show moon in light mode (action = go dark), sun in dark mode */
+.theme-toggle .tt-sun { display: none; }
+.theme-toggle .tt-moon { display: inline-block; }
+:root[data-theme="dark"] .theme-toggle .tt-sun { display: inline-block; }
+:root[data-theme="dark"] .theme-toggle .tt-moon { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle { transition: none; }
+}
+
+/* ---------- "New here?" orientation note (homepage) ---------- */
+.orient-note {
+  max-width: 640px;
+  margin: 26px auto 4px;
+  padding: 16px 20px;
+  background: var(--card);
+  border: 1.5px dashed var(--ink);
+  border-radius: 12px;
+  box-shadow: var(--shadow-1);
+  transform: rotate(-0.5deg);
+}
+.orient-note .on-label {
+  display: block;
+  font-family: var(--hand);
+  font-size: 18px;
+  color: var(--pink);
+  margin-bottom: 4px;
+}
+.orient-note .on-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 6px 0 0;
+}
+.orient-note .on-links a {
+  font-family: var(--hand-2, "Kalam", cursive);
+  font-size: 16px;
+  color: var(--teal);
+  border-bottom: 1.5px solid rgba(21,96,90,0.3);
+  align-self: flex-start;
+}
+:root[data-theme="dark"] .orient-note .on-links a { border-bottom-color: rgba(63,184,168,0.4); }
+.orient-note .on-links a:hover { border-bottom-color: var(--teal); }
+@media (min-width: 600px) {
+  .orient-note .on-links { flex-direction: row; flex-wrap: wrap; gap: 18px; }
+}
+
+/* ---------- Human + AI receipts (two-column jotting) ---------- */
+.receipts-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 720px;
+  margin: 22px auto 0;
+}
+@media (min-width: 600px) {
+  .receipts-split { grid-template-columns: 1fr 1fr; gap: 22px; }
+}
+.receipt-col {
+  margin: 0;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sticky);
+}
+.receipt-col:nth-child(1) { transform: rotate(-0.6deg); }
+.receipt-col:nth-child(2) { transform: rotate(0.6deg); }
+.receipt-col h3 {
+  margin: 0 0 8px;
+  font-family: var(--hand);
+  font-size: 19px;
+  color: var(--purple);
+}
+.receipt-col:nth-child(2) h3 { color: var(--teal); }
+.receipt-col ul {
+  margin: 0; padding: 0; list-style: none;
+  font-size: 15px; line-height: 1.45; color: var(--ink-soft);
+}
+.receipt-col li { padding: 3px 0 3px 18px; position: relative; }
+.receipt-col li::before {
+  content: "·"; position: absolute; left: 4px; color: var(--ink-faded);
+  font-weight: 700;
+}
+
+/* ---------- Tiny build timeline (sketchbook vertical) ---------- */
+.build-timeline {
+  max-width: 560px;
+  margin: 22px auto 0;
+  padding-left: 18px;
+  border-left: 2px dashed var(--ink-faded);
+  list-style: none;
+}
+.build-timeline li {
+  position: relative;
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.build-timeline li:last-child { margin-bottom: 0; }
+.build-timeline li::before {
+  content: "";
+  position: absolute;
+  left: -25px; top: 5px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--teal);
+  border: 1.5px solid var(--ink);
+}
+.build-timeline li.bt-launch::before { background: var(--pink); }
+.build-timeline li b {
+  font-family: var(--hand);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
 }
