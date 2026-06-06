@@ -5,25 +5,25 @@
     "date_label": "May 27"
   },
   "weekly_connection": {
-    "title": "The squeezed customer, the cheaper build",
-    "subtitle": "Prices are up and people feel worse about money — yet building with AI keeps getting cheaper. The economy is telling two opposite stories at once.",
+    "title": "Two economies, same week",
+    "subtitle": "Customers are under real pressure while building with AI keeps getting cheaper and faster. Both are happening at once — and only one of them looks likely to reverse soon.",
     "body_paragraphs": [
-      "These three numbers usually don't all move in the same week. Consumer prices reaccelerated. Consumer sentiment dropped to readings rarely seen. And AI model costs continued to fall fast. Two of those make customers tougher to win; one makes it cheaper than ever to ship the thing that could earn them.",
-      "What I keep coming back to: the customer side and the build side are pulling in opposite directions. The product moves that work right now are the ones that build on the deflationary side of the split — leveraging cheap AI to do more for a stressed buyer — rather than the ones that count on the buyer feeling flush."
+      "These numbers don't usually move together in one week. People's confidence about the economy fell to one of its lowest points in a decade, and they expect prices to keep rising. In the same week, the cost of using AI kept dropping fast, and new, more capable models kept landing every few weeks. The customer side of the economy and the build side are not telling the same story right now.",
+      "What I keep coming back to: the teams that win this stretch aren't waiting for customers to feel better, and they aren't sitting on AI features because those used to be expensive. They're using cheap AI to do more for a stretched customer — cutting setup time, finishing steps people used to do by hand. Spending hasn't actually broken yet — it's still up nearly 5% from a year ago — but confidence this low rarely sits next to steady spending for long."
     ],
     "connected_signals": [
-      "cpi-headline",
       "consumer-confidence",
-      "ai-api-pricing"
+      "ai-api-pricing",
+      "ai-model-releases"
     ],
     "curated": true,
-    "date": "2026-05-27",
-    "date_label": "May 27",
+    "date": "2026-06-05",
+    "date_label": "Jun 5",
     "refined": {
-      "observation": "Everyday prices climbed again instead of cooling — mostly because of energy. People feel about as bad about the economy as they ever have, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge to use their tools.",
-      "why_it_matters": "Your customer feels worse and is paying more for things they can't skip. Meanwhile, adding AI to your product has rarely been cheaper. Any plan that assumes a relaxed, confident customer is worth a second look — and any plan that leans on AI just got cheaper to try.",
-      "decision_this_week": "Which item on your plan still assumes a confident customer with money to spare? Pick one and ask whether cheaper AI changes how you'd build it.",
-      "pm_implication_default": "The teams winning right now do three things: they make the cheapest option easy to find, they use cheaper AI to do more for a stretched customer instead of charging them more, and they stop assuming the customer feels the same as six months ago.",
+      "observation": "People feel about as bad about the economy as they have in a decade, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge — top model prices are down about 60% over six months — and new, more capable models keep arriving every few weeks.",
+      "why_it_matters": "Your customer is stretched and watching every bill. The good news: the thing that helps them most — AI doing more of the work for them — has rarely been cheaper to ship. Any plan that still assumes a relaxed customer, or assumes AI features are too costly to include at lower price points, is worth reopening.",
+      "decision_this_week": "Pick one AI feature you've put off because it felt too expensive. Ask whether it's still too expensive at today's prices — and whether a stretched customer would value it more, not less.",
+      "pm_implication_default": "The pattern across the signals: the build side is loosening (cheaper models, faster releases, falling running costs) while the customer side is tightening (low confidence, prices still climbing, no relief on borrowing). Every product move that uses the cheaper build to remove friction or lower price for a squeezed customer has more wind behind it than one that assumes confidence comes back first.",
       "where_shows_up": [
         {
           "key": "onboarding",
@@ -33,7 +33,7 @@
         {
           "key": "pricing",
           "label": "Pricing",
-          "implication": "Make the cheap option easy to find. Because AI costs less now, you can put more into your lower-priced plans without losing money — and that lands far better than raising prices right now."
+          "implication": "Make the cheap option easy to find. Because AI model costs are falling fast, you can put real capability into your lower-priced plans without the usual margin hit — even as other costs keep rising — and that lands far better than raising prices right now."
         },
         {
           "key": "support",
@@ -54,18 +54,18 @@
     },
     "where_helper": "PM implication changes based on where you look.",
     "editorial_freshness": {
-      "last_editorial_reviewed": "2026-05-27",
+      "last_editorial_reviewed": "2026-06-05",
       "expires_after_days": 7,
-      "editorial_status": "stale",
-      "age_days": 9
+      "editorial_status": "fresh",
+      "age_days": 0
     },
-    "review_required": true,
-    "review_note": "Weekly Connection is older than 7 days | Weekly Connection narrative reads 'down' but 12 of 18 directional signals (67%) are moving the opposite way: cpi-headline, ppi, pce, fed-net-liquidity, 10y-treasury, ai-model-releases, open-source-ai, emerging-apps, nonfarm-payrolls, ai-regulation, mfg-activity, services-activity.",
-    "narrative_review_required": true
+    "review_required": false,
+    "review_note": "Weekly Connection refreshed 2026-06-05 to name both sides of the split honestly: the customer side is tightening (confidence near decade lows, prices still climbing) while the build side is loosening (AI prices down ~60% over six months, model releases at the fastest pace since 2024). Connected signals updated to consumer-confidence, ai-api-pricing, ai-model-releases.",
+    "narrative_review_required": false
   },
   "weekly_thought": {
     "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",
-    "last_editorial_reviewed": "2026-06-07",
+    "last_editorial_reviewed": "2026-06-05",
     "default_lens": "build",
     "lenses": {
       "build": {
@@ -76,7 +76,7 @@
       },
       "customer": {
         "label": "Customer Behavior",
-        "pattern": "Your customers are quieter, not broke. How people feel about money [chip:consumer-confidence] has dropped hard, but spending [chip:retail-sales] is still up about 5% from a year ago. What people say is louder than what they actually spend right now — and the gap between them is widening. For example: a team running an upgrade campaign might see the same number of upgrades, but more of those customers are quietly closer to leaving.",
+        "pattern": "Your customers are quieter, not broke. How people feel about money [chip:consumer-confidence] has dropped hard, but spending [chip:retail-sales] is still up nearly 5% from a year ago. What people say is louder than what they actually spend right now — and the gap between them is widening. For example: a team running an upgrade campaign might see the same number of upgrades, but more of those customers are quietly closer to leaving.",
         "action": "When your users tell you they're tightening their belts, which number do you trust — what they say, or what they spend?",
         "sketchbook_note": "worth watching"
       },
@@ -90,7 +90,7 @@
         "label": "Future Signals",
         "pattern": "The thing to watch isn't the price drop itself — it's how fast new models keep landing. [chip:ai-model-releases] are shipping faster than they have since 2024, and each new model resets what counts as 'too expensive to automate.' Your list of things-not-worth-doing-yet keeps shrinking on its own every few weeks. For example: a workflow you ruled out as 'too expensive to automate' six months ago might be cheap enough now that it's the obvious next feature.",
         "action": "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true.",
-        "sketchbook_note": null
+        "sketchbook_note": "this one keeps moving"
       }
     }
   },
@@ -112,21 +112,21 @@
         "left": "Growth",
         "right": "Efficiency",
         "question": "Before your next fundraise, which has to improve first — how many new customers you bring in, or how much money you make per customer?",
-        "note": "Growth-vs-efficiency: investor money is going to fewer companies; what wins the next round looks different than it did two years ago."
+        "note": "Growth-vs-efficiency: with funding going to fewer companies and your customer stretched, the fastest way to protect your runway is squeezing more value from the customers you already have — not growing headcount at any cost. If you had to show an investor your last 90 days of usage today, which slide would hold up?"
       },
       {
         "key": "speed_vs_certainty",
         "left": "Speed",
         "right": "Certainty",
         "question": "Where are you optimizing for being early — and where are you optimizing for being right?",
-        "note": "Speed-vs-certainty: model capability moves fast enough that a six-month bet on a feasibility gap can close before launch."
+        "note": "Speed-vs-certainty: AI capability moves fast enough that something you thought was impossible six months ago can become doable before your product even ships."
       },
       {
         "key": "automation_vs_trust",
         "left": "Automation",
         "right": "Trust",
         "question": "Which step of your product can the model finish — and which step does the user need to feel they did?",
-        "note": "Automation-vs-trust: AI that runs right on the phone shifts what people value from \"a helpful answer\" to \"the task is already done\", which changes what users want to see."
+        "note": "Automation-vs-trust: AI that runs right on the phone shifts what people value from \"a helpful answer\" to \"the task is already done\", which changes what users want to see. And as AI rules pile up state by state, the step the user needs to feel they did may be the same step that keeps you on the right side of those rules."
       }
     ]
   },
@@ -145,7 +145,7 @@
         "signal_id": "ppi",
         "direction": "up",
         "short_label": "Wholesale prices",
-        "movement": "reaccelerating sharply",
+        "movement": "rising sharply again",
         "implication": "The prices businesses pay are rising again, which usually reaches store shelves later — so any pricing you set and forgot is worth revisiting.",
         "momentum": "accelerating",
         "confidence": "high"
@@ -197,6 +197,14 @@
     ],
     "behaving_differently": [
       {
+        "signal_id": "ai-model-releases",
+        "short_label": "New AI models",
+        "movement": "shipping faster than in years",
+        "implication": "Your list of things 'not worth automating yet' keeps shrinking every few weeks — what you ruled out six months ago may already be cheap and capable enough today.",
+        "momentum": "accelerating",
+        "confidence": "high"
+      },
+      {
         "signal_id": "tech-hiring",
         "short_label": "Tech hiring",
         "movement": "near multi-year lows",
@@ -211,6 +219,22 @@
         "implication": "Any step where your product still makes the user do the work is the most at risk.",
         "momentum": "accelerating",
         "confidence": "low"
+      },
+      {
+        "signal_id": "mfg-activity",
+        "short_label": "Factory activity",
+        "movement": "turned down last month",
+        "implication": "If you sell to businesses in manufacturing, their buying is softening — plans that assume last quarter's pace are worth flagging.",
+        "momentum": "watch closely",
+        "confidence": "medium"
+      },
+      {
+        "signal_id": "services-activity",
+        "short_label": "Services activity",
+        "movement": "negative several months",
+        "implication": "Service-sector buyers aren't spending like a year ago — expect longer sales cycles before your next planning round.",
+        "momentum": "watch closely",
+        "confidence": "medium"
       }
     ],
     "last_updated": "2026-05-27"
@@ -303,7 +327,7 @@
       "id": "cpi-headline",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
-      "title": "Headline inflation reaccelerating — energy doing the lifting",
+      "title": "Everyday prices climbing again — energy is driving it",
       "summary": "Everyday prices climbed again, mostly because of energy. And the cost of services keeps creeping up underneath, even when goods cool off.",
       "term_glossary": [
         {
@@ -317,7 +341,7 @@
       ],
       "current_value": "3.81%",
       "current_unit": "year-over-year",
-      "status": "reaccelerating",
+      "status": "rising",
       "status_tone": "amber",
       "confidence": "high",
       "last_updated": "2026-04-01",
@@ -393,13 +417,13 @@
       "percentile": {
         "value": 78,
         "lookback_years": 10,
-        "label": "Higher than 22% of observations in the last 10 years"
+        "label": "Higher than 78% of observations in the last 10 years"
       },
       "chain": [
         {
           "label": "Signal",
-          "text": "CPI — the broad measure of consumer prices — turned higher again after a brief lull, with the latest reading meaningfully hotter than the months before it. Energy was the dominant driver.",
-          "expansion": "Headline CPI is sitting well above the Fed's 2% target. The bulk of the recent monthly increase traced back to energy categories; core services have stayed sticky underneath."
+          "text": "CPI — the broad measure of everyday prices — climbed again after a few months of looking like it was calming down, with the latest figure clearly higher than the months before it. Energy was the main driver.",
+          "expansion": "Prices overall are still running well above the 2% level the Fed considers healthy. Energy did most of the damage in the latest monthly jump — but the cost of services like rent and healthcare hasn't come down either."
         },
         {
           "label": "Meaning",
@@ -409,7 +433,7 @@
         {
           "label": "Product impact",
           "text": "Customers are absorbing a fresh round of price hikes on things they can't avoid. Optional, fun spending is the first thing that gets cut when energy and rent eat more of the paycheck.",
-          "expansion": "If your product competes for optional spending, this is the kind of stretch where sign-ups slow and downgrade requests pick up before customers actually leave."
+          "expansion": "If your product is something people choose to pay for rather than something they have to, this is when sign-ups slow and more people ask to downgrade before they actually cancel."
         },
         {
           "label": "Example",
@@ -449,10 +473,10 @@
       ],
       "personal_overrides": [],
       "momentum_label": "watch closely",
-      "reference_point": "vs Fed 2% target · well above · reaccelerating",
+      "reference_point": "vs Fed 2% target · well above · climbing again",
       "refined_why": {
-        "evidence": "Headline inflation stepped up again rather than continuing to cool, and energy did most of the work in the latest monthly increase. Services have stayed sticky underneath.",
-        "counter_signal": "Two consecutive monthly prints back below 3% would weaken this read.",
+        "evidence": "Everyday prices climbed again rather than continuing to cool, and energy did most of the work in the latest monthly increase. The cost of services like rent and healthcare hasn't come down either.",
+        "counter_signal": "Two months in a row where the number comes back below 3% would weaken this read.",
         "product_takeaway": "Plans that quietly assumed inflation kept fading should be revisited — the current read says households are absorbing fresh pressure on essentials."
       },
       "pill_label_short": "Headline inflation heated up again",
@@ -479,7 +503,7 @@
       "id": "ppi",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
-      "title": "Producer prices reaccelerating sharply — pipeline pressure is back",
+      "title": "What businesses pay suppliers is rising fast again",
       "summary": "The prices businesses pay are rising at the fastest pace in years — and that usually reaches store shelves a few months later.",
       "term_glossary": [
         {
@@ -489,7 +513,7 @@
       ],
       "current_value": "5.99%",
       "current_unit": "year-over-year",
-      "status": "reaccelerating",
+      "status": "rising",
       "status_tone": "amber",
       "confidence": "high",
       "last_updated": "2026-04-01",
@@ -565,13 +589,13 @@
       "percentile": {
         "value": 82,
         "lookback_years": 10,
-        "label": "Higher than 18% of observations in the last 10 years"
+        "label": "Higher than 82% of observations in the last 10 years"
       },
       "chain": [
         {
           "label": "Signal",
-          "text": "PPI — what producers pay before passing costs on to consumers — has jumped sharply, marking the fastest year-over-year reading in several years. Monthly pressure was broad: services and goods both pushed higher.",
-          "expansion": "PPI tends to lead CPI by 2–4 months for goods categories. A move of this size on the producer side rarely stays bottled up at the wholesale level."
+          "text": "PPI — what producers pay before passing costs on to customers — has jumped sharply, the fastest it's risen in several years. The pressure was broad: both services and goods pushed higher.",
+          "expansion": "What businesses pay tends to flow through to store prices within a few months. A jump this big on the business side almost always reaches customers eventually."
         },
         {
           "label": "Meaning",
@@ -581,12 +605,12 @@
         {
           "label": "Product impact",
           "text": "Hardware, consumer-goods, and physical-product businesses are absorbing fresh margin pressure. The cleaner pricing window from earlier in the year is closing.",
-          "expansion": "Software businesses feel this indirectly: procurement budgets get tighter, deal cycles stretch, and customers push back on renewal price increases when their own input costs are rising."
+          "expansion": "Software businesses feel this indirectly: the companies they sell to have less money to spend, buying decisions take longer, and customers push back on price increases when their own costs are going up."
         },
         {
           "label": "Example",
           "text": "Consumer hardware brands quietly raising sticker prices after a quarter of holding the line. B2B SaaS deals slipping a quarter as buyers re-examine every recurring line item.",
-          "expansion": "Watch margin guidance turn cautious without volume changes — a classic pass-through tell."
+          "expansion": "Watch for companies saying their profits will be tighter even though they're selling the same amount — that usually means rising costs are eating into what they keep."
         },
         {
           "label": "PM question",
@@ -617,10 +641,10 @@
       "reference_point": "fastest pace in years · pipeline pressure back",
       "refined_why": {
         "evidence": "What businesses pay their suppliers has jumped sharply over the last couple of months after a quieter stretch. Energy-linked categories appear to be doing a lot of the work, but the breadth across services and goods is notable.",
-        "counter_signal": "Two months of producer prices stepping back down toward 3% YoY would soften this read.",
+        "counter_signal": "Two months of producer prices stepping back down toward 3% year-over-year would soften this read.",
         "product_takeaway": "Margin pressure is back on the table. If pricing was on autopilot during the calmer months, this is the moment to re-open the conversation."
       },
-      "pill_label_short": "Producer prices reaccelerating",
+      "pill_label_short": "Supplier prices rising fast",
       "status_meta": {
         "status": "verified",
         "checked_at": "2026-06-05T21:45:51.376Z",
@@ -644,7 +668,7 @@
       "id": "pce",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
-      "title": "PCE running just above target — Fed's preferred gauge",
+      "title": "The inflation number the Fed watches most closely is stuck just above target",
       "summary": "The inflation gauge the Fed cares about most has stalled — close to where they want it, but not there yet.",
       "term_glossary": [
         {
@@ -730,7 +754,7 @@
       "percentile": {
         "value": 74,
         "lookback_years": 10,
-        "label": "Higher than 26% of observations in the last 10 years"
+        "label": "Higher than 74% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -740,13 +764,13 @@
         },
         {
           "label": "Meaning",
-          "text": "Inflation isn't where the Fed wants it. The neighbouring signals (CPI heating up, PPI reaccelerating) make it harder to call this benign.",
-          "expansion": "A flat reading near target is what policy-watchers describe as \"stuck above 2.\" The risk is the read drifts higher rather than lower from here."
+          "text": "Inflation isn't where the Fed wants it. With everyday prices climbing again (CPI) and business costs rising sharply (PPI), it's hard to say this number is under control.",
+          "expansion": "A number that barely moves when it should be falling is what economists call being \"stuck.\" The risk is it starts climbing again rather than dropping."
         },
         {
           "label": "Product impact",
           "text": "Rate-cut timing remains uncertain. Companies planning big upfront spending on \"cuts coming soon\" may be planning on something that doesn't arrive.",
-          "expansion": "Even a single sticky data point can delay a cut cycle by a meeting."
+          "expansion": "Even one stubborn inflation number can push the Fed to delay any rate cuts by several months."
         },
         {
           "label": "Example",
@@ -780,7 +804,7 @@
       ],
       "personal_overrides": [],
       "momentum_label": "stable",
-      "reference_point": "vs Fed 2% target · +0.6pp · stuck above target",
+      "reference_point": "vs Fed 2% target · +1.3pp · stuck above target",
       "refined_why": {
         "evidence": "The inflation gauge the Fed actually steers by has been running above its 2% target. With CPI and PPI reasserting recently, the burden is on PCE to confirm whether disinflation is still on track.",
         "counter_signal": "A sustained move clearly below the recent range would change this read.",
@@ -810,7 +834,7 @@
       "id": "fed-net-liquidity",
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
-      "title": "Money in the system has nudged back up — still below pre-tightening peaks",
+      "title": "There's a little more cash flowing through the economy again — still below the highs of a few years ago",
       "summary": "After months of slowly draining, the spare cash banks have on hand to lend has crept up again — but it isn't back to old highs.",
       "term_glossary": [
         {
@@ -900,7 +924,7 @@
       "percentile": {
         "value": 51,
         "lookback_years": 10,
-        "label": "Higher than 49% of observations in the last 10 years"
+        "label": "Higher than 51% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -916,12 +940,12 @@
         {
           "label": "Product impact",
           "text": "The capital backdrop is less hostile than it was twelve months ago, but it isn't the easy-money environment of 2020–2021. Long-horizon bets still carry a higher cost of patience than they used to.",
-          "expansion": "Plans that quietly assume conditions ease materially from here should be marked as a dependency rather than a base case."
+          "expansion": "Plans that quietly assume funding gets easier and cheaper from here should be marked as a risk, not a safe bet."
         },
         {
           "label": "Example",
           "text": "Late-stage growth companies finding raises possible but tougher than 2021 — capital is around, terms are more investor-friendly than they were.",
-          "expansion": "Watch for term-sheet structures that have become quietly more protective."
+          "expansion": "Watch for investors adding more conditions and protections to funding deals than they used to."
         },
         {
           "label": "PM question",
@@ -981,7 +1005,7 @@
       "id": "10y-treasury",
       "category": "liquidity",
       "category_label": "Liquidity & Capital",
-      "title": "Long rates rangebound at elevated levels",
+      "title": "The cost of long-term borrowing is stuck high",
       "summary": "What it costs to borrow money for a long time has gone quiet — for now.",
       "term_glossary": [
         {
@@ -991,7 +1015,7 @@
       ],
       "current_value": "4.49%",
       "current_unit": "yield",
-      "status": "rangebound",
+      "status": "steady",
       "status_tone": "neutral",
       "confidence": "high",
       "last_updated": "2026-06-03",
@@ -1067,18 +1091,18 @@
       "percentile": {
         "value": 95,
         "lookback_years": 10,
-        "label": "Higher than 5% of observations in the last 10 years"
+        "label": "Higher than 95% of observations in the last 10 years"
       },
       "chain": [
         {
           "label": "Signal",
-          "text": "10-year Treasury yields have traded in a broad band over recent months, with occasional sharp moves on individual auctions or data prints. They are not cheap, and they are not breaking lower.",
-          "expansion": "Rate volatility has flared on specific dates without breaking the band — inflation prints and fiscal-supply concerns have pulled yields up on intraday moves before easing back."
+          "text": "10-year Treasury yields have traded in a broad band over recent months, with occasional sharp moves on individual auctions or data releases. They are not cheap, and they are not breaking lower.",
+          "expansion": "Interest rates have spiked briefly on certain days — usually when a new inflation report comes out or when the government announces more borrowing — but those spikes haven't stuck."
         },
         {
           "label": "Meaning",
           "text": "Long-term borrowing costs have stabilized at levels that would have felt expensive five years ago.",
-          "expansion": "Stable-ish, not cheap. Discounted cash flow math is structurally different from pre-2022."
+          "expansion": "Stable-ish, not cheap. The math on long-term investments looks different now — expensive borrowing changes which projects are worth doing."
         },
         {
           "label": "Product impact",
@@ -1119,9 +1143,9 @@
       "momentum_label": "stable",
       "reference_point": "vs pre-2020 · elevated · range with occasional spikes",
       "refined_why": {
-        "evidence": "The benchmark long-term interest rate has held in a broad range over recent months — not cheap, and occasionally testing the top of the range on individual data prints.",
+        "evidence": "The main long-term interest rate has stayed in a narrow range over recent months — still high, and occasionally spiking on the day a new economic report comes out.",
         "counter_signal": "A sustained move clearly below the recent range — or clearly above it — for a month would change this read.",
-        "product_takeaway": "A long-horizon bet now competes with a meaningful risk-free return. That comparison rarely makes it into roadmap reviews — but it should."
+        "product_takeaway": "A long-horizon bet now competes against simply parking money in a low-risk government bond and earning a real return. That comparison rarely makes it into roadmap reviews — but it should."
       },
       "pill_label_short": "Long-term borrowing costs still elevated",
       "status_meta": {
@@ -1245,7 +1269,7 @@
         {
           "label": "Meaning",
           "text": "Fundraising has become a more selective filter than it was 24 months ago.",
-          "expansion": "The bar for the next round looks higher in time-in-market, in efficiency, and in retention."
+          "expansion": "The bar for the next round looks higher: investors want to see you've been around longer, that you're spending less to grow, and that customers are staying."
         },
         {
           "label": "Product impact",
@@ -1414,12 +1438,12 @@
         {
           "label": "Signal",
           "text": "Several leading AI labs shipped meaningful model updates in the same two-week window.",
-          "expansion": "Updates spanned reasoning, multimodal, and on-device capability — not a single direction of improvement."
+          "expansion": "Updates covered better reasoning, the ability to handle text and images together, and models that run right on your phone — not just one kind of improvement."
         },
         {
           "label": "Meaning",
           "text": "AI capability is improving faster than most product roadmaps can react to.",
-          "expansion": "A capability that was experimental six months ago may now be table-stakes."
+          "expansion": "A capability that was experimental six months ago may now be the minimum users expect."
         },
         {
           "label": "Product impact",
@@ -1473,7 +1497,7 @@
       "momentum_label": "accelerating",
       "reference_point": "fastest pace since 2024 · 92nd percentile",
       "refined_why": {
-        "evidence": "Multiple labs shipped meaningful model updates in close succession, across reasoning, multimodal, and on-device.",
+        "evidence": "Several AI labs shipped major model updates in quick succession — better reasoning, handling text and images together, and models that run right on your phone.",
         "counter_signal": "A two-month gap with no major releases would weaken this read.",
         "product_takeaway": "Moats built on today’s capability gap erode faster than moats built on distribution or data."
       },
@@ -1515,7 +1539,7 @@
         }
       ],
       "current_value": "−60%",
-      "current_unit": "over the last three months for top AI model prices",
+      "current_unit": "over the last six months for top AI model prices",
       "status": "falling",
       "status_tone": "green",
       "confidence": "medium",
@@ -1650,7 +1674,7 @@
       ],
       "personal_overrides": [],
       "momentum_label": "accelerating",
-      "reference_point": "vs 6mo ago · -69% · 4th percentile in 5y",
+      "reference_point": "vs 6mo ago · -60% · 4th percentile in 5y",
       "refined_why": {
         "evidence": "Public price cuts and cheaper model tiers from several major labs in roughly the same window. The direction and pace are clear even where specific percentage claims are approximate.",
         "counter_signal": "A frontier-tier price increase from any major lab in the next two months would weaken this read.",
@@ -1690,7 +1714,7 @@
         }
       ],
       "current_value": "+38%",
-      "current_unit": "YoY star growth · agent frameworks",
+      "current_unit": "growth over the last year · agent frameworks",
       "status": "expanding",
       "status_tone": "green",
       "confidence": "medium",
@@ -1784,7 +1808,7 @@
         {
           "label": "Product impact",
           "text": "Building on open-source agent tools may carry less ecosystem risk than it did twelve months ago.",
-          "expansion": "Dependencies stabilize as communities form. They're less stable when they're early-experimental."
+          "expansion": "Open tools get more reliable as more teams adopt them. Early on, they're riskier to build on because they can change at any time."
         },
         {
           "label": "Example",
@@ -1951,7 +1975,7 @@
         {
           "label": "Signal",
           "text": "The cost of running AI workloads in the cloud continues to decline.",
-          "expansion": "Improvements stem from chip generations, software efficiency, and contract-pricing competition."
+          "expansion": "Costs are falling because chips keep getting better, software keeps getting more efficient, and cloud providers are competing harder on price."
         },
         {
           "label": "Meaning",
@@ -2117,7 +2141,7 @@
       "percentile": {
         "value": 63,
         "lookback_years": 10,
-        "label": "Higher than 37% of observations in the last 10 years"
+        "label": "Higher than 63% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -2143,7 +2167,7 @@
         {
           "label": "PM question",
           "text": "If category demand stays flat, which lever do you actually have to grow?",
-          "expansion": "Audit roadmap items that secretly assume macro tailwinds."
+          "expansion": "Look for roadmap items that only work if the overall economy keeps improving on its own."
         }
       ],
       "why_we_think_this": {
@@ -2289,7 +2313,7 @@
       "chain": [
         {
           "label": "Signal",
-          "text": "The University of Michigan consumer sentiment index is sitting near readings only seen during major shocks — not drifting lower, sunk to the floor. Year-ahead inflation expectations from the same survey are running uncomfortably high.",
+          "text": "The University of Michigan consumer sentiment index is sitting near readings only seen during major shocks — not drifting lower, sunk to the floor. People also told the survey they expect prices to keep climbing over the next year.",
           "expansion": "Households are simultaneously telling surveyors they feel bad about the economy and that they expect prices to keep rising at a meaningful pace over the next year. That combination usually shows up in how people spend."
         },
         {
@@ -2384,7 +2408,7 @@
       "last_updated": "2026-05-26",
       "tier": 2,
       "tier_label": "editorial",
-      "source_note": "Triangulated: app charts + Product Hunt + GitHub trending",
+      "source_note": "Cross-checked: app charts + Product Hunt + GitHub trending",
       "data_points": [
         {
           "date": "2025-06",
@@ -2461,7 +2485,7 @@
         {
           "label": "Signal",
           "text": "Personal agents and on-device AI utilities are showing up in app charts, GitHub trending, and Product Hunt simultaneously — a pattern that wasn't there six months ago.",
-          "expansion": "Triangulated across surfaces, not a single chart. We're describing momentum, not rankings."
+          "expansion": "We're seeing this across several places at once — app charts, GitHub, and Product Hunt — not just one source. We're tracking the direction, not the exact rankings."
         },
         {
           "label": "Meaning",
@@ -2542,7 +2566,7 @@
       "id": "nonfarm-payrolls",
       "category": "labor",
       "category_label": "Labor & Hiring",
-      "title": "Payrolls slowing — direction, not crisis",
+      "title": "Hiring is slowing — a trend, not a collapse",
       "summary": "Hiring is cooler than a year ago. It hasn't broken.",
       "term_glossary": [
         {
@@ -2633,7 +2657,7 @@
       "chain": [
         {
           "label": "Signal",
-          "text": "Monthly payroll prints have been choppy — strong months followed by weak ones — but the trend line is clearly cooler than 2022–2023. The labor market is slowing without falling apart.",
+          "text": "Monthly job reports have been choppy — strong months followed by weak ones — but the trend line is clearly cooler than 2022–2023. The labor market is slowing without falling apart.",
           "expansion": "Strength remains in healthcare and government. Tech, finance, and discretionary services have softened more."
         },
         {
@@ -2725,7 +2749,7 @@
       "last_updated": "2026-05-26",
       "tier": 2,
       "tier_label": "curated",
-      "source_note": "Triangulated: layoffs.fyi + BLS + earnings",
+      "source_note": "Cross-checked: layoffs.fyi + BLS + earnings",
       "data_points": [
         {
           "date": "2025-06",
@@ -2981,7 +3005,7 @@
         {
           "label": "Meaning",
           "text": "Compliance planning is shifting from \"wait for one federal answer\" to \"handle state-by-state and EU rules now.\"",
-          "expansion": "Patchwork compliance can become a meaningful product-roadmap cost long before federal harmonization arrives."
+          "expansion": "Juggling different rules in different states can become a real cost for your product team long before the federal government settles on one set of rules."
         },
         {
           "label": "Product impact",
@@ -3052,7 +3076,7 @@
       "category": "activity",
       "category_label": "Business Activity",
       "display_name": "Regional Manufacturing Activity (Philly Fed)",
-      "title": "Regional manufacturing activity slipped back negative",
+      "title": "Factory orders in one region turned down last month",
       "summary": "Factories around Philadelphia sounded a little gloomy last month — but that's one region, not the whole country. The national factory gauge is more upbeat right now, and the gap between the two is the part worth watching.",
       "term_glossary": [
         {
@@ -3065,7 +3089,7 @@
         }
       ],
       "current_value": "-0.4",
-      "current_unit": "diffusion index, seasonally adjusted",
+      "current_unit": "factory survey score (positive = growing, negative = shrinking)",
       "status": "contracting modestly",
       "status_tone": "amber",
       "confidence": "medium",
@@ -3363,7 +3387,7 @@
       "momentum_label": "watch closely",
       "reference_point": "regional Fed proxy · not the proprietary national ISM Services PMI",
       "refined_why": {
-        "evidence": "The Dallas Fed services survey has been negative for several months in a row, with the latest read worse than the one before it. Soft survey data is broad-based right now, not isolated.",
+        "evidence": "The Dallas Fed services survey has been negative for several months in a row, with the latest read roughly in line with the prior month, still firmly negative. Soft survey data is broad-based right now, not isolated.",
         "counter_signal": "Two months back above zero would weaken this read.",
         "product_takeaway": "If you sell into services businesses, plans that assume the last year's buying pace deserve a downside scenario this quarter."
       },
@@ -3389,7 +3413,7 @@
     }
   ],
   "source_philosophy": {
-    "intro": "Pulse reads from a three-tier source system. Tier 1 drives conclusions. Tier 2 supports and triangulates. Tier 3 informs framing but never drives a claim on its own.",
+    "intro": "Pulse reads from a three-tier source system. Tier 1 drives conclusions. Tier 2 supports and cross-checks. Tier 3 informs framing but never drives a claim on its own.",
     "tiers": [
       {
         "tier": 1,

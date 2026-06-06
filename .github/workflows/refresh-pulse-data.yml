@@ -17,12 +17,12 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "20"
 
@@ -32,18 +32,32 @@ jobs:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
         run: node scripts/fetch-pulse-data.js
 
+      - name: Recompute freshness & review flags against new data
+        # Write mode: refreshes age_days / editorial_status / alignment /
+        # review_required / narrative_review_required so the trust gate reflects
+        # the freshly fetched values (not a stale snapshot).
+        run: node scripts/validate-pulse-data.js
+
+      - name: Regenerate machine-readable Pulse feed
+        # Derived from data/pulse-content.json; mirrors the trust gate so AI
+        # agents never read an interpretation the site is holding under review.
+        run: node scripts/generate-pulse-feed.js
+
       - name: Validate refreshed Pulse data (gate before commit)
         run: node scripts/validate-pulse-data.js --check
 
-      - name: Commit refreshed data if changed
+      - name: Verify Pulse feed is in sync (gate before commit)
+        run: node scripts/generate-pulse-feed.js --check
+
+      - name: Commit refreshed data, flags & feed if changed
         run: |
-          if git diff --quiet -- data/pulse-content.json; then
-            echo "No Pulse data changes to commit."
+          if git diff --quiet -- data/pulse-content.json data/pulse-review-report.json pulse-feed.json; then
+            echo "No Pulse data or feed changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pulse-content.json
-          git commit -m "chore(data): refresh pulse signals"
+          git add data/pulse-content.json data/pulse-review-report.json pulse-feed.json
+          git commit -m "chore(data): refresh pulse signals + feed"
           git push
