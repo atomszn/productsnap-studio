@@ -151,9 +151,9 @@ function buildFeed(content) {
 
   return {
     $schema: "https://productsnap.studio/pulse-feed.schema.json",
-    title: "ProductSnap Studio — Pulse weekly feed",
+    title: "ProductSnap Studio — Pulse feed",
     description:
-      "A machine-readable summary of this week's Pulse: the weekly thought, the lenses it can be read through, the signals it references, and the product questions it raises. Derived from the live Pulse data; gated interpretations are withheld when under editorial review.",
+      "A machine-readable summary of the current Pulse: the latest thought, the lenses it can be read through, the signals it references, and the product questions it raises. The interpretation stands until the underlying signals materially change. Derived from the live Pulse data; gated interpretations are withheld when under editorial review.",
     site: SITE,
     pulse_url: SITE + "/pulse",
     generated_from: "data/pulse-content.json",

@@ -96,7 +96,7 @@
   // these fields are present (older data files) it returns false and rendering
   // is identical to before.
   const WC_FALLBACK_COPY =
-    "This week's interpretation is under review — the signal picture has shifted. Updated context coming soon.";
+    "The current interpretation is under review — the signal picture has shifted. Updated context coming soon.";
 
   function weeklyConnectionNeedsReview(conn) {
     if (!conn) return false;
@@ -559,7 +559,7 @@
     const heldHTML  = (wc.held_steady || []).map((h) => buildWchItem(h, "held")).join("");
     const diffHTML  = (wc.behaving_differently || []).map((d) => buildWchItem(d, "diff")).join("");
 
-    $("#wch-moved").innerHTML = movedHTML || '<li class="wch-empty"><span class="wch-note">no notable moves this week</span></li>';
+    $("#wch-moved").innerHTML = movedHTML || '<li class="wch-empty"><span class="wch-note">no notable moves lately</span></li>';
     $("#wch-held").innerHTML  = heldHTML  || '<li class="wch-empty"><span class="wch-note">—</span></li>';
     $("#wch-diff").innerHTML  = diffHTML  || '<li class="wch-empty"><span class="wch-note">—</span></li>';
   }
