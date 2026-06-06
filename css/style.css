@@ -3030,10 +3030,10 @@ a.pin-card:hover .pin-go { border-bottom-color: var(--teal); }
    ===================================================================== */
 @media (min-width: 900px) {
   .notebook-canvas {
-    grid-template-columns: minmax(220px, 1fr) 70px minmax(320px, 1.5fr) 70px minmax(240px, 1.1fr);
+    grid-template-columns: minmax(220px, 1fr) 70px minmax(340px, 1.6fr) 70px minmax(240px, 1.1fr);
     grid-template-areas:
       "inputs  arrA  middle  arrB  survived"
-      "parked  parked parked parked atom";
+      "parked  parked parked parked parked";
     column-gap: 0;
     row-gap: clamp(28px, 4vw, 48px);
     align-items: start;
@@ -3043,7 +3043,11 @@ a.pin-card:hover .pin-go { border-bottom-color: var(--teal); }
   .zone-middle   { grid-area: middle; }
   .zone-survived { grid-area: survived; }
   .zone-parked   { grid-area: parked; align-self: end; }
-  .atom-corner   { grid-area: atom; align-self: end; justify-self: end; margin: 0; }
+  /* Atom now lives INLINE inside the messy middle (the late-night mess),
+     not in a corner grid slot. Cap her width so she reads as a quiet
+     presence among the experiments, not a hero image. */
+  .atom-inline { max-width: 100%; }
+  .atom-inline img { max-width: 340px; }
 
   .flow-arrow {
     display: block;
@@ -3062,13 +3066,11 @@ a.pin-card:hover .pin-go { border-bottom-color: var(--teal); }
 
   /* survived cards: keep single column but they read like a pinned stack */
   .pinned-cards { gap: 18px; }
-
-  .atom-corner { max-width: 320px; }
 }
 
 @media (min-width: 1140px) {
   .middle-wall { grid-template-columns: repeat(2, 1fr); }
-  .atom-corner { max-width: 360px; }
+  .atom-inline img { max-width: 380px; }
 }
 
 /* =====================================================================
@@ -3088,8 +3090,8 @@ a.pin-card:hover .pin-go { border-bottom-color: var(--teal); }
     margin: -10px 0 14px;
   }
   .middle-wall { grid-template-columns: 1fr; }
-  .atom-corner { max-width: 100%; margin-top: 6px; }
-  .atom-corner img { max-width: 420px; }
+  .atom-inline { max-width: 100%; margin-top: 8px; }
+  .atom-inline img { max-width: 100%; }
 }
 @media (max-width: 540px) {
   .scrap-paper { max-width: 100%; }
@@ -3119,6 +3121,194 @@ html.js.reveal-on .zone.is-revealed {
     transition-delay: .35s;
   }
   html.js.reveal-on .notebook-canvas .zone.is-revealed ~ .flow-arrow { opacity: 0.7; }
+}
+
+/* =====================================================================
+   NOTES v3 — MORE SHOW: sketches, rough diagrams, crossed-out thoughts,
+   experiments that changed direction, small handwritten observations.
+   Layered on top of v2; reuses the same tokens. Everything here is
+   flow-positioned (no overlap), dark-mode patched below, and motion-safe.
+   ===================================================================== */
+
+/* a tiny handwritten observation, smaller + fainter than .ink-note.
+   Slightly darker than --ink-faded so it still clears AA (4.5:1) even on
+   the darker --paper-2 surfaces (e.g. the diagram note), while reading
+   as a quiet pencil aside. */
+.ink-tiny {
+  font-family: var(--hand);
+  font-size: 16.5px;
+  line-height: 1.25;
+  color: #5f5d53;
+  max-width: 30ch;
+}
+:root[data-theme="dark"] .ink-tiny { color: var(--ink-faded); }
+.ink-note.ink-1b { transform: rotate(0.8deg); margin-top: 8px; }
+
+/* a crossed-out scrap in the inputs pile — an idea that got rejected fast */
+.scrap-struck {
+  color: var(--ink-soft);
+}
+.scrap-struck > :first-child,
+.scrap-struck { position: relative; }
+.scrap-struck::after {
+  content: "";
+  position: absolute;
+  left: 8px; right: 8px; top: 52%;
+  height: 2px;
+  background: var(--pink);
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+}
+.margin-x {
+  display: inline;
+  font-family: var(--hand);
+  font-style: normal;
+  color: var(--pink-ink, #b03b78);
+  white-space: nowrap;
+}
+
+/* small hand-drawn doodles (funnel, etc.) sitting in the margins */
+.doodle {
+  display: block;
+  color: var(--ink-faded);
+  opacity: 0.8;
+}
+.doodle-funnel {
+  width: 96px;
+  height: auto;
+  margin: 2px 0 14px 6px;
+  transform: rotate(-2deg);
+}
+
+/* ===== ZONE 2 · a rough flow diagram (signal -> question -> idea, loop) ===== */
+.mini-diagram {
+  margin: 6px 0 20px;
+  padding: 14px 14px 12px;
+  background: var(--paper-2);
+  border: 1.5px dashed var(--ink-faded);
+  border-radius: 12px;
+  transform: rotate(0.5deg);
+}
+.diagram-svg {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  color: var(--ink);
+}
+.diagram-labels {
+  display: flex;
+  justify-content: space-between;
+  max-width: 380px;
+  margin-top: -4px;
+  gap: 8px;
+}
+.diagram-labels .dl {
+  flex: 1 1 0;
+  text-align: center;
+  font-family: var(--hand);
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.1;
+}
+.diagram-labels .dl:nth-child(2) { color: var(--teal); }
+.diagram-note { margin: 6px 0 0; transform: rotate(-0.8deg); }
+
+/* ===== ZONE 2 · an experiment that changed direction ===== */
+.experiment {
+  position: relative;
+  margin: 0 0 20px;
+  padding: 18px 18px 16px;
+  background: var(--card-2);
+  border: 1.5px solid var(--ink);
+  border-radius: 14px 6px 14px 6px;
+  box-shadow: 3px 4px 0 rgba(45,33,18,0.08);
+  transform: rotate(-0.5deg);
+}
+.exp-tag {
+  display: inline-block;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--purple);
+  background: var(--note-purple);
+  padding: 2px 10px;
+  border-radius: 999px;
+  transform: rotate(-1.6deg);
+  margin-bottom: 10px;
+}
+.exp-tried, .exp-killed {
+  margin: 0;
+  font-family: var(--hand);
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.exp-lead { font-weight: 700; color: var(--ink-soft); }
+.exp-tried {
+  color: var(--ink-soft);
+  text-decoration: line-through;
+  text-decoration-color: rgba(232,90,163,0.7);
+  text-decoration-thickness: 2px;
+}
+.struck-lead { color: var(--pink-ink, #b03b78); text-decoration: none; }
+.exp-killed { margin-top: 4px; }
+.exp-killed em { font-style: italic; color: var(--teal); font-weight: 700; }
+/* the U-turn arrow between tried -> killed */
+.uturn {
+  display: block;
+  width: 56px;
+  margin: 2px 0 2px 18px;
+  color: var(--teal);
+}
+.uturn svg { display: block; width: 100%; height: auto; }
+
+/* ===== ZONE 3 · survived: handwritten checked scrawl, not a tidy list ===== */
+.pin-scrawl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--hand);
+  font-size: 18.5px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.pin-scrawl li {
+  position: relative;
+  padding-left: 22px;
+}
+.pin-scrawl li::before {
+  content: "✓";
+  position: absolute; left: 0; top: 0;
+  color: var(--teal);
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 19px;
+}
+.pin-scrawl li:nth-child(2) { transform: rotate(-0.6deg); }
+.pin-scrawl li:nth-child(3) { transform: rotate(0.5deg); }
+.pin-aside {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--hand);
+  font-size: 16px;
+  color: var(--ink-faded);
+  transform: rotate(-1deg);
+}
+
+/* ===== ATOM — inline in the messy middle (not a corner mascot) ===== */
+.atom-inline {
+  margin: 8px 0 0;
+  max-width: 100%;
+}
+.atom-inline img { max-width: 460px; width: 100%; }
+.atom-inline .atom-note { max-width: 42ch; }
+.atom-sub {
+  display: block;
+  font-size: 16px;
+  color: var(--ink-faded);
+  transform: rotate(0.6deg);
+  margin-top: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3169,9 +3359,37 @@ html.js.reveal-on .zone.is-revealed {
   filter: drop-shadow(0 6px 18px rgba(0,0,0,0.5));
 }
 
+/* ---- v3 visual-storytelling elements in Late Night Mode ---- */
+:root[data-theme="dark"] .mini-diagram {
+  background: var(--paper-2);
+  border-color: var(--note-surf-hair);
+}
+:root[data-theme="dark"] .experiment {
+  background: var(--card-2);
+  border-color: var(--note-surf-hair);
+  box-shadow: 3px 4px 0 rgba(0,0,0,0.25);
+}
+:root[data-theme="dark"] .exp-tag {
+  background: var(--note-surf-purple);
+  color: var(--purple);
+}
+:root[data-theme="dark"] .exp-killed em { color: var(--teal); }
+/* pink ink reads light on the dark board */
+:root[data-theme="dark"] .margin-x,
+:root[data-theme="dark"] .struck-lead { color: var(--pink); }
+:root[data-theme="dark"] .scrap-struck::after { background: var(--pink); }
+:root[data-theme="dark"] .exp-tried {
+  text-decoration-color: rgba(245,155,198,0.75);
+}
+/* the diagram's loop-back arrow + struck scrap use a CSS var so dark
+   mode can lighten them; set the var per theme. */
+.diagram-svg { --pink-stroke: #d23c87; }
+:root[data-theme="dark"] .diagram-svg { --pink-stroke: #f59bc6; }
+
 /* smooth theme fade for the new surfaces (motion users only) */
 @media (prefers-reduced-motion: no-preference) {
-  .notebook-canvas, .scrap-paper, .pin-card, .park-tag, .iteration-loop, .zone .sticky {
+  .notebook-canvas, .scrap-paper, .pin-card, .park-tag, .iteration-loop,
+  .zone .sticky, .mini-diagram, .experiment {
     transition: background-color 180ms ease, color 180ms ease,
                 border-color 180ms ease, box-shadow 180ms ease;
   }
