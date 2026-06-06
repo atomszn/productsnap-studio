@@ -709,6 +709,16 @@ header.topnav-wrap {
   .sketch-canvas .sticky small { font-size: clamp(12px, 3.4vw, 14px); }
   .sketch-canvas .sticky:hover { transform: rotate(var(--rot, 0deg)); }
   .sketch-canvas .tape { display: none; }
+  /* With 7 notes the final one lands alone in a column and reads as a
+     leftover. Let it span both columns and center, so it becomes a
+     deliberate "last pin" footer rather than an orphan. Cancel the even/odd
+     stagger margin so it sits centered under the cluster. */
+  .sketch-canvas .sticky.last-note {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(72%, 240px);
+    margin-top: clamp(14px, 5vw, 26px);
+  }
 }
 
 /* ===================================================================

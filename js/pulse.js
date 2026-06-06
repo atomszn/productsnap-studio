@@ -255,15 +255,18 @@
 
     const parts = [];
     if (label) parts.push("Signals refreshed \u00b7 " + label);
-    if (pipelineLabel) parts.push("pipeline last refreshed " + pipelineLabel);
+    if (pipelineLabel) parts.push("updated " + pipelineLabel);
     if (!parts.length) { el.hidden = true; return; }
     el.textContent = parts.join(" \u00b7 ");
     el.hidden = false;
   }
 
-  // Format an ISO timestamp like "2026-06-02T15:00:00Z" as "June 2, 10:00 AM CT".
-  // 15:00 UTC = 10:00 AM US Central (CDT), the cron's daily run time. Returns ""
-  // for absent/invalid input.
+  // Format an ISO timestamp like "2026-06-02T15:00:00Z" as "June 2".
+  // The pipeline runs daily ~10am US Central; readers only need to see the
+  // day the pipeline last ran, not the exact minute/timezone (that machine
+  // precision reads as "dashboard energy", which the page deliberately avoids).
+  // The full timestamp still lives in the JSON for debugging. Returns "" for
+  // absent/invalid input.
   function fmtPipelineRefresh(iso) {
     if (!iso) return "";
     const d = new Date(iso);
@@ -274,12 +277,7 @@
     const ct = new Date(d.getTime() - 5 * 3600000);
     const mon = monthsLong[ct.getUTCMonth()];
     const day = ct.getUTCDate();
-    let h = ct.getUTCHours();
-    const min = ct.getUTCMinutes();
-    const ampm = h >= 12 ? "PM" : "AM";
-    h = h % 12; if (h === 0) h = 12;
-    const mm = (min < 10 ? "0" : "") + min;
-    return mon + " " + day + ", " + h + ":" + mm + " " + ampm + " CT";
+    return mon + " " + day;
   }
 
   /* =====================================================================

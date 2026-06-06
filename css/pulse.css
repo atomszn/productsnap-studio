@@ -2153,31 +2153,59 @@
 }
 .explore-signals {
   appearance: none;
-  background: none;
-  border: 0;
   cursor: pointer;
   font-family: var(--hand);
   font-size: clamp(20px, 2.4vw, 24px);
   color: var(--teal);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 6px;
-  min-height: 44px;
+  gap: 10px;
+  /* Pinned "card tab" pill: a tinted fill + hand-drawn dashed border makes it
+     read as a tappable thing (not decorative prose) while staying in the
+     sketchbook voice. */
+  padding: 12px 22px;
+  min-height: 48px;
+  background: rgba(31,122,107,0.08);
+  border: 1.8px dashed rgba(31,122,107,0.55);
+  border-radius: 16px 14px 18px 13px / 14px 17px 13px 16px;
+  box-shadow: 0 2px 0 rgba(45,33,18,0.06);
   transform: rotate(-1deg);
-  transition: color .18s ease;
+  transition: color .18s ease, background .18s ease,
+              border-color .18s ease, transform .18s ease;
 }
-.explore-signals:hover { color: var(--purple); }
+.explore-signals:hover {
+  color: var(--purple);
+  background: rgba(108,77,196,0.1);
+  border-color: rgba(108,77,196,0.6);
+  transform: rotate(-1deg) translateY(-1px);
+}
 .explore-signals:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
-  border-radius: 6px;
 }
 .explore-caret {
   display: inline-block;
   transition: transform .2s ease;
+  /* Gentle resting nudge so the affordance reads as "opens something". */
+  animation: explore-bob 2.4s ease-in-out infinite;
 }
+.explore-signals:hover .explore-caret,
+.explore-signals.is-open .explore-caret { animation: none; }
 .explore-signals.is-open .explore-caret { transform: rotate(180deg); }
+@keyframes explore-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(3px); }
+}
+/* Quiet helper line under the pill; disappears once the library is open. */
+.explore-hint {
+  font-family: var(--hand);
+  font-size: clamp(13px, 1.5vw, 15px);
+  color: rgba(45,33,18,0.5);
+  letter-spacing: .2px;
+}
+.explore-affordance:has(.explore-signals.is-open) .explore-hint {
+  display: none;
+}
 
 /* ---------- Signal library — collapsed appendix, visually secondary ---------- */
 .signal-library {
@@ -2251,4 +2279,5 @@
     transition: none !important;
   }
   .lens-tab, .explore-caret, .explore-signals { transition: none !important; }
+  .explore-caret { animation: none !important; }
 }
