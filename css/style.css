@@ -2236,6 +2236,19 @@ header.topnav-wrap {
    coming from rhythm and personality, not heavy animation.
    ===================================================================== */
 @media (prefers-reduced-motion: no-preference) {
+  /* ------------------------------------------------------------------
+     Global page-enter (Motion pass): the header band gently settles in
+     on first paint — "a notebook waking up", not a SaaS splash. This is
+     the ONE global entrance gesture; the hero copy + sections below are
+     already faded in by the reveal-on-scroll system, so we deliberately
+     do NOT also fade the whole <body> (that would double-animate).
+     Gated on html.js.reveal-on — if motion is off or JS bails, the
+     header is simply present, never hidden. clip-free, transform-only.
+     ------------------------------------------------------------------ */
+  html.js.reveal-on header.topnav-wrap {
+    animation: page-enter-header 460ms cubic-bezier(.2,.8,.2,1) both;
+  }
+
   /* Per-element stagger: reveal.js sets --reveal-delay (ms) on grouped items.
      Defaults to 0 so a missing value never delays anything. */
   html.js.reveal-on .section-head,
@@ -2287,6 +2300,14 @@ header.topnav-wrap {
   }
 }
 
+/* Header page-enter keyframe (kept outside the gate so it can be referenced;
+   only ever applied inside the no-preference + reveal-on block above). A
+   short fade with a 3px settle — fast, subtle, no bounce. */
+@keyframes page-enter-header {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Belt-and-suspenders: if the user prefers reduced motion, force every reveal
    target fully visible and static, regardless of JS state. */
 @media (prefers-reduced-motion: reduce) {
@@ -2297,6 +2318,8 @@ header.topnav-wrap {
     translate: 0 0 !important;
     transform: none !important;
   }
+  /* page-enter header is gated on no-preference, but be explicit. */
+  header.topnav-wrap { animation: none !important; }
 }
 
 /* =====================================================================
