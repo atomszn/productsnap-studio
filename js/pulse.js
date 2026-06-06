@@ -286,10 +286,11 @@
   function renderWeeklyNote(note) {
     if (!note) return;
     const t = $("#wn-text");
-    const d = $("#wn-date");
     const h = $("#hero-date");
     if (t) t.textContent = note.text;
-    if (d) d.textContent = note.date_label || note.date || "";
+    // The note's date now lives once, in the eyebrow (#hero-date). The old
+    // standalone quote-attribution date (#wn-date) was removed from the markup
+    // to avoid showing the same date twice in one block.
     if (h) h.textContent = note.date_label || note.date || "";
   }
 

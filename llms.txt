@@ -19,9 +19,11 @@ human: curious, practical, optimistic, empathetic, and slightly playful.
 - **App** (https://productsnap.studio/app): ProductSnap, a mobile learning app
   for product managers, built solo with AI tools in about twelve weeks. You can
   try a real flashcard in the browser.
-- **Pulse** (https://productsnap.studio/pulse): A weekly thinking layer that
+- **Pulse** (https://productsnap.studio/pulse): A thinking layer that
   reads public signals (AI, capital, consumer demand, labor, inflation,
-  regulation) together and turns them into better product questions.
+  regulation) together and turns them into better product questions. The
+  underlying signal data refreshes daily; the editorial note is updated
+  when there is something worth saying.
 - **Notes** (https://productsnap.studio/notes): Unfinished thinking on product,
   AI, and building — published when there's something real to say.
 

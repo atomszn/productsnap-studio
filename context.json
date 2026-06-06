@@ -39,8 +39,8 @@
     {
       "name": "Pulse",
       "type": "CreativeWork",
-      "category": "Weekly thinking layer",
-      "description": "A weekly thinking layer that reads public signals across AI, capital, consumer demand, labor, inflation, and regulation together, and turns them into better product questions. Not financial analysis, investment advice, or market prediction.",
+      "category": "Thinking layer",
+      "description": "A thinking layer that reads public signals across AI, capital, consumer demand, labor, inflation, and regulation together, and turns them into better product questions. The underlying signal data refreshes daily; the editorial note is updated when there is something worth saying. Not financial analysis, investment advice, or market prediction.",
       "url": "https://productsnap.studio/pulse",
       "machine_feed": "https://productsnap.studio/pulse-feed.json"
     },
