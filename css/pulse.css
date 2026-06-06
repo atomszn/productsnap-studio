@@ -2008,6 +2008,25 @@
 
 /* ---------- Active lens content ---------- */
 .lens-panel { max-width: 64ch; }
+
+/* Motion pass: when the reader switches lens tabs, the pattern + action
+   text are replaced in place. Instead of snapping, the panel re-renders
+   with a gentle fade-up so "the thinking behind it" reveals intentionally
+   rather than flickering. pulse.js re-triggers .lens-switched per render
+   (same pattern as the sketchbook pencil-in). Purposeful, ~260ms, no
+   bounce, and strictly the explanation text — never the data/signals.
+   Reduced-motion users get the instant swap (see PASS H block below). */
+.lens-panel.lens-switched .lens-pattern {
+  animation: lens-content-in 260ms cubic-bezier(.2,.8,.2,1) both;
+}
+.lens-panel.lens-switched .lens-action {
+  animation: lens-content-in 260ms cubic-bezier(.2,.8,.2,1) both;
+  animation-delay: 70ms;
+}
+@keyframes lens-content-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 .lens-pattern {
   font-family: var(--body);
   font-size: clamp(16px, 1.9vw, 20px);
@@ -2280,6 +2299,13 @@
   }
   .lens-tab, .explore-caret, .explore-signals { transition: none !important; }
   .explore-caret { animation: none !important; }
+  /* Lens content swap is instant for reduced-motion. */
+  .lens-panel.lens-switched .lens-pattern,
+  .lens-panel.lens-switched .lens-action {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* One-line statement of the Pulse model, sits under the through-line.

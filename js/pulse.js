@@ -1262,6 +1262,19 @@
       }
     }
 
+    // Motion pass: gently fade the swapped pattern + action on a USER switch
+    // (not the initial paint, which is { persist: false }). Re-trigger the
+    // CSS animation by toggling .lens-switched with a reflow, mirroring the
+    // sketchbook pencil-in. Reduced-motion users get the instant swap (the
+    // CSS animation is disabled in the PASS H reduced-motion block).
+    const userSwitch = !(opts && opts.persist === false);
+    const lensPanelEl = $("#lens-panel");
+    if (lensPanelEl && userSwitch) {
+      lensPanelEl.classList.remove("lens-switched");
+      void lensPanelEl.offsetWidth; // force reflow so the animation restarts
+      lensPanelEl.classList.add("lens-switched");
+    }
+
     if (!opts || opts.persist !== false) persistLens(key);
   }
 
