@@ -40,7 +40,7 @@ const CHECK = args.includes("--check");
 
 // --- trust-gate logic (mirrors js/pulse.js TRUST_FALLBACK_* / *NeedsReview) ---
 const WC_FALLBACK_COPY =
-  "This week's interpretation is under review — the signal picture has shifted. Updated context coming soon.";
+  "The current interpretation is under review — the signal picture has shifted. Updated context coming soon.";
 const TRUST_FALLBACK_SHORT = "Interpretation under review.";
 const SIGNAL_FALLBACK_COPY =
   "This signal moved enough to revisit the interpretation. Updated context coming soon.";
