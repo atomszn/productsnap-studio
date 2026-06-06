@@ -2291,3 +2291,154 @@
   line-height: 1.35;
   color: var(--ink-faded);
 }
+
+/* ============================================================ */
+/* DARK MODE (Late Night) — Pulse contrast corrections          */
+/* ------------------------------------------------------------ */
+/* pulse.css originally hardcoded light cream/white surfaces     */
+/* (rgba(255,253,246,*) / rgba(255,255,255,*)) and a few dark    */
+/* ink-tones for comparison/momentum labels. In dark mode those  */
+/* surfaces stayed light while text flipped light -> illegible.  */
+/* This block remaps every such surface to a translucent         */
+/* dark-paper tint (notebook texture preserved) and lightens the */
+/* fixed accent text-tones. Tokens, not one-off patches.         */
+/* No layout, spacing, or non-color properties are touched.      */
+/* ============================================================ */
+:root[data-theme="dark"] {
+  /* Translucent dark-paper surfaces (replace cream/white cards). */
+  --pulse-surface:        rgba(255, 253, 246, 0.05);
+  --pulse-surface-strong: rgba(255, 253, 246, 0.08);
+  --pulse-surface-pill:   rgba(255, 253, 246, 0.07);
+  /* Dashed/solid hairlines: light-on-dark so dividers stay visible but subtle. */
+  --pulse-hair:           rgba(245, 236, 220, 0.22);
+  --pulse-hair-strong:    rgba(245, 236, 220, 0.32);
+  /* Comparison / momentum accent text — lightened for AA on dark. */
+  --pulse-pos:            #6fcf6a;
+  --pulse-neg:            #f0976a;
+  --pulse-watch:          #f59bc6;
+  --pulse-amber-text:     #f0c45c;
+}
+
+/* --- What's-changed rows --------------------------------------- */
+:root[data-theme="dark"] .wch-row,
+:root[data-theme="dark"] .wch-row.wch-held {
+  background: var(--pulse-surface);
+  border-color: var(--pulse-hair-strong);
+}
+:root[data-theme="dark"] .wch-row.wch-moved { background: rgba(63, 184, 168, 0.16); }
+:root[data-theme="dark"] .wch-row.wch-diff  { background: rgba(184, 139, 255, 0.16); }
+
+/* What's-changed arrows + momentum chips */
+:root[data-theme="dark"] .wch-arrow.up,
+:root[data-theme="dark"] .cc-mom-dot.mom-dot-up { color: var(--pulse-pos); }
+:root[data-theme="dark"] .wch-arrow.down,
+:root[data-theme="dark"] .cc-mom-dot.mom-dot-down { color: var(--pulse-neg); }
+:root[data-theme="dark"] .wch-momentum.mom-accelerating {
+  background: rgba(111, 207, 106, 0.16); border-color: rgba(111, 207, 106, 0.45); color: var(--pulse-pos);
+}
+:root[data-theme="dark"] .wch-momentum.mom-decelerating {
+  background: rgba(240, 151, 106, 0.16); border-color: rgba(240, 151, 106, 0.45); color: var(--pulse-neg);
+}
+:root[data-theme="dark"] .wch-momentum.mom-watch-closely {
+  background: rgba(245, 155, 198, 0.16); border-color: rgba(245, 155, 198, 0.45); color: var(--pulse-watch);
+}
+
+/* --- Compared-to box ("versus six months ago", etc.) ----------- */
+:root[data-theme="dark"] .compared-to {
+  background: var(--pulse-surface);
+  border-color: var(--pulse-hair);
+}
+:root[data-theme="dark"] .cmp-tone-green { color: var(--pulse-pos); }
+:root[data-theme="dark"] .cmp-tone-amber { color: var(--pulse-neg); }
+
+/* --- Signal-detail nested reveal box & PM-question box --------- */
+/* .cs-expansion: the expandable box inside each explorer chain    */
+/* step (incl. the PM-question note). .sp-inner: source-philosophy */
+/* shell. Both were hardcoded cream -> light-on-light in dark.     */
+:root[data-theme="dark"] .chain-step .cs-expansion,
+:root[data-theme="dark"] .sp-inner {
+  background: var(--pulse-surface-strong);
+  border-color: var(--pulse-hair-strong);
+}
+
+/* --- Sources count pill (.cc-signal-pill, line 926) ------------ */
+:root[data-theme="dark"] .cc-signal-pill {
+  background: var(--pulse-surface-pill);
+}
+
+/* --- Where-tabs / PM-toggle pills / generic uppercase tag ------- */
+:root[data-theme="dark"] .wc-where-tab,
+:root[data-theme="dark"] .pmt-toggle-pill {
+  background: var(--pulse-surface-pill);
+  border-color: var(--pulse-hair);
+}
+
+/* --- Footer signal-index buttons ------------------------------- */
+:root[data-theme="dark"] .fsi-link {
+  background: var(--pulse-surface);
+  border-color: var(--pulse-hair);
+}
+
+/* --- What's-changed inner pills (.wch-item-row) ---------------- */
+/* The clickable pill inside each row was hardcoded cream with a    */
+/* near-black border -> light-on-cream text + invisible border in   */
+/* dark mode. This is the worst-flagged row. Give it a dark surface */
+/* and a visible hairline; hover deepens it.                        */
+:root[data-theme="dark"] .wch-item.wch-item-row {
+  background: var(--pulse-surface-strong);
+  border-color: var(--pulse-hair);
+}
+:root[data-theme="dark"] .wch-item.wch-item-row:hover {
+  background: rgba(255, 253, 246, 0.12);
+  border-color: var(--pulse-hair-strong);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* --- Amber focus text in the PM-tension triad (line 1620) ------ */
+:root[data-theme="dark"] .wc-triad-row.wc-triad-pm.is-focused .wc-triad-focus {
+  color: var(--pulse-amber-text);
+}
+
+/* --- Evidence-chip hover (light cream -> dark) ----------------- */
+:root[data-theme="dark"] .evidence-chip:hover { background: rgba(255, 253, 246, 0.10); }
+
+/* --- Explorer chain cards (.chain-step) ------------------------ */
+/* In light mode these are pastel sticky-notes with dark ink. In   */
+/* dark mode the shared --note-* tokens are mid-tone, leaving light */
+/* ink at only ~3:1 and the handwritten labels at ~1.5:1. Re-tint  */
+/* each card to a DEEP charcoal of its own accent so light text and */
+/* labels clear AA, while keeping the per-card colour identity.    */
+:root[data-theme="dark"] .chain-step:nth-child(1) { background: #243d39; } /* teal    */
+:root[data-theme="dark"] .chain-step:nth-child(2) { background: #332c44; } /* lavender*/
+:root[data-theme="dark"] .chain-step:nth-child(3) { background: #3a321c; } /* gold    */
+:root[data-theme="dark"] .chain-step:nth-child(4) { background: #3e2931; } /* pink    */
+:root[data-theme="dark"] .chain-step:nth-child(5) { background: #3c282f; } /* blush   */
+/* Brighten the handwritten card labels for contrast on deep cards. */
+:root[data-theme="dark"] .chain-step .cs-label { color: #6fd6c4; }
+:root[data-theme="dark"] .chain-step:nth-child(5) .cs-label { color: #c9a4ff; }
+/* Step number + collapsed/expanded hints stay legible on deep cards. */
+:root[data-theme="dark"] .chain-step .cs-num,
+:root[data-theme="dark"] .chain-step.is-open .cs-expand-hint { color: #b8ac95; }
+
+/* --- Status / tier pills on mid-tone note fills ---------------- */
+/* In light mode these validation pills are pastel note-colours with */
+/* dark ink. In dark mode the shared --note-* tokens are mid-tone,   */
+/* so the light --ink label drops to ~3:1. Re-tint each pill to a    */
+/* deep charcoal of its own accent (matching the explorer cards) so  */
+/* the label clears AA, preserving the per-tone colour identity. The */
+/* coloured ::before status dots are unchanged — trust signals stay. */
+:root[data-theme="dark"] .status-pill.tone-green,
+:root[data-theme="dark"] .tier-badge.tier-1 { background: #243d39; }   /* teal     */
+:root[data-theme="dark"] .status-pill.tone-amber,
+:root[data-theme="dark"] .tier-badge.tier-2 { background: #3a321c; }   /* gold     */
+:root[data-theme="dark"] .status-pill.tone-red,
+:root[data-theme="dark"] .status-pill.tone-pink { background: #3e2931; } /* pink   */
+:root[data-theme="dark"] .status-pill.tone-lavender,
+:root[data-theme="dark"] .tier-badge.tier-3,
+:root[data-theme="dark"] .confidence-pill.opinion { background: #332c44; } /* lavender */
+
+/* --- Explore hint helper line --------------------------------- */
+/* Hardcoded dark rgba(45,33,18,0.5) is near-invisible on dark paper */
+/* (~1:1). Use a soft warm ink so the “tap to open” cue stays quiet  */
+/* but legible. */
+:root[data-theme="dark"] .explore-hint { color: var(--ink-faded); }

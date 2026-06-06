@@ -1332,3 +1332,127 @@ html,
   .wire-card:hover { transform: rotate(var(--w-rot, -0.5deg)); }
 }
 
+
+/* ============================================================ */
+/* DARK MODE — Product-mockup isolation                         */
+/* ------------------------------------------------------------ */
+/* Principle: Late Night Mode changes the portfolio ENVIRONMENT, */
+/* not the PRODUCTS being showcased. The interactive flashcard   */
+/* is a phone mock-up of the real ProductSnap app — it must stay */
+/* a glowing light/cream screen with dark ink, like looking at a */
+/* phone in a dark room. So inside the card we PIN colors to the */
+/* light-mode literals instead of inheriting the flipped tokens. */
+/* (Real screenshots in .dd-frame are self-contained JPGs and    */
+/* need no isolation; the phone frame/notch are already dark.)   */
+/* ============================================================ */
+:root[data-theme="dark"] .flashcard {
+  /* light-mode ink literals, re-pinned so the card never inherits dark */
+  --ink:       #1d1f1d;
+  --ink-soft:  #3a3a36;
+  --ink-faded: #6c6a60;
+}
+/* Back face: keep the cream paper + dark text (was light-on-cream). */
+:root[data-theme="dark"] .fc-back { background: #fffaf2; color: #1d1f1d; }
+:root[data-theme="dark"] .fc-back .fc-block p { color: #1d1f1d; }
+/* "WHY IT MATTERS" yellow highlight box — restore dark label + body. */
+:root[data-theme="dark"] .fc-block-why { background: #fbe9b4; }
+:root[data-theme="dark"] .fc-block-why .fc-label { color: #8a5a00; }
+:root[data-theme="dark"] .fc-block-what .fc-label { color: #6c33c9; }
+:root[data-theme="dark"] .fc-block-example .fc-label { color: #2f7d3a; }
+/* Back-face category chip keeps its light-mode lavender treatment. */
+:root[data-theme="dark"] .fc-category-back {
+  background: #f1e7ff; border-color: #c8b1ed; color: #4a1f9e;
+}
+/* Front face is a purple->pink gradient with white text — already   */
+/* theme-independent; no override needed. Controls/buttons below the  */
+/* phone live in the notebook environment and may follow dark theme.  */
+
+/* ============================================================ */
+/* DARK MODE — Notebook UI surfaces (NOT mockups)               */
+/* ------------------------------------------------------------ */
+/* Sticky notes, prompt cards, build pills, roadmap tags are    */
+/* part of the portfolio ENVIRONMENT, so they flip to dark      */
+/* paper. In dark mode the --note-* tokens are mid-tone fills    */
+/* (#b59a52 etc.) and would put light --ink text on a light-ish */
+/* surface (1.1–3.2:1). Instead, give each accent a deep-tinted */
+/* surface + warm hairline and let the light --ink text read    */
+/* clearly, matching the Pulse explorer-card treatment.         */
+/* ============================================================ */
+:root[data-theme="dark"] {
+  /* deep accent surfaces (charcoal tinted toward each note hue) */
+  --note-surf-yellow: #3a321c;
+  --note-surf-pink:   #3e2931;
+  --note-surf-teal:   #1f3531;
+  --note-hair:        rgba(245,236,220,0.26);
+}
+
+/* Hero sticky note */
+:root[data-theme="dark"] .app-hero-note {
+  background: var(--note-surf-yellow);
+  border-color: var(--note-hair);
+}
+:root[data-theme="dark"] .ahn-text { color: var(--ink); }
+:root[data-theme="dark"] .ahn-foot { color: var(--ink-soft); }
+
+/* Build pills */
+:root[data-theme="dark"] .build-pill {
+  background: var(--card);
+  border-color: var(--note-hair);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+:root[data-theme="dark"] .build-pill .bp-id { color: #5fb6a8; }
+:root[data-theme="dark"] .build-pill .bp-note { color: var(--ink-soft); }
+:root[data-theme="dark"] .build-pill .bp-arrow { color: var(--ink-faded); }
+:root[data-theme="dark"] .build-pill.is-final {
+  background: var(--note-surf-yellow);
+  border-color: var(--note-hair);
+}
+
+/* "Now shipping" stamp */
+:root[data-theme="dark"] .stamp {
+  border-color: #e07a6a;
+  color: #f0937f;
+  background: rgba(224,122,106,0.10);
+}
+
+/* Prompt cards */
+:root[data-theme="dark"] .prompt-yellow { background: var(--note-surf-yellow); }
+:root[data-theme="dark"] .prompt-pink   { background: var(--note-surf-pink);   }
+:root[data-theme="dark"] .prompt-teal   { background: var(--note-surf-teal);   }
+:root[data-theme="dark"] .prompt-card   { border-color: var(--note-hair); }
+:root[data-theme="dark"] .prompt-text   { color: var(--ink); }
+:root[data-theme="dark"] .prompt-text.prompt-placeholder { color: var(--ink-soft); }
+:root[data-theme="dark"] .prompt-foot {
+  color: var(--ink);
+  border-top-color: rgba(245,236,220,0.20);
+}
+:root[data-theme="dark"] .prompt-pin {
+  background: #5fb6a8;
+  border-color: var(--note-hair);
+}
+
+/* Roadmap tag (solid teal pill, white text) — deepen teal so white reads */
+:root[data-theme="dark"] .rm-tag {
+  background: #2f6f64;
+  color: #ffffff;
+}
+:root[data-theme="dark"] .roadmap-list li.is-tentative .rm-tag {
+  background: transparent;
+  color: var(--ink-faded);
+  border-color: var(--ink-faded);
+}
+
+/* Status badge ("Now shipping" sticky note) — note-cream fill leaves   */
+/* the light --ink status lines at ~3.4:1. Flip to a deep surface so   */
+/* the lines, note, and teal caret read clearly. */
+:root[data-theme="dark"] .status-badge {
+  background: var(--note-surf-yellow);
+  border-color: var(--note-hair);
+}
+:root[data-theme="dark"] .status-pin { background: #5fb6a8; border-color: var(--note-hair); }
+
+/* Flashcard control buttons live in the notebook (below the phone), so */
+/* they follow the dark theme. The pink "Review again" button flips to a */
+/* bright pink where white text drops to ~2:1 — deepen it so white reads. */
+/* ("Got it" green already clears AA with its dark-green label.)         */
+:root[data-theme="dark"] .fc-btn-review { background: #b04d7a; color: #fff; }
