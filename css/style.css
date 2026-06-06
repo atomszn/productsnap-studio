@@ -2690,499 +2690,493 @@ header.topnav-wrap {
   color: var(--ink);
 }
 
+
+
 /* =====================================================================
-   NOTES PAGE — the workshop board / guided journey  (Chapter 05)
+   NOTES PAGE — the explorable founder notebook  (Chapter 05, v2)
    ---------------------------------------------------------------------
-   The page's job: show how a thing goes from a messy thought to
-   something real. Four stations: Inputs -> Messy middle -> Experiments
-   -> Shipped/Learned.
+   GOAL: the visitor feels they opened a real, slightly messy product
+   notebook and is exploring how ideas become products — SHOW, not tell.
 
-   HYBRID layout:
-     - DESKTOP (>=820px): a spatial workshop board. A central dashed
-       "spine" runs top to bottom with numbered station markers pinned to
-       it; station bodies alternate left/right of the spine like notes
-       tacked around a thread of thinking. Slight per-station tilt.
-     - MOBILE (<820px): collapses to one clean vertical column with the
-       spine on the left edge — a guided story you read top to bottom.
+   One contained notebook CANVAS (no pan/drag, no hidden areas). The story
+   reveals itself in place: Signals -> Messy Middle (biggest) -> What
+   Survived, with a Parking lot below and Atom quietly in the corner.
 
-   All decorative motion is gated behind html.reveal-on (set by reveal.js
-   only when motion is allowed + IntersectionObserver exists) and a
-   prefers-reduced-motion failsafe forces everything visible + static.
-   Dark mode reuses the existing semantic tokens + --note-surf-* deep
-   surfaces; the ENVIRONMENT flips, the thinking stays legible.
+   - DESKTOP (>=900px): a three-zone spread on a cream board, joined by
+     two hand-drawn dashed arrows. Zones are flow layouts (NO absolutely
+     positioned notes covering text) — they just sit at intentional tilts.
+   - MOBILE (<900px): the same zones stack into a clean guided scroll
+     journey; arrows hide, everything is one column and fully readable.
+
+   Reuses the sketchbook tokens + sticky kit. Dark mode flips the
+   ENVIRONMENT (board + ink) while notes use the deep --note-surf-* tokens.
+   All reveal motion is gated on html.reveal-on; a reduced-motion failsafe
+   forces everything visible + static.
    ===================================================================== */
 
 .notes-page { min-height: 60vh; }
 
-/* The intro section just uses the shared .section-head; tighten its
-   bottom rule so the board reads as one continuous chapter, not two. */
-.notes-intro { padding-bottom: clamp(20px, 4vw, 40px); }
-.notes-intro + .notes-board-section { border-top: none; }
-.notes-board-section { padding-top: clamp(8px, 2vw, 24px); }
+/* ---- short intro, then out of the way ---- */
+.notes-intro { padding-bottom: clamp(14px, 3vw, 30px); }
+.notes-intro-inner { max-width: 720px; }
 .notes-headline {
   font-family: var(--serif);
   font-weight: 500;
   font-size: clamp(32px, 5.6vw, 56px);
-  line-height: 1.05;
+  line-height: 1.04;
   letter-spacing: -0.02em;
-  margin: 12px 0 18px;
+  margin: 10px 0 14px;
 }
-.notes-rail { margin-top: 18px; }
+.notes-deck {
+  font-size: clamp(16px, 1.7vw, 19px);
+  color: var(--ink-soft);
+  max-width: 54ch;
+  margin: 0;
+}
+.notes-rail { margin-top: 14px; }
 
-/* ---------- the board / journey container ---------- */
-.notes-board {
-  list-style: none;
+/* ---- the canvas board ---- */
+.notes-canvas-section {
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0;
-  max-width: 1040px;
-  position: relative;
+  padding: clamp(12px, 3vw, 36px) var(--pad) clamp(48px, 7vw, 90px);
 }
-
-/* Each station: a marker (number) + a body card. On mobile this is a
-   simple two-column row (spine | body). On desktop the spine becomes a
-   centered thread and bodies alternate sides. */
-.station {
+.notebook-canvas {
   position: relative;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(45,33,18,0.05) 31px, rgba(45,33,18,0.05) 32px),
+    var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: var(--shadow-2);
+  padding: clamp(22px, 3.4vw, 46px);
+  /* mobile-first: single guided column */
   display: grid;
-  grid-template-columns: 48px 1fr;
-  column-gap: 18px;
-  align-items: start;
-  padding: 0 0 clamp(34px, 6vw, 56px);
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 6vw, 44px);
 }
-.station:last-child { padding-bottom: 0; }
+/* a faint red "margin rule" like a real notebook page (desktop only) */
+@media (min-width: 900px) {
+  .notebook-canvas::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: 58px;
+    width: 1.5px;
+    background: rgba(232,90,163,0.20);
+    pointer-events: none;
+  }
+}
 
-/* The numbered marker sits on the spine. The connecting dashed line is
-   drawn by the marker's ::before so it grows with each station's height. */
-.station-marker {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  padding-top: 4px;
+/* ---- a zone ---- */
+.zone { position: relative; }
+.zone-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--body);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: clamp(19px, 2.2vw, 24px);
+  color: var(--ink);
+  margin: 0 0 4px;
 }
-.station-num {
-  position: relative;
-  z-index: 2;
+.zone-label-sm { font-size: clamp(17px, 1.9vw, 20px); }
+.zone-step {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px; height: 44px;
+  width: 30px; height: 30px;
   border-radius: 50%;
-  background: var(--card);
-  border: 2px solid var(--ink);
-  box-shadow: 3px 4px 0 rgba(40,30,10,0.10);
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+}
+.zone-sub {
+  margin: 0 0 16px;
+  font-size: 19px;
+  color: var(--ink-soft);
+}
+
+/* handwritten ink notes scattered in the margins */
+.ink-note {
+  font-family: var(--hand);
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--purple);
+  margin: 16px 0 0;
+  transform: rotate(-1.6deg);
+  max-width: 30ch;
+}
+.ink-note.ink-2 { color: var(--teal); transform: rotate(1.2deg); }
+.ink-note.ink-3 { color: var(--ink-faded); transform: rotate(-1deg); }
+
+/* ===== ZONE 1 · INPUTS — a messy pile of scraps ===== */
+.scrap-pile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 12px;
+  margin-bottom: 18px;
+}
+.scrap {
+  font-family: var(--body);
+  font-size: 14.5px;
+  line-height: 1.35;
+  color: var(--ink);
+  padding: 10px 13px;
+  transform: rotate(var(--rot, 0deg));
+}
+.scrap-paper {
+  background: var(--card-2);
+  border: 1.5px solid rgba(45,33,18,0.45);
+  border-radius: 3px;
+  box-shadow: 2px 3px 0 rgba(45,33,18,0.08);
+  max-width: 220px;
+}
+.scrap em { font-style: italic; color: var(--purple); }
+.note-tilt { transform: rotate(var(--rot, 0deg)); }
+
+/* the sticky kit used inline — reset the absolute positioning from .sticky */
+.zone .sticky {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  min-height: 0;
+  vertical-align: top;
+}
+
+/* ===== ZONE 2 · MESSY MIDDLE — the wall of questions ===== */
+.middle-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px 16px;
+  margin-bottom: 22px;
+}
+.zone .sticky.note-q {
+  width: 100%;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.18;
+  padding: 24px 16px 16px;
+  border-radius: 3px 13px 4px 11px;
+}
+.zone .sticky.note-q em { font-style: italic; }
+
+/* a real crossed-out assumption -> the thing it became */
+.iteration-loop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 16px 18px;
+  background: var(--paper-2);
+  border: 1.5px dashed var(--ink);
+  border-radius: 12px;
+  transform: rotate(-0.4deg);
+}
+.assumption {
+  margin: 0;
+  font-family: var(--hand);
+  font-size: 21px;
+  /* crossed-out, but still legible (AA): the strikethrough carries the
+     "discarded" meaning, so the text itself stays soft-ink, not faded. */
+  color: var(--ink-soft);
+  line-height: 1.15;
+}
+.assumption.struck {
+  position: relative;
+  text-decoration: line-through;
+  text-decoration-color: var(--pink);
+  text-decoration-thickness: 2px;
+}
+.loop-arrow {
+  font-size: 24px;
+  color: var(--teal);
+  line-height: 1;
+}
+.assumption-fix {
+  margin: 0;
   font-family: var(--hand);
   font-weight: 700;
   font-size: 22px;
   color: var(--teal);
-  line-height: 1;
+  line-height: 1.15;
 }
-/* The dashed spine segment behind each marker, joining to the next. */
-.station-marker::before {
-  content: "";
-  position: absolute;
-  top: 4px; bottom: calc(-1 * clamp(34px, 6vw, 56px));
-  left: 50%;
-  width: 0;
-  border-left: 2px dashed rgba(45,33,18,0.28);
-  transform: translateX(-50%);
-  z-index: 1;
-}
-.station:last-child .station-marker::before { display: none; }
 
-/* The station body — a tacked-up note/card. */
-.station-body {
+/* ===== ZONE 3 · WHAT SURVIVED — pinned cards ===== */
+.pinned-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.pin-card {
+  position: relative;
+  display: block;
   background: var(--card);
   border: 1.5px solid var(--ink);
-  border-radius: 14px;
-  box-shadow: var(--shadow-2);
-  padding: clamp(20px, 3.2vw, 32px) clamp(20px, 3.4vw, 34px);
-  position: relative;
+  border-radius: 4px 14px 4px 12px;
+  box-shadow: var(--shadow-sticky);
+  padding: 22px 18px 16px;
+  color: inherit;
+  transition: transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease;
 }
-.station-head { margin-bottom: 16px; }
-.station-tag {
-  display: inline-block;
-  font-family: var(--hand);
-  font-size: 20px;
-  color: var(--teal);
-  transform: rotate(-2deg);
-  margin-bottom: 6px;
+.pin-card:nth-child(odd)  { transform: rotate(-1.1deg); }
+.pin-card:nth-child(even) { transform: rotate(1.1deg); }
+a.pin-card:hover,
+a.pin-card:focus-visible {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 3px 6px 0 rgba(40,30,10,0.10), 10px 22px 38px -16px rgba(40,30,10,0.4);
 }
-.station-title {
+.pin-card .sticky-pin {
+  position: absolute;
+  top: 8px; left: 50%;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--pink);
+  transform: translateX(-50%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.pin-card:nth-child(2) .sticky-pin { background: var(--teal); }
+.pin-card:nth-child(3) .sticky-pin { background: var(--purple); }
+.pin-card:nth-child(4) .sticky-pin { background: var(--amber); }
+.pin-title {
+  margin: 0 0 8px;
   font-family: var(--body);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  font-size: clamp(22px, 3vw, 30px);
-  line-height: 1.12;
-  margin: 0 0 8px;
+  font-size: 19px;
+  letter-spacing: -0.01em;
 }
-.station-note {
-  margin: 6px 0 0;
-  font-size: 20px;
-  color: var(--ink-soft);
-}
-.station-aside {
-  margin: 18px 0 0;
-  display: block;
-  font-size: 20px;
-  color: var(--purple);
-  max-width: 56ch;
-  line-height: 1.4;
-}
-.station-aside em { font-style: italic; }
-.notes-close { color: var(--teal); font-size: 24px; }
-
-/* ---------- Station 1: inputs list (paper-grain bullets) ---------- */
-.input-list,
-.experiment-list,
-.outcome-list {
+.pin-list {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.input-list li {
-  position: relative;
-  padding: 8px 0 8px 26px;
-  font-size: 16px;
+  font-size: 14.5px;
   line-height: 1.5;
   color: var(--ink-soft);
-  border-bottom: 1px dashed rgba(45,33,18,0.14);
 }
-.input-list li:last-child { border-bottom: none; }
-.input-list li::before {
-  content: "→";
-  position: absolute;
-  left: 2px; top: 8px;
-  font-family: var(--hand);
-  font-weight: 700;
+.pin-list li { position: relative; padding-left: 18px; }
+.pin-list li::before {
+  content: "✓";
+  position: absolute; left: 0; top: 0;
   color: var(--teal);
-}
-
-/* ---------- Station 2: questions as a checklist + scribble wall ---------- */
-.question-list {
-  list-style: none;
-  margin: 0 0 4px;
-  padding: 0;
-  display: grid;
-  gap: 8px;
-}
-.question-list li {
-  position: relative;
-  padding: 9px 14px 9px 40px;
-  font-family: var(--body);
-  font-weight: 600;
-  font-size: clamp(16px, 1.8vw, 18px);
-  color: var(--ink);
-  background: var(--paper-2);
-  border: 1.5px solid rgba(45,33,18,0.18);
-  border-radius: 10px;
-}
-.question-list li::before {
-  content: "";
-  position: absolute;
-  left: 12px; top: 50%;
-  width: 15px; height: 15px;
-  margin-top: -8px;
-  border: 2px solid var(--teal);
-  border-radius: 4px;
-}
-.question-list li::after {
-  content: "?";
-  position: absolute;
-  left: 15px; top: 50%;
-  margin-top: -10px;
-  font-family: var(--hand);
   font-weight: 700;
+}
+.pin-go {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--hand);
   font-size: 17px;
   color: var(--teal);
-  line-height: 1;
+  border-bottom: 1.5px solid rgba(21,96,90,0.3);
 }
+a.pin-card:hover .pin-go { border-bottom-color: var(--teal); }
+.pin-card-flat { box-shadow: var(--shadow-1); }
+.pin-card-flat:nth-child(4) { transform: rotate(0.6deg); }
 
-/* The margin scribbles — reuse .sticky kit, laid out as a small wall. */
-.scribble-wall {
-  margin: 22px 0 4px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 16px;
-}
-.scribble.sticky {
-  position: static;
-  width: 100%;
-  min-height: 0;
-  font-size: clamp(18px, 2.2vw, 21px);
-  line-height: 1.18;
-  padding: 22px 16px 16px;
-  border-radius: 3px 12px 4px 10px;
-}
-@media (max-width: 560px) {
-  .scribble-wall { grid-template-columns: 1fr; }
-}
-
-/* ---------- Station 3: experiments + future ideas ---------- */
-.experiment-list li {
-  padding: 10px 0;
-  font-size: 16px;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  border-bottom: 1px dashed rgba(45,33,18,0.14);
-}
-.experiment-list li:last-child { border-bottom: none; }
-.exp-lead {
+/* ===== PARKING LOT ===== */
+.zone-parked .park-emoji {
   font-family: var(--body);
-  font-weight: 700;
-  color: var(--ink);
+  color: var(--ink-faded);
+  font-size: 0.9em;
 }
-.future-block {
-  margin-top: 22px;
-  padding: 18px 20px;
-  background: var(--paper-2);
-  border: 1.5px dashed var(--ink);
-  border-radius: 12px;
-  transform: rotate(-0.5deg);
+.park-list {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 14px;
 }
-.future-label {
-  margin-bottom: 8px;
-  /* Deeper rose than --pink so this 18px label clears WCAG AA (4.5:1) on the
-     paper-2 surface; --pink (#e85aa3) only reaches ~2.6:1 here. */
-  color: #a82a64;
-}
-:root[data-theme="dark"] .future-label { color: var(--pink); }
-.future-idea {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(17px, 2vw, 20px);
-  line-height: 1.4;
-  color: var(--ink);
-}
-.future-idea-2 {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px dashed rgba(45,33,18,0.18);
-}
-
-/* ---------- Station 4: outcomes with status tags ---------- */
-.outcome {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 6px 16px;
-  align-items: start;
-  padding: 12px 0;
-  border-bottom: 1px dashed rgba(45,33,18,0.14);
-}
-.outcome:last-child { border-bottom: none; }
-.outcome-tag {
-  display: inline-block;
-  justify-self: start;
+.park-tag {
   font-family: var(--hand);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.1;
-  padding: 4px 12px;
-  border-radius: 999px;
-  border: 1.5px solid var(--ink);
-  white-space: nowrap;
-}
-.tag-shipped    { background: var(--note-teal); color: #143b36; }
-.tag-simplified { background: var(--note-yellow); color: #4a3b13; }
-.tag-changed    { background: var(--note-purple); color: #36215e; }
-.tag-parked     { background: var(--note-cream); color: #44351a; }
-.tag-evolving   { background: var(--note-pink); color: #5a1f3e; }
-.outcome-text {
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 19px;
   color: var(--ink-soft);
+  background: var(--card-2);
+  border: 1.5px dashed var(--ink-faded);
+  border-radius: 999px;
+  padding: 6px 16px;
+  transform: rotate(var(--rot, 0deg));
 }
 
-/* ---------- quiet inline references (NOT marketing CTAs) ----------
-   Pencil-underlined inline links: a thin hand-toned underline that only
-   firms up on hover/focus. Reads like a notebook reference. */
-.ref-link {
-  color: var(--ink);
-  font-weight: 600;
-  text-decoration: none;
-  background:
-    linear-gradient(transparent 78%, rgba(21,96,90,0.30) 78%, rgba(21,96,90,0.30) 95%, transparent 95%);
-  padding: 0 1px;
-  transition: background-size .18s ease, color .18s ease;
+/* ===== ATOM — quietly in the corner ===== */
+.atom-corner {
+  margin: 6px 0 0;
+  max-width: 360px;
 }
-.ref-link:hover,
-.ref-link:focus-visible {
-  color: var(--teal);
-  background:
-    linear-gradient(transparent 76%, rgba(21,96,90,0.55) 76%, rgba(21,96,90,0.55) 96%, transparent 96%);
+.atom-corner img {
+  width: 100%;
+  height: auto;
+  /* the illustration has its own ground-shadow cross-hatch; no frame */
+  mix-blend-mode: multiply;
+}
+.atom-note {
+  margin: 4px 0 0;
+  font-size: 19px;
+  color: var(--ink-faded);
+  transform: rotate(-1.2deg);
+  max-width: 34ch;
 }
 
-.notes-loop { max-width: 1040px; margin: clamp(28px, 5vw, 44px) auto 0; }
+/* the hand-drawn flow arrows — hidden on mobile, shown on desktop board */
+.flow-arrow { display: none; }
+
+.notes-loop { max-width: 1240px; margin: clamp(26px, 4vw, 40px) auto 0; padding: 0 var(--pad); }
 
 /* =====================================================================
-   DESKTOP BOARD (>=820px) — alternate stations around a centered spine
+   DESKTOP BOARD (>=900px) — the spread
+   3 columns: inputs | arrow | middle | arrow | survived.
+   Parking lot + Atom share the bottom band.
    ===================================================================== */
-@media (min-width: 820px) {
-  .notes-board {
-    /* three columns: left body | centered spine | right body */
-    display: grid;
-    grid-template-columns: 1fr 64px 1fr;
+@media (min-width: 900px) {
+  .notebook-canvas {
+    grid-template-columns: minmax(220px, 1fr) 70px minmax(320px, 1.5fr) 70px minmax(240px, 1.1fr);
+    grid-template-areas:
+      "inputs  arrA  middle  arrB  survived"
+      "parked  parked parked parked atom";
     column-gap: 0;
-    row-gap: 0;
+    row-gap: clamp(28px, 4vw, 48px);
+    align-items: start;
+    padding-left: 78px; /* clear the margin rule */
   }
-  /* Each station spans all three columns and re-grids internally so its
-     marker can sit on the centered spine and its body on one side. */
-  .station {
-    grid-column: 1 / -1;
-    grid-template-columns: 1fr 64px 1fr;
-    column-gap: 0;
-    padding-bottom: clamp(40px, 4.5vw, 64px);
-  }
-  /* marker -> middle column */
-  .station-marker {
-    grid-column: 2;
-    grid-row: 1;
-    padding-top: 8px;
-  }
-  .station-marker::before {
-    top: 8px;
-    bottom: calc(-1 * clamp(40px, 4.5vw, 64px));
-  }
-  /* Odd stations: body on the LEFT; even stations: body on the RIGHT. */
-  .station-1 .station-body,
-  .station-3 .station-body { grid-column: 1; transform: rotate(-0.6deg); }
-  .station-2 .station-body,
-  .station-4 .station-body { grid-column: 3; transform: rotate(0.6deg); }
-  .station-body { grid-row: 1; max-width: 460px; }
-  .station-1 .station-body,
-  .station-3 .station-body { justify-self: end; margin-right: 28px; }
-  .station-2 .station-body,
-  .station-4 .station-body { justify-self: start; margin-left: 28px; }
+  .zone-inputs   { grid-area: inputs; }
+  .zone-middle   { grid-area: middle; }
+  .zone-survived { grid-area: survived; }
+  .zone-parked   { grid-area: parked; align-self: end; }
+  .atom-corner   { grid-area: atom; align-self: end; justify-self: end; margin: 0; }
 
-  /* A short dashed connector from the spine marker to the body card. */
-  .station-body::after {
-    content: "";
-    position: absolute;
-    top: 26px;
-    width: 28px;
-    border-top: 2px dashed rgba(45,33,18,0.28);
+  .flow-arrow {
+    display: block;
+    align-self: center;
+    width: 100%;
+    height: 60px;
+    color: var(--teal);
+    opacity: 0.7;
+    margin-top: 60px; /* drop arrows to roughly content-middle */
   }
-  .station-1 .station-body::after,
-  .station-3 .station-body::after { right: -30px; }
-  .station-2 .station-body::after,
-  .station-4 .station-body::after { left: -30px; }
+  .arrow-a { grid-area: arrA; }
+  .arrow-b { grid-area: arrB; }
 
-  /* slightly larger marker on desktop */
-  .station-num { width: 48px; height: 48px; font-size: 24px; }
+  /* the middle zone is the star — give it a touch more presence */
+  .zone-middle .zone-label { font-size: clamp(22px, 2.4vw, 27px); }
+
+  /* survived cards: keep single column but they read like a pinned stack */
+  .pinned-cards { gap: 18px; }
+
+  .atom-corner { max-width: 320px; }
 }
 
-/* On very wide screens, keep the board from sprawling. */
 @media (min-width: 1140px) {
-  .station-body { max-width: 480px; }
+  .middle-wall { grid-template-columns: repeat(2, 1fr); }
+  .atom-corner { max-width: 360px; }
 }
 
 /* =====================================================================
-   MOBILE JOURNEY (<820px) — single clean column, spine on the left
+   MOBILE JOURNEY (<900px) — guided scroll, fully readable
    ===================================================================== */
-@media (max-width: 819.98px) {
-  .station-body { transform: none !important; }
-  /* keep the body full width beside the marker */
-  .station { grid-template-columns: 40px 1fr; column-gap: 16px; }
-  .station-num { width: 38px; height: 38px; font-size: 19px; }
-  .station-marker::before { left: 50%; }
+@media (max-width: 899.98px) {
+  .zone { transform: none; }
+  /* a soft step divider between zones so the scroll reads as a journey */
+  .zone + .zone::before,
+  .zone-parked::before {
+    content: "↓";
+    display: block;
+    text-align: center;
+    font-family: var(--hand);
+    font-size: 26px;
+    color: var(--teal);
+    margin: -10px 0 14px;
+  }
+  .middle-wall { grid-template-columns: 1fr; }
+  .atom-corner { max-width: 100%; margin-top: 6px; }
+  .atom-corner img { max-width: 420px; }
 }
-@media (max-width: 480px) {
-  .station { grid-template-columns: 32px 1fr; column-gap: 12px; }
-  .station-num { width: 30px; height: 30px; font-size: 16px; border-width: 1.5px; }
-  .station-body { padding: 18px 16px; border-radius: 12px; }
-  .outcome { grid-template-columns: 1fr; gap: 4px; }
+@media (max-width: 540px) {
+  .scrap-paper { max-width: 100%; }
 }
 
 /* =====================================================================
-   REVEAL / MOTION — stations come alive on scroll (gated, safe)
-   Reuses the existing html.reveal-on contract. reveal.js adds `.station`
-   nowhere by default, so we register it in the SEL set below via CSS only
-   (the JS SEL is extended separately). Hidden start-state requires BOTH
-   html.js AND .reveal-on, so without JS/motion everything stays visible.
+   REVEAL / MOTION — zones come alive on scroll (gated, safe)
+   Reuses html.reveal-on contract; .zone is registered in reveal.js SEL.
    ===================================================================== */
-html.js.reveal-on .station {
+html.js.reveal-on .zone {
   opacity: 0;
-  translate: 0 18px;
+  translate: 0 20px;
   transition:
     opacity .6s ease,
     translate .6s cubic-bezier(.2,.8,.2,1);
   transition-delay: var(--reveal-delay, 0ms);
 }
-html.js.reveal-on .station.is-revealed {
+html.js.reveal-on .zone.is-revealed {
   opacity: 1;
   translate: 0 0;
 }
+/* the arrows fade in a beat after their zones (desktop) */
+@media (min-width: 900px) {
+  html.js.reveal-on .flow-arrow {
+    opacity: 0;
+    transition: opacity .7s ease;
+    transition-delay: .35s;
+  }
+  html.js.reveal-on .notebook-canvas .zone.is-revealed ~ .flow-arrow { opacity: 0.7; }
+}
 
-/* Reduced-motion failsafe — force every Notes element visible + static. */
 @media (prefers-reduced-motion: reduce) {
-  .station,
-  .scribble.sticky {
+  .zone, .flow-arrow, .sticky, .scrap, .pin-card, .park-tag {
     opacity: 1 !important;
     translate: 0 0 !important;
   }
-  /* keep the intentional resting tilt only on desktop bodies; on reduced
-     motion we still allow the static rotate (it is not motion, it is a
-     resting state) — but cancel any reveal transform. */
+  .flow-arrow { opacity: 0.7 !important; }
 }
 
 /* =====================================================================
-   NOTES — LATE NIGHT MODE patches (environment flips, thinking stays clear)
+   NOTES — LATE NIGHT MODE (environment flips, thinking stays clear)
    ===================================================================== */
-:root[data-theme="dark"] .station-num {
-  background: var(--card);
-  border-color: var(--note-surf-hair);
-  color: var(--teal);
-}
-:root[data-theme="dark"] .station-marker::before,
-:root[data-theme="dark"] .station-body::after {
-  border-color: rgba(245,236,220,0.22);
-}
-:root[data-theme="dark"] .station-body {
-  background: var(--card);
+:root[data-theme="dark"] .notebook-canvas {
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(245,236,220,0.05) 31px, rgba(245,236,220,0.05) 32px),
+    var(--card);
   border-color: var(--note-surf-hair);
 }
-:root[data-theme="dark"] .input-list li,
-:root[data-theme="dark"] .experiment-list li,
-:root[data-theme="dark"] .outcome,
-:root[data-theme="dark"] .future-idea-2 {
-  border-color: rgba(245,236,220,0.14);
-}
-:root[data-theme="dark"] .question-list li {
-  background: var(--paper-2);
-  border-color: var(--note-surf-hair);
-}
-:root[data-theme="dark"] .future-block {
-  background: var(--paper-2);
-  border-color: var(--note-surf-hair);
-}
-/* Status tags: in dark mode the pastel --note-* tokens become deep
-   surfaces, so the dark literal ink set in light mode would vanish.
-   Flip the tag text to warm light ink on the deep surfaces. */
-:root[data-theme="dark"] .tag-shipped    { background: var(--note-surf-teal);   color: var(--ink); }
-:root[data-theme="dark"] .tag-simplified { background: var(--note-surf-yellow); color: var(--ink); }
-:root[data-theme="dark"] .tag-changed    { background: var(--note-surf-purple); color: var(--ink); }
-:root[data-theme="dark"] .tag-parked     { background: var(--note-surf-cream);  color: var(--ink); }
-:root[data-theme="dark"] .tag-evolving   { background: var(--note-surf-pink);   color: var(--ink); }
-:root[data-theme="dark"] .outcome-tag { border-color: var(--note-surf-hair); }
-/* Quiet ref-link underline: brighten the wash for the dark paper. */
-:root[data-theme="dark"] .ref-link {
+:root[data-theme="dark"] .notebook-canvas::before { background: rgba(245,155,198,0.22); }
+:root[data-theme="dark"] .scrap-paper {
+  background: var(--card-2);
+  border-color: rgba(245,236,220,0.30);
   color: var(--ink);
-  background:
-    linear-gradient(transparent 78%, rgba(63,184,168,0.40) 78%, rgba(63,184,168,0.40) 95%, transparent 95%);
 }
-:root[data-theme="dark"] .ref-link:hover,
-:root[data-theme="dark"] .ref-link:focus-visible {
-  color: var(--teal);
-  background:
-    linear-gradient(transparent 76%, rgba(63,184,168,0.62) 76%, rgba(63,184,168,0.62) 96%, transparent 96%);
+:root[data-theme="dark"] .scrap em { color: var(--purple); }
+:root[data-theme="dark"] .iteration-loop {
+  background: var(--paper-2);
+  border-color: var(--note-surf-hair);
+}
+:root[data-theme="dark"] .pin-card {
+  background: var(--card);
+  border-color: var(--note-surf-hair);
+}
+:root[data-theme="dark"] .park-tag {
+  background: var(--card-2);
+  border-color: var(--ink-faded);
+  color: var(--ink-soft);
+}
+:root[data-theme="dark"] .pin-go { border-bottom-color: rgba(63,184,168,0.4); }
+:root[data-theme="dark"] .zone-step { color: var(--paper); }
+/* Atom: on the dark board the multiply blend would crush her into the
+   background. Switch to normal blend and lift slightly so she stays a
+   quiet, visible presence (not a hero). */
+:root[data-theme="dark"] .atom-corner img {
+  mix-blend-mode: normal;
+  opacity: 0.92;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.5));
 }
 
-/* Smooth theme fade for the new Notes surfaces (motion users only) */
+/* smooth theme fade for the new surfaces (motion users only) */
 @media (prefers-reduced-motion: no-preference) {
-  .station-body, .question-list li, .future-block, .outcome-tag, .scribble.sticky {
+  .notebook-canvas, .scrap-paper, .pin-card, .park-tag, .iteration-loop, .zone .sticky {
     transition: background-color 180ms ease, color 180ms ease,
                 border-color 180ms ease, box-shadow 180ms ease;
   }
 }
+
 
 /* =====================================================================
    HOMEPAGE "thought transformation" teaser — restrained, motion-gated

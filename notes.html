@@ -160,150 +160,161 @@
     </header>
 
     <main class="notes-page">
-      <!-- ===== Intro: the page's job, stated plainly ===== -->
+      <!-- ===== Intro: short, sets the mood, then gets out of the way ===== -->
       <section class="section notes-intro">
-        <div class="section-head">
-          <span class="kicker">Chapter 05 · how the thinking actually works</span>
-          <h1 class="notes-headline">Before anything here was real, it was just a <span class="hl-circle">messy thought</span>.</h1>
-          <p class="section-lead">This is the part of the notebook where I show the work behind the work — what sparks an idea, the questions I argue with, what I try, and what actually ships. Not a blog. Not a changelog. Just how one product person thinks, learns, and builds.</p>
-          <p class="notes-rail pencil-note"><span class="caret">↳</span> Four stations. Follow them top to bottom — or wander the board.</p>
+        <div class="notes-intro-inner">
+          <span class="kicker">Chapter 05 · the messy part</span>
+          <h1 class="notes-headline">You opened my <span class="hl-circle">product notebook</span>.</h1>
+          <p class="notes-deck">This is where ideas show up messy and slowly turn into something real. Signals in, a lot of arguing in the middle, a few things that survive.</p>
+          <p class="notes-rail pencil-note"><span class="caret">↳</span> Follow the arrows. It's not tidy. That's the honest part.</p>
         </div>
       </section>
 
-      <!-- ===== The workshop board: 4 stations ===== -->
-      <section class="section notes-board-section">
-        <ol class="notes-board" aria-label="From messy thought to shipped product, in four stations">
+      <!-- ===== THE NOTEBOOK CANVAS ===== -->
+      <section class="notes-canvas-section" aria-label="A product thinking map, from signals to what shipped">
+        <div class="notebook-canvas">
 
-          <!-- ───────── STATION 1 · INPUTS ───────── -->
-          <li class="station station-1" id="inputs">
-            <div class="station-marker" aria-hidden="true"><span class="station-num">01</span></div>
-            <div class="station-body">
-              <header class="station-head">
-                <span class="station-tag">Inputs</span>
-                <h2 class="station-title">Where it starts</h2>
-                <p class="station-note pencil-note">Ideas usually arrive messy. That's normal.</p>
-              </header>
-              <ul class="input-list">
-                <li>Macro signals and market shifts I notice moving across the things I read and watch.</li>
-                <li>AI building tools getting visibly better almost every week — what was hard last month is suddenly easy.</li>
-                <li>Podcasts, long conversations, books, and rabbit holes that make me rethink something I assumed was settled.</li>
-                <li>Real product friction in everyday tools — the small "why does it work this way?" moments.</li>
-                <li>Conversations with AI where the first answer isn't enough, so I keep pushing until the idea gets sharper.</li>
-                <li>Late-night and weekend building sessions where something feels off, and I have to simplify it.</li>
-              </ul>
-              <p class="station-aside margin-note">I write them down before they evaporate. Most go nowhere. A few don't.</p>
+          <!-- ───────── ZONE 1 · INPUTS (left) ───────── -->
+          <div class="zone zone-inputs" id="inputs">
+            <div class="zone-label"><span class="zone-step">1</span> Signals coming in</div>
+            <p class="zone-sub pencil-note">The pile. Most of it goes nowhere.</p>
+
+            <div class="scrap-pile">
+              <div class="scrap scrap-paper" style="--rot:-2.5deg;">A market headline that won't leave me alone</div>
+              <div class="scrap scrap-paper" style="--rot:1.8deg;">A podcast I rewound three times</div>
+              <div class="scrap scrap-paper" style="--rot:-1.2deg;">A book that broke an assumption</div>
+              <div class="scrap scrap-paper" style="--rot:2.4deg;">A tool that annoyed me <em>just</em> enough</div>
+              <div class="scrap scrap-paper" style="--rot:-2deg;">"wait… why does it even work this way?"</div>
+              <div class="scrap scrap-paper" style="--rot:1.4deg;">An AI experiment at 1&nbsp;AM</div>
             </div>
-          </li>
 
-          <!-- ───────── STATION 2 · MESSY MIDDLE ───────── -->
-          <li class="station station-2" id="messy-middle">
-            <div class="station-marker" aria-hidden="true"><span class="station-num">02</span></div>
-            <div class="station-body">
-              <header class="station-head">
-                <span class="station-tag">The messy middle</span>
-                <h2 class="station-title">The questions every idea has to survive</h2>
-                <p class="station-note pencil-note">If it can't answer these, it isn't ready.</p>
-              </header>
-              <ul class="question-list">
-                <li>What actually changed?</li>
-                <li>What assumption am I making?</li>
-                <li>Is this useful — or just interesting?</li>
-                <li>Can this be simpler?</li>
-                <li>Would someone genuinely care?</li>
-              </ul>
+            <div class="sticky sticky-yellow note-tilt" style="--rot:-4deg;">
+              <span class="sticky-pin"></span>interesting ≠ useful
+            </div>
+            <p class="ink-note ink-1">save the thought before it disappears</p>
+          </div>
 
-              <div class="scribble-wall" aria-label="Margin notes from the messy middle">
-                <div class="sticky sticky-yellow scribble" style="--rot:-3deg;"><span class="sticky-pin"></span>Looked brilliant at midnight… needed coffee in the morning.</div>
-                <div class="sticky sticky-pink scribble" style="--rot:2.5deg;"><span class="sticky-pin"></span>AI liked this idea a little too much. I did not.</div>
-                <div class="sticky sticky-teal scribble" style="--rot:-1.5deg;"><span class="sticky-pin"></span>Interesting, but not useful yet — parked.</div>
-                <div class="sticky sticky-purple scribble" style="--rot:3deg;"><span class="sticky-pin"></span>If I have to explain it three times, the design is probably wrong.</div>
+          <!-- arrow: inputs → middle (desktop only, decorative) -->
+          <svg class="flow-arrow arrow-a" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+            <path d="M4 30 C 45 12, 70 48, 112 30" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="2 9"/>
+            <path d="M101 21 L 114 30 L 100 38" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <!-- ───────── ZONE 2 · THE MESSY MIDDLE (center, biggest) ───────── -->
+          <div class="zone zone-middle" id="messy-middle">
+            <div class="zone-label"><span class="zone-step">2</span> The messy middle</div>
+            <p class="zone-sub pencil-note">Where most ideas get argued to death. A few earn their keep.</p>
+
+            <div class="middle-wall">
+              <div class="sticky sticky-pink note-q" style="--rot:-3deg;">
+                <span class="sticky-pin"></span>Cool idea. But would anyone actually <em>use</em> it?
               </div>
-
-              <p class="station-aside margin-note">A real one: the flashcard back. The honest question was <em>"can someone actually learn from one card without scrolling or filler?"</em> — which forced a no-internal-scroll, no-repeated-labels, one-complete-thought design.</p>
-            </div>
-          </li>
-
-          <!-- ───────── STATION 3 · EXPERIMENTS ───────── -->
-          <li class="station station-3" id="experiments">
-            <div class="station-marker" aria-hidden="true"><span class="station-num">03</span></div>
-            <div class="station-body">
-              <header class="station-head">
-                <span class="station-tag">Experiments</span>
-                <h2 class="station-title">Things I actually tried</h2>
-                <p class="station-note pencil-note">Some shipped. Some taught me something. Same thing, really.</p>
-              </header>
-              <ul class="experiment-list">
-                <li>
-                  <span class="exp-lead">The flashcard idea, built for real</span> —
-                  it became the <a class="ref-link" href="app.html">ProductSnap App</a>.
-                </li>
-                <li>
-                  <span class="exp-lead">Can scattered signals become one better product question?</span> —
-                  that question is <a class="ref-link" href="pulse.html">Pulse</a>.
-                </li>
-                <li>
-                  <span class="exp-lead">Every screen started as a pencil drawing first</span> —
-                  the ones worth keeping live in <a class="ref-link" href="sketches.html">Sketches</a>.
-                </li>
-                <li>
-                  <span class="exp-lead">AI workflows</span> —
-                  building the whole thing in plain English, and arguing with AI until it's right.
-                </li>
-              </ul>
-
-              <div class="future-block">
-                <span class="future-label margin-label">still circling — not built yet</span>
-                <p class="future-idea">An AI product coach inside ProductSnap — not just answers, but practice reps, product judgment, and feedback that feels personal.</p>
-                <p class="future-idea future-idea-2">Agent-readable portfolios — making this site understandable not just to people, but to the AI agents that may evaluate work in the future.</p>
+              <div class="sticky sticky-teal note-q" style="--rot:2.2deg;">
+                <span class="sticky-pin"></span>Can this be simpler? <br/>(It can. It always can.)
+              </div>
+              <div class="sticky sticky-purple note-q" style="--rot:-1.6deg;">
+                <span class="sticky-pin"></span>AI says yes. <br/>Now I need to know if humans agree.
+              </div>
+              <div class="sticky sticky-cream note-q" style="--rot:2.8deg;">
+                <span class="sticky-pin"></span>Version 8 somehow ended up simpler than Version 1.
+              </div>
+              <div class="sticky sticky-yellow note-q" style="--rot:-2.4deg;">
+                <span class="sticky-pin"></span>Looked brilliant at midnight. Needed coffee to survive morning.
               </div>
             </div>
-          </li>
 
-          <!-- ───────── STATION 4 · SHIPPED / LEARNED ───────── -->
-          <li class="station station-4" id="shipped">
-            <div class="station-marker" aria-hidden="true"><span class="station-num">04</span></div>
-            <div class="station-body">
-              <header class="station-head">
-                <span class="station-tag">Shipped &amp; learned</span>
-                <h2 class="station-title">Honest outcomes — not all wins</h2>
-                <p class="station-note pencil-note">Good product thinking is iteration you're willing to show.</p>
-              </header>
-              <ul class="outcome-list">
-                <li class="outcome">
-                  <span class="outcome-tag tag-shipped">Shipped</span>
-                  <span class="outcome-text">The <a class="ref-link" href="app.html">ProductSnap App</a> went live — Build 9, on the App Store and Google Play.</span>
-                </li>
-                <li class="outcome">
-                  <span class="outcome-tag tag-simplified">Simplified</span>
-                  <span class="outcome-text">Killed the watch-out box and the internal scrolling on the flashcard. One card, one complete thought.</span>
-                </li>
-                <li class="outcome">
-                  <span class="outcome-tag tag-changed">Changed direction</span>
-                  <span class="outcome-text">Moved from local build packaging to GitHub repos, so nothing got lost between sessions.</span>
-                </li>
-                <li class="outcome">
-                  <span class="outcome-tag tag-parked">Parked</span>
-                  <span class="outcome-text">Fully autonomous Pulse publishing. The system can detect when the story may need to change, but I parked auto-publishing until the trigger logic proves itself over real data.</span>
-                </li>
-                <li class="outcome">
-                  <span class="outcome-tag tag-parked">Parked</span>
-                  <span class="outcome-text">Notes-as-a-blog. I don't want this to become another content feed. If there's nothing real to say, it should stay quiet.</span>
-                </li>
-                <li class="outcome">
-                  <span class="outcome-tag tag-evolving">Still evolving</span>
-                  <span class="outcome-text"><a class="ref-link" href="pulse.html">Pulse</a> — still tuning how scattered signals turn into one clear question.</span>
-                </li>
-              </ul>
-              <p class="station-aside notes-close margin-note">None of this is finished. That's the point.</p>
+            <!-- a real, crossed-out assumption + the thing it became -->
+            <div class="iteration-loop">
+              <p class="assumption struck">people will read both sides of the flashcard</p>
+              <span class="loop-arrow" aria-hidden="true">↻</span>
+              <p class="assumption-fix">one card. one complete thought. no scrolling, no filler.</p>
             </div>
-          </li>
-        </ol>
+
+            <p class="ink-note ink-2">if I have to explain it three times, the design is wrong</p>
+          </div>
+
+          <!-- arrow: middle → survived (desktop only, decorative) -->
+          <svg class="flow-arrow arrow-b" viewBox="0 0 120 60" fill="none" aria-hidden="true">
+            <path d="M4 30 C 45 48, 70 12, 112 30" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="2 9"/>
+            <path d="M101 21 L 114 30 L 100 38" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <!-- ───────── ZONE 3 · WHAT SURVIVED (right) ───────── -->
+          <div class="zone zone-survived" id="survived">
+            <div class="zone-label"><span class="zone-step">3</span> What survived</div>
+            <p class="zone-sub pencil-note">Pinned to the wall because it earned it.</p>
+
+            <div class="pinned-cards">
+              <a class="pin-card" href="app.html">
+                <span class="sticky-pin"></span>
+                <h3 class="pin-title">ProductSnap App</h3>
+                <ul class="pin-list">
+                  <li>flashcards</li>
+                  <li>Product Gym</li>
+                  <li>product stories</li>
+                </ul>
+                <span class="pin-go">live on App Store &amp; Google Play →</span>
+              </a>
+
+              <a class="pin-card" href="pulse.html">
+                <span class="sticky-pin"></span>
+                <h3 class="pin-title">Pulse</h3>
+                <ul class="pin-list">
+                  <li>signals → interpretation</li>
+                  <li>→ one product question</li>
+                </ul>
+                <span class="pin-go">see the latest read →</span>
+              </a>
+
+              <a class="pin-card" href="sketches.html">
+                <span class="sticky-pin"></span>
+                <h3 class="pin-title">Sketches</h3>
+                <ul class="pin-list">
+                  <li>rough drawings</li>
+                  <li>→ clearer ideas</li>
+                </ul>
+                <span class="pin-go">flip through them →</span>
+              </a>
+
+              <div class="pin-card pin-card-flat">
+                <span class="sticky-pin"></span>
+                <h3 class="pin-title">AI workflows</h3>
+                <ul class="pin-list">
+                  <li>human judgment</li>
+                  <li>+ AI speed</li>
+                  <li>built in plain English</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ───────── PARKING LOT (spans, lower) ───────── -->
+          <div class="zone zone-parked" id="parked">
+            <div class="zone-label zone-label-sm">Parked for later <span class="park-emoji" aria-hidden="true">🅿</span></div>
+            <p class="zone-sub pencil-note">Not dead. Just not yet.</p>
+            <ul class="park-list">
+              <li class="park-tag" style="--rot:-1.5deg;">fully autonomous Pulse publishing</li>
+              <li class="park-tag" style="--rot:1.2deg;">an AI product coach inside the app</li>
+              <li class="park-tag" style="--rot:-0.8deg;">agent-readable portfolios</li>
+            </ul>
+            <p class="ink-note ink-3">parking ≠ giving up. it's waiting for the right reason.</p>
+          </div>
+
+          <!-- ───────── ATOM (quietly in the corner) ───────── -->
+          <figure class="atom-corner">
+            <img src="assets/atom.png" alt="Atom, a black Labrador, resting on a desk among sketches, a notebook, a coffee mug and a pencil" width="760" height="456" loading="lazy" decoding="async" />
+            <figcaption class="atom-note pencil-note">
+              <span class="caret">↳</span> Atom — chief morale officer. Present for several questionable 1&nbsp;AM decisions.
+            </figcaption>
+          </figure>
+        </div>
 
         <p class="cs-loop notes-loop">
           <a href="index.html" class="cs-loop-link">↳ back to the beginning — start the notebook over →</a>
         </p>
       </section>
     </main>
+
 
     <footer class="footer">
       <div class="foot-inner">
