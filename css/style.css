@@ -2689,3 +2689,580 @@ header.topnav-wrap {
   font-size: 17px;
   color: var(--ink);
 }
+
+/* =====================================================================
+   NOTES PAGE — the workshop board / guided journey  (Chapter 05)
+   ---------------------------------------------------------------------
+   The page's job: show how a thing goes from a messy thought to
+   something real. Four stations: Inputs -> Messy middle -> Experiments
+   -> Shipped/Learned.
+
+   HYBRID layout:
+     - DESKTOP (>=820px): a spatial workshop board. A central dashed
+       "spine" runs top to bottom with numbered station markers pinned to
+       it; station bodies alternate left/right of the spine like notes
+       tacked around a thread of thinking. Slight per-station tilt.
+     - MOBILE (<820px): collapses to one clean vertical column with the
+       spine on the left edge — a guided story you read top to bottom.
+
+   All decorative motion is gated behind html.reveal-on (set by reveal.js
+   only when motion is allowed + IntersectionObserver exists) and a
+   prefers-reduced-motion failsafe forces everything visible + static.
+   Dark mode reuses the existing semantic tokens + --note-surf-* deep
+   surfaces; the ENVIRONMENT flips, the thinking stays legible.
+   ===================================================================== */
+
+.notes-page { min-height: 60vh; }
+
+/* The intro section just uses the shared .section-head; tighten its
+   bottom rule so the board reads as one continuous chapter, not two. */
+.notes-intro { padding-bottom: clamp(20px, 4vw, 40px); }
+.notes-intro + .notes-board-section { border-top: none; }
+.notes-board-section { padding-top: clamp(8px, 2vw, 24px); }
+.notes-headline {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(32px, 5.6vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 12px 0 18px;
+}
+.notes-rail { margin-top: 18px; }
+
+/* ---------- the board / journey container ---------- */
+.notes-board {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1040px;
+  position: relative;
+}
+
+/* Each station: a marker (number) + a body card. On mobile this is a
+   simple two-column row (spine | body). On desktop the spine becomes a
+   centered thread and bodies alternate sides. */
+.station {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  column-gap: 18px;
+  align-items: start;
+  padding: 0 0 clamp(34px, 6vw, 56px);
+}
+.station:last-child { padding-bottom: 0; }
+
+/* The numbered marker sits on the spine. The connecting dashed line is
+   drawn by the marker's ::before so it grows with each station's height. */
+.station-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+.station-num {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 4px 0 rgba(40,30,10,0.10);
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--teal);
+  line-height: 1;
+}
+/* The dashed spine segment behind each marker, joining to the next. */
+.station-marker::before {
+  content: "";
+  position: absolute;
+  top: 4px; bottom: calc(-1 * clamp(34px, 6vw, 56px));
+  left: 50%;
+  width: 0;
+  border-left: 2px dashed rgba(45,33,18,0.28);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.station:last-child .station-marker::before { display: none; }
+
+/* The station body — a tacked-up note/card. */
+.station-body {
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  padding: clamp(20px, 3.2vw, 32px) clamp(20px, 3.4vw, 34px);
+  position: relative;
+}
+.station-head { margin-bottom: 16px; }
+.station-tag {
+  display: inline-block;
+  font-family: var(--hand);
+  font-size: 20px;
+  color: var(--teal);
+  transform: rotate(-2deg);
+  margin-bottom: 6px;
+}
+.station-title {
+  font-family: var(--body);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.12;
+  margin: 0 0 8px;
+}
+.station-note {
+  margin: 6px 0 0;
+  font-size: 20px;
+  color: var(--ink-soft);
+}
+.station-aside {
+  margin: 18px 0 0;
+  display: block;
+  font-size: 20px;
+  color: var(--purple);
+  max-width: 56ch;
+  line-height: 1.4;
+}
+.station-aside em { font-style: italic; }
+.notes-close { color: var(--teal); font-size: 24px; }
+
+/* ---------- Station 1: inputs list (paper-grain bullets) ---------- */
+.input-list,
+.experiment-list,
+.outcome-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.input-list li {
+  position: relative;
+  padding: 8px 0 8px 26px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  border-bottom: 1px dashed rgba(45,33,18,0.14);
+}
+.input-list li:last-child { border-bottom: none; }
+.input-list li::before {
+  content: "→";
+  position: absolute;
+  left: 2px; top: 8px;
+  font-family: var(--hand);
+  font-weight: 700;
+  color: var(--teal);
+}
+
+/* ---------- Station 2: questions as a checklist + scribble wall ---------- */
+.question-list {
+  list-style: none;
+  margin: 0 0 4px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.question-list li {
+  position: relative;
+  padding: 9px 14px 9px 40px;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: clamp(16px, 1.8vw, 18px);
+  color: var(--ink);
+  background: var(--paper-2);
+  border: 1.5px solid rgba(45,33,18,0.18);
+  border-radius: 10px;
+}
+.question-list li::before {
+  content: "";
+  position: absolute;
+  left: 12px; top: 50%;
+  width: 15px; height: 15px;
+  margin-top: -8px;
+  border: 2px solid var(--teal);
+  border-radius: 4px;
+}
+.question-list li::after {
+  content: "?";
+  position: absolute;
+  left: 15px; top: 50%;
+  margin-top: -10px;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--teal);
+  line-height: 1;
+}
+
+/* The margin scribbles — reuse .sticky kit, laid out as a small wall. */
+.scribble-wall {
+  margin: 22px 0 4px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+}
+.scribble.sticky {
+  position: static;
+  width: 100%;
+  min-height: 0;
+  font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.18;
+  padding: 22px 16px 16px;
+  border-radius: 3px 12px 4px 10px;
+}
+@media (max-width: 560px) {
+  .scribble-wall { grid-template-columns: 1fr; }
+}
+
+/* ---------- Station 3: experiments + future ideas ---------- */
+.experiment-list li {
+  padding: 10px 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  border-bottom: 1px dashed rgba(45,33,18,0.14);
+}
+.experiment-list li:last-child { border-bottom: none; }
+.exp-lead {
+  font-family: var(--body);
+  font-weight: 700;
+  color: var(--ink);
+}
+.future-block {
+  margin-top: 22px;
+  padding: 18px 20px;
+  background: var(--paper-2);
+  border: 1.5px dashed var(--ink);
+  border-radius: 12px;
+  transform: rotate(-0.5deg);
+}
+.future-label {
+  margin-bottom: 8px;
+  /* Deeper rose than --pink so this 18px label clears WCAG AA (4.5:1) on the
+     paper-2 surface; --pink (#e85aa3) only reaches ~2.6:1 here. */
+  color: #a82a64;
+}
+:root[data-theme="dark"] .future-label { color: var(--pink); }
+.future-idea {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.4;
+  color: var(--ink);
+}
+.future-idea-2 {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(45,33,18,0.18);
+}
+
+/* ---------- Station 4: outcomes with status tags ---------- */
+.outcome {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 6px 16px;
+  align-items: start;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(45,33,18,0.14);
+}
+.outcome:last-child { border-bottom: none; }
+.outcome-tag {
+  display: inline-block;
+  justify-self: start;
+  font-family: var(--hand);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.1;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  white-space: nowrap;
+}
+.tag-shipped    { background: var(--note-teal); color: #143b36; }
+.tag-simplified { background: var(--note-yellow); color: #4a3b13; }
+.tag-changed    { background: var(--note-purple); color: #36215e; }
+.tag-parked     { background: var(--note-cream); color: #44351a; }
+.tag-evolving   { background: var(--note-pink); color: #5a1f3e; }
+.outcome-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ---------- quiet inline references (NOT marketing CTAs) ----------
+   Pencil-underlined inline links: a thin hand-toned underline that only
+   firms up on hover/focus. Reads like a notebook reference. */
+.ref-link {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  background:
+    linear-gradient(transparent 78%, rgba(21,96,90,0.30) 78%, rgba(21,96,90,0.30) 95%, transparent 95%);
+  padding: 0 1px;
+  transition: background-size .18s ease, color .18s ease;
+}
+.ref-link:hover,
+.ref-link:focus-visible {
+  color: var(--teal);
+  background:
+    linear-gradient(transparent 76%, rgba(21,96,90,0.55) 76%, rgba(21,96,90,0.55) 96%, transparent 96%);
+}
+
+.notes-loop { max-width: 1040px; margin: clamp(28px, 5vw, 44px) auto 0; }
+
+/* =====================================================================
+   DESKTOP BOARD (>=820px) — alternate stations around a centered spine
+   ===================================================================== */
+@media (min-width: 820px) {
+  .notes-board {
+    /* three columns: left body | centered spine | right body */
+    display: grid;
+    grid-template-columns: 1fr 64px 1fr;
+    column-gap: 0;
+    row-gap: 0;
+  }
+  /* Each station spans all three columns and re-grids internally so its
+     marker can sit on the centered spine and its body on one side. */
+  .station {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 64px 1fr;
+    column-gap: 0;
+    padding-bottom: clamp(40px, 4.5vw, 64px);
+  }
+  /* marker -> middle column */
+  .station-marker {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 8px;
+  }
+  .station-marker::before {
+    top: 8px;
+    bottom: calc(-1 * clamp(40px, 4.5vw, 64px));
+  }
+  /* Odd stations: body on the LEFT; even stations: body on the RIGHT. */
+  .station-1 .station-body,
+  .station-3 .station-body { grid-column: 1; transform: rotate(-0.6deg); }
+  .station-2 .station-body,
+  .station-4 .station-body { grid-column: 3; transform: rotate(0.6deg); }
+  .station-body { grid-row: 1; max-width: 460px; }
+  .station-1 .station-body,
+  .station-3 .station-body { justify-self: end; margin-right: 28px; }
+  .station-2 .station-body,
+  .station-4 .station-body { justify-self: start; margin-left: 28px; }
+
+  /* A short dashed connector from the spine marker to the body card. */
+  .station-body::after {
+    content: "";
+    position: absolute;
+    top: 26px;
+    width: 28px;
+    border-top: 2px dashed rgba(45,33,18,0.28);
+  }
+  .station-1 .station-body::after,
+  .station-3 .station-body::after { right: -30px; }
+  .station-2 .station-body::after,
+  .station-4 .station-body::after { left: -30px; }
+
+  /* slightly larger marker on desktop */
+  .station-num { width: 48px; height: 48px; font-size: 24px; }
+}
+
+/* On very wide screens, keep the board from sprawling. */
+@media (min-width: 1140px) {
+  .station-body { max-width: 480px; }
+}
+
+/* =====================================================================
+   MOBILE JOURNEY (<820px) — single clean column, spine on the left
+   ===================================================================== */
+@media (max-width: 819.98px) {
+  .station-body { transform: none !important; }
+  /* keep the body full width beside the marker */
+  .station { grid-template-columns: 40px 1fr; column-gap: 16px; }
+  .station-num { width: 38px; height: 38px; font-size: 19px; }
+  .station-marker::before { left: 50%; }
+}
+@media (max-width: 480px) {
+  .station { grid-template-columns: 32px 1fr; column-gap: 12px; }
+  .station-num { width: 30px; height: 30px; font-size: 16px; border-width: 1.5px; }
+  .station-body { padding: 18px 16px; border-radius: 12px; }
+  .outcome { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* =====================================================================
+   REVEAL / MOTION — stations come alive on scroll (gated, safe)
+   Reuses the existing html.reveal-on contract. reveal.js adds `.station`
+   nowhere by default, so we register it in the SEL set below via CSS only
+   (the JS SEL is extended separately). Hidden start-state requires BOTH
+   html.js AND .reveal-on, so without JS/motion everything stays visible.
+   ===================================================================== */
+html.js.reveal-on .station {
+  opacity: 0;
+  translate: 0 18px;
+  transition:
+    opacity .6s ease,
+    translate .6s cubic-bezier(.2,.8,.2,1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+html.js.reveal-on .station.is-revealed {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Reduced-motion failsafe — force every Notes element visible + static. */
+@media (prefers-reduced-motion: reduce) {
+  .station,
+  .scribble.sticky {
+    opacity: 1 !important;
+    translate: 0 0 !important;
+  }
+  /* keep the intentional resting tilt only on desktop bodies; on reduced
+     motion we still allow the static rotate (it is not motion, it is a
+     resting state) — but cancel any reveal transform. */
+}
+
+/* =====================================================================
+   NOTES — LATE NIGHT MODE patches (environment flips, thinking stays clear)
+   ===================================================================== */
+:root[data-theme="dark"] .station-num {
+  background: var(--card);
+  border-color: var(--note-surf-hair);
+  color: var(--teal);
+}
+:root[data-theme="dark"] .station-marker::before,
+:root[data-theme="dark"] .station-body::after {
+  border-color: rgba(245,236,220,0.22);
+}
+:root[data-theme="dark"] .station-body {
+  background: var(--card);
+  border-color: var(--note-surf-hair);
+}
+:root[data-theme="dark"] .input-list li,
+:root[data-theme="dark"] .experiment-list li,
+:root[data-theme="dark"] .outcome,
+:root[data-theme="dark"] .future-idea-2 {
+  border-color: rgba(245,236,220,0.14);
+}
+:root[data-theme="dark"] .question-list li {
+  background: var(--paper-2);
+  border-color: var(--note-surf-hair);
+}
+:root[data-theme="dark"] .future-block {
+  background: var(--paper-2);
+  border-color: var(--note-surf-hair);
+}
+/* Status tags: in dark mode the pastel --note-* tokens become deep
+   surfaces, so the dark literal ink set in light mode would vanish.
+   Flip the tag text to warm light ink on the deep surfaces. */
+:root[data-theme="dark"] .tag-shipped    { background: var(--note-surf-teal);   color: var(--ink); }
+:root[data-theme="dark"] .tag-simplified { background: var(--note-surf-yellow); color: var(--ink); }
+:root[data-theme="dark"] .tag-changed    { background: var(--note-surf-purple); color: var(--ink); }
+:root[data-theme="dark"] .tag-parked     { background: var(--note-surf-cream);  color: var(--ink); }
+:root[data-theme="dark"] .tag-evolving   { background: var(--note-surf-pink);   color: var(--ink); }
+:root[data-theme="dark"] .outcome-tag { border-color: var(--note-surf-hair); }
+/* Quiet ref-link underline: brighten the wash for the dark paper. */
+:root[data-theme="dark"] .ref-link {
+  color: var(--ink);
+  background:
+    linear-gradient(transparent 78%, rgba(63,184,168,0.40) 78%, rgba(63,184,168,0.40) 95%, transparent 95%);
+}
+:root[data-theme="dark"] .ref-link:hover,
+:root[data-theme="dark"] .ref-link:focus-visible {
+  color: var(--teal);
+  background:
+    linear-gradient(transparent 76%, rgba(63,184,168,0.62) 76%, rgba(63,184,168,0.62) 96%, transparent 96%);
+}
+
+/* Smooth theme fade for the new Notes surfaces (motion users only) */
+@media (prefers-reduced-motion: no-preference) {
+  .station-body, .question-list li, .future-block, .outcome-tag, .scribble.sticky {
+    transition: background-color 180ms ease, color 180ms ease,
+                border-color 180ms ease, box-shadow 180ms ease;
+  }
+}
+
+/* =====================================================================
+   HOMEPAGE "thought transformation" teaser — restrained, motion-gated
+   ---------------------------------------------------------------------
+   One quiet line near the hero: Noise -> Signal -> Idea -> Experiment ->
+   Product. NOT a redesign, NOT a CTA. Static by default; when motion is
+   allowed (html.js.reveal-on), each step resolves one beat at a time,
+   ONCE, via a pure-CSS staggered fade. With motion off / JS off it is
+   simply the plain static line.
+   ===================================================================== */
+.thought-teaser {
+  margin: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  font-family: var(--hand);
+  font-size: clamp(19px, 2.2vw, 24px);
+  line-height: 1.2;
+  color: var(--ink-soft);
+}
+.thought-teaser .tt-step {
+  font-weight: 700;
+  color: var(--ink);
+}
+.thought-teaser .tt-step:last-of-type { color: var(--teal); }
+.thought-teaser .tt-arrow { color: var(--teal); }
+.thought-teaser .tt-ref {
+  font-family: var(--hand-2, "Kalam", cursive);
+  font-size: 0.74em;
+  color: var(--ink-faded);
+  margin-left: 8px;
+  border-bottom: 1.5px solid rgba(45,33,18,0.22);
+  transition: color .18s ease, border-color .18s ease;
+}
+.thought-teaser .tt-ref:hover,
+.thought-teaser .tt-ref:focus-visible {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+}
+:root[data-theme="dark"] .thought-teaser .tt-ref { border-bottom-color: rgba(245,236,220,0.25); }
+:root[data-theme="dark"] .thought-teaser .tt-ref:hover,
+:root[data-theme="dark"] .thought-teaser .tt-ref:focus-visible { border-bottom-color: var(--teal); }
+
+/* Motion path: steps + arrows start faint and resolve one at a time, once.
+   Gated on html.js.reveal-on so a no-JS / reduced-motion visitor never sees
+   the hidden state — they get the plain static line above. */
+html.js.reveal-on .thought-teaser .tt-step,
+html.js.reveal-on .thought-teaser .tt-arrow {
+  opacity: 0;
+  translate: 0 4px;
+  animation: tt-resolve .5s cubic-bezier(.2,.8,.2,1) forwards;
+}
+/* Stagger: each token a beat after the last (step,arrow,step,arrow...). */
+html.js.reveal-on .thought-teaser .tt-step:nth-of-type(1) { animation-delay: .15s; }
+html.js.reveal-on .thought-teaser .tt-arrow:nth-of-type(1) { animation-delay: .35s; }
+html.js.reveal-on .thought-teaser .tt-step:nth-of-type(2) { animation-delay: .50s; }
+html.js.reveal-on .thought-teaser .tt-arrow:nth-of-type(2) { animation-delay: .70s; }
+html.js.reveal-on .thought-teaser .tt-step:nth-of-type(3) { animation-delay: .85s; }
+html.js.reveal-on .thought-teaser .tt-arrow:nth-of-type(3) { animation-delay: 1.05s; }
+html.js.reveal-on .thought-teaser .tt-step:nth-of-type(4) { animation-delay: 1.20s; }
+html.js.reveal-on .thought-teaser .tt-arrow:nth-of-type(4) { animation-delay: 1.40s; }
+html.js.reveal-on .thought-teaser .tt-step:nth-of-type(5) { animation-delay: 1.55s; }
+/* The trailing reference fades in last so it never competes with the steps. */
+html.js.reveal-on .thought-teaser .tt-ref {
+  opacity: 0;
+  animation: tt-resolve .5s ease forwards;
+  animation-delay: 1.85s;
+}
+@keyframes tt-resolve {
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* Failsafe: reduced-motion users get the full static line, no animation. */
+@media (prefers-reduced-motion: reduce) {
+  .thought-teaser .tt-step,
+  .thought-teaser .tt-arrow,
+  .thought-teaser .tt-ref {
+    opacity: 1 !important;
+    translate: 0 0 !important;
+    animation: none !important;
+  }
+}
