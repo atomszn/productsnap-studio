@@ -254,7 +254,7 @@ html,
   height: auto;
   border-radius: 8px;
   display: block;
-  background: #fffdf6;
+  background: var(--card);
 }
 .module-note {
   text-align: right;
@@ -513,7 +513,7 @@ html,
   width: 100%;
   height: auto;
   border-radius: 12px;
-  background: #fffdf6;
+  background: var(--card);
   border: 1px solid var(--ink);
 }
 .deepdive-shot figcaption {

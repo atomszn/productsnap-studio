@@ -8,6 +8,17 @@
          The hidden start-state CSS requires BOTH classes, so if this check fails
          (or JS is off) content stays visible instead of being permanently hidden. */
       (function () {
+        /* No-flash theme: set data-theme on <html> BEFORE first paint, from
+           the saved choice, else the system color-scheme preference. */
+        try {
+          var t = localStorage.getItem('psnap-theme');
+          if (t !== 'dark' && t !== 'light') {
+            t = (window.matchMedia &&
+                 window.matchMedia('(prefers-color-scheme: dark)').matches)
+              ? 'dark' : 'light';
+          }
+          if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
         var c = ' js';
         try {
           var ok =
@@ -32,7 +43,7 @@
     <meta property="og:title" content="Pulse — ProductSnap Studio" />
     <meta
       property="og:description"
-      content="A weekly editorial layer on signals shaping product decisions. 16 signals, six categories, one weekly connection."
+      content="Pulse connects public signals into product questions. A weekly thinking layer for curious builders, with signals as the receipts."
     />
     <meta property="og:site_name" content="ProductSnap Studio" />
     <meta property="og:url" content="https://productsnap.studio/pulse" />
@@ -119,6 +130,20 @@
         <a href="notes.html">Notes</a>
       </nav>
 
+      <button class="theme-toggle theme-toggle-desktop" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
+      <button class="theme-toggle theme-toggle-compact" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
       <!-- Mobile menu button (<=760px) -->
       <button class="nav-toggle" id="nav-toggle" type="button"
               aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
@@ -129,6 +154,12 @@
 
       <!-- Mobile nav panel (<=760px) -->
       <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <button class="theme-toggle theme-toggle-panel" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+          <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+          <span class="tt-label">Late Night Mode</span>
+        </button>
         <a href="index.html">Home</a>
         <a href="sketches.html">Sketches</a>
         <a href="app.html">App</a>
@@ -150,6 +181,7 @@
 
         <!-- World shift — one sentence, no label above it -->
         <h1 class="pulse-throughline" id="pt-throughline">Loading this week’s read…</h1>
+        <p class="pt-model pencil-note">Pulse is a thinking layer. The signals are the receipts.</p>
 
         <!-- Lens tabs -->
         <div class="lens-tabs" id="lens-tabs" role="tablist" aria-label="Choose a lens">
@@ -505,6 +537,7 @@
     </svg>
 
     <script src="js/nav.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/reveal.js"></script>
     <script src="js/pulse.js"></script>
   </body>

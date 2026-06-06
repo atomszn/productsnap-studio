@@ -8,6 +8,17 @@
          The hidden start-state CSS requires BOTH classes, so if this check fails
          (or JS is off) content stays visible instead of being permanently hidden. */
       (function () {
+        /* No-flash theme: set data-theme on <html> BEFORE first paint, from
+           the saved choice, else the system color-scheme preference. */
+        try {
+          var t = localStorage.getItem('psnap-theme');
+          if (t !== 'dark' && t !== 'light') {
+            t = (window.matchMedia &&
+                 window.matchMedia('(prefers-color-scheme: dark)').matches)
+              ? 'dark' : 'light';
+          }
+          if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
         var c = ' js';
         try {
           var ok =
@@ -151,6 +162,20 @@
         <a href="notes.html">Notes</a>
       </nav>
 
+      <button class="theme-toggle theme-toggle-desktop" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
+      <button class="theme-toggle theme-toggle-compact" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
       <!-- Mobile menu button (<=760px) -->
       <button class="nav-toggle" id="nav-toggle" type="button"
               aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
@@ -161,6 +186,12 @@
 
       <!-- Mobile nav panel (<=760px) -->
       <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <button class="theme-toggle theme-toggle-panel" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+          <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+          <span class="tt-label">Late Night Mode</span>
+        </button>
         <a href="index.html" class="is-active" aria-current="page">Home</a>
         <a href="sketches.html">Sketches</a>
         <a href="app.html">App</a>
@@ -203,7 +234,7 @@
               </a>
               <a href="app.html" class="btn btn-ghost">Explore the app</a>
               <a href="notes.html" class="btn btn-link">
-                What I'm reading
+                What I'm thinking through
                 <span class="link-arrow" aria-hidden="true">→</span>
               </a>
             </div>
@@ -291,6 +322,16 @@
         </div>
       </section>
 
+      <!-- New here? — quick orientation note (margin-note, not a CTA band) -->
+      <aside class="orient-note" aria-label="New here? Quick orientation">
+        <span class="on-label">New here?</span>
+        <nav class="on-links" aria-label="Quick orientation">
+          <a href="app.html">See what shipped →</a>
+          <a href="sketches.html">See where it started →</a>
+          <a href="pulse.html">See what I'm watching →</a>
+        </nav>
+      </aside>
+
       <!-- ============================================================ -->
       <!-- ① SKETCHES · WHERE IDEAS START                                            -->
       <!-- ============================================================ -->
@@ -347,8 +388,31 @@
             A mobile app for product thinkers — flashcards, real product stories,
             practice reps, and forward-looking PM trends. Now live on the App Store
             and Google Play. Free, built solo in about twelve weeks, with AI as
-            the whole team. No engineers were harmed; none were hired either.
+            the whole team. No engineers were hired. Plenty of AI arguments were had.
           </p>
+        </div>
+
+        <!-- Human + AI receipts — a small two-column jotting, not a feature grid -->
+        <div class="receipts-split" aria-label="What AI helped with, and what I still brought">
+          <figure class="receipt-col">
+            <h3>AI helped with</h3>
+            <ul>
+              <li>speed</li>
+              <li>iteration</li>
+              <li>code</li>
+              <li>options</li>
+            </ul>
+          </figure>
+          <figure class="receipt-col">
+            <h3>I still brought</h3>
+            <ul>
+              <li>taste</li>
+              <li>judgment</li>
+              <li>product calls</li>
+              <li>QA</li>
+              <li>knowing when something felt wrong</li>
+            </ul>
+          </figure>
         </div>
 
         <div class="home-app-row">
@@ -376,6 +440,15 @@
             </a>
           </div>
         </div>
+
+        <!-- Tiny build timeline — sketchbook vertical, few words -->
+        <ol class="build-timeline" aria-label="How it came together">
+          <li><b>Idea in a notebook</b></li>
+          <li><b>AI conversations</b></li>
+          <li><b>First prototype</b></li>
+          <li><b>Many rebuilds &amp; fixes</b></li>
+          <li class="bt-launch"><b>iOS + Android launch</b></li>
+        </ol>
       </section>
 
       <!-- ============================================================ -->
@@ -447,7 +520,7 @@
             <img src="assets/wires/atom.png"
                  alt="Hand-drawn pencil sketch of Atom, a black Labrador, doing a curious head-tilt"
                  loading="lazy" width="220" height="220" />
-            <figcaption class="atom-note">Atom — chief morale officer</figcaption>
+            <figcaption class="atom-note">Atom — chief morale officer.<br /><span class="atom-note-sub">Supervised most late-night builds. Mostly by sleeping through them.</span></figcaption>
           </figure>
         </div>
       </section>
@@ -480,6 +553,7 @@
     </footer>
 
     <script src="js/nav.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/reveal.js"></script>
     <script src="js/main.js"></script>
   </body>
