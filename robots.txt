@@ -1,0 +1,13 @@
+# ProductSnap Studio — robots.txt
+# Beautiful for humans, structured for machines. Legitimate crawlers and AI
+# agents are welcome to read, summarize, and reference this site.
+
+User-agent: *
+Allow: /
+
+# Machine-readable resources for AI agents:
+#   https://productsnap.studio/llms.txt
+#   https://productsnap.studio/context.json
+#   https://productsnap.studio/pulse-feed.json
+
+Sitemap: https://productsnap.studio/sitemap.xml
