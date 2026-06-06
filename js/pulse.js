@@ -80,7 +80,7 @@
   // metadata is absent (older data files), every helper returns false / no-op
   // so rendering is identical to before — strictly non-breaking.
   const TRUST_FALLBACK_COPY =
-    "This signal moved enough to revisit the interpretation. Updated context coming soon.";
+    "This signal moved enough that I'm revisiting the interpretation.";
   const TRUST_FALLBACK_SHORT = "Interpretation under review.";
 
   function signalNeedsReview(signal) {
@@ -96,7 +96,7 @@
   // these fields are present (older data files) it returns false and rendering
   // is identical to before.
   const WC_FALLBACK_COPY =
-    "The current interpretation is under review — the signal picture has shifted. Updated context coming soon.";
+    "The signal picture has shifted, so I'm reworking this interpretation.";
 
   function weeklyConnectionNeedsReview(conn) {
     if (!conn) return false;
