@@ -2091,7 +2091,7 @@ header.topnav-wrap {
   margin-top: 28px;
 }
 
-/* ---------- ④ Notes (coming soon) ---------- */
+/* ---------- ④ Notes (link + "messy by design" pill) ---------- */
 .notes-link-wrap { margin: 4px 0 0; }
 .notes-soon-link {
   position: relative;
@@ -2570,7 +2570,7 @@ header.topnav-wrap {
 :root[data-theme="dark"] .sticky-pin,
 :root[data-theme="dark"] .cs-sticky .sticky-pin { background: var(--ink-soft); }
 
-/* Wall cards, card tags, and the "coming soon" pill keep dark ink   */
+/* Wall cards, card tags, and the notes pill keep dark ink           */
 /* — those fills are bright enough; only re-tint soon-pill since its  */
 /* note-purple base dipped below AA.                                 */
 :root[data-theme="dark"] .wall-card,
@@ -3176,6 +3176,11 @@ a.pin-card:hover .pin-go { border-bottom-color: var(--teal); }
     padding-left: 78px; /* clear the margin rule */
   }
   .zone-inputs   { grid-area: inputs; }
+  /* Keep "Signals coming in" on a single line (was wrapping "in" to a
+     second line in the narrower left column). Nudge the font down a hair
+     and prevent wrapping — balanced with the other two titles, and adds
+     no extra column width. */
+  .zone-inputs .zone-label { white-space: nowrap; font-size: clamp(18px, 1.9vw, 22px); }
   .zone-middle   { grid-area: middle; }
   .zone-survived { grid-area: survived; }
   .zone-parked   { grid-area: parked; align-self: end; }
