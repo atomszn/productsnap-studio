@@ -184,14 +184,23 @@
               <div class="scrap scrap-paper" style="--rot:1.8deg;">A podcast I rewound three times</div>
               <div class="scrap scrap-paper" style="--rot:-1.2deg;">A book that broke an assumption</div>
               <div class="scrap scrap-paper" style="--rot:2.4deg;">A tool that annoyed me <em>just</em> enough</div>
+              <div class="scrap scrap-paper scrap-struck" style="--rot:-1.6deg;">"everyone needs another AI app" <span class="margin-x" aria-hidden="true">— no they don't</span></div>
               <div class="scrap scrap-paper" style="--rot:-2deg;">"wait… why does it even work this way?"</div>
               <div class="scrap scrap-paper" style="--rot:1.4deg;">An AI experiment at 1&nbsp;AM</div>
             </div>
+
+            <!-- tiny hand-drawn funnel: lots in, little out -->
+            <svg class="doodle doodle-funnel" viewBox="0 0 120 86" fill="none" aria-hidden="true">
+              <path d="M6 10 L114 10 L72 52 L72 80 L48 80 L48 52 Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M16 22 L104 22" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2 6" stroke-linecap="round"/>
+              <path d="M58 80 q2 9 2 9 M62 80 q-2 9 -2 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
 
             <div class="sticky sticky-yellow note-tilt" style="--rot:-4deg;">
               <span class="sticky-pin"></span>interesting ≠ useful
             </div>
             <p class="ink-note ink-1">save the thought before it disappears</p>
+            <p class="ink-note ink-tiny ink-1b">most of these never make it past this column. that's fine.</p>
           </div>
 
           <!-- arrow: inputs → middle (desktop only, decorative) -->
@@ -215,22 +224,65 @@
               <div class="sticky sticky-purple note-q" style="--rot:-1.6deg;">
                 <span class="sticky-pin"></span>AI says yes. <br/>Now I need to know if humans agree.
               </div>
-              <div class="sticky sticky-cream note-q" style="--rot:2.8deg;">
-                <span class="sticky-pin"></span>Version 8 somehow ended up simpler than Version 1.
-              </div>
               <div class="sticky sticky-yellow note-q" style="--rot:-2.4deg;">
                 <span class="sticky-pin"></span>Looked brilliant at midnight. Needed coffee to survive morning.
               </div>
             </div>
 
-            <!-- a real, crossed-out assumption + the thing it became -->
+            <!-- a rough flow diagram: how a signal becomes a product question -->
+            <div class="mini-diagram" role="img" aria-label="Rough sketch: a signal leads to a question, leads to a product idea — sometimes back to the question.">
+              <svg class="diagram-svg" viewBox="0 0 360 96" fill="none" aria-hidden="true">
+                <!-- three rough boxes -->
+                <rect x="6"   y="30" width="86" height="40" rx="6" stroke="currentColor" stroke-width="2"/>
+                <rect x="137" y="30" width="86" height="40" rx="6" stroke="currentColor" stroke-width="2"/>
+                <rect x="268" y="30" width="86" height="40" rx="6" stroke="currentColor" stroke-width="2"/>
+                <!-- forward dashed arrows -->
+                <path d="M94 50 L131 50" stroke="currentColor" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+                <path d="M124 44 L133 50 L124 56" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M225 50 L262 50" stroke="currentColor" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+                <path d="M255 44 L264 50 L255 56" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- the honest part: a loop back from idea to question -->
+                <path d="M311 70 C 311 92, 180 96, 180 74" stroke="var(--pink-stroke, #e85aa3)" stroke-width="2" stroke-dasharray="3 6" stroke-linecap="round"/>
+                <path d="M173 80 L181 73 L188 80" stroke="var(--pink-stroke, #e85aa3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div class="diagram-labels">
+                <span class="dl">signal</span>
+                <span class="dl">a real question</span>
+                <span class="dl">product idea</span>
+              </div>
+              <p class="ink-note ink-tiny diagram-note">…then usually right back to the question. (loop ~12 times.)</p>
+            </div>
+
+            <!-- an experiment that changed direction: tried -> struck -> what it became -->
+            <div class="experiment">
+              <span class="exp-tag">an experiment that changed direction</span>
+              <p class="exp-tried"><span class="exp-lead">tried:</span> a little "watch out for this" box on every flashcard</p>
+              <span class="uturn" aria-hidden="true">
+                <svg viewBox="0 0 64 54" fill="none">
+                  <path d="M14 6 C 56 4, 58 40, 20 44" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="2 7"/>
+                  <path d="M28 36 L18 45 L26 53" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <p class="exp-killed"><span class="exp-lead struck-lead">killed it.</span> the card <em>is</em> the watch-out. one card, one complete thought.</p>
+            </div>
+
+            <!-- the assumption that flipped -->
             <div class="iteration-loop">
               <p class="assumption struck">people will read both sides of the flashcard</p>
               <span class="loop-arrow" aria-hidden="true">↻</span>
-              <p class="assumption-fix">one card. one complete thought. no scrolling, no filler.</p>
+              <p class="assumption-fix">turns out they won't. so: no scrolling, no second side, no filler.</p>
             </div>
 
             <p class="ink-note ink-2">if I have to explain it three times, the design is wrong</p>
+
+            <!-- ATOM — quietly here, in the experiments mess, where the late nights happened -->
+            <figure class="atom-corner atom-inline">
+              <img src="assets/atom.png" alt="Atom, a black Labrador, resting among sketches, a notebook, a coffee mug and a pencil during a late-night build" width="760" height="456" loading="lazy" decoding="async" />
+              <figcaption class="atom-note pencil-note">
+                <span class="caret">↳</span> My human changed this idea twelve times tonight. I don't get it. I'm still here.
+                <span class="atom-sub">— Atom, chief morale officer</span>
+              </figcaption>
+            </figure>
           </div>
 
           <!-- arrow: middle → survived (desktop only, decorative) -->
@@ -242,34 +294,36 @@
           <!-- ───────── ZONE 3 · WHAT SURVIVED (right) ───────── -->
           <div class="zone zone-survived" id="survived">
             <div class="zone-label"><span class="zone-step">3</span> What survived</div>
-            <p class="zone-sub pencil-note">Pinned to the wall because it earned it.</p>
+            <p class="zone-sub pencil-note">Pinned up because it earned it.</p>
 
             <div class="pinned-cards">
               <a class="pin-card" href="app.html">
                 <span class="sticky-pin"></span>
                 <h3 class="pin-title">ProductSnap App</h3>
-                <ul class="pin-list">
-                  <li>flashcards</li>
+                <ul class="pin-scrawl">
+                  <li>flashcards that don't scroll</li>
                   <li>Product Gym</li>
                   <li>product stories</li>
                 </ul>
+                <span class="pin-aside">(this one took 9 builds)</span>
                 <span class="pin-go">live on App Store &amp; Google Play →</span>
               </a>
 
               <a class="pin-card" href="pulse.html">
                 <span class="sticky-pin"></span>
                 <h3 class="pin-title">Pulse</h3>
-                <ul class="pin-list">
+                <ul class="pin-scrawl">
                   <li>signals → interpretation</li>
                   <li>→ one product question</li>
                 </ul>
+                <span class="pin-aside">(not financial advice. on purpose.)</span>
                 <span class="pin-go">see the latest read →</span>
               </a>
 
               <a class="pin-card" href="sketches.html">
                 <span class="sticky-pin"></span>
                 <h3 class="pin-title">Sketches</h3>
-                <ul class="pin-list">
+                <ul class="pin-scrawl">
                   <li>rough drawings</li>
                   <li>→ clearer ideas</li>
                 </ul>
@@ -279,11 +333,12 @@
               <div class="pin-card pin-card-flat">
                 <span class="sticky-pin"></span>
                 <h3 class="pin-title">AI workflows</h3>
-                <ul class="pin-list">
+                <ul class="pin-scrawl">
                   <li>human judgment</li>
                   <li>+ AI speed</li>
                   <li>built in plain English</li>
                 </ul>
+                <span class="pin-aside">(the AI is fast. the taste is mine.)</span>
               </div>
             </div>
           </div>
@@ -299,14 +354,6 @@
             </ul>
             <p class="ink-note ink-3">parking ≠ giving up. it's waiting for the right reason.</p>
           </div>
-
-          <!-- ───────── ATOM (quietly in the corner) ───────── -->
-          <figure class="atom-corner">
-            <img src="assets/atom.png" alt="Atom, a black Labrador, resting on a desk among sketches, a notebook, a coffee mug and a pencil" width="760" height="456" loading="lazy" decoding="async" />
-            <figcaption class="atom-note pencil-note">
-              <span class="caret">↳</span> Atom — chief morale officer. Present for several questionable 1&nbsp;AM decisions.
-            </figcaption>
-          </figure>
         </div>
 
         <p class="cs-loop notes-loop">
