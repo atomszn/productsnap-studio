@@ -429,43 +429,106 @@ header.topnav-wrap {
 }
 .caret { color: var(--teal); margin-right: 4px; }
 
-/* Next-chapter connective line — a margin annotation, not a CTA. Sits just
-   above the footer on every page; handwritten, small, slightly indented. */
-.next-chapter {
+/* ============================================================
+   CHAPTER TURN — the page-corner wayfinding block.
+   Wraps the existing handwritten "next chapter" link with a sense
+   of place: which chapter just ended, how far into the notebook you
+   are (dot pips), and a one-line pencil whisper of what's next.
+   Designed as a margin annotation, never a SaaS CTA. Paper-native,
+   handwritten, understated. CSS-only; motion respects reduced-motion.
+   ============================================================ */
+.chapter-turn {
   max-width: var(--content);
-  margin: clamp(28px, 5vw, 48px) auto 0;
+  margin: clamp(36px, 6vw, 64px) auto 0;
   padding: 0 var(--pad);
 }
-.next-chapter a {
-  font-family: var(--hand);
-  font-size: 22px;
-  color: var(--ink-soft);
-  text-decoration: none;
+.chapter-turn-inner {
+  position: relative;
   display: inline-block;
+  padding: 14px 4px 4px 18px;
+}
+/* faint hand-drawn corner tick — like a dog-eared page edge */
+.chapter-turn-inner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--ink-faded);
+  opacity: .35;
+}
+.chapter-eyebrow {
+  display: block;
+  font-family: var(--hand-2);
+  font-size: 15px;
+  letter-spacing: .02em;
+  color: var(--ink-faded);
+  transform: rotate(-.6deg);
+  margin: 0 0 4px;
+}
+/* progress pips — where you are in the 5-chapter notebook */
+.chapter-pips {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin-left: 10px;
-  transform: rotate(-1.2deg);
-  transition: color .18s ease, transform .18s ease;
+  transform: translateY(-1px);
+  vertical-align: middle;
 }
-.next-chapter a:hover {
-  color: var(--teal);
-  transform: rotate(-1.2deg) translateX(3px);
+.chapter-pips .pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.4px solid var(--ink-faded);
+  opacity: .5;
 }
-
-/* Notes loop-back line — the next-chapter line, embedded in the Notes body. */
-.cs-loop { margin: 22px 0 0; }
-.cs-loop-link {
+.chapter-pips .pip.done {
+  background: var(--ink-faded);
+  opacity: .55;
+}
+.chapter-pips .pip.now {
+  background: var(--teal);
+  border-color: var(--teal);
+  opacity: 1;
+  width: 7px;
+  height: 7px;
+  box-shadow: 0 0 0 3px var(--teal-soft);
+}
+.chapter-turn-link {
   font-family: var(--hand);
-  font-size: 22px;
+  font-size: clamp(22px, 2.4vw, 26px);
+  line-height: 1.2;
   color: var(--ink-soft);
   text-decoration: none;
   display: inline-block;
   transform: rotate(-1.2deg);
   transition: color .18s ease, transform .18s ease;
 }
-.cs-loop-link:hover {
-  color: var(--teal);
-  transform: rotate(-1.2deg) translateX(3px);
+.chapter-turn-link .ct-arrow {
+  display: inline-block;
+  transition: transform .22s cubic-bezier(.2,.8,.2,1);
 }
+.chapter-turn-inner:hover .chapter-turn-link,
+.chapter-turn-link:focus-visible {
+  color: var(--teal);
+  transform: rotate(-1.2deg) translateX(2px);
+}
+.chapter-turn-inner:hover .ct-arrow { transform: translateX(5px); }
+.chapter-whisper {
+  display: block;
+  font-family: var(--hand-2);
+  font-size: 15.5px;
+  color: var(--ink-faded);
+  margin: 5px 0 0;
+  transform: rotate(-.5deg);
+  max-width: 46ch;
+}
+/* Notes loop variant: pips all filled + a loop glyph; reuses the block */
+.chapter-turn.is-loop .chapter-pips .pip { background: var(--ink-faded); opacity:.55; border-color: var(--ink-faded); }
+.chapter-turn.is-loop .chapter-pips .pip.now { background: var(--pink); border-color: var(--pink); opacity:1; box-shadow: 0 0 0 3px rgba(232,90,163,.18); }
 
 /* Sketchbook page — reuses .ideas-sketches / .idea-sketch, but the app grid
    holds more than two and gets a curatorial caption treatment. */
@@ -2288,7 +2351,8 @@ header.topnav-wrap {
      These are NOT in the JS safety SEL list as load-critical content — they
      are decorative connective tissue, so a stricter hidden state is safe. */
   html.js.reveal-on .sketches-note,
-  html.js.reveal-on .pencil-note {
+  html.js.reveal-on .pencil-note,
+  html.js.reveal-on .chapter-turn {
     opacity: 0;
     translate: 0 18px;
     transition:
@@ -2297,9 +2361,22 @@ header.topnav-wrap {
     transition-delay: var(--reveal-delay, 120ms);
   }
   html.js.reveal-on .sketches-note.is-revealed,
-  html.js.reveal-on .pencil-note.is-revealed {
+  html.js.reveal-on .pencil-note.is-revealed,
+  html.js.reveal-on .chapter-turn.is-revealed {
     opacity: 1;
     translate: 0 0;
+  }
+
+  /* The corner tick "draws down" once the chapter-turn settles, like a
+     pen stroke marking the page edge. Reduced-motion: static (below). */
+  html.js.reveal-on .chapter-turn .chapter-turn-inner::before {
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform .5s cubic-bezier(.2,.8,.2,1);
+    transition-delay: var(--reveal-delay, 260ms);
+  }
+  html.js.reveal-on .chapter-turn.is-revealed .chapter-turn-inner::before {
+    transform: scaleY(1);
   }
 }
 
@@ -2425,7 +2502,7 @@ header.topnav-wrap {
 @media (prefers-reduced-motion: reduce) {
   .section-head, .phone-real, .screen-thumb, .pair, .teardown,
   .future-card, .hub-card, .conv-card, .idea-sketch, .sketches-featured,
-  .sketches-note, .pencil-note,
+  .sketches-note, .pencil-note, .chapter-turn,
   .section-lead {
     opacity: 1 !important;
     translate: 0 0 !important;
@@ -2436,6 +2513,8 @@ header.topnav-wrap {
   .hl-underline { background-size: 100% 100% !important; }
   .hl-circle::after { opacity: 0.85 !important; transform: rotate(-3deg) scale(1.02) !important; }
   .sketch-canvas .sticky { animation: none !important; }
+  /* Chapter-turn corner tick: fully drawn, no animation. */
+  .chapter-turn .chapter-turn-inner::before { transform: scaleY(1) !important; transition: none !important; }
   /* page-enter header is gated on no-preference, but be explicit. */
   header.topnav-wrap { animation: none !important; }
 }
@@ -3157,7 +3236,6 @@ a.pin-card:hover .pin-go { border-bottom-color: var(--teal); }
 /* the hand-drawn flow arrows — hidden on mobile, shown on desktop board */
 .flow-arrow { display: none; }
 
-.notes-loop { max-width: 1240px; margin: clamp(26px, 4vw, 40px) auto 0; padding: 0 var(--pad); }
 
 /* =====================================================================
    DESKTOP BOARD (>=900px) — the spread

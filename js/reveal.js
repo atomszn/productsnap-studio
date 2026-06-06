@@ -39,7 +39,7 @@
   // Decorative "discovery" elements — handwritten notes + carets that arrive
   // last. Kept separate so the safety sweep below only guarantees the
   // load-critical SEL set; these are connective tissue, not content.
-  var DISCOVERY_SEL = ".sketches-note, .pencil-note";
+  var DISCOVERY_SEL = ".sketches-note, .pencil-note, .chapter-turn";
 
   // Note: scroll-parallax was intentionally NOT added. The hand-drawn sketches
   // already carry CSS rotate/scale transforms (the notebook tilt + the
