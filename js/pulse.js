@@ -215,6 +215,15 @@
     return months[m - 1] + " " + d + ", " + y;
   }
 
+  // Compact "Jun 5" form (no year) for the calm, scannable freshness line.
+  function fmtShortDate(iso) {
+    if (!iso || !/^\d{4}-\d{2}-\d{2}/.test(iso)) return "";
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const m = parseInt(iso.slice(5, 7), 10);
+    const d = parseInt(iso.slice(8, 10), 10);
+    return months[m - 1] + " " + d;
+  }
+
   /* ---------- inline SVG helpers ---------- */
   function arrowSVG() {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 H19 M13 6 L19 12 L13 18"/></svg>';
@@ -236,29 +245,55 @@
      Derived on load from the most recent last_updated across all signals,
      independent of the weekly-note date. Updates from data, not by hand.
      ===================================================================== */
-  function renderFreshness(signals, phaseMeta) {
+  function renderFreshness(signals, phaseMeta, weeklyConnection) {
     const el = $("#pulse-freshness");
     if (!el) return;
+
+    // ----- 1. When did the SIGNALS refresh? (the receipts) -----
+    // Latest real source-data date across all signals. This is the number a
+    // visitor can verify; it is NOT the internal pipeline minute-stamp.
     const dates = (signals || [])
       .map((s) => (s && s.timestamps && s.timestamps.latest_source_data_date) || (s && s.last_updated))
       .filter((v) => v && /^\d{4}-\d{2}-\d{2}/.test(v))
       .sort();
     const latest = dates.length ? dates[dates.length - 1] : "";
-    const label = fmtLongDate(latest);
+    const signalsLabel = fmtShortDate(latest);
 
-    // Pass F: site-level "pipeline is alive" indicator. Distinct from the
-    // freshness-of-the-number above: this is when the cron last *attempted* a
-    // refresh, written by scripts/fetch-pulse-data.js on every run. Optional —
-    // absent phase_meta.last_pipeline_refresh => only the data-freshness line
-    // shows (non-breaking for older data files).
-    const pipelineLabel = fmtPipelineRefresh(phaseMeta && phaseMeta.last_pipeline_refresh);
+    // ----- 2. When was the THINKING written? (the read) -----
+    // The editorial note's own date — a single, human-meaningful date, not a
+    // hand-typed orphan. Derived from the Weekly Connection.
+    const conn = weeklyConnection || {};
+    const readLabel = fmtShortDate(conn.date) || conn.date_label || "";
+
+    // ----- 3. Is the thinking still CURRENT? (one plain status word) -----
+    // Derived from how long ago the editorial was reviewed, against the same
+    // 7-day window the build pipeline uses. We deliberately avoid surfacing
+    // the internal pipeline heartbeat (phase_meta.last_pipeline_refresh) here:
+    // it is a machine date that needs explanation and adds no visitor value.
+    const statusWord = editorialStatusWord(conn.last_editorial_reviewed || conn.date);
 
     const parts = [];
-    if (label) parts.push("Signals refreshed \u00b7 " + label);
-    if (pipelineLabel) parts.push("updated " + pipelineLabel);
+    if (signalsLabel) parts.push("Signals updated \u00b7 " + signalsLabel);
+    if (readLabel) parts.push("this read \u00b7 " + readLabel);
+    if (statusWord) parts.push(statusWord);
     if (!parts.length) { el.hidden = true; return; }
     el.textContent = parts.join(" \u00b7 ");
     el.hidden = false;
+  }
+
+  // Plain-language "is the thinking still current?" word for visitors.
+  // "Up to date" while the editorial read is inside its review window;
+  // "Refreshing" once it has aged past the window and a new read is due.
+  // Mirrors the 7-day weekly_connection policy used by the build pipeline,
+  // so the word a visitor sees never contradicts what the validator thinks.
+  function editorialStatusWord(reviewedDate) {
+    if (!reviewedDate || !/^\d{4}-\d{2}-\d{2}/.test(reviewedDate)) return "";
+    const reviewed = new Date(reviewedDate.slice(0, 10) + "T00:00:00Z");
+    if (isNaN(reviewed.getTime())) return "";
+    const now = new Date();
+    const ageDays = Math.floor((now.getTime() - reviewed.getTime()) / 86400000);
+    const EXPIRES_AFTER_DAYS = 7; // matches signals_registry editorial_freshness_policy
+    return ageDays <= EXPIRES_AFTER_DAYS ? "Up to date" : "Refreshing";
   }
 
   // Format an ISO timestamp like "2026-06-02T15:00:00Z" as "June 2".
@@ -283,15 +318,20 @@
   /* =====================================================================
      RENDER: weekly note
      ===================================================================== */
-  function renderWeeklyNote(note) {
+  function renderWeeklyNote(note, weeklyConnection) {
     if (!note) return;
     const t = $("#wn-text");
     const h = $("#hero-date");
     if (t) t.textContent = note.text;
-    // The note's date now lives once, in the eyebrow (#hero-date). The old
-    // standalone quote-attribution date (#wn-date) was removed from the markup
-    // to avoid showing the same date twice in one block.
-    if (h) h.textContent = note.date_label || note.date || "";
+    // Dates no longer live in the eyebrow. All date information for the hero is
+    // consolidated into one labeled freshness line (#pulse-freshness) so a
+    // visitor never sees a bare, unexplained date. If a #hero-date span is
+    // still present in older markup, derive it ONCE from the Weekly Connection
+    // (single source of truth) rather than the now date-less note.
+    if (h) {
+      const conn = weeklyConnection || {};
+      h.textContent = fmtShortDate(conn.date) || conn.date_label || "";
+    }
   }
 
   /* =====================================================================
@@ -445,55 +485,13 @@
   }
 
   /* =====================================================================
-     RENDER: PM tension
+     NOTE: renderPMTension / selectTension were removed here (Phase 1 cleanup).
+     They targeted #pmt-* DOM IDs that no longer exist in pulse.html — the PM
+     tension was folded into the Weekly Connection's closing beat. The functions
+     were defined but never called (dead code). The pm_tension JSON block is
+     still used by scripts/generate-pulse-feed.js (product_questions), so the
+     DATA stays; only the orphaned client renderers are gone.
      ===================================================================== */
-  function renderPMTension(t) {
-    if (!t) return;
-    $("#pmt-eyebrow").textContent = t.label || "This week’s PM tension";
-    $("#pmt-axis").textContent = t.axis || "";
-    $("#pmt-question").textContent = t.question || "";
-    $("#pmt-note").textContent = t.note || "";
-
-    // Toggle bar — lets the reader switch which tension they're holding.
-    const root = $("#pmt-toggle");
-    const toggles = (t.toggles || []);
-    if (!root || !toggles.length) {
-      if (root) root.style.display = "none";
-      return;
-    }
-    root.innerHTML = toggles.map((tg, i) =>
-      '<button type="button" class="pmt-toggle-pill" role="tab"' +
-      ' data-tension="' + escapeHTML(tg.key) + '"' +
-      ' aria-selected="' + (i === 0 ? "true" : "false") + '">' +
-        '<span class="pmt-toggle-left">' + escapeHTML(tg.left) + '</span>' +
-        '<span class="pmt-toggle-sep" aria-hidden="true">vs</span>' +
-        '<span class="pmt-toggle-right">' + escapeHTML(tg.right) + '</span>' +
-      '</button>'
-    ).join("");
-  }
-
-  function selectTension(key) {
-    const t = DATA && DATA.pm_tension;
-    if (!t || !t.toggles) return;
-    const tg = t.toggles.find((x) => x.key === key);
-    if (!tg) return;
-    const axisEl = $("#pmt-axis");
-    const qEl = $("#pmt-question");
-    const nEl = $("#pmt-note");
-    if (axisEl) axisEl.textContent = tg.left + " vs " + tg.right;
-    if (qEl) {
-      qEl.style.transition = "opacity .18s ease";
-      qEl.style.opacity = "0.25";
-      setTimeout(() => {
-        qEl.textContent = tg.question || "";
-        qEl.style.opacity = "1";
-      }, 140);
-    }
-    if (nEl) nEl.textContent = tg.note || "";
-    $$("#pmt-toggle .pmt-toggle-pill").forEach((p) => {
-      p.setAttribute("aria-selected", p.dataset.tension === key ? "true" : "false");
-    });
-  }
 
   /* =====================================================================
      RENDER: What's Changed strip
@@ -1626,8 +1624,8 @@
       renderLens(ACTIVE_LENS, { persist: false });
     }
 
-    renderWeeklyNote(data.weekly_note);
-    renderFreshness(data.signals, data.phase_meta);
+    renderWeeklyNote(data.weekly_note, data.weekly_connection);
+    renderFreshness(data.signals, data.phase_meta, data.weekly_connection);
     renderWeeklyConnection(data.weekly_connection);
     renderWhatsChanged(data.whats_changed);
 

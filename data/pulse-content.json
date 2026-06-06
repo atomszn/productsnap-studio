@@ -1,8 +1,6 @@
 {
   "weekly_note": {
-    "text": "This week: inflation reasserted itself on both the consumer and producer sides, consumer sentiment cratered, and the cost of building with AI kept falling. The economy split into two stories at once.",
-    "date": "2026-05-27",
-    "date_label": "May 27"
+    "text": "This week: inflation reasserted itself on both the consumer and producer sides, consumer sentiment cratered, and the cost of building with AI kept falling. The economy split into two stories at once."
   },
   "weekly_connection": {
     "title": "Two economies, same week",
@@ -61,7 +59,8 @@
     },
     "review_required": false,
     "review_note": "Weekly Connection refreshed 2026-06-05 to name both sides of the split honestly: the customer side is tightening (confidence near decade lows, prices still climbing) while the build side is loosening (AI prices down ~60% over six months, model releases at the fastest pace since 2024). Connected signals updated to consumer-confidence, ai-api-pricing, ai-model-releases.",
-    "narrative_review_required": false
+    "narrative_review_required": false,
+    "last_editorial_reviewed": "2026-06-05"
   },
   "weekly_thought": {
     "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",

@@ -218,7 +218,7 @@
       <div class="signal-library" id="signal-library" hidden>
       <section class="section pulse-hero" id="pulse-hero">
         <div class="pulse-hero-head">
-          <span class="kicker">/pulse · latest note · <span id="hero-date">May 27</span></span>
+          <span class="kicker">/pulse · latest note</span>
           <h2 class="pulse-h1">
             World <span class="hl-underline">signals</span>,
             read in <span class="hl-circle">combination</span>.
@@ -227,8 +227,13 @@
             A read for product people. One unexpected connection.
             Eighteen signals behind it. No dashboard energy.
           </p>
-          <!-- Data freshness — derived on load from the most recent last_updated
-               across all signals. Distinct from the weekly-note date. -->
+          <!-- One consolidated, labeled date line for visitors. Answers, in
+               order: when did the signals refresh, when was this read written,
+               and is the thinking still current (Up to date / Refreshing).
+               Derived on load from real data dates + the editorial review
+               window — never hand-typed. The internal pipeline minute-stamp
+               (phase_meta.last_pipeline_refresh) is deliberately NOT shown
+               here; it stays in the JSON/feed for debugging only. -->
           <span class="pulse-freshness" id="pulse-freshness" aria-live="polite" hidden></span>
         </div>
 
@@ -246,11 +251,11 @@
           <span class="wc-tape wc-tape-2" aria-hidden="true"></span>
 
           <header class="wc-head">
-            <span class="wc-eyebrow">connection of the week</span>
-            <span class="wc-date" id="wc-date">May 27</span>
+            <span class="wc-eyebrow">the connection</span>
+            <span class="wc-date" id="wc-date">Jun 5</span>
           </header>
 
-          <h2 class="wc-title" id="wc-title">Loading the week’s connection…</h2>
+          <h2 class="wc-title" id="wc-title">Loading the latest connection…</h2>
           <p class="wc-subtitle" id="wc-subtitle"></p>
 
           <!-- Structured triad: Observation / Why it matters / PM implication -->
