@@ -36,6 +36,10 @@
   --note-teal:    #b9e4dc;
   --note-cream:   #efe2c5;
   --note-purple:  #d9c9f3;
+  /* aliases used by Pulse explorer cards (were undefined -> transparent) */
+  --note-lavender: #e2d6f6;
+  --note-gold:     #f7e2b0;
+  --note-blush:    #f7d4e2;
 
   /* shadows */
   --shadow-1: 0 1px 0 rgba(40, 30, 10, 0.06),
@@ -2335,12 +2339,16 @@ header.topnav-wrap {
   --amber:        #f0c45c;
   --amber-soft:   #45381f;
 
-  /* sticky note tones — desaturated + dimmed, still legible (dark ink on them) */
+  /* sticky note tones — desaturated + dimmed, mid-tone so light ink stays legible */
   --note-yellow:  #b59a52;
   --note-pink:    #b07089;
   --note-teal:    #5f9089;
   --note-cream:   #8a7d61;
   --note-purple:  #8873b0;
+  /* aliases used by Pulse explorer cards (were undefined -> transparent in dark) */
+  --note-lavender: #7d6aa6;
+  --note-gold:     #9a7f44;
+  --note-blush:    #a86d84;
 
   /* softer, deeper shadows on dark */
   --shadow-1: 0 1px 0 rgba(0,0,0,0.25),
@@ -2365,27 +2373,84 @@ header.topnav-wrap {
   border-color: var(--paper);
 }
 
-/* Closed evidence chips keep a light gold/teal "highlighter" fill in dark mode
+/* Closed evidence chips keep a light gold "highlighter" fill in dark mode
    (a scanned-highlight cue, intentional), so their text must stay dark ink to
-   read against that light fill. Only the OPEN chip inverts to the dark ink
-   background (handled above). */
+   read against that light fill. The base rule fills them with the mid-tone
+   --note-gold token (#9a7f44), which only reaches ~3.2:1 against dark ink, so
+   pin an actually-light highlighter gold here — the chip then reads as a true
+   highlight mark (~10:1). Only the OPEN chip inverts to the dark ink bg. */
 :root[data-theme="dark"] .evidence-chip,
 :root[data-theme="dark"] .evidence-chip.chip-paired-highlight {
-  color: var(--paper);
+  background: #dcc57e;
+  border-color: #b89a52;
+  color: #1f1b16;
 }
+:root[data-theme="dark"] .evidence-chip:hover { background: #e8d493; }
 :root[data-theme="dark"] .evidence-chip.is-open,
 :root[data-theme="dark"] .evidence-chip.is-open.chip-paired-highlight {
   color: var(--paper);
 }
 
-/* Sticky notes carry dark hand-ink text in dark mode for legibility */
+/* ---------------------------------------------------------------- */
+/* Dark-mode sticky-note surfaces (environment, not mockups)        */
+/* ---------------------------------------------------------------- */
+/* In light mode sticky notes are pastel --note-* fills with dark    */
+/* ink. The earlier approach kept dark ink on the mid-tone dark      */
+/* tokens, but cream/purple dipped to ~4.4:1 and the smaller         */
+/* decorative clusters (.cs-sticky) inherited LIGHT ink on mid-tone  */
+/* (~1.7–3.4:1). Re-tint each note to a DEEP charcoal of its own     */
+/* accent and use light ink — matching the Pulse explorer cards and  */
+/* the app notebook surfaces, so the whole environment is coherent.  */
+:root[data-theme="dark"] {
+  --note-surf-yellow: #3a321c;
+  --note-surf-pink:   #3e2931;
+  --note-surf-teal:   #1f3531;
+  --note-surf-cream:  #34302a;
+  --note-surf-purple: #332c44;
+  --note-surf-hair:   rgba(245,236,220,0.22);
+}
+:root[data-theme="dark"] .sticky-yellow,
+:root[data-theme="dark"] .cs-sticky-yellow { background: var(--note-surf-yellow); }
+:root[data-theme="dark"] .sticky-pink,
+:root[data-theme="dark"] .cs-sticky-pink   { background: var(--note-surf-pink); }
+:root[data-theme="dark"] .sticky-teal,
+:root[data-theme="dark"] .cs-sticky-teal   { background: var(--note-surf-teal); }
+:root[data-theme="dark"] .sticky-cream     { background: var(--note-surf-cream); }
+:root[data-theme="dark"] .sticky-purple,
+:root[data-theme="dark"] .cs-sticky-purple { background: var(--note-surf-purple); }
 :root[data-theme="dark"] .sticky,
+:root[data-theme="dark"] .cs-sticky {
+  color: var(--ink);
+  border: 1px solid var(--note-surf-hair);
+}
 :root[data-theme="dark"] .sticky small,
+:root[data-theme="dark"] .cs-sticky small { color: var(--ink-soft); }
+/* Pins read as light dots on the dark notes */
+:root[data-theme="dark"] .sticky-pin,
+:root[data-theme="dark"] .cs-sticky .sticky-pin { background: var(--ink-soft); }
+
+/* Wall cards, card tags, and the "coming soon" pill keep dark ink   */
+/* — those fills are bright enough; only re-tint soon-pill since its  */
+/* note-purple base dipped below AA.                                 */
 :root[data-theme="dark"] .wall-card,
-:root[data-theme="dark"] .card-tag,
-:root[data-theme="dark"] .soon-pill {
+:root[data-theme="dark"] .card-tag {
   color: #1a160f;
 }
+:root[data-theme="dark"] .soon-pill {
+  background: var(--note-surf-purple);
+  color: var(--ink);
+  border-color: var(--note-surf-hair);
+}
+
+/* Primary CTA: in dark mode --teal flips to a bright accent (#3fb8a8) */
+/* which leaves white label text at only ~2.4:1. Deepen just the      */
+/* button fill so the white CTA text clears AA, keeping the teal       */
+/* identity. (The bright --teal token stays for accents/links/dots.)   */
+:root[data-theme="dark"] .btn-primary {
+  background: #1f7a70;
+  color: #fff;
+}
+:root[data-theme="dark"] .btn-primary:hover { background: #176058; }
 
 /* Header rail: re-tint the translucent paper band + inset highlight */
 :root[data-theme="dark"] header.topnav-wrap {
