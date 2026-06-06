@@ -274,18 +274,20 @@
 
     const parts = [];
     if (signalsLabel) parts.push("Signals updated \u00b7 " + signalsLabel);
-    if (readLabel) parts.push("this read \u00b7 " + readLabel);
+    if (readLabel) parts.push("thinking refreshed \u00b7 " + readLabel);
     if (statusWord) parts.push(statusWord);
     if (!parts.length) { el.hidden = true; return; }
     el.textContent = parts.join(" \u00b7 ");
     el.hidden = false;
   }
 
-  // Plain-language "is the thinking still current?" word for visitors.
-  // "Up to date" while the editorial read is inside its review window;
-  // "Refreshing" once it has aged past the window and a new read is due.
-  // Mirrors the 7-day weekly_connection policy used by the build pipeline,
-  // so the word a visitor sees never contradicts what the validator thinks.
+  // Plain-language "is the thinking still current?" status for visitors, in the
+  // living-notebook voice (Pulse is a thinking layer, not a dashboard).
+  // "still relevant \u2713" = the latest data was checked and the interpretation
+  // still holds. "review due" = the read has aged past its window and the
+  // interpretation is due a fresh check. Mirrors the 7-day weekly_connection
+  // policy used by the build pipeline, so the status a visitor sees never
+  // contradicts what the validator thinks.
   function editorialStatusWord(reviewedDate) {
     if (!reviewedDate || !/^\d{4}-\d{2}-\d{2}/.test(reviewedDate)) return "";
     const reviewed = new Date(reviewedDate.slice(0, 10) + "T00:00:00Z");
@@ -293,7 +295,7 @@
     const now = new Date();
     const ageDays = Math.floor((now.getTime() - reviewed.getTime()) / 86400000);
     const EXPIRES_AFTER_DAYS = 7; // matches signals_registry editorial_freshness_policy
-    return ageDays <= EXPIRES_AFTER_DAYS ? "Up to date" : "Refreshing";
+    return ageDays <= EXPIRES_AFTER_DAYS ? "still relevant \u2713" : "review due";
   }
 
   // Format an ISO timestamp like "2026-06-02T15:00:00Z" as "June 2".
