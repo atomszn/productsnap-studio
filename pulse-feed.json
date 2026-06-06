@@ -1,0 +1,124 @@
+{
+  "$schema": "https://productsnap.studio/pulse-feed.schema.json",
+  "title": "ProductSnap Studio — Pulse weekly feed",
+  "description": "A machine-readable summary of this week's Pulse: the weekly thought, the lenses it can be read through, the signals it references, and the product questions it raises. Derived from the live Pulse data; gated interpretations are withheld when under editorial review.",
+  "site": "https://productsnap.studio",
+  "pulse_url": "https://productsnap.studio/pulse",
+  "generated_from": "data/pulse-content.json",
+  "last_updated": "2026-06-07",
+  "latest_source_data_date": "2026-05-19",
+  "is_financial_advice": false,
+  "disclaimer": "Pulse is not financial analysis, investment advice, or market prediction. It connects public signals, tracks how things are changing, and turns that into better product questions. Always verify against primary sources before acting.",
+  "weekly_thought": {
+    "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",
+    "plain_english": "This week's interpretation is under review — the signal picture has shifted. Updated context coming soon.",
+    "why_it_matters": "Interpretation under review.",
+    "lenses": [
+      {
+        "id": "build",
+        "label": "Build Decisions",
+        "pattern": "Most people aren't holding both of these in their head at once. [chip:tech-hiring] is at its lowest in a decade, while [chip:ai-api-pricing] just hit the cheapest it's ever been. Roadmap items you deferred for headcount last quarter might be shippable this quarter — for a completely different reason. For example: a support team that couldn't get two more engineers six months ago could now add a feature that answers common questions automatically — the AI handles it for them.",
+        "question_to_ask": "Which project you put on hold assumes you have to hire someone before you can build it?"
+      },
+      {
+        "id": "customer",
+        "label": "Customer Behavior",
+        "pattern": "Your customers are quieter, not broke. How people feel about money [chip:consumer-confidence] has dropped hard, but spending [chip:retail-sales] is still up about 5% from a year ago. What people say is louder than what they actually spend right now — and the gap between them is widening. For example: a team running an upgrade campaign might see the same number of upgrades, but more of those customers are quietly closer to leaving.",
+        "question_to_ask": "When your users tell you they're tightening their belts, which number do you trust — what they say, or what they spend?"
+      },
+      {
+        "id": "business",
+        "label": "Business Reality",
+        "pattern": "Next quarter's budgets are being built around two numbers moving in opposite directions. Teams keep hiring [chip:tech-hiring] tight, then quietly spend more on tools because computing power [chip:compute-cost] keeps getting cheaper. The budget line that used to say 'hire two engineers' now says 'pay for more AI.' For example: an early team writing their Q3 plan might cap hiring one person lower, add a $2K/month software line — and still ship more.",
+        "question_to_ask": "Open next quarter's plan and find the one hire you'd trade for software if AI could do 70% of that job."
+      },
+      {
+        "id": "future",
+        "label": "Future Signals",
+        "pattern": "The thing to watch isn't the price drop itself — it's how fast new models keep landing. [chip:ai-model-releases] are shipping faster than they have since 2024, and each new model resets what counts as 'too expensive to automate.' Your list of things-not-worth-doing-yet keeps shrinking on its own every few weeks. For example: a workflow you ruled out as 'too expensive to automate' six months ago might be cheap enough now that it's the obvious next feature.",
+        "question_to_ask": "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true."
+      }
+    ],
+    "under_review": true
+  },
+  "weekly_connection": {
+    "title": "The squeezed customer, the cheaper build",
+    "subtitle": "Prices are up and people feel worse about money — yet building with AI keeps getting cheaper. The economy is telling two opposite stories at once.",
+    "under_review": true,
+    "observation": "This week's interpretation is under review — the signal picture has shifted. Updated context coming soon.",
+    "why_it_matters": "Interpretation under review.",
+    "decision_this_week": ""
+  },
+  "pm_tension": {
+    "label": "This week's PM tension",
+    "axis": "Stretched customer vs cheaper to build",
+    "question": "Does your plan still assume a customer who feels better than the one you actually have?",
+    "note": "A question worth holding open this week — not a recommendation."
+  },
+  "product_questions": [
+    "Which project you put on hold assumes you have to hire someone before you can build it?",
+    "When your users tell you they're tightening their belts, which number do you trust — what they say, or what they spend?",
+    "Open next quarter's plan and find the one hire you'd trade for software if AI could do 70% of that job.",
+    "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true.",
+    "Does your plan still assume a customer who feels better than the one you actually have?"
+  ],
+  "signals_referenced": [
+    {
+      "id": "cpi-headline",
+      "title": "Headline inflation reaccelerating — energy doing the lifting",
+      "category": "inflation",
+      "current_value": "3.81% year-over-year",
+      "status": "reaccelerating",
+      "source_data_date": "2026-04-01",
+      "sources": [
+        {
+          "name": "BLS CPI",
+          "url": "https://www.bls.gov/cpi/"
+        },
+        {
+          "name": "BLS Core CPI",
+          "url": "https://www.bls.gov/news.release/cpi.t02.htm"
+        }
+      ],
+      "plain_english": "Everyday prices climbed again, mostly because of energy. And the cost of services keeps creeping up underneath, even when goods cool off.",
+      "under_review": false
+    },
+    {
+      "id": "consumer-confidence",
+      "title": "Consumer confidence near record lows — inflation expectations elevated",
+      "category": "consumer",
+      "current_value": "49.8 University of Michigan index",
+      "status": "weak",
+      "source_data_date": "2026-04-01",
+      "sources": [
+        {
+          "name": "University of Michigan Consumer Sentiment (via FRED)",
+          "url": "https://fred.stlouisfed.org/series/UMCSENT"
+        }
+      ],
+      "plain_english": "How households feel about the economy has dropped to levels we rarely see. And underneath, people expect prices to keep climbing over the next year.",
+      "under_review": false
+    },
+    {
+      "id": "ai-api-pricing",
+      "title": "AI model costs keep falling sharply",
+      "category": "ai-tech",
+      "current_value": "−60% over the last three months for top AI model prices",
+      "status": "falling",
+      "source_data_date": "2026-05-19",
+      "sources": [
+        {
+          "name": "OpenAI pricing",
+          "url": "https://openai.com/api/pricing/"
+        },
+        {
+          "name": "Anthropic pricing",
+          "url": "https://www.anthropic.com/pricing"
+        }
+      ],
+      "plain_english": "The price of comparable AI keeps dropping fast across the major labs. Shipping an AI feature costs a lot less than it did a few months ago.",
+      "under_review": false
+    }
+  ],
+  "sources_note": "Pulse reads from a three-tier source system: Tier 1 (official datasets — Fed, BLS, Treasury, BEA, FRED, Census) drives conclusions; Tier 2/3 support framing."
+}
