@@ -5,14 +5,14 @@
   "site": "https://productsnap.studio",
   "pulse_url": "https://productsnap.studio/pulse",
   "generated_from": "data/pulse-content.json",
-  "last_updated": "2026-06-07",
-  "latest_source_data_date": "2026-05-19",
+  "last_updated": "2026-06-05",
+  "latest_source_data_date": "2026-05-26",
   "is_financial_advice": false,
   "disclaimer": "Pulse is not financial analysis, investment advice, or market prediction. It connects public signals, tracks how things are changing, and turns that into better product questions. Always verify against primary sources before acting.",
   "weekly_thought": {
     "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",
-    "plain_english": "This week's interpretation is under review — the signal picture has shifted. Updated context coming soon.",
-    "why_it_matters": "Interpretation under review.",
+    "plain_english": "People feel about as bad about the economy as they have in a decade, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge — top model prices are down about 60% over six months — and new, more capable models keep arriving every few weeks.",
+    "why_it_matters": "Your customer is stretched and watching every bill. The good news: the thing that helps them most — AI doing more of the work for them — has rarely been cheaper to ship. Any plan that still assumes a relaxed customer, or assumes AI features are too costly to include at lower price points, is worth reopening.",
     "lenses": [
       {
         "id": "build",
@@ -23,7 +23,7 @@
       {
         "id": "customer",
         "label": "Customer Behavior",
-        "pattern": "Your customers are quieter, not broke. How people feel about money [chip:consumer-confidence] has dropped hard, but spending [chip:retail-sales] is still up about 5% from a year ago. What people say is louder than what they actually spend right now — and the gap between them is widening. For example: a team running an upgrade campaign might see the same number of upgrades, but more of those customers are quietly closer to leaving.",
+        "pattern": "Your customers are quieter, not broke. How people feel about money [chip:consumer-confidence] has dropped hard, but spending [chip:retail-sales] is still up nearly 5% from a year ago. What people say is louder than what they actually spend right now — and the gap between them is widening. For example: a team running an upgrade campaign might see the same number of upgrades, but more of those customers are quietly closer to leaving.",
         "question_to_ask": "When your users tell you they're tightening their belts, which number do you trust — what they say, or what they spend?"
       },
       {
@@ -39,15 +39,15 @@
         "question_to_ask": "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true."
       }
     ],
-    "under_review": true
+    "under_review": false
   },
   "weekly_connection": {
-    "title": "The squeezed customer, the cheaper build",
-    "subtitle": "Prices are up and people feel worse about money — yet building with AI keeps getting cheaper. The economy is telling two opposite stories at once.",
-    "under_review": true,
-    "observation": "This week's interpretation is under review — the signal picture has shifted. Updated context coming soon.",
-    "why_it_matters": "Interpretation under review.",
-    "decision_this_week": ""
+    "title": "Two economies, same week",
+    "subtitle": "Customers are under real pressure while building with AI keeps getting cheaper and faster. Both are happening at once — and only one of them looks likely to reverse soon.",
+    "under_review": false,
+    "observation": "People feel about as bad about the economy as they have in a decade, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge — top model prices are down about 60% over six months — and new, more capable models keep arriving every few weeks.",
+    "why_it_matters": "Your customer is stretched and watching every bill. The good news: the thing that helps them most — AI doing more of the work for them — has rarely been cheaper to ship. Any plan that still assumes a relaxed customer, or assumes AI features are too costly to include at lower price points, is worth reopening.",
+    "decision_this_week": "Pick one AI feature you've put off because it felt too expensive. Ask whether it's still too expensive at today's prices — and whether a stretched customer would value it more, not less."
   },
   "pm_tension": {
     "label": "This week's PM tension",
@@ -63,26 +63,6 @@
     "Does your plan still assume a customer who feels better than the one you actually have?"
   ],
   "signals_referenced": [
-    {
-      "id": "cpi-headline",
-      "title": "Headline inflation reaccelerating — energy doing the lifting",
-      "category": "inflation",
-      "current_value": "3.81% year-over-year",
-      "status": "reaccelerating",
-      "source_data_date": "2026-04-01",
-      "sources": [
-        {
-          "name": "BLS CPI",
-          "url": "https://www.bls.gov/cpi/"
-        },
-        {
-          "name": "BLS Core CPI",
-          "url": "https://www.bls.gov/news.release/cpi.t02.htm"
-        }
-      ],
-      "plain_english": "Everyday prices climbed again, mostly because of energy. And the cost of services keeps creeping up underneath, even when goods cool off.",
-      "under_review": false
-    },
     {
       "id": "consumer-confidence",
       "title": "Consumer confidence near record lows — inflation expectations elevated",
@@ -103,7 +83,7 @@
       "id": "ai-api-pricing",
       "title": "AI model costs keep falling sharply",
       "category": "ai-tech",
-      "current_value": "−60% over the last three months for top AI model prices",
+      "current_value": "−60% over the last six months for top AI model prices",
       "status": "falling",
       "source_data_date": "2026-05-19",
       "sources": [
@@ -117,6 +97,30 @@
         }
       ],
       "plain_english": "The price of comparable AI keeps dropping fast across the major labs. Shipping an AI feature costs a lot less than it did a few months ago.",
+      "under_review": false
+    },
+    {
+      "id": "ai-model-releases",
+      "title": "Model release pace accelerating again",
+      "category": "ai-tech",
+      "current_value": "3 / 14 days frontier releases per 2-week window",
+      "status": "expanding",
+      "source_data_date": "2026-05-26",
+      "sources": [
+        {
+          "name": "Anthropic news",
+          "url": "https://www.anthropic.com/news"
+        },
+        {
+          "name": "OpenAI news",
+          "url": "https://openai.com/news/"
+        },
+        {
+          "name": "Google AI blog",
+          "url": "https://blog.google/technology/ai/"
+        }
+      ],
+      "plain_english": "Three major new AI models in the last two weeks — the top of the field is moving fast.",
       "under_review": false
     }
   ],
