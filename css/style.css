@@ -1511,7 +1511,10 @@ header.topnav-wrap {
   html.js.reveal-on .idea-sketch,
   html.js.reveal-on .sketches-featured {
     opacity: 0;
-    translate: 0 14px;
+    /* Motion identity: a more deliberate rise so the reveal is actually
+       felt (was 14px — too small to perceive once the element scrolled
+       into view). 26px reads as "this arrived", not "did something move?". */
+    translate: 0 26px;
   }
 }
 
@@ -2308,16 +2311,131 @@ header.topnav-wrap {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* =====================================================================
+   PRODUCTSNAP MOTION IDENTITY
+   ---------------------------------------------------------------------
+   Goal (per Atom): "I opened someone's product notebook and the thinking
+   unfolded." Clearly felt, never flashy. Apple product-storytelling pace
+   meets a hand-built notebook. Three signature gestures, all gated on
+   html.js.reveal-on + prefers-reduced-motion: no-preference, all collapsing
+   to a static, fully-visible state otherwise.
+
+   A. HAND-DRAWN HEADLINE MARKS — the pink underline + teal circle on key
+      headlines draw themselves in (left-to-right / sweep) a beat after the
+      heading rises, like a pencil underlining the important word.
+   B. STICKY-NOTE SETTLE — the hero sticky cluster drops into place one note
+      at a time, landing into its resting tilt (someone just placed them).
+   C. CLEARER-THINKING FADE — section lead copy resolves from a hair of blur
+      into sharp focus ("messy thought becoming clear"). Subtle, one beat.
+   ===================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---- A. Hand-drawn underline: paints left→right on reveal ---- */
+  /* The mark lives in .section-head / .hero headings, which are reveal
+     targets. Start clipped to 0 width; when the heading's container is
+     revealed, the gradient grows to full width like a drawn stroke. */
+  html.js.reveal-on .section-head .hl-underline {
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    transition: background-size .7s cubic-bezier(.2,.8,.2,1);
+    transition-delay: .35s; /* lands just after the heading settles */
+  }
+  html.js.reveal-on .section-head.is-revealed .hl-underline {
+    background-size: 100% 100%;
+  }
+
+  /* ---- A. Hand-drawn circle: sweeps in via slight scale + fade ---- */
+  html.js.reveal-on .section-head .hl-circle::after {
+    opacity: 0;
+    transform: rotate(-3deg) scale(0.82);
+    transition: opacity .5s ease, transform .6s cubic-bezier(.2,.8,.2,1);
+    transition-delay: .45s;
+  }
+  html.js.reveal-on .section-head.is-revealed .hl-circle::after {
+    opacity: 0.85;
+    transform: rotate(-3deg) scale(1.02);
+  }
+
+  /* Hero marks are above the fold — they DRAW ON LOAD (animation, not a
+     class-toggled transition) so the very first thing a visitor sees is the
+     pencil underlining "living notebook" and circling "judgment". */
+  html.js.reveal-on .hero .hl-underline {
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    animation: hl-underline-draw .8s cubic-bezier(.2,.8,.2,1) .55s both;
+  }
+  html.js.reveal-on .hero .hl-circle::after {
+    animation: hl-circle-draw .7s cubic-bezier(.2,.8,.2,1) .9s both;
+  }
+
+  /* ---- B. Sticky-note settle (hero cluster) ----
+     Hero is above the fold, so these animate on LOAD: each note falls a
+     short distance into its resting --rot, one after another, like a hand
+     placing them on the page. No bounce — a clean ease-out landing. */
+  html.js.reveal-on .sketch-canvas .sticky {
+    animation: sticky-settle .62s cubic-bezier(.2,.85,.25,1) both;
+  }
+  html.js.reveal-on .sketch-canvas .sticky:nth-child(1) { animation-delay: .15s; }
+  html.js.reveal-on .sketch-canvas .sticky:nth-child(2) { animation-delay: .28s; }
+  html.js.reveal-on .sketch-canvas .sticky:nth-child(3) { animation-delay: .41s; }
+  html.js.reveal-on .sketch-canvas .sticky:nth-child(4) { animation-delay: .54s; }
+  html.js.reveal-on .sketch-canvas .sticky:nth-child(5) { animation-delay: .67s; }
+  html.js.reveal-on .sketch-canvas .sticky:nth-child(6) { animation-delay: .80s; }
+  html.js.reveal-on .sketch-canvas .sticky:nth-child(7) { animation-delay: .93s; }
+
+  /* ---- C. Clearer-thinking fade on section lead copy ---- */
+  html.js.reveal-on .section-lead {
+    filter: blur(3px);
+    opacity: 0;
+    transition: filter .65s ease, opacity .65s ease;
+    transition-delay: .2s;
+  }
+  html.js.reveal-on .section-head.is-revealed .section-lead {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* Hero headline-mark keyframes (draw on load). */
+@keyframes hl-underline-draw {
+  from { background-size: 0% 100%; }
+  to   { background-size: 100% 100%; }
+}
+@keyframes hl-circle-draw {
+  from { opacity: 0;    transform: rotate(-3deg) scale(0.82); }
+  to   { opacity: 0.85; transform: rotate(-3deg) scale(1.02); }
+}
+
+/* Sticky-settle keyframe: a short drop from above + flat, landing into the
+   note's resting rotation. Uses --rot (set inline per note). No overshoot. */
+@keyframes sticky-settle {
+  from {
+    opacity: 0;
+    transform: translateY(-22px) rotate(calc(var(--rot, 0deg) * 0.2)) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rot, 0deg)) scale(1);
+  }
+}
+
 /* Belt-and-suspenders: if the user prefers reduced motion, force every reveal
    target fully visible and static, regardless of JS state. */
 @media (prefers-reduced-motion: reduce) {
   .section-head, .phone-real, .screen-thumb, .pair, .teardown,
   .future-card, .hub-card, .conv-card, .idea-sketch, .sketches-featured,
-  .sketches-note, .pencil-note {
+  .sketches-note, .pencil-note,
+  .section-lead {
     opacity: 1 !important;
     translate: 0 0 !important;
     transform: none !important;
+    filter: none !important;
   }
+  /* Motion-identity gestures collapse to their final, static state. */
+  .hl-underline { background-size: 100% 100% !important; }
+  .hl-circle::after { opacity: 0.85 !important; transform: rotate(-3deg) scale(1.02) !important; }
+  .sketch-canvas .sticky { animation: none !important; }
   /* page-enter header is gated on no-preference, but be explicit. */
   header.topnav-wrap { animation: none !important; }
 }
@@ -2574,8 +2692,11 @@ header.topnav-wrap {
   .theme-toggle-desktop { display: none; }
 }
 
-/* Mobile: a compact icon-only toggle near the hamburger (always reachable)
-   plus a full-width labeled toggle inside the open nav panel. */
+/* Mobile: a single compact icon-only toggle near the hamburger (always
+   reachable). The labeled in-panel toggle was redundant with this ribbon
+   icon, so it is hidden everywhere now — one obvious control, not two.
+   (The .theme-toggle-panel button stays in the DOM so theme.js can keep
+   all toggles in sync, but it never renders.) */
 .theme-toggle-compact {
   display: none;
   padding: 8px;
@@ -2585,15 +2706,7 @@ header.topnav-wrap {
 @media (max-width: 760px) {
   .theme-toggle-compact { display: inline-flex; }
 }
-.theme-toggle-panel {
-  display: none;
-  width: 100%;
-  justify-content: center;
-  margin-top: 6px;
-}
-@media (max-width: 760px) {
-  .nav-panel .theme-toggle-panel { display: inline-flex; }
-}
+.theme-toggle-panel { display: none !important; }
 
 /* Icon swap: show moon in light mode (action = go dark), sun in dark mode */
 .theme-toggle .tt-sun { display: none; }
