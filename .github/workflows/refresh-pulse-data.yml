@@ -38,6 +38,15 @@ jobs:
         # the freshly fetched values (not a stale snapshot).
         run: node scripts/validate-pulse-data.js
 
+      - name: Editorial trigger decision (log-only, non-gating)
+        # Phase 1 of event-driven editorial automation. Computes a KEEP-vs-DRAFT
+        # decision from review flags, editorial freshness, and material data
+        # moves, and records it to data/pulse-editorial-decision.json. It does
+        # NOT call an LLM, does NOT write content, and must NEVER break the
+        # pipeline while in log-only mode — hence continue-on-error.
+        continue-on-error: true
+        run: node scripts/draft-editorial.js
+
       - name: Regenerate machine-readable Pulse feed
         # Derived from data/pulse-content.json; mirrors the trust gate so AI
         # agents never read an interpretation the site is holding under review.
@@ -51,13 +60,13 @@ jobs:
 
       - name: Commit refreshed data, flags & feed if changed
         run: |
-          if git diff --quiet -- data/pulse-content.json data/pulse-review-report.json pulse-feed.json; then
+          if git diff --quiet -- data/pulse-content.json data/pulse-review-report.json data/pulse-editorial-decision.json pulse-feed.json; then
             echo "No Pulse data or feed changes to commit."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pulse-content.json data/pulse-review-report.json pulse-feed.json
+          git add data/pulse-content.json data/pulse-review-report.json data/pulse-editorial-decision.json pulse-feed.json
           git commit -m "chore(data): refresh pulse signals + feed"
           git push

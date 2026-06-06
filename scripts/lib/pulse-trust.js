@@ -643,6 +643,72 @@ function weeklyConnectionNeedsReview(weeklyConnection, signals) {
   });
 }
 
+/* ---------- material data-move detection (Phase 1) ---------- */
+/*
+  Pure, side-effect-free check: did a signal move ENOUGH (vs its previous
+  trusted value) to plausibly change the editorial reading? This is the
+  "something worth saying changed" trigger — NOT a value mutator. It never
+  edits data; it returns a verdict the draft step logs.
+
+  A move is "material" when ANY of:
+    (a) DIRECTION FLIP: sign of (new - old) differs from sign of the signal's
+        own reported 12-month direction intent (i.e. the number turned around).
+        We detect this simply as old->new crossing zero on the delta when the
+        prior delta context is unknown; primarily we flag a hard sign change
+        between consecutive values.
+    (b) MAGNITUDE: |new - old| meets or exceeds the registry max_abs_step for
+        that signal (the same threshold the validator uses to flag outliers).
+    (c) RANGE EDGE: the new value crosses into the outer 20% of the signal's
+        registry expected_range (entering an extreme it wasn't in before).
+
+  Conservative by design: if we lack a clean prior value, a clean new value,
+  or registry thresholds, we return material:false (no false triggers). All
+  inputs are read-only.
+
+  registryEntry: the signals_registry entry for this signal (has .thresholds).
+  prevValue/newValue: numbers (or loose-number strings).
+  Returns: { material:boolean, reasons:string[], delta:number|null }.
+*/
+function materialDataMove(prevValue, newValue, registryEntry) {
+  const reasons = [];
+  const prev = parseLooseNumber(prevValue);
+  const next = parseLooseNumber(newValue);
+  if (prev == null || next == null) {
+    return { material: false, reasons: ["insufficient numeric data"], delta: null };
+  }
+  const delta = next - prev;
+  const th = (registryEntry && registryEntry.thresholds) || {};
+
+  // (a) direction flip: a hard sign change across the two trusted values.
+  if (prev !== 0 && next !== 0 && Math.sign(prev) !== Math.sign(next)) {
+    reasons.push("direction_flip");
+  }
+
+  // (b) magnitude vs the registry step threshold.
+  const maxStep = th.max_abs_step;
+  if (typeof maxStep === "number" && Math.abs(delta) >= maxStep) {
+    reasons.push("magnitude_step>=" + maxStep);
+  }
+
+  // (c) range edge: entering the outer 20% band of the expected range when it
+  //     wasn't there before.
+  const range = th.expected_range;
+  if (Array.isArray(range) && range.length === 2 &&
+      typeof range[0] === "number" && typeof range[1] === "number" &&
+      range[1] > range[0]) {
+    const span = range[1] - range[0];
+    const lowEdge = range[0] + span * 0.2;
+    const highEdge = range[1] - span * 0.2;
+    const wasOutside = prev <= lowEdge || prev >= highEdge;
+    const nowOutside = next <= lowEdge || next >= highEdge;
+    if (nowOutside && !wasOutside) {
+      reasons.push("entered_range_edge");
+    }
+  }
+
+  return { material: reasons.length > 0, reasons, delta };
+}
+
 /* ---------- last-known-good protection ---------- */
 /*
   Given the previous trusted signal object and a validation verdict, decide
@@ -702,6 +768,7 @@ module.exports = {
   editorialFreshness,
   checkNarrativeAlignment,
   weeklyConnectionNeedsReview,
+  materialDataMove,
   applyVerdict,
   STATUS_WORD_DIRECTION,
   NARRATIVE_DIRECTION_WORDS,

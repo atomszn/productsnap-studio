@@ -1,7 +1,7 @@
 {
   "$schema": "https://productsnap.studio/pulse-feed.schema.json",
-  "title": "ProductSnap Studio — Pulse weekly feed",
-  "description": "A machine-readable summary of this week's Pulse: the weekly thought, the lenses it can be read through, the signals it references, and the product questions it raises. Derived from the live Pulse data; gated interpretations are withheld when under editorial review.",
+  "title": "ProductSnap Studio — Pulse feed",
+  "description": "A machine-readable summary of the current Pulse: the latest thought, the lenses it can be read through, the signals it references, and the product questions it raises. The interpretation stands until the underlying signals materially change. Derived from the live Pulse data; gated interpretations are withheld when under editorial review.",
   "site": "https://productsnap.studio",
   "pulse_url": "https://productsnap.studio/pulse",
   "generated_from": "data/pulse-content.json",
@@ -50,10 +50,10 @@
     "decision_this_week": "Pick one AI feature you've put off because it felt too expensive. Ask whether it's still too expensive at today's prices — and whether a stretched customer would value it more, not less."
   },
   "pm_tension": {
-    "label": "This week's PM tension",
+    "label": "The PM tension this raises",
     "axis": "Stretched customer vs cheaper to build",
     "question": "Does your plan still assume a customer who feels better than the one you actually have?",
-    "note": "A question worth holding open this week — not a recommendation."
+    "note": "A question worth holding open — not a recommendation."
   },
   "product_questions": [
     "Which project you put on hold assumes you have to hire someone before you can build it?",

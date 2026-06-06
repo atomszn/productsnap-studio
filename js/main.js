@@ -302,7 +302,7 @@
       .catch((err) => {
         console.error("Home Pulse: failed to load weekly connection", err);
         // Honest fallback that still points to the live page.
-        titleEl.textContent = "This week's connection is on the Pulse page.";
+        titleEl.textContent = "The latest connection is on the Pulse page.";
         lineEl.textContent =
           "The live insert couldn't load here \u2014 read it in full on Pulse.";
       });

@@ -36,14 +36,14 @@
     <title>Pulse — ProductSnap Studio</title>
     <meta
       name="description"
-      content="A weekly editorial read on signals from AI, capital, consumer demand, labor, inflation and regulation — read in combination, translated into product questions."
+      content="An editorial read on signals from AI, capital, consumer demand, labor, inflation and regulation — read in combination, translated into product questions."
     />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pulse — ProductSnap Studio" />
     <meta
       property="og:description"
-      content="Pulse connects public signals into product questions. A weekly thinking layer for curious builders, with signals as the receipts."
+      content="Pulse connects public signals into product questions. A thinking layer for curious builders, with signals as the receipts."
     />
     <meta property="og:site_name" content="ProductSnap Studio" />
     <meta property="og:url" content="https://productsnap.studio/pulse" />
@@ -51,10 +51,10 @@
     <meta property="og:image" content="https://productsnap.studio/assets/og-default.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Pulse — a weekly thinking layer that turns public signals into better product questions" />
+    <meta property="og:image:alt" content="Pulse — a thinking layer that turns public signals into better product questions" />
     <meta name="twitter:image" content="https://productsnap.studio/assets/og-default.png" />
     <meta name="twitter:title" content="Pulse — ProductSnap Studio" />
-    <meta name="twitter:description" content="A weekly thinking layer that turns public signals into better product questions. Not financial advice." />
+    <meta name="twitter:description" content="A thinking layer that turns public signals into better product questions. Not financial advice." />
 
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="canonical" href="https://productsnap.studio/pulse" />
@@ -77,7 +77,7 @@
                   "@id": "https://productsnap.studio/pulse#pulse",
                   "name": "Pulse",
                   "url": "https://productsnap.studio/pulse",
-                  "headline": "A weekly thinking layer that turns public signals into better product questions",
+                  "headline": "A thinking layer that turns public signals into better product questions",
                   "description": "Pulse reads public signals across AI, capital, consumer demand, labor, inflation, and regulation together, and turns them into better product questions. It is not financial analysis, investment advice, or market prediction.",
                   "creator": {
                         "@type": "Person",
@@ -177,10 +177,10 @@
       <!-- and action. The signal library lives below, collapsed.         -->
       <!-- ============================================================ -->
       <section class="section pulse-think" id="pulse-think" aria-labelledby="pt-throughline">
-        <span class="kicker pt-kicker">Chapter 04 · this week's thought</span>
+        <span class="kicker pt-kicker">Chapter 04 · the current thought</span>
 
         <!-- World shift — one sentence, no label above it -->
-        <h1 class="pulse-throughline" id="pt-throughline">Loading this week’s read…</h1>
+        <h1 class="pulse-throughline" id="pt-throughline">Loading the current read…</h1>
         <p class="pt-model pencil-note">Pulse is a thinking layer. The signals are the receipts.</p>
 
         <!-- Lens tabs -->
@@ -218,28 +218,31 @@
       <div class="signal-library" id="signal-library" hidden>
       <section class="section pulse-hero" id="pulse-hero">
         <div class="pulse-hero-head">
-          <span class="kicker">/pulse · weekly read · <span id="hero-date">May 27</span></span>
+          <span class="kicker">/pulse · latest note</span>
           <h2 class="pulse-h1">
             World <span class="hl-underline">signals</span>,
             read in <span class="hl-circle">combination</span>.
           </h2>
           <p class="pulse-h1-sub">
-            A weekly read for product people. One unexpected connection.
+            A read for product people. One unexpected connection.
             Eighteen signals behind it. No dashboard energy.
           </p>
-          <!-- Data freshness — derived on load from the most recent last_updated
-               across all signals. Distinct from the weekly-note date. -->
+          <!-- One consolidated, labeled date line for visitors. Answers, in
+               order: when did the signals refresh, when was this read written,
+               and is the thinking still current (Up to date / Refreshing).
+               Derived on load from real data dates + the editorial review
+               window — never hand-typed. The internal pipeline minute-stamp
+               (phase_meta.last_pipeline_refresh) is deliberately NOT shown
+               here; it stays in the JSON/feed for debugging only. -->
           <span class="pulse-freshness" id="pulse-freshness" aria-live="polite" hidden></span>
         </div>
 
-        <!-- Handwritten weekly note -->
+        <!-- Handwritten latest note. The date lives once in the eyebrow above
+             (#hero-date); the standalone attribution date was removed to avoid
+             repeating the same date twice in one block. -->
         <div class="weekly-note" id="weekly-note" aria-live="polite">
           <span class="wn-quote-open" aria-hidden="true">“</span>
-          <p class="wn-text" id="wn-text">Loading this week’s note…</p>
-          <p class="wn-meta">
-            <span class="wn-dash">—</span>
-            <span id="wn-date">May 27</span>
-          </p>
+          <p class="wn-text" id="wn-text">Loading the latest note…</p>
         </div>
 
         <!-- WEEKLY CONNECTION — the hero, structured for scanability -->
@@ -248,11 +251,11 @@
           <span class="wc-tape wc-tape-2" aria-hidden="true"></span>
 
           <header class="wc-head">
-            <span class="wc-eyebrow">connection of the week</span>
-            <span class="wc-date" id="wc-date">May 27</span>
+            <span class="wc-eyebrow">the connection</span>
+            <span class="wc-date" id="wc-date">Jun 5</span>
           </header>
 
-          <h2 class="wc-title" id="wc-title">Loading the week’s connection…</h2>
+          <h2 class="wc-title" id="wc-title">Loading the latest connection…</h2>
           <p class="wc-subtitle" id="wc-subtitle"></p>
 
           <!-- Structured triad: Observation / Why it matters / PM implication -->
@@ -273,7 +276,7 @@
               <dd class="wc-triad-text" id="wc-implication"></dd>
             </div>
             <div class="wc-triad-row wc-triad-decision" id="wc-triad-decision-row">
-              <dt class="wc-triad-label">The decision this forces this week</dt>
+              <dt class="wc-triad-label">The decision this forces</dt>
               <dd class="wc-triad-text wc-triad-decision-text" id="wc-decision"></dd>
             </div>
           </dl>
@@ -323,7 +326,7 @@
         <div class="whats-changed whats-changed-simple" id="whats-changed">
           <div class="wch-row wch-moved">
             <span class="wch-label">
-              <span class="wch-label-text">moved this week</span>
+              <span class="wch-label-text">recently moved</span>
             </span>
             <ul class="wch-list wch-list-stack" id="wch-moved" role="list"></ul>
           </div>
@@ -488,7 +491,7 @@
         <button class="modal-close" type="button" aria-label="Close" data-close>×</button>
         <header class="modal-head">
           <span class="kicker">Sources</span>
-          <h3 id="sources-modal-title" class="modal-title">Where this week’s read comes from</h3>
+          <h3 id="sources-modal-title" class="modal-title">Where this read comes from</h3>
         </header>
         <div class="modal-body" id="modal-body">
           <!-- populated by JS -->
