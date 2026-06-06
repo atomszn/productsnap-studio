@@ -34,7 +34,7 @@
   var SEL =
     ".section-head, .phone-real, .screen-thumb, .pair, .teardown, " +
     ".future-card, .hub-card, .conv-card, .idea-sketch, .sketches-featured, " +
-    ".station";
+    ".zone";
 
   // Decorative "discovery" elements — handwritten notes + carets that arrive
   // last. Kept separate so the safety sweep below only guarantees the
