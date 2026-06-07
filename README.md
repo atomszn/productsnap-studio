@@ -44,7 +44,8 @@ as a **product experiment** (understand what visitors find interesting), not
 marketing tracking. No cookies, no consent banner, no personal data, no UI
 change, deferred load (zero impact on first paint or scroll-reveal motion).
 Honors **Do-Not-Track / Global Privacy Control**: if the visitor signals "do not
-track," analytics is skipped entirely.
+track," analytics is skipped entirely. The site owner can also exclude their own
+regular visits per browser (see **Excluding your own visits** below).
 
 All of it lives in one file — `js/analytics.js` — loaded `defer` at the bottom
 of each page. Custom events use pure event delegation, so **no other script
@@ -60,6 +61,31 @@ To point at a different Umami site, replace the ID in `js/analytics.js`. Setting
 it back to a `REPLACE_WITH…` placeholder turns the script into a complete no-op
 (loads nothing, sends nothing). If you ever self-host Umami, also point
 `UMAMI_SRC` at your own script URL.
+
+### Excluding your own visits (owner opt-out)
+
+You want real visitor analytics while excluding your *own* regular visits. There
+is **no UI for this** — you flip it once per browser/device with a hidden URL
+trigger, and the choice is remembered in `localStorage` thereafter:
+
+| URL | Effect on that browser |
+| --- | --- |
+| `https://productsnap.studio/?analytics=off` | Stops all tracking — Umami never loads and no events fire. Persisted. |
+| `https://productsnap.studio/?analytics=on` | Re-enables tracking. Persisted. |
+
+How it works:
+
+- The trigger sets two `localStorage` keys: our own `psnap-analytics` (`off`/`on`)
+  and Umami's **native** `umami.disabled` kill switch — so opt-out is enforced at
+  two layers (the script short-circuits *before* loading Umami, and even if it
+  somehow loaded, Umami itself refuses to send).
+- The `?analytics=` parameter is **stripped from the address bar** immediately
+  (via `history.replaceState`) so it never pollutes the tracked page URL and
+  can't be accidentally shared.
+- Works on **mobile** (no devtools needed). It is **invisible to normal
+  visitors**, who are never affected and stay fully tracked.
+- `localStorage` is per-browser and per-device, so visit `?analytics=off` once on
+  **each** personal browser/device you use (and again if you clear site data).
 
 ### Events captured
 

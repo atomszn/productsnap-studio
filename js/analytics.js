@@ -17,6 +17,14 @@
    level — so NONE of the existing page scripts (pulse.js, app.js,
    nav.js, theme.js) are touched, and no behavior changes.
 
+   ▸ OWNER OPT-OUT (no UI): the site owner can exclude their own regular
+     visits, per browser/device, with a hidden URL trigger —
+         /?analytics=off  disables tracking on that browser (persisted)
+         /?analytics=on   re-enables it
+     The choice is stored in localStorage and remembered across visits,
+     works on mobile, and is invisible to normal visitors (who stay fully
+     tracked). See README "Analytics" section.
+
    ▸ SETUP: replace UMAMI_WEBSITE_ID below with the real website ID from
      your Umami Cloud dashboard (Settings → Websites → ⟨your site⟩). Until
      then, the script no-ops and sends nothing. That's the only change
@@ -34,12 +42,76 @@
   // If you self-host Umami later, point UMAMI_SRC at your own script URL
   // and set a data-host-url below (left default for Umami Cloud).
 
+  // localStorage keys. PSNAP_FLAG is our own per-browser owner switch;
+  // UMAMI_FLAG is Umami's NATIVE kill switch (it refuses to send anything
+  // when this is "1"/"true"), so opt-out is enforced at two layers.
+  var PSNAP_FLAG = "psnap-analytics";   // "off" => excluded, "on"/unset => tracked
+  var UMAMI_FLAG = "umami.disabled";    // Umami's own opt-out key
+
+  /* ----------------------------------------------------------------
+     OWNER OPT-OUT — a hidden, UI-less way for the site owner to exclude
+     their OWN regular visits from analytics, per browser/device. There
+     is no setting screen: you flip it once with a URL trigger and the
+     choice is remembered in localStorage thereafter.
+
+         https://productsnap.studio/?analytics=off   → stop tracking here
+         https://productsnap.studio/?analytics=on    → resume tracking
+
+     This works on mobile too (no devtools needed). It is invisible to
+     normal visitors, who never see or use the parameter. After applying
+     the preference we strip ?analytics= from the address bar so it never
+     pollutes the tracked page URL and can't be accidentally shared.
+     ---------------------------------------------------------------- */
+  function safeLS() {
+    // Some browsers throw on localStorage in private mode — fail open
+    // (i.e. behave like a normal tracked visitor) rather than break.
+    try { return window.localStorage; } catch (e) { return null; }
+  }
+
+  function applyOwnerTrigger() {
+    var ls = safeLS();
+    var search = location.search || "";
+    if (search.indexOf("analytics=") === -1) return;
+    var val = null;
+    try { val = new URLSearchParams(search).get("analytics"); } catch (e) {}
+    if (val !== "off" && val !== "on") return;
+
+    if (ls) {
+      try {
+        if (val === "off") {
+          ls.setItem(PSNAP_FLAG, "off");
+          ls.setItem(UMAMI_FLAG, "1");   // Umami's native kill switch
+        } else {
+          ls.setItem(PSNAP_FLAG, "on");
+          ls.removeItem(UMAMI_FLAG);     // re-enable Umami sending
+        }
+      } catch (e) {}
+    }
+
+    // Remove ONLY the analytics param, preserving any others + the hash,
+    // so the tracked URL stays clean and the trigger isn't shareable.
+    try {
+      var url = new URL(location.href);
+      url.searchParams.delete("analytics");
+      var qs = url.searchParams.toString();
+      var clean = url.pathname + (qs ? "?" + qs : "") + url.hash;
+      history.replaceState(null, "", clean);
+    } catch (e) {}
+  }
+
   /* ----------------------------------------------------------------
      PRIVACY GATE — honor the visitor's stated tracking preference.
      Umami is already cookieless and anonymized, but we go further: if
-     the browser sends Do-Not-Track or Global Privacy Control, we skip
-     analytics entirely. Respectful by default — the notebook way.
+     the browser sends Do-Not-Track or Global Privacy Control, OR the
+     owner has opted this browser out, we skip analytics entirely.
+     Respectful by default — the notebook way.
      ---------------------------------------------------------------- */
+  function ownerExcluded() {
+    var ls = safeLS();
+    if (!ls) return false;
+    try { return ls.getItem(PSNAP_FLAG) === "off"; } catch (e) { return false; }
+  }
+
   function visitorOptedOut() {
     try {
       var dnt = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -49,8 +121,15 @@
     return false;
   }
 
-  // Nothing to do if not configured yet, or the visitor opted out.
+  // Apply any ?analytics= trigger FIRST so the preference is recorded
+  // even on the visit that sets it, then enforce it on this page load.
+  applyOwnerTrigger();
+
+  // Nothing to do if not configured yet, the visitor opted out, or the
+  // owner has excluded this browser. Returning here means Umami never
+  // loads and no events ever fire on this device.
   var CONFIGURED = UMAMI_WEBSITE_ID && UMAMI_WEBSITE_ID.indexOf("REPLACE_WITH") === -1;
+  if (ownerExcluded()) return;
   if (visitorOptedOut()) return;
 
   /* ----------------------------------------------------------------
