@@ -50,19 +50,16 @@ All of it lives in one file — `js/analytics.js` — loaded `defer` at the bott
 of each page. Custom events use pure event delegation, so **no other script
 (`pulse.js`, `app.js`, `nav.js`, `theme.js`) is touched** and no markup changes.
 
-### Going live — one change
+### Configuration
 
-Create a free website in your Umami Cloud dashboard, copy its **Website ID**
-(Settings → Websites → your site), and replace the placeholder in
-`js/analytics.js`:
+**Configured and live.** The Umami **Website ID** is set in `js/analytics.js`
+(`UMAMI_WEBSITE_ID`). Analytics only reports for the `productsnap.studio` domain
+(`data-domains`), so local dev / preview hosts are never tracked.
 
-```js
-var UMAMI_WEBSITE_ID = "REPLACE_WITH_UMAMI_WEBSITE_ID";  // ← paste your ID here
-```
-
-Until a real ID is set, the script is a complete no-op: it loads nothing and
-sends nothing. (If you ever self-host Umami, also point `UMAMI_SRC` at your own
-script URL.)
+To point at a different Umami site, replace the ID in `js/analytics.js`. Setting
+it back to a `REPLACE_WITH…` placeholder turns the script into a complete no-op
+(loads nothing, sends nothing). If you ever self-host Umami, also point
+`UMAMI_SRC` at your own script URL.
 
 ### Events captured
 

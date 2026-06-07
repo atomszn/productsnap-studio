@@ -29,7 +29,7 @@
   /* ----------------------------------------------------------------
      CONFIG — the one value to swap in after creating the Umami site.
      ---------------------------------------------------------------- */
-  var UMAMI_WEBSITE_ID = "REPLACE_WITH_UMAMI_WEBSITE_ID";
+  var UMAMI_WEBSITE_ID = "bee92859-e064-4f4c-85d9-30266343eef7";
   var UMAMI_SRC = "https://cloud.umami.is/script.js";
   // If you self-host Umami later, point UMAMI_SRC at your own script URL
   // and set a data-host-url below (left default for Umami Cloud).
