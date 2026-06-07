@@ -37,6 +37,51 @@ node scripts/generate-pulse-feed.js --check  # verify it's in sync (exit 1 if st
 > editorial refresh to keep the feed current. (Pulse framing: the feed is **not**
 > financial analysis, investment advice, or market prediction.)
 
+## Analytics (privacy-friendly)
+
+Lightweight, cookieless analytics via [Umami Cloud](https://umami.is) — treated
+as a **product experiment** (understand what visitors find interesting), not
+marketing tracking. No cookies, no consent banner, no personal data, no UI
+change, deferred load (zero impact on first paint or scroll-reveal motion).
+Honors **Do-Not-Track / Global Privacy Control**: if the visitor signals "do not
+track," analytics is skipped entirely.
+
+All of it lives in one file — `js/analytics.js` — loaded `defer` at the bottom
+of each page. Custom events use pure event delegation, so **no other script
+(`pulse.js`, `app.js`, `nav.js`, `theme.js`) is touched** and no markup changes.
+
+### Configuration
+
+**Configured and live.** The Umami **Website ID** is set in `js/analytics.js`
+(`UMAMI_WEBSITE_ID`). Analytics only reports for the `productsnap.studio` domain
+(`data-domains`), so local dev / preview hosts are never tracked.
+
+To point at a different Umami site, replace the ID in `js/analytics.js`. Setting
+it back to a `REPLACE_WITH…` placeholder turns the script into a complete no-op
+(loads nothing, sends nothing). If you ever self-host Umami, also point
+`UMAMI_SRC` at your own script URL.
+
+### Events captured
+
+| Event | Fires when | Props |
+| --- | --- | --- |
+| pageview (named) | each page load | `Home` / `Sketches` / `App` / `Pulse` / `Notes` |
+| `nav` | clicking a primary-nav / brand link to another chapter | `to` |
+| `nav next-chapter` | clicking a footer "chapter turn" link | `to` |
+| `store click` + `outbound` | App Store or Google Play link | `store` |
+| `outbound` | any other external link (e.g. LinkedIn) | `destination`, `kind` |
+| `theme toggle` | Late Night / Day Mode switch | `to` |
+| `pulse step` | expanding/collapsing an Explorer step or evidence chip | `action` |
+| `pulse lens` | switching the thinking-layer lens | `lens` |
+| `pulse category` / `pulse signal` | picking a category or signal | `category` / `signal` |
+| `pulse sources` | opening the sources modal | `action` |
+| `notes pinned-card` | clicking a pinned card on Notes | `to` |
+| `notes read-depth` | scrolling past 60% of Notes (once per visit) | `reached` |
+
+Every event also carries a `from` prop (the chapter it happened on). Traffic
+source/referrer, device category, and browser/platform are captured
+automatically by Umami — no extra setup.
+
 ## QA & content gates
 
 ```bash
