@@ -4,11 +4,14 @@ on:
   schedule:
     # 10am Central during daylight time, safely after 8:30am ET economic releases
     # and 9:30am ET market open. Kept as fixed UTC per Pass B decision.
-    - cron: "0 15 * * *"
+    # Weekdays only (Mon-Fri): federal sources (FRED/BLS/Treasury/BEA/Census)
+    # don't publish on weekends, so Sat/Sun runs only add noise.
+    - cron: "0 15 * * 1-5"
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   refresh-pulse-data:
@@ -58,15 +61,37 @@ jobs:
       - name: Verify Pulse feed is in sync (gate before commit)
         run: node scripts/generate-pulse-feed.js --check
 
-      - name: Commit refreshed data, flags & feed if changed
+      - name: Open PR with refreshed data & auto-merge if changed
+        # main is a protected branch (requires a PR), so the daily refresh can no
+        # longer push directly. Instead: commit to a dated branch, open a PR, and
+        # immediately merge it. The two trust gates above already ran and would
+        # have failed the job before reaching this step, so anything that lands
+        # here is validated and in-sync. No human approval is required
+        # (required_approving_review_count = 0), so this fully auto-merges while
+        # keeping a complete audit trail in the PR history.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if git diff --quiet -- data/pulse-content.json data/pulse-review-report.json data/pulse-editorial-decision.json pulse-feed.json; then
             echo "No Pulse data or feed changes to commit."
             exit 0
           fi
 
+          DATE_TAG=$(date -u +%Y-%m-%d)
+          BRANCH="pulse-refresh/${DATE_TAG}-${GITHUB_RUN_ID}"
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
           git add data/pulse-content.json data/pulse-review-report.json data/pulse-editorial-decision.json pulse-feed.json
-          git commit -m "chore(data): refresh pulse signals + feed"
-          git push
+          git commit -m "chore(data): refresh pulse signals + feed (${DATE_TAG})"
+          git push origin "$BRANCH"
+
+          PR_URL=$(gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "chore(data): refresh pulse signals + feed (${DATE_TAG})" \
+            --body "Automated daily Pulse refresh. Trust gates (validate + feed-sync) passed before this PR was opened. Auto-merged by the Refresh Pulse data workflow.")
+          echo "Opened $PR_URL"
+
+          gh pr merge "$PR_URL" --squash --delete-branch
