@@ -74,54 +74,81 @@
     <link rel="stylesheet" href="css/style.css" />
     <script type="application/ld+json">
 {
-      "@context": "https://schema.org",
-      "@graph": [
-            {
-                  "@type": "Person",
-                  "@id": "https://productsnap.studio/#jeevan",
-                  "name": "Jeevan",
-                  "url": "https://productsnap.studio",
-                  "jobTitle": "Product builder",
-                  "description": "A product builder exploring the intersection of product thinking, AI, creativity, and curiosity.",
-                  "knowsAbout": [
-                        "Product strategy",
-                        "Product judgment",
-                        "Building with AI",
-                        "AI-assisted product development",
-                        "Mobile app development",
-                        "Turning macro and technology signals into product decisions",
-                        "Making complexity simple"
-                  ],
-                  "worksFor": {
-                        "@type": "Organization",
-                        "@id": "https://productsnap.studio/#studio"
-                  }
-            },
-            {
-                  "@type": "WebSite",
-                  "@id": "https://productsnap.studio/#website",
-                  "name": "ProductSnap Studio",
-                  "url": "https://productsnap.studio",
-                  "description": "A living notebook for product judgment. Where product thinking meets live market signals — and turns into things you can actually use.",
-                  "publisher": {
-                        "@type": "Person",
-                        "@id": "https://productsnap.studio/#jeevan"
-                  },
-                  "inLanguage": "en"
-            },
-            {
-                  "@type": "CreativeWork",
-                  "@id": "https://productsnap.studio/#studio",
-                  "name": "ProductSnap Studio",
-                  "url": "https://productsnap.studio",
-                  "headline": "A living notebook for product judgment",
-                  "description": "A living notebook about learning, building, experimenting, and turning ideas into things people can actually use.",
-                  "creator": {
-                        "@type": "Person",
-                        "@id": "https://productsnap.studio/#jeevan"
-                  }
-            }
-      ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://productsnap.studio/#jeevan",
+      "name": "Jeevan Koppu",
+      "givenName": "Jeevan",
+      "familyName": "Koppu",
+      "url": "https://productsnap.studio",
+      "image": "https://productsnap.studio/assets/og-default.png",
+      "jobTitle": "Product builder",
+      "description": "Product builder with 18+ years in tech. Built ProductSnap solo — a mobile app, a living notebook, and a working signal layer — as a personal experiment in what one PM can ship with modern AI tools.",
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "The University of Texas at Austin — McCombs School of Business",
+          "url": "https://www.mccombs.utexas.edu/"
+        }
+      ],
+      "knowsAbout": [
+        "Product Management",
+        "Product Strategy",
+        "Artificial Intelligence",
+        "Generative AI",
+        "Mobile Product Development",
+        "Enterprise Platforms",
+        "Oracle Cloud HCM",
+        "Product Discovery",
+        "User Experience",
+        "Stakeholder Management"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/jeevan99",
+        "https://apps.apple.com/us/app/productsnap-pm/id6767971547",
+        "https://play.google.com/store/apps/details?id=com.productsnap"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://productsnap.studio/#studio"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://productsnap.studio/#website",
+      "name": "ProductSnap Studio",
+      "url": "https://productsnap.studio",
+      "description": "A living notebook for product judgment. Where product thinking meets live market signals — and turns into things you can actually use.",
+      "publisher": { "@id": "https://productsnap.studio/#jeevan" },
+      "creator": { "@id": "https://productsnap.studio/#jeevan" },
+      "inLanguage": "en-US",
+      "image": "https://productsnap.studio/assets/og-default.png"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://productsnap.studio/#studio",
+      "name": "ProductSnap Studio",
+      "url": "https://productsnap.studio",
+      "headline": "A living notebook for product judgment",
+      "description": "A living notebook about learning, building, experimenting, and turning ideas into things people can actually use.",
+      "creator": { "@id": "https://productsnap.studio/#jeevan" }
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://productsnap.studio/#app",
+      "name": "ProductSnap",
+      "alternateName": "ProductSnap PM",
+      "operatingSystem": ["iOS", "Android"],
+      "applicationCategory": "EducationalApplication",
+      "description": "A mobile app for product managers — sharpening product judgment through frameworks, stories, and practice reps. Built solo with AI as the team.",
+      "url": "https://productsnap.studio/app.html",
+      "downloadUrl": "https://apps.apple.com/us/app/productsnap-pm/id6767971547",
+      "creator": { "@id": "https://productsnap.studio/#jeevan" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  ]
 }
     </script>
   </head>
