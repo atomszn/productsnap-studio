@@ -348,6 +348,102 @@
       "source_note": "BLS · monthly release",
       "data_points": [
         {
+          "date": "2023-04",
+          "value": 4.9
+        },
+        {
+          "date": "2023-05",
+          "value": 4
+        },
+        {
+          "date": "2023-06",
+          "value": 3
+        },
+        {
+          "date": "2023-07",
+          "value": 3.2
+        },
+        {
+          "date": "2023-08",
+          "value": 3.7
+        },
+        {
+          "date": "2023-09",
+          "value": 3.7
+        },
+        {
+          "date": "2023-10",
+          "value": 3.2
+        },
+        {
+          "date": "2023-11",
+          "value": 3.1
+        },
+        {
+          "date": "2023-12",
+          "value": 3.4
+        },
+        {
+          "date": "2024-01",
+          "value": 3.1
+        },
+        {
+          "date": "2024-02",
+          "value": 3.2
+        },
+        {
+          "date": "2024-03",
+          "value": 3.5
+        },
+        {
+          "date": "2024-04",
+          "value": 3.4
+        },
+        {
+          "date": "2024-05",
+          "value": 3.3
+        },
+        {
+          "date": "2024-06",
+          "value": 3
+        },
+        {
+          "date": "2024-07",
+          "value": 2.9
+        },
+        {
+          "date": "2024-08",
+          "value": 2.5
+        },
+        {
+          "date": "2024-09",
+          "value": 2.4
+        },
+        {
+          "date": "2024-10",
+          "value": 2.6
+        },
+        {
+          "date": "2024-11",
+          "value": 2.7
+        },
+        {
+          "date": "2024-12",
+          "value": 2.9
+        },
+        {
+          "date": "2025-01",
+          "value": 3
+        },
+        {
+          "date": "2025-02",
+          "value": 2.8
+        },
+        {
+          "date": "2025-03",
+          "value": 2.4
+        },
+        {
           "date": "2025-04",
           "value": 2.3
         },
@@ -397,6 +493,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "up",
+          "delta_pct": 0.6,
+          "tone": "amber"
+        },
         "vs_6mo": {
           "direction": "flat",
           "delta_pct": 0,
@@ -407,10 +508,22 @@
           "delta_pct": 1.5,
           "tone": "amber"
         },
+        "vs_36mo": {
+          "direction": "down",
+          "delta_pct": -1.1,
+          "tone": "green"
+        },
         "vs_pre_2020": {
           "direction": "up",
           "delta_pct": 1.3,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 4,
+          "low": 2.3,
+          "high_date": "2023-05",
+          "low_date": "2025-04",
+          "window_months": 35
         }
       },
       "percentile": {
@@ -481,7 +594,7 @@
       "pill_label_short": "Headline inflation heated up again",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -496,7 +609,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
         "last_editorial_reviewed": "2026-04-01"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "ppi",
@@ -519,6 +633,102 @@
       "tier": 1,
       "source_note": "BLS · monthly release",
       "data_points": [
+        {
+          "date": "2023-05",
+          "value": 1.2
+        },
+        {
+          "date": "2023-06",
+          "value": 0.3
+        },
+        {
+          "date": "2023-07",
+          "value": 1.2
+        },
+        {
+          "date": "2023-08",
+          "value": 1.9
+        },
+        {
+          "date": "2023-09",
+          "value": 1.8
+        },
+        {
+          "date": "2023-10",
+          "value": 1.1
+        },
+        {
+          "date": "2023-11",
+          "value": 0.8
+        },
+        {
+          "date": "2023-12",
+          "value": 1
+        },
+        {
+          "date": "2024-01",
+          "value": 1
+        },
+        {
+          "date": "2024-02",
+          "value": 1.6
+        },
+        {
+          "date": "2024-03",
+          "value": 2
+        },
+        {
+          "date": "2024-04",
+          "value": 2.3
+        },
+        {
+          "date": "2024-05",
+          "value": 2.6
+        },
+        {
+          "date": "2024-06",
+          "value": 3
+        },
+        {
+          "date": "2024-07",
+          "value": 2.4
+        },
+        {
+          "date": "2024-08",
+          "value": 2.1
+        },
+        {
+          "date": "2024-09",
+          "value": 2.1
+        },
+        {
+          "date": "2024-10",
+          "value": 2.8
+        },
+        {
+          "date": "2024-11",
+          "value": 2.9
+        },
+        {
+          "date": "2024-12",
+          "value": 3.4
+        },
+        {
+          "date": "2025-01",
+          "value": 3.8
+        },
+        {
+          "date": "2025-02",
+          "value": 3.4
+        },
+        {
+          "date": "2025-03",
+          "value": 3.2
+        },
+        {
+          "date": "2025-04",
+          "value": 2.4
+        },
         {
           "date": "2025-05",
           "value": 2.7
@@ -569,6 +779,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "up",
+          "delta_pct": 1.7,
+          "tone": "amber"
+        },
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 3.2,
@@ -579,10 +794,22 @@
           "delta_pct": 3.6,
           "tone": "amber"
         },
+        "vs_36mo": {
+          "direction": "up",
+          "delta_pct": 3.7,
+          "tone": "amber"
+        },
         "vs_pre_2020": {
           "direction": "up",
           "delta_pct": 4.1,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 6,
+          "low": 0.3,
+          "high_date": "2026-04",
+          "low_date": "2023-06",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -646,7 +873,7 @@
       "pill_label_short": "Supplier prices rising fast",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -661,7 +888,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
         "last_editorial_reviewed": "2026-04-01"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "pce",
@@ -684,6 +912,102 @@
       "tier": 1,
       "source_note": "FRED PCEPILFE · monthly release",
       "data_points": [
+        {
+          "date": "2023-05",
+          "value": 4.7
+        },
+        {
+          "date": "2023-06",
+          "value": 4.4
+        },
+        {
+          "date": "2023-07",
+          "value": 4.3
+        },
+        {
+          "date": "2023-08",
+          "value": 3.8
+        },
+        {
+          "date": "2023-09",
+          "value": 3.7
+        },
+        {
+          "date": "2023-10",
+          "value": 3.5
+        },
+        {
+          "date": "2023-11",
+          "value": 3.3
+        },
+        {
+          "date": "2023-12",
+          "value": 3.1
+        },
+        {
+          "date": "2024-01",
+          "value": 3.2
+        },
+        {
+          "date": "2024-02",
+          "value": 3.1
+        },
+        {
+          "date": "2024-03",
+          "value": 3.1
+        },
+        {
+          "date": "2024-04",
+          "value": 3
+        },
+        {
+          "date": "2024-05",
+          "value": 2.8
+        },
+        {
+          "date": "2024-06",
+          "value": 2.8
+        },
+        {
+          "date": "2024-07",
+          "value": 2.8
+        },
+        {
+          "date": "2024-08",
+          "value": 2.9
+        },
+        {
+          "date": "2024-09",
+          "value": 2.8
+        },
+        {
+          "date": "2024-10",
+          "value": 3
+        },
+        {
+          "date": "2024-11",
+          "value": 3
+        },
+        {
+          "date": "2024-12",
+          "value": 3
+        },
+        {
+          "date": "2025-01",
+          "value": 2.8
+        },
+        {
+          "date": "2025-02",
+          "value": 3
+        },
+        {
+          "date": "2025-03",
+          "value": 2.7
+        },
+        {
+          "date": "2025-04",
+          "value": 2.6
+        },
         {
           "date": "2025-05",
           "value": 2.8
@@ -734,6 +1058,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "up",
+          "delta_pct": 0.1,
+          "tone": "amber"
+        },
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 0.5,
@@ -744,10 +1073,22 @@
           "delta_pct": 0.7,
           "tone": "amber"
         },
+        "vs_36mo": {
+          "direction": "down",
+          "delta_pct": -1.5,
+          "tone": "green"
+        },
         "vs_pre_2020": {
           "direction": "up",
           "delta_pct": 1.7,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 4.7,
+          "low": 2.6,
+          "high_date": "2023-05",
+          "low_date": "2025-04",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -812,7 +1153,7 @@
       "pill_label_short": "Core inflation still above target",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -827,7 +1168,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
         "last_editorial_reviewed": "2026-04-01"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "fed-net-liquidity",
@@ -854,6 +1196,102 @@
       "tier": 1,
       "source_note": "Fed balance sheet · weekly",
       "data_points": [
+        {
+          "date": "2023-07",
+          "value": 8243344
+        },
+        {
+          "date": "2023-08",
+          "value": 8121316
+        },
+        {
+          "date": "2023-09",
+          "value": 8002064
+        },
+        {
+          "date": "2023-10",
+          "value": 7907830
+        },
+        {
+          "date": "2023-11",
+          "value": 7796145
+        },
+        {
+          "date": "2023-12",
+          "value": 7712781
+        },
+        {
+          "date": "2024-01",
+          "value": 7630124
+        },
+        {
+          "date": "2024-02",
+          "value": 7567807
+        },
+        {
+          "date": "2024-03",
+          "value": 7484739
+        },
+        {
+          "date": "2024-04",
+          "value": 7402434
+        },
+        {
+          "date": "2024-05",
+          "value": 7284319
+        },
+        {
+          "date": "2024-06",
+          "value": 7231163
+        },
+        {
+          "date": "2024-07",
+          "value": 7178391
+        },
+        {
+          "date": "2024-08",
+          "value": 7123238
+        },
+        {
+          "date": "2024-09",
+          "value": 7080059
+        },
+        {
+          "date": "2024-10",
+          "value": 7013490
+        },
+        {
+          "date": "2024-11",
+          "value": 6905140
+        },
+        {
+          "date": "2024-12",
+          "value": 6885963
+        },
+        {
+          "date": "2025-01",
+          "value": 6818186
+        },
+        {
+          "date": "2025-02",
+          "value": 6766101
+        },
+        {
+          "date": "2025-03",
+          "value": 6740253
+        },
+        {
+          "date": "2025-04",
+          "value": 6709277
+        },
+        {
+          "date": "2025-05",
+          "value": 6673244
+        },
+        {
+          "date": "2025-06",
+          "value": 6662200
+        },
         {
           "date": "2025-07",
           "value": 6642578
@@ -904,6 +1342,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "up",
+          "delta_pct": 0.1,
+          "tone": "green"
+        },
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 1.1,
@@ -914,10 +1357,22 @@
           "delta_pct": 0.7,
           "tone": "green"
         },
+        "vs_36mo": {
+          "direction": "down",
+          "delta_pct": -19.5,
+          "tone": "amber"
+        },
         "vs_pre_2020": {
           "direction": "up",
           "delta_pct": 61.7,
           "tone": "green"
+        },
+        "range_36mo": {
+          "high": 8243344,
+          "low": 6552419,
+          "high_date": "2023-07",
+          "low_date": "2025-11",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -983,7 +1438,7 @@
       "pill_label_short": "Liquidity has steadied, not flooded",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -998,7 +1453,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-06-03",
         "last_editorial_reviewed": "2026-05-27"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "10y-treasury",
@@ -1012,15 +1468,111 @@
           "gloss": "the market's price for lending the US government money for 10 years — a benchmark for long-term capital costs"
         }
       ],
-      "current_value": "4.55%",
+      "current_value": "4.56%",
       "current_unit": "yield",
       "status": "steady",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-06-05",
+      "last_updated": "2026-06-08",
       "tier": 1,
       "source_note": "FRED DGS10 · daily",
       "data_points": [
+        {
+          "date": "2023-07",
+          "value": 4
+        },
+        {
+          "date": "2023-08",
+          "value": 4.1
+        },
+        {
+          "date": "2023-09",
+          "value": 4.6
+        },
+        {
+          "date": "2023-10",
+          "value": 4.9
+        },
+        {
+          "date": "2023-11",
+          "value": 4.4
+        },
+        {
+          "date": "2023-12",
+          "value": 3.9
+        },
+        {
+          "date": "2024-01",
+          "value": 4
+        },
+        {
+          "date": "2024-02",
+          "value": 4.3
+        },
+        {
+          "date": "2024-03",
+          "value": 4.2
+        },
+        {
+          "date": "2024-04",
+          "value": 4.7
+        },
+        {
+          "date": "2024-05",
+          "value": 4.5
+        },
+        {
+          "date": "2024-06",
+          "value": 4.4
+        },
+        {
+          "date": "2024-07",
+          "value": 4.1
+        },
+        {
+          "date": "2024-08",
+          "value": 3.9
+        },
+        {
+          "date": "2024-09",
+          "value": 3.8
+        },
+        {
+          "date": "2024-10",
+          "value": 4.3
+        },
+        {
+          "date": "2024-11",
+          "value": 4.2
+        },
+        {
+          "date": "2024-12",
+          "value": 4.6
+        },
+        {
+          "date": "2025-01",
+          "value": 4.6
+        },
+        {
+          "date": "2025-02",
+          "value": 4.2
+        },
+        {
+          "date": "2025-03",
+          "value": 4.2
+        },
+        {
+          "date": "2025-04",
+          "value": 4.2
+        },
+        {
+          "date": "2025-05",
+          "value": 4.4
+        },
+        {
+          "date": "2025-06",
+          "value": 4.2
+        },
         {
           "date": "2025-07",
           "value": 4.4
@@ -1071,6 +1623,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "up",
+          "delta_pct": 0.1,
+          "tone": "amber"
+        },
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 0.4,
@@ -1081,10 +1638,22 @@
           "delta_pct": 0.3,
           "tone": "amber"
         },
+        "vs_36mo": {
+          "direction": "up",
+          "delta_pct": 0.7,
+          "tone": "amber"
+        },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 3,
+          "delta_pct": 3.1,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 4.9,
+          "low": 3.8,
+          "high_date": "2023-10",
+          "low_date": "2024-09",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -1149,22 +1718,23 @@
       "pill_label_short": "Long-term borrowing costs still elevated",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
       "alignment_status": "aligned",
       "review_required": false,
       "editorial_freshness": {
-        "last_editorial_reviewed": "2026-06-05",
+        "last_editorial_reviewed": "2026-06-08",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 4
+        "age_days": 1
       },
       "timestamps": {
-        "latest_source_data_date": "2026-06-05",
+        "latest_source_data_date": "2026-06-08",
         "last_editorial_reviewed": "2026-05-28"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "series-a-counts",
@@ -1322,7 +1892,7 @@
       "pill_label_short": "Startup funding still concentrating into AI",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1503,7 +2073,7 @@
       "pill_label_short": "New AI models shipping faster",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1682,7 +2252,7 @@
       "pill_label_short": "AI model costs keep falling",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -1855,7 +2425,7 @@
       "pill_label_short": "Open-source AI is catching up",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2033,7 +2603,7 @@
       "pill_label_short": "Compute keeps getting cheaper",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2071,6 +2641,102 @@
       "tier": 1,
       "source_note": "FRED RSAFS · monthly release",
       "data_points": [
+        {
+          "date": "2023-05",
+          "value": 2.1
+        },
+        {
+          "date": "2023-06",
+          "value": 1.7
+        },
+        {
+          "date": "2023-07",
+          "value": 2.9
+        },
+        {
+          "date": "2023-08",
+          "value": 3.2
+        },
+        {
+          "date": "2023-09",
+          "value": 4.2
+        },
+        {
+          "date": "2023-10",
+          "value": 2.6
+        },
+        {
+          "date": "2023-11",
+          "value": 3.9
+        },
+        {
+          "date": "2023-12",
+          "value": 5.3
+        },
+        {
+          "date": "2024-01",
+          "value": 0
+        },
+        {
+          "date": "2024-02",
+          "value": 2
+        },
+        {
+          "date": "2024-03",
+          "value": 3.4
+        },
+        {
+          "date": "2024-04",
+          "value": 2.6
+        },
+        {
+          "date": "2024-05",
+          "value": 2.8
+        },
+        {
+          "date": "2024-06",
+          "value": 2.3
+        },
+        {
+          "date": "2024-07",
+          "value": 3
+        },
+        {
+          "date": "2024-08",
+          "value": 1.8
+        },
+        {
+          "date": "2024-09",
+          "value": 2
+        },
+        {
+          "date": "2024-10",
+          "value": 3.2
+        },
+        {
+          "date": "2024-11",
+          "value": 3.9
+        },
+        {
+          "date": "2024-12",
+          "value": 4.5
+        },
+        {
+          "date": "2025-01",
+          "value": 4.5
+        },
+        {
+          "date": "2025-02",
+          "value": 3.8
+        },
+        {
+          "date": "2025-03",
+          "value": 5.2
+        },
+        {
+          "date": "2025-04",
+          "value": 5
+        },
         {
           "date": "2025-05",
           "value": 3.4
@@ -2121,6 +2787,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "up",
+          "delta_pct": 0.7,
+          "tone": "green"
+        },
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 1.7,
@@ -2131,10 +2802,22 @@
           "delta_pct": -0.1,
           "tone": "amber"
         },
+        "vs_36mo": {
+          "direction": "up",
+          "delta_pct": 3.3,
+          "tone": "green"
+        },
         "vs_pre_2020": {
           "direction": "down",
           "delta_pct": -0.2,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 5.3,
+          "low": 0,
+          "high_date": "2023-12",
+          "low_date": "2024-01",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -2200,7 +2883,7 @@
       "pill_label_short": "Shoppers still showing up",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -2215,7 +2898,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
         "last_editorial_reviewed": "2026-04-01"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "consumer-confidence",
@@ -2238,6 +2922,102 @@
       "tier": 1,
       "source_note": "University of Michigan Consumer Sentiment · via FRED",
       "data_points": [
+        {
+          "date": "2023-05",
+          "value": 59
+        },
+        {
+          "date": "2023-06",
+          "value": 64.2
+        },
+        {
+          "date": "2023-07",
+          "value": 71.5
+        },
+        {
+          "date": "2023-08",
+          "value": 69.4
+        },
+        {
+          "date": "2023-09",
+          "value": 67.8
+        },
+        {
+          "date": "2023-10",
+          "value": 63.8
+        },
+        {
+          "date": "2023-11",
+          "value": 61.3
+        },
+        {
+          "date": "2023-12",
+          "value": 69.7
+        },
+        {
+          "date": "2024-01",
+          "value": 79
+        },
+        {
+          "date": "2024-02",
+          "value": 76.9
+        },
+        {
+          "date": "2024-03",
+          "value": 79.4
+        },
+        {
+          "date": "2024-04",
+          "value": 77.2
+        },
+        {
+          "date": "2024-05",
+          "value": 69.1
+        },
+        {
+          "date": "2024-06",
+          "value": 68.2
+        },
+        {
+          "date": "2024-07",
+          "value": 66.4
+        },
+        {
+          "date": "2024-08",
+          "value": 67.9
+        },
+        {
+          "date": "2024-09",
+          "value": 70.1
+        },
+        {
+          "date": "2024-10",
+          "value": 70.5
+        },
+        {
+          "date": "2024-11",
+          "value": 71.8
+        },
+        {
+          "date": "2024-12",
+          "value": 74
+        },
+        {
+          "date": "2025-01",
+          "value": 71.7
+        },
+        {
+          "date": "2025-02",
+          "value": 64.7
+        },
+        {
+          "date": "2025-03",
+          "value": 57
+        },
+        {
+          "date": "2025-04",
+          "value": 52.2
+        },
         {
           "date": "2025-05",
           "value": 52.2
@@ -2288,6 +3068,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "down",
+          "delta_pct": -6.6,
+          "tone": "amber"
+        },
         "vs_6mo": {
           "direction": "down",
           "delta_pct": -7.1,
@@ -2298,10 +3083,22 @@
           "delta_pct": -4.6,
           "tone": "amber"
         },
+        "vs_36mo": {
+          "direction": "down",
+          "delta_pct": -21.8,
+          "tone": "amber"
+        },
         "vs_pre_2020": {
           "direction": "down",
           "delta_pct": -50.1,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 79.4,
+          "low": 49.8,
+          "high_date": "2024-03",
+          "low_date": "2026-04",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -2366,7 +3163,7 @@
       "tier_label": "primary",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -2381,7 +3178,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
         "last_editorial_reviewed": "2026-04-01"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "emerging-apps",
@@ -2544,7 +3342,7 @@
       "pill_label_short": "Personal AI assistants are spreading",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2582,6 +3380,102 @@
       "tier": 1,
       "source_note": "BLS · monthly release",
       "data_points": [
+        {
+          "date": "2023-06",
+          "value": 225
+        },
+        {
+          "date": "2023-07",
+          "value": 163
+        },
+        {
+          "date": "2023-08",
+          "value": 218
+        },
+        {
+          "date": "2023-09",
+          "value": 156
+        },
+        {
+          "date": "2023-10",
+          "value": 159
+        },
+        {
+          "date": "2023-11",
+          "value": 127
+        },
+        {
+          "date": "2023-12",
+          "value": 154
+        },
+        {
+          "date": "2024-01",
+          "value": 175
+        },
+        {
+          "date": "2024-02",
+          "value": 206
+        },
+        {
+          "date": "2024-03",
+          "value": 228
+        },
+        {
+          "date": "2024-04",
+          "value": 64
+        },
+        {
+          "date": "2024-05",
+          "value": 78
+        },
+        {
+          "date": "2024-06",
+          "value": 87
+        },
+        {
+          "date": "2024-07",
+          "value": 53
+        },
+        {
+          "date": "2024-08",
+          "value": 9
+        },
+        {
+          "date": "2024-09",
+          "value": 155
+        },
+        {
+          "date": "2024-10",
+          "value": 33
+        },
+        {
+          "date": "2024-11",
+          "value": 134
+        },
+        {
+          "date": "2024-12",
+          "value": 237
+        },
+        {
+          "date": "2025-01",
+          "value": -48
+        },
+        {
+          "date": "2025-02",
+          "value": 42
+        },
+        {
+          "date": "2025-03",
+          "value": 67
+        },
+        {
+          "date": "2025-04",
+          "value": 108
+        },
+        {
+          "date": "2025-05",
+          "value": 13
+        },
         {
           "date": "2025-06",
           "value": -20
@@ -2632,6 +3526,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "down",
+          "delta_pct": -3.9,
+          "tone": "amber"
+        },
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 319.5,
@@ -2642,10 +3541,22 @@
           "delta_pct": 1223.1,
           "tone": "green"
         },
+        "vs_36mo": {
+          "direction": "down",
+          "delta_pct": -38.6,
+          "tone": "amber"
+        },
         "vs_pre_2020": {
           "direction": "down",
           "delta_pct": -27.4,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 237,
+          "low": -156,
+          "high_date": "2024-12",
+          "low_date": "2026-02",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -2711,7 +3622,7 @@
       "pill_label_short": "Hiring is cooling, not collapsing",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -2726,7 +3637,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
         "last_editorial_reviewed": "2026-04-01"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "tech-hiring",
@@ -2885,7 +3797,7 @@
       "pill_label_short": "Tech hiring remains soft",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -3053,7 +3965,7 @@
       "pill_label_short": "State-level AI rules picking up",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -3096,6 +4008,102 @@
       "tier": 1,
       "source_note": "Philadelphia Fed Manufacturing Business Outlook Survey · via FRED",
       "data_points": [
+        {
+          "date": "2023-06",
+          "value": -12.1
+        },
+        {
+          "date": "2023-07",
+          "value": -16.1
+        },
+        {
+          "date": "2023-08",
+          "value": 10.5
+        },
+        {
+          "date": "2023-09",
+          "value": -15.2
+        },
+        {
+          "date": "2023-10",
+          "value": -14.6
+        },
+        {
+          "date": "2023-11",
+          "value": -3.9
+        },
+        {
+          "date": "2023-12",
+          "value": -7.2
+        },
+        {
+          "date": "2024-01",
+          "value": -14.7
+        },
+        {
+          "date": "2024-02",
+          "value": -1
+        },
+        {
+          "date": "2024-03",
+          "value": 1.8
+        },
+        {
+          "date": "2024-04",
+          "value": 17.6
+        },
+        {
+          "date": "2024-05",
+          "value": 7.5
+        },
+        {
+          "date": "2024-06",
+          "value": 2.9
+        },
+        {
+          "date": "2024-07",
+          "value": 9.9
+        },
+        {
+          "date": "2024-08",
+          "value": -3
+        },
+        {
+          "date": "2024-09",
+          "value": -1.6
+        },
+        {
+          "date": "2024-10",
+          "value": 7.6
+        },
+        {
+          "date": "2024-11",
+          "value": -1.5
+        },
+        {
+          "date": "2024-12",
+          "value": -9.6
+        },
+        {
+          "date": "2025-01",
+          "value": 32.9
+        },
+        {
+          "date": "2025-02",
+          "value": 13.4
+        },
+        {
+          "date": "2025-03",
+          "value": 10.2
+        },
+        {
+          "date": "2025-04",
+          "value": -12.9
+        },
+        {
+          "date": "2025-05",
+          "value": -0.7
+        },
         {
           "date": "2025-06",
           "value": -1.4
@@ -3146,6 +4154,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "down",
+          "delta_pct": -27.1,
+          "tone": "amber"
+        },
         "vs_6mo": {
           "direction": "down",
           "delta_pct": -1,
@@ -3156,10 +4169,22 @@
           "delta_pct": 0.3,
           "tone": "green"
         },
+        "vs_36mo": {
+          "direction": "up",
+          "delta_pct": 7.7,
+          "tone": "green"
+        },
         "vs_pre_2020": {
           "direction": "down",
           "delta_pct": -13.4,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 32.9,
+          "low": -16.1,
+          "high_date": "2025-01",
+          "low_date": "2023-07",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -3223,7 +4248,7 @@
       "pill_label_short": "Regional mfg (Philly Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3238,7 +4263,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
         "last_editorial_reviewed": "2026-05-01"
-      }
+      },
+      "data_points_window_months": 36
     },
     {
       "id": "services-activity",
@@ -3266,6 +4292,102 @@
       "tier": 1,
       "source_note": "Dallas Fed Texas Service Sector Outlook Survey · via FRED",
       "data_points": [
+        {
+          "date": "2023-06",
+          "value": -8.1
+        },
+        {
+          "date": "2023-07",
+          "value": -6.9
+        },
+        {
+          "date": "2023-08",
+          "value": -4
+        },
+        {
+          "date": "2023-09",
+          "value": -12.1
+        },
+        {
+          "date": "2023-10",
+          "value": -24.4
+        },
+        {
+          "date": "2023-11",
+          "value": -17.7
+        },
+        {
+          "date": "2023-12",
+          "value": -10.5
+        },
+        {
+          "date": "2024-01",
+          "value": -10.2
+        },
+        {
+          "date": "2024-02",
+          "value": -1.2
+        },
+        {
+          "date": "2024-03",
+          "value": 2.5
+        },
+        {
+          "date": "2024-04",
+          "value": -4.4
+        },
+        {
+          "date": "2024-05",
+          "value": -7.5
+        },
+        {
+          "date": "2024-06",
+          "value": -3.7
+        },
+        {
+          "date": "2024-07",
+          "value": -2.3
+        },
+        {
+          "date": "2024-08",
+          "value": -8.4
+        },
+        {
+          "date": "2024-09",
+          "value": -5.2
+        },
+        {
+          "date": "2024-10",
+          "value": -2.3
+        },
+        {
+          "date": "2024-11",
+          "value": 5.9
+        },
+        {
+          "date": "2024-12",
+          "value": 9.9
+        },
+        {
+          "date": "2025-01",
+          "value": 5.9
+        },
+        {
+          "date": "2025-02",
+          "value": 6.9
+        },
+        {
+          "date": "2025-03",
+          "value": -6.1
+        },
+        {
+          "date": "2025-04",
+          "value": -16.2
+        },
+        {
+          "date": "2025-05",
+          "value": -8.4
+        },
         {
           "date": "2025-06",
           "value": -6.7
@@ -3316,6 +4438,11 @@
         }
       ],
       "compared_to": {
+        "vs_1mo": {
+          "direction": "up",
+          "delta_pct": 0.6,
+          "tone": "green"
+        },
         "vs_6mo": {
           "direction": "up",
           "delta_pct": 4.2,
@@ -3326,10 +4453,22 @@
           "delta_pct": 3.4,
           "tone": "green"
         },
+        "vs_36mo": {
+          "direction": "up",
+          "delta_pct": 7.3,
+          "tone": "green"
+        },
         "vs_pre_2020": {
           "direction": "down",
           "delta_pct": -18,
           "tone": "amber"
+        },
+        "range_36mo": {
+          "high": 9.9,
+          "low": -24.4,
+          "high_date": "2024-12",
+          "low_date": "2023-10",
+          "window_months": 36
         }
       },
       "percentile": {
@@ -3393,7 +4532,7 @@
       "pill_label_short": "Regional services (Dallas Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-09T17:21:48.494Z",
+        "checked_at": "2026-06-09T22:59:15.792Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3408,7 +4547,8 @@
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
         "last_editorial_reviewed": "2026-05-01"
-      }
+      },
+      "data_points_window_months": 36
     }
   ],
   "source_philosophy": {
@@ -3441,6 +4581,6 @@
       "Layoffs.fyi ingestion",
       "AI regulation tracker ingestion"
     ],
-    "last_pipeline_refresh": "2026-06-09T17:21:45.764Z"
+    "last_pipeline_refresh": "2026-06-09T22:59:11.036Z"
   }
 }
