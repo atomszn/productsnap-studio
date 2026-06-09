@@ -52,19 +52,19 @@
     },
     "where_helper": "PM implication changes based on where you look.",
     "editorial_freshness": {
-      "last_editorial_reviewed": "2026-06-05",
+      "last_editorial_reviewed": "2026-06-10",
       "expires_after_days": 7,
       "editorial_status": "current",
-      "age_days": 4
+      "age_days": 0
     },
     "review_required": false,
     "review_note": "",
     "narrative_review_required": false,
-    "last_editorial_reviewed": "2026-06-05"
+    "last_editorial_reviewed": "2026-06-10"
   },
   "weekly_thought": {
     "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",
-    "last_editorial_reviewed": "2026-06-05",
+    "last_editorial_reviewed": "2026-06-10",
     "default_lens": "build",
     "lenses": {
       "build": {

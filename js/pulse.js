@@ -62,15 +62,20 @@
     "services-activity": "0 = neutral \u00b7 above = growth, below = contraction"
   };
 
+  // Monthly federal series publish ~5-7 weeks AFTER the reference month and
+  // the next print can be ~30 days out, so a reference month can legitimately
+  // age past 65 days while still being the newest data released. 72 days
+  // (~2x the ~35-day mean publish lag) avoids a false "stale" warning during
+  // that normal gap, without masking genuinely old data.
   const STALE_AFTER_DAYS_BY_SIGNAL = {
     "10y-treasury": 3,
     "fed-net-liquidity": 15,
-    "cpi-headline": 65,
-    "ppi": 65,
-    "pce": 65,
-    "retail-sales": 65,
-    "consumer-confidence": 65,
-    "nonfarm-payrolls": 65
+    "cpi-headline": 72,
+    "ppi": 72,
+    "pce": 72,
+    "retail-sales": 72,
+    "consumer-confidence": 72,
+    "nonfarm-payrolls": 72
   };
 
   // Trust guardrails (Pass D). Neutral fallback copy shown when a signal's
@@ -881,14 +886,30 @@
   /* =====================================================================
      COMPONENT: percentile pill
      ===================================================================== */
+  // English ordinal suffix for a whole number (1 -> "st", 2 -> "nd",
+  // 3 -> "rd", 11/12/13 -> "th", else by last digit). Fixes the prior
+  // hard-coded "th" that rendered "1th"/"22th"/"82th" percentiles.
+  function ordinalSuffix(n) {
+    const v = Math.abs(Math.round(n));
+    const tens = v % 100;
+    if (tens >= 11 && tens <= 13) return "th";
+    switch (v % 10) {
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
+    }
+  }
+
   function buildPercentile(p) {
     if (!p) return "";
     const val = Math.max(0, Math.min(100, +p.value || 0));
+    const ord = val + ordinalSuffix(val);
     return (
-      '<div class="pp-bar" role="img" aria-label="' + escapeHTML(p.label || (val + "th percentile")) + '">' +
+      '<div class="pp-bar" role="img" aria-label="' + escapeHTML(p.label || (ord + " percentile")) + '">' +
         '<span class="pp-dot" style="left:' + val + '%"></span>' +
       '</div>' +
-      '<span class="pp-label">' + val + 'th percentile · last ' + (p.lookback_years || 10) + ' years</span>' +
+      '<span class="pp-label">' + ord + ' percentile · last ' + (p.lookback_years || 10) + ' years</span>' +
       (p.label ? '<span class="pp-label" style="font-style:italic;opacity:0.75;">' + escapeHTML(p.label) + '</span>' : '')
     );
   }
