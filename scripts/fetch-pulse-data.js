@@ -647,6 +647,12 @@ function stripMutableData(data) {
   for (const signal of data.signals || []) {
     if (!AUTO_SIGNAL_IDS.includes(signal.id)) continue;
     for (const key of MUTABLE_DATA_FIELDS) delete signal[key];
+    // Track 2 fix: OPTIONAL_DATA_FIELDS (e.g. data_points_window_months) are
+    // fields the fetcher is ALLOWED to write (see applyAllowedUpdate), so they
+    // must also be excluded from the editorial-preservation comparison. Without
+    // this, a newly-written optional field is absent in `before` but present in
+    // `after` and the guard wrongly reports "a non-data field changed".
+    for (const key of OPTIONAL_DATA_FIELDS) delete signal[key];
     if (signal.id === "consumer-confidence") {
       for (const key of CONSUMER_CONFIDENCE_SOURCE_FIELDS) delete signal[key];
     }
