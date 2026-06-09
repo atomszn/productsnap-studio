@@ -61,6 +61,14 @@ const MUTABLE_DATA_FIELDS = new Set([
   "timestamps"
 ]);
 
+// Track 2: data fields the fetcher MAY write but that are not strictly
+// required on every update (so older/curated paths that omit them still pass
+// validation). data_points_window_months documents how many months of history
+// the sparkline actually carries (<=36).
+const OPTIONAL_DATA_FIELDS = new Set([
+  "data_points_window_months"
+]);
+
 // Consumer-confidence moves from proprietary Conference Board CCI to the
 // free University of Michigan Consumer Sentiment series via FRED. These
 // source/label fields are intentionally allowed only for that substitution.
@@ -475,17 +483,28 @@ function buildUpdateFromSeries(id, config, series) {
   if (!series || series.length < 12) throw new Error(`${id} has fewer than 12 prepared observations`);
 
   const latest = series[series.length - 1];
-  const last12 = series.slice(-12).map((r) => ({ date: r.date, value: round1(r.value) }));
+  // Track 2: store a rolling 36-month sparkline (was 12). We store whatever
+  // history actually exists up to 36 points — never fabricate missing months.
+  const last36 = series.slice(-36).map((r) => ({ date: r.date, value: round1(r.value) }));
   const tenYears = series.filter((r) => r.date >= yyyymm(yearsAgoDate(10)));
   const pre2020 = findBaseline(series, PRE_2020_BASELINES[id]?.date);
+  const range36 = rangeOverWindow(series, latest.date, 36);
 
   const update = {
     current_value: formatCurrentValue(latest.value, config.valueFormat),
-    data_points: last12,
+    data_points: last36,
+    // How many months of history this sparkline actually carries (<=36). Lets
+    // the UI label the window honestly when a young series has fewer points.
+    data_points_window_months: last36.length,
     compared_to: {
+      // Reference points for a layperson: "vs last month / 6mo / 1yr / 3yr".
+      vs_1mo: compare(latest.value, valueMonthsAgo(series, latest.date, 1), config.compareMode, id),
       vs_6mo: compare(latest.value, valueMonthsAgo(series, latest.date, 6), config.compareMode, id),
       vs_12mo: compare(latest.value, valueMonthsAgo(series, latest.date, 12), config.compareMode, id),
-      vs_pre_2020: compare(latest.value, pre2020?.value, config.compareMode, id)
+      vs_36mo: compare(latest.value, valueMonthsAgo(series, latest.date, 36), config.compareMode, id),
+      vs_pre_2020: compare(latest.value, pre2020?.value, config.compareMode, id),
+      // 3-year high/low gives "is this an extreme or normal?" context at a glance.
+      range_36mo: range36
     },
     percentile: percentile(latest.value, tenYears),
     last_updated: normalizeLastUpdated(latest.date)
@@ -507,6 +526,7 @@ function buildUpdateFromSeries(id, config, series) {
 function applyAllowedUpdate(signal, update, id) {
   for (const [key, value] of Object.entries(update)) {
     const isAllowed = MUTABLE_DATA_FIELDS.has(key) ||
+      OPTIONAL_DATA_FIELDS.has(key) ||
       (id === "consumer-confidence" && CONSUMER_CONFIDENCE_SOURCE_FIELDS.has(key));
     if (!isAllowed) throw new Error(`Refusing to update non-data field ${id}.${key}`);
     signal[key] = value;
@@ -543,6 +563,14 @@ function validateUpdate(id, update) {
   }
   if (!update.compared_to?.vs_6mo || !update.compared_to?.vs_12mo || !update.compared_to?.vs_pre_2020) {
     throw new Error(`${id} compared_to is incomplete`);
+  }
+  // Track 2: the enriched reference points must be present and well-formed.
+  if (!update.compared_to?.vs_1mo || !update.compared_to?.vs_36mo) {
+    throw new Error(`${id} compared_to missing vs_1mo/vs_36mo`);
+  }
+  const r = update.compared_to?.range_36mo;
+  if (!r || typeof r.high !== "number" || typeof r.low !== "number" || r.high < r.low) {
+    throw new Error(`${id} compared_to.range_36mo is incomplete or inverted`);
   }
   if (typeof update.percentile?.value !== "number") {
     throw new Error(`${id} percentile is incomplete`);
@@ -681,6 +709,33 @@ function shiftMonth(yyyyMm, delta) {
 function valueMonthsAgo(series, latestDate, months) {
   const target = shiftMonth(latestDate.slice(0, 7), -months);
   return series.find((r) => r.date === target)?.value;
+}
+
+// Track 2: high/low (and their dates) over the trailing `months` window ending
+// at latestDate. Uses whatever history exists in that window — never fabricates
+// points. Returns { high, low, high_date, low_date, window_months } where
+// window_months is the count of observations actually considered.
+function rangeOverWindow(series, latestDate, months) {
+  const end = latestDate.slice(0, 7);
+  const start = shiftMonth(end, -(months - 1));
+  // series rows carry YYYY-MM dates; bound inclusively on the month prefix.
+  const window = series.filter((r) => {
+    const m = r.date.slice(0, 7);
+    return m >= start && m <= end;
+  });
+  const pts = window.length ? window : series.slice(-1);
+  let hi = pts[0], lo = pts[0];
+  for (const r of pts) {
+    if (r.value > hi.value) hi = r;
+    if (r.value < lo.value) lo = r;
+  }
+  return {
+    high: round1(hi.value),
+    low: round1(lo.value),
+    high_date: hi.date,
+    low_date: lo.date,
+    window_months: pts.length
+  };
 }
 
 function findBaseline(series, baselineMonth) {
