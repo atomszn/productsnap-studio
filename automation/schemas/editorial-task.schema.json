@@ -1,0 +1,116 @@
+{
+  "_comment": "Schema for data/pulse-editorial-task.json — the typed handoff written by scripts/emit-editorial-task.js on a DRAFT decision, and read by the Computer-side research runner. This is the seam between the deterministic GitHub pipeline and the AI layer. The pipeline only WRITES this file; it never calls AI.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "created_at",
+    "phase",
+    "shadow_mode",
+    "fingerprint",
+    "decision",
+    "triggers",
+    "signals_in_scope",
+    "weekly_connection_in_scope",
+    "status"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "task_id": { "type": "string", "minLength": 8, "_comment": "stable id: editorial-task-<fingerprint>" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "source_decision_generated_at": { "type": "string", "format": "date-time" },
+    "phase": { "type": "integer", "minimum": 0, "maximum": 4 },
+    "shadow_mode": { "type": "boolean" },
+    "fingerprint": {
+      "type": "string",
+      "minLength": 8,
+      "_comment": "content hash of the triggering change (signal ids + from/to values + reasons). Used for idempotency: the runner skips a task whose fingerprint already has findings."
+    },
+    "decision": { "type": "string", "enum": ["DRAFT", "KEEP"] },
+    "triggers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "detail"],
+        "properties": {
+          "type": { "type": "string", "enum": ["material_data_move", "narrative_review_required", "editorial_stale"] },
+          "detail": { "type": "string" },
+          "signals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "from", "to", "delta", "reasons"],
+              "properties": {
+                "id": { "type": "string" },
+                "from": { "type": ["number", "null"] },
+                "to": { "type": ["number", "null"] },
+                "delta": { "type": "number" },
+                "reasons": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "signals_in_scope": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "current_value", "unit", "source"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "display_name": { "type": "string" },
+          "category": { "type": "string" },
+          "current_value": { "type": ["number", "string", "null"] },
+          "unit": { "type": "string" },
+          "from": { "type": ["number", "null"] },
+          "to": { "type": ["number", "null"] },
+          "delta": { "type": ["number", "null"] },
+          "reasons": { "type": "array", "items": { "type": "string" } },
+          "source": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "url"],
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "series_id": { "type": "string" },
+              "provider": { "type": "string" },
+              "tier": { "type": "integer" }
+            }
+          },
+          "existing_summary": { "type": "string", "_comment": "the live plain-language summary the research agent must compare against" },
+          "editorial_polarity": { "type": "string", "_comment": "e.g. value_up_is_positive — so research can judge direction alignment" }
+        }
+      }
+    },
+    "weekly_connection_in_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["included"],
+      "properties": {
+        "included": { "type": "boolean" },
+        "title": { "type": "string" },
+        "last_reviewed": { "type": ["string", "null"] },
+        "observation": { "type": "string" }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reading_grade_target_max": { "type": "integer" },
+        "disclaimer": { "type": "string" },
+        "must_not_change": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "status": { "type": "string", "enum": ["pending", "claimed", "completed", "skipped_idempotent"] }
+  }
+}

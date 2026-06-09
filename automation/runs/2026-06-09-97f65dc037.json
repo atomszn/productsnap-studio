@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "97f65dc037",
+  "started_at": "2026-06-09T17:50:49Z",
+  "finished_at": "2026-06-09T17:52:01.191Z",
+  "phase": 1,
+  "shadow_mode": true,
+  "role": "research",
+  "model_used": "gpt_5_5",
+  "model_selection_reason": "default — budget under thresholds",
+  "task_id": "editorial-task-d4c7a02c07bf9fb7",
+  "fingerprint": "d4c7a02c07bf9fb7",
+  "trigger_summary": "material_data_move [mfg-activity 26.7->-0.4]",
+  "estimated_cost_usd": 0.45,
+  "budget_status": {
+    "month": "2026-06",
+    "spent_before_usd": 0.45,
+    "monthly_target_usd": 50,
+    "hard_cap_usd": 100,
+    "pct_of_cap": 0.45,
+    "action": "proceed"
+  },
+  "outputs": {
+    "findings_path": "data/pulse-research-findings.json",
+    "content_draft_path": null,
+    "quality_report_path": null
+  },
+  "outcome": "completed",
+  "error": null
+}
