@@ -35,6 +35,31 @@ jobs:
           BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
         run: node scripts/fetch-pulse-data.js
 
+      - name: Verify stored values against their sources (trust gate)
+        # Independently RE-FETCHES each automated signal from FRED/BLS and
+        # re-derives what current_value/last_updated SHOULD be using the same
+        # shared transform the writer used. Verdicts:
+        #   MATCH           stored == source -> nothing to do
+        #   VALUE_DRIFT     clean in-range difference -> AUTO-CORRECT the stored
+        #                   value/date to the source, then continue
+        #   STRUCTURAL_FAIL garbage (no value / future or backwards date /
+        #                   out-of-range / fetch error) -> EXIT 1, keep
+        #                   last-known-good, nothing commits
+        # This is the trust backbone: the page can never publish a number that
+        # disagrees with its own source. Runs in verify (write) mode so it can
+        # apply clean auto-corrections before the downstream gates see the data.
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: node scripts/verify-pulse-sources.js
+
+      - name: Regenerate cadence & next-release table
+        # Deterministic, offline. One honest row per signal: automated vs
+        # human-curated vs pending-automation, plain-English cadence, latest
+        # observation date, and an ESTIMATED next refresh window (never an
+        # official release calendar). Lets the UI render trust markers from data.
+        run: node scripts/generate-cadence-table.js
+
       - name: Recompute freshness & review flags against new data
         # Write mode: refreshes age_days / editorial_status / alignment /
         # review_required / narrative_review_required so the trust gate reflects
@@ -61,6 +86,19 @@ jobs:
       - name: Verify Pulse feed is in sync (gate before commit)
         run: node scripts/generate-pulse-feed.js --check
 
+      - name: Re-verify sources read-only (confirm no residual drift)
+        # After auto-correction, a second read-only pass confirms stored values
+        # now MATCH their sources. A STRUCTURAL_FAIL here still hard-fails the
+        # job; residual VALUE_DRIFT is surfaced in the log but does not fail
+        # (the write pass above is what corrects; --check never mutates the tree).
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: node scripts/verify-pulse-sources.js --check
+
+      - name: Verify cadence table is in sync (gate before commit)
+        run: node scripts/generate-cadence-table.js --check
+
       - name: Open PR with refreshed data & auto-merge if changed
         # main is a protected branch (requires a PR), so the daily refresh can no
         # longer push directly. Instead: commit to a dated branch, open a PR, and
@@ -72,7 +110,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if git diff --quiet -- data/pulse-content.json data/pulse-review-report.json data/pulse-editorial-decision.json pulse-feed.json; then
+          if git diff --quiet -- data/pulse-content.json data/pulse-review-report.json data/pulse-editorial-decision.json data/pulse-source-verification.json data/pulse-cadence.json pulse-feed.json; then
             echo "No Pulse data or feed changes to commit."
             exit 0
           fi
@@ -83,7 +121,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add data/pulse-content.json data/pulse-review-report.json data/pulse-editorial-decision.json pulse-feed.json
+          git add data/pulse-content.json data/pulse-review-report.json data/pulse-editorial-decision.json data/pulse-source-verification.json data/pulse-cadence.json pulse-feed.json
           git commit -m "chore(data): refresh pulse signals + feed (${DATE_TAG})"
           git push origin "$BRANCH"
 

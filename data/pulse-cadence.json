@@ -1,0 +1,433 @@
+{
+  "schema_version": "1.0.0",
+  "summary": {
+    "generated_at": "2026-06-09T22:31:52.004Z",
+    "signal_count": 20,
+    "automated": 10,
+    "human_curated": 8,
+    "pending_automation": 2,
+    "note": "next_refresh_estimate is a deterministic estimate from cadence + last observation, NOT an official release calendar. Curated/event-driven signals carry no estimate."
+  },
+  "signals": [
+    {
+      "id": "cpi-headline",
+      "name": "Headline CPI (YoY)",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-04-01",
+      "next_refresh_estimate": {
+        "date": "2026-06-15",
+        "window": "around the middle of the month",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "BLS",
+        "series_id": "CUUR0000SA0",
+        "source_name": "BLS",
+        "source_url": "https://data.bls.gov/timeseries/CUUR0000SA0"
+      }
+    },
+    {
+      "id": "ppi",
+      "name": "Producer Price Index (YoY)",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-04-01",
+      "next_refresh_estimate": {
+        "date": "2026-06-15",
+        "window": "around the middle of the month",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "BLS",
+        "series_id": "WPSFD4",
+        "source_name": "BLS",
+        "source_url": "https://data.bls.gov/timeseries/WPSFD4"
+      }
+    },
+    {
+      "id": "pce",
+      "name": "Core PCE (YoY)",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-04-01",
+      "next_refresh_estimate": {
+        "date": "2026-06-15",
+        "window": "around the middle of the month",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "FRED",
+        "series_id": "PCEPILFE",
+        "source_name": "BEA",
+        "source_url": "https://fred.stlouisfed.org/series/PCEPILFE"
+      }
+    },
+    {
+      "id": "fed-net-liquidity",
+      "name": "Fed Net Liquidity / Balance Sheet",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "weekly",
+      "cadence_plain": "Updates weekly",
+      "latest_observation_date": "2026-06-03",
+      "next_refresh_estimate": {
+        "date": "2026-06-10",
+        "window": "about a week out",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "FRED",
+        "series_id": "WALCL",
+        "source_name": "Federal Reserve (H.4.1)",
+        "source_url": "https://fred.stlouisfed.org/series/WALCL"
+      }
+    },
+    {
+      "id": "10y-treasury",
+      "name": "10-Year Treasury Yield",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "daily",
+      "cadence_plain": "Updates every market day",
+      "latest_observation_date": "2026-06-05",
+      "next_refresh_estimate": {
+        "date": "2026-06-10",
+        "window": "next market day",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "FRED",
+        "series_id": "DGS10",
+        "source_name": "U.S. Treasury / FRED",
+        "source_url": "https://fred.stlouisfed.org/series/DGS10"
+      }
+    },
+    {
+      "id": "series-a-counts",
+      "name": "Series A Round Counts (trailing 3mo, US)",
+      "tier": 2,
+      "sourcing": "human-curated",
+      "sourcing_label": "Human-curated — maintained by editorial review, not machine-verified",
+      "source_verifiable": false,
+      "cadence": "weekly",
+      "cadence_plain": "Updates weekly",
+      "latest_observation_date": "2026-05-20",
+      "next_refresh_estimate": null,
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "manual",
+        "series_id": null,
+        "source_name": "Crunchbase News (curated)",
+        "source_url": null
+      }
+    },
+    {
+      "id": "ai-model-releases",
+      "name": "Frontier AI Model Release Activity",
+      "tier": 2,
+      "sourcing": "human-curated",
+      "sourcing_label": "Human-curated — maintained by editorial review, not machine-verified",
+      "source_verifiable": false,
+      "cadence": "event-driven",
+      "cadence_plain": "Updates only when something happens (no fixed schedule)",
+      "latest_observation_date": "2026-05-26",
+      "next_refresh_estimate": null,
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "manual",
+        "series_id": null,
+        "source_name": "Editorial tracker (release logs)",
+        "source_url": null
+      }
+    },
+    {
+      "id": "ai-api-pricing",
+      "name": "AI API / Inference Pricing Trend",
+      "tier": 2,
+      "sourcing": "human-curated",
+      "sourcing_label": "Human-curated — maintained by editorial review, not machine-verified",
+      "source_verifiable": false,
+      "cadence": "event-driven",
+      "cadence_plain": "Updates only when something happens (no fixed schedule)",
+      "latest_observation_date": "2026-05-19",
+      "next_refresh_estimate": null,
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "manual",
+        "series_id": null,
+        "source_name": "Editorial pricing tracker (vendor price sheets)",
+        "source_url": null
+      }
+    },
+    {
+      "id": "open-source-ai",
+      "name": "Open-Source AI Momentum (agent frameworks)",
+      "tier": 2,
+      "sourcing": "human-curated",
+      "sourcing_label": "Human-curated — maintained by editorial review, not machine-verified",
+      "source_verifiable": false,
+      "cadence": "event-driven",
+      "cadence_plain": "Updates only when something happens (no fixed schedule)",
+      "latest_observation_date": "2026-05-25",
+      "next_refresh_estimate": null,
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "manual",
+        "series_id": null,
+        "source_name": "GitHub (curated repo set)",
+        "source_url": null
+      }
+    },
+    {
+      "id": "compute-cost",
+      "name": "Effective Compute Cost per Workload",
+      "tier": 2,
+      "sourcing": "human-curated",
+      "sourcing_label": "Human-curated — maintained by editorial review, not machine-verified",
+      "source_verifiable": false,
+      "cadence": "event-driven",
+      "cadence_plain": "Updates only when something happens (no fixed schedule)",
+      "latest_observation_date": "2026-04-30",
+      "next_refresh_estimate": null,
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "manual",
+        "series_id": null,
+        "source_name": "Editorial cost model (cloud GPU price sheets)",
+        "source_url": null
+      }
+    },
+    {
+      "id": "retail-sales",
+      "name": "Retail Sales (YoY)",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-04-01",
+      "next_refresh_estimate": {
+        "date": "2026-06-15",
+        "window": "around the middle of the month",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "FRED",
+        "series_id": "RSAFS",
+        "source_name": "U.S. Census Bureau",
+        "source_url": "https://fred.stlouisfed.org/series/RSAFS"
+      }
+    },
+    {
+      "id": "consumer-confidence",
+      "name": "Consumer Sentiment (U. Michigan)",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-04-01",
+      "next_refresh_estimate": {
+        "date": "2026-06-15",
+        "window": "around the middle of the month",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "FRED",
+        "series_id": "UMCSENT",
+        "source_name": "University of Michigan / FRED",
+        "source_url": "https://fred.stlouisfed.org/series/UMCSENT"
+      }
+    },
+    {
+      "id": "emerging-apps",
+      "name": "Emerging App Category Patterns",
+      "tier": 2,
+      "sourcing": "human-curated",
+      "sourcing_label": "Human-curated — maintained by editorial review, not machine-verified",
+      "source_verifiable": false,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-05-26",
+      "next_refresh_estimate": null,
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "manual",
+        "series_id": null,
+        "source_name": "Editorial app-chart triangulation",
+        "source_url": null
+      }
+    },
+    {
+      "id": "nonfarm-payrolls",
+      "name": "Nonfarm Payrolls (monthly change)",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-05-01",
+      "next_refresh_estimate": {
+        "date": "2026-06-15",
+        "window": "around the middle of the month",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "BLS",
+        "series_id": "CES0000000001",
+        "source_name": "BLS",
+        "source_url": "https://data.bls.gov/timeseries/CES0000000001"
+      }
+    },
+    {
+      "id": "tech-hiring",
+      "name": "Tech Hiring Intensity (percentile)",
+      "tier": 2,
+      "sourcing": "human-curated",
+      "sourcing_label": "Human-curated — maintained by editorial review, not machine-verified",
+      "source_verifiable": false,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-05-26",
+      "next_refresh_estimate": null,
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "manual",
+        "series_id": null,
+        "source_name": "Editorial (job postings / layoffs.fyi blend)",
+        "source_url": null
+      }
+    },
+    {
+      "id": "ai-regulation",
+      "name": "AI Regulation & Policy Developments",
+      "tier": 3,
+      "sourcing": "human-curated",
+      "sourcing_label": "Human-curated — maintained by editorial review, not machine-verified",
+      "source_verifiable": false,
+      "cadence": "event-driven",
+      "cadence_plain": "Updates only when something happens (no fixed schedule)",
+      "latest_observation_date": "2026-05-24",
+      "next_refresh_estimate": null,
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "manual",
+        "series_id": null,
+        "source_name": "Editorial AI regulation tracker",
+        "source_url": null
+      }
+    },
+    {
+      "id": "mfg-activity",
+      "name": "Regional Manufacturing Activity (Philly Fed)",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-05-01",
+      "next_refresh_estimate": {
+        "date": "2026-06-15",
+        "window": "around the middle of the month",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "FRED",
+        "series_id": "GACDFSA066MSFRBPHI",
+        "source_name": "Philadelphia Fed (regional survey, via FRED)",
+        "source_url": "https://fred.stlouisfed.org/series/GACDFSA066MSFRBPHI"
+      }
+    },
+    {
+      "id": "services-activity",
+      "name": "Regional Services Activity (Dallas Fed)",
+      "tier": 1,
+      "sourcing": "automated",
+      "sourcing_label": "Automated — pulled from a public government API",
+      "source_verifiable": true,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": "2026-05-01",
+      "next_refresh_estimate": {
+        "date": "2026-06-15",
+        "window": "around the middle of the month",
+        "basis": "estimate"
+      },
+      "in_published_content": true,
+      "source_of_record": {
+        "provider": "FRED",
+        "series_id": "TSSOSBACTUAMFRBDAL",
+        "source_name": "Dallas Fed (regional survey, via FRED)",
+        "source_url": "https://fred.stlouisfed.org/series/TSSOSBACTUAMFRBDAL"
+      }
+    },
+    {
+      "id": "ism-manufacturing-pmi",
+      "name": "ISM Manufacturing PMI (National)",
+      "tier": 1,
+      "sourcing": "pending-automation",
+      "sourcing_label": "Pending automation — no free public API yet; tracked manually for now",
+      "source_verifiable": false,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": null,
+      "next_refresh_estimate": null,
+      "in_published_content": false,
+      "source_of_record": {
+        "provider": "ISM-pending",
+        "series_id": null,
+        "source_name": "Institute for Supply Management (ISM) — pending automation (Pass G)",
+        "source_url": null
+      }
+    },
+    {
+      "id": "ism-services-pmi",
+      "name": "ISM Services PMI (National)",
+      "tier": 1,
+      "sourcing": "pending-automation",
+      "sourcing_label": "Pending automation — no free public API yet; tracked manually for now",
+      "source_verifiable": false,
+      "cadence": "monthly",
+      "cadence_plain": "Updates once a month",
+      "latest_observation_date": null,
+      "next_refresh_estimate": null,
+      "in_published_content": false,
+      "source_of_record": {
+        "provider": "ISM-pending",
+        "series_id": null,
+        "source_name": "Institute for Supply Management (ISM) — pending automation (Pass G)",
+        "source_url": null
+      }
+    }
+  ]
+}

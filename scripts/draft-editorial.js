@@ -100,6 +100,41 @@ function lastTwoPoints(signal) {
   return { prevValue: prev.value, newValue: curr.value, prevDate: prev.date, newDate: curr.date };
 }
 
+// Read the previous decision snapshot's per-signal triggering-observation map.
+// Returns { [signal_id]: "YYYY-MM(-DD)" } recording, for each signal that has
+// EVER fired a material-move trigger, the observation date that triggered it.
+// This is how we make the trigger freshness-aware: a material move only counts
+// once per NEW observation. A month-old move must not re-fire a DRAFT every day
+// just because it is still the most recent two points in the series.
+function readPriorTriggeringObservations() {
+  try {
+    const prior = readJSON(DECISION_PATH);
+    if (prior && prior.triggering_observations && typeof prior.triggering_observations === "object") {
+      return { map: prior.triggering_observations, hadMap: true };
+    }
+    // A prior snapshot exists but predates the freshness fix (no map). Anything
+    // already material in today's data has effectively been "seen" by the old
+    // every-run trigger, so we seed it as already-triggered on this first run
+    // to avoid one redundant re-fire of month-old news. Genuinely new
+    // observations arriving later will still fire because their date will be
+    // strictly newer than the seeded date.
+    return { map: {}, hadMap: false };
+  } catch (err) {
+    // No prior snapshot at all (true first run) -> empty map, treat as fresh.
+    return { map: {}, hadMap: false };
+  }
+}
+
+// Is observationDate strictly newer than the last date that triggered a move
+// for this signal? Dates are ISO-like ("YYYY-MM" or "YYYY-MM-DD"); lexical
+// comparison on normalized strings is correct for chronological ordering.
+function isNewerObservation(observationDate, lastTriggeredDate) {
+  if (!observationDate) return false;
+  if (!lastTriggeredDate) return true; // never triggered before -> new
+  const norm = (d) => (/^\d{4}-\d{2}$/.test(d) ? d + "-01" : d);
+  return norm(observationDate) > norm(lastTriggeredDate);
+}
+
 function main() {
   const now = new Date();
   let content, registry;
@@ -131,19 +166,49 @@ function main() {
     triggers.push({ type: "editorial_stale", detail: "editorial read past its " + wcExpiry + "-day window (age " + fresh.age_days + "d)" });
   }
 
-  // ---- Trigger 3: material data move on any tracked signal ----
+  // ---- Trigger 3: material data move on any tracked signal (freshness-aware) ----
+  // A material move only fires a DRAFT when the move's latest observation is
+  // NEWER than the observation that last triggered a move for that signal.
+  // Otherwise the same stale move (e.g. mfg-activity's month-old 26.7 -> -0.4)
+  // re-triggers a DRAFT on every daily run forever. We carry forward the prior
+  // triggering dates so each new observation can fire at most once.
+  const priorState = readPriorTriggeringObservations();
+  const priorTriggered = priorState.map;
+  const triggeringObservations = Object.assign({}, priorTriggered); // carry forward
   const materialMoves = [];
+  const staleMovesSuppressed = [];
   signals.forEach((s) => {
     const pair = lastTwoPoints(s);
     if (!pair) return;
     const reg = regMap[s.id];
     const move = trust.materialDataMove(pair.prevValue, pair.newValue, reg);
-    if (move.material) {
-      materialMoves.push({ id: s.id, delta: move.delta, reasons: move.reasons, from: pair.prevValue, to: pair.newValue });
+    if (!move.material) return;
+
+    // Seed-on-migration: if the prior snapshot predates the freshness fix
+    // (no map), treat a currently-material observation as already-triggered so
+    // pre-existing month-old moves don't re-fire once more. From then on the
+    // carried-forward map governs.
+    let lastTriggeredDate = priorTriggered[s.id] || null;
+    if (!priorState.hadMap && lastTriggeredDate == null) {
+      lastTriggeredDate = pair.newDate; // seed -> suppress this run
+    }
+    if (isNewerObservation(pair.newDate, lastTriggeredDate)) {
+      // Genuinely new observation moved materially -> fire, and record the date
+      // so the same observation cannot re-fire on subsequent runs.
+      materialMoves.push({ id: s.id, delta: move.delta, reasons: move.reasons, from: pair.prevValue, to: pair.newValue, observation_date: pair.newDate });
+      triggeringObservations[s.id] = pair.newDate;
+    } else {
+      // Material in shape, but it is the same (or older) observation that already
+      // triggered. Suppress it so we don't re-draft month-old news every day.
+      // Record the suppressed observation date so the carried-forward map stays
+      // accurate (covers the seed-on-migration case, where there was no prior
+      // entry but we are treating this observation as already-seen).
+      triggeringObservations[s.id] = lastTriggeredDate || pair.newDate;
+      staleMovesSuppressed.push({ id: s.id, observation_date: pair.newDate, last_triggered: lastTriggeredDate, from: pair.prevValue, to: pair.newValue });
     }
   });
   if (materialMoves.length) {
-    triggers.push({ type: "material_data_move", detail: materialMoves.length + " signal(s) moved materially", signals: materialMoves });
+    triggers.push({ type: "material_data_move", detail: materialMoves.length + " signal(s) moved materially on a NEW observation", signals: materialMoves });
   }
 
   const decision = triggers.length ? "DRAFT" : "KEEP";
@@ -154,6 +219,13 @@ function main() {
     llm_invoked: false,
     decision: decision,          // KEEP = current read still valid; DRAFT = re-draft warranted
     triggers: triggers,
+    // Per-signal map of the observation date that last fired a material-move
+    // trigger. Carried forward run-to-run so a given observation fires at most
+    // once. This is the trigger-freshness state.
+    triggering_observations: triggeringObservations,
+    // Material moves seen this run that were SUPPRESSED because their observation
+    // already triggered previously (kept for auditability; not a trigger).
+    suppressed_stale_moves: staleMovesSuppressed,
     editorial_freshness: fresh,
     weekly_connection_reviewed: reviewed,
     note: "Phase 1 log-only. No content was generated or published. This snapshot records what the event-driven trigger WOULD do once AI drafting is enabled (Phase 2/3)."
@@ -172,7 +244,11 @@ function main() {
     " age_days=" + fresh.age_days);
   if (materialMoves.length) {
     materialMoves.forEach((m) =>
-      console.log("  · material move: " + m.id + " " + m.from + "->" + m.to + " [" + m.reasons.join(", ") + "]"));
+      console.log("  · material move (NEW @ " + m.observation_date + "): " + m.id + " " + m.from + "->" + m.to + " [" + m.reasons.join(", ") + "]"));
+  }
+  if (staleMovesSuppressed.length) {
+    staleMovesSuppressed.forEach((m) =>
+      console.log("  · suppressed stale move: " + m.id + " " + m.from + "->" + m.to + " (obs " + m.observation_date + " already triggered " + (m.last_triggered || "n/a") + ")"));
   }
   console.log("[draft-editorial] snapshot -> " + path.relative(ROOT, DECISION_PATH));
 
