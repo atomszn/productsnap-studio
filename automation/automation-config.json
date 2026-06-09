@@ -1,0 +1,71 @@
+{
+  "_comment": "Master control plane for ProductSnap Pulse editorial automation. GitHub scripts read this file but NEVER call AI. AI runs only inside Perplexity Computer. This file is the single source of truth for which automation phase is live, what the budget governor allows, and which quality gates apply. Edit deliberately; every field is reviewed in PRs.",
+  "version": "1.0.0",
+  "last_reviewed": "2026-06-09",
+
+  "editorial_automation_phase": 1,
+  "_phase_meaning": {
+    "0": "Trigger decision is log-only. draft-editorial.js records KEEP/DRAFT but emits no handoff task. No AI anywhere.",
+    "1": "Research agent SHADOW MODE. emit-editorial-task.js writes a typed handoff task on DRAFT. Computer research runner reads it, researches, writes findings + run record + ledger to the branch/artifact. Publishes NOTHING. No editorial rewrite. No auto-merge of AI interpretation.",
+    "2": "Editorial agent drafts user-friendly content from findings. Validation agent runs the quality gate. Outputs are written to typed files and surfaced for human review. Still no auto-publish of AI interpretation.",
+    "3": "Auto-publish of AI interpretation behind the quality gate at confidence_threshold. Green gate auto-merges its PR; yellow escalates; red holds safe.",
+    "4": "Full steady-state automation with tuned thresholds."
+  },
+
+  "kill_switch": {
+    "_comment": "Hard global off-switch. When false, NO part of the editorial automation runs regardless of phase. Factual data refresh (fetch/validate/feed) is a separate pipeline and is UNAFFECTED by this switch.",
+    "editorial_automation_enabled": true
+  },
+
+  "shadow_mode": true,
+  "_shadow_mode_meaning": "When true, the AI layer may RESEARCH and WRITE reviewable artifacts but may NEVER publish, merge, or alter live Pulse content/data. Phase 1 forces this true.",
+
+  "auto_publish_enabled": false,
+  "_auto_publish_meaning": "Master gate for letting any AI-written interpretation reach the live page. Phase 1/2 force this false. Only relevant at phase >= 3.",
+
+  "confidence_threshold": 0.85,
+  "_confidence_threshold_meaning": "Minimum overall gate confidence required for auto-publish at phase >= 3. Not used in Phase 1 (no publishing).",
+
+  "reading_grade_target_max": 9,
+  "_reading_grade_meaning": "Editorial output must read at or below US grade 9 (Phase 2+ quality gate). Recorded in Phase 1 findings as a target only.",
+
+  "budget": {
+    "_comment": "Real governor. check-budget.js reads the spend ledger and compares against these. In Phase 1 the governor is READ-ONLY/advisory: it records status but the deterministic data pipeline never depends on it. Dollar amounts are USD/month.",
+    "monthly_target_usd": 50,
+    "hard_cap_usd": 100,
+    "downgrade_at_pct": 70,
+    "_downgrade_meaning": "At >=70% of hard cap spent this month, model routing should prefer the cheapest acceptable candidate for each role (downgrade). At 100% of hard cap, STOP drafting new editorial interpretation — but factual data refresh continues uninterrupted.",
+    "stop_drafting_at_pct": 100,
+    "currency": "USD",
+    "billing_cycle": "calendar_month"
+  },
+
+  "phase1_exit_criteria": {
+    "_comment": "Phase 1 ends and is reviewed when EITHER condition is first met. Then the user decides whether to proceed to Phase 2.",
+    "real_draft_events_min": 5,
+    "real_draft_events_max": 7,
+    "max_days": 14,
+    "exit_rule": "first_of: (real_draft_events >= 5) OR (days_elapsed >= 14)"
+  },
+
+  "notifications": {
+    "_comment": "Phase 1 notifies ONLY for hard failures, escalations, budget breaches, or a findings artifact that is ready for review. No success spam.",
+    "major_autopublish_awareness": false,
+    "notify_on_hard_failure": true,
+    "notify_on_escalation": true,
+    "notify_on_budget_breach": true,
+    "notify_on_ready_for_review": true
+  },
+
+  "paths": {
+    "_comment": "Relative to repo root. Handoff and audit file locations so every component agrees on where things live.",
+    "editorial_task": "data/pulse-editorial-task.json",
+    "research_findings": "data/pulse-research-findings.json",
+    "content_draft": "data/pulse-content-draft.json",
+    "quality_report": "data/pulse-quality-report.json",
+    "editorial_decision": "data/pulse-editorial-decision.json",
+    "spend_ledger": "automation/spend-ledger.json",
+    "model_registry": "automation/model-registry.json",
+    "run_records_dir": "automation/runs"
+  }
+}

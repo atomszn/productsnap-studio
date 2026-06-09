@@ -29,12 +29,52 @@
 
 const fs = require("fs");
 const path = require("path");
+const { spawnSync } = require("child_process");
 const trust = require("./lib/pulse-trust");
 
 const ROOT = path.resolve(__dirname, "..");
 const CONTENT_PATH = path.join(ROOT, "data", "pulse-content.json");
 const REGISTRY_PATH = path.join(ROOT, "data", "signals_registry.json");
 const DECISION_PATH = path.join(ROOT, "data", "pulse-editorial-decision.json");
+const CONFIG_PATH = path.join(ROOT, "automation", "automation-config.json");
+const EMIT_TASK_SCRIPT = path.join(__dirname, "emit-editorial-task.js");
+
+// Read the automation phase WITHOUT introducing any dependency. Missing/unreadable
+// config is treated as phase 0 (pre-automation behavior). This function must never throw.
+function readPhase() {
+  try {
+    const cfg = JSON.parse(fs.readFileSync(CONFIG_PATH, "utf8"));
+    const enabled = !(cfg.kill_switch && cfg.kill_switch.editorial_automation_enabled === false);
+    return { phase: Number(cfg.editorial_automation_phase) || 0, enabled };
+  } catch (e) {
+    return { phase: 0, enabled: true };
+  }
+}
+
+// Phase >= 1: hand the decision off to the typed-task emitter as a SEPARATE
+// child process. draft-editorial.js stays dependency-free and the emitter
+// cannot break this pipeline — any failure is logged and swallowed. At phase 0
+// this is never called, so behavior is byte-for-byte the pre-automation path.
+function maybeEmitEditorialTask() {
+  const { phase, enabled } = readPhase();
+  if (phase < 1 || !enabled) {
+    console.log("[draft-editorial] editorial_automation_phase=" + phase +
+      " enabled=" + enabled + " -> handoff inert (log-only).");
+    return;
+  }
+  try {
+    const res = spawnSync(process.execPath, [EMIT_TASK_SCRIPT], {
+      cwd: ROOT, encoding: "utf8", timeout: 20000
+    });
+    if (res.stdout) process.stdout.write(res.stdout);
+    if (res.stderr) process.stderr.write(res.stderr);
+    if (res.error) {
+      console.error("[draft-editorial] emit-task spawn error (non-fatal): " + res.error.message);
+    }
+  } catch (err) {
+    console.error("[draft-editorial] emit-task failed (non-fatal): " + err.message);
+  }
+}
 
 function readJSON(p) {
   return JSON.parse(fs.readFileSync(p, "utf8"));
@@ -135,6 +175,11 @@ function main() {
       console.log("  · material move: " + m.id + " " + m.from + "->" + m.to + " [" + m.reasons.join(", ") + "]"));
   }
   console.log("[draft-editorial] snapshot -> " + path.relative(ROOT, DECISION_PATH));
+
+  // Phase >= 1 ONLY: emit the typed editorial handoff task for the (separate,
+  // out-of-pipeline) AI research agent to pick up. Shadow mode means this still
+  // publishes nothing — it just writes a reviewable task file. Non-breaking.
+  maybeEmitEditorialTask();
 
   // Always succeed in log-only mode; this step must never break the pipeline.
   process.exit(0);

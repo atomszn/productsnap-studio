@@ -1,0 +1,44 @@
+{
+  "_comment": "Provider-agnostic model routing for the editorial automation. Roles map to an ORDERED list of candidate models (best-first). The Computer-side runner picks the first candidate it can run; the budget governor may force a downgrade to the cheapest acceptable candidate. Prices are coarse per-run estimates in USD used ONLY for ledger bookkeeping and budget math — they are intentionally conservative (overestimate) so the governor errs on the side of caution. Update prices/candidates here without touching any script; routing is data-driven, never hard-coded.",
+  "version": "1.0.0",
+  "last_reviewed": "2026-06-09",
+
+  "price_basis": {
+    "_comment": "est_cost_per_run_usd is a blended, conservative per-invocation estimate for a single Pulse research/editorial/validation task (typical token volume for one signal + weekly-connection context). Used for ledger entries and budget projection only. Not a billing source of truth.",
+    "unit": "usd_per_run",
+    "conservative": true
+  },
+
+  "roles": {
+    "research": {
+      "_comment": "Reads new data + existing content, researches what changed and why it matters, produces structured findings. Needs strong reasoning + current-web grounding. Best-first.",
+      "candidates": [
+        { "id": "gpt_5_5",          "tier": "premium", "quality": 5, "est_cost_per_run_usd": 0.45, "notes": "Newest frontier reasoning; best for the hardest 'what does this mean' analysis." },
+        { "id": "claude_opus_4_8",  "tier": "premium", "quality": 5, "est_cost_per_run_usd": 0.40, "notes": "Top-tier reasoning fallback if gpt_5_5 unavailable." },
+        { "id": "claude_sonnet_4_6","tier": "value",   "quality": 4, "est_cost_per_run_usd": 0.12, "notes": "Cheapest acceptable research model; downgrade target under budget pressure." }
+      ],
+      "default": "gpt_5_5",
+      "downgrade": "claude_sonnet_4_6"
+    },
+
+    "editorial": {
+      "_comment": "Phase 2+. Rewrites findings into plain, grade<=9 language. Not invoked in Phase 1. Defined now so routing is stable when Phase 2 lands.",
+      "candidates": [
+        { "id": "claude_opus_4_8",  "tier": "premium", "quality": 5, "est_cost_per_run_usd": 0.40, "notes": "Best prose quality + instruction-following for plain-language rewrite." },
+        { "id": "claude_sonnet_4_6","tier": "value",   "quality": 4, "est_cost_per_run_usd": 0.12, "notes": "Strong, cheaper rewrite; downgrade target." }
+      ],
+      "default": "claude_opus_4_8",
+      "downgrade": "claude_sonnet_4_6"
+    },
+
+    "validation": {
+      "_comment": "Phase 2+. Independent quality-gate check (source support, number accuracy, direction alignment, reading level, disclaimer, unsupported claims). Should be a DIFFERENT provider than editorial where possible, to avoid same-model blind spots. Not invoked in Phase 1.",
+      "candidates": [
+        { "id": "gemini_3_1_pro",   "tier": "value",   "quality": 3, "est_cost_per_run_usd": 0.10, "notes": "Cheap, large context, different provider than editorial — good independent checker." },
+        { "id": "claude_sonnet_4_6","tier": "value",   "quality": 4, "est_cost_per_run_usd": 0.12, "notes": "Fallback checker." }
+      ],
+      "default": "gemini_3_1_pro",
+      "downgrade": "gemini_3_1_pro"
+    }
+  }
+}

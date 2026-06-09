@@ -1,0 +1,62 @@
+{
+  "_comment": "Schema for automation/runs/<date>-<run_id>.json — one immutable audit record per AI run. Captures everything needed to reconstruct and trust a run after the fact: which task, which model, why it ran, what it produced, cost, timing, and outcome. Written by the Computer-side runner.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "started_at",
+    "finished_at",
+    "phase",
+    "shadow_mode",
+    "role",
+    "model_used",
+    "task_id",
+    "fingerprint",
+    "trigger_summary",
+    "estimated_cost_usd",
+    "budget_status",
+    "outputs",
+    "outcome"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "run_id": { "type": "string", "minLength": 6 },
+    "started_at": { "type": "string", "format": "date-time" },
+    "finished_at": { "type": "string", "format": "date-time" },
+    "phase": { "type": "integer", "minimum": 0, "maximum": 4 },
+    "shadow_mode": { "type": "boolean" },
+    "role": { "type": "string", "enum": ["research", "editorial", "validation"] },
+    "model_used": { "type": "string", "minLength": 2 },
+    "model_selection_reason": { "type": "string", "_comment": "default vs downgrade and why (e.g. 'default — budget under 70%')" },
+    "task_id": { "type": "string" },
+    "fingerprint": { "type": "string" },
+    "trigger_summary": { "type": "string", "minLength": 10, "_comment": "human-readable: why this run happened" },
+    "estimated_cost_usd": { "type": "number", "minimum": 0 },
+    "budget_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["month", "spent_before_usd", "monthly_target_usd", "hard_cap_usd", "pct_of_cap", "action"],
+      "properties": {
+        "month": { "type": "string", "pattern": "^\\d{4}-\\d{2}$" },
+        "spent_before_usd": { "type": "number", "minimum": 0 },
+        "monthly_target_usd": { "type": "number" },
+        "hard_cap_usd": { "type": "number" },
+        "pct_of_cap": { "type": "number", "minimum": 0 },
+        "action": { "type": "string", "enum": ["proceed", "downgrade", "stop"] }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["findings_path"],
+      "properties": {
+        "findings_path": { "type": ["string", "null"] },
+        "content_draft_path": { "type": ["string", "null"] },
+        "quality_report_path": { "type": ["string", "null"] }
+      }
+    },
+    "outcome": { "type": "string", "enum": ["completed", "skipped_idempotent", "skipped_budget", "skipped_disabled", "failed"] },
+    "error": { "type": ["string", "null"] }
+  }
+}

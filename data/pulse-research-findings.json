@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0.0",
+  "findings_id": "research-findings-d4c7a02c07bf9fb7-20260609",
+  "task_id": "editorial-task-d4c7a02c07bf9fb7",
+  "fingerprint": "d4c7a02c07bf9fb7",
+  "generated_at": "2026-06-09T17:50:49Z",
+  "phase": 1,
+  "shadow_mode": true,
+  "model_used": "gpt_5_5",
+  "model_role": "research",
+  "estimated_cost_usd": 0.45,
+  "why_triggered": "A DRAFT fired because the mfg-activity signal moved from 26.7 to -0.4, a -27.1 point change. The trigger reasons were direction_flip and magnitude_step>=25.",
+  "signal_findings": [
+    {
+      "signal_id": "mfg-activity",
+      "what_changed": "The Philadelphia Fed current general activity diffusion index moved from 26.7 in April 2026 to -0.4 in May 2026, a -27.1 point move. The May report says regional manufacturing activity weakened overall, and current activity, new orders, and shipments all fell sharply.",
+      "direction": "flip_down",
+      "direction_matches_existing": true,
+      "what_it_means": "This is a sharp cooling, not a deep collapse. A diffusion index is the share of firms reporting increases minus the share reporting decreases, so a reading near zero means increases and decreases were almost balanced. In May, almost 23 percent of firms reported higher activity, almost 23 percent reported lower activity, and 55 percent reported no change. New orders fell to -1.7 and shipments fell to 4.9, so the demand side looked weaker. Employment stayed slightly negative at -2.8. Price pressure eased from April but stayed high, with prices paid at 47.9 and prices received at 26.3. Future activity rose to 53.2, so firms were still optimistic about the next six months.",
+      "magnitude_context": "The one-month drop of 27.1 points is rare in the Philadelphia Fed historical file. Using seasonally adjusted current general activity data from May 1968 through May 2026, there are 696 month-to-month changes; only eight drops were larger than this one, making the May 2026 drop the ninth-largest decline in that history. The level of -0.4 is close to the zero line, not close to the historical low of -58.7 in April 2020. It sits around the lower 27 percent of monthly readings in the same history.",
+      "confidence": 0.88,
+      "uncertainties": [
+        "The Philadelphia Fed notes that seasonally adjusted historical values can be revised after annual seasonal-factor updates, so exact historical rankings may shift slightly.",
+        "The survey is regional and qualitative. It measures the breadth of change, not the dollar size or production volume of the change.",
+        "The task value and the Philadelphia Fed May report agree on the 26.7 to -0.4 move, but FRED page content did not expose the latest observation values in the fetched page text."
+      ],
+      "sources": [
+        {
+          "name": "FRED: Current General Activity; Diffusion Index for Federal Reserve District 3: Philadelphia",
+          "url": "https://fred.stlouisfed.org/series/GACDFSA066MSFRBPHI",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        },
+        {
+          "name": "Philadelphia Fed Manufacturing Business Outlook Survey: May 2026 Report",
+          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-05",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        },
+        {
+          "name": "Philadelphia Fed MBOS historical data CSV",
+          "url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/MBOS/Historical-Data/Data-Series/bos_history.csv?sc_lang=en&hash=28226062188CE1C88D63A7E1DDA9EEC5",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        },
+        {
+          "name": "Philadelphia Fed Manufacturing Business Outlook Survey FAQs",
+          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-faqs",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        }
+      ]
+    }
+  ],
+  "cross_signal_impacts": [
+    {
+      "affected": "National manufacturing context",
+      "impact": "The regional-national gap framing still has support. The Philly Fed current activity index fell to -0.4 in May, while the S&P Global US Manufacturing PMI rose to 55.1 in May from 54.5 in April and stayed above its 50.0 no-change mark. This suggests the weak Philly reading should not be treated as the whole U.S. factory story.",
+      "confidence": 0.82,
+      "sources": [
+        {
+          "name": "Philadelphia Fed Manufacturing Business Outlook Survey: May 2026 Report",
+          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-05",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        },
+        {
+          "name": "S&P Global US Manufacturing PMI: May 2026",
+          "url": "https://www.pmi.spglobal.com/Public/Home/PressRelease/6915b8ea82df48b58baa4d36f1f59496",
+          "tier": 2,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        }
+      ]
+    },
+    {
+      "affected": "Orders and shipments signals",
+      "impact": "The May Philly survey points to weaker regional momentum, with new orders at -1.7 and shipments at 4.9. The latest Census durable-goods report is for April, not May, and showed new orders up 7.9 percent and shipments up 0.5 percent. The timing and coverage differ, so this is a caution flag rather than a direct contradiction.",
+      "confidence": 0.69,
+      "sources": [
+        {
+          "name": "Philadelphia Fed Manufacturing Business Outlook Survey: May 2026 Report",
+          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-05",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        },
+        {
+          "name": "U.S. Census Bureau Advance Report on Durable Goods Manufacturers' Shipments, Inventories and Orders: April 2026",
+          "url": "https://www.census.gov/manufacturing/m3/adv/pdf/durgd.pdf",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        }
+      ]
+    },
+    {
+      "affected": "Manufacturing labor and pricing context",
+      "impact": "The Philly Fed employment index stayed negative at -2.8 in May, while BLS national manufacturing payrolls rose from 12,598 thousand in April to 12,605 thousand in May. That means the regional labor signal is softer than the national payroll count. Philly price indexes also stayed elevated, so product teams should separate demand softness from still-present cost pressure.",
+      "confidence": 0.72,
+      "sources": [
+        {
+          "name": "Philadelphia Fed Manufacturing Business Outlook Survey: May 2026 Report",
+          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-05",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        },
+        {
+          "name": "BLS Public Data API: CES3000000001 Manufacturing employment",
+          "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/CES3000000001?startyear=2025&endyear=2026",
+          "tier": 1,
+          "accessed_at": "2026-06-09T18:30:00Z"
+        }
+      ]
+    },
+    {
+      "affected": "Weekly connection",
+      "impact": "The weekly connection is marked out of scope in the task. The manufacturing move does not directly change the stated AI price-and-consumer-mood connection, but it adds another example of uneven economic signals across sectors and regions.",
+      "confidence": 0.64,
+      "sources": []
+    }
+  ],
+  "product_implications": [
+    {
+      "implication": "Treat Mid-Atlantic manufacturing demand as less steady than it looked one month ago. PMs should watch order, shipment, and renewal signals before making big roadmap or capacity calls for this segment.",
+      "audience": "PMs and product operators serving manufacturers",
+      "confidence": 0.82
+    },
+    {
+      "implication": "Do not turn one regional survey into a national product thesis. Use this as a warning flag and compare it with national demand, payroll, and customer data.",
+      "audience": "Product leaders and strategy teams",
+      "confidence": 0.84
+    },
+    {
+      "implication": "For manufacturer-facing products, test messaging around cost control, planning, and resilience. The survey mix points to softer current demand but still-high price pressure.",
+      "audience": "Growth PMs, lifecycle teams, and sales-assist product teams",
+      "confidence": 0.76
+    }
+  ],
+  "existing_content_assessment": {
+    "recommendation": "minor_update",
+    "rationale": "The live summary's main stance still matches the new data: with value_up_is_positive, the move from 26.7 to -0.4 is negative, and the current reading is slightly below zero. The national-gap framing also still has support from a stronger national PMI reading. But the wording should be updated because the story is now a sharp one-month flip to near-flat activity, not just a generic gloomy regional note.",
+    "specific_lines_at_risk": [
+      "Factories around Philadelphia sounded a little gloomy last month",
+      "The national factory gauge is more upbeat right now, and the gap between the two is the part worth watching."
+    ]
+  },
+  "self_assessment": {
+    "overall_confidence": 0.84,
+    "numbers_reproducible": true,
+    "all_claims_sourced": true,
+    "reading_grade_estimate": 8.2,
+    "disclaimer_respected": true,
+    "unsupported_claims": [],
+    "notes": "Pulse is not financial analysis, investment advice, or market prediction. Historical-rank calculations used the Philadelphia Fed MBOS historical CSV current general activity seasonally adjusted diffusion index column through May 2026. No publishing or live-content changes were performed. The FRED series page confirmed title, source, and May 1968 to May 2026 coverage, but its fetched text did not show latest observation rows."
+  }
+}

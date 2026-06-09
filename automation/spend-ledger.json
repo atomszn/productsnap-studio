@@ -1,0 +1,20 @@
+{
+  "_comment": "Append-only spend ledger for the editorial automation. Every AI run (research/editorial/validation) appends one entry. check-budget.js sums entries in the current calendar month and compares against automation-config.json budget block. This file is the audit trail for cost: which run, which model, which role, estimated USD, and why. Never hand-edit entries; the runner appends them. The 'months' rollup is a convenience cache the runner may refresh; the 'entries' array is the source of truth.",
+  "version": "1.0.0",
+  "currency": "USD",
+  "entries": [
+    {
+      "ts": "2026-06-09T17:51:25.144Z",
+      "month": "2026-06",
+      "role": "research",
+      "model": "gpt_5_5",
+      "estimated_cost_usd": 0.45,
+      "run_id": "97f65dc037",
+      "task_id": "editorial-task-d4c7a02c07bf9fb7",
+      "fingerprint": "d4c7a02c07bf9fb7"
+    }
+  ],
+  "months": {
+    "2026-06": 0.45
+  }
+}

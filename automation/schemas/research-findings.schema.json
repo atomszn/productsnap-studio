@@ -1,0 +1,154 @@
+{
+  "_comment": "Schema for data/pulse-research-findings.json — written by the Computer-side research agent in Phase 1 shadow mode. This is REVIEWABLE research output ONLY: what changed, why it matters, how it impacts existing content, and product implications. It is NOT user-facing copy (that is the editorial agent, Phase 2). Every factual claim must carry source support. Numbers must be reproducible from the task's signal data. Shadow mode: writing this file publishes NOTHING.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "findings_id",
+    "task_id",
+    "fingerprint",
+    "generated_at",
+    "phase",
+    "shadow_mode",
+    "model_used",
+    "estimated_cost_usd",
+    "why_triggered",
+    "signal_findings",
+    "cross_signal_impacts",
+    "product_implications",
+    "self_assessment"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "findings_id": { "type": "string", "minLength": 8 },
+    "task_id": { "type": "string", "minLength": 8 },
+    "fingerprint": { "type": "string", "minLength": 8, "_comment": "must equal the task fingerprint — proves these findings answer that exact task" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "phase": { "type": "integer", "minimum": 0, "maximum": 4 },
+    "shadow_mode": { "type": "boolean", "const": true, "_comment": "Phase 1 findings are always shadow" },
+    "model_used": { "type": "string", "minLength": 2, "_comment": "exact model id from model-registry that produced these findings" },
+    "model_role": { "type": "string", "const": "research" },
+    "estimated_cost_usd": { "type": "number", "minimum": 0 },
+
+    "why_triggered": {
+      "type": "string",
+      "minLength": 20,
+      "_comment": "plain explanation of why the DRAFT event fired — which signal moved, from/to, and why that crossed a materiality threshold. Auditable restatement of the task triggers."
+    },
+
+    "signal_findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "signal_id",
+          "what_changed",
+          "direction",
+          "direction_matches_existing",
+          "what_it_means",
+          "confidence",
+          "sources"
+        ],
+        "properties": {
+          "signal_id": { "type": "string" },
+          "what_changed": { "type": "string", "minLength": 10, "_comment": "factual restatement: value moved from X to Y over period Z" },
+          "direction": { "type": "string", "enum": ["up", "down", "flat", "flip_up", "flip_down"] },
+          "direction_matches_existing": { "type": "boolean", "_comment": "does the new data still agree with the live summary's stance? false = the existing copy may now be wrong" },
+          "what_it_means": { "type": "string", "minLength": 20, "_comment": "interpretation grounded in sources; what this move signals" },
+          "magnitude_context": { "type": "string", "_comment": "is this big/small relative to history? optional but encouraged" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "uncertainties": { "type": "array", "items": { "type": "string" } },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "url"],
+              "properties": {
+                "name": { "type": "string" },
+                "url": { "type": "string", "format": "uri" },
+                "tier": { "type": "integer" },
+                "accessed_at": { "type": "string", "format": "date-time" }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "cross_signal_impacts": {
+      "type": "array",
+      "_comment": "How this change affects OTHER signals or the broader read. May be empty if genuinely isolated, but emptiness should be a deliberate finding, not laziness.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["affected", "impact", "confidence"],
+        "properties": {
+          "affected": { "type": "string", "_comment": "signal id, 'weekly_connection', or a named theme" },
+          "impact": { "type": "string", "minLength": 10 },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "url"],
+              "properties": {
+                "name": { "type": "string" },
+                "url": { "type": "string", "format": "uri" },
+                "tier": { "type": "integer" },
+                "accessed_at": { "type": "string", "format": "date-time" }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "product_implications": {
+      "type": "array",
+      "minItems": 1,
+      "_comment": "What product builders / PMs should take away. The 'so what' for the audience.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["implication", "confidence"],
+        "properties": {
+          "implication": { "type": "string", "minLength": 15 },
+          "audience": { "type": "string", "_comment": "e.g. B2B selling to industrials, consumer subscription, infra" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+
+    "existing_content_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Research agent's read on whether the LIVE content for in-scope signals is still accurate after this change. Drives the Phase 2 KEEP/REWRITE recommendation. Advisory only in Phase 1.",
+      "properties": {
+        "recommendation": { "type": "string", "enum": ["keep", "minor_update", "rewrite", "uncertain"] },
+        "rationale": { "type": "string" },
+        "specific_lines_at_risk": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "self_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall_confidence", "numbers_reproducible", "all_claims_sourced", "reading_grade_estimate", "disclaimer_respected", "notes"],
+      "_comment": "The research agent grades its OWN output against the future quality-gate dimensions. In Phase 1 this is recorded for review; it does not gate anything. Honest > optimistic.",
+      "properties": {
+        "overall_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "numbers_reproducible": { "type": "boolean", "_comment": "every number traces back to task signal data or a cited source" },
+        "all_claims_sourced": { "type": "boolean" },
+        "reading_grade_estimate": { "type": "number", "minimum": 0, "_comment": "estimated US grade level of what_it_means/implications text" },
+        "disclaimer_respected": { "type": "boolean", "_comment": "no investment-advice / market-prediction framing" },
+        "unsupported_claims": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
