@@ -119,19 +119,37 @@
   ],
   "product_implications": [
     {
-      "implication": "Treat Mid-Atlantic manufacturing demand as less steady than it looked one month ago. PMs should watch order, shipment, and renewal signals before making big roadmap or capacity calls for this segment.",
-      "audience": "PMs and product operators serving manufacturers",
-      "confidence": 0.82
+      "implication": "Treat Mid-Atlantic factory demand as more fragile, not broken. If your product sells into plants, some buyers may slow new orders, choose smaller rollouts, or downgrade needs before they cancel. Build sales-assist flows that flag order softness early and offer lower-risk pilots, phased seats, or cost-control workflows before renewal talks.",
+      "audience": "PMs and product operators serving Mid-Atlantic manufacturers",
+      "confidence": 0.82,
+      "depth": {
+        "level": 3,
+        "macro_signal": "The Philadelphia Fed current general activity index fell from 26.7 in April to -0.4 in May, with new orders at -1.7 and shipments at 4.9.",
+        "behavior_link": "Some Mid-Atlantic factory buyers may slow new commitments, choose smaller rollouts, or downgrade needs before they cancel outright.",
+        "strategy_link": "Products selling into this segment should make lower-risk entry paths and early downgrade signals first-class, not only chase new-seat expansion."
+      }
     },
     {
       "implication": "Do not turn one regional survey into a national product thesis. Use this as a warning flag and compare it with national demand, payroll, and customer data.",
       "audience": "Product leaders and strategy teams",
-      "confidence": 0.84
+      "confidence": 0.84,
+      "depth": {
+        "level": 1,
+        "macro_signal": "The Philly Fed regional index flipped to -0.4 while the national S&P Global US Manufacturing PMI rose to 55.1.",
+        "behavior_link": "",
+        "strategy_link": ""
+      }
     },
     {
-      "implication": "For manufacturer-facing products, test messaging around cost control, planning, and resilience. The survey mix points to softer current demand but still-high price pressure.",
+      "implication": "For manufacturer-facing products, test whether customers respond more to cost control, planning, and resilience than to expansion. The survey mix points to softer current demand but still-high price pressure.",
       "audience": "Growth PMs, lifecycle teams, and sales-assist product teams",
-      "confidence": 0.76
+      "confidence": 0.76,
+      "depth": {
+        "level": 2,
+        "macro_signal": "The survey showed softer current demand while prices paid stayed high at 47.9.",
+        "behavior_link": "Manufacturing customers may be more cost-sensitive and ask for clearer savings, planning help, or budget protection before adding spend.",
+        "strategy_link": ""
+      }
     }
   ],
   "existing_content_assessment": {
