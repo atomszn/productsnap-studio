@@ -1,24 +1,19 @@
 {
-  "generated_at": "2026-06-09T17:21:48.536Z",
+  "generated_at": "2026-06-09T22:59:15.844Z",
   "mode": "log_only",
   "llm_invoked": false,
-  "decision": "DRAFT",
-  "triggers": [
+  "decision": "KEEP",
+  "triggers": [],
+  "triggering_observations": {
+    "mfg-activity": "2026-05"
+  },
+  "suppressed_stale_moves": [
     {
-      "type": "material_data_move",
-      "detail": "1 signal(s) moved materially",
-      "signals": [
-        {
-          "id": "mfg-activity",
-          "delta": -27.099999999999998,
-          "reasons": [
-            "direction_flip",
-            "magnitude_step>=25"
-          ],
-          "from": 26.7,
-          "to": -0.4
-        }
-      ]
+      "id": "mfg-activity",
+      "observation_date": "2026-05",
+      "last_triggered": "2026-05",
+      "from": 26.7,
+      "to": -0.4
     }
   ],
   "editorial_freshness": {
