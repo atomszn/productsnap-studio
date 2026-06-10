@@ -297,6 +297,22 @@ header.topnav-wrap {
   }
   .nav-panel a + a { margin-top: 2px; }
   .nav-panel a:hover { background: var(--note-cream); color: var(--ink); }
+  /* Pulse is conceptually different (macro signals -> product strategy), so the
+     mobile panel gives it a quiet handwritten subtitle. Mobile-only; the desktop
+     ribbon keeps a title-attribute hint instead so the chrome stays aligned. */
+  .nav-panel a.nav-pulse { line-height: 1.15; }
+  .nav-panel a.nav-pulse .nav-sub {
+    display: block;
+    margin-top: 2px;
+    font-family: var(--hand, "Caveat", cursive);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--teal);
+    letter-spacing: .2px;
+  }
+  /* keep the handwritten hint readable on the active (teal-bg) state */
+  .nav-panel a.nav-pulse.is-active .nav-sub,
+  .nav-panel a.nav-pulse[aria-current="page"] .nav-sub { color: var(--teal); }
   .nav-panel a.is-active,
   .nav-panel a[aria-current="page"] {
     color: var(--teal);
