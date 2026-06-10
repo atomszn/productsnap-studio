@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T22:59:15.844Z",
+  "generated_at": "2026-06-10T17:54:27.619Z",
   "mode": "log_only",
   "llm_invoked": false,
   "decision": "KEEP",
@@ -18,9 +18,9 @@
   ],
   "editorial_freshness": {
     "editorial_status": "current",
-    "age_days": 4,
+    "age_days": 0,
     "expires_after_days": 7
   },
-  "weekly_connection_reviewed": "2026-06-05",
+  "weekly_connection_reviewed": "2026-06-10",
   "note": "Phase 1 log-only. No content was generated or published. This snapshot records what the event-driven trigger WOULD do once AI drafting is enabled (Phase 2/3)."
 }
