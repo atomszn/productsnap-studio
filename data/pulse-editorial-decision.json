@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T19:01:33.396Z",
+  "generated_at": "2026-06-16T18:53:12.370Z",
   "mode": "log_only",
   "llm_invoked": false,
   "decision": "KEEP",
@@ -18,7 +18,7 @@
   ],
   "editorial_freshness": {
     "editorial_status": "aging",
-    "age_days": 5,
+    "age_days": 6,
     "expires_after_days": 7
   },
   "weekly_connection_reviewed": "2026-06-10",
