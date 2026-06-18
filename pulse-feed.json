@@ -11,8 +11,8 @@
   "disclaimer": "Pulse is not financial analysis, investment advice, or market prediction. It connects public signals, tracks how things are changing, and turns that into better product questions. Always verify against primary sources before acting.",
   "weekly_thought": {
     "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",
-    "plain_english": "People feel about as bad about the economy as they have in a decade, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge — top model prices are down about 60% over six months — and new, more capable models keep arriving every few weeks.",
-    "why_it_matters": "Your customer is stretched and watching every bill. The good news: the thing that helps them most — AI doing more of the work for them — has rarely been cheaper to ship. Any plan that still assumes a relaxed customer, or assumes AI features are too costly to include at lower price points, is worth reopening.",
+    "plain_english": "The current interpretation is under review — the signal picture has shifted. Updated context coming soon.",
+    "why_it_matters": "Interpretation under review.",
     "lenses": [
       {
         "id": "build",
@@ -39,15 +39,15 @@
         "question_to_ask": "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true."
       }
     ],
-    "under_review": false
+    "under_review": true
   },
   "weekly_connection": {
     "title": "Two economies, same week",
     "subtitle": "Customers are under real pressure while building with AI keeps getting cheaper and faster. Both are happening at once — and only one of them looks likely to reverse soon.",
-    "under_review": false,
-    "observation": "People feel about as bad about the economy as they have in a decade, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge — top model prices are down about 60% over six months — and new, more capable models keep arriving every few weeks.",
-    "why_it_matters": "Your customer is stretched and watching every bill. The good news: the thing that helps them most — AI doing more of the work for them — has rarely been cheaper to ship. Any plan that still assumes a relaxed customer, or assumes AI features are too costly to include at lower price points, is worth reopening.",
-    "decision_this_week": "Pick one AI feature you've put off because it felt too expensive. Ask whether it's still too expensive at today's prices — and whether a stretched customer would value it more, not less."
+    "under_review": true,
+    "observation": "The current interpretation is under review — the signal picture has shifted. Updated context coming soon.",
+    "why_it_matters": "Interpretation under review.",
+    "decision_this_week": ""
   },
   "pm_tension": {
     "label": "The PM tension this raises",
