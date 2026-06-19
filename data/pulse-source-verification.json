@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "summary": {
-    "generated_at": "2026-06-18T17:57:29.254Z",
+    "generated_at": "2026-06-19T17:13:39.016Z",
     "mode": "check",
     "automated_signal_count": 10,
     "matches": 10,
@@ -19,7 +19,7 @@
       "observation_date": "2026-05-01",
       "source_url": "https://data.bls.gov/timeseries/CUUR0000SA0",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:24.418Z"
+      "checked_at": "2026-06-19T17:13:36.809Z"
     },
     {
       "id": "ppi",
@@ -29,7 +29,7 @@
       "observation_date": "2026-05-01",
       "source_url": "https://data.bls.gov/timeseries/WPSFD4",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:24.760Z"
+      "checked_at": "2026-06-19T17:13:37.142Z"
     },
     {
       "id": "nonfarm-payrolls",
@@ -39,7 +39,7 @@
       "observation_date": "2026-05-01",
       "source_url": "https://data.bls.gov/timeseries/CES0000000001",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:24.868Z"
+      "checked_at": "2026-06-19T17:13:37.291Z"
     },
     {
       "id": "pce",
@@ -49,27 +49,27 @@
       "observation_date": "2026-04-01",
       "source_url": "https://fred.stlouisfed.org/series/PCEPILFE",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:24.987Z"
+      "checked_at": "2026-06-19T17:13:37.421Z"
     },
     {
       "id": "fed-net-liquidity",
       "verdict": "MATCH",
-      "stored_value": "$6.73T",
-      "source_value": "$6.73T",
-      "observation_date": "2026-06-10",
+      "stored_value": "$6.74T",
+      "source_value": "$6.74T",
+      "observation_date": "2026-06-17",
       "source_url": "https://fred.stlouisfed.org/series/WALCL",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:27.430Z"
+      "checked_at": "2026-06-19T17:13:37.757Z"
     },
     {
       "id": "10y-treasury",
       "verdict": "MATCH",
-      "stored_value": "4.43%",
-      "source_value": "4.43%",
-      "observation_date": "2026-06-16",
+      "stored_value": "4.49%",
+      "source_value": "4.49%",
+      "observation_date": "2026-06-17",
       "source_url": "https://fred.stlouisfed.org/series/DGS10",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:27.773Z"
+      "checked_at": "2026-06-19T17:13:37.989Z"
     },
     {
       "id": "retail-sales",
@@ -79,7 +79,7 @@
       "observation_date": "2026-05-01",
       "source_url": "https://fred.stlouisfed.org/series/RSAFS",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:28.252Z"
+      "checked_at": "2026-06-19T17:13:38.194Z"
     },
     {
       "id": "consumer-confidence",
@@ -89,7 +89,7 @@
       "observation_date": "2026-04-01",
       "source_url": "https://fred.stlouisfed.org/series/UMCSENT",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:28.428Z"
+      "checked_at": "2026-06-19T17:13:38.426Z"
     },
     {
       "id": "mfg-activity",
@@ -99,7 +99,7 @@
       "observation_date": "2026-06-01",
       "source_url": "https://fred.stlouisfed.org/series/GACDFSA066MSFRBPHI",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:28.742Z"
+      "checked_at": "2026-06-19T17:13:38.599Z"
     },
     {
       "id": "services-activity",
@@ -109,55 +109,55 @@
       "observation_date": "2026-05-01",
       "source_url": "https://fred.stlouisfed.org/series/TSSOSBACTUAMFRBDAL",
       "action_taken": "none",
-      "checked_at": "2026-06-18T17:57:29.074Z"
+      "checked_at": "2026-06-19T17:13:38.826Z"
     },
     {
       "id": "series-a-counts",
       "verdict": "SKIP",
       "reason": "curated Tier-2/3 signal — no free API, not source-verifiable",
-      "checked_at": "2026-06-18T17:57:29.254Z"
+      "checked_at": "2026-06-19T17:13:39.016Z"
     },
     {
       "id": "ai-model-releases",
       "verdict": "SKIP",
       "reason": "curated Tier-2/3 signal — no free API, not source-verifiable",
-      "checked_at": "2026-06-18T17:57:29.254Z"
+      "checked_at": "2026-06-19T17:13:39.016Z"
     },
     {
       "id": "ai-api-pricing",
       "verdict": "SKIP",
       "reason": "curated Tier-2/3 signal — no free API, not source-verifiable",
-      "checked_at": "2026-06-18T17:57:29.254Z"
+      "checked_at": "2026-06-19T17:13:39.016Z"
     },
     {
       "id": "open-source-ai",
       "verdict": "SKIP",
       "reason": "curated Tier-2/3 signal — no free API, not source-verifiable",
-      "checked_at": "2026-06-18T17:57:29.254Z"
+      "checked_at": "2026-06-19T17:13:39.016Z"
     },
     {
       "id": "compute-cost",
       "verdict": "SKIP",
       "reason": "curated Tier-2/3 signal — no free API, not source-verifiable",
-      "checked_at": "2026-06-18T17:57:29.254Z"
+      "checked_at": "2026-06-19T17:13:39.016Z"
     },
     {
       "id": "emerging-apps",
       "verdict": "SKIP",
       "reason": "curated Tier-2/3 signal — no free API, not source-verifiable",
-      "checked_at": "2026-06-18T17:57:29.254Z"
+      "checked_at": "2026-06-19T17:13:39.016Z"
     },
     {
       "id": "tech-hiring",
       "verdict": "SKIP",
       "reason": "curated Tier-2/3 signal — no free API, not source-verifiable",
-      "checked_at": "2026-06-18T17:57:29.254Z"
+      "checked_at": "2026-06-19T17:13:39.016Z"
     },
     {
       "id": "ai-regulation",
       "verdict": "SKIP",
       "reason": "curated Tier-2/3 signal — no free API, not source-verifiable",
-      "checked_at": "2026-06-18T17:57:29.254Z"
+      "checked_at": "2026-06-19T17:13:39.016Z"
     }
   ]
 }
