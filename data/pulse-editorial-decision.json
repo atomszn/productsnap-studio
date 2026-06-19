@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-18T17:57:24.198Z",
+  "generated_at": "2026-06-19T17:13:36.591Z",
   "mode": "log_only",
   "llm_invoked": false,
   "decision": "DRAFT",
@@ -10,32 +10,24 @@
     },
     {
       "type": "editorial_stale",
-      "detail": "editorial read past its 7-day window (age 8d)"
-    },
-    {
-      "type": "material_data_move",
-      "detail": "1 signal(s) moved materially on a NEW observation",
-      "signals": [
-        {
-          "id": "mfg-activity",
-          "delta": 10.700000000000001,
-          "reasons": [
-            "direction_flip"
-          ],
-          "from": -0.4,
-          "to": 10.3,
-          "observation_date": "2026-06"
-        }
-      ]
+      "detail": "editorial read past its 7-day window (age 9d)"
     }
   ],
   "triggering_observations": {
     "mfg-activity": "2026-06"
   },
-  "suppressed_stale_moves": [],
+  "suppressed_stale_moves": [
+    {
+      "id": "mfg-activity",
+      "observation_date": "2026-06",
+      "last_triggered": "2026-06",
+      "from": -0.4,
+      "to": 10.3
+    }
+  ],
   "editorial_freshness": {
     "editorial_status": "stale",
-    "age_days": 8,
+    "age_days": 9,
     "expires_after_days": 7
   },
   "weekly_connection_reviewed": "2026-06-10",
