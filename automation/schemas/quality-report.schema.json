@@ -83,8 +83,117 @@
         "honest_no_overclaim": { "type": "boolean", "_comment": "draft does not claim more than the findings + data support" },
         "disclaimer_respected": { "type": "boolean" },
         "unsupported_claims": { "type": "array", "items": { "type": "string" } },
+        "narrative_reversal_acknowledged": { "type": "boolean", "_comment": "true if the judge reviewed and cleared any supported narrative reversal (or there was none). Optional; absent is treated as true." },
         "estimated_cost_usd": { "type": "number", "minimum": 0 },
         "notes": { "type": "string" }
+      }
+    },
+
+    "validation_panel": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Phase 3 3-model adversarial panel. The gate uses panelMinConf = min(judge.confidence) as the verdict confidence, requires ALL judges' confidence >= publish bar (all_clear_publish) to auto-publish, and treats any judge hard issue (disclaimer not respected, overclaim, unsupported causal claim, or an unacknowledged supported reversal) as a block. validation_agent above is populated from the WORST/representative judge for backward compat.",
+      "required": ["judges", "min_confidence", "all_clear_publish", "any_hard_issue"],
+      "properties": {
+        "judges": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["model_used", "confidence"],
+            "properties": {
+              "model_used": { "type": "string", "minLength": 2 },
+              "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+              "disclaimer_respected": { "type": "boolean" },
+              "honest_no_overclaim": { "type": "boolean" },
+              "one_voice_cohesion": { "type": "boolean" },
+              "unsupported_claims": { "type": "array", "items": { "type": "string" } },
+              "narrative_reversal_acknowledged": { "type": "boolean" },
+              "reading_grade": { "type": "number", "minimum": 0, "maximum": 20 },
+              "notes": { "type": "string" }
+            }
+          }
+        },
+        "min_confidence": { "type": "number", "minimum": 0, "maximum": 1, "_comment": "worst-case confidence across judges; this is what the verdict uses" },
+        "all_clear_publish": { "type": "boolean", "_comment": "true iff EVERY judge confidence >= publish bar" },
+        "any_hard_issue": { "type": "boolean", "_comment": "any judge reported disclaimer/overclaim/unsupported-causal/unacknowledged-reversal" }
+      }
+    },
+
+    "no_advice": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Deterministic phrase-level advice/prediction backstop (scripts/lib/no-advice-scan.js) over the APPLIED tree's editable prose. pass=false (any hit) is a HARD block folded into the verdict.",
+      "required": ["pass", "hits", "sections_scanned"],
+      "properties": {
+        "pass": { "type": "boolean" },
+        "sections_scanned": { "type": "integer", "minimum": 0 },
+        "hits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["term", "path", "sentence"],
+            "properties": {
+              "term": { "type": "string" },
+              "path": { "type": "string" },
+              "sentence": { "type": "string" },
+              "pattern": { "type": "string" },
+              "kind": { "type": "string", "enum": ["prescriptive", "predictive"] }
+            }
+          }
+        }
+      }
+    },
+
+    "narrative_consistency": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Deterministic narrative-reversal check (scripts/lib/narrative-consistency.js) comparing the previous live page to the applied draft. An UNSUPPORTED reversal (prose flips, data direction did not) is a HARD block. A SUPPORTED reversal is a soft_warning the panel must explicitly acknowledge (narrative_reversal_acknowledged) before a GREEN can publish.",
+      "required": ["pass", "reversals", "soft_warnings"],
+      "properties": {
+        "pass": { "type": "boolean", "_comment": "false iff any UNSUPPORTED reversal" },
+        "reversals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signal_id", "prev_polarity", "new_polarity", "supported"],
+            "properties": {
+              "signal_id": { "type": "string" },
+              "prev_polarity": { "type": "string" },
+              "new_polarity": { "type": "string" },
+              "prev_excerpt": { "type": "string" },
+              "new_excerpt": { "type": "string" },
+              "supported": { "type": "boolean" }
+            }
+          }
+        },
+        "soft_warnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signal_id", "detail"],
+            "properties": {
+              "signal_id": { "type": "string" },
+              "detail": { "type": "string" }
+            }
+          }
+        },
+        "hard_failures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["signal_id", "detail"],
+            "properties": {
+              "signal_id": { "type": "string" },
+              "detail": { "type": "string" }
+            }
+          }
+        }
       }
     },
 
@@ -182,6 +291,8 @@
         "paused": { "type": "boolean", "_comment": "pause_auto_publish kill-switch is set; forces hold/review without disarming the pipeline" },
         "publish_bar": { "type": "number", "minimum": 0, "maximum": 1 },
         "clarity_clean": { "type": "boolean" },
+        "panel_all_clear": { "type": "boolean", "_comment": "every judge confidence >= publish bar" },
+        "panel_min_confidence": { "type": "number", "minimum": 0, "maximum": 1, "_comment": "worst-case confidence across the panel (the verdict confidence)" },
         "published": { "type": "boolean" },
         "action": { "type": "string", "enum": ["auto_publish", "review_pr", "held_safe", "held_below_bar"] },
         "hold_reason": { "type": ["string", "null"] }

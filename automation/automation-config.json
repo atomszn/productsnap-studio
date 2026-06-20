@@ -35,6 +35,13 @@
   "reading_grade_target_max": 9,
   "_reading_grade_meaning": "Editorial output must read at or below US grade 9 (Phase 2+ quality gate). Recorded in Phase 1 findings as a target only.",
 
+  "validation_panel": {
+    "_comment": "Phase 3 multi-fold robustness. The single validation agent is replaced by a 3-judge adversarial panel of DIFFERENT providers (deliberately not the editorial drafter). The gate uses the WORST (minimum) confidence across judges for the GREEN/YELLOW/RED verdict, and only AUTO-PUBLISHES when ALL judges independently clear the publish bar (require_all_clear) AND no judge reports a hard issue. A single-judge ingest (--validate-ingest) is treated as a 1-judge panel for backward compatibility.",
+    "models": ["gemini_3_1_pro", "gpt_5_5", "claude_opus_4_8"],
+    "min_required": 3,
+    "require_all_clear": true
+  },
+
   "budget": {
     "_comment": "Real governor. check-budget.js reads the spend ledger and compares against these. In Phase 1 the governor is READ-ONLY/advisory: it records status but the deterministic data pipeline never depends on it. Dollar amounts are USD/month.",
     "monthly_target_usd": 50,
