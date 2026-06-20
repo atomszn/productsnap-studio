@@ -1,0 +1,166 @@
+{
+  "_comment": "Schema for data/pulse-content-draft.json — written by the Phase 2 editorial agent (role 'editorial', e.g. claude_opus_4_8) inside Perplexity Computer. This is REVIEWABLE editorial copy ONLY. It carries the prose the agent proposes for the editable fields named in automation/editable-fields-map.md, plus provenance tying it to the exact task + findings. It NEVER carries signal data values (current_value, data_points, compared_to, percentile, sources, last_updated) — those are read-only and live only in pulse-content.json. The runner validates this on --draft-ingest and refuses to write an invalid draft. shadow_mode true = writing this publishes nothing.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "draft_id",
+    "task_id",
+    "fingerprint",
+    "findings_id",
+    "generated_at",
+    "phase",
+    "shadow_mode",
+    "model_used",
+    "model_role",
+    "estimated_cost_usd",
+    "editorial_date",
+    "throughline",
+    "signals",
+    "self_assessment"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "draft_id": { "type": "string", "minLength": 8 },
+    "task_id": { "type": "string", "minLength": 8 },
+    "fingerprint": { "type": "string", "minLength": 8, "_comment": "must equal the task + findings fingerprint" },
+    "findings_id": { "type": "string", "minLength": 8, "_comment": "the research findings this draft is built from" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "phase": { "type": "integer", "minimum": 0, "maximum": 4 },
+    "shadow_mode": { "type": "boolean" },
+    "model_used": { "type": "string", "minLength": 2 },
+    "model_role": { "type": "string", "const": "editorial" },
+    "estimated_cost_usd": { "type": "number", "minimum": 0 },
+
+    "editorial_date": {
+      "type": "string",
+      "format": "date",
+      "_comment": "the date this editorial read is being made (today). Becomes last_editorial_reviewed + the WC dateline. Must be today on a real run."
+    },
+
+    "throughline": {
+      "type": "string",
+      "minLength": 20,
+      "_comment": "One sentence the agent commits to as the single voice/idea connecting the whole page this cycle. Used by the validator to judge cohesion. Not published directly."
+    },
+
+    "signals": {
+      "type": "array",
+      "minItems": 1,
+      "_comment": "One entry per IN-SCOPE signal the agent re-drafted. Only signals the task put in scope (or whose live copy the findings flagged at-risk) should appear. Each entry is editorial prose only.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["signal_id", "title", "summary", "status", "status_tone", "momentum_label", "pill_label_short", "chain", "refined_why"],
+        "properties": {
+          "signal_id": { "type": "string", "minLength": 2 },
+          "title": { "type": "string", "minLength": 6, "maxLength": 140 },
+          "summary": { "type": "string", "minLength": 30, "maxLength": 700 },
+          "status": { "type": "string", "minLength": 2, "maxLength": 24, "_comment": "single status word/short phrase; drives the polarity gate. Pick honestly — choppy/mixed/steady map to flat (always aligned) when the data is genuinely noisy." },
+          "status_tone": { "type": "string", "enum": ["green", "amber", "neutral", "red"] },
+          "momentum_label": { "type": "string", "minLength": 2, "maxLength": 60 },
+          "pill_label_short": { "type": "string", "minLength": 2, "maxLength": 60 },
+          "chain": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 6,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["label", "text"],
+              "properties": {
+                "label": { "type": "string", "minLength": 2, "maxLength": 32 },
+                "text": { "type": "string", "minLength": 10, "maxLength": 700 },
+                "expansion": { "type": "string", "maxLength": 700 }
+              }
+            }
+          },
+          "refined_why": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["evidence", "counter_signal", "product_takeaway"],
+            "properties": {
+              "evidence": { "type": "string", "minLength": 15, "maxLength": 600 },
+              "counter_signal": { "type": "string", "minLength": 10, "maxLength": 600 },
+              "product_takeaway": { "type": "string", "minLength": 15, "maxLength": 600 }
+            }
+          }
+        }
+      }
+    },
+
+    "weekly_connection": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Present only when the Weekly Connection was in scope (narrative_review_required or stale). Editable prose only — connected_signals are read-only and not carried here.",
+      "required": ["title", "subtitle", "body_paragraphs", "refined"],
+      "properties": {
+        "title": { "type": "string", "minLength": 6, "maxLength": 140 },
+        "subtitle": { "type": "string", "minLength": 20, "maxLength": 500 },
+        "body_paragraphs": { "type": "array", "minItems": 1, "maxItems": 5, "items": { "type": "string", "minLength": 20, "maxLength": 900 } },
+        "refined": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["observation", "why_it_matters", "pm_implication_default", "decision_this_week"],
+          "properties": {
+            "observation": { "type": "string", "minLength": 20, "maxLength": 900 },
+            "why_it_matters": { "type": "string", "minLength": 20, "maxLength": 900 },
+            "pm_implication_default": { "type": "string", "minLength": 20, "maxLength": 900 },
+            "decision_this_week": { "type": "string", "minLength": 20, "maxLength": 900 }
+          }
+        }
+      }
+    },
+
+    "weekly_thought": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "NEW in Phase 2 scope: the top hiring/AI headline + its 4 lens tabs. Present only when the Weekly Thought was in scope (stale or materially affected). lenses is keyed by the four fixed lens ids; each holds editable prose only.",
+      "required": ["headline", "lenses"],
+      "properties": {
+        "headline": { "type": "string", "minLength": 20, "maxLength": 240 },
+        "lenses": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "pattern", "action"],
+            "properties": {
+              "label": { "type": "string", "minLength": 2, "maxLength": 60 },
+              "pattern": { "type": "string", "minLength": 20, "maxLength": 1200 },
+              "action": { "type": "string", "minLength": 10, "maxLength": 400 },
+              "sketchbook_note": { "type": "string", "maxLength": 120 }
+            }
+          }
+        }
+      }
+    },
+
+    "page_prose": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Optional top-level page prose: the weekly_note summary and the pm_tension question/note. Present only when re-drafted.",
+      "properties": {
+        "weekly_note_text": { "type": "string", "minLength": 20, "maxLength": 900 },
+        "pm_tension_question": { "type": "string", "minLength": 10, "maxLength": 400 },
+        "pm_tension_note": { "type": "string", "minLength": 10, "maxLength": 400 }
+      }
+    },
+
+    "self_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["overall_confidence", "reading_grade_estimate", "one_voice_cohesion", "numbers_traceable", "disclaimer_respected", "notes"],
+      "_comment": "The editorial agent grades its OWN draft. Honest > optimistic. The deterministic gate and the independent validator do not trust this; it is recorded for review and to catch self-aware low confidence early.",
+      "properties": {
+        "overall_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "reading_grade_estimate": { "type": "number", "minimum": 0, "maximum": 20 },
+        "one_voice_cohesion": { "type": "boolean", "_comment": "does the whole page read as one voice around the throughline?" },
+        "numbers_traceable": { "type": "boolean", "_comment": "every number in the prose traces to real signal data or an allowlisted illustrative number" },
+        "disclaimer_respected": { "type": "boolean", "_comment": "no investment-advice / market-prediction framing" },
+        "unsupported_claims": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
