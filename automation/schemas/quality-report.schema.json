@@ -1,0 +1,133 @@
+{
+  "_comment": "Schema for data/pulse-quality-report.json — the Phase 2 quality gate report. It is assembled by the runner's --gate step and combines THREE independent layers: (1) the deterministic reconciler (scripts/lib/verify-claims.js — numbers, polarity, narrative, advice scan, freshness; pure code, no AI); (2) the independent AI validation agent (role 'validation', a DIFFERENT provider than editorial, e.g. gemini_3_1_pro) graded on grade/cohesion/honesty; (3) schema + the existing test suites. The final verdict is computed deterministically: RED if any hard check fails or confidence < min_confidence_for_yellow; YELLOW if confidence in [yellow,green) or a soft reconciler warning; GREEN only if everything is clean AND confidence >= green_threshold. Nothing auto-publishes unless verdict == GREEN AND auto_publish_enabled AND kill-switch on.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "report_id",
+    "task_id",
+    "fingerprint",
+    "draft_id",
+    "generated_at",
+    "phase",
+    "verdict",
+    "reconciler",
+    "validation_agent",
+    "structural",
+    "thresholds",
+    "blocking_reasons"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "report_id": { "type": "string", "minLength": 8 },
+    "task_id": { "type": "string", "minLength": 8 },
+    "fingerprint": { "type": "string", "minLength": 8 },
+    "draft_id": { "type": "string", "minLength": 8 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "phase": { "type": "integer", "minimum": 0, "maximum": 4 },
+
+    "verdict": { "type": "string", "enum": ["GREEN", "YELLOW", "RED"] },
+
+    "reconciler": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Deterministic checks from verify-claims.js. pass=true means no hard reconciliation failure. Pure code; never an AI judgement.",
+      "required": ["pass", "numbers_ok", "polarity_ok", "narrative_ok", "advice_clean", "freshness_ok", "hard_failures", "soft_warnings"],
+      "properties": {
+        "pass": { "type": "boolean" },
+        "numbers_ok": { "type": "boolean", "_comment": "every prose number reconciles to real data or the allowlist" },
+        "polarity_ok": { "type": "boolean", "_comment": "every drafted status word agrees with computed data direction via editorial_polarity" },
+        "narrative_ok": { "type": "boolean", "_comment": "Weekly Connection narrative direction does not contradict aggregate signal directions" },
+        "advice_clean": { "type": "boolean", "_comment": "no investment-advice / market-prediction language" },
+        "freshness_ok": { "type": "boolean", "_comment": "editorial dates are today and recompute leaves review_required false for edited items" },
+        "hard_failures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["check", "detail"],
+            "properties": {
+              "check": { "type": "string" },
+              "field": { "type": "string" },
+              "detail": { "type": "string" }
+            }
+          }
+        },
+        "soft_warnings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["check", "detail"],
+            "properties": {
+              "check": { "type": "string" },
+              "field": { "type": "string" },
+              "detail": { "type": "string" }
+            }
+          }
+        },
+        "unreconciled_numbers": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "validation_agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Independent AI checker (different provider than the drafter). It scores meaning-level quality the deterministic layer cannot. Its confidence feeds the verdict but can NEVER override a reconciler hard failure (a RED stays RED no matter how confident the validator is).",
+      "required": ["model_used", "confidence", "reading_grade", "one_voice_cohesion", "honest_no_overclaim", "disclaimer_respected", "unsupported_claims", "notes"],
+      "properties": {
+        "model_used": { "type": "string", "minLength": 2 },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1, "_comment": "overall confidence the draft is accurate, clear, and honest" },
+        "reading_grade": { "type": "number", "minimum": 0, "maximum": 20, "_comment": "estimated US grade level of the drafted prose" },
+        "one_voice_cohesion": { "type": "boolean" },
+        "honest_no_overclaim": { "type": "boolean", "_comment": "draft does not claim more than the findings + data support" },
+        "disclaimer_respected": { "type": "boolean" },
+        "unsupported_claims": { "type": "array", "items": { "type": "string" } },
+        "estimated_cost_usd": { "type": "number", "minimum": 0 },
+        "notes": { "type": "string" }
+      }
+    },
+
+    "structural": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Schema + test-suite + diff-guard results on the post-apply tree (computed deterministically).",
+      "required": ["draft_schema_valid", "editorial_only_diff", "tests_pass"],
+      "properties": {
+        "draft_schema_valid": { "type": "boolean" },
+        "editorial_only_diff": { "type": "boolean", "_comment": "true = applying the draft moved ONLY editable prose paths; false = a read-only data path would change (hard RED)" },
+        "tests_pass": { "type": "boolean", "_comment": "all 5 existing scripts/test/* suites + data-validate recompute pass on the applied tree" },
+        "failed_tests": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "thresholds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["green_confidence", "yellow_confidence", "reading_grade_max"],
+      "properties": {
+        "green_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "yellow_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "reading_grade_max": { "type": "number", "minimum": 0, "maximum": 20 }
+      }
+    },
+
+    "blocking_reasons": {
+      "type": "array",
+      "_comment": "Human-readable list of every reason the verdict is not GREEN. Empty on GREEN.",
+      "items": { "type": "string" }
+    },
+
+    "auto_publish": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "What the gate decided to DO. published true only when verdict GREEN AND auto_publish_enabled AND kill-switch on AND not shadow_mode.",
+      "properties": {
+        "eligible": { "type": "boolean", "_comment": "verdict == GREEN" },
+        "enabled_in_config": { "type": "boolean" },
+        "published": { "type": "boolean" },
+        "action": { "type": "string", "enum": ["auto_publish", "review_pr", "held_safe"] }
+      }
+    }
+  }
+}

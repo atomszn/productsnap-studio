@@ -1,9 +1,9 @@
 {
   "_comment": "Master control plane for ProductSnap Pulse editorial automation. GitHub scripts read this file but NEVER call AI. AI runs only inside Perplexity Computer. This file is the single source of truth for which automation phase is live, what the budget governor allows, and which quality gates apply. Edit deliberately; every field is reviewed in PRs.",
   "version": "1.0.0",
-  "last_reviewed": "2026-06-09",
+  "last_reviewed": "2026-06-20",
 
-  "editorial_automation_phase": 1,
+  "editorial_automation_phase": 2,
   "_phase_meaning": {
     "0": "Trigger decision is log-only. draft-editorial.js records KEEP/DRAFT but emits no handoff task. No AI anywhere.",
     "1": "Research agent SHADOW MODE. emit-editorial-task.js writes a typed handoff task on DRAFT. Computer research runner reads it, researches, writes findings + run record + ledger to the branch/artifact. Publishes NOTHING. No editorial rewrite. No auto-merge of AI interpretation.",
@@ -23,8 +23,8 @@
   "auto_publish_enabled": false,
   "_auto_publish_meaning": "Master gate for letting any AI-written interpretation reach the live page. Phase 1/2 force this false. Only relevant at phase >= 3.",
 
-  "confidence_threshold": 0.85,
-  "_confidence_threshold_meaning": "Minimum overall gate confidence required for auto-publish at phase >= 3. Not used in Phase 1 (no publishing).",
+  "confidence_threshold": 0.9,
+  "_confidence_threshold_meaning": "Minimum overall gate confidence required for a GREEN verdict (Phase 2 gate). YELLOW band is [0.70, 0.90); RED is < 0.70 or any hard-check failure. At phase >= 3 a GREEN verdict is eligible for auto-publish only when auto_publish_enabled is also true.",
 
   "reading_grade_target_max": 9,
   "_reading_grade_meaning": "Editorial output must read at or below US grade 9 (Phase 2+ quality gate). Recorded in Phase 1 findings as a target only.",
