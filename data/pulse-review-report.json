@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-19T17:13:36.536Z",
+  "generated_at": "2026-06-20T01:36:52.057Z",
   "registry_version": "1.0.0",
   "signal_count": 18,
   "summary": {
@@ -36,7 +36,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "ppi",
@@ -56,7 +56,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "pce",
@@ -76,7 +76,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "fed-net-liquidity",
@@ -96,7 +96,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "10y-treasury",
@@ -116,7 +116,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "series-a-counts",
@@ -141,7 +141,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "ai-model-releases",
@@ -152,7 +152,7 @@
       "review_required": false,
       "current_value": "3 / 14 days",
       "last_updated": "2026-05-26",
-      "editorial_status": "current",
+      "editorial_status": "aging",
       "reason": "Manual/event-driven signal accepted (human-curated)",
       "sources": [
         {
@@ -171,7 +171,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "ai-api-pricing",
@@ -196,7 +196,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "open-source-ai",
@@ -221,7 +221,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "compute-cost",
@@ -246,7 +246,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "retail-sales",
@@ -266,7 +266,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "consumer-confidence",
@@ -286,7 +286,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "emerging-apps",
@@ -297,7 +297,7 @@
       "review_required": false,
       "current_value": "pattern",
       "last_updated": "2026-05-26",
-      "editorial_status": "current",
+      "editorial_status": "aging",
       "reason": "Manual/event-driven signal accepted (human-curated)",
       "sources": [
         {
@@ -311,7 +311,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "nonfarm-payrolls",
@@ -331,7 +331,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "tech-hiring",
@@ -342,7 +342,7 @@
       "review_required": false,
       "current_value": "22nd percentile",
       "last_updated": "2026-05-26",
-      "editorial_status": "current",
+      "editorial_status": "aging",
       "reason": "Data older than cadence stale threshold",
       "sources": [
         {
@@ -356,7 +356,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "ai-regulation",
@@ -376,7 +376,7 @@
           "tier": 3
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "mfg-activity",
@@ -396,7 +396,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     },
     {
       "signal_id": "services-activity",
@@ -416,7 +416,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-19T17:13:36.536Z"
+      "checked_at": "2026-06-20T01:36:52.057Z"
     }
   ],
   "alignment_mismatches": [],
@@ -424,29 +424,49 @@
   "needs_review": [],
   "editorial": {
     "weekly_connection": {
-      "editorial_status": "stale",
-      "age_days": 9,
-      "review_required": true,
-      "review_note": "Weekly Connection is older than 7 days",
+      "editorial_status": "current",
+      "age_days": 1,
+      "review_required": false,
+      "review_note": "",
       "mismatched_connected_signals": []
     }
   },
   "narrative_review": {
     "narrative_review_required": false,
-    "dominant_direction_in_narrative": null,
+    "dominant_direction_in_narrative": "up",
     "narrative_direction_counts": {
-      "up": 3,
-      "down": 3
+      "up": 4,
+      "down": 2
     },
-    "signals_moving_with_narrative": [],
-    "signals_moving_against_narrative": [],
+    "signals_moving_with_narrative": [
+      "cpi-headline",
+      "ppi",
+      "pce",
+      "fed-net-liquidity",
+      "10y-treasury",
+      "ai-model-releases",
+      "open-source-ai",
+      "retail-sales",
+      "emerging-apps",
+      "nonfarm-payrolls",
+      "ai-regulation",
+      "mfg-activity",
+      "services-activity"
+    ],
+    "signals_moving_against_narrative": [
+      "series-a-counts",
+      "ai-api-pricing",
+      "compute-cost",
+      "consumer-confidence",
+      "tech-hiring"
+    ],
     "usable_count": 18,
     "skipped_count": 0,
     "minimum_count": 4,
     "minimum_count_met": true,
     "mismatch_fraction_threshold": 0.6,
-    "against_fraction": 0,
-    "review_note": "No dominant direction word found in the Weekly Connection narrative; nothing to contradict."
+    "against_fraction": 0.278,
+    "review_note": "Narrative direction 'up' is consistent with 13 of 18 directional signals (5 against, below the 60% threshold)."
   },
   "integrity": {
     "signal_count_before": 18,

@@ -4,10 +4,10 @@
   },
   "weekly_connection": {
     "title": "Two economies, same week",
-    "subtitle": "Customers are under real pressure while building with AI keeps getting cheaper and faster. Both are happening at once — and only one of them looks likely to reverse soon.",
+    "subtitle": "Customers are under real pressure — confidence at a three-year low, inflation re-accelerating in May — while building with AI keeps getting cheaper and faster. Both are happening at once, and only one looks likely to reverse soon.",
     "body_paragraphs": [
-      "These numbers don't usually move together in one week. People's confidence about the economy fell to one of its lowest points in a decade, and they expect prices to keep rising. In the same week, the cost of using AI kept dropping fast, and new, more capable models kept landing every few weeks. The customer side of the economy and the build side are not telling the same story right now.",
-      "What I keep coming back to: the teams that win this stretch aren't waiting for customers to feel better, and they aren't sitting on AI features because those used to be expensive. They're using cheap AI to do more for a stretched customer — cutting setup time, finishing steps people used to do by hand. Spending hasn't actually broken yet — it's still up nearly 5% from a year ago — but confidence this low rarely sits next to steady spending for long."
+      "These numbers don't usually move together. Consumer confidence hit 49.8 in the latest reading — the lowest in three years — and people expect prices to keep rising. May CPI came in at 4.25% year-over-year, near a three-year high, and producer prices hit 6.42%, which tends to show up on shelves a few months later. On paper, the customer side of the economy is under meaningful pressure. And yet spending hasn't broken: retail sales are still up 6.88% year-over-year as of May. People are buying; they just feel bad about it.",
+      "In the same stretch, the cost of running AI kept falling — top model prices are down about 60% over the past six months — and new capable models keep arriving every couple of weeks. The build side and the customer side are telling opposite stories. Teams that treat AI as still-expensive, or that wait for customers to feel better before shipping, are misreading both signals at once."
     ],
     "connected_signals": [
       "consumer-confidence",
@@ -15,13 +15,13 @@
       "ai-model-releases"
     ],
     "curated": true,
-    "date": "2026-06-05",
-    "date_label": "Jun 5",
+    "date": "2026-06-19",
+    "date_label": "Jun 19",
     "refined": {
-      "observation": "People feel about as bad about the economy as they have in a decade, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge — top model prices are down about 60% over six months — and new, more capable models keep arriving every few weeks.",
-      "why_it_matters": "Your customer is stretched and watching every bill. The good news: the thing that helps them most — AI doing more of the work for them — has rarely been cheaper to ship. Any plan that still assumes a relaxed customer, or assumes AI features are too costly to include at lower price points, is worth reopening.",
-      "decision_this_week": "Pick one AI feature you've put off because it felt too expensive. Ask whether it's still too expensive at today's prices — and whether a stretched customer would value it more, not less.",
-      "pm_implication_default": "The pattern across the signals: the build side is loosening (cheaper models, faster releases, falling running costs) while the customer side is tightening (low confidence, prices still climbing, no relief on borrowing). Every product move that uses the cheaper build to remove friction or lower price for a squeezed customer has more wind behind it than one that assumes confidence comes back first.",
+      "observation": "Consumer confidence is at 49.8 — its three-year floor — and people expect prices to keep rising. May inflation re-accelerated: CPI at 4.25% and PPI at 6.42%, both near multi-year highs. Retail spending is still up 6.88% year-over-year, so wallets haven't closed yet. Meanwhile, top AI model prices dropped roughly 60% over six months, and new frontier models are releasing every few weeks.",
+      "why_it_matters": "Your customer is stretched and watching every line item. The thing that can most help them — AI doing more of the work on their behalf — has rarely been cheaper to ship. Any roadmap that still prices AI features like it's 18 months ago, or that waits for confidence to recover before leaning in, is working off stale assumptions on both counts.",
+      "pm_implication_default": "The build side is loosening (cheaper models, faster releases, lower running costs) while the customer side is tightening (three-year confidence low, CPI and PPI re-accelerating, spending steady but fragile). Every product move that uses the cheaper build to remove friction or lower effective price for a squeezed customer has more going for it than one that assumes the macro gets easier first.",
+      "decision_this_week": "Pick one AI feature you've held back because it felt too costly. Check whether the cost assumption still holds at today's model prices — and whether a customer at a three-year confidence low would value it more, not less.",
       "where_shows_up": [
         {
           "key": "onboarding",
@@ -52,19 +52,19 @@
     },
     "where_helper": "PM implication changes based on where you look.",
     "editorial_freshness": {
-      "last_editorial_reviewed": "2026-06-10",
+      "last_editorial_reviewed": "2026-06-19",
       "expires_after_days": 7,
-      "editorial_status": "stale",
-      "age_days": 9
+      "editorial_status": "current",
+      "age_days": 1
     },
-    "review_required": true,
-    "review_note": "Weekly Connection is older than 7 days",
+    "review_required": false,
+    "review_note": "",
     "narrative_review_required": false,
-    "last_editorial_reviewed": "2026-06-10"
+    "last_editorial_reviewed": "2026-06-19"
   },
   "weekly_thought": {
     "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",
-    "last_editorial_reviewed": "2026-06-10",
+    "last_editorial_reviewed": "2026-06-19",
     "default_lens": "build",
     "lenses": {
       "build": {
@@ -326,8 +326,8 @@
       "id": "cpi-headline",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
-      "title": "Everyday prices climbing again — energy is driving it",
-      "summary": "Everyday prices climbed again, mostly because of energy. And the cost of services keeps creeping up underneath, even when goods cool off.",
+      "title": "Everyday prices rose again in May — near a three-year high",
+      "summary": "The May CPI reading came in at 4.25% year-over-year — up 0.4 points from last month and near the top of the past three years. Energy is the main driver, but the overall trend re-accelerated heading into summer.",
       "term_glossary": [
         {
           "term": "CPI",
@@ -594,7 +594,7 @@
       "pill_label_short": "Headline inflation heated up again",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -604,11 +604,11 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 49
+        "age_days": 50
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
-        "last_editorial_reviewed": "2026-04-01"
+        "last_editorial_reviewed": "2026-06-19"
       },
       "data_points_window_months": 36
     },
@@ -616,8 +616,8 @@
       "id": "ppi",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
-      "title": "What businesses pay suppliers is rising fast again",
-      "summary": "The prices businesses pay are rising at the fastest pace in years — and that usually reaches store shelves a few months later.",
+      "title": "What businesses pay suppliers is rising at a three-year high",
+      "summary": "Producer prices hit 6.42% year-over-year in May — up 0.8 points from last month and around the highest level in three years. What businesses pay today tends to show up in consumer prices a few months later.",
       "term_glossary": [
         {
           "term": "PPI",
@@ -873,7 +873,7 @@
       "pill_label_short": "Supplier prices rising fast",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -883,11 +883,11 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 49
+        "age_days": 50
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
-        "last_editorial_reviewed": "2026-04-01"
+        "last_editorial_reviewed": "2026-06-19"
       },
       "data_points_window_months": 36
     },
@@ -895,8 +895,8 @@
       "id": "pce",
       "category": "inflation",
       "category_label": "Inflation & Pricing",
-      "title": "The inflation number the Fed watches most closely is stuck just above target",
-      "summary": "The inflation gauge the Fed cares about most has stalled — close to where they want it, but not there yet.",
+      "title": "The inflation number the Fed watches most is stuck just above target",
+      "summary": "Core PCE — the Fed's preferred inflation gauge — came in at 3.29% year-over-year in the April reading. It's barely moved in months. Close to the target, but not there yet, and not falling.",
       "term_glossary": [
         {
           "term": "PCE",
@@ -1153,7 +1153,7 @@
       "pill_label_short": "Core inflation still above target",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -1163,11 +1163,11 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 79
+        "age_days": 80
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
-        "last_editorial_reviewed": "2026-04-01"
+        "last_editorial_reviewed": "2026-06-19"
       },
       "data_points_window_months": 36
     },
@@ -1438,7 +1438,7 @@
       "pill_label_short": "Liquidity has steadied, not flooded",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -1448,7 +1448,7 @@
         "last_editorial_reviewed": "2026-06-17",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 2
+        "age_days": 3
       },
       "timestamps": {
         "latest_source_data_date": "2026-06-17",
@@ -1718,7 +1718,7 @@
       "pill_label_short": "Long-term borrowing costs still elevated",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -1728,7 +1728,7 @@
         "last_editorial_reviewed": "2026-06-17",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 2
+        "age_days": 3
       },
       "timestamps": {
         "latest_source_data_date": "2026-06-17",
@@ -1892,7 +1892,7 @@
       "pill_label_short": "Startup funding still concentrating into AI",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -1902,7 +1902,7 @@
         "last_editorial_reviewed": "2026-05-20",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 30
+        "age_days": 31
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-20",
@@ -2073,7 +2073,7 @@
       "pill_label_short": "New AI models shipping faster",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2082,8 +2082,8 @@
       "editorial_freshness": {
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
-        "editorial_status": "current",
-        "age_days": 24
+        "editorial_status": "aging",
+        "age_days": 25
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -2252,7 +2252,7 @@
       "pill_label_short": "AI model costs keep falling",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2262,7 +2262,7 @@
         "last_editorial_reviewed": "2026-05-19",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 31
+        "age_days": 32
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-19",
@@ -2425,7 +2425,7 @@
       "pill_label_short": "Open-source AI is catching up",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2435,7 +2435,7 @@
         "last_editorial_reviewed": "2026-05-25",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 25
+        "age_days": 26
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-25",
@@ -2603,7 +2603,7 @@
       "pill_label_short": "Compute keeps getting cheaper",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -2613,7 +2613,7 @@
         "last_editorial_reviewed": "2026-04-30",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 50
+        "age_days": 51
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-30",
@@ -2625,7 +2625,7 @@
       "category": "consumer",
       "category_label": "Consumer & Demand",
       "title": "Retail sales steady — consumer still showing up",
-      "summary": "Spending hasn't broken. It also hasn't accelerated.",
+      "summary": "Spending is still up 6.88% year-over-year as of May, and it picked up 2.1 points from last month. Not accelerating, but not breaking either. People are spending; they just don't feel great about it.",
       "term_glossary": [
         {
           "term": "retail sales",
@@ -2883,7 +2883,7 @@
       "pill_label_short": "Shoppers still showing up",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -2893,11 +2893,11 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 49
+        "age_days": 50
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
-        "last_editorial_reviewed": "2026-04-01"
+        "last_editorial_reviewed": "2026-06-19"
       },
       "data_points_window_months": 36
     },
@@ -2905,8 +2905,8 @@
       "id": "consumer-confidence",
       "category": "consumer",
       "category_label": "Consumer & Demand",
-      "title": "Consumer confidence near record lows — inflation expectations elevated",
-      "summary": "How households feel about the economy has dropped to levels we rarely see. And underneath, people expect prices to keep climbing over the next year.",
+      "title": "Consumer confidence at its lowest point in three years — prices still the worry",
+      "summary": "As of the latest reading, the University of Michigan confidence index sits at 49.8 — the bottom of its three-year range. It's down 6.6% from last month. Households still expect prices to keep climbing, which is part of why confidence keeps sliding.",
       "term_glossary": [
         {
           "term": "consumer confidence",
@@ -3163,7 +3163,7 @@
       "tier_label": "primary",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -3173,11 +3173,11 @@
         "last_editorial_reviewed": "2026-04-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 79
+        "age_days": 80
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-01",
-        "last_editorial_reviewed": "2026-04-01"
+        "last_editorial_reviewed": "2026-06-19"
       },
       "data_points_window_months": 36
     },
@@ -3342,7 +3342,7 @@
       "pill_label_short": "Personal AI assistants are spreading",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -3351,8 +3351,8 @@
       "editorial_freshness": {
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
-        "editorial_status": "current",
-        "age_days": 24
+        "editorial_status": "aging",
+        "age_days": 25
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -3622,7 +3622,7 @@
       "pill_label_short": "Hiring is cooling, not collapsing",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3632,7 +3632,7 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 49
+        "age_days": 50
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
@@ -3797,7 +3797,7 @@
       "pill_label_short": "Tech hiring remains soft",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -3806,8 +3806,8 @@
       "editorial_freshness": {
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
-        "editorial_status": "current",
-        "age_days": 24
+        "editorial_status": "aging",
+        "age_days": 25
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -3965,7 +3965,7 @@
       "pill_label_short": "State-level AI rules picking up",
       "status_meta": {
         "status": "manual",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "Manual/event-driven signal accepted (human-curated)",
         "status_type": "manual"
       },
@@ -3975,7 +3975,7 @@
         "last_editorial_reviewed": "2026-05-24",
         "expires_after_days": 35,
         "editorial_status": "aging",
-        "age_days": 26
+        "age_days": 27
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-24",
@@ -3987,8 +3987,8 @@
       "category": "activity",
       "category_label": "Business Activity",
       "display_name": "Regional Manufacturing Activity (Philly Fed)",
-      "title": "Factory orders in one region turned down last month",
-      "summary": "Factories around Philadelphia sounded a little gloomy last month — but that's one region, not the whole country. The national factory gauge is more upbeat right now, and the gap between the two is the part worth watching.",
+      "title": "One regional factory gauge bounced back into positive territory",
+      "summary": "The Philadelphia Fed's factory activity index swung from slightly negative (-0.4) last month to clearly positive (+10.3) this month. This is a choppy regional survey — it ran high in spring, dipped, and bounced back — so the honest read is that it's jumping around near zero, with the latest reading on the positive side. One volatile region isn't a national verdict.",
       "term_glossary": [
         {
           "term": "diffusion index",
@@ -4001,8 +4001,8 @@
       ],
       "current_value": "10.3",
       "current_unit": "factory survey score (positive = growing, negative = shrinking)",
-      "status": "contracting modestly",
-      "status_tone": "amber",
+      "status": "choppy",
+      "status_tone": "neutral",
       "confidence": "medium",
       "last_updated": "2026-06-01",
       "tier": 1,
@@ -4195,28 +4195,28 @@
       "chain": [
         {
           "label": "Signal",
-          "text": "The Philadelphia Fed's monthly survey of manufacturers — a regional proxy for national factory activity — dropped from clearly expanding to barely-below-zero in a single month. New orders and shipments fell with it.",
-          "expansion": "This kind of survey measures the change from last month, not the total level — so it can swing in big steps. The honest read is the direction things are heading, not the exact number."
+          "text": "The Philadelphia Fed's monthly survey of factories swung from slightly negative (-0.4) last month to clearly positive (+10.3) this month. It's a jumpy regional gauge — it ran high in spring, dipped, and has now bounced back.",
+          "expansion": "This kind of survey measures the change from last month, not the total level — so it can swing in big steps. The honest read is the direction over a few months, not any single number."
         },
         {
           "label": "Meaning",
-          "text": "Factory orders aren't growing right now. Survey moves this sharp usually show up in hard manufacturing data — production, shipments, hiring — a few months later.",
-          "expansion": "Regional Fed surveys lead the national hard data by roughly two to three months. A single soft month is noise; a second one is a pattern."
+          "text": "One month back in positive territory is a bounce, not a trend. This index has whipsawed all year, so the steadiest read is that regional factory activity is choppy and hovering near zero, not clearly heating up or cooling down.",
+          "expansion": "Regional Fed surveys lead the national hard data by roughly two to three months, but a single positive month after a single negative one is noise until a pattern forms."
         },
         {
           "label": "Product impact",
-          "text": "If you sell into manufacturers, procurement cycles tighten quickly when surveys turn. If your product depends on the goods economy moving (logistics, hardware, B2B physical-world tools), this is a leading tell.",
-          "expansion": "Software margins insulate you, but pipeline timelines from industrial buyers stretch when their own forward orders soften."
+          "text": "If you sell into manufacturers, a choppy survey means procurement plans can shift month to month. If your product depends on the goods economy moving (logistics, hardware, B2B physical-world tools), watch the trend, not the bounce.",
+          "expansion": "Software margins insulate you, but pipeline timelines from industrial buyers wobble when their own forward orders keep changing direction."
         },
         {
           "label": "Example",
-          "text": "B2B vendors selling to industrial customers reporting longer sales cycles when regional Fed surveys turn negative. Capital-equipment trials get parked behind cash-preservation discussions.",
-          "expansion": "Watch for renewals to slip before customers actually cancel — industrial buyers downgrade to a cheaper plan first."
+          "text": "B2B vendors selling to industrial customers often see sales cycles stretch and then snap back as regional surveys flip. A single strong month rarely unsticks a deal that paused during a weak one.",
+          "expansion": "Watch whether a paused renewal actually restarts after a positive print, or just stays parked until two good months line up."
         },
         {
           "label": "PM question",
-          "text": "If factory activity stays soft, which forecast in your plan secretly assumes industrial buyers keep spending the way they did a quarter ago?",
-          "expansion": "Worth flagging that assumption explicitly rather than letting it ride."
+          "text": "If regional factory activity keeps bouncing around zero, which forecast in your plan secretly assumes a clean trend — up or down — that the data isn't actually giving you?",
+          "expansion": "Worth flagging that assumption explicitly rather than reading a single month as the new direction."
         }
       ],
       "why_we_think_this": {
@@ -4238,17 +4238,17 @@
         }
       ],
       "personal_overrides": [],
-      "momentum_label": "watch closely",
+      "momentum_label": "choppy · watch the trend",
       "reference_point": "regional Fed proxy · not the proprietary national ISM PMI",
       "refined_why": {
-        "evidence": "The Philly Fed's monthly read on factory activity flipped from clearly expanding to flat-to-negative in a single month. New orders and shipments fell with it.",
-        "counter_signal": "Two months back above +10 would weaken this read.",
-        "product_takeaway": "If you sell into manufacturers or the goods economy, pipeline forecasts that assume the last quarter's buying pace are worth re-examining."
+        "evidence": "The Philly Fed's monthly read on factory activity bounced from slightly negative (-0.4) to clearly positive (+10.3) in a single month. It's been choppy all year, swinging high and low.",
+        "counter_signal": "Two more months below zero would point to real softening; two more above +10 would point to real strength. One bounce isn't either yet.",
+        "product_takeaway": "If you sell into manufacturers or the goods economy, read the multi-month trend, not the latest swing — pipeline forecasts that assume a clean direction are worth re-examining."
       },
-      "pill_label_short": "Regional mfg (Philly Fed) soft",
+      "pill_label_short": "Regional mfg (Philly Fed) choppy",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -4258,11 +4258,11 @@
         "last_editorial_reviewed": "2026-06-01",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 18
+        "age_days": 19
       },
       "timestamps": {
         "latest_source_data_date": "2026-06-01",
-        "last_editorial_reviewed": "2026-05-01"
+        "last_editorial_reviewed": "2026-06-19"
       },
       "data_points_window_months": 36
     },
@@ -4532,7 +4532,7 @@
       "pill_label_short": "Regional services (Dallas Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-06-19T17:13:36.536Z",
+        "checked_at": "2026-06-20T01:36:52.057Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -4542,7 +4542,7 @@
         "last_editorial_reviewed": "2026-05-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 49
+        "age_days": 50
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-01",
