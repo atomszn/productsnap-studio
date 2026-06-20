@@ -1,9 +1,11 @@
 # Pulse Editorial — Editable vs Read-Only Field Map
 
-Single source of truth for which `data/pulse-content.json` paths the Phase 2 editorial
-automation may write. The content-draft schema, the drafter contract, and the editorial-only
-diff guard all enforce this list. If you add a new prose field to the page, add it here AND to
-`EDITORIAL_PATHS` in `scripts/lib/verify-claims.js`.
+Single source of truth for which `data/pulse-content.json` paths the editorial
+automation may write. The content-draft schema (`automation/schemas/content-draft.schema.json`),
+the drafter / macro-editor contract, and the editorial-only diff guard
+(`scripts/lib/apply-editorial.js`) all enforce this list. If you add a new prose field to the
+page, add it here AND to: the schema, `SIGNAL_EDITABLE_KEYS` in `apply-editorial.js`, and
+`signalProseStrings()` in `scripts/lib/verify-claims.js` (so its numbers are reconciled).
 
 Legend: paths use `[]` for "every array element" and `{a,b}` for a set of sibling keys.
 
@@ -21,6 +23,9 @@ Legend: paths use `[]` for "every array element" and `{a,b}` for a set of siblin
 - `refined_why.evidence`
 - `refined_why.counter_signal`
 - `refined_why.product_takeaway`
+- `why_we_think_this.reasoning`              — (Phase 3) the plain-language "why we believe this"
+- `why_we_think_this.counterarguments[]`     — (Phase 3) each counter-point, plain language
+- `why_we_think_this.what_would_make_us_wrong` — (Phase 3) the falsifier statement
 
 ### Weekly Connection — `weekly_connection`
 - `title`, `subtitle`
@@ -60,7 +65,13 @@ Legend: paths use `[]` for "every array element" and `{a,b}` for a set of siblin
 - `last_updated`              — data observation date (NOT the editorial review date)
 - `sources[]`                — source names + URLs (app/agency links)
 - `source_note`, `term_glossary`, `reference_point`, `data_points_window_months`
-- `why_we_think_this`, `personal_overrides`
+- `why_we_think_this.signals_used`   — machine list of which signals this reasoning draws on (NOT prose)
+- `personal_overrides`
+
+> NOTE (Phase 3): the `why_we_think_this` PROSE subfields (`reasoning`, `counterarguments[]`,
+> `what_would_make_us_wrong`) are now EDITABLE (listed above) so the macro-editor can clear jargon
+> from the whole page. Only `why_we_think_this.signals_used` remains read-only and the diff guard
+> aborts publish if it moves.
 
 ### Elsewhere
 - everything in `signals_registry.json`

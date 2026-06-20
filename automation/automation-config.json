@@ -21,10 +21,16 @@
   "_shadow_mode_meaning": "When true, the AI layer may RESEARCH and WRITE reviewable artifacts but may NEVER publish, merge, or alter live Pulse content/data. Phase 1 forces this true.",
 
   "auto_publish_enabled": false,
-  "_auto_publish_meaning": "Master gate for letting any AI-written interpretation reach the live page. Phase 1/2 force this false. Only relevant at phase >= 3.",
+  "_auto_publish_meaning": "Master gate for letting any AI-written interpretation reach the live page. Phase 1/2 force this false. Only relevant at phase >= 3. When true (and shadow_mode false), a cycle that clears BOTH the GREEN verdict AND the higher publish_confidence_threshold AND a clean whole-page clarity scan publishes itself with no human in the loop.",
+
+  "pause_auto_publish": false,
+  "_pause_auto_publish_meaning": "Soft kill-switch for auto-publish ONLY. When true, every cycle holds (action held_below_bar) and publishes nothing, WITHOUT disarming the rest of the pipeline (research/draft/validate/gate still run and produce reviewable artifacts). Use this to temporarily stop live publishing without touching auto_publish_enabled. The hard global off-switch is kill_switch.editorial_automation_enabled.",
 
   "confidence_threshold": 0.9,
   "_confidence_threshold_meaning": "Minimum overall gate confidence required for a GREEN verdict (Phase 2 gate). YELLOW band is [0.70, 0.90); RED is < 0.70 or any hard-check failure. At phase >= 3 a GREEN verdict is eligible for auto-publish only when auto_publish_enabled is also true.",
+
+  "publish_confidence_threshold": 0.95,
+  "_publish_confidence_threshold_meaning": "Separate, HIGHER bar required to actually AUTO-PUBLISH (default 0.95). A GREEN verdict (>= confidence_threshold) whose confidence is below this publish bar HOLDS SILENTLY and retries the next cycle instead of publishing. This is the macro-editor's '~95% sure or hold' rule.",
 
   "reading_grade_target_max": 9,
   "_reading_grade_meaning": "Editorial output must read at or below US grade 9 (Phase 2+ quality gate). Recorded in Phase 1 findings as a target only.",

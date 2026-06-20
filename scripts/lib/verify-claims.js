@@ -104,6 +104,12 @@ function signalProseStrings(sig) {
   if (sig.refined_why) {
     parts.push(sig.refined_why.evidence, sig.refined_why.counter_signal, sig.refined_why.product_takeaway);
   }
+  // why_we_think_this prose is editorial as of Phase 3 — reconcile its numbers too.
+  // (signals_used is a machine list, not prose, so it is intentionally excluded.)
+  if (sig.why_we_think_this) {
+    parts.push(sig.why_we_think_this.reasoning, sig.why_we_think_this.what_would_make_us_wrong);
+    (sig.why_we_think_this.counterarguments || []).forEach((c) => parts.push(c));
+  }
   return parts.filter(Boolean);
 }
 
@@ -307,5 +313,6 @@ module.exports = {
   dataValuesForSignal,
   reconcilesTo,
   scanAdvice,
-  buildAllowlist
+  buildAllowlist,
+  signalProseStrings
 };

@@ -101,6 +101,59 @@
       }
     },
 
+    "clarity": {
+      "type": "object",
+      "additionalProperties": false,
+      "_comment": "Deterministic whole-page clarity + jargon scan (scripts/lib/clarity-scan.js) over the APPLIED tree's editable prose. Pure code: scans every editable prose string on the page (not just triggered signals) for unexplained economic jargon and a Flesch-Kincaid reading grade. jargon_clean && grade_ok are HARD checks folded into the verdict; an unexplained jargon term or a page grade above the max anywhere hard-blocks publish. readonly_jargon is informational only.",
+      "required": ["gate_scope", "jargon_clean", "grade_ok", "page_grade", "sections_scanned", "unexplained_jargon"],
+      "properties": {
+        "gate_scope": { "type": "string", "enum": ["editable", "page"] },
+        "jargon_clean": { "type": "boolean", "_comment": "no unexplained jargon in any gated (editable) prose string" },
+        "grade_ok": { "type": "boolean", "_comment": "whole-page editable-prose reading grade <= reading_grade_max" },
+        "page_grade": { "type": "number", "minimum": 0, "maximum": 40 },
+        "hardest_sentence_grade": { "type": "number", "minimum": 0, "maximum": 60 },
+        "hardest_sentence_path": { "type": "string" },
+        "sections_scanned": { "type": "integer", "minimum": 0 },
+        "unexplained_jargon": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["term", "path"],
+            "properties": {
+              "term": { "type": "string" },
+              "path": { "type": "string" },
+              "snippet": { "type": "string" }
+            }
+          }
+        },
+        "explained_jargon": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["term", "path"],
+            "properties": {
+              "term": { "type": "string" },
+              "path": { "type": "string" }
+            }
+          }
+        },
+        "readonly_jargon": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["term", "path"],
+            "properties": {
+              "term": { "type": "string" },
+              "path": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+
     "thresholds": {
       "type": "object",
       "additionalProperties": false,
@@ -108,6 +161,7 @@
       "properties": {
         "green_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
         "yellow_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "publish_confidence": { "type": "number", "minimum": 0, "maximum": 1, "_comment": "separate, higher bar required to AUTO-PUBLISH (default 0.95); GREEN below this bar holds silently" },
         "reading_grade_max": { "type": "number", "minimum": 0, "maximum": 20 }
       }
     },
@@ -121,12 +175,16 @@
     "auto_publish": {
       "type": "object",
       "additionalProperties": false,
-      "_comment": "What the gate decided to DO. published true only when verdict GREEN AND auto_publish_enabled AND kill-switch on AND not shadow_mode.",
+      "_comment": "What the gate decided to DO. published is true ONLY when verdict GREEN AND confidence >= publish_bar AND clarity_clean AND auto_publish_enabled AND kill-switch on AND not shadow_mode AND not paused. A GREEN verdict below the publish bar (or with paused auto-publish) yields action 'held_below_bar' with a hold_reason and publishes NOTHING (holds silently, retries next cycle).",
       "properties": {
         "eligible": { "type": "boolean", "_comment": "verdict == GREEN" },
         "enabled_in_config": { "type": "boolean" },
+        "paused": { "type": "boolean", "_comment": "pause_auto_publish kill-switch is set; forces hold/review without disarming the pipeline" },
+        "publish_bar": { "type": "number", "minimum": 0, "maximum": 1 },
+        "clarity_clean": { "type": "boolean" },
         "published": { "type": "boolean" },
-        "action": { "type": "string", "enum": ["auto_publish", "review_pr", "held_safe"] }
+        "action": { "type": "string", "enum": ["auto_publish", "review_pr", "held_safe", "held_below_bar"] },
+        "hold_reason": { "type": ["string", "null"] }
       }
     }
   }

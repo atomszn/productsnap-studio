@@ -84,6 +84,16 @@
               "counter_signal": { "type": "string", "minLength": 10, "maxLength": 600 },
               "product_takeaway": { "type": "string", "minLength": 15, "maxLength": 600 }
             }
+          },
+          "why_we_think_this": {
+            "type": "object",
+            "additionalProperties": false,
+            "_comment": "OPTIONAL. The expandable 'how we measure this' methodology prose. Phase 3 made the PROSE subfields editable so the macro-editor can clear jargon and overlong sentences here. Carry ONLY these three prose fields; signals_used is a read-only machine list and is NEVER drafted (the apply step preserves it). Same hard rules apply: plain language, every number traceable, no advice. Present only when the editor rewrote this section.",
+            "properties": {
+              "reasoning": { "type": "string", "minLength": 15, "maxLength": 1200 },
+              "counterarguments": { "type": "array", "minItems": 0, "maxItems": 6, "items": { "type": "string", "minLength": 10, "maxLength": 600 } },
+              "what_would_make_us_wrong": { "type": "string", "minLength": 10, "maxLength": 600 }
+            }
           }
         }
       }

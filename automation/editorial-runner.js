@@ -58,6 +58,7 @@ const { validate } = require("../scripts/lib/schema-validate");
 const budget = require("../scripts/check-budget.js");
 const verifyClaims = require("../scripts/lib/verify-claims");
 const applyEditorial = require("../scripts/lib/apply-editorial");
+const clarityScan = require("../scripts/lib/clarity-scan");
 
 const ROOT = path.resolve(__dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "automation", "automation-config.json");
@@ -410,6 +411,28 @@ function cmdGate() {
     failedTests.push("skipped — unsafe tree (diff guard or schema failed)");
   }
 
+  // ---- layer 1b: deterministic WHOLE-PAGE clarity + jargon scan (macro-editor gate) ----
+  // Scans the APPLIED tree (post-apply, pre-publish) for unexplained economic
+  // jargon and reading grade over EVERY editable prose string on the page — not
+  // just the signals this cycle touched. Pure code: a generous AI grade can never
+  // sneak past this floor. Unexplained jargon or grade>max anywhere = hard block.
+  // Only meaningful when we actually have a safe applied tree.
+  let clarity = null;
+  if (applied) {
+    clarity = clarityScan.scanPage(applied, { gradeMax, gateScope: "editable" });
+    if (!clarity.jargon_clean) {
+      clarity.unexplained_jargon.forEach((u) =>
+        blocking.push("clarity:jargon \"" + u.term + "\" @ " + u.path));
+    }
+    if (!clarity.grade_ok) {
+      blocking.push("clarity:reading_grade " + clarity.page_grade + " > " + gradeMax + " (page)");
+    }
+    clarity.soft_warnings.forEach((w) => blocking.push("clarity_soft:" + w.check + " — " + w.detail));
+  } else {
+    blocking.push("clarity:skipped — no applied tree");
+  }
+  const clarityClean = !!(clarity && clarity.jargon_clean && clarity.grade_ok);
+
   // ---- layer 2: validation agent confidence + meaning checks ----
   const conf = Number(validation.confidence);
   if (validation.reading_grade > gradeMax) blocking.push("validation:reading_grade " + validation.reading_grade + " > " + gradeMax);
@@ -420,7 +443,7 @@ function cmdGate() {
   // ---- verdict (deterministic) ----
   const reconcilerClean = rec.pass;
   const structuralClean = draftSchemaValid && editorialOnlyDiff && testsPass;
-  const hardClean = reconcilerClean && structuralClean &&
+  const hardClean = reconcilerClean && structuralClean && clarityClean &&
     validation.disclaimer_respected !== false &&
     validation.honest_no_overclaim !== false &&
     validation.reading_grade <= gradeMax;
@@ -437,19 +460,42 @@ function cmdGate() {
   }
 
   // ---- publish decision ----
+  // Two separate bars: GREEN (>= green_confidence, default 0.90) is the verdict
+  // band; auto-PUBLISH additionally requires confidence >= publish_confidence_
+  // threshold (default 0.95) AND a clean whole-page clarity scan. This is the
+  // user's "only auto-publish when the editor is ~95% sure" rule. Below the
+  // publish bar (but still GREEN) we HOLD SILENTLY and let the next cycle retry —
+  // no notification, no PR churn. A manual kill-switch (pause_auto_publish) can
+  // force every cycle back to review/hold without disarming the whole pipeline.
   const autoPublishEnabled = config.auto_publish_enabled === true;
   const shadow = config.shadow_mode !== false;
+  const autoPublishPaused = config.pause_auto_publish === true;
+  const publishBar = Number(config.publish_confidence_threshold) || 0.95;
   const eligible = verdict === "GREEN";
+  // Everything that must be true to actually write live content unattended.
+  const publishAllowed = eligible && clarityClean && conf >= publishBar &&
+    autoPublishEnabled && enabled && !shadow && !autoPublishPaused;
   let action = "review_pr";
   let published = false;
-  if (verdict === "RED") action = "held_safe";
-  else if (eligible && autoPublishEnabled && enabled && !shadow) {
+  let hold_reason = null;
+  if (verdict === "RED") {
+    action = "held_safe";
+  } else if (publishAllowed) {
     // THE ONLY PATH THAT TOUCHES LIVE CONTENT.
     writeJSON(CONTENT_PATH, applied);
     published = true;
     action = "auto_publish";
+  } else if (autoPublishEnabled && enabled && !shadow) {
+    // Auto-publish is ARMED, but this cycle did not clear the publish bar.
+    // Hold silently and retry next cycle (per the user's chosen behavior).
+    action = "held_below_bar";
+    if (autoPublishPaused) hold_reason = "auto-publish paused by kill-switch (pause_auto_publish)";
+    else if (!clarityClean) hold_reason = "clarity scan not clean (jargon/grade)";
+    else if (conf < publishBar) hold_reason = "confidence " + conf + " < publish bar " + publishBar;
+    else hold_reason = "verdict " + verdict + " (not GREEN)";
   } else {
-    action = "review_pr"; // GREEN/YELLOW but auto-publish not armed -> review
+    // Auto-publish not armed (shadow / disabled) -> review PR path.
+    action = "review_pr";
   }
 
   // ---- assemble + write the quality report ----
@@ -490,17 +536,45 @@ function cmdGate() {
       tests_pass: testsPass,
       failed_tests: failedTests
     },
+    clarity: clarity ? {
+      gate_scope: clarity.gate_scope,
+      jargon_clean: clarity.jargon_clean,
+      grade_ok: clarity.grade_ok,
+      page_grade: clarity.page_grade,
+      hardest_sentence_grade: clarity.hardest_sentence_grade,
+      hardest_sentence_path: clarity.hardest_sentence_path,
+      sections_scanned: clarity.sections_scanned,
+      unexplained_jargon: clarity.unexplained_jargon,
+      explained_jargon: clarity.explained_jargon,
+      readonly_jargon: clarity.readonly_jargon
+    } : {
+      gate_scope: "editable",
+      jargon_clean: false,
+      grade_ok: false,
+      page_grade: 0,
+      hardest_sentence_grade: 0,
+      hardest_sentence_path: "",
+      sections_scanned: 0,
+      unexplained_jargon: [],
+      explained_jargon: [],
+      readonly_jargon: []
+    },
     thresholds: {
       green_confidence: greenConf,
       yellow_confidence: yellowConf,
+      publish_confidence: publishBar,
       reading_grade_max: gradeMax
     },
     blocking_reasons: blocking,
     auto_publish: {
       eligible,
       enabled_in_config: autoPublishEnabled,
+      paused: autoPublishPaused,
+      publish_bar: publishBar,
+      clarity_clean: clarityClean,
       published,
-      action
+      action,
+      hold_reason: hold_reason
     }
   };
 
@@ -546,10 +620,12 @@ function cmdGate() {
     writeJSON(path.join(RUNS_DIR, dateStr + "-" + report_id + ".json"), record);
   }
 
-  console.log("[editorial] GATE verdict=" + verdict + " action=" + action + " published=" + published);
+  console.log("[editorial] GATE verdict=" + verdict + " action=" + action + " published=" + published +
+    (hold_reason ? " hold_reason=\"" + hold_reason + "\"" : ""));
   console.log("  reconciler: " + (rec.pass ? "clean" : "FAIL") +
     " | schema:" + draftSchemaValid + " diff_guard:" + editorialOnlyDiff + " tests:" + testsPass +
-    " | confidence:" + conf + " (green>=" + greenConf + ")");
+    " | clarity:" + (clarity ? (clarityClean ? "clean(grade " + clarity.page_grade + ")" : "FAIL(" + clarity.unexplained_jargon.length + " jargon, grade " + clarity.page_grade + ")") : "n/a") +
+    " | confidence:" + conf + " (green>=" + greenConf + ", publish>=" + publishBar + ")");
   if (blocking.length) { console.log("  blocking:"); blocking.forEach((b) => console.log("   · " + b)); }
   console.log("  report -> " + path.relative(ROOT, REPORT_PATH));
 
