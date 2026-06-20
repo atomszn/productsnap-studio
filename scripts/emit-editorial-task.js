@@ -126,17 +126,29 @@ function buildScopeEntry(id, cMap, rMap, mv) {
 function buildSignalsInScope(decision, cMap, rMap, content) {
   // The signals a DRAFT needs context on depend on WHY it triggered:
   //   - material_data_move        -> the moved signals (with from/to/delta).
+  //   - editorial_stale w/ stale_signals -> EXACTLY those per-signal stale reads
+  //                                  (e.g. an 80-day-old consumer-confidence
+  //                                  summary). These may NOT be Weekly Connection
+  //                                  connected_signals, so they must be scoped
+  //                                  explicitly or they would never get refreshed.
   //   - narrative_review_required -> the Weekly Connection's connected_signals
   //                                  (the narrative being re-examined rests on them).
-  //   - editorial_stale           -> same: the WC editorial read aged out, so the
-  //                                  signals woven into that read are back in scope.
+  //   - editorial_stale (WC read aged, no per-signal list) -> same WC
+  //                                  connected_signals fallback.
   // Without this, a narrative/staleness-only DRAFT yielded an EMPTY scope and the
   // schema (minItems:1) refused the task, stalling the whole editorial loop.
   const triggers = decision.triggers || [];
   const moveById = {};
+  const staleIds = [];
   triggers.forEach((t) => {
     if (t.type === "material_data_move" && Array.isArray(t.signals)) {
       t.signals.forEach((s) => { if (s && s.id) moveById[s.id] = s; });
+    }
+    // editorial_stale may carry a per-signal stale_signals[] (added by
+    // draft-editorial.js). Scope EXACTLY those reads — they are the summaries
+    // that aged out and need a fresh editorial pass.
+    if (t.type === "editorial_stale" && Array.isArray(t.stale_signals)) {
+      t.stale_signals.forEach((x) => { if (x && x.id) staleIds.push(x.id); });
     }
   });
 
@@ -149,12 +161,15 @@ function buildSignalsInScope(decision, cMap, rMap, content) {
     : [];
 
   // Ordered, de-duplicated id list: moved signals first (most specific), then
-  // the narrative's connected signals. A signal that both moved AND is connected
-  // appears once, keeping its move fields.
+  // explicitly-stale per-signal reads, then the narrative's connected signals.
+  // A signal appearing in more than one bucket is kept once; a moved signal
+  // keeps its move fields (moveById[id] is undefined for non-moved ids).
   const orderedIds = [];
   const seen = new Set();
-  Object.keys(moveById).forEach((id) => { if (!seen.has(id)) { seen.add(id); orderedIds.push(id); } });
-  connected.forEach((id) => { if (!seen.has(id)) { seen.add(id); orderedIds.push(id); } });
+  const push = (id) => { if (id && !seen.has(id)) { seen.add(id); orderedIds.push(id); } };
+  Object.keys(moveById).forEach(push);
+  staleIds.forEach(push);
+  connected.forEach(push);
 
   return orderedIds.map((id) => buildScopeEntry(id, cMap, rMap, moveById[id]));
 }
