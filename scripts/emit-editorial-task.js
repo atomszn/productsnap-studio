@@ -97,38 +97,66 @@ function firstSource(signal, reg) {
   return out;
 }
 
-function buildSignalsInScope(decision, cMap, rMap) {
-  // Gather the unique signal ids touched by material_data_move triggers.
-  const ids = new Set();
+// Build one schema-valid scope entry for a signal id. `mv` (optional) carries
+// the material_data_move from/to/delta/reasons when the signal was triggered by
+// a data move; for narrative/staleness scope there is no move and those fields
+// are left null/empty (all optional in the schema).
+function buildScopeEntry(id, cMap, rMap, mv) {
+  const c = cMap[id] || {};
+  const reg = rMap[id] || {};
+  mv = mv || {};
+  const entry = {
+    id,
+    name: reg.name || c.display_name || c.title || id,
+    current_value: c.current_value != null ? c.current_value : null,
+    unit: reg.unit || c.current_unit || "",
+    from: mv.from != null ? mv.from : null,
+    to: mv.to != null ? mv.to : null,
+    delta: mv.delta != null ? mv.delta : null,
+    reasons: Array.isArray(mv.reasons) ? mv.reasons : [],
+    source: firstSource(c, reg)
+  };
+  if (c.display_name) entry.display_name = c.display_name;
+  if (reg.category) entry.category = reg.category;
+  if (c.summary) entry.existing_summary = c.summary;
+  if (reg.alignment && reg.alignment.editorial_polarity) entry.editorial_polarity = reg.alignment.editorial_polarity;
+  return entry;
+}
+
+function buildSignalsInScope(decision, cMap, rMap, content) {
+  // The signals a DRAFT needs context on depend on WHY it triggered:
+  //   - material_data_move        -> the moved signals (with from/to/delta).
+  //   - narrative_review_required -> the Weekly Connection's connected_signals
+  //                                  (the narrative being re-examined rests on them).
+  //   - editorial_stale           -> same: the WC editorial read aged out, so the
+  //                                  signals woven into that read are back in scope.
+  // Without this, a narrative/staleness-only DRAFT yielded an EMPTY scope and the
+  // schema (minItems:1) refused the task, stalling the whole editorial loop.
+  const triggers = decision.triggers || [];
   const moveById = {};
-  (decision.triggers || []).forEach((t) => {
+  triggers.forEach((t) => {
     if (t.type === "material_data_move" && Array.isArray(t.signals)) {
-      t.signals.forEach((s) => { ids.add(s.id); moveById[s.id] = s; });
+      t.signals.forEach((s) => { if (s && s.id) moveById[s.id] = s; });
     }
   });
-  const out = [];
-  ids.forEach((id) => {
-    const c = cMap[id] || {};
-    const reg = rMap[id] || {};
-    const mv = moveById[id] || {};
-    const entry = {
-      id,
-      name: reg.name || c.display_name || c.title || id,
-      current_value: c.current_value != null ? c.current_value : null,
-      unit: reg.unit || c.current_unit || "",
-      from: mv.from != null ? mv.from : null,
-      to: mv.to != null ? mv.to : null,
-      delta: mv.delta != null ? mv.delta : null,
-      reasons: Array.isArray(mv.reasons) ? mv.reasons : [],
-      source: firstSource(c, reg)
-    };
-    if (c.display_name) entry.display_name = c.display_name;
-    if (reg.category) entry.category = reg.category;
-    if (c.summary) entry.existing_summary = c.summary;
-    if (reg.alignment && reg.alignment.editorial_polarity) entry.editorial_polarity = reg.alignment.editorial_polarity;
-    out.push(entry);
-  });
-  return out;
+
+  const wantsNarrativeScope = triggers.some(
+    (t) => t.type === "narrative_review_required" || t.type === "editorial_stale"
+  );
+  const wc = (content && content.weekly_connection) || {};
+  const connected = wantsNarrativeScope && Array.isArray(wc.connected_signals)
+    ? wc.connected_signals.filter((id) => typeof id === "string" && id)
+    : [];
+
+  // Ordered, de-duplicated id list: moved signals first (most specific), then
+  // the narrative's connected signals. A signal that both moved AND is connected
+  // appears once, keeping its move fields.
+  const orderedIds = [];
+  const seen = new Set();
+  Object.keys(moveById).forEach((id) => { if (!seen.has(id)) { seen.add(id); orderedIds.push(id); } });
+  connected.forEach((id) => { if (!seen.has(id)) { seen.add(id); orderedIds.push(id); } });
+
+  return orderedIds.map((id) => buildScopeEntry(id, cMap, rMap, moveById[id]));
 }
 
 function buildTask(decision, config, cMap, rMap, content) {
@@ -162,7 +190,7 @@ function buildTask(decision, config, cMap, rMap, content) {
     fingerprint,
     decision: decision.decision,
     triggers,
-    signals_in_scope: buildSignalsInScope(decision, cMap, rMap),
+    signals_in_scope: buildSignalsInScope(decision, cMap, rMap, content),
     weekly_connection_in_scope: {
       included: !!wcReviewFlagged,
       title: wc.title || "",
