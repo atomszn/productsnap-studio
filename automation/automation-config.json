@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "last_reviewed": "2026-06-20",
 
-  "editorial_automation_phase": 2,
+  "editorial_automation_phase": 3,
   "_phase_meaning": {
     "0": "Trigger decision is log-only. draft-editorial.js records KEEP/DRAFT but emits no handoff task. No AI anywhere.",
     "1": "Research agent SHADOW MODE. emit-editorial-task.js writes a typed handoff task on DRAFT. Computer research runner reads it, researches, writes findings + run record + ledger to the branch/artifact. Publishes NOTHING. No editorial rewrite. No auto-merge of AI interpretation.",
@@ -17,10 +17,10 @@
     "editorial_automation_enabled": true
   },
 
-  "shadow_mode": true,
+  "shadow_mode": false,
   "_shadow_mode_meaning": "When true, the AI layer may RESEARCH and WRITE reviewable artifacts but may NEVER publish, merge, or alter live Pulse content/data. Phase 1 forces this true.",
 
-  "auto_publish_enabled": false,
+  "auto_publish_enabled": true,
   "_auto_publish_meaning": "Master gate for letting any AI-written interpretation reach the live page. Phase 1/2 force this false. Only relevant at phase >= 3. When true (and shadow_mode false), a cycle that clears BOTH the GREEN verdict AND the higher publish_confidence_threshold AND a clean whole-page clarity scan publishes itself with no human in the loop.",
 
   "pause_auto_publish": false,
