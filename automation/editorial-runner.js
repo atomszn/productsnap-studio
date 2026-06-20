@@ -85,6 +85,31 @@ function makeId(fingerprint, dateStr, role) {
     .digest("hex").slice(0, 10);
 }
 
+// Crash-safety for the gate's structural-test swap (see runStructuralTests).
+// That routine backs up the live content to <CONTENT_PATH>.gatebak, swaps the
+// AI-applied tree in to run validators against, then ALWAYS restores in a
+// finally. But a `finally` cannot run if the process is SIGKILL'd / OOM-killed
+// / hard-timed-out mid-swap — which in an unattended cron could otherwise leave
+// AI-drafted content sitting in the live data file. This guard runs FIRST on
+// every invocation: if a stray .gatebak exists, a prior gate was interrupted,
+// so we restore the real live content from it before doing anything else. The
+// backup is the pre-swap live file, so restoring it is always the safe choice.
+// Idempotent and dependency-free (Node built-ins only).
+function selfHealGatebak() {
+  const backupPath = CONTENT_PATH + ".gatebak";
+  try {
+    if (fs.existsSync(backupPath)) {
+      fs.copyFileSync(backupPath, CONTENT_PATH); // restore pre-swap live content
+      fs.unlinkSync(backupPath);
+      console.warn("[editorial] self-heal: restored live content from stray .gatebak " +
+        "(a previous gate run was interrupted mid-swap).");
+    }
+  } catch (e) {
+    // Never let the guard itself break a run; surface it loudly instead.
+    console.error("[editorial] self-heal could not restore .gatebak: " + e.message);
+  }
+}
+
 function selectModel(registry, role, action) {
   const r = registry.roles && registry.roles[role];
   if (!r) throw new Error("no registry role: " + role);
@@ -578,6 +603,8 @@ function runStructuralTests(appliedContent) {
 
 function main() {
   const a = process.argv;
+  // Crash-recovery FIRST: undo any interrupted gate swap before any command runs.
+  selfHealGatebak();
   if (a.indexOf("--draft-prep") !== -1) return cmdDraftPrep();
   let i = a.indexOf("--draft-ingest");
   if (i !== -1) return cmdDraftIngest(a[i + 1]);
