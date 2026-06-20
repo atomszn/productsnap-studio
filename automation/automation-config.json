@@ -70,6 +70,36 @@
     "notify_on_ready_for_review": true
   },
 
+  "threshold_autotune": {
+    "enabled": true,
+    "auto_apply": false,
+    "min_events_per_signal": 8,
+    "review_cadence": "monthly",
+    "max_relative_step": 0.15,
+    "cooldown_days": 30,
+    "recommender_model": "gpt_5_5",
+    "validator_model": "gemini_3_1_pro",
+    "validator_min_confidence": 0.90,
+    "auto_apply_min_confidence": 0.97,
+    "fp_rate_band": 0.25,
+    "missed_rate_band": 0.25
+  },
+  "_threshold_autotune_meaning": {
+    "_comment": "Control plane for the self-tuning editorial-exception-threshold loop (scripts/lib/threshold-evidence.js, threshold-outcomes.js + editorial-runner --record-evidence/--threshold-* subcommands). DETERMINISTIC scripts only; AI (recommender + validator) runs in Perplexity Computer as contracts, never in these scripts or GitHub Actions. This loop tunes ONLY the per-signal editorial `exception_threshold` (data/signals_registry.json), never the data-validation `thresholds` bounds, never any current_value.",
+    "enabled": "Master switch for the loop. When true, evidence is recorded and the recommend->validate->gate pipeline may run. When false, --threshold-tune-prep exits 3 (nothing to do).",
+    "auto_apply": "SHIP OFF. When false (current), the gate's action is 'propose': bounded changes are written to a WORKING-TREE registry copy for a human-reviewed PR; the registry on main is never written by the gate. When later armed true (like auto_publish_enabled), a rec that ALSO clears auto_apply_min_confidence may commit the registry change directly, bounded + logged + reversible. The auto_apply path is built and tested but dormant.",
+    "min_events_per_signal": "Evidence-volume gate. A signal needs at least this many evidence records before it is eligible for tuning — no tuning on a handful of data points. The loop correctly reports 'nothing to tune' (exit 3) until this accrues; that is expected, not a bug.",
+    "review_cadence": "How often the Computer-side cron checks for tunable signals (evidence-volume-triggered, checked monthly).",
+    "max_relative_step": "Hard cap on how far a single threshold may move per cycle: +/-15% relative to its current value. The deterministic gate re-clamps every recommendation to this regardless of what the AI proposed.",
+    "cooldown_days": "No second change to the same signal within this many days of its last change-log entry. Prevents fast drift / runaway feedback.",
+    "recommender_model": "model-registry.json role/id the recommender contract uses (swappable without code changes; falls back to roles.research.default).",
+    "validator_model": "model-registry.json id of the INDEPENDENT validator (a DIFFERENT provider than the recommender, mirroring the publish panel's anti-blind-spot principle; falls back to roles.validation.default).",
+    "validator_min_confidence": "A recommendation needs validator verdict=support AND confidence >= this AND would_cause_missed_signal=false to be eligible at the gate.",
+    "auto_apply_min_confidence": "Higher bar required for the eventual direct-apply path: even with auto_apply=true, a rec must clear this confidence to be applied directly rather than merely proposed.",
+    "fp_rate_band": "Analyzer notability band: a signal whose false-positive-candidate rate over its evidence reaches this is worth recommending a tune for.",
+    "missed_rate_band": "Analyzer notability band: a signal whose missed-signal-candidate rate over its evidence reaches this is worth recommending a tune for."
+  },
+
   "paths": {
     "_comment": "Relative to repo root. Handoff and audit file locations so every component agrees on where things live.",
     "editorial_task": "data/pulse-editorial-task.json",
@@ -79,6 +109,11 @@
     "editorial_decision": "data/pulse-editorial-decision.json",
     "spend_ledger": "automation/spend-ledger.json",
     "model_registry": "automation/model-registry.json",
-    "run_records_dir": "automation/runs"
+    "run_records_dir": "automation/runs",
+    "threshold_evidence_ledger": "automation/threshold-evidence.jsonl",
+    "threshold_change_log": "automation/threshold-change-log.jsonl",
+    "threshold_recommendation": "data/pulse-threshold-recommendation.json",
+    "threshold_validation": "data/pulse-threshold-validation.json",
+    "threshold_tune_report": "data/pulse-threshold-tune-report.json"
   }
 }

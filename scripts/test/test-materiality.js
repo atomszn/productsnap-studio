@@ -193,7 +193,7 @@ function setupRunnerTree(decision) {
   [
     "schema-validate.js", "verify-claims.js", "apply-editorial.js", "clarity-scan.js",
     "no-advice-scan.js", "narrative-consistency.js", "post-publish-check.js", "materiality.js",
-    "pulse-trust.js", "pulse-sources.js"
+    "pulse-trust.js", "pulse-sources.js", "threshold-evidence.js", "threshold-outcomes.js"
   ].forEach((f) => copy(path.join(ROOT, "scripts", "lib", f), path.join(dir, "scripts", "lib", f)));
   copy(path.join(ROOT, "scripts", "check-budget.js"), path.join(dir, "scripts", "check-budget.js"));
 
