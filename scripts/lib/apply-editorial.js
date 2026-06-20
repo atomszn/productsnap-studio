@@ -26,18 +26,29 @@
 
 // Read-only data paths that must NEVER change via the editorial path. Checked per
 // signal (by id) and at the content top level. Matches editable-fields-map.md.
+// NOTE on why_we_think_this: as of Phase 3 the PROSE subfields
+// (reasoning, counterarguments, what_would_make_us_wrong) are EDITABLE so the
+// macro-editor can clear jargon there. The machine subfield `signals_used` stays
+// read-only and is guarded separately (WHY_WE_THINK_READONLY_SUBKEYS) so the
+// diff guard still catches a data-list change. why_we_think_this is therefore NOT
+// in SIGNAL_READONLY_KEYS anymore.
 const SIGNAL_READONLY_KEYS = [
   "id", "category", "category_label",
   "current_value", "current_unit", "data_points", "compared_to", "percentile",
   "confidence", "tier", "last_updated", "sources", "source_note",
   "term_glossary", "reference_point", "data_points_window_months",
-  "why_we_think_this", "personal_overrides"
+  "personal_overrides"
 ];
+
+// Subkeys of why_we_think_this that remain read-only (machine lists).
+const WHY_WE_THINK_READONLY_SUBKEYS = ["signals_used"];
+// Prose subkeys the editor may rewrite.
+const WHY_WE_THINK_EDITABLE_SUBKEYS = ["reasoning", "counterarguments", "what_would_make_us_wrong"];
 
 // Editable prose keys on a signal the draft may set.
 const SIGNAL_EDITABLE_KEYS = [
   "title", "summary", "status", "status_tone", "momentum_label", "pill_label_short",
-  "chain", "refined_why"
+  "chain", "refined_why", "why_we_think_this"
 ];
 
 function clone(o) { return JSON.parse(JSON.stringify(o)); }
@@ -67,6 +78,16 @@ function applySignal(liveSig, draftSig, editorialDate) {
       counter_signal: draftSig.refined_why.counter_signal,
       product_takeaway: draftSig.refined_why.product_takeaway
     });
+  }
+  // why_we_think_this: rewrite ONLY the prose subfields; preserve signals_used
+  // (the read-only machine list) exactly as it was.
+  if (draftSig.why_we_think_this) {
+    const base = Object.assign({}, liveSig.why_we_think_this); // keeps signals_used
+    const d = draftSig.why_we_think_this;
+    if (d.reasoning != null) base.reasoning = d.reasoning;
+    if (d.counterarguments != null) base.counterarguments = d.counterarguments.slice();
+    if (d.what_would_make_us_wrong != null) base.what_would_make_us_wrong = d.what_would_make_us_wrong;
+    liveSig.why_we_think_this = base;
   }
   // Editorial freshness bookkeeping (so data-validate recompute agrees).
   liveSig.last_editorial_reviewed = editorialDate;
@@ -179,6 +200,15 @@ function diffGuard(before, after) {
         violations.push("signals[" + id + "]." + k + " changed (read-only data)");
       }
     });
+    // why_we_think_this is now partially editable: its prose subfields may move,
+    // but signals_used (the machine data list) must NOT.
+    const bw = (b && b.why_we_think_this) || {};
+    const aw = (a && a.why_we_think_this) || {};
+    WHY_WE_THINK_READONLY_SUBKEYS.forEach((k) => {
+      if (!deepEqual(bw[k], aw[k])) {
+        violations.push("signals[" + id + "].why_we_think_this." + k + " changed (read-only data)");
+      }
+    });
   });
 
   // top-level read-only blocks
@@ -210,5 +240,7 @@ module.exports = {
   diffGuard,
   SIGNAL_READONLY_KEYS,
   SIGNAL_EDITABLE_KEYS,
+  WHY_WE_THINK_READONLY_SUBKEYS,
+  WHY_WE_THINK_EDITABLE_SUBKEYS,
   monthDayLabel
 };

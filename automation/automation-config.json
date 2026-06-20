@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "last_reviewed": "2026-06-20",
 
-  "editorial_automation_phase": 2,
+  "editorial_automation_phase": 3,
   "_phase_meaning": {
     "0": "Trigger decision is log-only. draft-editorial.js records KEEP/DRAFT but emits no handoff task. No AI anywhere.",
     "1": "Research agent SHADOW MODE. emit-editorial-task.js writes a typed handoff task on DRAFT. Computer research runner reads it, researches, writes findings + run record + ledger to the branch/artifact. Publishes NOTHING. No editorial rewrite. No auto-merge of AI interpretation.",
@@ -17,17 +17,30 @@
     "editorial_automation_enabled": true
   },
 
-  "shadow_mode": true,
+  "shadow_mode": false,
   "_shadow_mode_meaning": "When true, the AI layer may RESEARCH and WRITE reviewable artifacts but may NEVER publish, merge, or alter live Pulse content/data. Phase 1 forces this true.",
 
-  "auto_publish_enabled": false,
-  "_auto_publish_meaning": "Master gate for letting any AI-written interpretation reach the live page. Phase 1/2 force this false. Only relevant at phase >= 3.",
+  "auto_publish_enabled": true,
+  "_auto_publish_meaning": "Master gate for letting any AI-written interpretation reach the live page. Phase 1/2 force this false. Only relevant at phase >= 3. When true (and shadow_mode false), a cycle that clears BOTH the GREEN verdict AND the higher publish_confidence_threshold AND a clean whole-page clarity scan publishes itself with no human in the loop.",
+
+  "pause_auto_publish": false,
+  "_pause_auto_publish_meaning": "Soft kill-switch for auto-publish ONLY. When true, every cycle holds (action held_below_bar) and publishes nothing, WITHOUT disarming the rest of the pipeline (research/draft/validate/gate still run and produce reviewable artifacts). Use this to temporarily stop live publishing without touching auto_publish_enabled. The hard global off-switch is kill_switch.editorial_automation_enabled.",
 
   "confidence_threshold": 0.9,
   "_confidence_threshold_meaning": "Minimum overall gate confidence required for a GREEN verdict (Phase 2 gate). YELLOW band is [0.70, 0.90); RED is < 0.70 or any hard-check failure. At phase >= 3 a GREEN verdict is eligible for auto-publish only when auto_publish_enabled is also true.",
 
+  "publish_confidence_threshold": 0.95,
+  "_publish_confidence_threshold_meaning": "Separate, HIGHER bar required to actually AUTO-PUBLISH (default 0.95). A GREEN verdict (>= confidence_threshold) whose confidence is below this publish bar HOLDS SILENTLY and retries the next cycle instead of publishing. This is the macro-editor's '~95% sure or hold' rule.",
+
   "reading_grade_target_max": 9,
   "_reading_grade_meaning": "Editorial output must read at or below US grade 9 (Phase 2+ quality gate). Recorded in Phase 1 findings as a target only.",
+
+  "validation_panel": {
+    "_comment": "Phase 3 multi-fold robustness. The single validation agent is replaced by a 3-judge adversarial panel of DIFFERENT providers (deliberately not the editorial drafter). The gate uses the WORST (minimum) confidence across judges for the GREEN/YELLOW/RED verdict, and only AUTO-PUBLISHES when ALL judges independently clear the publish bar (require_all_clear) AND no judge reports a hard issue. A single-judge ingest (--validate-ingest) is treated as a 1-judge panel for backward compatibility.",
+    "models": ["gemini_3_1_pro", "gpt_5_5", "claude_opus_4_8"],
+    "min_required": 3,
+    "require_all_clear": true
+  },
 
   "budget": {
     "_comment": "Real governor. check-budget.js reads the spend ledger and compares against these. In Phase 1 the governor is READ-ONLY/advisory: it records status but the deterministic data pipeline never depends on it. Dollar amounts are USD/month.",

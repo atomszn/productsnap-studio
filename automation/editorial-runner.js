@@ -58,6 +58,10 @@ const { validate } = require("../scripts/lib/schema-validate");
 const budget = require("../scripts/check-budget.js");
 const verifyClaims = require("../scripts/lib/verify-claims");
 const applyEditorial = require("../scripts/lib/apply-editorial");
+const clarityScan = require("../scripts/lib/clarity-scan");
+const noAdviceScan = require("../scripts/lib/no-advice-scan");
+const narrativeConsistency = require("../scripts/lib/narrative-consistency");
+const postPublishCheck = require("../scripts/lib/post-publish-check");
 
 const ROOT = path.resolve(__dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "automation", "automation-config.json");
@@ -71,6 +75,7 @@ const REGISTRY_DATA_PATH = path.join(ROOT, "data", "signals_registry.json");
 const DRAFT_PATH = path.join(ROOT, "data", "pulse-content-draft.json");
 const REPORT_PATH = path.join(ROOT, "data", "pulse-quality-report.json");
 const VALIDATION_STASH = path.join(ROOT, "data", ".pulse-validation-candidate.json");
+const VALIDATION_PANEL_STASH = path.join(ROOT, "data", "pulse-validation-panel.json");
 const DRAFT_SCHEMA = path.join(ROOT, "automation", "schemas", "content-draft.schema.json");
 const QUALITY_SCHEMA = path.join(ROOT, "automation", "schemas", "quality-report.schema.json");
 const RUN_SCHEMA = path.join(ROOT, "automation", "schemas", "run-record.schema.json");
@@ -336,6 +341,9 @@ function cmdValidateIngest(candidatePath) {
     candidate.estimated_cost_usd = selectModel(registry, "validation", "proceed").est;
   }
   writeJSON(VALIDATION_STASH, candidate);
+  // A fresh single-judge ingest supersedes any stale panel stash so the gate
+  // treats THIS as the (1-judge) panel.
+  try { if (fs.existsSync(VALIDATION_PANEL_STASH)) fs.unlinkSync(VALIDATION_PANEL_STASH); } catch (e) { /* ignore */ }
   appendSpend(ledger, "validation", candidate.model_used, candidate.estimated_cost_usd,
     { run_id: report_id, task_id: pre.task.task_id, fingerprint: pre.task.fingerprint });
 
@@ -343,6 +351,142 @@ function cmdValidateIngest(candidatePath) {
   console.log("  confidence -> " + candidate.confidence + " grade -> " + candidate.reading_grade);
   console.log("  ledger -> +$" + budget.round2(candidate.estimated_cost_usd) + " (model " + (candidate.model_used || "unknown") + ")");
   process.exit(0);
+}
+
+// -------------------------------------------------- VALIDATE PANEL INGEST ----
+// Phase 3: ingest an ARRAY of N judge quality-report-shaped objects (the 3-model
+// adversarial panel). Validates each against the validation_agent sub-schema (one
+// corrective pass on schema failure, same pattern as --validate-ingest), then
+// stashes the whole array at data/pulse-validation-panel.json for the gate. The
+// single --validate-ingest path stays working (treated as a 1-judge panel by the
+// gate's loadPanel).
+function cmdValidatePanelIngest(candidatePath) {
+  const { config, registry, ledger } = loadCommon();
+  const pre = requireActiveTaskWithFindings();
+  if (!pre.ok) { console.error("[editorial] " + pre.reason); process.exit(3); }
+
+  const raw = readJSONSafe(candidatePath);
+  if (!raw) { console.error("[editorial] cannot read candidate panel: " + candidatePath); process.exit(2); }
+  // Accept either a bare array or an object { judges: [...] }.
+  const judges = Array.isArray(raw) ? raw : (Array.isArray(raw.judges) ? raw.judges : null);
+  if (!judges || judges.length === 0) {
+    console.error("[editorial] panel ingest expects a non-empty JSON array of judge objects (or { judges: [...] })");
+    process.exit(2);
+  }
+
+  const qschema = readJSONSafe(QUALITY_SCHEMA);
+  const subSchema = qschema.properties.validation_agent;
+  for (let i = 0; i < judges.length; i++) {
+    const res = validate(judges[i], subSchema);
+    if (!res.valid) {
+      console.error("[editorial] panel judge[" + i + "] FAILED schema validation; refusing to write:");
+      res.errors.forEach((e) => console.error("  · " + e.path + ": " + e.message));
+      process.exit(2);
+    }
+  }
+
+  const panelCfg = (config.validation_panel) || {};
+  const minRequired = Number(panelCfg.min_required) || 1;
+  if (judges.length < minRequired) {
+    console.error("[editorial] panel has " + judges.length + " judge(s) but min_required is " + minRequired);
+    process.exit(2);
+  }
+
+  const dateStr = isoDate();
+  const report_id = makeId(pre.task.fingerprint, dateStr, "validation-panel");
+  const stash = { judges, generated_at: new Date().toISOString(), fingerprint: pre.task.fingerprint };
+  writeJSON(VALIDATION_PANEL_STASH, stash);
+
+  // ledger: one entry per judge (each is a real model run).
+  judges.forEach((j) => {
+    const est = j.estimated_cost_usd != null ? j.estimated_cost_usd
+      : selectModel(registry, "validation", "proceed").est;
+    appendSpend(ledger, "validation", j.model_used, est,
+      { run_id: report_id, task_id: pre.task.task_id, fingerprint: pre.task.fingerprint });
+  });
+
+  console.log("[editorial] OK validation panel stashed for gate (" + judges.length + " judges).");
+  judges.forEach((j) => console.log("  · " + (j.model_used || "?") + " conf=" + j.confidence));
+  console.log("  panel -> " + path.relative(ROOT, VALIDATION_PANEL_STASH));
+  process.exit(0);
+}
+
+// Load the panel for the gate. Source of truth is the panel stash (array of
+// judges). For backward compat, if no panel stash exists but a single validation
+// candidate does, treat that single object as a 1-judge panel. Returns
+// { judges: [...] } or null if neither exists.
+function loadPanel() {
+  const panel = readJSONSafe(VALIDATION_PANEL_STASH);
+  if (panel && Array.isArray(panel.judges) && panel.judges.length) return { judges: panel.judges };
+  const single = readJSONSafe(VALIDATION_STASH);
+  if (single) return { judges: [single] };
+  return null;
+}
+
+// Compute the panel-derived numbers the gate needs from a list of judges.
+// A judge has a "hard issue" if it reports disclaimer not respected, an overclaim,
+// any unsupported (causal) claim, or an unacknowledged narrative reversal (the
+// last is only counted as hard when a reversal actually exists — see cmdGate,
+// which passes reversalExists). Returns the worst/representative judge too.
+function summarizePanel(judges, publishBar, reversalExists) {
+  let minConf = Infinity;
+  let worst = judges[0];
+  let allClear = true;
+  let anyHard = false;
+  judges.forEach((j) => {
+    const c = Number(j.confidence);
+    if (c < minConf) { minConf = c; worst = j; }
+    if (c < publishBar) allClear = false;
+    const hard =
+      j.disclaimer_respected === false ||
+      j.honest_no_overclaim === false ||
+      (Array.isArray(j.unsupported_claims) && j.unsupported_claims.length > 0) ||
+      (reversalExists && j.narrative_reversal_acknowledged === false);
+    if (hard) anyHard = true;
+  });
+  if (!isFinite(minConf)) minConf = 0;
+  return { minConf, worst, allClear, anyHard };
+}
+
+// True iff EVERY judge explicitly acknowledged the (supported) narrative reversal.
+function panelAcknowledgedReversal(judges) {
+  return judges.every((j) => j.narrative_reversal_acknowledged !== false);
+}
+
+// ----------------------------------------------------- POST-PUBLISH VERIFY ----
+// Called by the CRON AFTER it pushes an auto-published commit to main. Reads the
+// just-published live content (data/pulse-content.json) and confirms the live site
+// actually serves it. DETECTION ONLY — this never reverts or pushes; the cron acts
+// on the exit code. Exit 0 = live matches; exit 6 = live does NOT match after
+// retries; exit 3 = nothing to verify. Supports --retries / --backoff-ms / --url.
+function cmdPostPublishVerify(args) {
+  const expected = readJSONSafe(CONTENT_PATH);
+  if (!expected) { console.error("[editorial] no content to verify at " + path.relative(ROOT, CONTENT_PATH)); process.exit(3); }
+
+  function flag(name, def) {
+    const i = args.indexOf(name);
+    return i !== -1 && args[i + 1] != null ? args[i + 1] : def;
+  }
+  const url = flag("--url", undefined);
+  const retries = Number(flag("--retries", 5));
+  const backoffMs = Number(flag("--backoff-ms", 30000));
+
+  postPublishCheck.verifyLive(expected, { url, retries, backoffMs })
+    .then((result) => {
+      console.log(JSON.stringify({
+        ok: result.ok,
+        reason: result.reason,
+        http_status: result.http_status,
+        matched: result.matched,
+        attempts: result.attempts,
+        url: url || postPublishCheck.DEFAULT_URL
+      }));
+      process.exit(result.ok ? 0 : 6);
+    })
+    .catch((e) => {
+      console.log(JSON.stringify({ ok: false, reason: "verify_exception: " + e.message, http_status: 0, matched: false }));
+      process.exit(6);
+    });
 }
 
 // -------------------------------------------------------------------- GATE ----
@@ -353,11 +497,15 @@ function cmdGate() {
   if (!pre.ok) { console.error("[editorial] " + pre.reason); process.exit(3); }
 
   const draft = readJSONSafe(DRAFT_PATH);
-  const validation = readJSONSafe(VALIDATION_STASH);
+  const panel = loadPanel();
   const liveContent = readJSONSafe(CONTENT_PATH);
   const dataRegistry = readJSONSafe(REGISTRY_DATA_PATH);
   if (!draft || draft.fingerprint !== pre.task.fingerprint) { console.error("[editorial] no draft for fingerprint"); process.exit(3); }
-  if (!validation) { console.error("[editorial] no validation candidate (run --validate-ingest first)"); process.exit(3); }
+  if (!panel) { console.error("[editorial] no validation candidate (run --validate-ingest or --validate-panel-ingest first)"); process.exit(3); }
+  const judges = panel.judges;
+  // The worst/representative judge populates the backward-compat validation_agent
+  // block; the panel summary below drives the verdict + publish decision.
+  const validation = judges.reduce((w, j) => (Number(j.confidence) < Number(w.confidence) ? j : w), judges[0]);
 
   const now = new Date();
   const dateStr = isoDate(now);
@@ -366,6 +514,7 @@ function cmdGate() {
   const greenConf = Number(config.confidence_threshold) || 0.9;
   const gradeMax = Number(config.reading_grade_target_max) || 9;
   const yellowConf = 0.70;
+  const publishBar = Number(config.publish_confidence_threshold) || 0.95;
   const blocking = [];
 
   // ---- layer 1: deterministic reconciler ----
@@ -410,17 +559,89 @@ function cmdGate() {
     failedTests.push("skipped — unsafe tree (diff guard or schema failed)");
   }
 
-  // ---- layer 2: validation agent confidence + meaning checks ----
-  const conf = Number(validation.confidence);
+  // ---- layer 1b: deterministic WHOLE-PAGE clarity + jargon scan (macro-editor gate) ----
+  // Scans the APPLIED tree (post-apply, pre-publish) for unexplained economic
+  // jargon and reading grade over EVERY editable prose string on the page — not
+  // just the signals this cycle touched. Pure code: a generous AI grade can never
+  // sneak past this floor. Unexplained jargon or grade>max anywhere = hard block.
+  // Only meaningful when we actually have a safe applied tree.
+  let clarity = null;
+  if (applied) {
+    clarity = clarityScan.scanPage(applied, { gradeMax, gateScope: "editable" });
+    if (!clarity.jargon_clean) {
+      clarity.unexplained_jargon.forEach((u) =>
+        blocking.push("clarity:jargon \"" + u.term + "\" @ " + u.path));
+    }
+    if (!clarity.grade_ok) {
+      blocking.push("clarity:reading_grade " + clarity.page_grade + " > " + gradeMax + " (page)");
+    }
+    clarity.soft_warnings.forEach((w) => blocking.push("clarity_soft:" + w.check + " — " + w.detail));
+  } else {
+    blocking.push("clarity:skipped — no applied tree");
+  }
+  const clarityClean = !!(clarity && clarity.jargon_clean && clarity.grade_ok);
+
+  // ---- multi-fold backstop A: deterministic no-advice / no-prediction scan ----
+  // Whole-page phrase-level floor over the APPLIED tree's editable prose. Any hit
+  // (prescriptive advice OR a forward price/level prediction) is a HARD block — a
+  // generous AI judge can never let advice slip past this deterministic floor.
+  let noAdvice = null;
+  if (applied) {
+    noAdvice = noAdviceScan.scanNoAdvice(applied);
+    if (!noAdvice.pass) {
+      noAdvice.hits.forEach((h) =>
+        blocking.push("no_advice:" + h.kind + " \"" + h.term + "\" @ " + h.path));
+    }
+  } else {
+    blocking.push("no_advice:skipped — no applied tree");
+  }
+  const noAdviceClean = !!(noAdvice && noAdvice.pass);
+
+  // ---- multi-fold backstop B: narrative-consistency vs the previous live page ----
+  // An UNSUPPORTED reversal (prose flips, data direction did not) is a HARD block.
+  // A SUPPORTED reversal is soft: it downgrades GREEN->YELLOW unless EVERY judge
+  // explicitly acknowledged it (narrative_reversal_acknowledged).
+  let narrative = null;
+  if (applied) {
+    narrative = narrativeConsistency.checkConsistency(liveContent, applied, { registry: dataRegistry });
+    narrative.hard_failures.forEach((f) =>
+      blocking.push("narrative_reversal_unsupported:" + f.signal_id + " — " + f.detail));
+  } else {
+    blocking.push("narrative:skipped — no applied tree");
+  }
+  const narrativeHardClean = !!(narrative && narrative.pass);
+  const supportedReversalExists = !!(narrative && narrative.soft_warnings.length > 0);
+  const reversalExists = !!(narrative && narrative.reversals.length > 0);
+
+  // ---- layer 2: 3-model adversarial PANEL (worst-case confidence) ----
+  const panelSummary = summarizePanel(judges, publishBar, reversalExists);
+  const panelMinConf = panelSummary.minConf;
+  const panelAllClearPublish = panelSummary.allClear;
+  const panelAnyHardIssue = panelSummary.anyHard;
+  const conf = panelMinConf; // verdict uses worst-case confidence
+  // Per-judge meaning checks (reported against the worst/representative judge).
   if (validation.reading_grade > gradeMax) blocking.push("validation:reading_grade " + validation.reading_grade + " > " + gradeMax);
-  if (validation.disclaimer_respected === false) blocking.push("validation:disclaimer not respected");
-  if (validation.honest_no_overclaim === false) blocking.push("validation:overclaim detected");
-  if (conf < yellowConf) blocking.push("validation:confidence " + conf + " < " + yellowConf + " (below YELLOW floor)");
+  if (panelAnyHardIssue) blocking.push("panel:a judge reports a hard issue (disclaimer/overclaim/unsupported-causal/unacknowledged-reversal)");
+  judges.forEach((j) => {
+    if (j.disclaimer_respected === false) blocking.push("panel:" + (j.model_used || "?") + " disclaimer not respected");
+    if (j.honest_no_overclaim === false) blocking.push("panel:" + (j.model_used || "?") + " overclaim detected");
+    if (Array.isArray(j.unsupported_claims) && j.unsupported_claims.length > 0)
+      blocking.push("panel:" + (j.model_used || "?") + " reports " + j.unsupported_claims.length + " unsupported claim(s)");
+  });
+  if (conf < yellowConf) blocking.push("panel:min confidence " + conf + " < " + yellowConf + " (below YELLOW floor)");
+
+  // A supported reversal that the panel did NOT all acknowledge downgrades GREEN.
+  const reversalCleared = !supportedReversalExists || panelAcknowledgedReversal(judges);
+  if (supportedReversalExists && !reversalCleared) {
+    narrative.soft_warnings.forEach((w) =>
+      blocking.push("narrative_reversal_unacknowledged:" + w.signal_id + " — " + w.detail));
+  }
 
   // ---- verdict (deterministic) ----
   const reconcilerClean = rec.pass;
   const structuralClean = draftSchemaValid && editorialOnlyDiff && testsPass;
-  const hardClean = reconcilerClean && structuralClean &&
+  const hardClean = reconcilerClean && structuralClean && clarityClean &&
+    noAdviceClean && narrativeHardClean && !panelAnyHardIssue &&
     validation.disclaimer_respected !== false &&
     validation.honest_no_overclaim !== false &&
     validation.reading_grade <= gradeMax;
@@ -428,7 +649,7 @@ function cmdGate() {
   let verdict;
   if (!hardClean || conf < yellowConf) {
     verdict = "RED";
-  } else if (conf >= greenConf && rec.soft_warnings.length === 0) {
+  } else if (conf >= greenConf && rec.soft_warnings.length === 0 && reversalCleared) {
     verdict = "GREEN";
   } else {
     verdict = "YELLOW";
@@ -437,19 +658,49 @@ function cmdGate() {
   }
 
   // ---- publish decision ----
+  // Two separate bars: GREEN (>= green_confidence, default 0.90) is the verdict
+  // band; auto-PUBLISH additionally requires confidence >= publish_confidence_
+  // threshold (default 0.95) AND a clean whole-page clarity scan. This is the
+  // user's "only auto-publish when the editor is ~95% sure" rule. Below the
+  // publish bar (but still GREEN) we HOLD SILENTLY and let the next cycle retry —
+  // no notification, no PR churn. A manual kill-switch (pause_auto_publish) can
+  // force every cycle back to review/hold without disarming the whole pipeline.
   const autoPublishEnabled = config.auto_publish_enabled === true;
   const shadow = config.shadow_mode !== false;
+  const autoPublishPaused = config.pause_auto_publish === true;
   const eligible = verdict === "GREEN";
+  // Everything that must be true to actually write live content unattended. The
+  // panel adds two requirements on top of the single-judge bar: the WORST judge
+  // must clear the publish bar (panelMinConf >= bar, == conf here) AND ALL judges
+  // must independently clear it (panelAllClearPublish). The deterministic
+  // backstops (no-advice, narrative) must also be clean.
+  const publishAllowed = eligible && clarityClean && noAdviceClean && narrativeHardClean &&
+    conf >= publishBar && panelAllClearPublish &&
+    autoPublishEnabled && enabled && !shadow && !autoPublishPaused;
   let action = "review_pr";
   let published = false;
-  if (verdict === "RED") action = "held_safe";
-  else if (eligible && autoPublishEnabled && enabled && !shadow) {
+  let hold_reason = null;
+  if (verdict === "RED") {
+    action = "held_safe";
+  } else if (publishAllowed) {
     // THE ONLY PATH THAT TOUCHES LIVE CONTENT.
     writeJSON(CONTENT_PATH, applied);
     published = true;
     action = "auto_publish";
+  } else if (autoPublishEnabled && enabled && !shadow) {
+    // Auto-publish is ARMED, but this cycle did not clear the publish bar.
+    // Hold silently and retry next cycle (per the user's chosen behavior).
+    action = "held_below_bar";
+    if (autoPublishPaused) hold_reason = "auto-publish paused by kill-switch (pause_auto_publish)";
+    else if (!clarityClean) hold_reason = "clarity scan not clean (jargon/grade)";
+    else if (!noAdviceClean) hold_reason = "no-advice scan not clean (advice/prediction language)";
+    else if (!narrativeHardClean) hold_reason = "unsupported narrative reversal";
+    else if (!panelAllClearPublish) hold_reason = "panel not unanimous >= publish bar " + publishBar + " (min " + panelMinConf + ")";
+    else if (conf < publishBar) hold_reason = "panel min confidence " + conf + " < publish bar " + publishBar;
+    else hold_reason = "verdict " + verdict + " (not GREEN)";
   } else {
-    action = "review_pr"; // GREEN/YELLOW but auto-publish not armed -> review
+    // Auto-publish not armed (shadow / disabled) -> review PR path.
+    action = "review_pr";
   }
 
   // ---- assemble + write the quality report ----
@@ -475,32 +726,90 @@ function cmdGate() {
     },
     validation_agent: {
       model_used: validation.model_used,
-      confidence: conf,
+      confidence: Number(validation.confidence),
       reading_grade: validation.reading_grade,
       one_voice_cohesion: validation.one_voice_cohesion !== false,
       honest_no_overclaim: validation.honest_no_overclaim !== false,
       disclaimer_respected: validation.disclaimer_respected !== false,
       unsupported_claims: validation.unsupported_claims || [],
+      narrative_reversal_acknowledged: validation.narrative_reversal_acknowledged !== false,
       estimated_cost_usd: validation.estimated_cost_usd != null ? validation.estimated_cost_usd : 0,
       notes: validation.notes || ""
     },
+    validation_panel: {
+      judges: judges.map((j) => ({
+        model_used: j.model_used,
+        confidence: Number(j.confidence),
+        disclaimer_respected: j.disclaimer_respected !== false,
+        honest_no_overclaim: j.honest_no_overclaim !== false,
+        one_voice_cohesion: j.one_voice_cohesion !== false,
+        unsupported_claims: j.unsupported_claims || [],
+        narrative_reversal_acknowledged: j.narrative_reversal_acknowledged !== false,
+        reading_grade: j.reading_grade != null ? j.reading_grade : 0,
+        notes: j.notes || ""
+      })),
+      min_confidence: panelMinConf,
+      all_clear_publish: panelAllClearPublish,
+      any_hard_issue: panelAnyHardIssue
+    },
+    no_advice: noAdvice ? {
+      pass: noAdvice.pass,
+      hits: noAdvice.hits,
+      sections_scanned: noAdvice.sections_scanned
+    } : { pass: false, hits: [], sections_scanned: 0 },
+    narrative_consistency: narrative ? {
+      pass: narrative.pass,
+      reversals: narrative.reversals,
+      soft_warnings: narrative.soft_warnings,
+      hard_failures: narrative.hard_failures
+    } : { pass: false, reversals: [], soft_warnings: [], hard_failures: [] },
     structural: {
       draft_schema_valid: draftSchemaValid,
       editorial_only_diff: editorialOnlyDiff,
       tests_pass: testsPass,
       failed_tests: failedTests
     },
+    clarity: clarity ? {
+      gate_scope: clarity.gate_scope,
+      jargon_clean: clarity.jargon_clean,
+      grade_ok: clarity.grade_ok,
+      page_grade: clarity.page_grade,
+      hardest_sentence_grade: clarity.hardest_sentence_grade,
+      hardest_sentence_path: clarity.hardest_sentence_path,
+      sections_scanned: clarity.sections_scanned,
+      unexplained_jargon: clarity.unexplained_jargon,
+      explained_jargon: clarity.explained_jargon,
+      readonly_jargon: clarity.readonly_jargon
+    } : {
+      gate_scope: "editable",
+      jargon_clean: false,
+      grade_ok: false,
+      page_grade: 0,
+      hardest_sentence_grade: 0,
+      hardest_sentence_path: "",
+      sections_scanned: 0,
+      unexplained_jargon: [],
+      explained_jargon: [],
+      readonly_jargon: []
+    },
     thresholds: {
       green_confidence: greenConf,
       yellow_confidence: yellowConf,
+      publish_confidence: publishBar,
       reading_grade_max: gradeMax
     },
     blocking_reasons: blocking,
     auto_publish: {
       eligible,
       enabled_in_config: autoPublishEnabled,
+      paused: autoPublishPaused,
+      publish_bar: publishBar,
+      clarity_clean: clarityClean,
+      panel_all_clear: panelAllClearPublish,
+      panel_min_confidence: panelMinConf,
       published,
-      action
+      action,
+      hold_reason: hold_reason
     }
   };
 
@@ -546,10 +855,15 @@ function cmdGate() {
     writeJSON(path.join(RUNS_DIR, dateStr + "-" + report_id + ".json"), record);
   }
 
-  console.log("[editorial] GATE verdict=" + verdict + " action=" + action + " published=" + published);
+  console.log("[editorial] GATE verdict=" + verdict + " action=" + action + " published=" + published +
+    (hold_reason ? " hold_reason=\"" + hold_reason + "\"" : ""));
   console.log("  reconciler: " + (rec.pass ? "clean" : "FAIL") +
     " | schema:" + draftSchemaValid + " diff_guard:" + editorialOnlyDiff + " tests:" + testsPass +
-    " | confidence:" + conf + " (green>=" + greenConf + ")");
+    " | clarity:" + (clarity ? (clarityClean ? "clean(grade " + clarity.page_grade + ")" : "FAIL(" + clarity.unexplained_jargon.length + " jargon, grade " + clarity.page_grade + ")") : "n/a") +
+    " | no_advice:" + (noAdvice ? (noAdviceClean ? "clean" : "FAIL(" + noAdvice.hits.length + ")") : "n/a") +
+    " | narrative:" + (narrative ? (narrativeHardClean ? (supportedReversalExists ? "soft-reversal" : "clean") : "FAIL(" + narrative.hard_failures.length + ")") : "n/a") +
+    " | panel:" + judges.length + "j min=" + panelMinConf + " all_clear=" + panelAllClearPublish + " hard=" + panelAnyHardIssue +
+    " (green>=" + greenConf + ", publish>=" + publishBar + ")");
   if (blocking.length) { console.log("  blocking:"); blocking.forEach((b) => console.log("   · " + b)); }
   console.log("  report -> " + path.relative(ROOT, REPORT_PATH));
 
@@ -609,10 +923,13 @@ function main() {
   let i = a.indexOf("--draft-ingest");
   if (i !== -1) return cmdDraftIngest(a[i + 1]);
   if (a.indexOf("--validate-prep") !== -1) return cmdValidatePrep();
+  i = a.indexOf("--validate-panel-ingest");
+  if (i !== -1) return cmdValidatePanelIngest(a[i + 1]);
   i = a.indexOf("--validate-ingest");
   if (i !== -1) return cmdValidateIngest(a[i + 1]);
+  if (a.indexOf("--post-publish-verify") !== -1) return cmdPostPublishVerify(a);
   if (a.indexOf("--gate") !== -1) return cmdGate();
-  console.error("usage: editorial-runner.js --draft-prep | --draft-ingest <f> | --validate-prep | --validate-ingest <f> | --gate");
+  console.error("usage: editorial-runner.js --draft-prep | --draft-ingest <f> | --validate-prep | --validate-ingest <f> | --validate-panel-ingest <f> | --gate | --post-publish-verify [--url U] [--retries N] [--backoff-ms M]");
   process.exit(1);
 }
 
