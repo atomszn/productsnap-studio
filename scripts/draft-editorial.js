@@ -135,6 +135,49 @@ function isNewerObservation(observationDate, lastTriggeredDate) {
   return norm(observationDate) > norm(lastTriggeredDate);
 }
 
+// Read the previous decision snapshot's per-signal editorial-staleness firing
+// map. Returns { [signal_id]: "YYYY-MM-DD" } recording, for each signal whose
+// PER-SIGNAL editorial read last fired a staleness DRAFT, the
+// last_editorial_reviewed date that fired it. This makes the per-signal
+// staleness trigger freshness-aware: a stale read fires a DRAFT ONCE and then
+// stays quiet until the read is actually refreshed (its last_editorial_reviewed
+// changes). Without this, an 80-day-old summary would re-fire a near-identical
+// DRAFT every single run forever. Same shape/spirit as
+// readPriorTriggeringObservations() for material moves.
+function readPriorEditorialReadFirings() {
+  try {
+    const prior = readJSON(DECISION_PATH);
+    if (prior && prior.triggering_editorial_reads && typeof prior.triggering_editorial_reads === "object") {
+      return { map: prior.triggering_editorial_reads, hadMap: true };
+    }
+    // A prior snapshot exists but predates this fix (no map). Anything already
+    // stale today has effectively been visible to the user under the old
+    // behavior, so seed it as already-fired on this first run to avoid one
+    // redundant re-fire. A genuinely refreshed read later (newer
+    // last_editorial_reviewed) still fires because its date will be strictly
+    // newer than the seeded date.
+    return { map: {}, hadMap: false };
+  } catch (err) {
+    return { map: {}, hadMap: false };
+  }
+}
+
+// Pull the per-signal editorial read date + status for a content signal. The
+// daily refresh already computes signal.editorial_freshness against the
+// per-signal policy window; we PREFER that authoritative value and only
+// recompute as a fallback when it is absent. Returns null when there is no
+// editorial read date to judge.
+function perSignalEditorial(signal, perSignalExpiry, now) {
+  const ef = (signal && signal.editorial_freshness) || {};
+  const reviewed = ef.last_editorial_reviewed || null;
+  if (ef.editorial_status) {
+    return { reviewed, status: ef.editorial_status, age_days: (ef.age_days != null ? ef.age_days : null) };
+  }
+  if (!reviewed) return null;
+  const f = trust.editorialFreshness(reviewed, perSignalExpiry, now);
+  return { reviewed, status: f.editorial_status, age_days: f.age_days };
+}
+
 function main() {
   const now = new Date();
   let content, registry;
@@ -152,6 +195,8 @@ function main() {
   const policy = (registry.editorial_freshness_policy) || {};
   const wcExpiry = policy.weekly_connection_expires_after_days != null
     ? policy.weekly_connection_expires_after_days : 7;
+  const perSignalExpiry = policy.per_signal_thesis_expires_after_days != null
+    ? policy.per_signal_thesis_expires_after_days : 35;
 
   const triggers = [];
 
@@ -159,11 +204,60 @@ function main() {
   const needsReview = trust.weeklyConnectionNeedsReview(wc, signals);
   if (needsReview) triggers.push({ type: "narrative_review_required", detail: "Weekly Connection flagged or a connected signal is in alignment mismatch" });
 
-  // ---- Trigger 2: editorial freshness window ----
+  // ---- Trigger 2: editorial freshness (TWO windows) ----
+  // (a) The Weekly Connection's narrative read vs the 7-day WC window (existing).
+  // (b) Each SIGNAL's own editorial read vs the 35-day per-signal thesis window
+  //     (new). Previously the per-signal status was COMPUTED and stored on each
+  //     signal but never fired a DRAFT, so an 80-day-old summary (e.g.
+  //     consumer-confidence) could sit indefinitely with no refresh path unless
+  //     it happened to be one of the Weekly Connection's connected_signals. This
+  //     closes that gap. Per-signal staleness is freshness-aware: a stale read
+  //     fires ONCE and stays quiet until the read is actually refreshed (its
+  //     last_editorial_reviewed changes), so we don't re-draft the same old
+  //     summary every run.
   const reviewed = wc.last_editorial_reviewed || wc.date || null;
   const fresh = trust.editorialFreshness(reviewed, wcExpiry, now);
-  if (fresh.editorial_status === "stale") {
-    triggers.push({ type: "editorial_stale", detail: "editorial read past its " + wcExpiry + "-day window (age " + fresh.age_days + "d)" });
+  const wcStale = fresh.editorial_status === "stale";
+
+  // (b) per-signal stale reads, freshness-aware.
+  const priorReads = readPriorEditorialReadFirings();
+  const priorReadFired = priorReads.map;
+  const triggeringEditorialReads = Object.assign({}, priorReadFired); // carry forward
+  const staleSignals = [];          // fired this run -> in scope for the DRAFT
+  const staleReadsSuppressed = [];  // stale but the same read already fired before
+  signals.forEach((s) => {
+    const pe = perSignalEditorial(s, perSignalExpiry, now);
+    if (!pe || pe.status !== "stale") return;
+    const readDate = pe.reviewed || null;
+    let lastFiredDate = priorReadFired[s.id] || null;
+    // Seed-on-migration: prior snapshot predates this fix -> treat the current
+    // stale read as already-fired so it doesn't re-fire once more on rollout.
+    if (!priorReads.hadMap && lastFiredDate == null) {
+      lastFiredDate = readDate; // seed -> suppress this run
+    }
+    // "Refreshed" means a strictly newer last_editorial_reviewed than what last
+    // fired. We reuse isNewerObservation (same normalized date comparison).
+    if (isNewerObservation(readDate, lastFiredDate)) {
+      staleSignals.push({ id: s.id, last_editorial_reviewed: readDate, age_days: pe.age_days });
+      triggeringEditorialReads[s.id] = readDate;
+    } else {
+      triggeringEditorialReads[s.id] = lastFiredDate || readDate;
+      staleReadsSuppressed.push({ id: s.id, last_editorial_reviewed: readDate, last_fired: lastFiredDate, age_days: pe.age_days });
+    }
+  });
+
+  if (wcStale || staleSignals.length) {
+    const reasons = [];
+    if (wcStale) reasons.push("Weekly Connection read past its " + wcExpiry + "-day window (age " + fresh.age_days + "d)");
+    if (staleSignals.length) reasons.push(staleSignals.length + " signal read(s) past the " + perSignalExpiry + "-day window: " + staleSignals.map((x) => x.id + "(" + (x.age_days != null ? x.age_days + "d" : "stale") + ")").join(", "));
+    // The decision-snapshot trigger carries the rich stale_signals[] so
+    // emit-editorial-task can scope exactly those signals. The EMITTED task's
+    // trigger object is schema-trimmed to {type, detail} by emit-task (its
+    // schema forbids extra trigger fields) — same pattern as material_data_move,
+    // whose rich `signals` live on the decision and are trimmed for the task.
+    const t = { type: "editorial_stale", detail: reasons.join("; ") };
+    if (staleSignals.length) t.stale_signals = staleSignals;
+    triggers.push(t);
   }
 
   // ---- Trigger 3: material data move on any tracked signal (freshness-aware) ----
@@ -226,6 +320,14 @@ function main() {
     // Material moves seen this run that were SUPPRESSED because their observation
     // already triggered previously (kept for auditability; not a trigger).
     suppressed_stale_moves: staleMovesSuppressed,
+    // Per-signal map of the last_editorial_reviewed date that last fired a
+    // PER-SIGNAL editorial-staleness trigger. Carried forward run-to-run so a
+    // stale read fires at most once until it is actually refreshed. This is the
+    // per-signal staleness freshness-state (mirrors triggering_observations).
+    triggering_editorial_reads: triggeringEditorialReads,
+    // Per-signal stale reads seen this run that were SUPPRESSED because the same
+    // read already fired previously (kept for auditability; not a trigger).
+    suppressed_stale_reads: staleReadsSuppressed,
     editorial_freshness: fresh,
     weekly_connection_reviewed: reviewed,
     note: "Phase 1 log-only. No content was generated or published. This snapshot records what the event-driven trigger WOULD do once AI drafting is enabled (Phase 2/3)."
@@ -249,6 +351,14 @@ function main() {
   if (staleMovesSuppressed.length) {
     staleMovesSuppressed.forEach((m) =>
       console.log("  · suppressed stale move: " + m.id + " " + m.from + "->" + m.to + " (obs " + m.observation_date + " already triggered " + (m.last_triggered || "n/a") + ")"));
+  }
+  if (staleSignals.length) {
+    staleSignals.forEach((x) =>
+      console.log("  · stale editorial read (NEW): " + x.id + " reviewed " + (x.last_editorial_reviewed || "n/a") + " (age " + (x.age_days != null ? x.age_days + "d" : "?") + ", past " + perSignalExpiry + "d window)"));
+  }
+  if (staleReadsSuppressed.length) {
+    staleReadsSuppressed.forEach((x) =>
+      console.log("  · suppressed stale read: " + x.id + " reviewed " + (x.last_editorial_reviewed || "n/a") + " (already fired " + (x.last_fired || "n/a") + ")"));
   }
   console.log("[draft-editorial] snapshot -> " + path.relative(ROOT, DECISION_PATH));
 
