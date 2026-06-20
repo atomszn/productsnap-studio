@@ -62,6 +62,7 @@ const clarityScan = require("../scripts/lib/clarity-scan");
 const noAdviceScan = require("../scripts/lib/no-advice-scan");
 const narrativeConsistency = require("../scripts/lib/narrative-consistency");
 const postPublishCheck = require("../scripts/lib/post-publish-check");
+const materiality = require("../scripts/lib/materiality");
 
 const ROOT = path.resolve(__dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "automation", "automation-config.json");
@@ -69,6 +70,7 @@ const REGISTRY_PATH = path.join(ROOT, "automation", "model-registry.json");
 const LEDGER_PATH = path.join(ROOT, "automation", "spend-ledger.json");
 const RUNS_DIR = path.join(ROOT, "automation", "runs");
 const TASK_PATH = path.join(ROOT, "data", "pulse-editorial-task.json");
+const DECISION_PATH = path.join(ROOT, "data", "pulse-editorial-decision.json");
 const FINDINGS_PATH = path.join(ROOT, "data", "pulse-research-findings.json");
 const CONTENT_PATH = path.join(ROOT, "data", "pulse-content.json");
 const REGISTRY_DATA_PATH = path.join(ROOT, "data", "signals_registry.json");
@@ -487,6 +489,41 @@ function cmdPostPublishVerify(args) {
       console.log(JSON.stringify({ ok: false, reason: "verify_exception: " + e.message, http_status: 0, matched: false }));
       process.exit(6);
     });
+}
+
+// ------------------------------------------------- CLASSIFY MATERIALITY ----
+// Tier-3 routing probe the cron runs Mon–Thu. Deterministic, NO AI, NO writes.
+// Reads the latest decision + the registry, asks the materiality classifier
+// whether any data move clears the conservative editorial-exception threshold,
+// prints the classifier JSON, and signals the cron via the exit code:
+//   0 = classified OK and any_material=true  (an off-cycle exception WOULD be warranted)
+//   3 = classified OK and any_material=false (no material move — hold for Friday)
+//   2 = could not classify (missing/invalid decision or registry)
+function cmdClassifyMateriality(args) {
+  const decision = readJSONSafe(DECISION_PATH);
+  const registry = readJSONSafe(REGISTRY_DATA_PATH);
+  if (!decision || !registry || !Array.isArray(registry.signals)) {
+    console.error(JSON.stringify({
+      ok: false,
+      reason: "could not classify — missing/invalid decision or registry",
+      decision_readable: !!decision,
+      registry_readable: !!(registry && Array.isArray(registry.signals))
+    }, null, 2));
+    process.exit(2);
+  }
+
+  // Optional --derived-fraction <n> override (defaults to the module's 0.35).
+  let fraction;
+  const fi = args.indexOf("--derived-fraction");
+  if (fi !== -1 && args[fi + 1] != null) {
+    const f = Number(args[fi + 1]);
+    if (Number.isFinite(f)) fraction = f;
+  }
+
+  const result = materiality.classifyMateriality(decision, registry,
+    fraction != null ? { derived_fraction: fraction } : {});
+  console.log(JSON.stringify(result, null, 2));
+  process.exit(result.any_material ? 0 : 3);
 }
 
 // -------------------------------------------------------------------- GATE ----
@@ -928,8 +965,9 @@ function main() {
   i = a.indexOf("--validate-ingest");
   if (i !== -1) return cmdValidateIngest(a[i + 1]);
   if (a.indexOf("--post-publish-verify") !== -1) return cmdPostPublishVerify(a);
+  if (a.indexOf("--classify-materiality") !== -1) return cmdClassifyMateriality(a);
   if (a.indexOf("--gate") !== -1) return cmdGate();
-  console.error("usage: editorial-runner.js --draft-prep | --draft-ingest <f> | --validate-prep | --validate-ingest <f> | --validate-panel-ingest <f> | --gate | --post-publish-verify [--url U] [--retries N] [--backoff-ms M]");
+  console.error("usage: editorial-runner.js --draft-prep | --draft-ingest <f> | --validate-prep | --validate-ingest <f> | --validate-panel-ingest <f> | --gate | --classify-materiality [--derived-fraction N] | --post-publish-verify [--url U] [--retries N] [--backoff-ms M]");
   process.exit(1);
 }
 
