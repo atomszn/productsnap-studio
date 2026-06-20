@@ -1,0 +1,51 @@
+{
+  "_comment": "Schema for data/pulse-threshold-recommendation.json — the AI recommender's proposed per-signal editorial-exception-threshold adjustments (Phase B of the threshold-evolution loop). Produced by the research/macro agent (contract: automation/prompts/threshold-tuner.md) in Perplexity Computer and ingested by editorial-runner --threshold-recommend-ingest. The deterministic gate (--threshold-tune-gate) re-clamps everything here to the locked bounds; this schema only checks shape. Every rec MUST cite evidence and state a predicted effect.",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "model_used", "recommendations"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "model_used": { "type": "string", "minLength": 2, "_comment": "recommender model id (from model-registry.json)." },
+    "evidence_window": {
+      "type": ["object", "null"],
+      "_comment": "Optional: which slice of the evidence ledger the recommendations lean on.",
+      "properties": {
+        "total_records": { "type": ["integer", "null"], "minimum": 0 },
+        "from": { "type": ["string", "null"] },
+        "to": { "type": ["string", "null"] }
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "signal_id",
+          "current_threshold",
+          "proposed_threshold",
+          "relative_change",
+          "rationale",
+          "evidence_refs",
+          "predicted_effect"
+        ],
+        "properties": {
+          "signal_id": { "type": "string", "minLength": 1 },
+          "current_threshold": { "type": ["number", "null"], "_comment": "The signal's editorial exception_threshold at recommendation time (null if currently unseeded/derived)." },
+          "proposed_threshold": { "type": "number", "exclusiveMinimum": 0, "_comment": "Must be > 0; the gate further clamps to floor/ceiling and the +/-15% step." },
+          "relative_change": { "type": "number", "_comment": "Proposed change as a fraction of current (e.g. -0.12 = 12% lower). Informational; the gate recomputes/clamps." },
+          "rationale": { "type": "string", "minLength": 10, "_comment": "Plain-language justification — required, no change without one." },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "_comment": "References to specific evidence records (e.g. recorded_at timestamps or decision_dates). At least one — no change without cited evidence.",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "predicted_effect": { "type": "string", "minLength": 10, "_comment": "e.g. 'would have suppressed 3 of 4 FP fires; would NOT have missed the real move on 2026-05-02'." }
+        }
+      }
+    }
+  }
+}

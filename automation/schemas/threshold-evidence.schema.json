@@ -1,0 +1,79 @@
+{
+  "_comment": "Schema for ONE record in automation/threshold-evidence.jsonl (append-only, one JSON object per line). Phase A of the threshold-evolution loop. Each record is the deterministic trace of a single editorial-materiality routing decision: which signals moved, what their resolved exception_threshold was, whether the classifier judged them material, whether they were in the decision's suppressed_stale_moves[], and what the cron's routing outcome was (proceeded midweek vs. held for Friday). Read-only w.r.t. the registry — recording this NEVER changes a threshold. Validated on append via scripts/lib/schema-validate.js. Additive optional fields (e.g. downstream) are permitted.",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "recorded_at",
+    "decision_date",
+    "dow",
+    "tier",
+    "decision",
+    "signals",
+    "routing_outcome",
+    "downstream"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "recorded_at": { "type": "string", "format": "date-time", "_comment": "ISO 8601 instant the record was appended." },
+    "decision_date": {
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}(-\\d{2})?$",
+      "_comment": "Date the decision pertains to. Accepts YYYY-MM or YYYY-MM-DD to mirror the decision/observation date granularity in the repo."
+    },
+    "dow": { "type": "integer", "minimum": 0, "maximum": 6, "_comment": "UTC day-of-week, Sunday=0. Friday=5 is the weekly synthesis tier." },
+    "tier": { "type": "string", "enum": ["weekly", "exception_probe"], "_comment": "weekly = Friday full synthesis; exception_probe = Mon-Thu midweek probe." },
+    "decision": { "type": "string", "enum": ["DRAFT", "KEEP"] },
+    "signals": {
+      "type": "array",
+      "_comment": "One entry per moved signal scored by the classifier. Empty for narrative/staleness-only or KEEP decisions.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "signal_id",
+          "from",
+          "to",
+          "abs_delta",
+          "exception_threshold",
+          "threshold_basis",
+          "is_material",
+          "in_suppressed_moves"
+        ],
+        "properties": {
+          "signal_id": { "type": "string", "minLength": 1 },
+          "from": { "type": ["number", "null"] },
+          "to": { "type": ["number", "null"] },
+          "abs_delta": { "type": ["number", "null"], "minimum": 0 },
+          "exception_threshold": { "type": ["number", "null"], "_comment": "The resolved editorial-exception threshold at decision time (signal's own unit). null when no basis was resolvable." },
+          "threshold_basis": {
+            "type": "string",
+            "enum": ["registry.exception_threshold", "derived_fraction", "derived_fraction(pct)", "default"],
+            "_comment": "Which rule produced exception_threshold (see materiality.js resolveThreshold)."
+          },
+          "is_material": { "type": "boolean" },
+          "in_suppressed_moves": { "type": "boolean", "_comment": "True if this signal id appeared in the decision's suppressed_stale_moves[] (a move held for Friday) — raw material for missed-signal detection." }
+        }
+      }
+    },
+    "routing_outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proceeded", "exit_code", "reason"],
+      "properties": {
+        "proceeded": { "type": "boolean", "_comment": "Did the cron proceed with a midweek exception (true) or hold for Friday (false)?" },
+        "exit_code": { "type": ["integer", "null"], "enum": [0, 3, 2, null], "_comment": "The --classify-materiality exit code: 0 material/proceed, 3 hold, 2 cannot-classify." },
+        "reason": { "type": "string" }
+      }
+    },
+    "downstream": {
+      "type": ["object", "null"],
+      "_comment": "Filled later (when known) with the eventual gate action + panel confidence for an exception that proceeded. null until then. Kept permissive (additive) on purpose.",
+      "properties": {
+        "gate_action": { "type": ["string", "null"], "_comment": "e.g. auto_publish | held_below_bar | held_safe | review_pr" },
+        "panel_min_confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+      }
+    }
+  }
+}

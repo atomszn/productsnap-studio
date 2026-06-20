@@ -52,6 +52,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const os = require("os");
 const crypto = require("crypto");
 const { execFileSync } = require("child_process");
 const { validate } = require("../scripts/lib/schema-validate");
@@ -63,6 +64,8 @@ const noAdviceScan = require("../scripts/lib/no-advice-scan");
 const narrativeConsistency = require("../scripts/lib/narrative-consistency");
 const postPublishCheck = require("../scripts/lib/post-publish-check");
 const materiality = require("../scripts/lib/materiality");
+const thresholdEvidence = require("../scripts/lib/threshold-evidence");
+const thresholdOutcomes = require("../scripts/lib/threshold-outcomes");
 
 const ROOT = path.resolve(__dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "automation", "automation-config.json");
@@ -81,6 +84,17 @@ const VALIDATION_PANEL_STASH = path.join(ROOT, "data", "pulse-validation-panel.j
 const DRAFT_SCHEMA = path.join(ROOT, "automation", "schemas", "content-draft.schema.json");
 const QUALITY_SCHEMA = path.join(ROOT, "automation", "schemas", "quality-report.schema.json");
 const RUN_SCHEMA = path.join(ROOT, "automation", "schemas", "run-record.schema.json");
+
+// --- threshold-evolution loop (Phase A + Phase B) artifact locations ---------
+const THRESHOLD_EVIDENCE_PATH = path.join(ROOT, "automation", "threshold-evidence.jsonl");
+const THRESHOLD_EVIDENCE_SCHEMA = path.join(ROOT, "automation", "schemas", "threshold-evidence.schema.json");
+const THRESHOLD_REC_SCHEMA = path.join(ROOT, "automation", "schemas", "threshold-recommendation.schema.json");
+const THRESHOLD_VAL_SCHEMA = path.join(ROOT, "automation", "schemas", "threshold-validation.schema.json");
+const THRESHOLD_REC_PATH = path.join(ROOT, "data", "pulse-threshold-recommendation.json");
+const THRESHOLD_VAL_PATH = path.join(ROOT, "data", "pulse-threshold-validation.json");
+const THRESHOLD_TUNE_REPORT_PATH = path.join(ROOT, "data", "pulse-threshold-tune-report.json");
+const THRESHOLD_CHANGE_LOG_PATH = path.join(ROOT, "automation", "threshold-change-log.jsonl");
+const THRESHOLD_TUNE_PREP_PATH = path.join(os.tmpdir(), "threshold-tune-prep.json");
 
 function readJSON(p) { return JSON.parse(fs.readFileSync(p, "utf8")); }
 function readJSONSafe(p) { try { return readJSON(p); } catch (e) { return null; } }
@@ -952,10 +966,539 @@ function runStructuralTests(appliedContent) {
   return { pass: failed.length === 0, failed };
 }
 
+/* ==========================================================================
+   THRESHOLD-EVOLUTION LOOP — Phase A (evidence) + Phase B (recommend/validate/
+   gated apply). All DETERMINISTIC. AI is NEVER invoked here — the recommender
+   and validator are CONTRACTS (prompts + schemas) the Computer-side cron runs;
+   these subcommands only do the deterministic prep / ingest / gate around them.
+   See threshold_evolution_spec.md.
+   ========================================================================== */
+
+function readThresholdConfig(config) {
+  const t = (config && config.threshold_autotune) || {};
+  return {
+    enabled: t.enabled !== false,
+    auto_apply: t.auto_apply === true,
+    min_events_per_signal: isFiniteNum(t.min_events_per_signal) ? t.min_events_per_signal : 8,
+    max_relative_step: isFiniteNum(t.max_relative_step) ? t.max_relative_step : 0.15,
+    cooldown_days: isFiniteNum(t.cooldown_days) ? t.cooldown_days : 30,
+    recommender_model: t.recommender_model || null,
+    validator_model: t.validator_model || null,
+    validator_min_confidence: isFiniteNum(t.validator_min_confidence) ? t.validator_min_confidence : 0.90,
+    auto_apply_min_confidence: isFiniteNum(t.auto_apply_min_confidence) ? t.auto_apply_min_confidence : 0.97,
+    // notable-pattern bands the analyzer uses to decide a signal is worth tuning.
+    fp_rate_band: isFiniteNum(t.fp_rate_band) ? t.fp_rate_band : 0.25,
+    missed_rate_band: isFiniteNum(t.missed_rate_band) ? t.missed_rate_band : 0.25
+  };
+}
+
+function isFiniteNum(n) { return typeof n === "number" && Number.isFinite(n); }
+
+// Resolve a per-signal floor/ceiling for the tunable exception_threshold.
+// Floor: registry exception_threshold_floor if >0, else a small positive guard
+//        (never let a tuned threshold hit 0 or go negative).
+// Ceiling: registry exception_threshold_ceiling if set, else tied to the
+//        validation max_abs_step (the outlier bound) so a tuned editorial
+//        threshold can never exceed the data-validation step.
+function resolveBounds(regEntry) {
+  const th = (regEntry && regEntry.thresholds) || {};
+  let floor = isFiniteNum(regEntry && regEntry.exception_threshold_floor) && regEntry.exception_threshold_floor > 0
+    ? regEntry.exception_threshold_floor
+    : null;
+  let ceiling = isFiniteNum(regEntry && regEntry.exception_threshold_ceiling) && regEntry.exception_threshold_ceiling > 0
+    ? regEntry.exception_threshold_ceiling
+    : null;
+
+  if (ceiling == null && isFiniteNum(th.max_abs_step) && th.max_abs_step > 0) {
+    ceiling = Math.abs(th.max_abs_step); // outlier bound — never exceed it
+  }
+  if (floor == null) {
+    // a sane positive floor: a small fraction of the ceiling when known, else tiny.
+    floor = ceiling != null ? Math.max(ceiling * 0.01, 1e-9) : 1e-9;
+  }
+  // Guard against inverted bounds.
+  if (ceiling != null && floor > ceiling) floor = ceiling;
+  return { floor: floor, ceiling: ceiling };
+}
+
+// Clamp a proposed threshold to: (1) +/- max_relative_step of the current value,
+// (2) the per-signal floor/ceiling. Returns {value, clamped, notes[]}.
+function clampThreshold(current, proposed, maxRelStep, bounds) {
+  const notes = [];
+  let v = proposed;
+  let clamped = false;
+
+  if (isFiniteNum(current) && current > 0 && isFiniteNum(maxRelStep)) {
+    const lo = current * (1 - maxRelStep);
+    const hi = current * (1 + maxRelStep);
+    if (v < lo) { v = lo; clamped = true; notes.push("clamped up to -" + (maxRelStep * 100) + "% step floor " + lo); }
+    else if (v > hi) { v = hi; clamped = true; notes.push("clamped down to +" + (maxRelStep * 100) + "% step ceiling " + hi); }
+  }
+  if (bounds && isFiniteNum(bounds.floor) && v < bounds.floor) { v = bounds.floor; clamped = true; notes.push("raised to per-signal floor " + bounds.floor); }
+  if (bounds && isFiniteNum(bounds.ceiling) && v > bounds.ceiling) { v = bounds.ceiling; clamped = true; notes.push("lowered to per-signal ceiling " + bounds.ceiling); }
+  return { value: v, clamped: clamped, notes: notes };
+}
+
+// Days since the most recent change-log entry for a signal (Infinity if none).
+function daysSinceLastChange(signalId, changeLog, now) {
+  let newest = null;
+  (changeLog || []).forEach((e) => {
+    if (!e || e.signal_id !== signalId || !e.timestamp) return;
+    const t = new Date(e.timestamp).getTime();
+    if (!Number.isFinite(t)) return;
+    if (newest == null || t > newest) newest = t;
+  });
+  if (newest == null) return Infinity;
+  return (now.getTime() - newest) / (1000 * 60 * 60 * 24);
+}
+
+// ------------------------------------------------- PHASE A: --record-evidence --
+// Deterministic. Reads decision + registry, runs classifyMateriality, derives the
+// routing outcome the cron would take (Friday weekly vs Mon-Thu exception probe),
+// and APPENDS one schema-checked evidence record to threshold-evidence.jsonl.
+// NO AI, NO registry writes. Exit 0 success; 2 on bad inputs / schema failure.
+function cmdRecordEvidence(args) {
+  const decision = readJSONSafe(DECISION_PATH);
+  const registry = readJSONSafe(REGISTRY_DATA_PATH);
+  if (!decision || !registry || !Array.isArray(registry.signals)) {
+    console.error("[threshold] cannot record evidence — missing/invalid decision or registry");
+    process.exit(2);
+  }
+
+  const now = new Date();
+  // Optional overrides for deterministic testing.
+  let dow, tier, fraction;
+  const di = args.indexOf("--dow");
+  if (di !== -1 && args[di + 1] != null) { const n = Number(args[di + 1]); if (Number.isInteger(n) && n >= 0 && n <= 6) dow = n; }
+  const ti = args.indexOf("--tier");
+  if (ti !== -1 && (args[ti + 1] === "weekly" || args[ti + 1] === "exception_probe")) tier = args[ti + 1];
+  const fi = args.indexOf("--derived-fraction");
+  if (fi !== -1 && args[fi + 1] != null) { const f = Number(args[fi + 1]); if (Number.isFinite(f)) fraction = f; }
+
+  const classification = materiality.classifyMateriality(decision, registry,
+    fraction != null ? { derived_fraction: fraction, now: now } : { now: now });
+
+  // Routing outcome mirrors --classify-materiality: proceed (0) iff any_material.
+  const exitCode = classification.any_material ? 0 : 3;
+  const decisionDate = typeof decision.generated_at === "string"
+    ? decision.generated_at.slice(0, 10)
+    : (typeof decision.weekly_connection_reviewed === "string" ? decision.weekly_connection_reviewed : null);
+
+  const record = thresholdEvidence.buildEvidenceRecord({
+    decision: decision,
+    registry: registry,
+    classification: classification,
+    routing_outcome: { exit_code: exitCode },
+    decision_date: decisionDate,
+    dow: dow,
+    tier: tier,
+    now: now
+  });
+
+  const schema = readJSONSafe(THRESHOLD_EVIDENCE_SCHEMA);
+  const v = validate(record, schema);
+  if (!v.valid) {
+    console.error("[threshold] evidence record failed schema validation:");
+    v.errors.forEach((e) => console.error("  · " + e.path + ": " + e.message));
+    process.exit(2);
+  }
+
+  thresholdEvidence.appendEvidence(record, { path: THRESHOLD_EVIDENCE_PATH });
+  console.log("[threshold] recorded evidence: tier=" + record.tier + " dow=" + record.dow +
+    " decision=" + record.decision + " signals=" + record.signals.length +
+    " proceeded=" + record.routing_outcome.proceeded +
+    " -> " + path.relative(ROOT, THRESHOLD_EVIDENCE_PATH));
+  process.exit(0);
+}
+
+// ----------------------------------------- PHASE A: --threshold-evidence-summary
+// Deterministic report over the ledger: per-signal {times_seen, times_material,
+// times_suppressed, fire_rate} + global FP-candidate and missed-candidate tallies.
+// NO AI. Exit 0 always (an empty ledger is a valid, informative state).
+function cmdThresholdEvidenceSummary() {
+  const ledger = thresholdEvidence.readLedger(THRESHOLD_EVIDENCE_PATH);
+  const stats = thresholdOutcomes.perSignalStats(ledger);
+  const fp = thresholdOutcomes.falsePositiveCandidates(ledger);
+  const missed = thresholdOutcomes.missedSignalCandidates(ledger);
+
+  const perSignal = Object.keys(stats).sort().map((id) => stats[id]);
+  const summary = {
+    schema_version: "1.0.0",
+    generated_at: new Date().toISOString(),
+    ledger_path: path.relative(ROOT, THRESHOLD_EVIDENCE_PATH),
+    total_records: ledger.length,
+    per_signal: perSignal,
+    false_positive_candidates: {
+      count: fp.length,
+      events: fp
+    },
+    missed_signal_candidates: {
+      signals_flagged: missed.filter((m) => m.missed_candidate_count > 0).length,
+      aggregates: missed
+    }
+  };
+  console.log(JSON.stringify(summary, null, 2));
+  process.exit(0);
+}
+
+// ------------------------------------------------ PHASE B: --threshold-tune-prep
+// Deterministic analyzer. For each signal with >= min_events_per_signal evidence
+// AND a notable FP-candidate OR missed-candidate rate AND not within cooldown,
+// emit the eligible signal + its stats + current threshold + bounds + the
+// recommender model + budget context to THRESHOLD_TUNE_PREP_PATH (and stdout).
+// NO AI. Exit 0 if >=1 eligible; 3 "nothing to tune" (the EXPECTED early state);
+// 2 on bad inputs.
+function cmdThresholdTunePrep() {
+  const config = readJSONSafe(CONFIG_PATH);
+  const modelReg = readJSONSafe(REGISTRY_PATH);
+  const dataReg = readJSONSafe(REGISTRY_DATA_PATH);
+  if (!config || !dataReg || !Array.isArray(dataReg.signals)) {
+    console.error("[threshold] tune-prep: missing/invalid config or registry");
+    process.exit(2);
+  }
+  const tc = readThresholdConfig(config);
+  if (!tc.enabled) {
+    console.error("[threshold] tune-prep: threshold_autotune.enabled=false — nothing to do");
+    process.exit(3);
+  }
+
+  const ledger = thresholdEvidence.readLedger(THRESHOLD_EVIDENCE_PATH);
+  const stats = thresholdOutcomes.perSignalStats(ledger);
+  const fp = thresholdOutcomes.falsePositiveCandidates(ledger);
+  const missed = thresholdOutcomes.missedSignalCandidates(ledger);
+  const changeLog = thresholdEvidence.readLedger(THRESHOLD_CHANGE_LOG_PATH);
+  const now = new Date();
+
+  // FP candidate count per signal (an FP event can name several signal_ids).
+  const fpCountBySignal = {};
+  fp.forEach((ev) => (ev.signal_ids || []).forEach((id) => {
+    fpCountBySignal[id] = (fpCountBySignal[id] || 0) + 1;
+  }));
+  const missedBySignal = {};
+  missed.forEach((m) => { missedBySignal[m.signal_id] = m; });
+
+  const regById = materiality.registryById(dataReg);
+  const eligible = [];
+  const considered = [];
+
+  Object.keys(stats).sort().forEach((id) => {
+    const st = stats[id];
+    const fpCount = fpCountBySignal[id] || 0;
+    const missedAgg = missedBySignal[id] || { missed_candidate_count: 0 };
+    const fpRate = st.times_seen > 0 ? fpCount / st.times_seen : 0;
+    const missedRate = st.times_seen > 0 ? missedAgg.missed_candidate_count / st.times_seen : 0;
+    const enoughEvidence = st.times_seen >= tc.min_events_per_signal;
+    const notable = fpRate >= tc.fp_rate_band || missedRate >= tc.missed_rate_band;
+    const daysSince = daysSinceLastChange(id, changeLog, now);
+    const inCooldown = daysSince < tc.cooldown_days;
+
+    const reasonBits = [];
+    if (!enoughEvidence) reasonBits.push("insufficient_evidence(" + st.times_seen + "<" + tc.min_events_per_signal + ")");
+    if (!notable) reasonBits.push("no_notable_pattern(fp=" + fpRate.toFixed(3) + ",missed=" + missedRate.toFixed(3) + ")");
+    if (inCooldown) reasonBits.push("in_cooldown(" + daysSince.toFixed(1) + "d<" + tc.cooldown_days + "d)");
+
+    const regEntry = regById[id];
+    const bounds = resolveBounds(regEntry);
+    // current editorial threshold = explicit registry field if set, else null
+    // (classifier derives it at runtime; the recommender proposes an explicit one).
+    const currentThreshold = isFiniteNum(regEntry && regEntry.thresholds && regEntry.thresholds.exception_threshold)
+      ? regEntry.thresholds.exception_threshold
+      : null;
+
+    const row = {
+      signal_id: id,
+      eligible: enoughEvidence && notable && !inCooldown,
+      stats: {
+        times_seen: st.times_seen,
+        times_material: st.times_material,
+        times_suppressed: st.times_suppressed,
+        fire_rate: st.fire_rate,
+        fp_candidate_count: fpCount,
+        fp_candidate_rate: fpRate,
+        missed_candidate_count: missedAgg.missed_candidate_count,
+        missed_candidate_rate: missedRate
+      },
+      current_threshold: currentThreshold,
+      bounds: bounds,
+      days_since_last_change: Number.isFinite(daysSince) ? daysSince : null,
+      ineligible_reasons: reasonBits
+    };
+    considered.push(row);
+    if (row.eligible) eligible.push(row);
+  });
+
+  const recModel = tc.recommender_model
+    || (modelReg && modelReg.roles && modelReg.roles.research && modelReg.roles.research.default)
+    || null;
+
+  const prep = {
+    schema_version: "1.0.0",
+    generated_at: now.toISOString(),
+    cadence: (config.threshold_autotune && config.threshold_autotune.review_cadence) || "monthly",
+    config: {
+      min_events_per_signal: tc.min_events_per_signal,
+      max_relative_step: tc.max_relative_step,
+      cooldown_days: tc.cooldown_days,
+      validator_min_confidence: tc.validator_min_confidence,
+      auto_apply: tc.auto_apply,
+      auto_apply_min_confidence: tc.auto_apply_min_confidence
+    },
+    recommender_model: recModel,
+    validator_model: tc.validator_model
+      || (modelReg && modelReg.roles && modelReg.roles.validation && modelReg.roles.validation.default)
+      || null,
+    total_evidence_records: ledger.length,
+    eligible_signals: eligible,
+    considered_signals: considered,
+    recommender_prompt: "automation/prompts/threshold-tuner.md"
+  };
+
+  try { writeJSON(THRESHOLD_TUNE_PREP_PATH, prep); } catch (e) { /* stdout is the contract */ }
+  console.log(JSON.stringify(prep, null, 2));
+
+  if (eligible.length === 0) {
+    console.error("[threshold] tune-prep: nothing to tune (no signal has enough evidence + a notable pattern + out of cooldown).");
+    process.exit(3);
+  }
+  process.exit(0);
+}
+
+// --------------------------------------- PHASE B: --threshold-recommend-ingest --
+// Schema-validate an AI recommendation file; on success store it for the gate.
+// Exit 0 success; 2 invalid.
+function cmdThresholdRecommendIngest(file) {
+  if (!file) { console.error("[threshold] recommend-ingest: missing <file>"); process.exit(2); }
+  const candidate = readJSONSafe(file);
+  if (!candidate) { console.error("[threshold] recommend-ingest: cannot read " + file); process.exit(2); }
+  const v = validate(candidate, readJSONSafe(THRESHOLD_REC_SCHEMA));
+  if (!v.valid) {
+    console.error("[threshold] recommendation failed schema validation:");
+    v.errors.forEach((e) => console.error("  · " + e.path + ": " + e.message));
+    process.exit(2);
+  }
+  writeJSON(THRESHOLD_REC_PATH, candidate);
+  console.log("[threshold] stored recommendation (" + candidate.recommendations.length +
+    " rec(s), model=" + candidate.model_used + ") -> " + path.relative(ROOT, THRESHOLD_REC_PATH));
+  process.exit(0);
+}
+
+// ---------------------------------------- PHASE B: --threshold-validate-ingest --
+// Schema-validate an AI validation file (DIFFERENT model); store for the gate.
+// Exit 0 success; 2 invalid.
+function cmdThresholdValidateIngest(file) {
+  if (!file) { console.error("[threshold] validate-ingest: missing <file>"); process.exit(2); }
+  const candidate = readJSONSafe(file);
+  if (!candidate) { console.error("[threshold] validate-ingest: cannot read " + file); process.exit(2); }
+  const v = validate(candidate, readJSONSafe(THRESHOLD_VAL_SCHEMA));
+  if (!v.valid) {
+    console.error("[threshold] validation failed schema validation:");
+    v.errors.forEach((e) => console.error("  · " + e.path + ": " + e.message));
+    process.exit(2);
+  }
+  writeJSON(THRESHOLD_VAL_PATH, candidate);
+  console.log("[threshold] stored validation (" + candidate.validations.length +
+    " verdict(s), model=" + candidate.model_used + ") -> " + path.relative(ROOT, THRESHOLD_VAL_PATH));
+  process.exit(0);
+}
+
+// ------------------------------------------------ PHASE B: --threshold-tune-gate
+// DETERMINISTIC gate. For every recommendation: re-clamp to bounds (15% step,
+// floor/ceiling), drop recs in cooldown, require validator verdict=support AND
+// confidence>=validator_min_confidence AND would_cause_missed_signal=false.
+// Then decide per-rec action: auto_apply OFF (current) => action="propose" and
+// write eligible new exception_threshold values into a WORKING-TREE COPY for a PR
+// (never writes the real registry on main). auto_apply ON + conf>=auto bar =>
+// action="auto_apply" (dormant path — built + tested, never shipped on main).
+// Appends every proposed/applied change to threshold-change-log.jsonl.
+// Exit 0 = recs to act on; 3 = nothing eligible after gating; 2 = error.
+//
+// Optional flags for the dormant-path tests (do NOT touch real files):
+//   --registry-out <path>  write the proposed/applied registry copy here
+//   --change-log <path>    append change-log entries here instead of the real log
+//   --config <path>        read an alternate config (to exercise auto_apply=true)
+function cmdThresholdTuneGate(args) {
+  args = args || [];
+  function flag(name) { const i = args.indexOf(name); return i !== -1 && args[i + 1] != null ? args[i + 1] : null; }
+
+  const configPath = flag("--config") || CONFIG_PATH;
+  const config = readJSONSafe(configPath);
+  const modelReg = readJSONSafe(REGISTRY_PATH);
+  const dataReg = readJSONSafe(REGISTRY_DATA_PATH);
+  const rec = readJSONSafe(THRESHOLD_REC_PATH);
+  const val = readJSONSafe(THRESHOLD_VAL_PATH);
+  if (!config || !dataReg || !Array.isArray(dataReg.signals)) {
+    console.error("[threshold] tune-gate: missing/invalid config or registry");
+    process.exit(2);
+  }
+  if (!rec || !Array.isArray(rec.recommendations)) {
+    console.error("[threshold] tune-gate: no recommendation ingested (run --threshold-recommend-ingest first)");
+    process.exit(2);
+  }
+  if (!val || !Array.isArray(val.validations)) {
+    console.error("[threshold] tune-gate: no validation ingested (run --threshold-validate-ingest first)");
+    process.exit(2);
+  }
+
+  const tc = readThresholdConfig(config);
+  const now = new Date();
+  const dateStr = isoDate(now);
+  const changeLogPath = flag("--change-log") || THRESHOLD_CHANGE_LOG_PATH;
+  const registryOutPath = flag("--registry-out") || null;
+  const changeLog = thresholdEvidence.readLedger(changeLogPath);
+  const regById = materiality.registryById(dataReg);
+
+  // index validations by signal_id (last one wins if duplicated)
+  const valById = {};
+  val.validations.forEach((v) => { if (v && v.signal_id) valById[v.signal_id] = v; });
+
+  const decisions = [];
+  rec.recommendations.forEach((r) => {
+    if (!r || !r.signal_id) return;
+    const id = r.signal_id;
+    const regEntry = regById[id];
+    const bounds = resolveBounds(regEntry);
+    const current = isFiniteNum(r.current_threshold) ? r.current_threshold : null;
+    const proposed = isFiniteNum(r.proposed_threshold) ? r.proposed_threshold : null;
+
+    const v = valById[id] || null;
+    const gateNotes = [];
+    let eligible = true;
+
+    if (proposed == null) { eligible = false; gateNotes.push("no_proposed_threshold"); }
+
+    // re-clamp deterministically to the locked bounds (15% step + floor/ceiling)
+    let clampedValue = proposed;
+    if (proposed != null) {
+      const c = clampThreshold(current, proposed, tc.max_relative_step, bounds);
+      clampedValue = c.value;
+      if (c.clamped) gateNotes.push.apply(gateNotes, c.notes);
+    }
+
+    // cooldown
+    const daysSince = daysSinceLastChange(id, changeLog, now);
+    if (daysSince < tc.cooldown_days) { eligible = false; gateNotes.push("in_cooldown(" + daysSince.toFixed(1) + "d<" + tc.cooldown_days + "d)"); }
+
+    // validator gating
+    let vConf = null;
+    if (!v) { eligible = false; gateNotes.push("no_validator_verdict"); }
+    else {
+      vConf = isFiniteNum(v.confidence) ? v.confidence : null;
+      if (v.verdict !== "support") { eligible = false; gateNotes.push("validator_verdict=" + v.verdict); }
+      if (v.would_cause_missed_signal === true) { eligible = false; gateNotes.push("validator_veto:would_cause_missed_signal"); }
+      if (vConf == null || vConf < tc.validator_min_confidence) { eligible = false; gateNotes.push("validator_confidence(" + vConf + ")<" + tc.validator_min_confidence); }
+    }
+
+    // action decision
+    let action;
+    if (!eligible) {
+      action = "reject";
+    } else if (tc.auto_apply && vConf != null && vConf >= tc.auto_apply_min_confidence) {
+      action = "auto_apply";
+    } else {
+      action = "propose";
+    }
+
+    decisions.push({
+      signal_id: id, current_threshold: current, proposed_threshold: proposed,
+      clamped_threshold: clampedValue, bounds: bounds, validator_confidence: vConf,
+      validator_verdict: v ? v.verdict : null,
+      would_cause_missed_signal: v ? !!v.would_cause_missed_signal : null,
+      eligible: eligible, action: action, gate_notes: gateNotes,
+      rationale: typeof r.rationale === "string" ? r.rationale : null,
+      evidence_refs: Array.isArray(r.evidence_refs) ? r.evidence_refs : [],
+      predicted_effect: typeof r.predicted_effect === "string" ? r.predicted_effect : null
+    });
+  });
+
+  const actionable = decisions.filter((d) => d.action === "propose" || d.action === "auto_apply");
+
+  // audit report (always written)
+  const report = {
+    schema_version: "1.0.0",
+    generated_at: now.toISOString(),
+    auto_apply: tc.auto_apply,
+    bounds_policy: {
+      max_relative_step: tc.max_relative_step,
+      cooldown_days: tc.cooldown_days,
+      validator_min_confidence: tc.validator_min_confidence,
+      auto_apply_min_confidence: tc.auto_apply_min_confidence
+    },
+    recommender_model: rec.model_used || null,
+    validator_model: val.model_used || null,
+    evidence_window: {
+      total_records: thresholdEvidence.readLedger(THRESHOLD_EVIDENCE_PATH).length
+    },
+    decisions: decisions,
+    actionable_count: actionable.length
+  };
+  writeJSON(THRESHOLD_TUNE_REPORT_PATH, report);
+
+  // append change-log entries for every proposed/applied change
+  actionable.forEach((d) => {
+    const entry = {
+      schema_version: "1.0.0",
+      timestamp: now.toISOString(),
+      signal_id: d.signal_id,
+      before: d.current_threshold,
+      after: d.clamped_threshold,
+      basis: "threshold_autotune",
+      evidence_window_records: report.evidence_window.total_records,
+      recommender_model: rec.model_used || null,
+      validator_model: val.model_used || null,
+      validator_confidence: d.validator_confidence,
+      gate_verdict: "support",
+      disposition: d.action === "auto_apply" ? "applied" : "proposed",
+      commit: null
+    };
+    fs.appendFileSync(changeLogPath, JSON.stringify(entry) + "\n");
+  });
+
+  // write the registry copy (working-tree copy for a PR, or the temp out path in
+  // tests). NEVER writes the real REGISTRY_DATA_PATH directly — the cron commits
+  // the working-tree copy to a branch and opens a PR; auto_apply's direct commit
+  // path is the dormant one exercised only via --registry-out in tests.
+  if (actionable.length > 0) {
+    const out = JSON.parse(JSON.stringify(dataReg)); // deep copy — never mutate live
+    const outById = {};
+    (out.signals || []).forEach((s) => { if (s && s.signal_id) outById[s.signal_id] = s; });
+    actionable.forEach((d) => {
+      const s = outById[d.signal_id];
+      if (!s) return;
+      if (!s.thresholds || typeof s.thresholds !== "object") s.thresholds = {};
+      s.thresholds.exception_threshold = d.clamped_threshold;
+    });
+    if (registryOutPath) writeJSON(registryOutPath, out);
+    // On main with auto_apply OFF we deliberately do NOT write any registry file
+    // here; the report + change-log capture the proposal and the cron handles the
+    // branch/PR. (registryOutPath is supplied by tests / the cron's temp area.)
+  }
+
+  console.log("[threshold] TUNE-GATE auto_apply=" + tc.auto_apply +
+    " recs=" + decisions.length + " actionable=" + actionable.length +
+    " (propose=" + decisions.filter((d) => d.action === "propose").length +
+    " auto_apply=" + decisions.filter((d) => d.action === "auto_apply").length +
+    " reject=" + decisions.filter((d) => d.action === "reject").length + ")");
+  console.log("  report -> " + path.relative(ROOT, THRESHOLD_TUNE_REPORT_PATH));
+  decisions.forEach((d) => {
+    console.log("  · " + d.signal_id + " " + d.current_threshold + " -> " + d.clamped_threshold +
+      " [" + d.action + "]" + (d.gate_notes.length ? " {" + d.gate_notes.join("; ") + "}" : ""));
+  });
+
+  process.exit(actionable.length > 0 ? 0 : 3);
+}
+
 function main() {
   const a = process.argv;
   // Crash-recovery FIRST: undo any interrupted gate swap before any command runs.
   selfHealGatebak();
+  if (a.indexOf("--record-evidence") !== -1) return cmdRecordEvidence(a);
+  if (a.indexOf("--threshold-evidence-summary") !== -1) return cmdThresholdEvidenceSummary();
+  if (a.indexOf("--threshold-tune-prep") !== -1) return cmdThresholdTunePrep();
+  let ti = a.indexOf("--threshold-recommend-ingest");
+  if (ti !== -1) return cmdThresholdRecommendIngest(a[ti + 1]);
+  ti = a.indexOf("--threshold-validate-ingest");
+  if (ti !== -1) return cmdThresholdValidateIngest(a[ti + 1]);
+  if (a.indexOf("--threshold-tune-gate") !== -1) return cmdThresholdTuneGate(a);
   if (a.indexOf("--draft-prep") !== -1) return cmdDraftPrep();
   let i = a.indexOf("--draft-ingest");
   if (i !== -1) return cmdDraftIngest(a[i + 1]);
@@ -967,7 +1510,7 @@ function main() {
   if (a.indexOf("--post-publish-verify") !== -1) return cmdPostPublishVerify(a);
   if (a.indexOf("--classify-materiality") !== -1) return cmdClassifyMateriality(a);
   if (a.indexOf("--gate") !== -1) return cmdGate();
-  console.error("usage: editorial-runner.js --draft-prep | --draft-ingest <f> | --validate-prep | --validate-ingest <f> | --validate-panel-ingest <f> | --gate | --classify-materiality [--derived-fraction N] | --post-publish-verify [--url U] [--retries N] [--backoff-ms M]");
+  console.error("usage: editorial-runner.js --draft-prep | --draft-ingest <f> | --validate-prep | --validate-ingest <f> | --validate-panel-ingest <f> | --gate | --classify-materiality [--derived-fraction N] | --post-publish-verify [--url U] [--retries N] [--backoff-ms M] | --record-evidence [--dow N] [--tier T] [--derived-fraction N] | --threshold-evidence-summary | --threshold-tune-prep | --threshold-recommend-ingest <f> | --threshold-validate-ingest <f> | --threshold-tune-gate [--config P] [--registry-out P] [--change-log P]");
   process.exit(1);
 }
 

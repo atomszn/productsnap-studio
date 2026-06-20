@@ -1,0 +1,36 @@
+{
+  "_comment": "Schema for data/pulse-threshold-validation.json — the INDEPENDENT validator's per-recommendation verdicts (Phase B of the threshold-evolution loop). Produced by a DIFFERENT model than the recommender (contract: automation/prompts/threshold-validation.md) in Perplexity Computer and ingested by editorial-runner --threshold-validate-ingest. Designed for an eventual N-model panel but ships single-validator. The deterministic gate requires verdict=support AND confidence>=validator_min_confidence AND would_cause_missed_signal=false.",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "model_used", "validations"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "model_used": { "type": "string", "minLength": 2, "_comment": "validator model id — MUST be a different provider than the recommender." },
+    "overall": {
+      "type": ["object", "null"],
+      "_comment": "Optional summary across recs.",
+      "properties": {
+        "supported_count": { "type": ["integer", "null"], "minimum": 0 },
+        "rejected_count": { "type": ["integer", "null"], "minimum": 0 },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "validations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["signal_id", "verdict", "confidence", "reasoning", "would_cause_missed_signal"],
+        "properties": {
+          "signal_id": { "type": "string", "minLength": 1 },
+          "verdict": { "type": "string", "enum": ["support", "reject"] },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1, "_comment": "Validator's confidence the rec is correct in direction AND magnitude given the evidence." },
+          "reasoning": { "type": "string", "minLength": 10 },
+          "would_cause_missed_signal": { "type": "boolean", "_comment": "True if the validator judges this change would have suppressed a real, material signal. A true here is a hard veto at the gate." }
+        }
+      }
+    }
+  }
+}
