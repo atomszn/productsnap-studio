@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","recorded_at":"2026-06-22T21:31:17.703Z","decision_date":"2026-06-22","dow":1,"tier":"exception_probe","decision":"KEEP","signals":[],"routing_outcome":{"proceeded":false,"exit_code":3,"reason":"no material move — held for Friday synthesis"},"downstream":null}
