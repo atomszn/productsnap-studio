@@ -5,14 +5,14 @@
   "site": "https://productsnap.studio",
   "pulse_url": "https://productsnap.studio/pulse",
   "generated_from": "data/pulse-content.json",
-  "last_updated": "2026-06-10",
+  "last_updated": "2026-06-19",
   "latest_source_data_date": "2026-05-26",
   "is_financial_advice": false,
   "disclaimer": "Pulse is not financial analysis, investment advice, or market prediction. It connects public signals, tracks how things are changing, and turns that into better product questions. Always verify against primary sources before acting.",
   "weekly_thought": {
     "headline": "The same year hiring got hardest in a decade, AI got the cheapest it's ever been to deploy.",
-    "plain_english": "The current interpretation is under review — the signal picture has shifted. Updated context coming soon.",
-    "why_it_matters": "Interpretation under review.",
+    "plain_english": "Consumer confidence is at 49.8 — its three-year floor — and people expect prices to keep rising. May inflation re-accelerated: CPI at 4.25% and PPI at 6.42%, both near multi-year highs. Retail spending is still up 6.88% year-over-year, so wallets haven't closed yet. Meanwhile, top AI model prices dropped roughly 60% over six months, and new frontier models are releasing every few weeks.",
+    "why_it_matters": "Your customer is stretched and watching every line item. The thing that can most help them — AI doing more of the work on their behalf — has rarely been cheaper to ship. Any roadmap that still prices AI features like it's 18 months ago, or that waits for confidence to recover before leaning in, is working off stale assumptions on both counts.",
     "lenses": [
       {
         "id": "build",
@@ -39,15 +39,15 @@
         "question_to_ask": "Write down one task you ruled out as 'not worth automating' six months ago, and ask whether that's still true."
       }
     ],
-    "under_review": true
+    "under_review": false
   },
   "weekly_connection": {
     "title": "Two economies, same week",
-    "subtitle": "Customers are under real pressure while building with AI keeps getting cheaper and faster. Both are happening at once — and only one of them looks likely to reverse soon.",
-    "under_review": true,
-    "observation": "The current interpretation is under review — the signal picture has shifted. Updated context coming soon.",
-    "why_it_matters": "Interpretation under review.",
-    "decision_this_week": ""
+    "subtitle": "Customers are under real pressure — confidence at a three-year low, inflation re-accelerating in May — while building with AI keeps getting cheaper and faster. Both are happening at once, and only one looks likely to reverse soon.",
+    "under_review": false,
+    "observation": "Consumer confidence is at 49.8 — its three-year floor — and people expect prices to keep rising. May inflation re-accelerated: CPI at 4.25% and PPI at 6.42%, both near multi-year highs. Retail spending is still up 6.88% year-over-year, so wallets haven't closed yet. Meanwhile, top AI model prices dropped roughly 60% over six months, and new frontier models are releasing every few weeks.",
+    "why_it_matters": "Your customer is stretched and watching every line item. The thing that can most help them — AI doing more of the work on their behalf — has rarely been cheaper to ship. Any roadmap that still prices AI features like it's 18 months ago, or that waits for confidence to recover before leaning in, is working off stale assumptions on both counts.",
+    "decision_this_week": "Pick one AI feature you've held back because it felt too costly. Check whether the cost assumption still holds at today's model prices — and whether a customer at a three-year confidence low would value it more, not less."
   },
   "pm_tension": {
     "label": "The PM tension this raises",
@@ -65,7 +65,7 @@
   "signals_referenced": [
     {
       "id": "consumer-confidence",
-      "title": "Consumer confidence near record lows — inflation expectations elevated",
+      "title": "Consumer confidence at its lowest point in three years — prices still the worry",
       "category": "consumer",
       "current_value": "49.8 University of Michigan index",
       "status": "weak",
@@ -76,7 +76,7 @@
           "url": "https://fred.stlouisfed.org/series/UMCSENT"
         }
       ],
-      "plain_english": "How households feel about the economy has dropped to levels we rarely see. And underneath, people expect prices to keep climbing over the next year.",
+      "plain_english": "As of the latest reading, the University of Michigan confidence index sits at 49.8 — the bottom of its three-year range. It's down 6.6% from last month. Households still expect prices to keep climbing, which is part of why confidence keeps sliding.",
       "under_review": false
     },
     {

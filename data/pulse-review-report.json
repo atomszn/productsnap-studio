@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-20T01:36:52.057Z",
+  "generated_at": "2026-06-22T18:43:13.745Z",
   "registry_version": "1.0.0",
   "signal_count": 18,
   "summary": {
-    "verified": 8,
-    "stale": 5,
+    "verified": 7,
+    "stale": 6,
     "needs_review": 0,
     "failed": 0,
     "manual": 5,
@@ -36,7 +36,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "ppi",
@@ -56,7 +56,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "pce",
@@ -76,7 +76,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "fed-net-liquidity",
@@ -96,19 +96,19 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "10y-treasury",
       "name": "10-Year Treasury Yield",
       "category": "liquidity",
-      "status": "verified",
+      "status": "stale",
       "alignment_status": "aligned",
       "review_required": false,
       "current_value": "4.49%",
       "last_updated": "2026-06-17",
       "editorial_status": "current",
-      "reason": "All checks passed",
+      "reason": "Data older than cadence stale threshold",
       "sources": [
         {
           "name": "FRED 10Y Treasury",
@@ -116,7 +116,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "series-a-counts",
@@ -141,7 +141,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "ai-model-releases",
@@ -171,7 +171,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "ai-api-pricing",
@@ -196,7 +196,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "open-source-ai",
@@ -221,7 +221,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "compute-cost",
@@ -246,7 +246,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "retail-sales",
@@ -266,7 +266,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "consumer-confidence",
@@ -286,7 +286,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "emerging-apps",
@@ -311,7 +311,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "nonfarm-payrolls",
@@ -331,7 +331,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "tech-hiring",
@@ -356,7 +356,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "ai-regulation",
@@ -376,7 +376,7 @@
           "tier": 3
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "mfg-activity",
@@ -396,7 +396,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     },
     {
       "signal_id": "services-activity",
@@ -416,7 +416,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-20T01:36:52.057Z"
+      "checked_at": "2026-06-22T18:43:13.745Z"
     }
   ],
   "alignment_mismatches": [],
@@ -425,7 +425,7 @@
   "editorial": {
     "weekly_connection": {
       "editorial_status": "current",
-      "age_days": 1,
+      "age_days": 3,
       "review_required": false,
       "review_note": "",
       "mismatched_connected_signals": []
