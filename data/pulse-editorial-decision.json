@@ -1,18 +1,9 @@
 {
-  "generated_at": "2026-06-19T17:13:36.591Z",
+  "generated_at": "2026-06-22T18:43:13.800Z",
   "mode": "log_only",
   "llm_invoked": false,
-  "decision": "DRAFT",
-  "triggers": [
-    {
-      "type": "narrative_review_required",
-      "detail": "Weekly Connection flagged or a connected signal is in alignment mismatch"
-    },
-    {
-      "type": "editorial_stale",
-      "detail": "editorial read past its 7-day window (age 9d)"
-    }
-  ],
+  "decision": "KEEP",
+  "triggers": [],
   "triggering_observations": {
     "mfg-activity": "2026-06"
   },
@@ -25,11 +16,71 @@
       "to": 10.3
     }
   ],
+  "triggering_editorial_reads": {
+    "cpi-headline": "2026-05-01",
+    "ppi": "2026-05-01",
+    "pce": "2026-04-01",
+    "compute-cost": "2026-04-30",
+    "retail-sales": "2026-05-01",
+    "consumer-confidence": "2026-04-01",
+    "nonfarm-payrolls": "2026-05-01",
+    "services-activity": "2026-05-01"
+  },
+  "suppressed_stale_reads": [
+    {
+      "id": "cpi-headline",
+      "last_editorial_reviewed": "2026-05-01",
+      "last_fired": "2026-05-01",
+      "age_days": 52
+    },
+    {
+      "id": "ppi",
+      "last_editorial_reviewed": "2026-05-01",
+      "last_fired": "2026-05-01",
+      "age_days": 52
+    },
+    {
+      "id": "pce",
+      "last_editorial_reviewed": "2026-04-01",
+      "last_fired": "2026-04-01",
+      "age_days": 82
+    },
+    {
+      "id": "compute-cost",
+      "last_editorial_reviewed": "2026-04-30",
+      "last_fired": "2026-04-30",
+      "age_days": 53
+    },
+    {
+      "id": "retail-sales",
+      "last_editorial_reviewed": "2026-05-01",
+      "last_fired": "2026-05-01",
+      "age_days": 52
+    },
+    {
+      "id": "consumer-confidence",
+      "last_editorial_reviewed": "2026-04-01",
+      "last_fired": "2026-04-01",
+      "age_days": 82
+    },
+    {
+      "id": "nonfarm-payrolls",
+      "last_editorial_reviewed": "2026-05-01",
+      "last_fired": "2026-05-01",
+      "age_days": 52
+    },
+    {
+      "id": "services-activity",
+      "last_editorial_reviewed": "2026-05-01",
+      "last_fired": "2026-05-01",
+      "age_days": 52
+    }
+  ],
   "editorial_freshness": {
-    "editorial_status": "stale",
-    "age_days": 9,
+    "editorial_status": "current",
+    "age_days": 3,
     "expires_after_days": 7
   },
-  "weekly_connection_reviewed": "2026-06-10",
+  "weekly_connection_reviewed": "2026-06-19",
   "note": "Phase 1 log-only. No content was generated or published. This snapshot records what the event-driven trigger WOULD do once AI drafting is enabled (Phase 2/3)."
 }
