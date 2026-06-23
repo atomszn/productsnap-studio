@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T18:43:13.800Z",
+  "generated_at": "2026-06-23T17:13:13.670Z",
   "mode": "log_only",
   "llm_invoked": false,
   "decision": "KEEP",
@@ -31,54 +31,54 @@
       "id": "cpi-headline",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 52
+      "age_days": 53
     },
     {
       "id": "ppi",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 52
+      "age_days": 53
     },
     {
       "id": "pce",
       "last_editorial_reviewed": "2026-04-01",
       "last_fired": "2026-04-01",
-      "age_days": 82
+      "age_days": 83
     },
     {
       "id": "compute-cost",
       "last_editorial_reviewed": "2026-04-30",
       "last_fired": "2026-04-30",
-      "age_days": 53
+      "age_days": 54
     },
     {
       "id": "retail-sales",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 52
+      "age_days": 53
     },
     {
       "id": "consumer-confidence",
       "last_editorial_reviewed": "2026-04-01",
       "last_fired": "2026-04-01",
-      "age_days": 82
+      "age_days": 83
     },
     {
       "id": "nonfarm-payrolls",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 52
+      "age_days": 53
     },
     {
       "id": "services-activity",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 52
+      "age_days": 53
     }
   ],
   "editorial_freshness": {
     "editorial_status": "current",
-    "age_days": 3,
+    "age_days": 4,
     "expires_after_days": 7
   },
   "weekly_connection_reviewed": "2026-06-19",
