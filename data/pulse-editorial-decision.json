@@ -1,26 +1,9 @@
 {
-  "generated_at": "2026-06-25T17:07:15.970Z",
+  "generated_at": "2026-06-26T16:57:05.153Z",
   "mode": "log_only",
   "llm_invoked": false,
-  "decision": "DRAFT",
-  "triggers": [
-    {
-      "type": "editorial_stale",
-      "detail": "2 signal read(s) past the 35-day window: pce(55d), series-a-counts(36d)",
-      "stale_signals": [
-        {
-          "id": "pce",
-          "last_editorial_reviewed": "2026-05-01",
-          "age_days": 55
-        },
-        {
-          "id": "series-a-counts",
-          "last_editorial_reviewed": "2026-05-20",
-          "age_days": 36
-        }
-      ]
-    }
-  ],
+  "decision": "KEEP",
+  "triggers": [],
   "triggering_observations": {
     "mfg-activity": "2026-06"
   },
@@ -50,54 +33,66 @@
       "id": "cpi-headline",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 55
+      "age_days": 56
     },
     {
       "id": "ppi",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 55
+      "age_days": 56
+    },
+    {
+      "id": "pce",
+      "last_editorial_reviewed": "2026-05-01",
+      "last_fired": "2026-05-01",
+      "age_days": 56
+    },
+    {
+      "id": "series-a-counts",
+      "last_editorial_reviewed": "2026-05-20",
+      "last_fired": "2026-05-20",
+      "age_days": 37
     },
     {
       "id": "ai-api-pricing",
       "last_editorial_reviewed": "2026-05-19",
       "last_fired": "2026-05-19",
-      "age_days": 37
+      "age_days": 38
     },
     {
       "id": "compute-cost",
       "last_editorial_reviewed": "2026-04-30",
       "last_fired": "2026-04-30",
-      "age_days": 56
+      "age_days": 57
     },
     {
       "id": "retail-sales",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 55
+      "age_days": 56
     },
     {
       "id": "consumer-confidence",
       "last_editorial_reviewed": "2026-04-01",
       "last_fired": "2026-04-01",
-      "age_days": 85
+      "age_days": 86
     },
     {
       "id": "nonfarm-payrolls",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 55
+      "age_days": 56
     },
     {
       "id": "services-activity",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 55
+      "age_days": 56
     }
   ],
   "editorial_freshness": {
     "editorial_status": "aging",
-    "age_days": 6,
+    "age_days": 7,
     "expires_after_days": 7
   },
   "weekly_connection_reviewed": "2026-06-19",
