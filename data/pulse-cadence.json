@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "summary": {
-    "generated_at": "2026-06-26T16:57:05.062Z",
+    "generated_at": "2026-06-29T17:31:44.700Z",
     "signal_count": 20,
     "automated": 10,
     "human_curated": 8,
@@ -110,9 +110,9 @@
       "source_verifiable": true,
       "cadence": "daily",
       "cadence_plain": "Updates every market day",
-      "latest_observation_date": "2026-06-24",
+      "latest_observation_date": "2026-06-25",
       "next_refresh_estimate": {
-        "date": "2026-06-27",
+        "date": "2026-06-30",
         "window": "next market day",
         "basis": "estimate"
       },
@@ -251,7 +251,7 @@
       "source_verifiable": true,
       "cadence": "monthly",
       "cadence_plain": "Updates once a month",
-      "latest_observation_date": "2026-04-01",
+      "latest_observation_date": "2026-05-01",
       "next_refresh_estimate": {
         "date": "2026-07-15",
         "window": "around the middle of the month",
