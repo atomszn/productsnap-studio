@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-30T17:01:28.318Z",
+  "generated_at": "2026-07-01T17:09:39.608Z",
   "registry_version": "1.0.0",
   "signal_count": 18,
   "summary": {
@@ -36,7 +36,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "ppi",
@@ -56,7 +56,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "pce",
@@ -76,7 +76,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "fed-net-liquidity",
@@ -96,7 +96,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "10y-treasury",
@@ -106,7 +106,7 @@
       "alignment_status": "aligned",
       "review_required": false,
       "current_value": "4.38%",
-      "last_updated": "2026-06-26",
+      "last_updated": "2026-06-29",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -116,7 +116,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "series-a-counts",
@@ -141,7 +141,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "ai-model-releases",
@@ -152,7 +152,7 @@
       "review_required": false,
       "current_value": "3 / 14 days",
       "last_updated": "2026-05-26",
-      "editorial_status": "aging",
+      "editorial_status": "stale",
       "reason": "Manual/event-driven signal accepted (human-curated)",
       "sources": [
         {
@@ -171,7 +171,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "ai-api-pricing",
@@ -196,7 +196,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "open-source-ai",
@@ -221,7 +221,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "compute-cost",
@@ -246,7 +246,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "retail-sales",
@@ -266,7 +266,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "consumer-confidence",
@@ -286,7 +286,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "emerging-apps",
@@ -297,7 +297,7 @@
       "review_required": false,
       "current_value": "pattern",
       "last_updated": "2026-05-26",
-      "editorial_status": "aging",
+      "editorial_status": "stale",
       "reason": "Manual/event-driven signal accepted (human-curated)",
       "sources": [
         {
@@ -311,7 +311,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "nonfarm-payrolls",
@@ -331,7 +331,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "tech-hiring",
@@ -342,7 +342,7 @@
       "review_required": false,
       "current_value": "22nd percentile",
       "last_updated": "2026-05-26",
-      "editorial_status": "aging",
+      "editorial_status": "stale",
       "reason": "Data older than cadence stale threshold",
       "sources": [
         {
@@ -356,7 +356,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "ai-regulation",
@@ -376,7 +376,7 @@
           "tier": 3
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "mfg-activity",
@@ -396,7 +396,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     },
     {
       "signal_id": "services-activity",
@@ -416,7 +416,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-06-30T17:01:28.318Z"
+      "checked_at": "2026-07-01T17:09:39.608Z"
     }
   ],
   "alignment_mismatches": [
@@ -432,7 +432,7 @@
   "editorial": {
     "weekly_connection": {
       "editorial_status": "stale",
-      "age_days": 11,
+      "age_days": 12,
       "review_required": true,
       "review_note": "Weekly Connection is older than 7 days",
       "mismatched_connected_signals": []
