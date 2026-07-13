@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "summary": {
-    "generated_at": "2026-07-10T16:51:22.873Z",
+    "generated_at": "2026-07-13T17:09:37.115Z",
     "signal_count": 20,
     "automated": 10,
     "human_curated": 8,
@@ -110,9 +110,9 @@
       "source_verifiable": true,
       "cadence": "daily",
       "cadence_plain": "Updates every market day",
-      "latest_observation_date": "2026-07-08",
+      "latest_observation_date": "2026-07-09",
       "next_refresh_estimate": {
-        "date": "2026-07-11",
+        "date": "2026-07-14",
         "window": "next market day",
         "basis": "estimate"
       },
