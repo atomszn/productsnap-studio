@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T17:09:37.209Z",
+  "generated_at": "2026-07-14T16:09:54.459Z",
   "mode": "log_only",
   "llm_invoked": false,
   "decision": "DRAFT",
@@ -10,7 +10,14 @@
     },
     {
       "type": "editorial_stale",
-      "detail": "Weekly Connection read past its 7-day window (age 24d)"
+      "detail": "Weekly Connection read past its 7-day window (age 25d); 1 signal read(s) past the 35-day window: cpi-headline(43d)",
+      "stale_signals": [
+        {
+          "id": "cpi-headline",
+          "last_editorial_reviewed": "2026-06-01",
+          "age_days": 43
+        }
+      ]
     }
   ],
   "triggering_observations": {
@@ -34,7 +41,7 @@
     }
   ],
   "triggering_editorial_reads": {
-    "cpi-headline": "2026-05-01",
+    "cpi-headline": "2026-06-01",
     "ppi": "2026-05-01",
     "pce": "2026-05-01",
     "compute-cost": "2026-04-30",
@@ -53,105 +60,99 @@
   },
   "suppressed_stale_reads": [
     {
-      "id": "cpi-headline",
-      "last_editorial_reviewed": "2026-05-01",
-      "last_fired": "2026-05-01",
-      "age_days": 73
-    },
-    {
       "id": "ppi",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 73
+      "age_days": 74
     },
     {
       "id": "pce",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 73
+      "age_days": 74
     },
     {
       "id": "series-a-counts",
       "last_editorial_reviewed": "2026-05-20",
       "last_fired": "2026-05-20",
-      "age_days": 54
+      "age_days": 55
     },
     {
       "id": "ai-model-releases",
       "last_editorial_reviewed": "2026-05-26",
       "last_fired": "2026-05-26",
-      "age_days": 48
+      "age_days": 49
     },
     {
       "id": "ai-api-pricing",
       "last_editorial_reviewed": "2026-05-19",
       "last_fired": "2026-05-19",
-      "age_days": 55
+      "age_days": 56
     },
     {
       "id": "open-source-ai",
       "last_editorial_reviewed": "2026-05-25",
       "last_fired": "2026-05-25",
-      "age_days": 49
+      "age_days": 50
     },
     {
       "id": "compute-cost",
       "last_editorial_reviewed": "2026-04-30",
       "last_fired": "2026-04-30",
-      "age_days": 74
+      "age_days": 75
     },
     {
       "id": "retail-sales",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 73
+      "age_days": 74
     },
     {
       "id": "consumer-confidence",
       "last_editorial_reviewed": "2026-05-01",
       "last_fired": "2026-05-01",
-      "age_days": 73
+      "age_days": 74
     },
     {
       "id": "emerging-apps",
       "last_editorial_reviewed": "2026-05-26",
       "last_fired": "2026-05-26",
-      "age_days": 48
+      "age_days": 49
     },
     {
       "id": "nonfarm-payrolls",
       "last_editorial_reviewed": "2026-06-01",
       "last_fired": "2026-06-01",
-      "age_days": 42
+      "age_days": 43
     },
     {
       "id": "tech-hiring",
       "last_editorial_reviewed": "2026-05-26",
       "last_fired": "2026-05-26",
-      "age_days": 48
+      "age_days": 49
     },
     {
       "id": "ai-regulation",
       "last_editorial_reviewed": "2026-05-24",
       "last_fired": "2026-05-24",
-      "age_days": 50
+      "age_days": 51
     },
     {
       "id": "mfg-activity",
       "last_editorial_reviewed": "2026-06-01",
       "last_fired": "2026-06-01",
-      "age_days": 42
+      "age_days": 43
     },
     {
       "id": "services-activity",
       "last_editorial_reviewed": "2026-06-01",
       "last_fired": "2026-06-01",
-      "age_days": 42
+      "age_days": 43
     }
   ],
   "editorial_freshness": {
     "editorial_status": "stale",
-    "age_days": 24,
+    "age_days": 25,
     "expires_after_days": 7
   },
   "weekly_connection_reviewed": "2026-06-19",
