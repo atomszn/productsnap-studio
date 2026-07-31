@@ -6,7 +6,7 @@
   "pulse_url": "https://productsnap.studio/pulse",
   "generated_from": "data/pulse-content.json",
   "last_updated": "2026-06-19",
-  "latest_source_data_date": "2026-05-26",
+  "latest_source_data_date": "2026-06-01",
   "is_financial_advice": false,
   "disclaimer": "Pulse is not financial analysis, investment advice, or market prediction. It connects public signals, tracks how things are changing, and turns that into better product questions. Always verify against primary sources before acting.",
   "weekly_thought": {
@@ -67,17 +67,17 @@
       "id": "consumer-confidence",
       "title": "Consumer confidence at its lowest point in three years — prices still the worry",
       "category": "consumer",
-      "current_value": "44.8 University of Michigan index",
+      "current_value": "49.5 University of Michigan index",
       "status": "weak",
-      "source_data_date": "2026-05-01",
+      "source_data_date": "2026-06-01",
       "sources": [
         {
           "name": "University of Michigan Consumer Sentiment (via FRED)",
           "url": "https://fred.stlouisfed.org/series/UMCSENT"
         }
       ],
-      "plain_english": "As of the latest reading, the University of Michigan confidence index sits at 49.8 — the bottom of its three-year range. It's down 6.6% from last month. Households still expect prices to keep climbing, which is part of why confidence keeps sliding.",
-      "under_review": false
+      "plain_english": "This signal moved enough to revisit the interpretation. Updated context coming soon.",
+      "under_review": true
     },
     {
       "id": "ai-api-pricing",

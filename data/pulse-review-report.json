@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-07-30T16:22:24.250Z",
+  "generated_at": "2026-07-31T16:41:11.474Z",
   "registry_version": "1.0.0",
   "signal_count": 18,
   "summary": {
-    "verified": 8,
-    "stale": 10,
+    "verified": 10,
+    "stale": 8,
     "needs_review": 0,
     "failed": 0,
     "manual": 0,
-    "alignment_mismatches": 3,
+    "alignment_mismatches": 4,
     "updated": 0,
     "unchanged": 18
   },
@@ -36,7 +36,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "ppi",
@@ -56,19 +56,19 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "pce",
       "name": "Core PCE (YoY)",
       "category": "inflation",
-      "status": "stale",
+      "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "3.41%",
-      "last_updated": "2026-05-01",
+      "current_value": "3.29%",
+      "last_updated": "2026-06-01",
       "editorial_status": "stale",
-      "reason": "Data older than cadence stale threshold",
+      "reason": "All checks passed",
       "sources": [
         {
           "name": "Core PCE Price Index (FRED PCEPILFE)",
@@ -76,7 +76,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "fed-net-liquidity",
@@ -85,8 +85,8 @@
       "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "$6.75T",
-      "last_updated": "2026-07-22",
+      "current_value": "$6.74T",
+      "last_updated": "2026-07-29",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -96,7 +96,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "10y-treasury",
@@ -105,8 +105,8 @@
       "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "4.61%",
-      "last_updated": "2026-07-28",
+      "current_value": "4.67%",
+      "last_updated": "2026-07-29",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -116,7 +116,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "series-a-counts",
@@ -141,7 +141,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "ai-model-releases",
@@ -171,7 +171,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "ai-api-pricing",
@@ -196,7 +196,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "open-source-ai",
@@ -221,7 +221,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "compute-cost",
@@ -246,7 +246,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "retail-sales",
@@ -266,19 +266,19 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "consumer-confidence",
       "name": "Consumer Sentiment (U. Michigan)",
       "category": "consumer",
-      "status": "stale",
-      "alignment_status": "aligned",
-      "review_required": false,
-      "current_value": "44.8",
-      "last_updated": "2026-05-01",
+      "status": "verified",
+      "alignment_status": "mismatch",
+      "review_required": true,
+      "current_value": "49.5",
+      "last_updated": "2026-06-01",
       "editorial_status": "stale",
-      "reason": "Data older than cadence stale threshold",
+      "reason": "All checks passed",
       "sources": [
         {
           "name": "University of Michigan Consumer Sentiment (via FRED)",
@@ -286,7 +286,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "emerging-apps",
@@ -311,7 +311,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "nonfarm-payrolls",
@@ -331,7 +331,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "tech-hiring",
@@ -356,7 +356,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "ai-regulation",
@@ -376,7 +376,7 @@
           "tier": 3
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "mfg-activity",
@@ -396,7 +396,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     },
     {
       "signal_id": "services-activity",
@@ -416,7 +416,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-07-30T16:22:24.250Z"
+      "checked_at": "2026-07-31T16:41:11.474Z"
     }
   ],
   "alignment_mismatches": [
@@ -425,6 +425,12 @@
       "detail": "Status 'rising' implies value up but data direction is down",
       "data_direction": "down",
       "editorial_stance": "rising"
+    },
+    {
+      "signal_id": "consumer-confidence",
+      "detail": "Status 'weak' implies value down but data direction is up",
+      "data_direction": "up",
+      "editorial_stance": "weak"
     },
     {
       "signal_id": "nonfarm-payrolls",
@@ -444,10 +450,12 @@
   "editorial": {
     "weekly_connection": {
       "editorial_status": "stale",
-      "age_days": 41,
+      "age_days": 42,
       "review_required": true,
-      "review_note": "Weekly Connection is older than 7 days",
-      "mismatched_connected_signals": []
+      "review_note": "Connected signal(s) moved against the interpretation: consumer-confidence",
+      "mismatched_connected_signals": [
+        "consumer-confidence"
+      ]
     }
   },
   "narrative_review": {
