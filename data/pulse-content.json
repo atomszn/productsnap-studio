@@ -55,7 +55,7 @@
       "last_editorial_reviewed": "2026-06-19",
       "expires_after_days": 7,
       "editorial_status": "stale",
-      "age_days": 53
+      "age_days": 54
     },
     "review_required": true,
     "review_note": "Connected signal(s) moved against the interpretation: consumer-confidence",
@@ -338,19 +338,15 @@
           "gloss": "inflation excluding food and energy"
         }
       ],
-      "current_value": "3.53%",
+      "current_value": "3.36%",
       "current_unit": "year-over-year",
       "status": "rising",
       "status_tone": "amber",
       "confidence": "high",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-07-01",
       "tier": 1,
       "source_note": "BLS · monthly release",
       "data_points": [
-        {
-          "date": "2023-06",
-          "value": 3
-        },
         {
           "date": "2023-07",
           "value": 3.2
@@ -490,32 +486,36 @@
         {
           "date": "2026-06",
           "value": 3.5
+        },
+        {
+          "date": "2026-07",
+          "value": 3.4
         }
       ],
       "compared_to": {
         "vs_1mo": {
           "direction": "down",
-          "delta_pct": -0.7,
+          "delta_pct": -0.2,
           "tone": "green"
         },
         "vs_6mo": {
           "direction": "up",
-          "delta_pct": 0.9,
+          "delta_pct": 1,
           "tone": "amber"
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 0.9,
+          "delta_pct": 0.7,
           "tone": "amber"
         },
         "vs_36mo": {
           "direction": "up",
-          "delta_pct": 0.6,
+          "delta_pct": 0.2,
           "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 1,
+          "delta_pct": 0.9,
           "tone": "amber"
         },
         "range_36mo": {
@@ -527,9 +527,9 @@
         }
       },
       "percentile": {
-        "value": 75,
+        "value": 73,
         "lookback_years": 10,
-        "label": "Higher than 25% of observations in the last 10 years"
+        "label": "Higher than 27% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -593,22 +593,22 @@
       },
       "pill_label_short": "Headline inflation heated up again",
       "status_meta": {
-        "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
-        "reason": "Data older than cadence stale threshold",
+        "status": "verified",
+        "checked_at": "2026-08-12T15:53:40.113Z",
+        "reason": "All checks passed",
         "status_type": "automated"
       },
       "alignment_status": "mismatch",
       "review_required": true,
       "editorial_freshness": {
-        "last_editorial_reviewed": "2026-06-01",
+        "last_editorial_reviewed": "2026-07-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 71,
+        "age_days": 42,
         "needs_thesis_review": true
       },
       "timestamps": {
-        "latest_source_data_date": "2026-06-01",
+        "latest_source_data_date": "2026-07-01",
         "last_editorial_reviewed": "2026-06-19"
       },
       "data_points_window_months": 36
@@ -874,7 +874,7 @@
       "pill_label_short": "Supplier prices rising fast",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -884,7 +884,7 @@
         "last_editorial_reviewed": "2026-06-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 71
+        "age_days": 72
       },
       "timestamps": {
         "latest_source_data_date": "2026-06-01",
@@ -1154,7 +1154,7 @@
       "pill_label_short": "Core inflation still above target",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -1164,7 +1164,7 @@
         "last_editorial_reviewed": "2026-06-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 71
+        "age_days": 72
       },
       "timestamps": {
         "latest_source_data_date": "2026-06-01",
@@ -1439,7 +1439,7 @@
       "pill_label_short": "Liquidity has steadied, not flooded",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -1449,7 +1449,7 @@
         "last_editorial_reviewed": "2026-08-05",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 6
+        "age_days": 7
       },
       "timestamps": {
         "latest_source_data_date": "2026-08-05",
@@ -1469,12 +1469,12 @@
           "gloss": "the market's price for lending the US government money for 10 years — a benchmark for long-term capital costs"
         }
       ],
-      "current_value": "4.65%",
+      "current_value": "4.72%",
       "current_unit": "yield",
       "status": "steady",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-08-07",
+      "last_updated": "2026-08-10",
       "tier": 1,
       "source_note": "FRED DGS10 · daily",
       "data_points": [
@@ -1625,9 +1625,9 @@
       ],
       "compared_to": {
         "vs_1mo": {
-          "direction": "down",
-          "delta_pct": -0.1,
-          "tone": "green"
+          "direction": "flat",
+          "delta_pct": 0,
+          "tone": "neutral"
         },
         "vs_6mo": {
           "direction": "up",
@@ -1636,7 +1636,7 @@
         },
         "vs_12mo": {
           "direction": "up",
-          "delta_pct": 0.4,
+          "delta_pct": 0.5,
           "tone": "amber"
         },
         "vs_36mo": {
@@ -1646,7 +1646,7 @@
         },
         "vs_pre_2020": {
           "direction": "up",
-          "delta_pct": 3.1,
+          "delta_pct": 3.2,
           "tone": "amber"
         },
         "range_36mo": {
@@ -1719,20 +1719,20 @@
       "pill_label_short": "Long-term borrowing costs still elevated",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
       "alignment_status": "aligned",
       "review_required": false,
       "editorial_freshness": {
-        "last_editorial_reviewed": "2026-08-07",
+        "last_editorial_reviewed": "2026-08-10",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 4
+        "age_days": 2
       },
       "timestamps": {
-        "latest_source_data_date": "2026-08-07",
+        "latest_source_data_date": "2026-08-10",
         "last_editorial_reviewed": "2026-05-28"
       },
       "data_points_window_months": 36
@@ -1893,7 +1893,7 @@
       "pill_label_short": "Startup funding still concentrating into AI",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -1903,7 +1903,7 @@
         "last_editorial_reviewed": "2026-05-20",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 83
+        "age_days": 84
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-20",
@@ -2074,7 +2074,7 @@
       "pill_label_short": "New AI models shipping faster",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2084,7 +2084,7 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 77
+        "age_days": 78
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -2253,7 +2253,7 @@
       "pill_label_short": "AI model costs keep falling",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2263,7 +2263,7 @@
         "last_editorial_reviewed": "2026-05-19",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 84
+        "age_days": 85
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-19",
@@ -2426,7 +2426,7 @@
       "pill_label_short": "Open-source AI is catching up",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2436,7 +2436,7 @@
         "last_editorial_reviewed": "2026-05-25",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 78
+        "age_days": 79
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-25",
@@ -2604,7 +2604,7 @@
       "pill_label_short": "Compute keeps getting cheaper",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2614,7 +2614,7 @@
         "last_editorial_reviewed": "2026-04-30",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 103
+        "age_days": 104
       },
       "timestamps": {
         "latest_source_data_date": "2026-04-30",
@@ -2884,7 +2884,7 @@
       "pill_label_short": "Shoppers still showing up",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -2894,7 +2894,7 @@
         "last_editorial_reviewed": "2026-06-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 71
+        "age_days": 72
       },
       "timestamps": {
         "latest_source_data_date": "2026-06-01",
@@ -3164,7 +3164,7 @@
       "tier_label": "primary",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "automated"
       },
@@ -3174,7 +3174,7 @@
         "last_editorial_reviewed": "2026-06-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 71,
+        "age_days": 72,
         "needs_thesis_review": true
       },
       "timestamps": {
@@ -3344,7 +3344,7 @@
       "pill_label_short": "Personal AI assistants are spreading",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -3354,7 +3354,7 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 77
+        "age_days": 78
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -3624,7 +3624,7 @@
       "pill_label_short": "Hiring is cooling, not collapsing",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3634,7 +3634,7 @@
         "last_editorial_reviewed": "2026-07-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 41,
+        "age_days": 42,
         "needs_thesis_review": true
       },
       "timestamps": {
@@ -3800,7 +3800,7 @@
       "pill_label_short": "Tech hiring remains soft",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -3810,7 +3810,7 @@
         "last_editorial_reviewed": "2026-05-26",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 77
+        "age_days": 78
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-26",
@@ -3968,7 +3968,7 @@
       "pill_label_short": "State-level AI rules picking up",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -3978,7 +3978,7 @@
         "last_editorial_reviewed": "2026-05-24",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 79
+        "age_days": 80
       },
       "timestamps": {
         "latest_source_data_date": "2026-05-24",
@@ -4251,7 +4251,7 @@
       "pill_label_short": "Regional mfg (Philly Fed) choppy",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -4261,7 +4261,7 @@
         "last_editorial_reviewed": "2026-07-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 41
+        "age_days": 42
       },
       "timestamps": {
         "latest_source_data_date": "2026-07-01",
@@ -4535,7 +4535,7 @@
       "pill_label_short": "Regional services (Dallas Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-11T15:54:49.529Z",
+        "checked_at": "2026-08-12T15:53:40.113Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -4545,7 +4545,7 @@
         "last_editorial_reviewed": "2026-07-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 41,
+        "age_days": 42,
         "needs_thesis_review": true
       },
       "timestamps": {
@@ -4585,6 +4585,6 @@
       "Layoffs.fyi ingestion",
       "AI regulation tracker ingestion"
     ],
-    "last_pipeline_refresh": "2026-08-11T15:54:43.211Z"
+    "last_pipeline_refresh": "2026-08-12T15:53:33.946Z"
   }
 }
