@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-12T15:53:40.113Z",
+  "generated_at": "2026-08-13T15:53:05.846Z",
   "registry_version": "1.0.0",
   "signal_count": 18,
   "summary": {
-    "verified": 6,
-    "stale": 12,
+    "verified": 7,
+    "stale": 11,
     "needs_review": 0,
     "failed": 0,
     "manual": 0,
-    "alignment_mismatches": 4,
+    "alignment_mismatches": 5,
     "updated": 0,
     "unchanged": 18
   },
@@ -36,19 +36,19 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "ppi",
       "name": "Producer Price Index (YoY)",
       "category": "inflation",
-      "status": "stale",
-      "alignment_status": "aligned",
-      "review_required": false,
-      "current_value": "5.51%",
-      "last_updated": "2026-06-01",
+      "status": "verified",
+      "alignment_status": "mismatch",
+      "review_required": true,
+      "current_value": "4.66%",
+      "last_updated": "2026-07-01",
       "editorial_status": "stale",
-      "reason": "Data older than cadence stale threshold",
+      "reason": "All checks passed",
       "sources": [
         {
           "name": "BLS PPI",
@@ -56,7 +56,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "pce",
@@ -76,7 +76,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "fed-net-liquidity",
@@ -96,7 +96,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "10y-treasury",
@@ -105,8 +105,8 @@
       "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "4.72%",
-      "last_updated": "2026-08-10",
+      "current_value": "4.7%",
+      "last_updated": "2026-08-11",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -116,7 +116,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "series-a-counts",
@@ -141,7 +141,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "ai-model-releases",
@@ -171,7 +171,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "ai-api-pricing",
@@ -196,7 +196,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "open-source-ai",
@@ -221,7 +221,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "compute-cost",
@@ -246,7 +246,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "retail-sales",
@@ -266,7 +266,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "consumer-confidence",
@@ -286,7 +286,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "emerging-apps",
@@ -311,7 +311,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "nonfarm-payrolls",
@@ -331,7 +331,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "tech-hiring",
@@ -356,7 +356,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "ai-regulation",
@@ -376,7 +376,7 @@
           "tier": 3
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "mfg-activity",
@@ -396,7 +396,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     },
     {
       "signal_id": "services-activity",
@@ -416,12 +416,18 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-12T15:53:40.113Z"
+      "checked_at": "2026-08-13T15:53:05.846Z"
     }
   ],
   "alignment_mismatches": [
     {
       "signal_id": "cpi-headline",
+      "detail": "Status 'rising' implies value up but data direction is down",
+      "data_direction": "down",
+      "editorial_stance": "rising"
+    },
+    {
+      "signal_id": "ppi",
       "detail": "Status 'rising' implies value up but data direction is down",
       "data_direction": "down",
       "editorial_stance": "rising"
@@ -450,7 +456,7 @@
   "editorial": {
     "weekly_connection": {
       "editorial_status": "stale",
-      "age_days": 54,
+      "age_days": 55,
       "review_required": true,
       "review_note": "Connected signal(s) moved against the interpretation: consumer-confidence",
       "mismatched_connected_signals": [
