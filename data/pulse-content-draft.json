@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0.0",
+  "draft_id": "draft-c2d5709ef13d8f77",
+  "task_id": "editorial-task-c2d5709ef13d8f77",
+  "fingerprint": "c2d5709ef13d8f77",
+  "findings_id": "findings-c2d5709ef13d8f77",
+  "generated_at": "2026-08-14T21:35:08.597393Z",
+  "phase": 3,
+  "shadow_mode": false,
+  "model_used": "claude_opus_4_8",
+  "model_role": "editorial",
+  "estimated_cost_usd": 0.4,
+  "editorial_date": "2026-08-14",
+  "throughline": "People are still spending, but they feel less sure; at the same time, cheaper and faster AI keeps widening what a small product team can test.",
+  "signals": [
+    {
+      "signal_id": "retail-sales",
+      "title": "Retail sales are steady, but the time basis needs a check",
+      "summary": "The current display says retail sales are 5.01% higher than a year ago. That is not a fresh event-level move in this task, so the safe read is steady. The older page text says 6.88%; those two figures need a date and revision check before either is used as the main story.",
+      "status": "steady",
+      "status_tone": "neutral",
+      "momentum_label": "stable",
+      "pill_label_short": "Spending still holding",
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "Retail sales are displayed at 5.01% higher than a year ago, with no new pair of readings supplied for this run.",
+          "expansion": "The task does not show the prior reading or the release date needed to call a fresh rise or fall."
+        },
+        {
+          "label": "Meaning",
+          "text": "Spending is holding in the current display, but the page should not claim more momentum than the data supports.",
+          "expansion": "A steady spending line can sit beside weak confidence; the two measures answer different questions."
+        },
+        {
+          "label": "Product impact",
+          "text": "If your product serves consumer businesses, plan from your own sales and usage data while the public number is reconciled.",
+          "expansion": "Do not build a demand plan on a number whose date or revision is unclear."
+        },
+        {
+          "label": "PM question",
+          "text": "Which customer behavior would tell you that demand is changing before the next public release?",
+          "expansion": "Use one clear measure, such as repeat use or paid conversion, and track it over time."
+        }
+      ],
+      "refined_why": {
+        "evidence": "The current task display is 5.01% higher than a year ago, but no new from-to pair is provided.",
+        "counter_signal": "A confirmed new decline or rise with a clear date would change this read.",
+        "product_takeaway": "Reconcile the public number first, then pair it with your own customer behavior data."
+      },
+      "why_we_think_this": {
+        "reasoning": "The current display gives a 5.01% year-over-year retail-sales level, but this event does not include the prior value or release date. The older page text uses 6.88%, so the page should state the time basis before making a stronger claim.",
+        "counterarguments": [
+          "The difference may come from a newer release, a revision, or a different calculation.",
+          "Retail sales show spending, not how customers feel or what they will do next."
+        ],
+        "what_would_make_us_wrong": "A confirmed paired release that explains the two figures and shows a clear new direction would replace this steady, reconciliation-first read."
+      }
+    },
+    {
+      "signal_id": "consumer-confidence",
+      "title": "Consumer sentiment remains weak, even as the latest display is higher",
+      "summary": "The University of Michigan sentiment display is 49.5. It is lower than the older page number of 49.8, but this task does not supply a new from-to pair. The safe message is that sentiment remains weak; the display alone does not prove a new drop.",
+      "status": "weak",
+      "status_tone": "amber",
+      "momentum_label": "watch closely",
+      "pill_label_short": "Sentiment still weak",
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "The sentiment index is displayed at 49.5, a low reading in the current page context.",
+          "expansion": "This is a survey score about how people feel, not a direct count of purchases or cancellations."
+        },
+        {
+          "label": "Meaning",
+          "text": "People may be more careful about price and effort, even while spending data has not stopped.",
+          "expansion": "Feelings can change before behavior, but this event does not measure the gap."
+        },
+        {
+          "label": "Product impact",
+          "text": "Make the first useful result clear and keep the lower-cost path easy to find.",
+          "expansion": "Test this with real sign-ups and plan changes instead of treating a survey reading as a forecast."
+        },
+        {
+          "label": "PM question",
+          "text": "Does a new customer see the useful part of your product before they see a hard price decision?",
+          "expansion": "A short path to value is easier to test than a broad claim about the economy."
+        }
+      ],
+      "refined_why": {
+        "evidence": "The task displays sentiment at 49.5, while the older page says 49.8. Both point to a weak customer mood, but the event gives no paired delta.",
+        "counter_signal": "A sustained rise in sentiment alongside stronger observed customer behavior would soften this read.",
+        "product_takeaway": "Use clear first value and test plan choices with users; do not present the survey level as a prediction."
+      },
+      "why_we_think_this": {
+        "reasoning": "The task displays the University of Michigan sentiment index at 49.5 and the older page uses 49.8. The event supplies no paired observation, so the honest claim is weak sentiment with a number-and-date check still needed.",
+        "counterarguments": [
+          "Survey mood does not equal actual spending.",
+          "The small difference between 49.5 and 49.8 may reflect timing or revision."
+        ],
+        "what_would_make_us_wrong": "A dated paired release that shows a clear recovery, together with stronger customer behavior, would weaken this read."
+      }
+    },
+    {
+      "signal_id": "ai-api-pricing",
+      "title": "AI model prices are lower, but the comparison needs a clear label",
+      "summary": "The page tracks a −60% trailing-three-month trend for comparable top-model prices. The direction is lower, but the task does not include the provider list or the price table behind the index. Treat it as a monitored trend, not a universal price claim.",
+      "status": "falling",
+      "status_tone": "green",
+      "momentum_label": "accelerating",
+      "pill_label_short": "AI costs falling",
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "The monitored trend shows comparable top-model prices down 60% over three months.",
+          "expansion": "The task does not define the model set or provide the snapshots used to build the trend."
+        },
+        {
+          "label": "Meaning",
+          "text": "Some AI work may now fit inside tests that once looked too costly, but quality still has to be measured.",
+          "expansion": "Lower price does not remove the need to check accuracy, speed, and user trust."
+        },
+        {
+          "label": "Product impact",
+          "text": "Recheck one narrow automation idea with current provider prices and a clear quality test.",
+          "expansion": "A small experiment can show whether the cheaper input creates user value."
+        },
+        {
+          "label": "PM question",
+          "text": "Which workflow would be worth testing if the cost estimate were 60% lower?",
+          "expansion": "Write the test and its success measure before changing the roadmap."
+        }
+      ],
+      "refined_why": {
+        "evidence": "The task’s monitored trend is −60% over three months for comparable top-model prices.",
+        "counter_signal": "A defined comparison set that shows a different direction would require a rewrite.",
+        "product_takeaway": "Refresh unit-cost assumptions and test one bounded workflow; do not turn one trend into a broad promise."
+      },
+      "why_we_think_this": {
+        "reasoning": "The task carries a manually maintained −60% trend for comparable top-model prices and links to a first-party OpenAI price page. That page does not prove the full cross-provider index, so this copy keeps the trend scoped and avoids a universal cost claim.",
+        "counterarguments": [
+          "The trend may use a changing set of models.",
+          "Price alone does not measure output quality or user value."
+        ],
+        "what_would_make_us_wrong": "A documented comparison set with stable snapshots that reverses the trend would change this read."
+      }
+    },
+    {
+      "signal_id": "ai-model-releases",
+      "title": "New AI model releases remain frequent in the monitored window",
+      "summary": "The task tracks 3 frontier releases in a 14-day window. That count is useful as a monitored signal, but the task does not list the releases or define the full frontier set. It should not be read as a complete count for the whole AI field.",
+      "status": "expanding",
+      "status_tone": "green",
+      "momentum_label": "accelerating",
+      "pill_label_short": "New models arriving",
+      "chain": [
+        {
+          "label": "Signal",
+          "text": "The monitored window contains 3 frontier releases in 14 days.",
+          "expansion": "The task does not list the releases or explain which models count."
+        },
+        {
+          "label": "Meaning",
+          "text": "Product teams may need to revisit old limits more often, but a release is not proof of user value.",
+          "expansion": "A new model matters when it improves a real task for your users."
+        },
+        {
+          "label": "Product impact",
+          "text": "Keep a short list of blocked workflows and retest the most important one when a new model arrives.",
+          "expansion": "This keeps model news tied to a customer problem instead of a release race."
+        },
+        {
+          "label": "PM question",
+          "text": "Which product limit from six months ago is cheap enough to test again?",
+          "expansion": "Choose one task and define what better means before trying the new model."
+        }
+      ],
+      "refined_why": {
+        "evidence": "The task displays 3 frontier releases in a 14-day window.",
+        "counter_signal": "A defined monitoring window with a sustained slowdown or a changed inclusion rule would change this read.",
+        "product_takeaway": "Track releases only when they map to a user task you can test."
+      },
+      "why_we_think_this": {
+        "reasoning": "The task counts 3 frontier releases in a 14-day window and points to Anthropic’s newsroom as one source. The count is treated as a monitored signal, not a complete market index.",
+        "counterarguments": [
+          "Release timing can arrive in bursts.",
+          "A headline release may not improve the task a user cares about."
+        ],
+        "what_would_make_us_wrong": "A documented window with no meaningful releases for two months would weaken this read."
+      }
+    }
+  ],
+  "weekly_connection": {
+    "title": "Customers feel cautious; product costs are moving the other way",
+    "subtitle": "The current page shows weak sentiment and steady spending, while its monitored AI signals point to lower model prices and frequent releases. The useful read is a tension, not a prediction.",
+    "body_paragraphs": [
+      "The customer side is mixed. The current page displays retail sales at 5.01% higher than a year ago and consumer sentiment at 49.5. The first is a spending measure; the second is a survey about how people feel. Both need dates and comparisons before they can support a stronger claim, but together they say not to assume that a customer who is still buying feels relaxed.",
+      "The build side is moving faster. The page tracks a −60% three-month trend for comparable AI model prices and 3 frontier releases in 14 days. Those are monitored signals with limits, not a promise that every AI feature is now cheap or useful. They are still a reason to recheck one small workflow that was previously too costly to test.",
+      "The product takeaway is simple: measure customer behavior directly, keep the first useful result clear, and test AI work in small pieces. Do not use a public mood reading or a broad price trend as a substitute for your own evidence."
+    ],
+    "refined": {
+      "observation": "The current display combines retail sales at 5.01% higher than a year ago with sentiment at 49.5. It also tracks lower AI model prices and 3 releases in a 14-day window. The first pair describes customers; the second pair describes what builders can test.",
+      "why_it_matters": "Customers can keep buying while feeling cautious, and cheaper AI can make small product tests easier. Neither signal tells you what your own users will do, so the page should connect them without claiming a forecast.",
+      "pm_implication_default": "Reconcile the public numbers, then pair them with direct measures such as repeat use, conversion, plan changes, or support demand. At the same time, refresh the cost of one narrow AI workflow and test its quality.",
+      "decision_this_week": "Choose one customer behavior to watch and one small AI workflow to test. Write the success measure for each before you start."
+    }
+  },
+  "weekly_thought": {
+    "headline": "The customer mood is cautious while the cost of testing AI keeps moving down.",
+    "lenses": {
+      "build": {
+        "label": "Build Decisions",
+        "pattern": "[chip:ai-api-pricing] is a monitored lower-price trend, while [chip:ai-model-releases] shows 3 releases in 14 days. That does not make every idea ready. It does make one small, blocked workflow worth checking again.",
+        "action": "Which workflow can you test with a clear quality measure this week?",
+        "sketchbook_note": "test one small thing"
+      },
+      "customer": {
+        "label": "Customer Behavior",
+        "pattern": "[chip:consumer-confidence] is displayed at 49.5, while [chip:retail-sales] is displayed at 5.01% higher than a year ago. Feelings and spending can differ. Use your own behavior data to learn what your customers are doing.",
+        "action": "Which customer behavior will you track instead of guessing from sentiment?",
+        "sketchbook_note": "watch the gap"
+      },
+      "business": {
+        "label": "Business Reality",
+        "pattern": "A cautious customer and cheaper AI create a measurement problem. A lower model price matters only if it helps a user and fits the real workflow cost.",
+        "action": "Which unit-cost assumption and customer outcome will you check together?",
+        "sketchbook_note": "tie cost to value"
+      },
+      "future": {
+        "label": "Future Signals",
+        "pattern": "[chip:ai-model-releases] is a monitored count, not a full market index. New releases matter when they change a task your users care about, not just because the count is high.",
+        "action": "Write down one old product limit and define what a useful improvement would look like.",
+        "sketchbook_note": "capability is not value"
+      }
+    }
+  },
+  "page_prose": {
+    "weekly_note_text": "This week: customers look cautious, spending is still present, and the cost of testing AI keeps moving down. The signals are useful together, but none is a forecast.",
+    "pm_tension_question": "Are you measuring what customers do while testing what cheaper AI can make easier?",
+    "pm_tension_note": "This is a question worth testing, not a recommendation. Keep public signals in context and use your own product evidence."
+  },
+  "self_assessment": {
+    "overall_confidence": 0.91,
+    "reading_grade_estimate": 8.4,
+    "one_voice_cohesion": true,
+    "numbers_traceable": true,
+    "disclaimer_respected": true,
+    "unsupported_claims": [],
+    "notes": "The draft uses only numbers in the live task or findings, labels the manually maintained AI signals, avoids forecasts and financial advice, and keeps the page centered on cautious customers versus cheaper AI tests. Confidence is below the autonomous publish bar because retail and sentiment date differences still require reconciliation."
+  }
+}

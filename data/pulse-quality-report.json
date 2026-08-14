@@ -1,0 +1,397 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "4ab50853f7",
+  "task_id": "editorial-task-c2d5709ef13d8f77",
+  "fingerprint": "c2d5709ef13d8f77",
+  "draft_id": "draft-c2d5709ef13d8f77",
+  "generated_at": "2026-08-14T21:35:33.560Z",
+  "phase": 3,
+  "verdict": "RED",
+  "reconciler": {
+    "pass": false,
+    "numbers_ok": false,
+    "polarity_ok": false,
+    "narrative_ok": true,
+    "advice_clean": true,
+    "freshness_ok": true,
+    "hard_failures": [
+      {
+        "check": "numbers",
+        "field": "retail-sales",
+        "detail": "prose number 6.88% does not reconcile to any data value or the allowlist"
+      },
+      {
+        "check": "numbers",
+        "field": "retail-sales",
+        "detail": "prose number 6.88% does not reconcile to any data value or the allowlist"
+      },
+      {
+        "check": "numbers",
+        "field": "ai-model-releases",
+        "detail": "prose number 14 does not reconcile to any data value or the allowlist"
+      },
+      {
+        "check": "numbers",
+        "field": "ai-model-releases",
+        "detail": "prose number 14 does not reconcile to any data value or the allowlist"
+      },
+      {
+        "check": "numbers",
+        "field": "ai-model-releases",
+        "detail": "prose number 14 does not reconcile to any data value or the allowlist"
+      },
+      {
+        "check": "numbers",
+        "field": "ai-model-releases",
+        "detail": "prose number 14 does not reconcile to any data value or the allowlist"
+      },
+      {
+        "check": "polarity",
+        "field": "consumer-confidence",
+        "detail": "drafted status 'weak' Status 'weak' implies value down but data direction is up"
+      }
+    ],
+    "soft_warnings": [],
+    "unreconciled_numbers": [
+      "retail-sales: 6.88%",
+      "retail-sales: 6.88%",
+      "ai-model-releases: 14",
+      "ai-model-releases: 14",
+      "ai-model-releases: 14",
+      "ai-model-releases: 14"
+    ]
+  },
+  "validation_agent": {
+    "model_used": "gemini_3_1_pro",
+    "confidence": 0.94,
+    "reading_grade": 8.7,
+    "one_voice_cohesion": true,
+    "honest_no_overclaim": true,
+    "disclaimer_respected": true,
+    "unsupported_claims": [],
+    "narrative_reversal_acknowledged": true,
+    "estimated_cost_usd": 0.1,
+    "notes": "Clear, calm weekly frame. The draft is careful about missing from-to pairs and labels the AI series as monitored. The remaining soft issue is that the retail and sentiment dates still need reconciliation, so this is below the autonomous publish bar. Causal and predictive phrasing is framed as a test or caution, not a forecast."
+  },
+  "validation_panel": {
+    "judges": [
+      {
+        "model_used": "gemini_3_1_pro",
+        "confidence": 0.94,
+        "disclaimer_respected": true,
+        "honest_no_overclaim": true,
+        "one_voice_cohesion": true,
+        "unsupported_claims": [],
+        "narrative_reversal_acknowledged": true,
+        "reading_grade": 8.7,
+        "notes": "Clear, calm weekly frame. The draft is careful about missing from-to pairs and labels the AI series as monitored. The remaining soft issue is that the retail and sentiment dates still need reconciliation, so this is below the autonomous publish bar. Causal and predictive phrasing is framed as a test or caution, not a forecast."
+      },
+      {
+        "model_used": "gpt_5_5",
+        "confidence": 0.94,
+        "disclaimer_respected": true,
+        "honest_no_overclaim": true,
+        "one_voice_cohesion": true,
+        "unsupported_claims": [],
+        "narrative_reversal_acknowledged": true,
+        "reading_grade": 8.8,
+        "notes": "The page does not invent a fresh move and keeps customer mood separate from spending. Product implications are testable rather than financial advice. I would hold below 0.95 because the source-date reconciliation is unresolved and the AI price index lacks its comparison set."
+      },
+      {
+        "model_used": "claude_opus_4_8",
+        "confidence": 0.94,
+        "disclaimer_respected": true,
+        "honest_no_overclaim": true,
+        "one_voice_cohesion": true,
+        "unsupported_claims": [],
+        "narrative_reversal_acknowledged": true,
+        "reading_grade": 8.6,
+        "notes": "Strong plain-language cohesion and explicit limits. The draft’s conditional product tests are supported by the findings. I am not clearing the 0.95 bar because the current retail and sentiment values do not have event-level paired observations and the manually maintained AI trend is not independently reproducible from the task."
+      }
+    ],
+    "min_confidence": 0.94,
+    "all_clear_publish": false,
+    "any_hard_issue": false
+  },
+  "no_advice": {
+    "pass": false,
+    "hits": [
+      {
+        "term": "rates will fall",
+        "path": "signals[4].chain[2].text",
+        "sentence": "Projects justified by \"rates will fall\" remain exposed.",
+        "pattern": "subject-will-move",
+        "kind": "predictive"
+      }
+    ],
+    "sections_scanned": 385
+  },
+  "narrative_consistency": {
+    "pass": true,
+    "reversals": [],
+    "soft_warnings": [],
+    "hard_failures": []
+  },
+  "structural": {
+    "draft_schema_valid": true,
+    "editorial_only_diff": true,
+    "tests_pass": false,
+    "failed_tests": [
+      "test-editorial-gate.js",
+      "test-threshold-tune.js"
+    ]
+  },
+  "clarity": {
+    "gate_scope": "editable",
+    "jargon_clean": false,
+    "grade_ok": true,
+    "page_grade": 8.7,
+    "hardest_sentence_grade": 23.4,
+    "hardest_sentence_path": "signals[16].why_we_think_this.reasoning",
+    "sections_scanned": 385,
+    "unexplained_jargon": [
+      {
+        "term": "cpi",
+        "path": "signals[0].why_we_think_this.reasoning",
+        "snippet": "er prints, headline CPI has stepped up two"
+      },
+      {
+        "term": "yoy",
+        "path": "signals[0].why_we_think_this.what_would_make_us_wrong",
+        "snippet": "back below the 3.0% YoY line would meaningf"
+      },
+      {
+        "term": "cpi",
+        "path": "signals[0].why_we_think_this.what_would_make_us_wrong",
+        "snippet": "consecutive monthly CPI prints back below t"
+      },
+      {
+        "term": "year-over-year",
+        "path": "signals[1].refined_why.counter_signal",
+        "snippet": "back down toward 3% year-over-year would soften this r"
+      },
+      {
+        "term": "cpi",
+        "path": "signals[2].chain[1].text",
+        "snippet": "ces climbing again (CPI) and business costs"
+      },
+      {
+        "term": "ppi",
+        "path": "signals[2].chain[1].text",
+        "snippet": "sts rising sharply (PPI), it's hard to say"
+      },
+      {
+        "term": "pce",
+        "path": "signals[2].why_we_think_this.reasoning",
+        "snippet": "Core PCE has remained in a n"
+      },
+      {
+        "term": "pce",
+        "path": "signals[2].why_we_think_this.counterarguments[0]",
+        "snippet": "slowdown could pull PCE lower quickly."
+      },
+      {
+        "term": "pce",
+        "path": "signals[2].why_we_think_this.what_would_make_us_wrong",
+        "snippet": "Two consecutive PCE prints at or below"
+      },
+      {
+        "term": "disinflation",
+        "path": "signals[2].refined_why.evidence",
+        "snippet": "to confirm whether disinflation is still on track."
+      },
+      {
+        "term": "cpi",
+        "path": "signals[2].refined_why.evidence",
+        "snippet": "its 2% target. With CPI and PPI reasserting"
+      },
+      {
+        "term": "ppi",
+        "path": "signals[2].refined_why.evidence",
+        "snippet": "arget. With CPI and PPI reasserting recentl"
+      },
+      {
+        "term": "pce",
+        "path": "signals[2].refined_why.evidence",
+        "snippet": "y, the burden is on PCE to confirm whether"
+      },
+      {
+        "term": "real yield",
+        "path": "signals[4].chain[3].text",
+        "snippet": "nment bond paying a real yield with zero execution"
+      },
+      {
+        "term": "risk-off",
+        "path": "signals[4].why_we_think_this.counterarguments[0]",
+        "snippet": "A risk-off shock could re-wide"
+      },
+      {
+        "term": "year-over-year",
+        "path": "signals[10].why_we_think_this.reasoning",
+        "snippet": "splay gives a 5.01% year-over-year retail-sales level,"
+      },
+      {
+        "term": "payrolls",
+        "path": "signals[13].why_we_think_this.reasoning",
+        "snippet": "Payrolls, openings, and quit"
+      },
+      {
+        "term": "month-over-month",
+        "path": "signals[16].why_we_think_this.counterarguments[1]",
+        "snippet": "sion index captures month-over-month change, not absolut"
+      },
+      {
+        "term": "diffusion index",
+        "path": "signals[16].why_we_think_this.counterarguments[1]",
+        "snippet": "The diffusion index captures month-over"
+      },
+      {
+        "term": "diffusion",
+        "path": "signals[16].why_we_think_this.counterarguments[1]",
+        "snippet": "The diffusion index captures mont"
+      },
+      {
+        "term": "month-over-month",
+        "path": "signals[17].why_we_think_this.counterarguments[1]",
+        "snippet": "ion indexes capture month-over-month change, so they can"
+      },
+      {
+        "term": "diffusion",
+        "path": "signals[17].why_we_think_this.counterarguments[1]",
+        "snippet": "Diffusion indexes capture mon"
+      }
+    ],
+    "explained_jargon": [
+      {
+        "term": "year-over-year",
+        "path": "signals[0].summary"
+      },
+      {
+        "term": "cpi",
+        "path": "signals[0].summary"
+      },
+      {
+        "term": "cpi",
+        "path": "signals[0].chain[0].text"
+      },
+      {
+        "term": "year-over-year",
+        "path": "signals[1].summary"
+      },
+      {
+        "term": "ppi",
+        "path": "signals[1].chain[0].text"
+      },
+      {
+        "term": "year-over-year",
+        "path": "signals[2].summary"
+      },
+      {
+        "term": "pce",
+        "path": "signals[2].summary"
+      },
+      {
+        "term": "cpi",
+        "path": "signals[2].chain[0].text"
+      },
+      {
+        "term": "ppi",
+        "path": "signals[2].chain[0].text"
+      },
+      {
+        "term": "pce",
+        "path": "signals[2].chain[0].text"
+      },
+      {
+        "term": "cpi",
+        "path": "signals[2].chain[0].expansion"
+      },
+      {
+        "term": "pce",
+        "path": "signals[2].chain[0].expansion"
+      },
+      {
+        "term": "duration",
+        "path": "signals[4].chain[2].expansion"
+      },
+      {
+        "term": "diffusion index",
+        "path": "signals[16].why_we_think_this.reasoning"
+      },
+      {
+        "term": "diffusion",
+        "path": "signals[16].why_we_think_this.reasoning"
+      },
+      {
+        "term": "pmi",
+        "path": "signals[16].why_we_think_this.reasoning"
+      },
+      {
+        "term": "diffusion index",
+        "path": "signals[17].why_we_think_this.reasoning"
+      },
+      {
+        "term": "diffusion",
+        "path": "signals[17].why_we_think_this.reasoning"
+      },
+      {
+        "term": "pmi",
+        "path": "signals[17].why_we_think_this.reasoning"
+      }
+    ],
+    "readonly_jargon": []
+  },
+  "thresholds": {
+    "green_confidence": 0.9,
+    "yellow_confidence": 0.7,
+    "publish_confidence": 0.95,
+    "reading_grade_max": 9
+  },
+  "blocking_reasons": [
+    "reconciler:numbers — prose number 6.88% does not reconcile to any data value or the allowlist",
+    "reconciler:numbers — prose number 6.88% does not reconcile to any data value or the allowlist",
+    "reconciler:numbers — prose number 14 does not reconcile to any data value or the allowlist",
+    "reconciler:numbers — prose number 14 does not reconcile to any data value or the allowlist",
+    "reconciler:numbers — prose number 14 does not reconcile to any data value or the allowlist",
+    "reconciler:numbers — prose number 14 does not reconcile to any data value or the allowlist",
+    "reconciler:polarity — drafted status 'weak' Status 'weak' implies value down but data direction is up",
+    "tests:test-editorial-gate.js",
+    "tests:test-threshold-tune.js",
+    "clarity:jargon \"cpi\" @ signals[0].why_we_think_this.reasoning",
+    "clarity:jargon \"yoy\" @ signals[0].why_we_think_this.what_would_make_us_wrong",
+    "clarity:jargon \"cpi\" @ signals[0].why_we_think_this.what_would_make_us_wrong",
+    "clarity:jargon \"year-over-year\" @ signals[1].refined_why.counter_signal",
+    "clarity:jargon \"cpi\" @ signals[2].chain[1].text",
+    "clarity:jargon \"ppi\" @ signals[2].chain[1].text",
+    "clarity:jargon \"pce\" @ signals[2].why_we_think_this.reasoning",
+    "clarity:jargon \"pce\" @ signals[2].why_we_think_this.counterarguments[0]",
+    "clarity:jargon \"pce\" @ signals[2].why_we_think_this.what_would_make_us_wrong",
+    "clarity:jargon \"disinflation\" @ signals[2].refined_why.evidence",
+    "clarity:jargon \"cpi\" @ signals[2].refined_why.evidence",
+    "clarity:jargon \"ppi\" @ signals[2].refined_why.evidence",
+    "clarity:jargon \"pce\" @ signals[2].refined_why.evidence",
+    "clarity:jargon \"real yield\" @ signals[4].chain[3].text",
+    "clarity:jargon \"risk-off\" @ signals[4].why_we_think_this.counterarguments[0]",
+    "clarity:jargon \"year-over-year\" @ signals[10].why_we_think_this.reasoning",
+    "clarity:jargon \"payrolls\" @ signals[13].why_we_think_this.reasoning",
+    "clarity:jargon \"month-over-month\" @ signals[16].why_we_think_this.counterarguments[1]",
+    "clarity:jargon \"diffusion index\" @ signals[16].why_we_think_this.counterarguments[1]",
+    "clarity:jargon \"diffusion\" @ signals[16].why_we_think_this.counterarguments[1]",
+    "clarity:jargon \"month-over-month\" @ signals[17].why_we_think_this.counterarguments[1]",
+    "clarity:jargon \"diffusion\" @ signals[17].why_we_think_this.counterarguments[1]",
+    "clarity_soft:reading_grade_sentence — hardest sentence grade 23.4 > 12: \"We use the Philly Fed's monthly diffusion index as our manufacturing-activity proxy because it is the most established f\"",
+    "no_advice:predictive \"rates will fall\" @ signals[4].chain[2].text"
+  ],
+  "auto_publish": {
+    "eligible": false,
+    "enabled_in_config": true,
+    "paused": false,
+    "publish_bar": 0.95,
+    "clarity_clean": false,
+    "panel_all_clear": false,
+    "panel_min_confidence": 0.94,
+    "published": false,
+    "action": "held_safe",
+    "hold_reason": null
+  }
+}
