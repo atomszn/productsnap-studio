@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0.0",
   "summary": {
-    "generated_at": "2026-08-13T15:53:05.802Z",
+    "generated_at": "2026-08-14T15:43:57.109Z",
     "signal_count": 20,
     "automated": 10,
     "human_curated": 8,
@@ -87,7 +87,7 @@
       "source_verifiable": true,
       "cadence": "weekly",
       "cadence_plain": "Updates weekly",
-      "latest_observation_date": "2026-08-05",
+      "latest_observation_date": "2026-08-12",
       "next_refresh_estimate": {
         "date": "2026-08-19",
         "window": "about a week out",
@@ -110,9 +110,9 @@
       "source_verifiable": true,
       "cadence": "daily",
       "cadence_plain": "Updates every market day",
-      "latest_observation_date": "2026-08-11",
+      "latest_observation_date": "2026-08-12",
       "next_refresh_estimate": {
-        "date": "2026-08-14",
+        "date": "2026-08-15",
         "window": "next market day",
         "basis": "estimate"
       },
@@ -228,7 +228,7 @@
       "source_verifiable": true,
       "cadence": "monthly",
       "cadence_plain": "Updates once a month",
-      "latest_observation_date": "2026-06-01",
+      "latest_observation_date": "2026-07-01",
       "next_refresh_estimate": {
         "date": "2026-08-15",
         "window": "around the middle of the month",

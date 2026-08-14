@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-13T15:53:05.846Z",
+  "generated_at": "2026-08-14T15:43:57.151Z",
   "registry_version": "1.0.0",
   "signal_count": 18,
   "summary": {
-    "verified": 7,
-    "stale": 11,
+    "verified": 8,
+    "stale": 10,
     "needs_review": 0,
     "failed": 0,
     "manual": 0,
@@ -36,7 +36,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "ppi",
@@ -56,7 +56,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "pce",
@@ -76,7 +76,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "fed-net-liquidity",
@@ -85,8 +85,8 @@
       "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "$6.75T",
-      "last_updated": "2026-08-05",
+      "current_value": "$6.76T",
+      "last_updated": "2026-08-12",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -96,7 +96,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "10y-treasury",
@@ -105,8 +105,8 @@
       "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "4.7%",
-      "last_updated": "2026-08-11",
+      "current_value": "4.68%",
+      "last_updated": "2026-08-12",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -116,7 +116,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "series-a-counts",
@@ -141,7 +141,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "ai-model-releases",
@@ -171,7 +171,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "ai-api-pricing",
@@ -196,7 +196,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "open-source-ai",
@@ -221,7 +221,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "compute-cost",
@@ -246,19 +246,19 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "retail-sales",
       "name": "Retail Sales (YoY)",
       "category": "consumer",
-      "status": "stale",
+      "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "6.72%",
-      "last_updated": "2026-06-01",
+      "current_value": "5.01%",
+      "last_updated": "2026-07-01",
       "editorial_status": "stale",
-      "reason": "Data older than cadence stale threshold",
+      "reason": "All checks passed",
       "sources": [
         {
           "name": "Advance Retail Sales (FRED RSAFS)",
@@ -266,7 +266,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "consumer-confidence",
@@ -286,7 +286,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "emerging-apps",
@@ -311,7 +311,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "nonfarm-payrolls",
@@ -331,7 +331,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "tech-hiring",
@@ -356,7 +356,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "ai-regulation",
@@ -376,7 +376,7 @@
           "tier": 3
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "mfg-activity",
@@ -396,7 +396,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     },
     {
       "signal_id": "services-activity",
@@ -416,7 +416,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-08-13T15:53:05.846Z"
+      "checked_at": "2026-08-14T15:43:57.151Z"
     }
   ],
   "alignment_mismatches": [
@@ -456,7 +456,7 @@
   "editorial": {
     "weekly_connection": {
       "editorial_status": "stale",
-      "age_days": 55,
+      "age_days": 56,
       "review_required": true,
       "review_note": "Connected signal(s) moved against the interpretation: consumer-confidence",
       "mismatched_connected_signals": [
