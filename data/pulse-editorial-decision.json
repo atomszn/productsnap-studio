@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T00:11:31.035Z",
+  "generated_at": "2026-08-28T23:48:35.961Z",
   "mode": "log_only",
   "llm_invoked": false,
   "decision": "DRAFT",
@@ -10,7 +10,14 @@
     },
     {
       "type": "editorial_stale",
-      "detail": "Weekly Connection read past its 7-day window (age 70d)"
+      "detail": "Weekly Connection read past its 7-day window (age 70d); 1 signal read(s) past the 35-day window: consumer-confidence(58d)",
+      "stale_signals": [
+        {
+          "id": "consumer-confidence",
+          "last_editorial_reviewed": "2026-07-01",
+          "age_days": 58
+        }
+      ]
     }
   ],
   "triggering_observations": {
@@ -33,7 +40,7 @@
     "pce": "2026-07-01",
     "compute-cost": "2026-04-30",
     "retail-sales": "2026-07-01",
-    "consumer-confidence": "2026-06-01",
+    "consumer-confidence": "2026-07-01",
     "nonfarm-payrolls": "2026-07-01",
     "services-activity": "2026-07-01",
     "ai-api-pricing": "2026-05-19",
@@ -99,12 +106,6 @@
       "last_editorial_reviewed": "2026-07-01",
       "last_fired": "2026-07-01",
       "age_days": 58
-    },
-    {
-      "id": "consumer-confidence",
-      "last_editorial_reviewed": "2026-06-01",
-      "last_fired": "2026-06-01",
-      "age_days": 88
     },
     {
       "id": "emerging-apps",
