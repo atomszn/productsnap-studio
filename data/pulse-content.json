@@ -594,7 +594,7 @@
       "pill_label_short": "Headline inflation heated up again",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -874,7 +874,7 @@
       "pill_label_short": "Supplier prices rising fast",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -1155,7 +1155,7 @@
       "pill_label_short": "Core inflation still above target",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -1440,7 +1440,7 @@
       "pill_label_short": "Liquidity has steadied, not flooded",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -1470,12 +1470,12 @@
           "gloss": "the market's price for lending the US government money for 10 years — a benchmark for long-term capital costs"
         }
       ],
-      "current_value": "4.66%",
+      "current_value": "4.67%",
       "current_unit": "yield",
       "status": "steady",
       "status_tone": "neutral",
       "confidence": "high",
-      "last_updated": "2026-08-26",
+      "last_updated": "2026-08-27",
       "tier": 1,
       "source_note": "FRED DGS10 · daily",
       "data_points": [
@@ -1720,20 +1720,20 @@
       "pill_label_short": "Long-term borrowing costs still elevated",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
       "alignment_status": "aligned",
       "review_required": false,
       "editorial_freshness": {
-        "last_editorial_reviewed": "2026-08-26",
+        "last_editorial_reviewed": "2026-08-27",
         "expires_after_days": 35,
         "editorial_status": "current",
-        "age_days": 2
+        "age_days": 1
       },
       "timestamps": {
-        "latest_source_data_date": "2026-08-26",
+        "latest_source_data_date": "2026-08-27",
         "last_editorial_reviewed": "2026-05-28"
       },
       "data_points_window_months": 36
@@ -1894,7 +1894,7 @@
       "pill_label_short": "Startup funding still concentrating into AI",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2075,7 +2075,7 @@
       "pill_label_short": "New AI models shipping faster",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2254,7 +2254,7 @@
       "pill_label_short": "AI model costs keep falling",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2427,7 +2427,7 @@
       "pill_label_short": "Open-source AI is catching up",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2605,7 +2605,7 @@
       "pill_label_short": "Compute keeps getting cheaper",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -2885,7 +2885,7 @@
       "pill_label_short": "Shoppers still showing up",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -2915,19 +2915,15 @@
           "gloss": "a survey-based measure of how households feel about their financial future"
         }
       ],
-      "current_value": "49.5",
+      "current_value": "55.2",
       "current_unit": "University of Michigan index",
       "status": "weak",
       "status_tone": "amber",
       "confidence": "medium",
-      "last_updated": "2026-06-01",
+      "last_updated": "2026-07-01",
       "tier": 1,
       "source_note": "University of Michigan Consumer Sentiment · via FRED",
       "data_points": [
-        {
-          "date": "2023-07",
-          "value": 71.5
-        },
         {
           "date": "2023-08",
           "value": 69.4
@@ -3067,32 +3063,36 @@
         {
           "date": "2026-06",
           "value": 49.5
+        },
+        {
+          "date": "2026-07",
+          "value": 55.2
         }
       ],
       "compared_to": {
         "vs_1mo": {
           "direction": "up",
-          "delta_pct": 10.5,
+          "delta_pct": 11.5,
           "tone": "green"
         },
         "vs_6mo": {
           "direction": "down",
-          "delta_pct": -6.4,
+          "delta_pct": -2.1,
           "tone": "amber"
         },
         "vs_12mo": {
           "direction": "down",
-          "delta_pct": -18.5,
+          "delta_pct": -10.5,
           "tone": "amber"
         },
         "vs_36mo": {
           "direction": "down",
-          "delta_pct": -22.9,
+          "delta_pct": -22.8,
           "tone": "amber"
         },
         "vs_pre_2020": {
           "direction": "down",
-          "delta_pct": -50.4,
+          "delta_pct": -44.7,
           "tone": "amber"
         },
         "range_36mo": {
@@ -3104,9 +3104,9 @@
         }
       },
       "percentile": {
-        "value": 2,
+        "value": 11,
         "lookback_years": 10,
-        "label": "Lower than 98% of observations in the last 10 years"
+        "label": "Lower than 89% of observations in the last 10 years"
       },
       "chain": [
         {
@@ -3164,22 +3164,22 @@
       "pill_label_short": "Sentiment near record lows",
       "tier_label": "primary",
       "status_meta": {
-        "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
-        "reason": "Data older than cadence stale threshold",
+        "status": "verified",
+        "checked_at": "2026-08-28T23:48:35.905Z",
+        "reason": "All checks passed",
         "status_type": "automated"
       },
       "alignment_status": "mismatch",
       "review_required": true,
       "editorial_freshness": {
-        "last_editorial_reviewed": "2026-06-01",
+        "last_editorial_reviewed": "2026-07-01",
         "expires_after_days": 35,
         "editorial_status": "stale",
-        "age_days": 88,
+        "age_days": 58,
         "needs_thesis_review": true
       },
       "timestamps": {
-        "latest_source_data_date": "2026-06-01",
+        "latest_source_data_date": "2026-07-01",
         "last_editorial_reviewed": "2026-06-19"
       },
       "data_points_window_months": 36
@@ -3345,7 +3345,7 @@
       "pill_label_short": "Personal AI assistants are spreading",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -3625,7 +3625,7 @@
       "pill_label_short": "Hiring is cooling, not collapsing",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -3801,7 +3801,7 @@
       "pill_label_short": "Tech hiring remains soft",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -3969,7 +3969,7 @@
       "pill_label_short": "State-level AI rules picking up",
       "status_meta": {
         "status": "stale",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "Data older than cadence stale threshold",
         "status_type": "manual"
       },
@@ -4252,7 +4252,7 @@
       "pill_label_short": "Regional mfg (Philly Fed) choppy",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -4536,7 +4536,7 @@
       "pill_label_short": "Regional services (Dallas Fed) soft",
       "status_meta": {
         "status": "verified",
-        "checked_at": "2026-08-28T00:11:30.986Z",
+        "checked_at": "2026-08-28T23:48:35.905Z",
         "reason": "All checks passed",
         "status_type": "automated"
       },
@@ -4586,6 +4586,6 @@
       "Layoffs.fyi ingestion",
       "AI regulation tracker ingestion"
     ],
-    "last_pipeline_refresh": "2026-08-28T00:11:24.266Z"
+    "last_pipeline_refresh": "2026-08-28T23:48:31.062Z"
   }
 }
