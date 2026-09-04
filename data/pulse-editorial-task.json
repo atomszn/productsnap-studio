@@ -1,25 +1,32 @@
 {
   "schema_version": "1.0.0",
-  "task_id": "editorial-task-d4c7a02c07bf9fb7",
-  "created_at": "2026-06-09T17:52:17.704Z",
-  "source_decision_generated_at": "2026-06-09T17:21:48.536Z",
+  "task_id": "editorial-task-fc8727c9ee017843",
+  "created_at": "2026-06-18T21:33:17.764Z",
+  "source_decision_generated_at": "2026-06-18T17:57:24.198Z",
   "phase": 1,
   "shadow_mode": true,
-  "fingerprint": "d4c7a02c07bf9fb7",
+  "fingerprint": "fc8727c9ee017843",
   "decision": "DRAFT",
   "triggers": [
     {
+      "type": "narrative_review_required",
+      "detail": "Weekly Connection flagged or a connected signal is in alignment mismatch"
+    },
+    {
+      "type": "editorial_stale",
+      "detail": "editorial read past its 7-day window (age 8d)"
+    },
+    {
       "type": "material_data_move",
-      "detail": "1 signal(s) moved materially",
+      "detail": "1 signal(s) moved materially on a NEW observation",
       "signals": [
         {
           "id": "mfg-activity",
-          "from": 26.7,
-          "to": -0.4,
-          "delta": -27.099999999999998,
+          "from": -0.4,
+          "to": 10.3,
+          "delta": 10.700000000000001,
           "reasons": [
-            "direction_flip",
-            "magnitude_step>=25"
+            "direction_flip"
           ]
         }
       ]
@@ -29,14 +36,13 @@
     {
       "id": "mfg-activity",
       "name": "Regional Manufacturing Activity (Philly Fed)",
-      "current_value": "-0.4",
+      "current_value": "10.3",
       "unit": "diffusion index, seasonally adjusted",
-      "from": 26.7,
-      "to": -0.4,
-      "delta": -27.099999999999998,
+      "from": -0.4,
+      "to": 10.3,
+      "delta": 10.700000000000001,
       "reasons": [
-        "direction_flip",
-        "magnitude_step>=25"
+        "direction_flip"
       ],
       "source": {
         "name": "Philadelphia Fed Manufacturing Business Outlook Survey (via FRED GACDFSA066MSFRBPHI)",
@@ -52,9 +58,9 @@
     }
   ],
   "weekly_connection_in_scope": {
-    "included": false,
+    "included": true,
     "title": "Two economies, same week",
-    "last_reviewed": "2026-06-05",
+    "last_reviewed": "2026-06-10",
     "observation": "People feel about as bad about the economy as they have in a decade, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge — top model prices are down about 60% over six months — and new, more capable models keep arriving every few weeks."
   },
   "constraints": {

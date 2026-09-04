@@ -12,9 +12,19 @@
       "run_id": "97f65dc037",
       "task_id": "editorial-task-d4c7a02c07bf9fb7",
       "fingerprint": "d4c7a02c07bf9fb7"
+    },
+    {
+      "ts": "2026-06-18T21:36:54.665Z",
+      "month": "2026-06",
+      "role": "research",
+      "model": "gpt_5_5",
+      "estimated_cost_usd": 0.45,
+      "run_id": "beb2c4ba82",
+      "task_id": "editorial-task-fc8727c9ee017843",
+      "fingerprint": "fc8727c9ee017843"
     }
   ],
   "months": {
-    "2026-06": 0.45
+    "2026-06": 0.9
   }
 }
