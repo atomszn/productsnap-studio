@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T18:16:47.451Z",
+  "generated_at": "2026-09-04T17:58:26.228Z",
   "registry_version": "1.0.0",
   "signal_count": 18,
   "summary": {
@@ -8,7 +8,7 @@
     "needs_review": 0,
     "failed": 0,
     "manual": 0,
-    "alignment_mismatches": 5,
+    "alignment_mismatches": 4,
     "updated": 0,
     "unchanged": 18
   },
@@ -36,7 +36,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "ppi",
@@ -56,7 +56,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "pce",
@@ -76,7 +76,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "fed-net-liquidity",
@@ -85,8 +85,8 @@
       "status": "verified",
       "alignment_status": "aligned",
       "review_required": false,
-      "current_value": "$6.73T",
-      "last_updated": "2026-08-26",
+      "current_value": "$6.74T",
+      "last_updated": "2026-09-02",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -96,7 +96,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "10y-treasury",
@@ -106,7 +106,7 @@
       "alignment_status": "aligned",
       "review_required": false,
       "current_value": "4.79%",
-      "last_updated": "2026-09-01",
+      "last_updated": "2026-09-02",
       "editorial_status": "current",
       "reason": "All checks passed",
       "sources": [
@@ -116,7 +116,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "series-a-counts",
@@ -141,7 +141,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "ai-model-releases",
@@ -171,7 +171,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "ai-api-pricing",
@@ -196,7 +196,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "open-source-ai",
@@ -221,7 +221,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "compute-cost",
@@ -246,7 +246,7 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "retail-sales",
@@ -266,7 +266,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "consumer-confidence",
@@ -286,7 +286,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "emerging-apps",
@@ -311,18 +311,18 @@
           "tier": 2
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "nonfarm-payrolls",
       "name": "Nonfarm Payrolls (monthly change)",
       "category": "labor",
       "status": "verified",
-      "alignment_status": "mismatch",
-      "review_required": true,
-      "current_value": "-23k",
-      "last_updated": "2026-07-01",
-      "editorial_status": "stale",
+      "alignment_status": "aligned",
+      "review_required": false,
+      "current_value": "+162k",
+      "last_updated": "2026-08-01",
+      "editorial_status": "aging",
       "reason": "All checks passed",
       "sources": [
         {
@@ -331,7 +331,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "tech-hiring",
@@ -356,7 +356,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "ai-regulation",
@@ -376,7 +376,7 @@
           "tier": 3
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "mfg-activity",
@@ -396,7 +396,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     },
     {
       "signal_id": "services-activity",
@@ -416,7 +416,7 @@
           "tier": 1
         }
       ],
-      "checked_at": "2026-09-03T18:16:47.451Z"
+      "checked_at": "2026-09-04T17:58:26.228Z"
     }
   ],
   "alignment_mismatches": [
@@ -439,12 +439,6 @@
       "editorial_stance": "weak"
     },
     {
-      "signal_id": "nonfarm-payrolls",
-      "detail": "Status 'cooling' implies value up but data direction is down",
-      "data_direction": "down",
-      "editorial_stance": "cooling"
-    },
-    {
       "signal_id": "services-activity",
       "detail": "Status 'contracting' implies value down but data direction is up",
       "data_direction": "up",
@@ -456,7 +450,7 @@
   "editorial": {
     "weekly_connection": {
       "editorial_status": "stale",
-      "age_days": 76,
+      "age_days": 77,
       "review_required": true,
       "review_note": "Connected signal(s) moved against the interpretation: consumer-confidence",
       "mismatched_connected_signals": [
@@ -481,6 +475,7 @@
       "open-source-ai",
       "retail-sales",
       "emerging-apps",
+      "nonfarm-payrolls",
       "ai-regulation",
       "mfg-activity"
     ],
@@ -489,7 +484,6 @@
       "ai-api-pricing",
       "compute-cost",
       "consumer-confidence",
-      "nonfarm-payrolls",
       "tech-hiring",
       "services-activity"
     ],
@@ -498,8 +492,8 @@
     "minimum_count": 4,
     "minimum_count_met": true,
     "mismatch_fraction_threshold": 0.6,
-    "against_fraction": 0.389,
-    "review_note": "Narrative direction 'up' is consistent with 11 of 18 directional signals (7 against, below the 60% threshold)."
+    "against_fraction": 0.333,
+    "review_note": "Narrative direction 'up' is consistent with 12 of 18 directional signals (6 against, below the 60% threshold)."
   },
   "integrity": {
     "signal_count_before": 18,
