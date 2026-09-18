@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "4ab50853f7",
+  "started_at": "2026-08-14T21:35:33.560Z",
+  "finished_at": "2026-08-14T21:35:36.278Z",
+  "phase": 3,
+  "shadow_mode": false,
+  "role": "validation",
+  "model_used": "gemini_3_1_pro",
+  "model_selection_reason": "gate (deterministic verdict)",
+  "task_id": "editorial-task-c2d5709ef13d8f77",
+  "fingerprint": "c2d5709ef13d8f77",
+  "trigger_summary": "GATE verdict=RED action=held_safe",
+  "estimated_cost_usd": 0,
+  "budget_status": {
+    "month": "2026-08",
+    "spent_before_usd": 1.15,
+    "monthly_target_usd": 50,
+    "hard_cap_usd": 100,
+    "pct_of_cap": 1.15,
+    "action": "proceed"
+  },
+  "outputs": {
+    "findings_path": "data/pulse-research-findings.json",
+    "content_draft_path": "data/pulse-content-draft.json",
+    "quality_report_path": "data/pulse-quality-report.json"
+  },
+  "outcome": "completed",
+  "error": null
+}

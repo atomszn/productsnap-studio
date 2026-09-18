@@ -1,172 +1,216 @@
 {
   "schema_version": "1.0.0",
-  "findings_id": "research-findings-d4c7a02c07bf9fb7-20260609",
-  "task_id": "editorial-task-d4c7a02c07bf9fb7",
-  "fingerprint": "d4c7a02c07bf9fb7",
-  "generated_at": "2026-06-09T17:50:49Z",
-  "phase": 1,
+  "findings_id": "findings-c2d5709ef13d8f77",
+  "task_id": "editorial-task-c2d5709ef13d8f77",
+  "fingerprint": "c2d5709ef13d8f77",
+  "generated_at": "2026-08-14T21:33:21.266235Z",
+  "phase": 3,
   "shadow_mode": true,
   "model_used": "gpt_5_5",
   "model_role": "research",
   "estimated_cost_usd": 0.45,
-  "why_triggered": "A DRAFT fired because the mfg-activity signal moved from 26.7 to -0.4, a -27.1 point change. The trigger reasons were direction_flip and magnitude_step>=25.",
+  "why_triggered": "The Friday weekly DRAFT fired because the Weekly Connection is 56 days old against a 7-day window and the retail-sales editorial read is 44 days old against a 35-day window. This Friday slot allows a weekly perspective even though the task supplies no new from-to movement for the four in-scope signals.",
   "signal_findings": [
     {
-      "signal_id": "mfg-activity",
-      "what_changed": "The Philadelphia Fed current general activity diffusion index moved from 26.7 in April 2026 to -0.4 in May 2026, a -27.1 point move. The May report says regional manufacturing activity weakened overall, and current activity, new orders, and shipments all fell sharply.",
-      "direction": "flip_down",
-      "direction_matches_existing": true,
-      "what_it_means": "This is a sharp cooling, not a deep collapse. A diffusion index is the share of firms reporting increases minus the share reporting decreases, so a reading near zero means increases and decreases were almost balanced. In May, almost 23 percent of firms reported higher activity, almost 23 percent reported lower activity, and 55 percent reported no change. New orders fell to -1.7 and shipments fell to 4.9, so the demand side looked weaker. Employment stayed slightly negative at -2.8. Price pressure eased from April but stayed high, with prices paid at 47.9 and prices received at 26.3. Future activity rose to 53.2, so firms were still optimistic about the next six months.",
-      "magnitude_context": "The one-month drop of 27.1 points is rare in the Philadelphia Fed historical file. Using seasonally adjusted current general activity data from May 1968 through May 2026, there are 696 month-to-month changes; only eight drops were larger than this one, making the May 2026 drop the ninth-largest decline in that history. The level of -0.4 is close to the zero line, not close to the historical low of -58.7 in April 2020. It sits around the lower 27 percent of monthly readings in the same history.",
-      "confidence": 0.88,
+      "signal_id": "retail-sales",
+      "what_changed": "The task displays retail sales at 5.01% year over year, but it supplies no from-to pair or event-level delta for this run.",
+      "direction": "flat",
+      "direction_matches_existing": false,
+      "what_it_means": "The Census retail-sales series is a measure of sales at retail and food-service businesses. The task does not provide the comparison needed to call a fresh rise or fall. The live summary says spending is up 6.88% year over year, so its number and wording need reconciliation with the current displayed 5.01% before publication.",
+      "magnitude_context": "No event-level magnitude can be assessed because the task has no prior value or delta for this signal.",
+      "confidence": 0.86,
       "uncertainties": [
-        "The Philadelphia Fed notes that seasonally adjusted historical values can be revised after annual seasonal-factor updates, so exact historical rankings may shift slightly.",
-        "The survey is regional and qualitative. It measures the breadth of change, not the dollar size or production volume of the change.",
-        "The task value and the Philadelphia Fed May report agree on the 26.7 to -0.4 move, but FRED page content did not expose the latest observation values in the fetched page text."
+        "The task does not provide the prior observation, release month, revision history, or calculation behind the current 5.01% display.",
+        "Retail sales are a spending measure and do not by themselves show household confidence or future demand."
       ],
       "sources": [
         {
-          "name": "FRED: Current General Activity; Diffusion Index for Federal Reserve District 3: Philadelphia",
-          "url": "https://fred.stlouisfed.org/series/GACDFSA066MSFRBPHI",
+          "name": "U.S. Census Bureau Monthly Retail Trade",
+          "url": "https://www.census.gov/retail/index.html",
           "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
-        },
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
+        }
+      ]
+    },
+    {
+      "signal_id": "consumer-confidence",
+      "what_changed": "The task displays University of Michigan consumer sentiment at 49.5, but it supplies no from-to pair or event-level delta for this run.",
+      "direction": "flat",
+      "direction_matches_existing": true,
+      "what_it_means": "The FRED series identifies this as the University of Michigan Consumer Sentiment series. A level of 49.5 can be reported as the task’s current display, but without a paired prior it cannot support a claim about a new drop or rebound. The existing copy’s caution about weak confidence can remain only after its 49.8 number and date are reconciled.",
+      "magnitude_context": "No new magnitude can be assessed from this event because no prior value or delta is supplied.",
+      "confidence": 0.85,
+      "uncertainties": [
+        "The event has no prior value, observation date, or historical range for a fresh comparison.",
+        "Sentiment is a survey measure and does not directly measure purchases, cancellations, or willingness to pay."
+      ],
+      "sources": [
         {
-          "name": "Philadelphia Fed Manufacturing Business Outlook Survey: May 2026 Report",
-          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-05",
+          "name": "FRED: University of Michigan Consumer Sentiment",
+          "url": "https://fred.stlouisfed.org/series/UMCSENT",
           "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
-        },
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
+        }
+      ]
+    },
+    {
+      "signal_id": "ai-api-pricing",
+      "what_changed": "The task displays a negative 60% trailing-three-month trend for comparable top-model prices, but it supplies no provider-level price table or event-level from-to pair.",
+      "direction": "down",
+      "direction_matches_existing": true,
+      "what_it_means": "The task supports describing the displayed trend as lower comparable model prices. The linked OpenAI page is a first-party price list, but it does not by itself prove a cross-provider top-model index. The weekly copy should label the -60% figure as a manually maintained trend and avoid treating it as a universal cost claim.",
+      "magnitude_context": "The displayed trend is -60% over three months, but the event supplies no baseline, model set, or calculation that would allow the magnitude to be independently rebuilt here.",
+      "confidence": 0.78,
+      "uncertainties": [
+        "The task does not define the comparison set, weighting, or exact price snapshots behind the trend.",
+        "The source page covers OpenAI pricing and not the full cross-provider comparison."
+      ],
+      "sources": [
         {
-          "name": "Philadelphia Fed MBOS historical data CSV",
-          "url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/MBOS/Historical-Data/Data-Series/bos_history.csv?sc_lang=en&hash=28226062188CE1C88D63A7E1DDA9EEC5",
-          "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
-        },
+          "name": "OpenAI API pricing",
+          "url": "https://openai.com/api/pricing/",
+          "tier": 2,
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
+        }
+      ]
+    },
+    {
+      "signal_id": "ai-model-releases",
+      "what_changed": "The task displays 3 frontier releases in a 14-day window, but it supplies no release list, comparison window, or event-level change.",
+      "direction": "up",
+      "direction_matches_existing": true,
+      "what_it_means": "The task supports saying that its monitored window contains three releases. The Anthropic newsroom is one provider source, not a complete index of all frontier releases, so the count should be presented as a monitored-signal value rather than a claim about the whole AI field.",
+      "magnitude_context": "The event provides no historical baseline or inclusion rules for deciding whether three releases in 14 days is unusually fast.",
+      "confidence": 0.76,
+      "uncertainties": [
+        "The task does not name the three releases or define the frontier-model inclusion rules.",
+        "A single provider newsroom cannot establish a complete market-wide release count."
+      ],
+      "sources": [
         {
-          "name": "Philadelphia Fed Manufacturing Business Outlook Survey FAQs",
-          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-faqs",
-          "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
+          "name": "Anthropic News",
+          "url": "https://www.anthropic.com/news",
+          "tier": 2,
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
         }
       ]
     }
   ],
   "cross_signal_impacts": [
     {
-      "affected": "National manufacturing context",
-      "impact": "The regional-national gap framing still has support. The Philly Fed current activity index fell to -0.4 in May, while the S&P Global US Manufacturing PMI rose to 55.1 in May from 54.5 in April and stayed above its 50.0 no-change mark. This suggests the weak Philly reading should not be treated as the whole U.S. factory story.",
-      "confidence": 0.82,
+      "affected": "weekly_connection",
+      "impact": "The weekly page should separate what is directly observed from what is only a monitored trend: retail sales and sentiment need current-number reconciliation, while the AI pricing and release counts need clear scope labels. The stale page should not imply that consumer behavior and AI cost moved in one unified direction.",
+      "confidence": 0.88,
       "sources": [
         {
-          "name": "Philadelphia Fed Manufacturing Business Outlook Survey: May 2026 Report",
-          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-05",
+          "name": "U.S. Census Bureau Monthly Retail Trade",
+          "url": "https://www.census.gov/retail/index.html",
           "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
         },
         {
-          "name": "S&P Global US Manufacturing PMI: May 2026",
-          "url": "https://www.pmi.spglobal.com/Public/Home/PressRelease/6915b8ea82df48b58baa4d36f1f59496",
+          "name": "FRED: University of Michigan Consumer Sentiment",
+          "url": "https://fred.stlouisfed.org/series/UMCSENT",
+          "tier": 1,
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
+        },
+        {
+          "name": "OpenAI API pricing",
+          "url": "https://openai.com/api/pricing/",
           "tier": 2,
-          "accessed_at": "2026-06-09T18:30:00Z"
-        }
-      ]
-    },
-    {
-      "affected": "Orders and shipments signals",
-      "impact": "The May Philly survey points to weaker regional momentum, with new orders at -1.7 and shipments at 4.9. The latest Census durable-goods report is for April, not May, and showed new orders up 7.9 percent and shipments up 0.5 percent. The timing and coverage differ, so this is a caution flag rather than a direct contradiction.",
-      "confidence": 0.69,
-      "sources": [
-        {
-          "name": "Philadelphia Fed Manufacturing Business Outlook Survey: May 2026 Report",
-          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-05",
-          "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
         },
         {
-          "name": "U.S. Census Bureau Advance Report on Durable Goods Manufacturers' Shipments, Inventories and Orders: April 2026",
-          "url": "https://www.census.gov/manufacturing/m3/adv/pdf/durgd.pdf",
-          "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
+          "name": "Anthropic News",
+          "url": "https://www.anthropic.com/news",
+          "tier": 2,
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
         }
       ]
     },
     {
-      "affected": "Manufacturing labor and pricing context",
-      "impact": "The Philly Fed employment index stayed negative at -2.8 in May, while BLS national manufacturing payrolls rose from 12,598 thousand in April to 12,605 thousand in May. That means the regional labor signal is softer than the national payroll count. Philly price indexes also stayed elevated, so product teams should separate demand softness from still-present cost pressure.",
-      "confidence": 0.72,
+      "affected": "product-planning",
+      "impact": "The combination can frame a testable tension for product teams: users may care about clear value while teams reassess the cost and pace of AI features. This is planning context, not evidence that customers will buy, cancel, or adopt a specific feature.",
+      "confidence": 0.78,
       "sources": [
         {
-          "name": "Philadelphia Fed Manufacturing Business Outlook Survey: May 2026 Report",
-          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-05",
+          "name": "FRED: University of Michigan Consumer Sentiment",
+          "url": "https://fred.stlouisfed.org/series/UMCSENT",
           "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
         },
         {
-          "name": "BLS Public Data API: CES3000000001 Manufacturing employment",
-          "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/CES3000000001?startyear=2025&endyear=2026",
-          "tier": 1,
-          "accessed_at": "2026-06-09T18:30:00Z"
+          "name": "OpenAI API pricing",
+          "url": "https://openai.com/api/pricing/",
+          "tier": 2,
+          "accessed_at": "2026-08-14T21:33:21.266235Z"
         }
       ]
-    },
-    {
-      "affected": "Weekly connection",
-      "impact": "The weekly connection is marked out of scope in the task. The manufacturing move does not directly change the stated AI price-and-consumer-mood connection, but it adds another example of uneven economic signals across sectors and regions.",
-      "confidence": 0.64,
-      "sources": []
     }
   ],
   "product_implications": [
     {
-      "implication": "Treat Mid-Atlantic factory demand as more fragile, not broken. If your product sells into plants, some buyers may slow new orders, choose smaller rollouts, or downgrade needs before they cancel. Build sales-assist flows that flag order softness early and offer lower-risk pilots, phased seats, or cost-control workflows before renewal talks.",
-      "audience": "PMs and product operators serving Mid-Atlantic manufacturers",
-      "confidence": 0.82,
+      "implication": "Before changing a consumer roadmap, pair the 49.5 sentiment display with your own user behavior data. Make first value clear and easy to test, rather than treating a survey level as a forecast of spending.",
+      "audience": "Consumer subscription and budgeting products",
+      "confidence": 0.78,
       "depth": {
         "level": 3,
-        "macro_signal": "The Philadelphia Fed current general activity index fell from 26.7 in April to -0.4 in May, with new orders at -1.7 and shipments at 4.9.",
-        "behavior_link": "Some Mid-Atlantic factory buyers may slow new commitments, choose smaller rollouts, or downgrade needs before they cancel outright.",
-        "strategy_link": "Products selling into this segment should make lower-risk entry paths and early downgrade signals first-class, not only chase new-seat expansion."
+        "macro_signal": "The task displays University of Michigan consumer sentiment at 49.5 without a new event-level comparison.",
+        "behavior_link": "Low survey sentiment may make people more careful about effort and price, but this event does not observe individual purchase or cancellation behavior.",
+        "strategy_link": "Use short, measurable first-value tests and clearer plan choices, then judge the roadmap from observed user behavior rather than from the survey level alone."
       }
     },
     {
-      "implication": "Do not turn one regional survey into a national product thesis. Use this as a warning flag and compare it with national demand, payroll, and customer data.",
-      "audience": "Product leaders and strategy teams",
-      "confidence": 0.84,
+      "implication": "Treat the displayed -60% AI pricing trend as a prompt to recheck unit-cost assumptions, not as permission to ship more automation. Test narrow workflows with explicit quality and cost measures.",
+      "audience": "AI-enabled product teams",
+      "confidence": 0.8,
       "depth": {
-        "level": 1,
-        "macro_signal": "The Philly Fed regional index flipped to -0.4 while the national S&P Global US Manufacturing PMI rose to 55.1.",
-        "behavior_link": "",
+        "level": 3,
+        "macro_signal": "The task displays a -60% trailing-three-month trend for comparable top-model prices.",
+        "behavior_link": "Lower model prices can make teams more willing to try automation in repeatable tasks, while users still need reliable results.",
+        "strategy_link": "Run bounded workflow experiments with quality checks and current provider quotes, so lower cost changes a measured business case rather than the roadmap by itself."
+      }
+    },
+    {
+      "implication": "If the product serves retailers or consumer businesses, reconcile the 5.01% retail-sales display with the older 6.88% copy before using either number in a customer-facing story.",
+      "audience": "B2B products serving consumer businesses",
+      "confidence": 0.86,
+      "depth": {
+        "level": 2,
+        "macro_signal": "The task displays retail sales at 5.01% year over year while the existing summary says 6.88%.",
+        "behavior_link": "Different dates or revisions can change how teams read current demand, so buyers may ask for a clearer time basis before acting on the story.",
         "strategy_link": ""
       }
     },
     {
-      "implication": "For manufacturer-facing products, test whether customers respond more to cost control, planning, and resilience than to expansion. The survey mix points to softer current demand but still-high price pressure.",
-      "audience": "Growth PMs, lifecycle teams, and sales-assist product teams",
-      "confidence": 0.76,
+      "implication": "Do not turn a count of 3 releases in 14 days into a broad product plan. Track which releases matter to your users and test whether they change task quality or willingness to switch.",
+      "audience": "Products building on fast-moving AI platforms",
+      "confidence": 0.82,
       "depth": {
         "level": 2,
-        "macro_signal": "The survey showed softer current demand while prices paid stayed high at 47.9.",
-        "behavior_link": "Manufacturing customers may be more cost-sensitive and ask for clearer savings, planning help, or budget protection before adding spend.",
+        "macro_signal": "The task displays 3 frontier releases in a 14-day window without a defined market-wide baseline.",
+        "behavior_link": "Frequent releases can make teams delay commitments or compare providers more often, but the event does not measure those choices.",
         "strategy_link": ""
       }
     }
   ],
   "existing_content_assessment": {
-    "recommendation": "minor_update",
-    "rationale": "The live summary's main stance still matches the new data: with value_up_is_positive, the move from 26.7 to -0.4 is negative, and the current reading is slightly below zero. The national-gap framing also still has support from a stronger national PMI reading. But the wording should be updated because the story is now a sharp one-month flip to near-flat activity, not just a generic gloomy regional note.",
+    "recommendation": "rewrite",
+    "rationale": "The Weekly Connection is 56 days old and the retail-sales read is 44 days old. The current task also displays 5.01% retail sales and 49.5 sentiment against older prose values of 6.88% and 49.8. The weekly page should be refreshed, reconcile the number/date differences, and label manually maintained AI trends with their limits.",
     "specific_lines_at_risk": [
-      "Factories around Philadelphia sounded a little gloomy last month",
-      "The national factory gauge is more upbeat right now, and the gap between the two is the part worth watching."
+      "The weekly connection is past its 7-day freshness window.",
+      "The retail-sales summary says 6.88% year over year while the current task displays 5.01%.",
+      "The consumer-confidence summary says 49.8 and down 6.6% from last month, but this task supplies only a current display of 49.5 and no paired delta.",
+      "The AI pricing and model-release lines do not show the comparison set or baseline behind their trend values."
     ]
   },
   "self_assessment": {
-    "overall_confidence": 0.84,
+    "overall_confidence": 0.81,
     "numbers_reproducible": true,
     "all_claims_sourced": true,
-    "reading_grade_estimate": 8.2,
+    "reading_grade_estimate": 8.5,
     "disclaimer_respected": true,
     "unsupported_claims": [],
-    "notes": "Pulse is not financial analysis, investment advice, or market prediction. Historical-rank calculations used the Philadelphia Fed MBOS historical CSV current general activity seasonally adjusted diffusion index column through May 2026. No publishing or live-content changes were performed. The FRED series page confirmed title, source, and May 1968 to May 2026 coverage, but its fetched text did not show latest observation rows."
+    "notes": "The task supplies the exact current displays and the older editorial text, but it does not supply paired observations for a fresh move. I therefore avoided inventing deltas, marked retail-number alignment as needing reconciliation, scoped the AI trends to their monitored definitions, and kept product implications as testable planning ideas rather than advice or forecasts."
   }
 }

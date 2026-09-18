@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "51fdd5d8bb",
+  "started_at": "2026-08-14T21:33:21.266235Z",
+  "finished_at": "2026-08-14T21:33:39.562Z",
+  "phase": 3,
+  "shadow_mode": true,
+  "role": "research",
+  "model_used": "gpt_5_5",
+  "model_selection_reason": "default — budget under thresholds",
+  "task_id": "editorial-task-c2d5709ef13d8f77",
+  "fingerprint": "c2d5709ef13d8f77",
+  "trigger_summary": "narrative_review_required | editorial_stale",
+  "estimated_cost_usd": 0.45,
+  "budget_status": {
+    "month": "2026-08",
+    "spent_before_usd": 0,
+    "monthly_target_usd": 50,
+    "hard_cap_usd": 100,
+    "pct_of_cap": 0,
+    "action": "proceed"
+  },
+  "outputs": {
+    "findings_path": "data/pulse-research-findings.json",
+    "content_draft_path": null,
+    "quality_report_path": null
+  },
+  "outcome": "completed",
+  "error": null
+}
