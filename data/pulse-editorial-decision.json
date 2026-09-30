@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T19:43:57.870Z",
+  "generated_at": "2026-09-30T19:45:50.322Z",
   "mode": "log_only",
   "llm_invoked": false,
   "decision": "DRAFT",
@@ -10,21 +10,12 @@
     },
     {
       "type": "editorial_stale",
-      "detail": "Weekly Connection read past its 7-day window (age 102d)"
-    },
-    {
-      "type": "material_data_move",
-      "detail": "1 signal(s) moved materially on a NEW observation",
-      "signals": [
+      "detail": "Weekly Connection read past its 7-day window (age 103d); 1 signal read(s) past the 35-day window: pce(60d)",
+      "stale_signals": [
         {
-          "id": "services-activity",
-          "delta": -9.1,
-          "reasons": [
-            "direction_flip"
-          ],
-          "from": 3,
-          "to": -6.1,
-          "observation_date": "2026-09"
+          "id": "pce",
+          "last_editorial_reviewed": "2026-08-01",
+          "age_days": 60
         }
       ]
     }
@@ -34,11 +25,19 @@
     "services-activity": "2026-09",
     "nonfarm-payrolls": "2026-07"
   },
-  "suppressed_stale_moves": [],
+  "suppressed_stale_moves": [
+    {
+      "id": "services-activity",
+      "observation_date": "2026-09",
+      "last_triggered": "2026-09",
+      "from": 3,
+      "to": -6.1
+    }
+  ],
   "triggering_editorial_reads": {
     "cpi-headline": "2026-08-01",
     "ppi": "2026-08-01",
-    "pce": "2026-07-01",
+    "pce": "2026-08-01",
     "compute-cost": "2026-04-30",
     "retail-sales": "2026-08-01",
     "consumer-confidence": "2026-08-01",
@@ -58,90 +57,84 @@
       "id": "cpi-headline",
       "last_editorial_reviewed": "2026-08-01",
       "last_fired": "2026-08-01",
-      "age_days": 59
+      "age_days": 60
     },
     {
       "id": "ppi",
       "last_editorial_reviewed": "2026-08-01",
       "last_fired": "2026-08-01",
-      "age_days": 59
-    },
-    {
-      "id": "pce",
-      "last_editorial_reviewed": "2026-07-01",
-      "last_fired": "2026-07-01",
-      "age_days": 90
+      "age_days": 60
     },
     {
       "id": "series-a-counts",
       "last_editorial_reviewed": "2026-05-20",
       "last_fired": "2026-05-20",
-      "age_days": 132
+      "age_days": 133
     },
     {
       "id": "ai-model-releases",
       "last_editorial_reviewed": "2026-05-26",
       "last_fired": "2026-05-26",
-      "age_days": 126
+      "age_days": 127
     },
     {
       "id": "ai-api-pricing",
       "last_editorial_reviewed": "2026-05-19",
       "last_fired": "2026-05-19",
-      "age_days": 133
+      "age_days": 134
     },
     {
       "id": "open-source-ai",
       "last_editorial_reviewed": "2026-05-25",
       "last_fired": "2026-05-25",
-      "age_days": 127
+      "age_days": 128
     },
     {
       "id": "compute-cost",
       "last_editorial_reviewed": "2026-04-30",
       "last_fired": "2026-04-30",
-      "age_days": 152
+      "age_days": 153
     },
     {
       "id": "retail-sales",
       "last_editorial_reviewed": "2026-08-01",
       "last_fired": "2026-08-01",
-      "age_days": 59
+      "age_days": 60
     },
     {
       "id": "consumer-confidence",
       "last_editorial_reviewed": "2026-08-01",
       "last_fired": "2026-08-01",
-      "age_days": 59
+      "age_days": 60
     },
     {
       "id": "emerging-apps",
       "last_editorial_reviewed": "2026-05-26",
       "last_fired": "2026-05-26",
-      "age_days": 126
+      "age_days": 127
     },
     {
       "id": "nonfarm-payrolls",
       "last_editorial_reviewed": "2026-08-01",
       "last_fired": "2026-08-01",
-      "age_days": 59
+      "age_days": 60
     },
     {
       "id": "tech-hiring",
       "last_editorial_reviewed": "2026-05-26",
       "last_fired": "2026-05-26",
-      "age_days": 126
+      "age_days": 127
     },
     {
       "id": "ai-regulation",
       "last_editorial_reviewed": "2026-05-24",
       "last_fired": "2026-05-24",
-      "age_days": 128
+      "age_days": 129
     }
   ],
   "editorial_freshness": {
     "editorial_status": "stale",
-    "age_days": 102,
+    "age_days": 103,
     "expires_after_days": 7
   },
   "weekly_connection_reviewed": "2026-06-19",
