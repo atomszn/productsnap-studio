@@ -1,61 +1,107 @@
 {
   "schema_version": "1.0.0",
-  "task_id": "editorial-task-d4c7a02c07bf9fb7",
-  "created_at": "2026-06-09T17:52:17.704Z",
-  "source_decision_generated_at": "2026-06-09T17:21:48.536Z",
-  "phase": 1,
-  "shadow_mode": true,
-  "fingerprint": "d4c7a02c07bf9fb7",
+  "task_id": "editorial-task-c2d5709ef13d8f77",
+  "created_at": "2026-08-14T21:32:33.995Z",
+  "source_decision_generated_at": "2026-08-14T15:43:57.206Z",
+  "phase": 3,
+  "shadow_mode": false,
+  "fingerprint": "c2d5709ef13d8f77",
   "decision": "DRAFT",
   "triggers": [
     {
-      "type": "material_data_move",
-      "detail": "1 signal(s) moved materially",
-      "signals": [
-        {
-          "id": "mfg-activity",
-          "from": 26.7,
-          "to": -0.4,
-          "delta": -27.099999999999998,
-          "reasons": [
-            "direction_flip",
-            "magnitude_step>=25"
-          ]
-        }
-      ]
+      "type": "narrative_review_required",
+      "detail": "Weekly Connection flagged or a connected signal is in alignment mismatch"
+    },
+    {
+      "type": "editorial_stale",
+      "detail": "Weekly Connection read past its 7-day window (age 56d); 1 signal read(s) past the 35-day window: retail-sales(44d)"
     }
   ],
   "signals_in_scope": [
     {
-      "id": "mfg-activity",
-      "name": "Regional Manufacturing Activity (Philly Fed)",
-      "current_value": "-0.4",
-      "unit": "diffusion index, seasonally adjusted",
-      "from": 26.7,
-      "to": -0.4,
-      "delta": -27.099999999999998,
-      "reasons": [
-        "direction_flip",
-        "magnitude_step>=25"
-      ],
+      "id": "retail-sales",
+      "name": "Retail Sales (YoY)",
+      "current_value": "5.01%",
+      "unit": "year-over-year %",
+      "from": null,
+      "to": null,
+      "delta": null,
+      "reasons": [],
       "source": {
-        "name": "Philadelphia Fed Manufacturing Business Outlook Survey (via FRED GACDFSA066MSFRBPHI)",
-        "url": "https://fred.stlouisfed.org/series/GACDFSA066MSFRBPHI",
-        "series_id": "GACDFSA066MSFRBPHI",
+        "name": "Advance Retail Sales (FRED RSAFS)",
+        "url": "https://fred.stlouisfed.org/series/RSAFS",
+        "series_id": "RSAFS",
         "provider": "FRED",
         "tier": 1
       },
-      "display_name": "Regional Manufacturing Activity (Philly Fed)",
-      "category": "activity",
-      "existing_summary": "Factories around Philadelphia sounded a little gloomy last month — but that's one region, not the whole country. The national factory gauge is more upbeat right now, and the gap between the two is the part worth watching.",
+      "category": "consumer",
+      "existing_summary": "Spending is still up 6.88% year-over-year as of May, and it picked up 2.1 points from last month. Not accelerating, but not breaking either. People are spending; they just don't feel great about it.",
+      "editorial_polarity": "value_up_is_positive"
+    },
+    {
+      "id": "consumer-confidence",
+      "name": "Consumer Sentiment (U. Michigan)",
+      "current_value": "49.5",
+      "unit": "University of Michigan index",
+      "from": null,
+      "to": null,
+      "delta": null,
+      "reasons": [],
+      "source": {
+        "name": "University of Michigan Consumer Sentiment (via FRED)",
+        "url": "https://fred.stlouisfed.org/series/UMCSENT",
+        "series_id": "UMCSENT",
+        "provider": "FRED",
+        "tier": 1
+      },
+      "category": "consumer",
+      "existing_summary": "As of the latest reading, the University of Michigan confidence index sits at 49.8 — the bottom of its three-year range. It's down 6.6% from last month. Households still expect prices to keep climbing, which is part of why confidence keeps sliding.",
+      "editorial_polarity": "value_up_is_positive"
+    },
+    {
+      "id": "ai-api-pricing",
+      "name": "AI API / Inference Pricing Trend",
+      "current_value": "−60%",
+      "unit": "% change, trailing 3mo, top model prices",
+      "from": null,
+      "to": null,
+      "delta": null,
+      "reasons": [],
+      "source": {
+        "name": "OpenAI pricing",
+        "url": "https://openai.com/api/pricing/",
+        "provider": "manual",
+        "tier": 2
+      },
+      "category": "ai-tech",
+      "existing_summary": "The price of comparable AI keeps dropping fast across the major labs. Shipping an AI feature costs a lot less than it did a few months ago.",
+      "editorial_polarity": "value_down_is_positive"
+    },
+    {
+      "id": "ai-model-releases",
+      "name": "Frontier AI Model Release Activity",
+      "current_value": "3 / 14 days",
+      "unit": "frontier releases per 2-week window",
+      "from": null,
+      "to": null,
+      "delta": null,
+      "reasons": [],
+      "source": {
+        "name": "Anthropic news",
+        "url": "https://www.anthropic.com/news",
+        "provider": "manual",
+        "tier": 2
+      },
+      "category": "ai-tech",
+      "existing_summary": "Three major new AI models in the last two weeks — the top of the field is moving fast.",
       "editorial_polarity": "value_up_is_positive"
     }
   ],
   "weekly_connection_in_scope": {
-    "included": false,
+    "included": true,
     "title": "Two economies, same week",
-    "last_reviewed": "2026-06-05",
-    "observation": "People feel about as bad about the economy as they have in a decade, and they expect prices to keep rising. At the same time, the major AI companies keep cutting what they charge — top model prices are down about 60% over six months — and new, more capable models keep arriving every few weeks."
+    "last_reviewed": "2026-06-19",
+    "observation": "Consumer confidence is at 49.8 — its three-year floor — and people expect prices to keep rising. May inflation re-accelerated: CPI at 4.25% and PPI at 6.42%, both near multi-year highs. Retail spending is still up 6.88% year-over-year, so wallets haven't closed yet. Meanwhile, top AI model prices dropped roughly 60% over six months, and new frontier models are releasing every few weeks."
   },
   "constraints": {
     "reading_grade_target_max": 9,
