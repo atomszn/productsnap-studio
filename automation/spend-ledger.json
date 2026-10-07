@@ -12,9 +12,60 @@
       "run_id": "97f65dc037",
       "task_id": "editorial-task-d4c7a02c07bf9fb7",
       "fingerprint": "d4c7a02c07bf9fb7"
+    },
+    {
+      "ts": "2026-08-14T21:33:39.562Z",
+      "month": "2026-08",
+      "role": "research",
+      "model": "gpt_5_5",
+      "estimated_cost_usd": 0.45,
+      "run_id": "51fdd5d8bb",
+      "task_id": "editorial-task-c2d5709ef13d8f77",
+      "fingerprint": "c2d5709ef13d8f77"
+    },
+    {
+      "ts": "2026-08-14T21:35:08.642Z",
+      "month": "2026-08",
+      "role": "editorial",
+      "model": "claude_opus_4_8",
+      "estimated_cost_usd": 0.4,
+      "run_id": "d111add797",
+      "task_id": "editorial-task-c2d5709ef13d8f77",
+      "fingerprint": "c2d5709ef13d8f77"
+    },
+    {
+      "ts": "2026-08-14T21:35:29.708Z",
+      "month": "2026-08",
+      "role": "validation",
+      "model": "gemini_3_1_pro",
+      "estimated_cost_usd": 0.1,
+      "run_id": "13e324d83c",
+      "task_id": "editorial-task-c2d5709ef13d8f77",
+      "fingerprint": "c2d5709ef13d8f77"
+    },
+    {
+      "ts": "2026-08-14T21:35:29.708Z",
+      "month": "2026-08",
+      "role": "validation",
+      "model": "gpt_5_5",
+      "estimated_cost_usd": 0.1,
+      "run_id": "13e324d83c",
+      "task_id": "editorial-task-c2d5709ef13d8f77",
+      "fingerprint": "c2d5709ef13d8f77"
+    },
+    {
+      "ts": "2026-08-14T21:35:29.708Z",
+      "month": "2026-08",
+      "role": "validation",
+      "model": "claude_opus_4_8",
+      "estimated_cost_usd": 0.1,
+      "run_id": "13e324d83c",
+      "task_id": "editorial-task-c2d5709ef13d8f77",
+      "fingerprint": "c2d5709ef13d8f77"
     }
   ],
   "months": {
-    "2026-06": 0.45
+    "2026-06": 0.45,
+    "2026-08": 1.15
   }
 }
