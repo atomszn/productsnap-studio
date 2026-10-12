@@ -22,7 +22,8 @@ Examples
   python3 scripts/add_book.py list
 Requires Pillow (pip install pillow).
 """
-import argparse, datetime, json, os, sys
+import argparse
+import re, datetime, json, os, sys
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -64,7 +65,8 @@ def page_entry(slug, idx, src, title):
     w, h = convert(src, slug, name)
     return {"file": "assets/pulse/%s/%s.webp" % (slug, name),
             "thumb": "assets/pulse/%s/%s-t.webp" % (slug, name),
-            "title": title, "w": w, "h": h}
+            "title": title, "w": w, "h": h,
+            **({"kw": kw} if (kw := page_keywords(os.path.join(ASSETS, slug, name + ".webp"))) else {})}
 
 
 def find(lib, slug):
@@ -88,7 +90,11 @@ def cmd_book(a):
     book = {"id": a.slug, "title": a.title, "topic": a.topic, "blurb": a.blurb,
             "gist": a.gist, "added": (old or {}).get("added") or datetime.date.today().isoformat(),
             "pages": [page_entry(a.slug, i, s, t) for i, (s, t) in enumerate(zip(a.pages, titles), 1)]}
+    for k in ("tagline", "vol", "start_here"):  # keep cover metadata when a book is rebuilt
+        if old and k in old:
+            book[k] = old[k]
     if old:
+        book["updated"] = datetime.date.today().isoformat()
         lib["books"][lib["books"].index(old)] = book
     else:
         lib["books"].append(book)
@@ -141,6 +147,46 @@ def cmd_meta(a):
     save(lib); print("updated %s" % a.slug)
 
 
+STOP = set("""a an the and or but if of to in on at by for with from as is are was were be been it its this that these those you your we our they their he she his her them not no yes do does did can could will would should may might than then so such what which who whom how why when where there here into out up down over under about after before more most less very just also only own same too all any each few other some own both again once per via vs""".split())
+
+
+BLOCK = re.compile(r"bitcoin|crypto|btc|ethereum|ether|solana|satoshi|blockchain")  # never searchable
+
+
+def page_keywords(path):
+    """OCR a page into a compact keyword string for search (needs rapidocr-onnxruntime; optional)."""
+    try:
+        from rapidocr_onnxruntime import RapidOCR
+    except ImportError:
+        return None
+    global _OCR
+    if "_OCR" not in globals():
+        _OCR = RapidOCR()
+    res, _ = _OCR(path)
+    words, seen = [], set()
+    for _, txt, _ in res or []:
+        for w in re.findall(r"[a-z][a-z0-9'-]{2,}", txt.lower()):
+            w = w.strip("'-")
+            if len(w) > 2 and w not in STOP and w not in seen and not BLOCK.search(w):
+                seen.add(w); words.append(w)
+    return " ".join(words)
+
+
+def cmd_index(a):
+    """(Re)build page keywords used by the Pulse search box."""
+    lib = load()
+    for b in lib["books"]:
+        if a.slug and b["id"] != a.slug:
+            continue
+        for p in b["pages"]:
+            kw = page_keywords(os.path.join(ROOT, p["file"]))
+            if kw is None:
+                sys.exit("pip install rapidocr-onnxruntime to index page text")
+            p["kw"] = kw
+        print("indexed %s" % b["id"])
+    save(lib)
+
+
 def cmd_list(a):
     for b in load()["books"]:
         print("%-30s %-5s %2d pages  %s" % (b["id"], b["topic"], len(b["pages"]), b["title"]))
@@ -162,5 +208,7 @@ p.add_argument("--at", type=int, help="insert as this 1-based drawn page instead
 p = sp.add_parser("meta", help="set cover tagline / volume / the 'Start here' book"); p.set_defaults(fn=cmd_meta)
 p.add_argument("--slug", required=True); p.add_argument("--tagline"); p.add_argument("--vol", type=int)
 p.add_argument("--start-here", action="store_true")
+p = sp.add_parser("index", help="OCR page text into search keywords"); p.set_defaults(fn=cmd_index)
+p.add_argument("--slug")
 p = sp.add_parser("list"); p.set_defaults(fn=cmd_list)
 a = ap.parse_args(); a.fn(a)

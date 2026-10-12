@@ -153,15 +153,15 @@
         <h1 class="lib-title">Small books for big shifts.</h1>
         <p class="lib-sub">Hand-drawn explainers on AI, tech and the economy. Pick a book, read the 60-second version, turn the pages.</p>
         <form class="lib-ask" id="lib-ask" role="search" autocomplete="off">
-          <label class="sr-only" for="ask-input">Ask the library</label>
-          <input id="ask-input" type="search" placeholder="Ask the library — e.g. “why are GPUs scarce?”" />
+          <label class="sr-only" for="ask-input">Search or ask the library</label>
+          <input id="ask-input" type="search" enterkeyhint="search" autocapitalize="off" spellcheck="false" placeholder="Try: robots" aria-describedby="ask-hint" />
           <button type="submit">Ask</button>
         </form>
         <p class="lib-ask-hint" id="ask-hint" aria-live="polite"></p>
       </section>
 
       <div class="lib-bar">
-        <div class="lib-tabs" role="tablist" aria-label="Topics" id="lib-tabs"></div>
+        <div class="lib-tabs" id="lib-tabs"></div>
         <span class="lib-new" id="lib-new" hidden></span>
       </div>
 
@@ -177,8 +177,9 @@
         <button class="rd-btn" id="rd-close" aria-label="Back to the shelf">← Shelf</button>
         <div class="rd-head"><span class="rd-topic" id="rd-topic"></span><h2 id="rd-title"></h2></div>
         <div class="rd-actions">
-          <button class="rd-btn" id="rd-bm" aria-pressed="false" aria-label="Bookmark this page">Bookmark</button>
-          <button class="rd-btn" id="rd-share" aria-label="Copy a link to this page">Share</button>
+          <button class="rd-btn rd-ico" id="rd-sound" aria-pressed="false" aria-label="Page-turn sound"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="snd-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/><path class="snd-off" d="m16 9 5 6m0-6-5 6"/></svg><span class="lbl">Sound</span></button>
+          <button class="rd-btn rd-ico" id="rd-bm" aria-pressed="false" aria-label="Bookmark this page"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span class="lbl" id="rd-bm-lbl">Bookmark</span></button>
+          <button class="rd-btn rd-ico" id="rd-share" aria-label="Share this page"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/></svg><span class="lbl">Share</span></button>
         </div>
       </div>
       <div class="rd-stage" id="rd-stage">
@@ -189,9 +190,10 @@
       <div class="rd-foot">
         <span class="rd-pagetitle" id="rd-pagetitle"></span>
         <div class="rd-dots" id="rd-dots"></div>
+        <p class="rd-keys" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd> turn · <kbd>Z</kbd> zoom · <kbd>B</kbd> bookmark · <kbd>Esc</kbd> shelf</p>
       </div>
     </div>
-    <div class="zoom" id="zoom" hidden role="dialog" aria-label="Zoomed page"><img id="zoom-img" alt="" /><button class="rd-btn zoom-x" id="zoom-x" aria-label="Close zoom">Close</button></div>
+    <div class="zoom" id="zoom" hidden role="dialog" aria-label="Zoomed page"><img id="zoom-img" alt="" /><span class="zoom-hint" aria-hidden="true">Tap to zoom in · Esc to close</span><button class="rd-btn zoom-x" id="zoom-x" aria-label="Close zoom">Close</button></div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <footer class="footer">

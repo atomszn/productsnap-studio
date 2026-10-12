@@ -147,6 +147,7 @@ header.topnav-wrap {
   position: relative; /* anchor for mobile nav panel */
 }
 .brand {
+  min-height: 44px;
   display: inline-flex; align-items: center; gap: 10px;
   color: var(--ink);
 }
@@ -185,6 +186,8 @@ header.topnav-wrap {
 }
 .nav-links a {
   position: relative;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; min-width: 44px; /* comfortable tap target */
   padding: 6px 2px;
   transition: color .2s ease;
 }

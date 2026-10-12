@@ -1,87 +1,185 @@
 /* Pulse — the sketch library. Reads data/library.json (built by scripts/add_book.py).
-   Page 1 of every book is the "60-second version"; the drawn pages follow.
-   Deep links: #book/<id>/<page>  (page is 1-based, counting the gist page). */
+   Page 1 of every book is the "60-second version"; the drawn pages follow, then an
+   "Up next" card (not counted in page numbers).
+   Deep links: #book/<id>/<page>  (1-based, counting the gist page). #topics opens Topics. */
 (function () {
   "use strict";
   var TOPICS = { AI: "AI", Tech: "Tech", Macro: "Macro" };
-  var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_" };
+  var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound" };
   var SYN = {
-    gpu: ["chip", "compute", "nvidia", "bottleneck"], chips: ["gpu", "compute"],
-    power: ["energy", "electricity", "grid"], energy: ["power", "grid"],
-    robot: ["physical", "humanoid", "robots"], robots: ["physical", "humanoid"],
-    money: ["stablecoin", "payments", "rails"], payments: ["stablecoin", "rails", "checkout"],
-    agent: ["agents", "swarm"], agents: ["agent", "swarm"], swarm: ["agents"],
-    moat: ["moats", "defensible"], scarce: ["bottleneck", "shortage"], shortage: ["bottleneck"],
-    words: ["vocabulary", "glossary"], jargon: ["vocabulary"], assets: ["tokenization"],
-    simulate: ["world", "models"], security: ["permissions", "sandbox", "keys"],
-    mortgage: ["mortgage", "10-year", "yield"], rates: ["mortgage", "yield", "fed"], fed: ["mortgage", "plumbing", "reserves"],
-    debt: ["debt", "loop", "deficit", "interest"], inflation: ["debasement", "dollar", "cpi"], dollar: ["dollar", "debasement"],
-    gold: ["gold"], yen: ["japan", "yen"], japan: ["yen"], housing: ["mortgage"], banks: ["bank", "leverage"]
+    gpu: ["chip", "compute", "nvidia", "bottleneck"], chip: ["gpu", "compute"], compute: ["gpu", "chip"],
+    power: ["energy", "electricity", "grid"], energy: ["power", "electricity", "grid"], electricity: ["power", "energy"],
+    robot: ["physical", "humanoid", "robots"], humanoid: ["robot", "physical"],
+    money: ["payments", "rails", "dollar"], payment: ["stablecoin", "rails", "checkout", "pay"], pay: ["payments", "checkout"],
+    agent: ["agents", "swarm"], swarm: ["agents", "team"], bot: ["agent"], assistant: ["agent"],
+    moat: ["moats", "switching", "defensible"], scarce: ["bottleneck", "shortage"], shortage: ["bottleneck", "scarce"],
+    word: ["vocabulary", "glossary"], jargon: ["vocabulary", "glossary"], glossary: ["vocabulary"],
+    asset: ["tokenization", "tokenized"], token: ["tokens", "tokenization"],
+    simulate: ["world", "models"], simulation: ["world", "models"], security: ["permissions", "sandbox", "keys"], safe: ["safely", "permissions", "sandbox"],
+    price: ["cheaper", "cost", "pricing"], pricing: ["cheaper", "cost", "price"], cost: ["cheaper", "price", "pricing"], cheap: ["cheaper", "cost"],
+    mortgage: ["mortgages", "10-year", "yield", "home"], rate: ["rates", "mortgage", "yield", "fed"], fed: ["federal", "mortgage", "plumbing", "reserves"],
+    home: ["mortgage", "house", "housing"], house: ["mortgage", "home", "housing"], housing: ["mortgage", "home"],
+    debt: ["debt", "loop", "deficit", "interest"], deficit: ["debt"], inflation: ["debasement", "dollar", "cpi", "prices"],
+    dollar: ["dollar", "debasement"], gold: ["gold"], yen: ["japan", "yen"], japan: ["yen"],
+    bank: ["banks", "leverage", "deposits"], car: ["cars", "self-driving", "physical"], driving: ["cars", "physical"]
   };
-  var CHIPS = ["why are GPUs scarce?", "what is an agent?", "robots", "why are mortgages so high?", "payments"];
+  var HINTS = ["Try: robots", "Try: payments", "Try: AI pricing", "Try: mortgages", "Try: agents", "Try: the yen"];
+  var CHIPS = ["robots", "payments", "AI pricing", "mortgages", "what is an agent?"];
+  var STOP = ["the", "and", "are", "why", "what", "how", "does", "for", "with", "who", "can", "this", "that", "your", "you", "about", "into", "from", "is", "a", "an", "of", "to", "in", "on", "so", "do", "my", "me", "it"];
   var $ = function (id) { return document.getElementById(id); };
   var lib = null, topic = "All", query = "";
-  /* The Shelf (spines) is always the default view, at every width; Topics is opt-in per visit
-     and never restored from storage. Only an explicit #topics hash opens it. */
+  /* The Shelf (spines) is the default view at every width; Topics is opt-in and never
+     restored from storage. Only an explicit #topics link opens it. */
   var view = location.hash === "#topics" ? "topics" : "shelf";
   var cur = null, idx = 0, turning = false;
+  var fromShelf = function () { return !!(history.state && history.state.pulseShelf); };
+  var reduce = function () { return window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches; };
+  var touch = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
+  if (touch) document.documentElement.classList.add("touch");
 
   function ls(k, v) {
     try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); }
     catch (e) { return null; }
   }
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
-  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, 2200); }
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, 2400); }
 
   /* ---------- living shelf state ---------- */
-  var lastSeen = ls(LS.seen); // ISO date of previous visit (null on first visit)
+  var lastSeen = ls(LS.seen);
   var opens = ls(LS.opens) || {};
   function isNew(b) { return lastSeen && (b.updated || b.added) > lastSeen; }
+  function progress(b) { var p = ls(LS.prog + b.id) || 0; return Math.min(1, p / (b.pages.length + 1)); }
 
-  /* ---------- search ---------- */
-  function words(s) { return (s || "").toLowerCase().replace(/[^a-z0-9 ]+/g, " ").split(/\s+/).filter(function (w) { return w.length > 2 && STOP.indexOf(w) < 0; }); }
-  var STOP = ["the", "and", "are", "why", "what", "how", "does", "for", "with", "who", "can", "this", "that", "your", "you", "about", "into", "from"];
-  function score(b, q) {
-    var terms = []; words(q).forEach(function (w) { terms.push(w); (SYN[w] || []).forEach(function (s) { terms.push(s); }); if (w.endsWith("s")) terms.push(w.slice(0, -1)); });
-    if (!terms.length) return { s: 0 };
-    var hay = { title: b.title.toLowerCase(), meta: (b.blurb + " " + b.gist.join(" ")).toLowerCase() };
-    var s = 0, hitPage = -1, best = 0;
-    terms.forEach(function (t) { if (hay.title.indexOf(t) >= 0) s += 5; if (hay.meta.indexOf(t) >= 0) s += 2; });
-    b.pages.forEach(function (p, i) { var ps = 0; terms.forEach(function (t) { if (p.title.toLowerCase().indexOf(t) >= 0) ps += 3; }); s += ps; if (ps > best) { best = ps; hitPage = i; } });
-    return { s: s, page: hitPage };
+  /* ---------- search: titles, taglines, gists, page titles and page text (OCR keywords) ---------- */
+  function norm(s) { return (s || "").toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9 -]+/g, " "); }
+  function stem(w) { return w.length > 4 ? w.replace(/(ies)$/, "y").replace(/(ing|ers|ed|es|s)$/, "") : w; }
+  function words(s) { return norm(s).split(/[\s-]+/).filter(function (w) { return w.length > 1 && STOP.indexOf(w) < 0; }); }
+  function near(a, b) { // optimal-string-alignment distance <= 1 (<= 2 for long words); swaps count once
+    if (a === b) return true;
+    var la = a.length, lb = b.length, max = Math.min(la, lb) >= 7 ? 2 : 1;
+    if (Math.min(la, lb) < 4 || Math.abs(la - lb) > max) return false;
+    var d = [], i, j;
+    for (i = 0; i <= la; i++) { d[i] = [i]; }
+    for (j = 0; j <= lb; j++) d[0][j] = j;
+    for (i = 1; i <= la; i++) {
+      var rowMin = Infinity;
+      for (j = 1; j <= lb; j++) {
+        var c = a[i - 1] === b[j - 1] ? 0 : 1;
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + c);
+        if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+        if (d[i][j] < rowMin) rowMin = d[i][j];
+      }
+      if (rowMin > max) return false;
+    }
+    return d[la][lb] <= max;
+  }
+  function index(b) {
+    if (b._ix) return b._ix;
+    var bag = function (s) { var o = {}; words(s).forEach(function (w) { o[w] = 1; o[stem(w)] = 1; }); return Object.keys(o); };
+    b._ix = { title: bag(b.title), tag: bag((b.tagline || "") + " " + b.blurb + " " + b.topic), gist: bag(b.gist.join(" ")),
+      pages: b.pages.map(function (p) { return { t: bag(p.title), k: bag(p.kw || "") }; }),
+      raw: norm([b.title, b.tagline, b.blurb, b.gist.join(" ")].concat(b.pages.map(function (p) { return p.title + " " + (p.kw || ""); })).join(" ")) };
+    return b._ix;
+  }
+  function hits(list, t) { for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0) || near(w, t)) return true; } return false; }
+  function terms(q) {
+    var out = [];
+    words(q).forEach(function (w) {
+      var s = stem(w), group = [w]; if (s !== w) group.push(s);
+      var key = SYN[w] ? w : SYN[s] ? s : Object.keys(SYN).filter(function (k) { return near(k, w) || near(k, s); })[0];
+      if (key && key !== w && key !== s) group.push(key);
+      (key ? SYN[key] : []).forEach(function (x) { group.push(x); });
+      out.push(group);
+    });
+    return out;
+  }
+  function score(b, groups) {
+    var ix = index(b), s = 0, matched = 0, best = 0, page = -1;
+    var pageScore = ix.pages.map(function () { return 0; });
+    groups.forEach(function (g, gi) {
+      var gs = 0;
+      g.forEach(function (t, ti) {
+        var w = ti === 0 ? 1 : 0.6; // synonyms count a bit less
+        if (hits(ix.title, t)) gs = Math.max(gs, 8 * w);
+        if (hits(ix.tag, t)) gs = Math.max(gs, 5 * w);
+        if (hits(ix.gist, t)) gs = Math.max(gs, 4 * w);
+        ix.pages.forEach(function (p, i) {
+          var ps = hits(p.t, t) ? 4 * w : hits(p.k, t) ? 2 * w : 0;
+          if (ps) { pageScore[i] += ps; gs = Math.max(gs, ps); }
+        });
+      });
+      if (gs) matched++; s += gs;
+    });
+    pageScore.forEach(function (v, i) { if (v > best) { best = v; page = i; } });
+    if (groups.length > 1 && matched < Math.ceil(groups.length / 2)) s = 0; // most words should match
+    return { s: s, page: page };
+  }
+  function search(q) {
+    var g = terms(q); if (!g.length) return [];
+    // down-weight words that match almost every book (e.g. "ai"), like a tiny IDF
+    var weights = g.map(function (grp) {
+      var df = lib.books.filter(function (b) { return score(b, [grp]).s > 0; }).length;
+      return df >= lib.books.length * 0.7 ? 0.2 : 1;
+    });
+    var ws = words(q), phrase = ws.length > 1 ? new RegExp("\\b" + ws.map(function (w) { return stem(w).replace(/[^a-z0-9]/g, ""); }).join("[a-z]*\\s+") ) : null;
+    var res = lib.books.map(function (b) {
+      var s = 0, page = -1, best = 0, matched = 0;
+      g.forEach(function (grp, i) { var r = score(b, [grp]); if (r.s) { matched++; s += r.s * weights[i]; if (r.s * weights[i] > best) { best = r.s * weights[i]; page = r.page; } } });
+      var strong = g.filter(function (_, i) { return weights[i] === 1; }).length;
+      if (strong > 1 && matched < Math.ceil(g.length / 2)) s = 0;
+      if (s && phrase && phrase.test(index(b).raw)) s += 12; // the whole phrase appears
+      if (s && g.length > 1) { var all = score(b, g); if (all.page >= 0) page = all.page; }
+      return { b: b, s: s, p: page };
+    }).filter(function (r) { return r.s > 0; }).sort(function (a, b) { return b.s - a.s; });
+    if (!res.length) return res;
+    var top = res[0].s;
+    return res.filter(function (r) { return r.s >= top * 0.4; }).slice(0, 6);
   }
 
   /* ---------- shelf ---------- */
   function tagline(b) { return b.tagline || b.blurb; }
   function decorate(a, b) {
     a.href = "#book/" + b.id + "/1";
-    a.setAttribute("aria-label", b.title + " — " + tagline(b) + " (" + (b.pages.length + 1) + " pages)" + (b.start_here ? ". Start here." : ""));
-    a.title = b.title + " — " + tagline(b);
+    var pr = progress(b);
+    a.setAttribute("aria-label", b.title + " — " + tagline(b) + ". " + (b.pages.length + 1) + " pages" + (pr ? ", " + Math.round(pr * 100) + "% read" : "") + (b.start_here ? ". Start here." : "") + (isNew(b) ? ". New." : ""));
     if (isNew(b)) a.classList.add("is-new");
     if ((opens[b.id] || 0) >= 3) a.classList.add("is-lean");
     if (b.start_here) a.classList.add("is-start");
+    a.addEventListener("click", pullOut);
   }
-  /* Designed cover (HTML/CSS, no cropped images): topic, title, tagline, Vol. mark. */
-  function coverArt(b) {
-    var c = el("span", "cv t-" + b.topic.toLowerCase());
+  /* Spines/covers slide out a little before the book opens. */
+  function pullOut(e) {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+    var a = e.currentTarget; e.preventDefault();
+    // push a history entry marked "opened from the shelf", so Back (or the Shelf button) returns in one step
+    var go = function () { history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
+    if (reduce()) return go();
+    a.classList.add("pulling"); setTimeout(function () { a.classList.remove("pulling"); go(); }, 230);
+  }
+  function bar(b, cls) { var pr = progress(b), w = el("span", cls); w.setAttribute("aria-hidden", "true"); var f = el("i"); f.style.width = Math.round(pr * 100) + "%"; w.appendChild(f); if (!pr) w.hidden = true; return w; }
+  function coverArt(b, small) {
+    var c = el("span", "cv t-" + b.topic.toLowerCase() + (small ? " cv-sm" : ""));
+    c.setAttribute("aria-hidden", "true");
     c.appendChild(el("span", "cv-topic", b.topic === "Tech" ? "Tech · fintech" : b.topic));
     c.appendChild(el("span", "cv-title", b.title));
     c.appendChild(el("span", "cv-rule"));
     c.appendChild(el("span", "cv-tag", tagline(b)));
     var f = el("span", "cv-foot"); f.appendChild(el("span", "cv-vol", "Vol. " + (b.vol || 1))); f.appendChild(el("span", "cv-mark", "ProductSnap · Pulse")); c.appendChild(f);
     if (b.start_here) c.appendChild(el("span", "cv-start", "Start here"));
-    if (isNew(b)) c.appendChild(el("span", "bk-newdot", "new"));
+    if (isNew(b) && !small) c.appendChild(el("span", "bk-newdot", "new"));
     return c;
   }
-  function cover(b) {
+  function cover(b, hitPage) {
     var a = el("a", "bk t-" + b.topic.toLowerCase()); decorate(a, b);
+    if (hitPage >= 0) a.href = "#book/" + b.id + "/" + (hitPage + 2);
     a.appendChild(coverArt(b));
+    a.appendChild(bar(b, "bk-prog"));
     var meta = el("span", "bk-meta", (b.pages.length + 1) + " pages");
     var bm = ls(LS.bm + b.id); if (bm) meta.appendChild(el("span", "bk-bm", " · bookmarked p." + bm));
     a.appendChild(meta);
+    if (hitPage >= 0) a.appendChild(el("span", "bk-hit", "Opens at “" + b.pages[hitPage].title + "”"));
     return a;
   }
-  /* Spine for the Shelf view: same cloth, topic colour and type as the cover. */
   function spine(b) {
     var a = el("a", "sp t-" + b.topic.toLowerCase()); decorate(a, b);
     a.style.setProperty("--h", (200 + Math.min(b.pages.length, 6) * 14) + "px");
@@ -89,97 +187,154 @@
     a.appendChild(el("span", "sp-topic", b.topic));
     a.appendChild(el("span", "sp-title", b.title));
     a.appendChild(el("span", "sp-vol", "Vol. " + (b.vol || 1)));
+    a.appendChild(bar(b, "sp-prog"));
     if (isNew(b)) a.appendChild(el("span", "sp-new", "new"));
-    var tip = el("span", "sp-tip"); tip.appendChild(el("b", null, b.title)); tip.appendChild(el("span", null, tagline(b)));
+    var tip = el("span", "sp-tip"); tip.setAttribute("aria-hidden", "true");
+    tip.appendChild(el("b", null, b.title)); tip.appendChild(el("span", null, tagline(b)));
     var bm = ls(LS.bm + b.id); if (bm) tip.appendChild(el("span", "bk-bm", "Bookmarked · p." + bm));
     a.appendChild(tip);
     return a;
   }
   function renderTabs() {
     var t = $("lib-tabs"); t.innerHTML = "";
+    var g = el("div", "topictabs"); g.setAttribute("role", "group"); g.setAttribute("aria-label", "Filter by topic");
     ["All"].concat(Object.keys(TOPICS)).forEach(function (k) {
       var n = k === "All" ? lib.books.length : lib.books.filter(function (b) { return b.topic === k; }).length;
+      if (!n) return;
       var btn = el("button", "chip" + (k !== "All" ? " c-" + k.toLowerCase() : ""), k + " · " + n);
-      btn.setAttribute("role", "tab"); btn.setAttribute("aria-selected", String(topic === k)); btn.dataset.topic = k;
-      if (!n && k !== "All") btn.disabled = true;
-      btn.onclick = function () { topic = k; query = ""; $("ask-input").value = ""; $("ask-hint").textContent = ""; renderTabs(); renderShelves(); };
-      t.appendChild(btn);
+      btn.type = "button"; btn.setAttribute("aria-pressed", String(topic === k)); btn.dataset.topic = k;
+      btn.onclick = function () { topic = k; clearQuery(); renderTabs(); renderShelves(); };
+      g.appendChild(btn);
     });
+    t.appendChild(g);
     var v = el("div", "viewtog"); v.setAttribute("role", "group"); v.setAttribute("aria-label", "View");
     [["shelf", "Shelf"], ["topics", "Topics"]].forEach(function (p) {
-      var b = el("button", "chip vt", p[1]); b.dataset.view = p[0]; b.setAttribute("aria-pressed", String(view === p[0]));
-      b.onclick = function () { view = p[0]; renderTabs(); renderShelves(); }; v.appendChild(b);
+      var b = el("button", "chip vt", p[1]); b.type = "button"; b.dataset.view = p[0]; b.setAttribute("aria-pressed", String(view === p[0]));
+      b.onclick = function () { view = p[0]; clearQuery(); renderTabs(); renderShelves(); }; v.appendChild(b);
     });
     t.appendChild(v);
   }
+  function suggest(h, lead) {
+    h.appendChild(document.createTextNode(lead));
+    ["robots", "payments"].forEach(function (w, i) {
+      var b = el("button", "linkbtn", w); b.type = "button"; b.onclick = function () { $("ask-input").value = w; ask(w); };
+      if (i) h.appendChild(document.createTextNode(" or ")); h.appendChild(b);
+    });
+    h.appendChild(document.createTextNode("."));
+  }
   function renderShelves() {
     var host = $("shelves"); host.innerHTML = "";
-    var books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; });
+    var h = $("ask-hint");
     if (query) {
-      books = books.map(function (b) { var r = score(b, query); b._s = r.s; b._p = r.page; return b; })
-        .filter(function (b) { return b._s > 0; }).sort(function (a, b) { return b._s - a._s; });
-      var h = $("ask-hint"); h.innerHTML = "";
-      if (!books.length) { h.textContent = "Nothing on the shelves for that yet — try “agents”, “GPUs” or “payments”."; }
-      else {
-        h.appendChild(document.createTextNode("Best match: "));
-        var top = books[0], a = el("a", null, top.title + (top._p >= 0 ? " — “" + top.pages[top._p].title + "”" : ""));
-        a.href = "#book/" + top.id + "/" + (top._p >= 0 ? top._p + 2 : 1); h.appendChild(a);
-        var clr = el("button", "linkbtn", "clear"); clr.type = "button"; clr.onclick = function () { query = ""; $("ask-input").value = ""; h.textContent = ""; renderShelves(); };
-        h.appendChild(document.createTextNode(" · ")); h.appendChild(clr);
+      var res = search(query); h.innerHTML = "";
+      if (!res.length) {
+        suggest(h, "Nothing yet. Try ");
+        var empty = el("p", "lib-empty", "No book on “" + query + "” yet. Search looks at titles, gists and the words on every page.");
+        host.appendChild(empty); return;
       }
+      h.appendChild(document.createTextNode(res.length + (res.length === 1 ? " book" : " books") + " for “" + query + "” · "));
+      var clr = el("button", "linkbtn", "Clear"); clr.type = "button"; clr.onclick = function () { clearQuery(); renderShelves(); $("ask-input").focus(); };
+      h.appendChild(clr);
+      var s = el("section", "shelf"); s.appendChild(el("h2", "shelf-h", "Best matches"));
+      var row = el("div", "shelf-row covers"); res.forEach(function (r) { row.appendChild(cover(r.b, r.p)); });
+      s.appendChild(row); host.appendChild(s); return;
     }
-    var groups = (view === "topics" && !query)
+    var books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; });
+    var groups = view === "topics"
       ? Object.keys(TOPICS).map(function (k) { return [k, books.filter(function (b) { return b.topic === k; })]; }).filter(function (g) { return g[1].length; })
-      : [[query ? "Matches" : (topic === "All" ? "The shelf" : topic + " shelf"), books]];
+      : [[topic === "All" ? "The shelf" : topic + " shelf", books]];
     groups.forEach(function (g) {
       var s = el("section", "shelf" + (TOPICS[g[0]] ? " t-" + g[0].toLowerCase() : ""));
       s.appendChild(el("h2", "shelf-h", g[0]));
-      var spines = view === "shelf" && !query;
-      var row = el("div", spines ? "shelf-row spines" : "shelf-row covers");
-      g[1].forEach(function (b) { row.appendChild(spines ? spine(b) : cover(b)); });
+      var row = el("div", view === "shelf" ? "shelf-row spines" : "shelf-row covers");
+      g[1].forEach(function (b) { row.appendChild(view === "shelf" ? spine(b) : cover(b)); });
       s.appendChild(row); host.appendChild(s);
     });
   }
+  function clearQuery() { query = ""; $("ask-input").value = ""; $("ask-hint").textContent = ""; }
   function renderChips() {
-    var f = $("lib-ask"), c = el("div", "ask-chips");
+    var f = $("lib-ask"), c = el("div", "ask-chips"); c.setAttribute("role", "group"); c.setAttribute("aria-label", "Suggested searches");
     CHIPS.forEach(function (q) { var b = el("button", "chip ask-chip", q); b.type = "button"; b.onclick = function () { $("ask-input").value = q; ask(q); }; c.appendChild(b); });
     f.parentNode.insertBefore(c, f.nextSibling);
   }
   function ask(q) { query = q.trim(); topic = "All"; renderTabs(); renderShelves(); }
+  function rotateHints() {
+    var i = 0, inp = $("ask-input");
+    setInterval(function () { if (document.activeElement === inp || inp.value || document.hidden) return; i = (i + 1) % HINTS.length; inp.placeholder = HINTS[i]; }, 2600);
+  }
+
+  /* ---------- delight: page-turn sound (off by default) + haptics ---------- */
+  var actx = null;
+  function soundOn() { return ls(LS.sound) === true; }
+  function rustle() {
+    if (!soundOn()) return;
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      var n = actx.sampleRate * 0.22, buf = actx.createBuffer(1, n, actx.sampleRate), d = buf.getChannelData(0);
+      for (var i = 0; i < n; i++) { var t = i / n; d[i] = (Math.random() * 2 - 1) * Math.pow(1 - t, 2.2) * (0.6 + 0.4 * Math.sin(t * 40)); }
+      var src = actx.createBufferSource(); src.buffer = buf;
+      var f = actx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 2400; f.Q.value = 0.7;
+      var g = actx.createGain(); g.gain.value = 0.18;
+      src.connect(f); f.connect(g); g.connect(actx.destination); src.start();
+    } catch (e) {}
+  }
+  function haptic() { if (touch && navigator.vibrate) { try { navigator.vibrate(8); } catch (e) {} } }
 
   /* ---------- reader ---------- */
   function pages(b) { return [{ gist: true }].concat(b.pages); }
   function find(id) { return lib.books.filter(function (b) { return b.id === id; })[0]; }
+  function nextBook(b) {
+    var order = [];
+    Object.keys(TOPICS).forEach(function (k) { lib.books.forEach(function (x) { if (x.topic === k) order.push(x); }); });
+    var i = order.indexOf(b); return order[(i + 1) % order.length];
+  }
+  function endNode(b) {
+    var n = nextBook(b), d = el("div", "pg pg-end");
+    d.appendChild(el("p", "g-kicker", "The end of " + b.title));
+    var sameTopic = n.topic === b.topic;
+    d.appendChild(el("p", "end-label", sameTopic ? "Up next" : "Next topic: " + n.topic));
+    var a = el("a", "end-cover"); a.href = "#book/" + n.id + "/1"; a.setAttribute("aria-label", "Open next book: " + n.title + " — " + tagline(n));
+    a.appendChild(coverArt(n, true)); d.appendChild(a);
+    var row = el("div", "end-actions");
+    var open1 = el("a", "g-go", "Open " + n.title + " →"); open1.href = a.href; row.appendChild(open1);
+    var back = el("button", "linkbtn end-shelf", "Back to the shelf"); back.type = "button"; back.onclick = close; row.appendChild(back);
+    d.appendChild(row);
+    return d;
+  }
   function pageNode(b, i) {
-    var p = pages(b)[i], d = el("div", "pg");
+    var P = pages(b);
+    if (i >= P.length) return endNode(b);
+    var p = P[i], d = el("div", "pg");
     if (p.gist) {
       d.classList.add("pg-gist");
       d.appendChild(el("p", "g-kicker", "The 60-second version"));
       d.appendChild(el("h3", "g-title", b.title));
-      d.appendChild(el("p", "g-blurb", b.blurb));
+      d.appendChild(el("p", "g-blurb", tagline(b)));
       var ol = el("ol", "g-list"); b.gist.forEach(function (g) { ol.appendChild(el("li", null, g)); }); d.appendChild(ol);
       var go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; d.appendChild(go);
     } else {
+      var btn = el("button", "pg-zoom"); btn.type = "button"; btn.setAttribute("aria-label", "Zoom into page: " + p.title);
       var img = el("img"); img.src = p.file; img.alt = b.title + " — " + p.title; img.width = p.w; img.height = p.h; img.decoding = "async";
-      img.onclick = function () { zoom(p, b); }; d.appendChild(img);
-      // preload neighbour
-      var nx = pages(b)[i + 1]; if (nx && !nx.gist) { var pre = new Image(); pre.src = nx.file; }
+      btn.appendChild(img); btn.onclick = function () { zoom(p, b); }; d.appendChild(btn);
+      var nx = P[i + 1]; if (nx) { var pre = new Image(); pre.src = nx.file; }
     }
-    d.appendChild(el("span", "pg-num", (i + 1) + " of " + pages(b).length));
+    d.appendChild(el("span", "pg-num", (i + 1) + " of " + P.length));
     return d;
   }
   function paint() {
-    var P = pages(cur), host = $("page");
+    var P = pages(cur), end = idx >= P.length, host = $("page");
     host.innerHTML = ""; host.appendChild(pageNode(cur, idx));
-    $("rd-pagetitle").textContent = P[idx].gist ? "The 60-second version" : P[idx].title;
-    $("rd-prev").disabled = idx === 0; $("rd-next").disabled = idx === P.length - 1;
+    $("rd-pagetitle").textContent = end ? "Finished — " + P.length + " pages" : P[idx].gist ? "The 60-second version" : P[idx].title;
+    $("rd-prev").disabled = idx === 0; $("rd-next").disabled = end;
+    $("rd-next").setAttribute("aria-label", idx === P.length - 1 ? "Finish the book" : "Next page");
     var dots = $("rd-dots"); dots.innerHTML = "";
-    P.forEach(function (_, i) { var d = el("button", "dot" + (i === idx ? " on" : "")); d.setAttribute("aria-label", "Page " + (i + 1) + " of " + P.length); d.onclick = function () { go(i); }; dots.appendChild(d); });
-    var bm = ls(LS.bm + cur.id);
-    $("rd-bm").setAttribute("aria-pressed", String(bm === idx + 1)); $("rd-bm").textContent = bm === idx + 1 ? "Bookmarked" : "Bookmark";
-    $("ribbon").hidden = bm !== idx + 1;
-    var h = "#book/" + cur.id + "/" + (idx + 1);
-    if (location.hash !== h) history.replaceState(null, "", h);
+    P.forEach(function (_, i) { var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + (i + 1) + " of " + P.length); if (i === idx) d.setAttribute("aria-current", "page"); d.onclick = function () { go(i); }; dots.appendChild(d); });
+    var bm = ls(LS.bm + cur.id), on = !end && bm === idx + 1;
+    $("rd-bm").setAttribute("aria-pressed", String(on)); $("rd-bm-lbl").textContent = on ? "Bookmarked" : "Bookmark"; $("rd-bm").disabled = end;
+    $("ribbon").hidden = !on;
+    var reached = Math.min(idx + 1, P.length); if (reached > (ls(LS.prog + cur.id) || 0)) ls(LS.prog + cur.id, reached);
+    var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
+    if (location.hash !== h) history.replaceState(history.state, "", h);
   }
   function open(id, n) {
     var b = find(id); if (!b) return false;
@@ -187,75 +342,110 @@
     cur = b; idx = Math.max(0, Math.min((n || 1) - 1, b.pages.length));
     $("rd-title").textContent = b.title; $("rd-topic").textContent = b.topic;
     $("reader").className = "reader t-" + b.topic.toLowerCase();
+    $("book").style.setProperty("--ar", (b.pages[0].w / b.pages[0].h).toFixed(4)); // the book takes its pages' shape
     $("reader").hidden = false; document.body.classList.add("reading");
     if (first) {
       opens[id] = (opens[id] || 0) + 1; ls(LS.opens, opens);
-      var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; bk.classList.add("opening");
-      setTimeout(function () { $("rd-close").focus(); }, 30);
+      var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; if (!reduce()) bk.classList.add("opening");
+      if (!touch) setTimeout(function () { $("rd-close").focus({ preventScroll: true }); }, 30);
     }
     paint(); return true;
   }
   function close() {
+    var was = cur; if (!was) return;
     $("reader").hidden = true; document.body.classList.remove("reading"); cur = null;
-    history.replaceState(null, "", location.pathname + location.search); renderShelves();
+    if (fromShelf()) history.back();
+    else history.replaceState(null, "", location.pathname + location.search);
+    renderShelves();
+    var sp = document.querySelector('#shelves a[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: false });
   }
   function go(i) { if (i === idx || turning) return; if (Math.abs(i - idx) === 1) return turn(i - idx); idx = i; paint(); }
   function turn(dir) {
     var P = pages(cur), to = idx + dir;
-    if (to < 0 || to >= P.length || turning) return;
-    var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { idx = to; return paint(); }
+    if (to < 0 || to > P.length || turning) return;
+    rustle(); haptic();
+    if (reduce()) { idx = to; paint(); return; }
     turning = true;
     var book = $("book"), leaf = el("div", "leaf " + (dir > 0 ? "fwd" : "back"));
     var front = el("div", "leaf-face front"), back = el("div", "leaf-face back");
     if (dir > 0) { front.appendChild(pageNode(cur, idx)); idx = to; paint(); }
     else { front.appendChild(pageNode(cur, to)); }
     leaf.appendChild(front); leaf.appendChild(back); leaf.appendChild(el("div", "leaf-shade"));
+    leaf.setAttribute("aria-hidden", "true"); leaf.inert = true;
     book.appendChild(leaf);
     requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.classList.add("go"); }); });
     setTimeout(function () { if (dir < 0) { idx = to; paint(); } leaf.remove(); turning = false; }, 620);
   }
+  var zoomFrom = null;
   function zoom(p, b) {
     var z = $("zoom"), img = $("zoom-img"); img.src = p.file; img.alt = b.title + " — " + p.title;
+    zoomFrom = document.activeElement;
     z.hidden = false; z.classList.remove("big"); z.scrollTop = 0; $("zoom-x").focus();
   }
-  function unzoom() { $("zoom").hidden = true; }
+  function unzoom() { $("zoom").hidden = true; if (zoomFrom && zoomFrom.focus) zoomFrom.focus(); }
+  function share() {
+    var n = Math.min(idx + 1, pages(cur).length);
+    var base = location.href.replace(/[#?].*$/, "").replace(/pulse(\.html)?$/, "");
+    var url = base + "share/" + cur.id + ".html" + (n > 1 ? "?p=" + n : "");
+    var done = function () { toast("Link copied — opens on page " + n); };
+    if (navigator.share && touch) { navigator.share({ title: cur.title + " — Pulse", text: tagline(cur), url: url }).catch(function () {}); return; }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(done, function () { fallbackCopy(url) ? done() : toast(url); });
+    else fallbackCopy(url) ? done() : toast(url);
+  }
+  function fallbackCopy(t) { try { var ta = el("textarea"); ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); var ok = document.execCommand("copy"); ta.remove(); return ok; } catch (e) { return false; } }
 
   function route() {
+    if (location.hash === "#topics") { if (cur) close(); if (view !== "topics") { view = "topics"; renderTabs(); renderShelves(); } return; }
     var m = location.hash.match(/^#book\/([a-z0-9-]+)(?:\/(\d+))?/);
-    if (m) { if (!open(m[1], +m[2] || 1)) close(); }
-    else if (cur) close();
+    if (m) { if (!open(m[1], +m[2] || 1)) { history.replaceState(null, "", location.pathname); if (cur) close(); toast("That book isn’t on the shelf"); } }
+    else if (cur) { cur = null; $("reader").hidden = true; document.body.classList.remove("reading"); renderShelves(); }
   }
 
   function wire() {
     $("rd-prev").onclick = function () { turn(-1); };
     $("rd-next").onclick = function () { turn(1); };
     $("rd-close").onclick = close;
+    var syncSound = function () { $("rd-sound").setAttribute("aria-pressed", String(soundOn())); };
+    syncSound();
+    $("rd-sound").onclick = function () { ls(LS.sound, !soundOn()); syncSound(); toast(soundOn() ? "Page-turn sound on" : "Sound off"); if (soundOn()) rustle(); };
     $("rd-bm").onclick = function () {
       var k = LS.bm + cur.id, on = ls(k) === idx + 1;
-      if (on) { try { localStorage.removeItem(k); } catch (e) {} toast("Bookmark removed"); } else { ls(k, idx + 1); toast("Bookmarked page " + (idx + 1)); }
+      if (on) { try { localStorage.removeItem(k); } catch (e) {} toast("Bookmark removed"); } else { ls(k, idx + 1); toast("Bookmarked page " + (idx + 1)); haptic(); }
       paint();
     };
-    $("rd-share").onclick = function () {
-      var url = location.origin + location.pathname + "#book/" + cur.id + "/" + (idx + 1);
-      var done = function () { toast("Link copied — opens on page " + (idx + 1)); };
-      if (navigator.share && /Mobi/.test(navigator.userAgent)) navigator.share({ title: cur.title, url: url }).catch(function () {});
-      else if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () { toast(url); });
-      else toast(url);
-    };
+    $("rd-share").onclick = share;
     $("zoom-x").onclick = unzoom;
     $("zoom").onclick = function (e) { if (e.target.id === "zoom-img") $("zoom").classList.toggle("big"); else if (e.target.id === "zoom") unzoom(); };
     document.addEventListener("keydown", function (e) {
-      if (!$("zoom").hidden) { if (e.key === "Escape") unzoom(); return; }
-      if (!cur) return;
-      if (e.key === "ArrowRight") turn(1); else if (e.key === "ArrowLeft") turn(-1); else if (e.key === "Escape") close();
+      if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+      if (!$("zoom").hidden) { if (e.key === "Escape" || e.key === "z" || e.key === "Z") { e.preventDefault(); unzoom(); } return; }
+      if (!cur) { if (e.key === "/") { e.preventDefault(); $("ask-input").focus(); } return; }
+      if (e.key === "ArrowRight") turn(1);
+      else if (e.key === "ArrowLeft") turn(-1);
+      else if (e.key === "Escape") close();
+      else if ((e.key === "z" || e.key === "Z") && idx > 0 && idx < pages(cur).length) zoom(cur.pages[idx - 1], cur);
+      else if (e.key === "b" || e.key === "B") $("rd-bm").click();
+      else if (e.key === "Tab") { // keep focus inside the reader
+        var f = [].slice.call($("reader").querySelectorAll("button:not([disabled]),a[href]")).filter(function (x) { return x.offsetParent; });
+        if (!f.length) return; var a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+      }
     });
-    var sx = null;
-    $("rd-stage").addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; }, { passive: true });
-    $("rd-stage").addEventListener("touchend", function (e) { if (sx == null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) turn(dx < 0 ? 1 : -1); sx = null; }, { passive: true });
-    $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); };
-    $("ask-input").addEventListener("input", function () { if (!this.value) { query = ""; $("ask-hint").textContent = ""; renderShelves(); } });
+    var sx = null, sy = null;
+    $("rd-stage").addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    $("rd-stage").addEventListener("touchend", function (e) {
+      if (sx == null) return; var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.2) turn(dx < 0 ? 1 : -1); sx = null;
+    }, { passive: true });
+    $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); var r = document.querySelector("#shelves .shelf"); if (r && touch) $("ask-input").blur(); };
+    var deb;
+    $("ask-input").addEventListener("input", function () {
+      var v = this.value; clearTimeout(deb);
+      if (!v.trim()) { query = ""; $("ask-hint").textContent = ""; renderShelves(); return; }
+      deb = setTimeout(function () { if (v.trim().length >= 2) ask(v); }, 220);
+    });
     window.addEventListener("hashchange", route);
+    window.addEventListener("popstate", function (e) { if (e.state && e.state.pulseShelf) route(); });
   }
 
   function newBadge() {
@@ -268,7 +458,8 @@
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (d) {
       lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Tech"; });
-      wire(); renderChips(); renderTabs(); renderShelves(); newBadge(); route();
+      wire(); renderChips(); renderTabs(); renderShelves(); newBadge(); rotateHints();
+      if (location.hash && location.hash !== "#topics") route();
     })
     .catch(function (e) { console.error("Pulse: library failed to load", e); $("shelves").innerHTML = '<p class="lib-loading">The library didn’t load. Refresh to try again.</p>'; });
 })();
