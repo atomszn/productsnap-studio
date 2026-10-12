@@ -13,11 +13,17 @@
     agent: ["agents", "swarm"], agents: ["agent", "swarm"], swarm: ["agents"],
     moat: ["moats", "defensible"], scarce: ["bottleneck", "shortage"], shortage: ["bottleneck"],
     words: ["vocabulary", "glossary"], jargon: ["vocabulary"], assets: ["tokenization"],
-    simulate: ["world", "models"], security: ["permissions", "sandbox", "keys"]
+    simulate: ["world", "models"], security: ["permissions", "sandbox", "keys"],
+    mortgage: ["mortgage", "10-year", "yield"], rates: ["mortgage", "yield", "fed"], fed: ["mortgage", "plumbing", "reserves"],
+    debt: ["debt", "loop", "deficit", "interest"], inflation: ["debasement", "dollar", "cpi"], dollar: ["dollar", "debasement"],
+    gold: ["gold"], yen: ["japan", "yen"], japan: ["yen"], housing: ["mortgage"], banks: ["bank", "leverage"]
   };
-  var CHIPS = ["why are GPUs scarce?", "what is an agent?", "robots", "payments", "moats"];
+  var CHIPS = ["why are GPUs scarce?", "what is an agent?", "robots", "why are mortgages so high?", "payments"];
   var $ = function (id) { return document.getElementById(id); };
-  var lib = null, topic = "All", view = "shelf", query = "";
+  var lib = null, topic = "All", query = "";
+  /* The Shelf (spines) is always the default view, at every width; Topics is opt-in per visit
+     and never restored from storage. Only an explicit #topics hash opens it. */
+  var view = location.hash === "#topics" ? "topics" : "shelf";
   var cur = null, idx = 0, turning = false;
 
   function ls(k, v) {
@@ -46,20 +52,47 @@
   }
 
   /* ---------- shelf ---------- */
-  function cover(b) {
-    var a = el("a", "bk t-" + b.topic.toLowerCase());
+  function tagline(b) { return b.tagline || b.blurb; }
+  function decorate(a, b) {
     a.href = "#book/" + b.id + "/1";
-    a.setAttribute("aria-label", b.title + " — " + b.blurb + " (" + (b.pages.length + 1) + " pages)");
+    a.setAttribute("aria-label", b.title + " — " + tagline(b) + " (" + (b.pages.length + 1) + " pages)" + (b.start_here ? ". Start here." : ""));
+    a.title = b.title + " — " + tagline(b);
     if (isNew(b)) a.classList.add("is-new");
     if ((opens[b.id] || 0) >= 3) a.classList.add("is-lean");
-    var img = el("img"); img.src = b.pages[0].thumb; img.alt = ""; img.loading = "lazy"; img.decoding = "async"; img.width = 240; img.height = Math.round(240 * b.pages[0].h / b.pages[0].w);
-    var fig = el("span", "bk-cover"); fig.appendChild(img);
-    fig.appendChild(el("span", "bk-spine"));
-    if (isNew(b)) fig.appendChild(el("span", "bk-newdot", "new"));
-    a.appendChild(fig);
-    a.appendChild(el("span", "bk-title", b.title));
-    a.appendChild(el("span", "bk-blurb", b.blurb));
-    var bm = ls(LS.bm + b.id); if (bm) a.appendChild(el("span", "bk-bm", "Bookmarked · p." + bm));
+    if (b.start_here) a.classList.add("is-start");
+  }
+  /* Designed cover (HTML/CSS, no cropped images): topic, title, tagline, Vol. mark. */
+  function coverArt(b) {
+    var c = el("span", "cv t-" + b.topic.toLowerCase());
+    c.appendChild(el("span", "cv-topic", b.topic === "Tech" ? "Tech · fintech" : b.topic));
+    c.appendChild(el("span", "cv-title", b.title));
+    c.appendChild(el("span", "cv-rule"));
+    c.appendChild(el("span", "cv-tag", tagline(b)));
+    var f = el("span", "cv-foot"); f.appendChild(el("span", "cv-vol", "Vol. " + (b.vol || 1))); f.appendChild(el("span", "cv-mark", "ProductSnap · Pulse")); c.appendChild(f);
+    if (b.start_here) c.appendChild(el("span", "cv-start", "Start here"));
+    if (isNew(b)) c.appendChild(el("span", "bk-newdot", "new"));
+    return c;
+  }
+  function cover(b) {
+    var a = el("a", "bk t-" + b.topic.toLowerCase()); decorate(a, b);
+    a.appendChild(coverArt(b));
+    var meta = el("span", "bk-meta", (b.pages.length + 1) + " pages");
+    var bm = ls(LS.bm + b.id); if (bm) meta.appendChild(el("span", "bk-bm", " · bookmarked p." + bm));
+    a.appendChild(meta);
+    return a;
+  }
+  /* Spine for the Shelf view: same cloth, topic colour and type as the cover. */
+  function spine(b) {
+    var a = el("a", "sp t-" + b.topic.toLowerCase()); decorate(a, b);
+    a.style.setProperty("--h", (200 + Math.min(b.pages.length, 6) * 14) + "px");
+    if (b.start_here) a.appendChild(el("span", "sp-start", "Start here"));
+    a.appendChild(el("span", "sp-topic", b.topic));
+    a.appendChild(el("span", "sp-title", b.title));
+    a.appendChild(el("span", "sp-vol", "Vol. " + (b.vol || 1)));
+    if (isNew(b)) a.appendChild(el("span", "sp-new", "new"));
+    var tip = el("span", "sp-tip"); tip.appendChild(el("b", null, b.title)); tip.appendChild(el("span", null, tagline(b)));
+    var bm = ls(LS.bm + b.id); if (bm) tip.appendChild(el("span", "bk-bm", "Bookmarked · p." + bm));
+    a.appendChild(tip);
     return a;
   }
   function renderTabs() {
@@ -97,11 +130,13 @@
     }
     var groups = (view === "topics" && !query)
       ? Object.keys(TOPICS).map(function (k) { return [k, books.filter(function (b) { return b.topic === k; })]; }).filter(function (g) { return g[1].length; })
-      : [[query ? "Matches" : (topic === "All" ? "The shelf" : topic), books]];
+      : [[query ? "Matches" : (topic === "All" ? "The shelf" : topic + " shelf"), books]];
     groups.forEach(function (g) {
       var s = el("section", "shelf" + (TOPICS[g[0]] ? " t-" + g[0].toLowerCase() : ""));
       s.appendChild(el("h2", "shelf-h", g[0]));
-      var row = el("div", "shelf-row"); g[1].forEach(function (b) { row.appendChild(cover(b)); });
+      var spines = view === "shelf" && !query;
+      var row = el("div", spines ? "shelf-row spines" : "shelf-row covers");
+      g[1].forEach(function (b) { row.appendChild(spines ? spine(b) : cover(b)); });
       s.appendChild(row); host.appendChild(s);
     });
   }

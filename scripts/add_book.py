@@ -128,6 +128,19 @@ def cmd_append(a):
     save(lib); print("appended to %s -> %d pages" % (a.slug, len(b["pages"])))
 
 
+def cmd_meta(a):
+    lib = load(); b = find(lib, a.slug)
+    if a.tagline is not None:
+        b["tagline"] = a.tagline
+    if a.vol is not None:
+        b["vol"] = a.vol
+    if a.start_here:
+        for o in lib["books"]:
+            o.pop("start_here", None)
+        b["start_here"] = True
+    save(lib); print("updated %s" % a.slug)
+
+
 def cmd_list(a):
     for b in load()["books"]:
         print("%-30s %-5s %2d pages  %s" % (b["id"], b["topic"], len(b["pages"]), b["title"]))
@@ -146,5 +159,8 @@ p.add_argument("--image", required=True); p.add_argument("--title")
 p = sp.add_parser("append"); p.set_defaults(fn=cmd_append)
 p.add_argument("--slug", required=True); p.add_argument("--image", required=True); p.add_argument("--title", required=True)
 p.add_argument("--at", type=int, help="insert as this 1-based drawn page instead of appending")
+p = sp.add_parser("meta", help="set cover tagline / volume / the 'Start here' book"); p.set_defaults(fn=cmd_meta)
+p.add_argument("--slug", required=True); p.add_argument("--tagline"); p.add_argument("--vol", type=int)
+p.add_argument("--start-here", action="store_true")
 p = sp.add_parser("list"); p.set_defaults(fn=cmd_list)
 a = ap.parse_args(); a.fn(a)

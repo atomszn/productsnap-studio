@@ -33,12 +33,15 @@ python3 scripts/add_book.py book --slug my-book --title "My Book" --topic AI \
   --blurb "One line." --gist "Point 1" "Point 2" "Point 3" \
   --pages p01.jpg p02.jpg --page-titles "Title 1" "Title 2"
 python3 scripts/add_book.py replace --slug ai-agents --page 2 --image fixed.jpg
-python3 scripts/add_book.py append  --slug ai-moats --image new.jpg --title "New page"
+python3 scripts/add_book.py append  --slug ai-moats --image new.jpg --title "New page" [--at 3]
+python3 scripts/add_book.py meta    --slug agent-vocabulary --tagline "Cover line" [--start-here] [--vol 2]
 ```
 
 Fixed or new pages (e.g. from `pulse_mockup/books/fixes2/`) are swapped in with
 `replace` / `append`; touched books get an `updated` date and show as "new" to
-returning readers. Topics: AI (ink blue), Tech (amber), Macro (green).
+returning readers. Topics: AI (ink blue), Tech (amber), Macro (green). Covers and spines are
+drawn in HTML/CSS from `title`, `tagline`, `topic` and `vol` — no cropped images.
+The Shelf (spines) is the default view at every width; Topics shows covers.
 Deep links: `pulse.html#book/<slug>/<page>` (page 1 = the 60-second version).
 
 ## Analytics (privacy-friendly)

@@ -42,7 +42,8 @@
           "w": 1600,
           "h": 2760
         }
-      ]
+      ],
+      "tagline": "How AI agents get a badge, not your keys"
     },
     {
       "id": "agent-swarms",
@@ -92,7 +93,8 @@
           "h": 2760
         }
       ],
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "tagline": "When one AI becomes a team"
     },
     {
       "id": "agent-vocabulary",
@@ -127,7 +129,9 @@
           "w": 1600,
           "h": 2760
         }
-      ]
+      ],
+      "tagline": "The words behind AI agents, as a kitchen",
+      "start_here": true
     },
     {
       "id": "ai-agents",
@@ -170,7 +174,8 @@
           "h": 2760
         }
       ],
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "tagline": "Who pays when your agent shops"
     },
     {
       "id": "ai-bottlenecks",
@@ -220,7 +225,8 @@
           "h": 2760
         }
       ],
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "tagline": "Chips, power and memory — and why prices still fall"
     },
     {
       "id": "ai-moats",
@@ -262,7 +268,8 @@
           "w": 1600,
           "h": 2760
         }
-      ]
+      ],
+      "tagline": "If every AI is smart, who wins?"
     },
     {
       "id": "physical-ai",
@@ -298,7 +305,8 @@
           "h": 2760
         }
       ],
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "tagline": "Robots that handle surprises"
     },
     {
       "id": "world-models",
@@ -340,7 +348,8 @@
           "w": 1600,
           "h": 2760
         }
-      ]
+      ],
+      "tagline": "AI that imagines what happens next"
     },
     {
       "id": "stablecoin-rails",
@@ -383,7 +392,8 @@
           "h": 2760
         }
       ],
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "tagline": "How money moves underneath your apps"
     },
     {
       "id": "tokenization",
@@ -433,7 +443,116 @@
           "h": 2760
         }
       ],
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "tagline": "A digital receipt for real things"
+    },
+    {
+      "id": "mortgage-rates",
+      "title": "Why Your Mortgage Moves",
+      "topic": "Macro",
+      "blurb": "One bond yield quietly sets your home loan.",
+      "gist": [
+        "Mortgage rates follow the 10-year Treasury yield plus a spread, not the Fed's overnight rate.",
+        "When the government borrows a lot, buyers demand more pay, so the 10-year rises.",
+        "In October 2026 the 10-year auction cleared at 5.3%, the highest since 2000; banks still hold large paper losses on old bonds."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/mortgage-rates/p01.webp",
+          "thumb": "assets/pulse/mortgage-rates/p01-t.webp",
+          "title": "5.3%: one number, three places you feel it",
+          "w": 1080,
+          "h": 1650
+        },
+        {
+          "file": "assets/pulse/mortgage-rates/p02.webp",
+          "thumb": "assets/pulse/mortgage-rates/p02-t.webp",
+          "title": "Why your mortgage ignores the Fed",
+          "w": 1080,
+          "h": 2438
+        },
+        {
+          "file": "assets/pulse/mortgage-rates/p03.webp",
+          "thumb": "assets/pulse/mortgage-rates/p03-t.webp",
+          "title": "Why your mortgage listens to the 10-year",
+          "w": 1080,
+          "h": 1620
+        }
+      ],
+      "tagline": "One bond yield quietly sets your home loan"
+    },
+    {
+      "id": "debt-loop",
+      "title": "The Debt Loop",
+      "topic": "Macro",
+      "blurb": "Why borrowing to pay interest feeds itself.",
+      "gist": [
+        "US interest costs are about $1 trillion a year: more debt means bigger bills, which means more debt.",
+        "Bank reserves are the money plumbing; when the tub runs low, overnight rates jump and the Fed steps in.",
+        "Risk didn't vanish after 2023, it moved into hedge-fund trades and private credit."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/debt-loop/p01.webp",
+          "thumb": "assets/pulse/debt-loop/p01-t.webp",
+          "title": "The one loop behind almost everything",
+          "w": 1080,
+          "h": 2634
+        },
+        {
+          "file": "assets/pulse/debt-loop/p02.webp",
+          "thumb": "assets/pulse/debt-loop/p02-t.webp",
+          "title": "The money plumbing, and the gauges to watch",
+          "w": 1080,
+          "h": 2487
+        },
+        {
+          "file": "assets/pulse/debt-loop/p03.webp",
+          "thumb": "assets/pulse/debt-loop/p03-t.webp",
+          "title": "Where the risk moved: leverage in the shadows",
+          "w": 1080,
+          "h": 2548
+        },
+        {
+          "file": "assets/pulse/debt-loop/p04.webp",
+          "thumb": "assets/pulse/debt-loop/p04-t.webp",
+          "title": "The scoreboard, and who gets the new money",
+          "w": 1080,
+          "h": 2235
+        }
+      ],
+      "tagline": "Why borrowing to pay interest feeds itself"
+    },
+    {
+      "id": "dollar-gold-yen",
+      "title": "Dollar, Gold & the Yen",
+      "topic": "Macro",
+      "blurb": "Why the dollar can be strong and still buy less.",
+      "gist": [
+        "The dollar can rise against other currencies while buying fewer groceries: two different rulers.",
+        "Central banks have bought over 1,000 tonnes of gold a year since 2022.",
+        "Japan's huge debt and cheap yen make it the canary; in mid-2026 the US and Japan bought yen together for the first time since 1998."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/dollar-gold-yen/p01.webp",
+          "thumb": "assets/pulse/dollar-gold-yen/p01-t.webp",
+          "title": "Strong dollar and debasement? Both.",
+          "w": 1080,
+          "h": 2427
+        },
+        {
+          "file": "assets/pulse/dollar-gold-yen/p02.webp",
+          "thumb": "assets/pulse/dollar-gold-yen/p02-t.webp",
+          "title": "Japan: the canary with the biggest debt",
+          "w": 1080,
+          "h": 2394
+        }
+      ],
+      "tagline": "Strong dollar, weaker buying power"
     }
   ]
 }
