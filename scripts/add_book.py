@@ -150,25 +150,39 @@ def cmd_meta(a):
 STOP = set("""a an the and or but if of to in on at by for with from as is are was were be been it its this that these those you your we our they their he she his her them not no yes do does did can could will would should may might than then so such what which who whom how why when where there here into out up down over under about after before more most less very just also only own same too all any each few other some own both again once per via vs""".split())
 
 
-BLOCK = re.compile(r"bitcoin|crypto|btc|ethereum|ether|solana|satoshi|blockchain")  # never searchable
+def _ocr_text(path):
+    """Text printed on a page: tesseract (required) plus RapidOCR when installed, for better recall on hand lettering."""
+    import subprocess, tempfile
+    from PIL import Image, ImageOps
+    im = ImageOps.grayscale(Image.open(path))
+    im = im.resize((im.width * 2, im.height * 2), Image.LANCZOS)
+    with tempfile.NamedTemporaryFile(suffix=".png") as f:
+        im.save(f.name)
+        try:
+            txt = subprocess.run(["tesseract", f.name, "-", "--psm", "11"], capture_output=True, text=True, check=True).stdout
+        except FileNotFoundError:
+            sys.exit("install tesseract-ocr to index page text")
+    try:
+        from rapidocr_onnxruntime import RapidOCR
+        global _OCR
+        if "_OCR" not in globals():
+            _OCR = RapidOCR()
+        res, _ = _OCR(path)
+        txt += "\n" + "\n".join(t for _, t, _ in res or [])
+    except ImportError:
+        pass
+    return txt
 
 
 def page_keywords(path):
-    """OCR a page into a compact keyword string for search (needs rapidocr-onnxruntime; optional)."""
-    try:
-        from rapidocr_onnxruntime import RapidOCR
-    except ImportError:
-        return None
-    global _OCR
-    if "_OCR" not in globals():
-        _OCR = RapidOCR()
-    res, _ = _OCR(path)
+    """OCR a page once at build time into a compact keyword string for search."""
     words, seen = [], set()
-    for _, txt, _ in res or []:
-        for w in re.findall(r"[a-z][a-z0-9'-]{2,}", txt.lower()):
-            w = w.strip("'-")
-            if len(w) > 2 and w not in STOP and w not in seen and not BLOCK.search(w):
-                seen.add(w); words.append(w)
+    for w in re.findall(r"[a-z0-9][a-z0-9'$%.-]*[a-z0-9%]", _ocr_text(path).lower()):
+        w = w.strip("'-.")
+        if len(w) > 1 and not w.isdigit() and w not in STOP and w not in seen and re.search(r"[a-z]", w):
+            if len(w) == 2 and not re.match(r"^(ai|us|uk|eu|ev|ok|io|qe|qt)$", w):
+                continue
+            seen.add(w); words.append(w)
     return " ".join(words)
 
 
@@ -179,10 +193,7 @@ def cmd_index(a):
         if a.slug and b["id"] != a.slug:
             continue
         for p in b["pages"]:
-            kw = page_keywords(os.path.join(ROOT, p["file"]))
-            if kw is None:
-                sys.exit("pip install rapidocr-onnxruntime to index page text")
-            p["kw"] = kw
+            p["kw"] = page_keywords(os.path.join(ROOT, p["file"]))
         print("indexed %s" % b["id"])
     save(lib)
 

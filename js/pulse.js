@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   var TOPICS = { AI: "AI", Tech: "Tech", Macro: "Macro" };
-  var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound" };
+  var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved" };
   var SYN = {
     gpu: ["chip", "compute", "nvidia", "bottleneck"], chip: ["gpu", "compute"], compute: ["gpu", "chip"],
     power: ["energy", "electricity", "grid"], energy: ["power", "electricity", "grid"], electricity: ["power", "energy"],
@@ -42,6 +42,55 @@
     catch (e) { return null; }
   }
   function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  /* ---------- saved pages: [{id, p}] newest first; p is 1-based like deep links ---------- */
+  function saved() {
+    var s = ls(LS.saved);
+    if (!Array.isArray(s)) { // migrate the old one-bookmark-per-book keys
+      s = [];
+      try { Object.keys(localStorage).forEach(function (k) { if (k.indexOf(LS.bm) === 0) { var p = ls(k); if (p) s.push({ id: k.slice(LS.bm.length), p: p }); localStorage.removeItem(k); } }); } catch (e) {}
+      ls(LS.saved, s);
+    }
+    return s.filter(function (x) { return x && find(x.id); });
+  }
+  function isSaved(id, p) { return saved().some(function (x) { return x.id === id && x.p === p; }); }
+  function setSaved(id, p, on) {
+    var s = saved().filter(function (x) { return !(x.id === id && x.p === p); });
+    if (on) s.unshift({ id: id, p: p });
+    ls(LS.saved, s); savedBadge();
+  }
+  function savedFor(b) { return saved().filter(function (x) { return x.id === b.id; }).map(function (x) { return x.p; }).sort(function (a, c) { return a - c; }); }
+  function pageLabel(b, p) { return p === 1 ? "The 60-second version" : b.pages[p - 2] ? b.pages[p - 2].title : "Page " + p; }
+  function savedBadge() {
+    var n = lib ? saved().length : 0, c = $("saved-count");
+    if (!c) return;
+    c.textContent = n; c.hidden = !n;
+    $("saved-btn").setAttribute("aria-label", "Saved pages" + (n ? ", " + n : ", none yet"));
+  }
+  function renderSaved() {
+    var list = $("saved-list"); list.innerHTML = "";
+    var s = saved();
+    $("saved-empty").hidden = !!s.length;
+    s.forEach(function (x) {
+      var b = find(x.id), li = el("li", "sv-item t-" + b.topic.toLowerCase());
+      var a = el("a", "sv-link"); a.href = "#book/" + b.id + "/" + x.p;
+      var pg = x.p >= 2 && b.pages[x.p - 2];
+      if (pg) { var im = el("img", "sv-thumb"); im.src = pg.thumb || pg.file; im.alt = ""; im.loading = "lazy"; im.width = 56; im.height = Math.round(56 * pg.h / pg.w); a.appendChild(im); }
+      else a.appendChild(el("span", "sv-thumb sv-gist", "60s"));
+      var tx = el("span", "sv-text");
+      tx.appendChild(el("span", "sv-book", b.title + " · p." + x.p));
+      tx.appendChild(el("span", "sv-page", pageLabel(b, x.p)));
+      a.appendChild(tx);
+      a.onclick = function (e) { e.preventDefault(); closeSaved(true); history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
+      li.appendChild(a);
+      var rm = el("button", "sv-rm", "Remove"); rm.type = "button"; rm.setAttribute("aria-label", "Remove " + b.title + ", page " + x.p + " from Saved");
+      rm.onclick = function () { setSaved(x.id, x.p, false); renderSaved(); renderShelves(); toast("Removed from Saved"); var f = $("saved-list").querySelector(".sv-rm") || $("saved-x"); f.focus(); };
+      li.appendChild(rm);
+      list.appendChild(li);
+    });
+  }
+  function openSaved() { renderSaved(); $("saved").hidden = false; document.body.classList.add("reading"); $("saved-x").focus(); }
+  function closeSaved(silent) { $("saved").hidden = true; document.body.classList.remove("reading"); if (!silent) $("saved-btn").focus(); }
+
   function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, 2400); }
 
   /* ---------- living shelf state ---------- */
@@ -80,6 +129,17 @@
       pages: b.pages.map(function (p) { return { t: bag(p.title), k: bag(p.kw || "") }; }),
       raw: norm([b.title, b.tagline, b.blurb, b.gist.join(" ")].concat(b.pages.map(function (p) { return p.title + " " + (p.kw || ""); })).join(" ")) };
     return b._ix;
+  }
+  function hitWord(list, t) { for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0) || near(w, t)) return w; } return null; }
+  function why(b, page, q) {
+    var ix = index(b), g = terms(q), out = null;
+    g.forEach(function (grp) { if (out) return; grp.forEach(function (t) {
+      if (out) return;
+      if (page >= 0) { var w = hitWord(ix.pages[page].t, t); if (w) { out = "page title says “" + w + "”"; return; } w = hitWord(ix.pages[page].k, t); if (w) { out = "the page mentions “" + w + "”"; return; } }
+      var w2 = hitWord(ix.title, t) || hitWord(ix.tag, t); if (w2) { out = "it’s what the book is about"; return; }
+      w2 = hitWord(ix.gist, t); if (w2) { out = "the 60-second version mentions “" + w2 + "”"; }
+    }); });
+    return out || "closest match";
   }
   function hits(list, t) { for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0) || near(w, t)) return true; } return false; }
   function terms(q) {
@@ -169,15 +229,16 @@
     if (isNew(b) && !small) c.appendChild(el("span", "bk-newdot", "new"));
     return c;
   }
-  function cover(b, hitPage) {
+  function cover(b, hitPage, reason) {
     var a = el("a", "bk t-" + b.topic.toLowerCase()); decorate(a, b);
     if (hitPage >= 0) a.href = "#book/" + b.id + "/" + (hitPage + 2);
     a.appendChild(coverArt(b));
     a.appendChild(bar(b, "bk-prog"));
     var meta = el("span", "bk-meta", (b.pages.length + 1) + " pages");
-    var bm = ls(LS.bm + b.id); if (bm) meta.appendChild(el("span", "bk-bm", " · bookmarked p." + bm));
+    var bm = savedFor(b); if (bm.length) meta.appendChild(el("span", "bk-bm", " · saved p." + bm.join(", ")));
     a.appendChild(meta);
     if (hitPage >= 0) a.appendChild(el("span", "bk-hit", "Opens at “" + b.pages[hitPage].title + "”"));
+    if (reason) a.appendChild(el("span", "bk-why", "Why: " + reason));
     return a;
   }
   function spine(b) {
@@ -191,7 +252,7 @@
     if (isNew(b)) a.appendChild(el("span", "sp-new", "new"));
     var tip = el("span", "sp-tip"); tip.setAttribute("aria-hidden", "true");
     tip.appendChild(el("b", null, b.title)); tip.appendChild(el("span", null, tagline(b)));
-    var bm = ls(LS.bm + b.id); if (bm) tip.appendChild(el("span", "bk-bm", "Bookmarked · p." + bm));
+    var bm = savedFor(b); if (bm.length) tip.appendChild(el("span", "bk-bm", "Saved · p." + bm.join(", ")));
     a.appendChild(tip);
     return a;
   }
@@ -236,7 +297,17 @@
       var clr = el("button", "linkbtn", "Clear"); clr.type = "button"; clr.onclick = function () { clearQuery(); renderShelves(); $("ask-input").focus(); };
       h.appendChild(clr);
       var s = el("section", "shelf"); s.appendChild(el("h2", "shelf-h", "Best matches"));
-      var row = el("div", "shelf-row covers"); res.forEach(function (r) { row.appendChild(cover(r.b, r.p)); });
+      var top = res[0], tp = top.p >= 0 ? top.b.pages[top.p] : null;
+      var best = el("a", "best t-" + top.b.topic.toLowerCase()); best.href = "#book/" + top.b.id + "/" + (top.p + 2);
+      best.onclick = function (e) { e.preventDefault(); history.pushState({ pulseShelf: true }, "", best.getAttribute("href")); route(); };
+      if (tp) { var bi = el("img", "best-thumb"); bi.src = tp.thumb || tp.file; bi.alt = ""; bi.width = 64; bi.height = Math.round(64 * tp.h / tp.w); best.appendChild(bi); }
+      var bt = el("span", "best-text");
+      bt.appendChild(el("span", "best-k", "Best page"));
+      bt.appendChild(el("span", "best-t", top.b.title + " · " + (tp ? tp.title : "The 60-second version")));
+      bt.appendChild(el("span", "best-why", "Why: " + why(top.b, top.p, query)));
+      best.appendChild(bt); best.appendChild(el("span", "best-go", "Open →"));
+      host.appendChild(best);
+      var row = el("div", "shelf-row covers"); res.forEach(function (r) { row.appendChild(cover(r.b, r.p, why(r.b, r.p, query))); });
       s.appendChild(row); host.appendChild(s); return;
     }
     var books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; });
@@ -329,8 +400,9 @@
     $("rd-next").setAttribute("aria-label", idx === P.length - 1 ? "Finish the book" : "Next page");
     var dots = $("rd-dots"); dots.innerHTML = "";
     P.forEach(function (_, i) { var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + (i + 1) + " of " + P.length); if (i === idx) d.setAttribute("aria-current", "page"); d.onclick = function () { go(i); }; dots.appendChild(d); });
-    var bm = ls(LS.bm + cur.id), on = !end && bm === idx + 1;
-    $("rd-bm").setAttribute("aria-pressed", String(on)); $("rd-bm-lbl").textContent = on ? "Bookmarked" : "Bookmark"; $("rd-bm").disabled = end;
+    var on = !end && isSaved(cur.id, idx + 1);
+    $("rd-bm").setAttribute("aria-pressed", String(on)); $("rd-bm-lbl").textContent = on ? "Saved" : "Save page"; $("rd-bm").disabled = end;
+    $("rd-bm").setAttribute("aria-label", on ? "Page saved. Remove from Saved" : "Save this page");
     $("ribbon").hidden = !on;
     var reached = Math.min(idx + 1, P.length); if (reached > (ls(LS.prog + cur.id) || 0)) ls(LS.prog + cur.id, reached);
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
@@ -409,14 +481,24 @@
     syncSound();
     $("rd-sound").onclick = function () { ls(LS.sound, !soundOn()); syncSound(); toast(soundOn() ? "Page-turn sound on" : "Sound off"); if (soundOn()) rustle(); };
     $("rd-bm").onclick = function () {
-      var k = LS.bm + cur.id, on = ls(k) === idx + 1;
-      if (on) { try { localStorage.removeItem(k); } catch (e) {} toast("Bookmark removed"); } else { ls(k, idx + 1); toast("Bookmarked page " + (idx + 1)); haptic(); }
+      var on = isSaved(cur.id, idx + 1);
+      setSaved(cur.id, idx + 1, !on);
+      if (on) toast("Removed from Saved"); else { toast("Saved · find it under Saved"); haptic(); }
       paint();
     };
     $("rd-share").onclick = share;
     $("zoom-x").onclick = unzoom;
     $("zoom").onclick = function (e) { if (e.target.id === "zoom-img") $("zoom").classList.toggle("big"); else if (e.target.id === "zoom") unzoom(); };
+    $("saved-btn").onclick = openSaved;
+    $("saved-x").onclick = function () { closeSaved(); };
+    $("saved").onclick = function (e) { if (e.target.id === "saved") closeSaved(); };
     document.addEventListener("keydown", function (e) {
+      if (!$("saved").hidden) {
+        if (e.key === "Escape") { e.preventDefault(); closeSaved(); }
+        else if (e.key === "Tab") { var f = [].slice.call($("saved").querySelectorAll("button,a[href]")), a = f[0], z = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } }
+        return;
+      }
       if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
       if (!$("zoom").hidden) { if (e.key === "Escape" || e.key === "z" || e.key === "Z") { e.preventDefault(); unzoom(); } return; }
       if (!cur) { if (e.key === "/") { e.preventDefault(); $("ask-input").focus(); } return; }
@@ -458,7 +540,7 @@
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (d) {
       lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Tech"; });
-      wire(); renderChips(); renderTabs(); renderShelves(); newBadge(); rotateHints();
+      wire(); savedBadge(); renderChips(); renderTabs(); renderShelves(); newBadge(); rotateHints();
       if (location.hash && location.hash !== "#topics") route();
     })
     .catch(function (e) { console.error("Pulse: library failed to load", e); $("shelves").innerHTML = '<p class="lib-loading">The library didn’t load. Refresh to try again.</p>'; });
