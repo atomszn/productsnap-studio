@@ -1,0 +1,439 @@
+{
+  "version": 1,
+  "updated": "2026-10-12",
+  "books": [
+    {
+      "id": "agent-native-infrastructure",
+      "title": "Agent-Native Infrastructure",
+      "topic": "AI",
+      "blurb": "How AI agents get a badge, not your keys.",
+      "gist": [
+        "Agents need their own ID, limited permissions and keys that expire.",
+        "A sandbox and a gateway keep mistakes small and every action logged.",
+        "Builders move first; for most people the change is mostly invisible."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/agent-native-infrastructure/p01.webp",
+          "thumb": "assets/pulse/agent-native-infrastructure/p01-t.webp",
+          "title": "What agent-native infrastructure is",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-native-infrastructure/p02.webp",
+          "thumb": "assets/pulse/agent-native-infrastructure/p02-t.webp",
+          "title": "How the pieces work together",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-native-infrastructure/p03.webp",
+          "thumb": "assets/pulse/agent-native-infrastructure/p03-t.webp",
+          "title": "What changes for businesses and for you",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-native-infrastructure/p04.webp",
+          "thumb": "assets/pulse/agent-native-infrastructure/p04-t.webp",
+          "title": "Who has to adapt, and what's still hard",
+          "w": 1600,
+          "h": 2760
+        }
+      ]
+    },
+    {
+      "id": "agent-swarms",
+      "title": "Agent Swarms",
+      "topic": "AI",
+      "blurb": "When a team of AI agents works while you're away.",
+      "gist": [
+        "A lead agent splits a big job; helpers work in parallel; a checker merges.",
+        "More agents speed up jobs that split, not jobs that need one big idea.",
+        "More agents mean more compute and more oversight. You still own the result."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/agent-swarms/p01.webp",
+          "thumb": "assets/pulse/agent-swarms/p01-t.webp",
+          "title": "What agent swarms actually are",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-swarms/p02.webp",
+          "thumb": "assets/pulse/agent-swarms/p02-t.webp",
+          "title": "How the work actually changes",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-swarms/p03.webp",
+          "thumb": "assets/pulse/agent-swarms/p03-t.webp",
+          "title": "When more AI agents help, and when they don't",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-swarms/p04.webp",
+          "thumb": "assets/pulse/agent-swarms/p04-t.webp",
+          "title": "What it means for compute and cost",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-swarms/p05.webp",
+          "thumb": "assets/pulse/agent-swarms/p05-t.webp",
+          "title": "Who has to adapt",
+          "w": 1600,
+          "h": 2760
+        }
+      ],
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "agent-vocabulary",
+      "title": "Agent Vocabulary",
+      "topic": "AI",
+      "blurb": "The words behind AI agents, explained as a kitchen.",
+      "gist": [
+        "The model is the cook; tools, memory and skills are the kitchen.",
+        "Guardrails like permissions, hooks and checks keep it safe.",
+        "Follow one refund to see every piece working together."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/agent-vocabulary/p01.webp",
+          "thumb": "assets/pulse/agent-vocabulary/p01-t.webp",
+          "title": "Building an AI agent is like setting up a kitchen",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-vocabulary/p02.webp",
+          "thumb": "assets/pulse/agent-vocabulary/p02-t.webp",
+          "title": "A smart agent still needs guardrails and an alarm clock",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/agent-vocabulary/p03.webp",
+          "thumb": "assets/pulse/agent-vocabulary/p03-t.webp",
+          "title": "Follow one refund through an AI agent",
+          "w": 1600,
+          "h": 2760
+        }
+      ]
+    },
+    {
+      "id": "ai-agents",
+      "title": "AI Agents",
+      "topic": "AI",
+      "blurb": "Who pays, whose side it's on, and who eats mistakes.",
+      "gist": [
+        "When an agent does the work, someone still has to pay for it.",
+        "A free agent paid by sellers may not pick what's best for you.",
+        "Nobody agrees yet who pays when an agent buys the wrong thing."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/ai-agents/p01.webp",
+          "thumb": "assets/pulse/ai-agents/p01-t.webp",
+          "title": "Who pays for AI agents?",
+          "w": 1600,
+          "h": 3940
+        },
+        {
+          "file": "assets/pulse/ai-agents/p02.webp",
+          "thumb": "assets/pulse/ai-agents/p02-t.webp",
+          "title": "Does your AI agent actually work for you?",
+          "w": 1600,
+          "h": 3690
+        },
+        {
+          "file": "assets/pulse/ai-agents/p03.webp",
+          "thumb": "assets/pulse/ai-agents/p03-t.webp",
+          "title": "Your AI agent bought the wrong thing. Who pays?",
+          "w": 1600,
+          "h": 3690
+        },
+        {
+          "file": "assets/pulse/ai-agents/p04.webp",
+          "thumb": "assets/pulse/ai-agents/p04-t.webp",
+          "title": "Trying an agent safely this week",
+          "w": 1600,
+          "h": 2760
+        }
+      ],
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "ai-bottlenecks",
+      "title": "AI Bottlenecks",
+      "topic": "AI",
+      "blurb": "Why AI growth depends on power, memory and plumbing.",
+      "gist": [
+        "Chips need power, cooling, memory and fast links to be useful.",
+        "Getting power to a data center can take years, not months.",
+        "Winners plan for the plug, not just the chip."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/ai-bottlenecks/p01.webp",
+          "thumb": "assets/pulse/ai-bottlenecks/p01-t.webp",
+          "title": "The AI bottleneck isn't just chips",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/ai-bottlenecks/p02.webp",
+          "thumb": "assets/pulse/ai-bottlenecks/p02-t.webp",
+          "title": "Power and cooling: the real limit",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/ai-bottlenecks/p03.webp",
+          "thumb": "assets/pulse/ai-bottlenecks/p03-t.webp",
+          "title": "Memory and connections: the other limits",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/ai-bottlenecks/p04.webp",
+          "thumb": "assets/pulse/ai-bottlenecks/p04-t.webp",
+          "title": "Who has to adapt, and what's next",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/ai-bottlenecks/p05.webp",
+          "thumb": "assets/pulse/ai-bottlenecks/p05-t.webp",
+          "title": "Why AI keeps getting cheaper anyway",
+          "w": 1600,
+          "h": 2760
+        }
+      ],
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "ai-moats",
+      "title": "AI Moats",
+      "topic": "AI",
+      "blurb": "When every AI is smart, being there wins.",
+      "gist": [
+        "Models get copied; habits, history and workflow don't.",
+        "A slightly better AI rarely beats the one already in your apps.",
+        "Newcomers win with a new task, a forgotten user, or a far better product."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/ai-moats/p01.webp",
+          "thumb": "assets/pulse/ai-moats/p01-t.webp",
+          "title": "If every AI is smart, who wins?",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/ai-moats/p02.webp",
+          "thumb": "assets/pulse/ai-moats/p02-t.webp",
+          "title": "Why the smarter AI doesn't always win",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/ai-moats/p03.webp",
+          "thumb": "assets/pulse/ai-moats/p03-t.webp",
+          "title": "Who gains and who feels the squeeze",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/ai-moats/p04.webp",
+          "thumb": "assets/pulse/ai-moats/p04-t.webp",
+          "title": "So what do you do with this?",
+          "w": 1600,
+          "h": 2760
+        }
+      ]
+    },
+    {
+      "id": "physical-ai",
+      "title": "Physical AI",
+      "topic": "AI",
+      "blurb": "Robots and cars that handle surprises.",
+      "gist": [
+        "Old robots follow a script; physical AI figures out the unexpected.",
+        "Reasoning cars handle the odd moment, like a worker waving you through.",
+        "Still early: mostly pilots, trials and limited cities."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/physical-ai/p01.webp",
+          "thumb": "assets/pulse/physical-ai/p01-t.webp",
+          "title": "Physical AI: robots that can handle surprises",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/physical-ai/p02.webp",
+          "thumb": "assets/pulse/physical-ai/p02-t.webp",
+          "title": "Cars that can think through surprises",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/physical-ai/p03.webp",
+          "thumb": "assets/pulse/physical-ai/p03-t.webp",
+          "title": "Humanoids and home robots: hype vs. today",
+          "w": 1600,
+          "h": 2760
+        }
+      ],
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "world-models",
+      "title": "World Models",
+      "topic": "AI",
+      "blurb": "AI that imagines what happens next before it acts.",
+      "gist": [
+        "A language model knows the words; a world model predicts what happens.",
+        "It learns physics by watching video and guessing the next frame.",
+        "Great in the lab, still learning the real world."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/world-models/p01.webp",
+          "thumb": "assets/pulse/world-models/p01-t.webp",
+          "title": "What world models actually are",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/world-models/p02.webp",
+          "thumb": "assets/pulse/world-models/p02-t.webp",
+          "title": "How world models learn, and what they unlock",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/world-models/p03.webp",
+          "thumb": "assets/pulse/world-models/p03-t.webp",
+          "title": "What world models let robots do",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/world-models/p04.webp",
+          "thumb": "assets/pulse/world-models/p04-t.webp",
+          "title": "The limits today, and who has to adapt",
+          "w": 1600,
+          "h": 2760
+        }
+      ]
+    },
+    {
+      "id": "stablecoin-rails",
+      "title": "Stablecoins & the Rails Underneath",
+      "topic": "Tech",
+      "blurb": "How money could move on one shared record.",
+      "gist": [
+        "Banks and brokers each keep their own record; shared ledgers sync them.",
+        "A stablecoin is a digital dollar that moves any day, any hour.",
+        "Tokenized deposits do the same inside your bank."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/stablecoin-rails/p01.webp",
+          "thumb": "assets/pulse/stablecoin-rails/p01-t.webp",
+          "title": "The rails underneath",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/stablecoin-rails/p02.webp",
+          "thumb": "assets/pulse/stablecoin-rails/p02-t.webp",
+          "title": "Stablecoins: the open digital dollar",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/stablecoin-rails/p03.webp",
+          "thumb": "assets/pulse/stablecoin-rails/p03-t.webp",
+          "title": "Tokenized deposits vs. stablecoins",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/stablecoin-rails/p04.webp",
+          "thumb": "assets/pulse/stablecoin-rails/p04-t.webp",
+          "title": "The rules of the road",
+          "w": 1600,
+          "h": 2760
+        }
+      ],
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "tokenization",
+      "title": "Tokenization",
+      "topic": "Tech",
+      "blurb": "A digital receipt for something real.",
+      "gist": [
+        "A token is a receipt on a shared notebook; the asset stays in the vault.",
+        "Funds and loans move first; homes and sports teams come later.",
+        "Your bank app may quietly use the new rails. Same bank, faster money."
+      ],
+      "added": "2026-10-12",
+      "pages": [
+        {
+          "file": "assets/pulse/tokenization/p01.webp",
+          "thumb": "assets/pulse/tokenization/p01-t.webp",
+          "title": "What tokenization actually is",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/tokenization/p02.webp",
+          "thumb": "assets/pulse/tokenization/p02-t.webp",
+          "title": "Tokens vs. crypto: not the same thing",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/tokenization/p03.webp",
+          "thumb": "assets/pulse/tokenization/p03-t.webp",
+          "title": "What's actually tokenized today",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/tokenization/p04.webp",
+          "thumb": "assets/pulse/tokenization/p04-t.webp",
+          "title": "What changes for you",
+          "w": 1600,
+          "h": 2760
+        },
+        {
+          "file": "assets/pulse/tokenization/p05.webp",
+          "thumb": "assets/pulse/tokenization/p05-t.webp",
+          "title": "Who benefits, and who has to adapt",
+          "w": 1600,
+          "h": 2760
+        }
+      ],
+      "updated": "2026-10-12"
+    }
+  ]
+}

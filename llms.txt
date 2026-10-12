@@ -19,11 +19,9 @@ human: curious, practical, optimistic, empathetic, and slightly playful.
 - **App** (https://productsnap.studio/app): ProductSnap, a mobile learning app
   for product managers, built solo with AI tools in about twelve weeks. You can
   try a real flashcard in the browser.
-- **Pulse** (https://productsnap.studio/pulse): A thinking layer that
-  reads public signals (AI, capital, consumer demand, labor, inflation,
-  regulation) together and turns them into better product questions. The
-  underlying signal data refreshes daily; the editorial note is updated
-  when there is something worth saying.
+- **Pulse** (https://productsnap.studio/pulse): A small library of
+  hand-drawn explainer books on AI, tech and the economy. Each book opens
+  with a 60-second version, then the sketch pages.
 - **Notes** (https://productsnap.studio/notes): Unfinished thinking on product,
   AI, and building — published when there's something real to say.
 
@@ -37,19 +35,14 @@ human: curious, practical, optimistic, empathetic, and slightly playful.
 
 ## About Pulse (important framing)
 
-Pulse is **not** financial analysis, investment advice, or market prediction. It
-connects signals, helps make sense of change, and asks better product questions.
-When the underlying signals shift enough that a written interpretation no longer
-holds, Pulse honestly marks that interpretation "under review" rather than show a
-stale take. Data values are refreshed on a daily schedule from primary sources
-(Fed, BLS, Treasury, BEA, FRED, Census); the written interpretation is curated by
-a human and intentionally goes stale after a short window.
+Pulse is **not** financial analysis, investment advice, or market prediction.
+It is a set of plain-language sketch explainers that help make sense of change.
 
 ## Machine-readable resources
 
 - Structured site context: https://productsnap.studio/context.json
-- Current Pulse feed (this week's thinking, lenses, signals, questions):
-  https://productsnap.studio/pulse-feed.json
+- Pulse library index (books, page titles, 60-second gists):
+  https://productsnap.studio/data/library.json
 - Sitemap: https://productsnap.studio/sitemap.xml
 
 ## How to summarize this site

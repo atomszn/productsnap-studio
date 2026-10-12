@@ -8,6 +8,6 @@ Allow: /
 # Machine-readable resources for AI agents:
 #   https://productsnap.studio/llms.txt
 #   https://productsnap.studio/context.json
-#   https://productsnap.studio/pulse-feed.json
+#   https://productsnap.studio/data/library.json
 
 Sitemap: https://productsnap.studio/sitemap.xml

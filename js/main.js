@@ -274,37 +274,25 @@
      Moved to the shared js/reveal.js so EVERY page (not just index) runs the
      same reveal logic. Keeping it here too would double-observe on index. */
 
-  /* ---------- Homepage live Pulse insert ----------
-     Pulls this week's Weekly Connection (title + one line) from
-     data/pulse-content.json so the homepage stays current on its own.
-     Dependency-free; does not touch js/pulse.js or the JSON.
-  ----------------------------------------------------- */
+  /* ---------- Homepage Pulse insert ----------
+     Shows the newest book from data/library.json (the Pulse sketch library). */
   function initHomePulse() {
     const titleEl = document.getElementById("home-pulse-title");
     const lineEl = document.getElementById("home-pulse-line");
     if (!titleEl || !lineEl) return;
-
-    fetch("data/pulse-content.json", { cache: "no-cache" })
-      .then((r) => {
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        return r.json();
-      })
+    fetch("data/library.json", { cache: "no-cache" })
+      .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
       .then((data) => {
-        const wc = data && data.weekly_connection;
-        if (!wc || !wc.title) throw new Error("weekly_connection missing");
-        titleEl.textContent = wc.title;
-        // "one line" — prefer subtitle, fall back to the refined observation.
-        var line = wc.subtitle ||
-          (wc.refined && wc.refined.observation) ||
-          (wc.body_paragraphs && wc.body_paragraphs[0]) || "";
-        lineEl.textContent = line;
+        const books = (data && data.books) || [];
+        if (!books.length) throw new Error("no books");
+        const b = books.slice().sort((x, y) => (y.updated || y.added).localeCompare(x.updated || x.added))[0];
+        titleEl.textContent = b.title;
+        lineEl.textContent = b.blurb;
       })
       .catch((err) => {
-        console.error("Home Pulse: failed to load weekly connection", err);
-        // Honest fallback that still points to the live page.
-        titleEl.textContent = "The latest connection is on the Pulse page.";
-        lineEl.textContent =
-          "The live insert couldn't load here \u2014 read it in full on Pulse.";
+        console.error("Home Pulse: failed to load library", err);
+        titleEl.textContent = "New sketch books are on the Pulse shelf.";
+        lineEl.textContent = "Open Pulse to browse the library.";
       });
   }
 
