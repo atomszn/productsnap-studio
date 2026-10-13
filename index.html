@@ -69,6 +69,7 @@
     <link rel="stylesheet" href="assets/fonts/fonts.css" />
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/projects.css" />
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -362,6 +363,57 @@
         </div>
       </section>
 
+      <section class="section home-built" id="built" aria-labelledby="built-title">
+        <div class="section-head">
+          <span class="kicker">live, and free to try</span>
+          <h2 class="section-title" id="built-title">Things I've built</h2>
+        </div>
+        <div class="pj-grid">
+          <article class="pj-card" style="--pj:#6c33c9">
+            <a class="pj-shot" href="projects/productsnap.html" tabindex="-1" aria-hidden="true">
+              <picture>
+                <source media="(min-width: 561px) and (max-width: 980px)" srcset="assets/projects/productsnap-phone.webp" />
+                <img src="assets/projects/productsnap-desktop.webp" alt="" width="1200" height="750" loading="lazy" decoding="async" />
+              </picture>
+            </a>
+            <div class="pj-body">
+              <h3 class="pj-name"><a href="projects/productsnap.html">ProductSnap</a></h3>
+              <p class="pj-pitch">A free mobile app for product managers: flashcards, real product stories and practice.</p>
+              <p class="pj-tag">Better judgment, one card at a time.</p>
+              <p class="pj-links"><a href="projects/productsnap.html">Case study <span aria-hidden="true">→</span></a><a href="https://productsnap.studio/app.html" target="_blank" rel="noopener">Get the app <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </article>
+          <article class="pj-card" style="--pj:#c9771a">
+            <a class="pj-shot" href="projects/flickmango.html" tabindex="-1" aria-hidden="true">
+              <picture>
+                <source media="(min-width: 561px) and (max-width: 980px)" srcset="assets/projects/flickmango-phone.webp" />
+                <img src="assets/projects/flickmango-desktop.webp" alt="" width="1200" height="750" loading="lazy" decoding="async" />
+              </picture>
+            </a>
+            <div class="pj-body">
+              <h3 class="pj-name"><a href="projects/flickmango.html">FlickMango</a></h3>
+              <p class="pj-pitch">Find Indian films on the streaming services you already pay for, by language and region.</p>
+              <p class="pj-tag">Less searching, more watching.</p>
+              <p class="pj-links"><a href="projects/flickmango.html">Case study <span aria-hidden="true">→</span></a><a href="https://www.flickmango.com/" target="_blank" rel="noopener">flickmango.com <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </article>
+          <article class="pj-card" style="--pj:#15605a">
+            <a class="pj-shot" href="projects/runitback.html" tabindex="-1" aria-hidden="true">
+              <picture>
+                <source media="(min-width: 561px) and (max-width: 980px)" srcset="assets/projects/runitback-phone.webp" />
+                <img src="assets/projects/runitback-desktop.webp" alt="" width="1200" height="750" loading="lazy" decoding="async" />
+              </picture>
+            </a>
+            <div class="pj-body">
+              <h3 class="pj-name"><a href="projects/runitback.html">Run It Back</a></h3>
+              <p class="pj-pitch">Seventh grade math, one small step at a time, with a hint whenever you want one.</p>
+              <p class="pj-tag">Pencils welcome. Erasers too.</p>
+              <p class="pj-links"><a href="projects/runitback.html">Case study <span aria-hidden="true">→</span></a><a href="https://runitback.me/" target="_blank" rel="noopener">runitback.me <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <!-- ============================================================ -->
       <!-- ① SKETCHES · WHERE IDEAS START                                            -->
       <!-- ============================================================ -->
@@ -513,26 +565,6 @@
       <!-- ============================================================ -->
       <!-- ④ NOTES                                                        -->
       <!-- ============================================================ -->
-      <section class="section home-projects" id="projects">
-        <div class="section-head">
-          <span class="kicker">also built here</span>
-          <h2 class="section-title">More <span class="hl-circle">projects</span></h2>
-          <p class="section-lead">Side projects from the same notebook, live and free to try.</p>
-        </div>
-        <div class="proj-grid">
-          <a class="proj-card" href="https://www.flickmango.com/" target="_blank" rel="noopener">
-            <span class="proj-name">FlickMango</span>
-            <span class="proj-desc">Find Indian films on the streaming services you already have.</span>
-            <span class="proj-link">flickmango.com <span aria-hidden="true">↗</span></span>
-          </a>
-          <a class="proj-card" href="https://runitback.me/" target="_blank" rel="noopener">
-            <span class="proj-name">Run It Back</span>
-            <span class="proj-desc">Grade 7 math, told like a person: pictures, plain words, practice, and a “run it back” loop for misses.</span>
-            <span class="proj-link">runitback.me <span aria-hidden="true">↗</span></span>
-          </a>
-        </div>
-      </section>
-
       <section class="section home-notes" id="notes">
         <div class="section-head">
           <span class="kicker">what's behind the build</span>
@@ -614,6 +646,7 @@
     <script src="js/theme.js" defer></script>
     <script src="js/reveal.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/projects.js" defer></script>
     <!-- Privacy-friendly analytics (Umami) — cookieless, deferred, no-op until configured. See README. -->
     <script src="js/analytics.js" defer></script>
   </body>

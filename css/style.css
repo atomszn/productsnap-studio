@@ -3717,10 +3717,3 @@ html.js.reveal-on .thought-teaser .tt-ref {
   }
 }
 
-/* More projects (home) */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:22px}
-.proj-card{display:flex;flex-direction:column;gap:8px;padding:20px 22px;border:1.5px solid var(--ink);border-radius:14px;background:var(--paper,#fffdf6);color:var(--ink);text-decoration:none;box-shadow:3px 4px 0 rgba(0,0,0,.12);transition:transform .15s}
-.proj-card:hover,.proj-card:focus-visible{transform:translateY(-3px) rotate(-.4deg)}
-.proj-name{font-family:var(--serif,serif);font-size:1.35rem;font-weight:600}
-.proj-desc{line-height:1.45}
-.proj-link{font-weight:600;text-decoration:underline;text-underline-offset:3px;margin-top:auto}
