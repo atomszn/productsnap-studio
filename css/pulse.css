@@ -275,3 +275,14 @@ body.reading{overflow:hidden}
 .bk-why{display:block;margin-top:2px;font-size:.78rem}
 .best-go{font:600 .9rem var(--body);color:color-mix(in srgb,var(--tc) 70%,#000);white-space:nowrap}
 [data-theme="dark"] .best-k,[data-theme="dark"] .best-go,[data-theme="dark"] .sv-book{color:var(--ink)}
+
+/* a11y + CLS: visible keyboard focus on books, reserve shelf space before fonts/data land */
+.sp:focus-visible,.bk:focus-visible,.end-cover:focus-visible,.dot:focus-visible,.topictabs button:focus-visible{outline:3px solid var(--ink,#222);outline-offset:3px;border-radius:6px}
+.shelves:empty,.shelves:has(.lib-loading){min-height:600px}
+.shelves .shelf-row{min-height:240px}
+.end-sources{margin:18px auto 0;max-width:34rem;text-align:left;font-size:.92rem}
+.end-sources summary{cursor:pointer;font-family:var(--hand);font-size:1.1rem;color:var(--ink-soft)}
+.end-sources summary:focus-visible{outline:3px solid var(--ink,#222);outline-offset:3px;border-radius:4px}
+.end-sources ul{margin:8px 0 0;padding-left:1.1rem;line-height:1.5}
+.end-sources a{color:var(--ink);text-underline-offset:2px;overflow-wrap:anywhere}
+.end-sources li{margin:0}.end-sources a{display:inline-flex;align-items:center;min-height:44px;padding:4px 0}.end-sources summary{min-height:44px;display:list-item;padding-top:10px}

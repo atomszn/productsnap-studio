@@ -64,12 +64,9 @@
     <link rel="canonical" href="https://productsnap.studio" />
 
     <!-- Fonts: Caveat / Kalam (handwritten), Inter (body), Fraunces (serif accent) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"
-    />
+    <link rel="preload" href="assets/fonts/caveat-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
 
     <link rel="stylesheet" href="css/style.css" />
     <script type="application/ld+json">
@@ -516,6 +513,26 @@
       <!-- ============================================================ -->
       <!-- ④ NOTES                                                        -->
       <!-- ============================================================ -->
+      <section class="section home-projects" id="projects">
+        <div class="section-head">
+          <span class="kicker">also built here</span>
+          <h2 class="section-title">More <span class="hl-circle">projects</span></h2>
+          <p class="section-lead">Side projects from the same notebook, live and free to try.</p>
+        </div>
+        <div class="proj-grid">
+          <a class="proj-card" href="https://www.flickmango.com/" target="_blank" rel="noopener">
+            <span class="proj-name">FlickMango</span>
+            <span class="proj-desc">Find Indian films on the streaming services you already have.</span>
+            <span class="proj-link">flickmango.com <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="proj-card" href="https://runitback.me/" target="_blank" rel="noopener">
+            <span class="proj-name">Run It Back</span>
+            <span class="proj-desc">Grade 7 math, told like a person: pictures, plain words, practice, and a “run it back” loop for misses.</span>
+            <span class="proj-link">runitback.me <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+      </section>
+
       <section class="section home-notes" id="notes">
         <div class="section-head">
           <span class="kicker">what's behind the build</span>
@@ -550,7 +567,7 @@
             the receipt.
           </p>
           <figure class="atom-doodle" aria-label="A hand-drawn portrait of Atom the dog">
-            <img src="assets/wires/atom.png"
+            <img src="assets/wires/atom.webp" decoding="async"
                  alt="Hand-drawn pencil sketch of Atom, a black Labrador, doing a curious head-tilt"
                  loading="lazy" width="220" height="220" />
             <figcaption class="atom-note">Atom — chief morale officer.<br /><span class="atom-note-sub">Supervised most late-night builds. Mostly by sleeping through them.</span></figcaption>
@@ -593,10 +610,10 @@
       </div>
     </footer>
 
-    <script src="js/nav.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/reveal.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/nav.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/reveal.js" defer></script>
+    <script src="js/main.js" defer></script>
     <!-- Privacy-friendly analytics (Umami) — cookieless, deferred, no-op until configured. See README. -->
     <script src="js/analytics.js" defer></script>
   </body>

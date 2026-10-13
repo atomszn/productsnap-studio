@@ -201,7 +201,7 @@
   function decorate(a, b) {
     a.href = "#book/" + b.id + "/1";
     var pr = progress(b);
-    a.setAttribute("aria-label", b.title + " — " + tagline(b) + ". " + (b.pages.length + 1) + " pages" + (pr ? ", " + Math.round(pr * 100) + "% read" : "") + (b.start_here ? ". Start here." : "") + (isNew(b) ? ". New." : ""));
+    a.removeAttribute("aria-label"); var sr = a.querySelector(".sr-desc") || el("span", "sr-only sr-desc"); sr.textContent = " — " + tagline(b) + ". " + (b.pages.length + 1) + " pages" + (pr ? ", " + Math.round(pr * 100) + "% read" : "") + (b.start_here ? ". Start here." : "") + (isNew(b) ? ". New." : ""); a.appendChild(sr);
     if (isNew(b)) a.classList.add("is-new");
     if ((opens[b.id] || 0) >= 3) a.classList.add("is-lean");
     if (b.start_here) a.classList.add("is-start");
@@ -239,6 +239,7 @@
     a.appendChild(meta);
     if (hitPage >= 0) a.appendChild(el("span", "bk-hit", "Opens at “" + b.pages[hitPage].title + "”"));
     if (reason) a.appendChild(el("span", "bk-why", "Why: " + reason));
+    a.appendChild(a.querySelector(".sr-desc"));
     return a;
   }
   function spine(b) {
@@ -253,7 +254,7 @@
     var tip = el("span", "sp-tip"); tip.setAttribute("aria-hidden", "true");
     tip.appendChild(el("b", null, b.title)); tip.appendChild(el("span", null, tagline(b)));
     var bm = savedFor(b); if (bm.length) tip.appendChild(el("span", "bk-bm", "Saved · p." + bm.join(", ")));
-    a.appendChild(tip);
+    a.appendChild(tip); a.appendChild(a.querySelector(".sr-desc"));
     return a;
   }
   function renderTabs() {
@@ -370,6 +371,11 @@
     var open1 = el("a", "g-go", "Open " + n.title + " →"); open1.href = a.href; row.appendChild(open1);
     var back = el("button", "linkbtn end-shelf", "Back to the shelf"); back.type = "button"; back.onclick = close; row.appendChild(back);
     d.appendChild(row);
+    if (b.sources && b.sources.length) {
+      var sd = el("details", "end-sources"); sd.appendChild(el("summary", null, "Sources for this book (" + b.sources.length + ")"));
+      var ul = el("ul"); b.sources.forEach(function (x) { var li = el("li"), l = el("a", null, x.title); l.href = x.url; l.target = "_blank"; l.rel = "noopener"; li.appendChild(l); ul.appendChild(li); });
+      sd.appendChild(ul); d.appendChild(sd);
+    }
     return d;
   }
   function pageNode(b, i) {
@@ -385,7 +391,7 @@
       var go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; d.appendChild(go);
     } else {
       var btn = el("button", "pg-zoom"); btn.type = "button"; btn.setAttribute("aria-label", "Zoom into page: " + p.title);
-      var img = el("img"); img.src = p.file; img.alt = b.title + " — " + p.title; img.width = p.w; img.height = p.h; img.decoding = "async";
+      var img = el("img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + "."; img.width = p.w; img.height = p.h; img.decoding = "async"; if (Math.abs(i - idx) > 1) img.loading = "lazy";
       btn.appendChild(img); btn.onclick = function () { zoom(p, b); }; d.appendChild(btn);
       var nx = P[i + 1]; if (nx) { var pre = new Image(); pre.src = nx.file; }
     }
@@ -450,7 +456,7 @@
   }
   var zoomFrom = null;
   function zoom(p, b) {
-    var z = $("zoom"), img = $("zoom-img"); img.src = p.file; img.alt = b.title + " — " + p.title;
+    var z = $("zoom"), img = $("zoom-img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + ".";
     zoomFrom = document.activeElement;
     z.hidden = false; z.classList.remove("big"); z.scrollTop = 0; $("zoom-x").focus();
   }
@@ -504,6 +510,8 @@
       if (!cur) { if (e.key === "/") { e.preventDefault(); $("ask-input").focus(); } return; }
       if (e.key === "ArrowRight") turn(1);
       else if (e.key === "ArrowLeft") turn(-1);
+      else if (e.key === "Home") { e.preventDefault(); go(0); }
+      else if (e.key === "End") { e.preventDefault(); go(pages(cur).length - 1); }
       else if (e.key === "Escape") close();
       else if ((e.key === "z" || e.key === "Z") && idx > 0 && idx < pages(cur).length) zoom(cur.pages[idx - 1], cur);
       else if (e.key === "b" || e.key === "B") $("rd-bm").click();

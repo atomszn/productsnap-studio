@@ -20,20 +20,20 @@ TPL = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8" />
 <title>{title} — Pulse · ProductSnap Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="{tag}" />
+<meta name="description" content="{desc}" />
 <meta name="robots" content="noindex, follow" />
 <link rel="canonical" href="{base}pulse#book/{id}/1" />
 <meta property="og:type" content="book" />
 <meta property="og:site_name" content="ProductSnap Studio" />
 <meta property="og:title" content="{title} — a Pulse sketch book" />
-<meta property="og:description" content="{tag}" />
+<meta property="og:description" content="{desc}" />
 <meta property="og:url" content="{base}share/{id}.html" />
 <meta property="og:image" content="{base}assets/pulse/og/{id}.png" />
 <meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Cover of {title}: {tag}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{title} — a Pulse sketch book" />
-<meta name="twitter:description" content="{tag}" />
+<meta name="twitter:description" content="{desc}" />
 <meta name="twitter:image" content="{base}assets/pulse/og/{id}.png" />
 <meta http-equiv="refresh" content="0; url=../pulse.html#book/{id}/1" />
 <script>
@@ -44,8 +44,9 @@ TPL = """<!doctype html>
 """
 for b in lib["books"]:
     tag = b.get("tagline") or b["blurb"]
+    desc = (tag.rstrip(".") + ("" if tag.rstrip(".")[-1:] in "?!" else ".") + " " + " ".join(b.get("gist", [])))[:300]
     with open(os.path.join(ROOT, "share", b["id"] + ".html"), "w") as f:
-        f.write(TPL.format(title=html.escape(b["title"]), tag=html.escape(tag), id=b["id"], base=base))
+        f.write(TPL.format(title=html.escape(b["title"]), tag=html.escape(tag), desc=html.escape(desc), id=b["id"], base=base))
 print("wrote %d share pages" % len(lib["books"]))
 if a.no_images:
     sys.exit(0)
