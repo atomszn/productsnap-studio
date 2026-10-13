@@ -285,3 +285,4 @@ body.reading{overflow:hidden}
 .end-sources summary:focus-visible{outline:3px solid var(--ink,#222);outline-offset:3px;border-radius:4px}
 .end-sources ul{margin:8px 0 0;padding-left:1.1rem;line-height:1.5}
 .end-sources a{color:var(--ink);text-underline-offset:2px;overflow-wrap:anywhere}
+.end-sources li{margin:0}.end-sources a{display:inline-flex;align-items:center;min-height:44px;padding:4px 0}.end-sources summary{min-height:44px;display:list-item;padding-top:10px}
