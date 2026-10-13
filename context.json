@@ -39,10 +39,10 @@
     {
       "name": "Pulse",
       "type": "CreativeWork",
-      "category": "Thinking layer",
-      "description": "A thinking layer that reads public signals across AI, capital, consumer demand, labor, inflation, and regulation together, and turns them into better product questions. The underlying signal data refreshes daily; the editorial note is updated when there is something worth saying. Not financial analysis, investment advice, or market prediction.",
+      "category": "Sketch library",
+      "description": "A library of hand-drawn explainer books on AI, tech and the economy. Each book opens with a 60-second version, then the sketch pages. Not financial analysis, investment advice, or market prediction.",
       "url": "https://productsnap.studio/pulse",
-      "machine_feed": "https://productsnap.studio/pulse-feed.json"
+      "machine_feed": "https://productsnap.studio/data/library.json"
     },
     {
       "name": "Sketchbook",

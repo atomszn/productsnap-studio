@@ -15,27 +15,34 @@ experience.
 | --- | --- |
 | `llms.txt` | Plain-text overview for LLMs: what the studio is, who built it, key pages, themes. |
 | `context.json` | Structured profile: person, projects, pages, themes, focus areas. Only intentionally-public info. |
-| `pulse-feed.json` | Machine-readable summary of the current Pulse — **auto-generated** from `data/pulse-content.json`. |
+| `data/library.json` | The Pulse sketch library (books, pages, gists) — built by `scripts/add_book.py`. |
 | `sitemap.xml` | Lists the five important pages. |
 | `robots.txt` | Welcomes legitimate crawlers; points to the sitemap and discovery resources. |
 | `assets/og-default.png` | 1200×630 social/OpenGraph preview image (paper/notebook aesthetic). |
 | JSON-LD (in each page `<head>`) | Schema.org: Person, WebSite, SoftwareApplication (ProductSnap), CreativeWork (Pulse, Studio, Sketches, Notes). |
 
-### Regenerating the Pulse feed
+### Pulse — the sketch library
 
-`pulse-feed.json` is derived from `data/pulse-content.json` and **respects the
-same trust gate as the live site** — when an interpretation is "under review,"
-the feed withholds it (so machines never read a stale take):
+`pulse.html` renders `data/library.json`. Books and pages are managed with
+`scripts/add_book.py` (needs Python 3 + Pillow); it converts images to WebP
+(max 1600px wide, plus 480px thumbnails) under `assets/pulse/<slug>/`.
 
 ```bash
-node scripts/generate-pulse-feed.js          # rewrite pulse-feed.json
-node scripts/generate-pulse-feed.js --check  # verify it's in sync (exit 1 if stale)
+python3 scripts/add_book.py list
+python3 scripts/add_book.py book --slug my-book --title "My Book" --topic AI \
+  --blurb "One line." --gist "Point 1" "Point 2" "Point 3" \
+  --pages p01.jpg p02.jpg --page-titles "Title 1" "Title 2"
+python3 scripts/add_book.py replace --slug ai-agents --page 2 --image fixed.jpg
+python3 scripts/add_book.py append  --slug ai-moats --image new.jpg --title "New page" [--at 3]
+python3 scripts/add_book.py meta    --slug agent-vocabulary --tagline "Cover line" [--start-here] [--vol 2]
 ```
 
-> Note: the daily "Refresh Pulse data" workflow updates `data/pulse-content.json`
-> but does not regenerate `pulse-feed.json`. Run the generator after a data or
-> editorial refresh to keep the feed current. (Pulse framing: the feed is **not**
-> financial analysis, investment advice, or market prediction.)
+Fixed or new pages (e.g. from `pulse_mockup/books/fixes2/`) are swapped in with
+`replace` / `append`; touched books get an `updated` date and show as "new" to
+returning readers. Topics: AI (ink blue), Tech (amber), Macro (green). Covers and spines are
+drawn in HTML/CSS from `title`, `tagline`, `topic` and `vol` — no cropped images.
+The Shelf (spines) is the default view at every width; Topics shows covers.
+Deep links: `pulse.html#book/<slug>/<page>` (page 1 = the 60-second version).
 
 ## Analytics (privacy-friendly)
 

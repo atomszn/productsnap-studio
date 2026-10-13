@@ -13,9 +13,10 @@
         try {
           var t = localStorage.getItem('psnap-theme');
           if (t !== 'dark' && t !== 'light') {
-            t = (window.matchMedia &&
-                 window.matchMedia('(prefers-color-scheme: dark)').matches)
-              ? 'dark' : 'light';
+            /* Pulse: ambient day/night. No saved choice → follow the clock
+               (dark 19:00–07:00). The nav toggle still overrides. */
+            var h = new Date().getHours();
+            t = (h >= 19 || h < 7) ? 'dark' : 'light';
           }
           if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
         } catch (e) {}
@@ -36,14 +37,14 @@
     <title>Pulse — ProductSnap Studio</title>
     <meta
       name="description"
-      content="An editorial read on signals from AI, capital, consumer demand, labor, inflation and regulation — read in combination, translated into product questions."
+      content="A quiet library of hand-drawn explainers on AI, tech and the economy. Open a book, turn the pages, read the 60-second version."
     />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pulse — ProductSnap Studio" />
     <meta
       property="og:description"
-      content="Pulse connects public signals into product questions. A thinking layer for curious builders, with signals as the receipts."
+      content="A quiet library of hand-drawn explainers on AI, tech and the economy. Open a book, turn the pages, read the 60-second version."
     />
     <meta property="og:site_name" content="ProductSnap Studio" />
     <meta property="og:url" content="https://productsnap.studio/pulse" />
@@ -51,45 +52,21 @@
     <meta property="og:image" content="https://productsnap.studio/assets/og-default.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Pulse — a thinking layer that turns public signals into better product questions" />
+    <meta property="og:image:alt" content="Pulse — a library of sketch explainers" />
     <meta name="twitter:image" content="https://productsnap.studio/assets/og-default.png" />
     <meta name="twitter:title" content="Pulse — ProductSnap Studio" />
-    <meta name="twitter:description" content="A thinking layer that turns public signals into better product questions. Not financial advice." />
+    <meta name="twitter:description" content="A quiet library of hand-drawn explainers on AI, tech and the economy. Open a book, turn the pages, read the 60-second version." />
 
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="canonical" href="https://productsnap.studio/pulse" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@400;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap"
-    />
+    <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/pulse.css" />
     <script type="application/ld+json">
-{
-      "@context": "https://schema.org",
-      "@graph": [
-            {
-                  "@type": "CreativeWork",
-                  "@id": "https://productsnap.studio/pulse#pulse",
-                  "name": "Pulse",
-                  "url": "https://productsnap.studio/pulse",
-                  "headline": "A thinking layer that turns public signals into better product questions",
-                  "description": "Pulse reads public signals across AI, capital, consumer demand, labor, inflation, and regulation together, and turns them into better product questions. It is not financial analysis, investment advice, or market prediction.",
-                  "creator": {
-                        "@type": "Person",
-                        "@id": "https://productsnap.studio/#jeevan"
-                  },
-                  "isPartOf": {
-                        "@id": "https://productsnap.studio/#website"
-                  },
-                  "isAccessibleForFree": true
-            }
-      ]
-}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Pulse — the sketch library","url":"https://productsnap.studio/pulse","description":"A quiet library of hand-drawn explainers on AI, tech and the economy. Open a book, turn the pages, read the 60-second version.","isPartOf":{"@type":"WebSite","name":"ProductSnap Studio","url":"https://productsnap.studio/"}}
     </script>
   </head>
   <body class="page-pulse">
@@ -126,8 +103,8 @@
         <a href="index.html">Home</a>
         <a href="sketches.html">Sketches</a>
         <a href="app.html">App</a>
-        <a href="pulse.html" title="Live signals → product strategy" class="is-active" aria-current="page">Pulse</a>
         <a href="notes.html">Notes</a>
+        <a href="pulse.html" class="is-active" aria-current="page">Pulse</a>
       </nav>
 
       <button class="theme-toggle theme-toggle-desktop" type="button"
@@ -163,353 +140,69 @@
         <a href="index.html">Home</a>
         <a href="sketches.html">Sketches</a>
         <a href="app.html">App</a>
-        <a href="pulse.html" class="is-active nav-pulse" aria-current="page">Pulse<span class="nav-sub" aria-hidden="true">signals → strategy</span></a>
         <a href="notes.html">Notes</a>
+        <a href="pulse.html" class="is-active" aria-current="page">Pulse</a>
       </nav>
     </div>
     </header>
 
-    <main>
-      <!-- ============================================================ -->
-      <!-- PULSE THINKING LAYER — through-line + lens tabs + active lens   -->
-      <!-- (Pass H) The first viewport on mobile: a world-shift headline,  -->
-      <!-- four lenses, and the active lens's pattern (with inline chips)  -->
-      <!-- and action. The signal library lives below, collapsed.         -->
-      <!-- ============================================================ -->
-      <section class="section pulse-think" id="pulse-think" aria-labelledby="pt-throughline">
-        <span class="kicker pt-kicker">Chapter 04 · the current thought</span>
 
-        <!-- World shift — one sentence, no label above it -->
-        <h1 class="pulse-throughline" id="pt-throughline">Loading the current read…</h1>
-        <p class="pt-model pencil-note">Macro signals translated into product thinking. The signals are the receipts.</p>
-
-        <!-- Lens tabs -->
-        <div class="lens-tabs" id="lens-tabs" role="tablist" aria-label="Choose a lens">
-          <!-- populated by JS -->
-        </div>
-
-        <!-- Active lens content: pattern (with inline chips) + sketchbook aside + action -->
-        <div class="lens-panel" id="lens-panel" aria-live="polite">
-          <p class="lens-pattern" id="lens-pattern"></p>
-          <aside class="lens-sketchbook" id="lens-sketchbook" hidden></aside>
-          <!-- Inline chip detail mounts here, directly below the pattern -->
-          <div class="chip-detail" id="chip-detail" role="region" aria-live="polite" hidden></div>
-          <p class="lens-action" id="lens-action"></p>
-        </div>
-
-        <!-- Margin-annotation affordance to reveal the signal library -->
-        <div class="explore-affordance">
-          <span class="explore-rule" aria-hidden="true"></span>
-          <button type="button" class="explore-signals" id="explore-signals"
-                  aria-expanded="false" aria-controls="signal-library">
-            <span class="explore-label">See the thinking + the signals behind it</span>
-            <span class="explore-caret" aria-hidden="true">↓</span>
-          </button>
-          <span class="explore-hint" aria-hidden="true">tap to open the signal library</span>
-        </div>
+    <main class="lib" id="lib">
+      <section class="lib-hero">
+        <p class="lib-kicker">Pulse · the sketch library</p>
+        <h1 class="lib-title">Small books for big shifts.</h1>
+        <p class="lib-sub">Hand-drawn explainers on AI, tech and the economy. Pick a book, read the 60-second version, turn the pages.</p>
+        <form class="lib-ask" id="lib-ask" role="search" autocomplete="off">
+          <label class="sr-only" for="ask-input">Search the library: a topic, a word or a question</label>
+          <input id="ask-input" type="search" enterkeyhint="search" autocapitalize="off" spellcheck="false" placeholder="Try: robots" aria-describedby="ask-hint" />
+          <button type="submit">Search</button>
+        </form>
+        <p class="lib-ask-hint" id="ask-hint" aria-live="polite"></p>
       </section>
 
-      <!-- ============================================================ -->
-      <!-- SIGNAL LIBRARY — the appendix. Collapsed by default; revealed   -->
-      <!-- by "Explore the signals behind this". Holds the prior weekly    -->
-      <!-- note, weekly connection, what's-changed, explorer, signal index -->
-      <!-- and source philosophy — content preserved, visually secondary.  -->
-      <!-- ============================================================ -->
-      <div class="signal-library" id="signal-library" hidden>
-      <section class="section pulse-hero" id="pulse-hero">
-        <div class="pulse-hero-head">
-          <span class="kicker">/pulse · latest note</span>
-          <h2 class="pulse-h1">
-            World <span class="hl-underline">signals</span>,
-            read in <span class="hl-circle">combination</span>.
-          </h2>
-          <p class="pulse-h1-sub">
-            A read for product people. One unexpected connection.
-            Eighteen signals behind it. No dashboard energy.
-          </p>
-          <!-- One consolidated, labeled date line for visitors. Answers, in
-               order: when did the signals refresh, when was this read written,
-               and is the thinking still current (Up to date / Refreshing).
-               Derived on load from real data dates + the editorial review
-               window — never hand-typed. The internal pipeline minute-stamp
-               (phase_meta.last_pipeline_refresh) is deliberately NOT shown
-               here; it stays in the JSON/feed for debugging only. -->
-          <span class="pulse-freshness" id="pulse-freshness" aria-live="polite" hidden></span>
-        </div>
+      <div class="lib-bar">
+        <div class="lib-tabs" id="lib-tabs"></div>
+        <span class="lib-new" id="lib-new" hidden></span>
+        <button type="button" class="saved-btn" id="saved-btn" aria-haspopup="dialog" aria-label="Saved pages"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg><span>Saved</span><span class="saved-count" id="saved-count" hidden>0</span></button>
+      </div>
 
-        <!-- Handwritten latest note. The date lives once in the eyebrow above
-             (#hero-date); the standalone attribution date was removed to avoid
-             repeating the same date twice in one block. -->
-        <div class="weekly-note" id="weekly-note" aria-live="polite">
-          <span class="wn-quote-open" aria-hidden="true">“</span>
-          <p class="wn-text" id="wn-text">Loading the latest note…</p>
-        </div>
-
-        <!-- WEEKLY CONNECTION — the hero, structured for scanability -->
-        <article class="weekly-connection" id="weekly-connection" aria-labelledby="wc-title">
-          <span class="wc-tape wc-tape-1" aria-hidden="true"></span>
-          <span class="wc-tape wc-tape-2" aria-hidden="true"></span>
-
-          <header class="wc-head">
-            <span class="wc-eyebrow">the connection</span>
-            <span class="wc-date" id="wc-date">Jun 5</span>
-          </header>
-
-          <h2 class="wc-title" id="wc-title">Loading the latest connection…</h2>
-          <p class="wc-subtitle" id="wc-subtitle"></p>
-
-          <!-- Structured triad: Observation / Why it matters / PM implication -->
-          <dl class="wc-triad" id="wc-triad">
-            <div class="wc-triad-row wc-triad-obs">
-              <dt class="wc-triad-label">Observation</dt>
-              <dd class="wc-triad-text" id="wc-observation"></dd>
-            </div>
-            <div class="wc-triad-row wc-triad-why">
-              <dt class="wc-triad-label">Why it matters</dt>
-              <dd class="wc-triad-text" id="wc-why"></dd>
-            </div>
-            <div class="wc-triad-row wc-triad-pm" id="wc-triad-pm-row">
-              <dt class="wc-triad-label">
-                PM implication
-                <span class="wc-triad-focus" id="wc-implication-focus" aria-live="polite" style="display:none;"></span>
-              </dt>
-              <dd class="wc-triad-text" id="wc-implication"></dd>
-            </div>
-            <div class="wc-triad-row wc-triad-decision" id="wc-triad-decision-row">
-              <dt class="wc-triad-label">The decision this forces</dt>
-              <dd class="wc-triad-text wc-triad-decision-text" id="wc-decision"></dd>
-            </div>
-          </dl>
-
-          <!-- Where would this show up first? — interactive -->
-          <div class="wc-where" id="wc-where" role="group" aria-label="Where this connection shows up first">
-            <span class="wc-where-label">Where would this show up first?</span>
-            <div class="wc-where-tabs" id="wc-where-tabs" role="tablist"></div>
-            <span class="wc-where-helper" id="wc-where-helper"></span>
-          </div>
-
-          <details class="wc-extras" id="wc-extras">
-            <summary class="wc-extras-summary">
-              <span class="wc-extras-caret" aria-hidden="true">▸</span>
-              <span>Read the full thread</span>
-              <span class="wc-extras-hint">a little nuance behind the read</span>
-            </summary>
-            <div class="wc-body" id="wc-body"></div>
-          </details>
-
-          <footer class="wc-foot">
-            <span class="wc-foot-label">Connected signals</span>
-            <div class="wc-signals" id="wc-signals" role="list"></div>
-            <span class="wc-curated" title="Hand-curated editorial — not auto-generated">
-              <span class="wc-dot" aria-hidden="true"></span>
-              hand-curated
-            </span>
-          </footer>
-        </article>
-
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- WHAT'S CHANGED                                                 -->
-      <!-- ============================================================ -->
-      <section class="section whats-changed-section" id="whats-changed-section">
-        <div class="section-head whats-changed-head">
-          <span class="kicker">recent shifts</span>
-          <h2 class="section-title">
-            What’s <span class="hl-underline">changed</span>
-          </h2>
-          <p class="section-lead">
-            A fast scan of the latest shifts. One signal, one movement, one product implication — in a line.
-          </p>
-        </div>
-
-        <div class="whats-changed whats-changed-simple" id="whats-changed">
-          <div class="wch-row wch-moved">
-            <span class="wch-label">
-              <span class="wch-label-text">recently moved</span>
-            </span>
-            <ul class="wch-list wch-list-stack" id="wch-moved" role="list"></ul>
-          </div>
-          <div class="wch-row wch-held">
-            <span class="wch-label">
-              <span class="wch-label-text">held steady</span>
-            </span>
-            <ul class="wch-list wch-list-stack" id="wch-held" role="list"></ul>
-          </div>
-          <div class="wch-row wch-diff">
-            <span class="wch-label">
-              <span class="wch-label-text">behaving differently</span>
-            </span>
-            <ul class="wch-list wch-list-stack" id="wch-diff" role="list"></ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- ACTIVE CHAIN — one signal at a time, the editorial spine        -->
-      <!-- ============================================================ -->
-      <section class="section pulse-explorer-section" id="pulse-explorer-section">
-        <div class="section-head explorer-head">
-          <span class="kicker">the chain · one signal at a time</span>
-          <h2 class="section-title">
-            From <span class="hl-circle">signal</span> to product question
-          </h2>
-          <p class="section-lead">
-            Pick one signal and watch it become product thinking, five steps at a time. Tap a step to open its note — just one at a time, so the thread stays clear.
-          </p>
-        </div>
-
-        <!-- Category picker -->
-        <div class="signal-picker" role="tablist" aria-label="Switch category">
-          <span class="picker-label">Category</span>
-          <div class="picker-pills" id="category-pills">
-            <!-- populated by JS -->
-          </div>
-        </div>
-
-        <!-- Signal pills (within active category) -->
-        <div class="signal-subpicker" role="tablist" aria-label="Switch signal in category">
-          <span class="picker-label picker-label-sm">Signal</span>
-          <div class="picker-pills picker-pills-sm" id="signal-pills">
-            <!-- populated by JS -->
-          </div>
-        </div>
-
-        <!-- The active chain -->
-        <article class="pulse-explorer" id="pulse-explorer" aria-live="polite">
-          <header class="px-head">
-            <div class="px-head-left">
-              <span class="px-category" id="px-category">AI &amp; Technology</span>
-              <span class="px-display-name" id="px-display-name" hidden></span>
-              <h3 class="px-title" id="px-title">Loading signal…</h3>
-              <p class="px-summary" id="px-summary"></p>
-            </div>
-            <div class="px-head-right">
-              <div class="px-pills">
-                <span class="status-pill" id="status-pill">—</span>
-                <span class="confidence-pill" id="confidence-pill">— confidence</span>
-              </div>
-
-              <!-- Current value + reference point -->
-              <div class="px-current">
-                <span class="px-current-val" id="px-current-val">—</span>
-                <span class="px-current-unit" id="px-current-unit"></span>
-                <!-- Quiet scale note — shown only for diffusion-index signals
-                     (mfg-activity, services-activity) which are centered at 0. -->
-                <span class="px-scale-note" id="px-scale-note" hidden></span>
-                <span class="px-reference" id="px-reference" title="Reference point — what makes this value meaningful"></span>
-              </div>
-
-              <!-- Sparkline -->
-              <div class="px-sparkline">
-                <div class="sparkline-svg" id="sparkline-svg" role="img" aria-label="12-month trend sparkline"></div>
-                <span class="sparkline-caption">12-month trend</span>
-              </div>
-
-              <!-- Compared-to widget -->
-              <div class="compared-to" id="compared-to" role="group" aria-label="Compared to reference periods"></div>
-
-              <!-- Percentile pill -->
-              <div class="percentile-pill" id="percentile-pill" role="img" aria-label="Percentile in history"></div>
-            </div>
-          </header>
-
-          <!-- Chain (5 steps, expandable on tap) -->
-          <ol class="chain" id="chain">
-            <!-- populated by JS -->
-          </ol>
-          <p class="chain-hint" id="chain-hint">
-            <span aria-hidden="true">＋</span> tap any step to open its supporting note — one at a time
-          </p>
-
-          <!-- Why I think this — simplified to Evidence / Counter-signal / Product takeaway -->
-          <details class="why-drawer" id="why-drawer">
-            <summary class="why-summary">
-              <span class="why-caret" aria-hidden="true">▸</span>
-              <span class="why-label">Why I think this</span>
-              <span class="why-hint">evidence · counter-signal · product takeaway</span>
-            </summary>
-            <div class="why-body why-body-3" id="why-body"></div>
-          </details>
-
-          <!-- Source / tier / last-updated footnote -->
-          <footer class="px-footnote" id="px-footnote">
-            <!-- populated by JS -->
-          </footer>
-        </article>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- QUIET FOOTER SIGNAL INDEX — utility directory, not a hero      -->
-      <!-- ============================================================ -->
-      <section class="section footer-signal-index" id="footer-signal-index" aria-label="All signals directory">
-        <div class="fsi-inner">
-          <header class="fsi-head">
-            <span class="fsi-eyebrow">all eighteen signals</span>
-            <span class="fsi-hint">jump to any signal in the explorer above</span>
-          </header>
-          <div class="fsi-grid" id="fsi-grid" role="list">
-            <!-- populated by JS — 6 small category groups, each a list of signal links -->
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================ -->
-      <!-- SOURCE PHILOSOPHY (footer strip)                               -->
-      <!-- ============================================================ -->
-      <section class="section source-philosophy-strip" id="source-philosophy">
-        <div class="sp-inner">
-          <span class="sp-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4V4z"/><path d="M4 8h12M4 14h12"/></svg>
-          </span>
-          <p class="sp-text" id="sp-text">
-            Pulse reads from a three-tier source system. <strong>Tier&nbsp;1</strong> (Fed, BLS, Treasury, BEA, FRED, Census) drives conclusions.
-            <strong>Tier&nbsp;2</strong> (market &amp; product surfaces) supports and cross-checks.
-            <strong>Tier&nbsp;3</strong> (editorial &amp; context) informs framing, not evidence.
-          </p>
-          <button class="sp-cta btn-link" type="button" id="sources-philosophy-btn">
-            Read the source philosophy
-            <span class="link-arrow" aria-hidden="true">↗</span>
-          </button>
-        </div>
-      </section>
-      </div><!-- /.signal-library -->
-
-      <!-- Honest statement of what Pulse is — a margin annotation, not legalese. -->
-      <p class="pulse-disclaimer">
-        ↳ Pulse connects public signals into product questions. It's a thinking
-        tool, not investment, financial, or business advice.
-      </p>
+      <div id="shelves" class="shelves" aria-live="polite">
+        <p class="lib-loading">Opening the library…</p>
+      </div>
+      <noscript><p class="lib-loading">Pulse needs JavaScript to open the books.</p></noscript>
     </main>
 
-    <!-- ============================================================ -->
-    <!-- SOURCES MODAL                                                  -->
-    <!-- ============================================================ -->
-    <div class="modal" id="sources-modal" hidden role="dialog" aria-modal="true" aria-labelledby="sources-modal-title">
-      <div class="modal-backdrop" data-close></div>
-      <div class="modal-card" role="document">
-        <button class="modal-close" type="button" aria-label="Close" data-close>×</button>
-        <header class="modal-head">
-          <span class="kicker">Sources</span>
-          <h3 id="sources-modal-title" class="modal-title">Where this read comes from</h3>
-        </header>
-        <div class="modal-body" id="modal-body">
-          <!-- populated by JS -->
+    <!-- Reader -->
+    <div class="reader" id="reader" hidden role="dialog" aria-modal="true" aria-labelledby="rd-title">
+      <div class="rd-top">
+        <button class="rd-btn" id="rd-close" aria-label="Back to the shelf">← Shelf</button>
+        <div class="rd-head"><span class="rd-topic" id="rd-topic"></span><h2 id="rd-title"></h2></div>
+        <div class="rd-actions">
+          <button class="rd-btn rd-ico" id="rd-sound" aria-pressed="false" aria-label="Page-turn sound"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="snd-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/><path class="snd-off" d="m16 9 5 6m0-6-5 6"/></svg><span class="lbl">Sound</span></button>
+          <button class="rd-btn rd-ico" id="rd-bm" aria-pressed="false" aria-label="Bookmark this page"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span class="lbl" id="rd-bm-lbl">Bookmark</span></button>
+          <button class="rd-btn rd-ico" id="rd-share" aria-label="Share this page"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.4M8.2 13.2l7.6 4.4"/></svg><span class="lbl">Share</span></button>
         </div>
       </div>
-    </div>
-
-    <nav class="chapter-turn" aria-label="Next chapter">
-      <div class="chapter-turn-inner">
-        <span class="chapter-eyebrow">end of chapter four
-          <span class="chapter-pips" aria-hidden="true">
-            <span class="pip done"></span><span class="pip done"></span><span class="pip done"></span><span class="pip now"></span><span class="pip"></span>
-          </span>
-        </span>
-        <a href="notes.html" class="chapter-turn-link">↳ next — Chapter 05 · the messy part&nbsp;<span class="ct-arrow" aria-hidden="true">→</span></a>
-        <span class="chapter-whisper">where ideas show up half-formed and argue it out.</span>
+      <div class="rd-stage" id="rd-stage">
+        <button class="rd-nav rd-prev" id="rd-prev" aria-label="Previous page">‹</button>
+        <div class="book" id="book"><div class="page" id="page"></div><div class="ribbon" id="ribbon" hidden></div></div>
+        <button class="rd-nav rd-next" id="rd-next" aria-label="Next page">›</button>
       </div>
-    </nav>
+      <div class="rd-foot">
+        <span class="rd-pagetitle" id="rd-pagetitle"></span>
+        <div class="rd-dots" id="rd-dots"></div>
+        <p class="rd-keys" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd> turn · <kbd>Z</kbd> zoom · <kbd>B</kbd> bookmark · <kbd>Esc</kbd> shelf</p>
+      </div>
+    </div>
+    <div class="zoom" id="zoom" hidden role="dialog" aria-label="Zoomed page"><img id="zoom-img" alt="" /><span class="zoom-hint" aria-hidden="true">Tap to zoom in · Esc to close</span><button class="rd-btn zoom-x" id="zoom-x" aria-label="Close zoom">Close</button></div>
+    <div class="saved" id="saved" hidden>
+      <div class="saved-panel" role="dialog" aria-modal="true" aria-labelledby="saved-h">
+        <div class="saved-top"><h2 id="saved-h">Saved pages</h2><button type="button" class="rd-btn" id="saved-x" aria-label="Close Saved">Close</button></div>
+        <div class="saved-empty" id="saved-empty"><p><b>Nothing saved yet.</b></p><p>Open any book and tap the <span class="sv-ico" aria-hidden="true">🔖</span> bookmark button at the top to save the page you’re on. It shows up here, one tap away.</p></div>
+        <ul class="saved-list" id="saved-list"></ul>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <footer class="footer">
       <div class="foot-inner">
