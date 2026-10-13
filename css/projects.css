@@ -1,19 +1,18 @@
 /* Things I've built — home row + case-study pages. Calm: one accent per project, no loops. */
-.home-built{padding-top:24px}
-.pj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:20px}
-@media (max-width:980px){.pj-grid{grid-template-columns:1fr;max-width:560px}}
+.home-built{padding-top:clamp(28px,4vw,48px);padding-bottom:clamp(36px,5vw,64px)}
+.home-built .section-head{margin-bottom:18px}
+.pj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
 .pj-card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1.5px solid color-mix(in srgb,var(--pj) 55%,transparent);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-2);transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
 .pj-card:hover,.pj-card:focus-within{transform:translateY(-4px);border-color:var(--pj);box-shadow:0 10px 24px -12px color-mix(in srgb,var(--pj) 45%,transparent),var(--shadow-2)}
 .pj-shot{display:block;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid color-mix(in srgb,var(--pj) 30%,transparent);background:var(--paper-2)}
 .pj-shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-@media (max-width:640px){.pj-shot{aspect-ratio:4/5}}
-.pj-body{display:flex;flex-direction:column;gap:8px;padding:18px 20px 20px;flex:1}
+.pj-body{display:flex;flex-direction:column;gap:6px;padding:14px 18px 10px;flex:1;min-width:0}
 .pj-name{margin:0;font-family:var(--serif,serif);font-size:1.45rem;font-weight:600}
 .pj-name a{color:var(--ink);text-decoration:none}
 .pj-name a::before{content:"";display:inline-block;width:.55em;height:.55em;border-radius:50%;background:var(--pj);margin-right:.45em;vertical-align:.12em}
 .pj-pitch{margin:0;color:var(--ink-soft);line-height:1.5}
-.pj-metric{margin:2px 0 0;font-family:var(--hand);font-size:1.15rem;color:color-mix(in srgb,var(--pj) 80%,var(--ink))}
-.pj-links{margin:auto 0 0;padding-top:8px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.pj-tag{margin:0;font-family:var(--hand);font-size:1.15rem;color:color-mix(in srgb,var(--pj) 80%,var(--ink))}
+.pj-links{margin:auto 0 0;padding-top:2px;display:flex;flex-wrap:wrap;gap:6px 18px}
 .pj-links a{display:inline-flex;align-items:center;min-height:44px;font-weight:600;color:var(--ink);text-underline-offset:3px}
 .pj-links a:first-child{text-decoration-color:var(--pj);text-decoration-thickness:2px}
 /* one-time sheen when the card first scrolls into view */
@@ -23,9 +22,12 @@
 :root[data-theme="dark"] .pj-card{border-color:color-mix(in srgb,var(--pj) 60%,#fff 10%);box-shadow:0 0 0 1px color-mix(in srgb,var(--pj) 20%,transparent),0 0 22px -8px color-mix(in srgb,var(--pj) 55%,transparent)}
 :root[data-theme="dark"] .pj-card:hover,:root[data-theme="dark"] .pj-card:focus-within{box-shadow:0 0 0 1px var(--pj),0 0 32px -6px color-mix(in srgb,var(--pj) 70%,transparent)}
 :root[data-theme="dark"] .pj-card::after{background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.12) 50%,transparent 65%)}
-:root[data-theme="dark"] .pj-metric{color:color-mix(in srgb,var(--pj) 55%,#fff)}
+:root[data-theme="dark"] .pj-tag{color:color-mix(in srgb,var(--pj) 55%,#fff)}
 :root[data-theme="dark"] .pj-name a::before{box-shadow:0 0 8px var(--pj)}
 @media (prefers-reduced-motion:reduce){.pj-card,.pj-card:hover,.pj-card:focus-within{transition:none;transform:none}.pj-card::after,.pj-card.pj-seen::after{animation:none;display:none}}
+
+@media (max-width:980px){.pj-grid{grid-template-columns:1fr;gap:16px}.pj-card{flex-direction:row}.pj-shot{flex:0 0 40%;aspect-ratio:auto;min-height:200px;position:relative;border-bottom:0;border-right:1px solid color-mix(in srgb,var(--pj) 30%,transparent)}.pj-shot img{position:absolute;inset:0}}
+@media (max-width:560px){.pj-card{flex-direction:column}.pj-shot{flex:none;aspect-ratio:16/9;min-height:0;border-right:0;border-bottom:1px solid color-mix(in srgb,var(--pj) 30%,transparent)}.pj-shot img{position:static}}
 
 /* case-study pages */
 .skip-link{position:absolute;left:-999px;top:8px}.skip-link:focus{left:12px;z-index:100;background:var(--card);padding:8px 12px;border-radius:8px}
@@ -50,3 +52,4 @@
 :root[data-theme="dark"] .cs-fact dt,:root[data-theme="dark"] .cs-n{color:color-mix(in srgb,var(--pj) 55%,#fff)}
 :root[data-theme="dark"] .cs-shot{box-shadow:0 0 26px -8px color-mix(in srgb,var(--pj) 60%,transparent)}
 :root[data-theme="dark"] .cs-sec li.ph{color:var(--ink)}
+#built{scroll-margin-top:80px}
