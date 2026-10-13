@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "books": [
     {
       "id": "agent-native-infrastructure",
@@ -47,7 +47,25 @@
           "kw": "agent-native infrastructure part has adapt still hard means building blocks let ai agents act safely without person's full login lan sandbox sealed identity proves permissions gateway one checked space run work agent jobs allowed door tools data changes first now later cal cloud providers developers companies using everyday users offer must wire pieces gain control record won't notice much win together correctly every action while builders move feel last bay today new changing wwh css set right gin hote switching off shared logins takes time many teams give reality check early use larger impact ahead hotels hand room keys master next what's it's front desk hotel atom"
         }
       ],
-      "tagline": "How AI agents get a badge, not your keys"
+      "tagline": "How AI agents get a badge, not your keys",
+      "sources": [
+        {
+          "title": "Model Context Protocol: Introduction (official)",
+          "url": "https://modelcontextprotocol.io/introduction"
+        },
+        {
+          "title": "Anthropic: Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "OWASP GenAI Top 10 2025: LLM06 Excessive Agency",
+          "url": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+        },
+        {
+          "title": "NIST AI Risk Management Framework",
+          "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+        }
+      ]
     },
     {
       "id": "agent-swarms",
@@ -103,7 +121,25 @@
         }
       ],
       "updated": "2026-10-12",
-      "tagline": "When one AI becomes a team"
+      "tagline": "When one AI becomes a team",
+      "sources": [
+        {
+          "title": "Anthropic: How we built our multi-agent research system",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        },
+        {
+          "title": "Google Research blog: Towards a science of scaling agent systems",
+          "url": "https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/"
+        },
+        {
+          "title": "arXiv 2512.08296: Towards a Science of Scaling Agent Systems (Google/MIT)",
+          "url": "https://arxiv.org/abs/2512.08296"
+        },
+        {
+          "title": "Claude Opus 5.5 System Card (Anthropic, PDF), Fig. 8.12.3.B, p.195",
+          "url": "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf"
+        }
+      ]
     },
     {
       "id": "agent-vocabulary",
@@ -143,7 +179,29 @@
         }
       ],
       "tagline": "The words behind AI agents, as a kitchen",
-      "start_here": true
+      "start_here": true,
+      "sources": [
+        {
+          "title": "Model Context Protocol: Introduction",
+          "url": "https://modelcontextprotocol.io/introduction"
+        },
+        {
+          "title": "Anthropic: Equipping agents for the real world with Agent Skills",
+          "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"
+        },
+        {
+          "title": "Claude Code docs: Hooks",
+          "url": "https://docs.claude.com/en/docs/claude-code/hooks"
+        },
+        {
+          "title": "Claude Code docs: Subagents",
+          "url": "https://docs.claude.com/en/docs/claude-code/sub-agents"
+        },
+        {
+          "title": "Anthropic: Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        }
+      ]
     },
     {
       "id": "ai-agents",
@@ -179,7 +237,7 @@
           "title": "Your AI agent bought the wrong thing. Who pays?",
           "w": 1600,
           "h": 3690,
-          "kw": "open problem agent bought wrong thing pays payment pipes ai agents built visa mastercard stripe amex online purchases use tar tae lit blocker nobody agrees gets source checkout.com merchant estimates everyday mix-up orders reorder cases store ships paper towels porch meant shipped ordered eats cost holds risk today told buy unauthorized charge protection apply laakazt it's seller receipt usually handles return takes loss eof company clear rule makes pay agent's mistakes announced registered live yet verify don't cover still stuck stores offer say full catalog pymnts intelligence sept until someone owns mistake people won't let spend far checkout.com2026 merchantestimates card networks atom"
+          "kw": "open problem agent bought wrong thing pays payment pipes ai agents built visa mastercard stripe amex online purchases use tar tae tits blocker nobody agrees gets source checkout.com merchant estimates everyday mix-up ips orders reorder cases store ships paper towels porch meant shipped ordered eats cost holds risk today told buy unauthorized charge protection apply laaakatz it's seller receipt usually handles return takes loss ech company clear rule makes pay agent's mistakes announced registered live yet building checks liability unclear still stuck stores offer say full catalog pymnts intelligence sept ati until someone owns mistake people won't let spend far checkout.com2026 merchantestimates card networks atom"
         },
         {
           "file": "assets/pulse/ai-agents/p04.webp",
@@ -190,8 +248,26 @@
           "kw": "agents part trying agent sately week want test ai without risking money data vet start use low-limit virtual card spending cap like prepaid gift ask first must pays sends deletes least access connect one app needs valet key house keys research comparing options drafting low stakes while runs eee een ween nennnne check receipt read log know off switch disconnect cancel oooo sso sooo sos oos obes soo wwe eet wee wees cee ewes eens sseescoseecoeseeeencecuces never paste passwords numbers chat reality good finding today paying still new let fetch spend safely rrrrrrrrrrs atom"
         }
       ],
-      "updated": "2026-10-12",
-      "tagline": "Who pays when your agent shops"
+      "updated": "2026-10-13",
+      "tagline": "Who pays when your agent shops",
+      "sources": [
+        {
+          "title": "American Express: Agentic Commerce Experiences (Amex Agent Purchase Protection terms)",
+          "url": "https://www.americanexpress.com/en-us/company/agentic-commerce/"
+        },
+        {
+          "title": "Checkout.com newsroom: Agentic Commerce 2026 findings (Jun 9, 2026)",
+          "url": "https://www.checkout.com/newsroom/consumer-demand-for-ai-shopping-is-forming-fast-but-trust-for-agentic-commerce-is-still-catching-up"
+        },
+        {
+          "title": "Checkout.com: Agentic Commerce 2026 report",
+          "url": "https://www.checkout.com/guides-and-reports/agentic-commerce-2026"
+        },
+        {
+          "title": "PYMNTS: AI makes the holiday shopping list, but who gets the sale? (PYMNTS Intelligence)",
+          "url": "https://www.pymnts.com/news/artificial-intelligence/2026/ai-makes-the-holiday-shopping-list-but-who-gets-the-sale/"
+        }
+      ]
     },
     {
       "id": "ai-bottlenecks",
@@ -247,7 +323,29 @@
         }
       ],
       "updated": "2026-10-12",
-      "tagline": "Chips, power and memory — and why prices still fall"
+      "tagline": "Chips, power and memory — and why prices still fall",
+      "sources": [
+        {
+          "title": "Constellation: Crane Clean Energy Center / 20-year PPA with Microsoft",
+          "url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html"
+        },
+        {
+          "title": "IEA: Energy and AI",
+          "url": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "title": "Stanford HAI: 2025 AI Index Report",
+          "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
+        },
+        {
+          "title": "Epoch AI: The plunging price of thought",
+          "url": "https://epoch.ai/publications/the-plunging-price-of-thought"
+        },
+        {
+          "title": "arXiv 2511.23455 (inference cost vs. benchmark progress)",
+          "url": "https://arxiv.org/abs/2511.23455"
+        }
+      ]
     },
     {
       "id": "ai-moats",
@@ -294,7 +392,17 @@
           "kw": "moats part being people already work often matters having slightly smarter ai means builders newcomers watch awwawans distribution job done product reaches task person keeps really trying get playbook three ways teams have users everyday put inside steps pick nobody well yet usual apps features take make saved history useful serve big tools ignore fewer new learn keep happy far better bit changes arrive trapped idea different moves built app use past leaving mean redoing lot setup answers usually stronger moat reality check much model still open door especially brand-new kinds tasks shift gradual mostly old here's atom"
         }
       ],
-      "tagline": "If every AI is smart, who wins?"
+      "tagline": "If every AI is smart, who wins?",
+      "sources": [
+        {
+          "title": "Stanford HAI: 2025 AI Index Report",
+          "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
+        },
+        {
+          "title": "Epoch AI: The plunging price of thought",
+          "url": "https://epoch.ai/publications/the-plunging-price-of-thought"
+        }
+      ]
     },
     {
       "id": "physical-ai",
@@ -330,11 +438,33 @@
           "title": "Humanoids and home robots: hype vs. today",
           "w": 1600,
           "h": 2760,
-          "kw": "lumanoids home robots hype day videos look magical actually working today humanoid robot shaped like person fits places built people agility digit paid warehouse work gxo aid mim since totes moved tote plastic bin tpf bmw figure worked line months helping build cars new hire one repeat task do-everything butler still emerging neo pre-ordered first leff deliveries promised factory many chores watching clocking warehouses laundry wait physical ai part humanoids vs.today 10months ne0 atom"
+          "kw": "lumanoids home robots hype day videos look magical actually working today humanoid robot shaped like person fits places built people agility digit paid warehouse work gxo oid since totes moved tote plastic bin ake bmw figure worked line year helping build cars new hire one repeat task do-everything butler still emerging neo pre-ordered first alr eal deliveries promised factory many chores watching clocking warehouses laundry wait physical ai part humanoids ne0 atom"
         }
       ],
-      "updated": "2026-10-12",
-      "tagline": "Robots that handle surprises"
+      "updated": "2026-10-13",
+      "tagline": "Robots that handle surprises",
+      "sources": [
+        {
+          "title": "NVIDIA Newsroom: Cosmos world foundation model platform (CES 2025)",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-world-foundation-model-platform-to-accelerate-physical-ai-development"
+        },
+        {
+          "title": "Agility Robotics: Digit moves over 100,000 totes at GXO",
+          "url": "https://www.agilityrobotics.com/content/digit-moves-over-100k-totes"
+        },
+        {
+          "title": "Agility Robotics: GXO signs industry-first multi-year agreement (Jun 2024)",
+          "url": "https://www.agilityrobotics.com/content/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics"
+        },
+        {
+          "title": "Figure: F.02 contributed to the production of 30,000 cars at BMW",
+          "url": "https://www.figure.ai/news/production-at-bmw"
+        },
+        {
+          "title": "1X: NEO home robot pre-order announcement",
+          "url": "https://www.1x.tech/discover/neo-home-robot"
+        }
+      ]
     },
     {
       "id": "world-models",
@@ -381,7 +511,21 @@
           "kw": "world models part limits today has adapt let machines imagine act isn't every robot using one yet three rare messy moments lab real life e27 hil needs huge amounts works best eel video sensor data handles usual welll simulation learn struggles odd stuff places reliable hasn't seen busy homes streets like student aced practice tests faced exam great still learning adapting doine collect test first won't notice shows warehouses factories cars reality check useful deployment early progress gradual tied robots getting better warehouse street kitchen hungry controlled well who's they're doing robotics self-driving teams ai labs e.g google build bigger deepmind nvidia virtual training worlds watch wait relying businesses atom"
         }
       ],
-      "tagline": "AI that imagines what happens next"
+      "tagline": "AI that imagines what happens next",
+      "sources": [
+        {
+          "title": "Google DeepMind: Genie 3, a new frontier for world models",
+          "url": "https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/"
+        },
+        {
+          "title": "NVIDIA Newsroom: Cosmos world foundation model platform",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-world-foundation-model-platform-to-accelerate-physical-ai-development"
+        },
+        {
+          "title": "NVIDIA Glossary: What is Physical AI?",
+          "url": "https://www.nvidia.com/en-us/glossary/generative-physical-ai/"
+        }
+      ]
     },
     {
       "id": "stablecoin-rails",
@@ -409,7 +553,7 @@
           "title": "Stablecoins: the open digital dollar",
           "w": 1600,
           "h": 2760,
-          "kw": "stablecoins tokenization part open digital dollar bank transfers move business hours pass through several banks stablecoin shared ledger anyone wallet hold send time ate sending family abroad saturday today wire e.g usdc waits monday goes now even often days arrives minutes fees network fee usually cents dollars doesn't three things know use backs always reserves held issuer moves mostly cash short-term treasuries weekends holidays circle reality check spend locally still swap back regular money exchange next building version called tokenized deposits like text message middle 500usdc along open.a atom"
+          "kw": "stablecoins tokenization part open digital dollar bank transfers move business hours pass through several banks stablecoin shared ledger anyone wallet hold send time sending family abroad saturday today wire e.g usdc waits monday goes now even often takes days arrives minutes fees costly network fee usually small doesn't three things know use backs always reserves held issuer moves treasuries mostly cash short-term weekends holidays circle reality check spend locally still swap back regular money exchange next building version called tokenized deposits like text message middle 500usdc along open.a atom"
         },
         {
           "file": "assets/pulse/stablecoin-rails/p03.webp",
@@ -428,8 +572,30 @@
           "kw": "rules road company issues digital dollar must prove eee us issuers genius act real money backing every coin cash rina reserves bank deposits short-term treasuries like coat check one ticket monthly proof publish reserve mix checked accounting firm signed ceo cfo approved license interest cannot pay holders elsewhere gaps wow europe mica issuer licensed e-money hold full back face value request reality deposit insurance regulators still writing details needs behind stablecoins rails underneath part it's atom"
         }
       ],
-      "updated": "2026-10-12",
-      "tagline": "How money moves underneath your apps"
+      "updated": "2026-10-13",
+      "tagline": "How money moves underneath your apps",
+      "sources": [
+        {
+          "title": "GENIUS Act, Public Law 119-27 (Congress.gov full text)",
+          "url": "https://www.congress.gov/119/plaws/publ27/PLAW-119publ27.htm"
+        },
+        {
+          "title": "12 U.S.C. 5903 (Cornell LII)",
+          "url": "https://www.law.cornell.edu/uscode/text/12/5903"
+        },
+        {
+          "title": "EUR-Lex: Regulation (EU) 2023/1114 (MiCA)",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114"
+        },
+        {
+          "title": "FDIC: Understanding Deposit Insurance",
+          "url": "https://www.fdic.gov/resources/deposit-insurance/understanding-deposit-insurance"
+        },
+        {
+          "title": "J.P. Morgan Kinexys",
+          "url": "https://www.kinexys.com/"
+        }
+      ]
     },
     {
       "id": "tokenization",
@@ -485,7 +651,25 @@
         }
       ],
       "updated": "2026-10-12",
-      "tagline": "A digital receipt for real things"
+      "tagline": "A digital receipt for real things",
+      "sources": [
+        {
+          "title": "BlackRock (PR Newswire): new BUIDL share classes across multiple blockchains",
+          "url": "https://www.prnewswire.com/news-releases/blackrock-launches-new-buidl-share-classes-across-multiple-blockchains-to-expand-access-and-potential-of-buidl-ecosystem-302304035.html"
+        },
+        {
+          "title": "Franklin Templeton: first U.S.-registered mutual fund to use a public blockchain",
+          "url": "https://www.franklintempleton.com/press-releases/news-room/2021/franklin-templeton-launches-first-u-s-registered-mutual-fund-to-use-public-blockchain"
+        },
+        {
+          "title": "J.P. Morgan Kinexys",
+          "url": "https://www.kinexys.com/"
+        },
+        {
+          "title": "BIS Annual Economic Report 2025, ch. III (tokenisation)",
+          "url": "https://www.bis.org/publ/arpdf/ar2025e3.htm"
+        }
+      ]
     },
     {
       "id": "mortgage-rates",
