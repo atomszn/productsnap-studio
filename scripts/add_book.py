@@ -29,7 +29,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIB = os.path.join(ROOT, "data", "library.json")
 ASSETS = os.path.join(ROOT, "assets", "pulse")
-TOPICS = ("AI", "Tech", "Macro")
+TOPICS = ("AI", "Tech", "Fintech", "Macro")
 MAX_W, THUMB_W = 1600, 480
 
 
@@ -78,6 +78,7 @@ def find(lib, slug):
 
 
 def cmd_book(a):
+    a.topic = {t.lower(): t for t in TOPICS}.get(a.topic.lower(), a.topic)  # accepts "fintech", "AI", ...
     if a.topic not in TOPICS:
         sys.exit("topic must be one of %s" % (TOPICS,))
     if not 2 <= len(a.title.split()) <= 5 and len(a.title.split()) != 1:

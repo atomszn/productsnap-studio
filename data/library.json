@@ -386,7 +386,7 @@
     {
       "id": "stablecoin-rails",
       "title": "Stablecoins & the Rails Underneath",
-      "topic": "Tech",
+      "topic": "Fintech",
       "blurb": "How money could move on one shared record.",
       "gist": [
         "Banks and brokers each keep their own record; shared ledgers sync them.",
@@ -434,7 +434,7 @@
     {
       "id": "tokenization",
       "title": "Tokenization",
-      "topic": "Tech",
+      "topic": "Fintech",
       "blurb": "A digital receipt for something real.",
       "gist": [
         "A token is a receipt on a shared notebook; the asset stays in the vault.",
