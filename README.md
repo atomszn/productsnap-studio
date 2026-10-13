@@ -39,7 +39,7 @@ python3 scripts/add_book.py meta    --slug agent-vocabulary --tagline "Cover lin
 
 Fixed or new pages (e.g. from `pulse_mockup/books/fixes2/`) are swapped in with
 `replace` / `append`; touched books get an `updated` date and show as "new" to
-returning readers. Topics: AI (ink blue), Tech (amber), Macro (green). Covers and spines are
+returning readers. Topics: AI (ink blue), Tech (amber), Fintech (teal), Macro (green); topics with no books are hidden. Covers and spines are
 drawn in HTML/CSS from `title`, `tagline`, `topic` and `vol` — no cropped images.
 The Shelf (spines) is the default view at every width; Topics shows covers.
 Deep links: `pulse.html#book/<slug>/<page>` (page 1 = the 60-second version).

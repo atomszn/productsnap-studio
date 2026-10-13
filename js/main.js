@@ -288,6 +288,10 @@
         const b = books.slice().sort((x, y) => (y.updated || y.added).localeCompare(x.updated || x.added))[0];
         titleEl.textContent = b.title;
         lineEl.textContent = b.blurb;
+        const counts = {};
+        books.forEach((x) => { counts[x.topic] = (counts[x.topic] || 0) + 1; });
+        const stats = document.getElementById("home-pulse-stats");
+        if (stats) stats.textContent = books.length + " books · " + ["AI", "Tech", "Fintech", "Macro"].filter((t) => counts[t]).map((t) => t + " " + counts[t]).join(" · ");
       })
       .catch((err) => {
         console.error("Home Pulse: failed to load library", err);

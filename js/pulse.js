@@ -4,7 +4,7 @@
    Deep links: #book/<id>/<page>  (1-based, counting the gist page). #topics opens Topics. */
 (function () {
   "use strict";
-  var TOPICS = { AI: "AI", Tech: "Tech", Macro: "Macro" };
+  var TOPICS = { AI: "AI", Tech: "Tech", Fintech: "Fintech", Macro: "Macro" };
   var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved" };
   var SYN = {
     gpu: ["chip", "compute", "nvidia", "bottleneck"], chip: ["gpu", "compute"], compute: ["gpu", "chip"],
@@ -220,7 +220,7 @@
   function coverArt(b, small) {
     var c = el("span", "cv t-" + b.topic.toLowerCase() + (small ? " cv-sm" : ""));
     c.setAttribute("aria-hidden", "true");
-    c.appendChild(el("span", "cv-topic", b.topic === "Tech" ? "Tech · fintech" : b.topic));
+    c.appendChild(el("span", "cv-topic", b.topic));
     c.appendChild(el("span", "cv-title", b.title));
     c.appendChild(el("span", "cv-rule"));
     c.appendChild(el("span", "cv-tag", tagline(b)));
