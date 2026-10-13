@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      /* Pre-paint reveal gate. Add `js` always, and `reveal-on` only when we
+         can actually run the scroll reveal (motion allowed + IntersectionObserver).
+         The hidden start-state CSS requires BOTH classes, so if this check fails
+         (or JS is off) content stays visible instead of being permanently hidden. */
+      (function () {
+        /* No-flash theme: set data-theme on <html> BEFORE first paint, from
+           the saved choice, else the system color-scheme preference. */
+        try {
+          var t = localStorage.getItem('psnap-theme');
+          if (t !== 'dark' && t !== 'light') {
+            t = (window.matchMedia &&
+                 window.matchMedia('(prefers-color-scheme: dark)').matches)
+              ? 'dark' : 'light';
+          }
+          if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+        } catch (e) {}
+        var c = ' js';
+        try {
+          var ok =
+            'IntersectionObserver' in window &&
+            !(window.matchMedia &&
+              window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+          if (ok) c += ' reveal-on';
+        } catch (e) {}
+        document.documentElement.className += c;
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6efe1" />
+
+    <title>Run It Back — case study · ProductSnap Studio</title>
+    <meta name="description" content="Run It Back: Seventh grade math, one small step at a time. A short case study: problem, what I built, key decisions, and what I’d change next." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="ProductSnap Studio — a living notebook for product judgment" />
+    <meta
+      property="og:description"
+      content="Where product thinking meets live market signals — and turns into things you can actually use."
+    />
+    <meta property="og:site_name" content="ProductSnap Studio" />
+    <meta property="og:url" content="https://productsnap.studio" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="https://productsnap.studio/assets/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ProductSnap Studio — a living notebook for product judgment, built by Jeevan" />
+    <meta name="twitter:image" content="https://productsnap.studio/assets/og-default.png" />
+    <meta name="twitter:title" content="ProductSnap Studio" />
+    <meta
+      name="twitter:description"
+      content="A living notebook for product judgment. Built by Jeevan."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <link rel="canonical" href="https://productsnap.studio/projects/runitback.html" />
+
+    <!-- Fonts: Caveat / Kalam (handwritten), Inter (body), Fraunces (serif accent) -->
+    <link rel="preload" href="../assets/fonts/caveat-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../assets/fonts/fonts.css" />
+
+    <link rel="stylesheet" href="../css/style.css" />
+    
+      <link rel="stylesheet" href="../css/projects.css" />
+  </head>
+  <body class="page-case">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="topnav-wrap">
+      <div class="topnav">
+      <a href="../index.html" class="brand" aria-label="ProductSnap Studio home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="7" width="22" height="26" rx="2.5" />
+            <path d="M6 13 H28 M6 19 H28 M6 25 H28" stroke-opacity="0.35" stroke-width="1.4" />
+            <circle cx="6" cy="11" r="1.1" />
+            <circle cx="6" cy="17" r="1.1" />
+            <circle cx="6" cy="23" r="1.1" />
+            <circle cx="6" cy="29" r="1.1" />
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z" fill="#fff7df" />
+            <path d="M27 31 h3" stroke-width="2" />
+            <path d="M35 14 l2 -2 M35 22 l2 2 M37 18 h2" stroke-opacity="0.6" stroke-width="1.6" />
+          </svg>
+        </span>
+        <span class="brand-word">
+          <span class="brand-word-1">ProductSnap</span>
+          <span class="brand-word-2">Studio</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav (>760px) -->
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html" >Home</a>
+        <a href="../sketches.html">Sketches</a>
+        <a href="../app.html">App</a>
+        <a href="../notes.html">Notes</a>
+        <a href="../pulse.html">Pulse</a>
+      </nav>
+
+      <button class="theme-toggle theme-toggle-desktop" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
+      <button class="theme-toggle theme-toggle-compact" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+        <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+        <span class="tt-label">Late Night Mode</span>
+      </button>
+
+      <!-- Mobile menu button (<=760px) -->
+      <button class="nav-toggle" id="nav-toggle" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+        <span class="nav-toggle-bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+      <!-- Mobile nav panel (<=760px) -->
+      <nav class="nav-panel" id="nav-panel" aria-label="Mobile" hidden>
+        <button class="theme-toggle theme-toggle-panel" type="button"
+              aria-pressed="false" aria-label="Switch to Late Night Mode.">
+          <svg class="tt-icon tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
+          <span class="tt-label">Late Night Mode</span>
+        </button>
+        <a href="../index.html" >Home</a>
+        <a href="../sketches.html">Sketches</a>
+        <a href="../app.html">App</a>
+        <a href="../notes.html">Notes</a>
+        <a href="../pulse.html">Pulse</a>
+      </nav>
+    </div>
+    </header>
+    <main id="main" class="cs" style="--pj:#15605a">
+      <p class="cs-back"><a href="../index.html#built">← Things I've built</a></p>
+      <header class="cs-head">
+        <span class="kicker">case study</span>
+        <h1 class="cs-title">Run It Back</h1>
+        <p class="cs-sub">Seventh grade math, one small step at a time.</p>
+      </header>
+      <figure class="cs-shot"><picture><source media="(max-width: 640px)" srcset="../assets/projects/runitback-phone.webp" /><img src="../assets/projects/runitback-desktop.webp" alt="Screenshot of Run It Back" width="1200" height="750" decoding="async" /></picture></figure>
+      <dl class="cs-facts"><div class="cs-fact"><dt>Coverage</dt><dd>12 topics, 16 lessons, 400 topic-practice problems plus 204 short-session questions.</dd></div><div class="cs-fact"><dt>Levels</dt><dd>Camp, Trail and Summit: easy lap, normal problem, then more steps or a new context.</dd></div><div class="cs-fact"><dt>Privacy</dt><dd>Progress saves in your browser. No account.</dd></div></dl>
+      <section class="cs-sec"><h2><span class="cs-n">01</span> The problem</h2><ul><li>Big math apps either give away answers or cover everything thinly. A seventh grader needs to close the loop on their own mistakes until the idea sticks.</li><li class="ph">[Kumar: add the origin story in your words, if you want it public]</li></ul></section>
+      <section class="cs-sec"><h2><span class="cs-n">02</span> What I built</h2><ul><li>A calm grade 7 math site: pick a topic, try a question, check it, and open a hint or the steps whenever you want.</li><li>Short three-question sessions and full lessons, with a separate solution key and printable pages.</li><li>A “run it back” loop that brings misses back for another try.</li></ul></section>
+      <section class="cs-sec"><h2><span class="cs-n">03</span> Key decisions</h2><ul><li>No timer. Pencils welcome. Erasers too.</li><li>Help is opt-in, so trying comes before telling.</li><li>Everyday contexts: the sale jacket, the cab fare, the pizza.</li><li>Local progress instead of accounts, so a kid can start in seconds.</li></ul></section>
+      <section class="cs-sec"><h2><span class="cs-n">04</span> What I'd change next</h2><ul><li>Turn the miss queue into a real mistake memory: spaced re-tries until mastery.</li><li>A short weekly note for parents.</li><li class="ph">[Kumar: add metric, e.g. sessions or problems tried]</li><li class="ph">[Kumar: confirm the public name; the live site’s title currently reads “Field Notes”]</li></ul></section>
+      <p class="cs-links"><a class="btn btn-ghost" href="https://runitback.me/" target="_blank" rel="noopener">Visit runitback.me</a></p>
+    </main>
+    <footer class="footer home-footer">
+      <div class="foot-inner">
+        <span class="foot-brand">
+          <svg width="20" height="20" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="7" width="22" height="26" rx="2.5"/>
+            <circle cx="6" cy="14" r="1"/>
+            <circle cx="6" cy="20" r="1"/>
+            <circle cx="6" cy="26" r="1"/>
+            <path d="M30 17 a5 5 0 1 1 -3 9 v3 h3 v-3 a5 5 0 0 0 0 -9 z"/>
+          </svg>
+          ProductSnap Studio
+        </span>
+        <p class="foot-line">Made with AI, evenings, and a healthy amount of stubbornness.</p>
+        <p class="foot-contact">
+          Say hi on
+          <a href="https://www.linkedin.com/in/jeevan99" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          or at
+          <a href="mailto:atomszn.ai@gmail.com">atomszn.ai@gmail.com</a><span class="foot-paw" aria-hidden="true">🐾</span>
+        </p>
+      </div>
+    </footer>
+    <script src="../js/nav.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+  </body>
+</html>
