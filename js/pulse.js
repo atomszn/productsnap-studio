@@ -513,14 +513,17 @@
     if (i === 0) return [];
     var t = TEXT && TEXT[b.id]; return (t && t[i - 1]) || [];
   }
-  function expand(q) {
-    var out = [];
-    words(q).forEach(function (w) { var s = stem(w); out.push(s); (SYN[w] || SYN[s] || []).forEach(function (x) { out.push(stem(norm(x))); }); });
-    return out.filter(function (x, i, a) { return x.length > 1 && a.indexOf(x) === i; });
+  function expand(q) { // core words weigh 2, synonyms 1
+    var out = [], seen = {};
+    var add = function (t, wt) { if (t.length > 1 && !(t in seen)) { seen[t] = 1; out.push({ t: t, w: wt }); } };
+    words(q).forEach(function (w) { add(stem(w), 2); });
+    words(q).forEach(function (w) { var s = stem(w); (SYN[w] || SYN[s] || []).forEach(function (x) { add(stem(norm(x)), 1); }); });
+    return out;
   }
+  function isHeading(l) { return /,\s*part\s*\d/i.test(l) || (!/[.?!:”"]$/.test(l) && l.length < 44); }
   function lineScore(line, qs) {
     var ws = words(line).map(stem), n = 0;
-    qs.forEach(function (q) { if (ws.some(function (w) { return w === q || (q.length >= 4 && w.indexOf(q) === 0) || (q.length >= 5 && near(w, q)); })) n++; });
+    qs.forEach(function (q) { var t = q.t; if (ws.some(function (w) { return w === t || (t.length >= 4 && w.indexOf(t) === 0) || (t.length >= 5 && near(w, t)); })) n += q.w; });
     return n;
   }
   function askRender(head, lines, src, honest) {
@@ -538,10 +541,10 @@
     loadText().then(function () {
       if (cur !== b || idx !== i) return;
       var qs = expand(q); if (!qs.length) { askRender("", [], "", "Try a few more words, like “who pays?” or “what is a sandbox?”"); return; }
-      var cand = pageLines(b, i).map(function (l) { return { l: l, s: lineScore(l, qs), g: false }; })
+      var cand = pageLines(b, i).filter(function (l) { return !isHeading(l); }).map(function (l) { return { l: l, s: lineScore(l, qs), g: false }; })
         .concat(b.gist.map(function (l) { return { l: l, s: lineScore(l, qs), g: true }; }));
-      var best = cand.filter(function (c) { return c.s > 0; }).sort(function (a, c) { return c.s - a.s || a.g - c.g; });
-      var need = qs.length > 2 ? 2 : 1;
+      var best = cand.filter(function (c) { return c.s >= 2; }).sort(function (a, c) { return c.s - a.s || a.g - c.g; });
+      var need = qs.filter(function (q) { return q.w === 2; }).length > 1 ? 4 : 2;
       var hit = best.filter(function (c) { return c.s >= Math.min(need, best.length ? best[0].s : need); }).slice(0, 3);
       if (!hit.length) { askRender("", [], "", (i === 0 ? "The 60-second version doesn’t cover that." : "This page doesn’t cover that.") + " Try search on the shelf, or another page in this book."); return; }
       askRender(hit.every(function (c) { return c.g; }) ? "This page doesn’t say directly. From the book’s 60-second version:" : "From this page:", hit.map(function (c) { return hit.every(function (h) { return h.g; }) ? c.l : c; }), "");
@@ -553,7 +556,7 @@
       if (cur !== b || idx !== i) return;
       if (i === 0 || i >= pages(b).length) { askRender("In short:", [tagline(b)].concat(b.gist), ""); return; }
       var pg = b.pages[i - 1], tq = expand(pg.title + " " + (pg.takeaway || ""));
-      var lines = pageLines(b, i).map(function (l, k) { return { l: l, s: lineScore(l, tq), k: k }; }).filter(function (c) { return c.s > 0 && c.l.length > 24; })
+      var lines = pageLines(b, i).map(function (l, k) { return { l: l, s: lineScore(l, tq), k: k }; }).filter(function (c) { return c.s > 0 && c.l.length > 24 && !isHeading(c.l); })
         .sort(function (a, c) { return c.s - a.s || a.k - c.k; }).slice(0, 2).sort(function (a, c) { return a.k - c.k; }).map(function (c) { return c.l; });
       askRender("In short:", (pg.takeaway ? [pg.takeaway] : []).concat(lines), pg.takeaway ? "The first line is this page’s takeaway; the rest are quoted from the page." : "");
     }).catch(function () { askRender("", [], "", "The page text didn’t load. Check your connection and try again."); });
