@@ -318,9 +318,9 @@ body.reading{overflow:hidden}
 .cont-x{align-self:center;padding:0;width:44px;border-radius:50%;border-color:transparent;background:transparent}
 .start-row{display:none}
 @media (max-width:640px){
-  .start-row{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:0 0 16px;padding:2px 0}
+  .start-row{display:flex;flex-wrap:nowrap;gap:8px;align-items:center;margin:0 0 16px;padding:2px 2px 6px;overflow-x:auto;scrollbar-width:none}
   .start-row::-webkit-scrollbar{display:none}
-  .start-k{flex:0 0 100%;line-height:1.1;font:600 1.1rem var(--hand);color:var(--ink-soft)}
+  .start-k{flex:none;font:600 1.1rem var(--hand);color:var(--ink-soft)}
   .start-a{flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:999px;background:var(--card);border:1.5px solid color-mix(in srgb,var(--tc) 50%,transparent);color:var(--ink);font:600 .85rem var(--body);text-decoration:none;white-space:nowrap}
   .start-a:focus-visible{outline:3px solid var(--tc);outline-offset:2px}
   .rd-askp{bottom:8px;max-height:58vh}
