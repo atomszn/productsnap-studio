@@ -286,3 +286,50 @@ body.reading{overflow:hidden}
 .end-sources ul{margin:8px 0 0;padding-left:1.1rem;line-height:1.5}
 .end-sources a{color:var(--ink);text-underline-offset:2px;overflow-wrap:anywhere}
 .end-sources li{margin:0}.end-sources a{display:inline-flex;align-items:center;min-height:44px;padding:4px 0}.end-sources summary{min-height:44px;display:list-item;padding-top:10px}
+
+/* ---------- Reader+ (Ask, takeaway, continue, start row, icons) ---------- */
+.cv-ico{position:absolute;top:9%;right:9%;width:17cqw;height:17cqw;fill:none;stroke:color-mix(in srgb,var(--tc,#2c3e66) 25%,#f6efe1);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.9;transform:rotate(-4deg)}
+.rd-btn svg,.saved-btn svg,.rd-nav svg{stroke-width:1.75}
+.rd-nav{display:inline-flex;align-items:center;justify-content:center}
+#rd-close svg{margin-left:-4px}
+.rd-askp{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:30;width:min(560px,calc(100% - 24px));max-height:min(60vh,520px);overflow:auto;background:var(--card);color:var(--ink);border:1.5px solid color-mix(in srgb,var(--tc) 45%,transparent);border-radius:16px;padding:12px 14px 10px;box-shadow:0 18px 40px -18px rgba(0,0,0,.45)}
+.askp-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.askp-h{margin:0;font:600 1.15rem var(--hand);color:var(--tc)}
+.askp-form{display:flex;gap:8px;margin:6px 0 8px}
+.askp-form input{flex:1;min-width:0;min-height:44px;padding:0 12px;border-radius:12px;border:1.5px solid var(--ink-faded,rgba(0,0,0,.25));background:var(--paper);color:var(--ink);font:500 1rem var(--body)}
+.askp-form input:focus-visible{outline:3px solid var(--tc);outline-offset:1px}
+.askp-simple{border-style:dashed}
+.askp-out{margin-top:8px;font:400 .95rem/1.5 var(--body)}
+.askp-out:empty{display:none}
+.askp-lead{margin:0 0 4px;font-weight:600}
+.askp-lines{margin:0;padding-left:1.1rem}
+.askp-lines li{margin:0 0 4px}
+.askp-src,.askp-note{margin:6px 0 0;font-size:.8rem;color:var(--ink-faded,#6c6a60)}
+.askp-miss{margin:4px 0 0;padding:8px 10px;border-radius:10px;background:color-mix(in srgb,var(--tc) 10%,transparent)}
+.rd-take{display:flex;align-items:center;gap:8px;max-width:min(640px,94vw);margin:0 auto}
+.rd-take[hidden]{display:none}
+.rd-take p{margin:0;font:500 .95rem/1.35 var(--hand-2,var(--body));color:var(--ink-soft);text-align:center;flex:1;min-width:0}
+.cont{display:flex;align-items:stretch;gap:6px;margin:0 0 14px;background:var(--card);border:1.5px solid color-mix(in srgb,var(--tc) 45%,transparent);border-left:5px solid var(--tc);border-radius:12px;padding:4px 4px 4px 0}
+.cont-a{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;padding:8px 12px;color:var(--ink);text-decoration:none;border-radius:10px}
+.cont-a:focus-visible{outline:3px solid var(--tc);outline-offset:-3px}
+.cont-k{font:600 1.05rem var(--hand);color:var(--tc)}
+.cont-t{font:600 .98rem var(--body);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cont-p{font:500 .82rem var(--body);color:var(--ink-faded,#6c6a60)}
+.cont-x{align-self:center;padding:0;width:44px;border-radius:50%;border-color:transparent;background:transparent}
+.start-row{display:none}
+@media (max-width:640px){
+  .start-row{display:flex;gap:8px;align-items:center;overflow-x:auto;scrollbar-width:none;margin:0 -16px 14px;padding:2px 16px 4px;scroll-snap-type:x proximity}
+  .start-row::-webkit-scrollbar{display:none}
+  .start-k{flex:none;font:600 1.1rem var(--hand);color:var(--ink-soft)}
+  .start-a{flex:none;scroll-snap-align:start;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:var(--card);border:1.5px solid color-mix(in srgb,var(--tc) 50%,transparent);color:var(--ink);font:600 .88rem var(--body);text-decoration:none;white-space:nowrap}
+  .start-a:focus-visible{outline:3px solid var(--tc);outline-offset:2px}
+  .rd-askp{bottom:8px;max-height:58vh}
+  .rd-take p{font-size:.88rem}
+}
+/* smoother page turn */
+.leaf{transition:transform .58s cubic-bezier(.22,.61,.36,1)}
+.leaf-shade{transition:opacity .58s cubic-bezier(.22,.61,.36,1)}
+/* dark mode: thin paper frame softens the bright page */
+[data-theme="dark"] .pg img{box-sizing:border-box;border:5px solid #d8ccb2;border-radius:3px;background:#fffdf6}
+[data-theme="dark"] .page{background:#d8ccb2}
+@media (prefers-reduced-motion:reduce){.leaf,.leaf-shade{transition:none}.cv-ico{transform:none}}
