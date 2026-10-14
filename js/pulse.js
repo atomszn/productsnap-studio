@@ -274,24 +274,89 @@
     a.appendChild(tip); a.appendChild(a.querySelector(".sr-desc"));
     return a;
   }
+  var ICO = {
+    shelf: '<path d="M3 20.5h18"/><path d="M5 20.5V8h3v12.5M9.5 20.5V5h3v15.5"/><path d="m14.6 20.5 2.6-11.4 2.8.7-2.6 11"/>',
+    topics: '<rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/>',
+    All: '<path d="M4 6h16M4 12h16M4 18h10"/>',
+    AI: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>',
+    Tech: '<rect x="3.5" y="5" width="17" height="11" rx="1.5"/><path d="M2 19.5h20M10 8.5l-2 2 2 2M14 8.5l2 2-2 2"/>',
+    Fintech: '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h4"/>',
+    Macro: '<path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>'
+  };
+  function ico(k, cls) { return '<svg class="' + (cls || "ci") + '" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICO[k] || ICO.All) + '</svg>'; }
   function renderTabs() {
     var t = $("lib-tabs"); t.innerHTML = "";
     var g = el("div", "topictabs"); g.setAttribute("role", "group"); g.setAttribute("aria-label", "Filter by topic");
     ["All"].concat(Object.keys(TOPICS)).forEach(function (k) {
       var n = k === "All" ? lib.books.length : lib.books.filter(function (b) { return b.topic === k; }).length;
       if (!n) return;
-      var btn = el("button", "chip" + (k !== "All" ? " c-" + k.toLowerCase() : ""), k + " · " + n);
+      var btn = el("button", "chip" + (k !== "All" ? " c-" + k.toLowerCase() : ""));
+      btn.innerHTML = ico(k) + '<span class="ck">' + k + '<span class="cn"> · ' + n + '</span></span>';
       btn.type = "button"; btn.setAttribute("aria-pressed", String(topic === k)); btn.dataset.topic = k;
       btn.onclick = function () { topic = k; clearQuery(); renderTabs(); renderShelves(); };
       g.appendChild(btn);
     });
     t.appendChild(g);
+    var vh = $("lib-view"); vh.innerHTML = "";
     var v = el("div", "viewtog"); v.setAttribute("role", "group"); v.setAttribute("aria-label", "View");
     [["shelf", "Shelf"], ["topics", "Topics"]].forEach(function (p) {
-      var b = el("button", "chip vt", p[1]); b.type = "button"; b.dataset.view = p[0]; b.setAttribute("aria-pressed", String(view === p[0]));
+      var b = el("button", "chip vt"); b.innerHTML = ico(p[0], "vi") + "<span>" + p[1] + "</span>";
+      b.type = "button"; b.dataset.view = p[0]; b.setAttribute("aria-pressed", String(view === p[0]));
       b.onclick = function () { view = p[0]; clearQuery(); renderTabs(); renderShelves(); }; v.appendChild(b);
     });
-    t.appendChild(v);
+    vh.appendChild(v);
+  }
+  function heroMeta() {
+    var B = lib.books, pg = B.reduce(function (s, b) { return s + b.pages.length + 1; }, 0);
+    var tp = Object.keys(TOPICS).filter(function (k) { return B.some(function (b) { return b.topic === k; }); }).length;
+    $("lib-stats").innerHTML = "<b>" + B.length + "</b> books<i>·</i><b>" + tp + "</b> topics<i>·</i><b>" + pg + "</b> pages";
+    var latest = B.slice().sort(function (a, b) { return (b.updated || b.added || "").localeCompare(a.updated || a.added || ""); })[0];
+    if (latest) {
+      var d = new Date((latest.updated || latest.added) + "T12:00:00"), r = $("lib-ribbon");
+      var fresh = (Date.now() - d) < 8 * 864e5;
+      r.innerHTML = '<span class="rb-k">' + (fresh ? "This week’s pulse" : "Latest in the library") + '</span><span class="rb-t">Latest: <a href="#book/' + latest.id + '/1"></a> · ' + d.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + "</span>";
+      r.querySelector("a").textContent = latest.title; r.hidden = false;
+    }
+  }
+  /* Shelf tiers: books split across planks (7/6 for 13), varied widths/heights,
+     one leaning spine per tier, sketch decor (bookend, flat stack, plant) placed per tier. */
+  var DECOR = {
+    end: '<svg viewBox="0 0 26 120" width="26" height="120"><path class="dc-end" d="M4 118V60c0-7 5-12 12-12h6v70z"/><path d="M8 70h10" stroke-opacity=".4"/></svg>',
+    stack: '<svg viewBox="0 0 70 60" width="70" height="60"><rect class="dc-b1" x="4" y="44" width="60" height="14" rx="2"/><rect class="dc-b2" x="9" y="31" width="50" height="13" rx="2"/><rect class="dc-b3" x="2" y="20" width="56" height="11" rx="2"/><path d="M12 51h34M16 37h28M10 25h30" stroke-opacity=".45"/></svg>',
+    plant: '<svg viewBox="0 0 56 110" width="56" height="110"><path class="dc-leaf" d="M28 66c-2-16-12-24-20-32 12 2 20 12 20 24 0-18 4-32 14-44-2 18-7 32-12 44 4-10 12-16 22-18-8 8-14 18-18 28"/><path class="dc-pot" d="M10 66h36l-5 42H15z"/><path d="M8 66h40"/></svg>',
+    cup: '<svg viewBox="0 0 54 70" width="54" height="70"><path class="dc-cup" d="M6 30h32v26c0 7-5 12-12 12h-8c-7 0-12-5-12-12z"/><path d="M38 36h4c5 0 8 4 8 8s-3 8-8 8h-4"/><path d="M16 22c-3-4 3-7 0-12M26 22c-3-4 3-7 0-12" stroke-opacity=".5"/></svg>'
+  };
+  function deco(k, cls) { var d = el("span", "sp-decor dc-" + k + (cls ? " " + cls : "")); d.setAttribute("aria-hidden", "true"); d.innerHTML = DECOR[k].replace("<svg ", '<svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" '); return d; }
+  var PHONE = window.matchMedia("(max-width:640px)");
+  (PHONE.addEventListener ? PHONE.addEventListener.bind(PHONE, "change") : PHONE.addListener.bind(PHONE))(function () { if (lib && view === "shelf" && !query) renderShelves(); });
+  function tiers(books) {
+    var n = books.length, cap = PHONE.matches ? 5 : 7, k = Math.max(1, Math.ceil(n / cap)), per = Math.ceil(n / k), wrap = el("div", "tiers");
+    for (var t = 0; t < k; t++) {
+      var part = books.slice(t * per, (t + 1) * per); if (!part.length) break;
+      var row = el("div", "shelf-row spines tier");
+      if (t % 2 === 0) row.appendChild(deco("end"));
+      else row.appendChild(deco("stack"));
+      part.forEach(function (b, i) {
+        var s = spine(b), L = b.title.length;
+        s.style.setProperty("--swb", (L > 22 ? 1.18 : L > 13 ? 1.05 : .92));
+        if (i === part.length - 1 && part.length > 2) s.classList.add("is-lean");
+        row.appendChild(s);
+      });
+      if (t % 2 === 0) { row.appendChild(deco("stack", "sm")); row.appendChild(deco("plant")); }
+      else { row.appendChild(deco("cup")); row.appendChild(deco("end", "flip")); }
+      wrap.appendChild(row);
+    }
+    return wrap;
+  }
+  function shelfDecor() {
+    var d = el("div", "sp-decor"); d.setAttribute("aria-hidden", "true");
+    d.innerHTML = '<svg viewBox="0 0 150 120" width="150" height="120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path class="dc-end" d="M6 118V62c0-6 4-10 10-10h4v66z"/>' +
+      '<rect class="dc-b1" x="34" y="104" width="54" height="14" rx="2"/><rect class="dc-b2" x="38" y="92" width="46" height="12" rx="2"/><rect class="dc-b3" x="31" y="81" width="50" height="11" rx="2"/>' +
+      '<path d="M40 98h30M44 86h24" stroke-opacity=".45"/>' +
+      '<path class="dc-pot" d="M104 92h34l-4 26h-26z"/><path d="M102 92h38"/>' +
+      '<path class="dc-leaf" d="M121 92c0-14-10-22-18-30 10 2 18 10 18 20 1-14 4-26 12-36-2 14-6 26-10 36 3-8 10-14 18-16-6 8-12 16-16 26"/></svg>';
+    return d;
   }
   function suggest(h, lead) {
     h.appendChild(document.createTextNode(lead));
@@ -336,8 +401,9 @@
     groups.forEach(function (g) {
       var s = el("section", "shelf" + (TOPICS[g[0]] ? " t-" + g[0].toLowerCase() : ""));
       s.appendChild(el("h2", "shelf-h", g[0]));
-      var row = el("div", view === "shelf" ? "shelf-row spines" : "shelf-row covers");
-      g[1].forEach(function (b) { row.appendChild(view === "shelf" ? spine(b) : cover(b)); });
+      if (view === "shelf") { s.appendChild(tiers(g[1])); host.appendChild(s); return; }
+      var row = el("div", "shelf-row covers");
+      g[1].forEach(function (b) { row.appendChild(cover(b)); });
       s.appendChild(row); host.appendChild(s);
     });
   }
@@ -370,7 +436,7 @@
   function renderChips() {
     var f = $("lib-ask"), c = el("div", "ask-chips"); c.setAttribute("role", "group"); c.setAttribute("aria-label", "Suggested searches");
     CHIPS.forEach(function (q) { var b = el("button", "chip ask-chip", q); b.type = "button"; b.onclick = function () { $("ask-input").value = q; ask(q); }; c.appendChild(b); });
-    f.parentNode.insertBefore(c, f.nextSibling);
+    var h = document.querySelector(".lib-bar"); c.setAttribute("aria-label", "Suggested searches"); h.parentNode.insertBefore(c, h.nextSibling);
   }
   function ask(q) { query = q.trim(); topic = "All"; renderTabs(); renderShelves(); }
   function rotateHints() {
@@ -662,6 +728,11 @@
       if (!v.trim()) { query = ""; $("ask-hint").textContent = ""; renderShelves(); return; }
       deb = setTimeout(function () { if (v.trim().length >= 2) ask(v); }, 220);
     });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey || !$("reader").hidden) return;
+      var a = document.activeElement; if (a && (a.tagName === "INPUT" || a.tagName === "TEXTAREA" || a.isContentEditable)) return;
+      e.preventDefault(); $("ask-input").focus();
+    });
     window.addEventListener("hashchange", route);
     window.addEventListener("popstate", function (e) { if (e.state && e.state.pulseShelf) route(); });
   }
@@ -676,7 +747,7 @@
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (d) {
       lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Tech"; });
-      wire(); savedBadge(); renderChips(); renderTabs(); renderShelves(); newBadge(); rotateHints();
+      wire(); savedBadge(); renderChips(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
       if (location.hash && location.hash !== "#topics") route();
     })
     .catch(function (e) { console.error("Pulse: library failed to load", e); $("shelves").innerHTML = '<p class="lib-loading">The library didn’t load. Refresh to try again.</p>'; });
