@@ -505,7 +505,7 @@
   var TEXT = null, textLoading = null;
   function loadText() {
     if (TEXT) return Promise.resolve(TEXT);
-    if (!textLoading) textLoading = fetch("data/page-text.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { TEXT = d; return d; });
+    if (!textLoading) textLoading = fetch("data/page-text.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { TEXT = d.pages || d; return TEXT; });
     return textLoading;
   }
   function pageLines(b, i) { // i = reader index; 0 = gist page
