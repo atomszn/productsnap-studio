@@ -333,3 +333,4 @@ body.reading{overflow:hidden}
 [data-theme="dark"] .pg img{box-sizing:border-box;border:5px solid #d8ccb2;border-radius:3px;background:#fffdf6}
 [data-theme="dark"] .page{background:#d8ccb2}
 @media (prefers-reduced-motion:reduce){.leaf,.leaf-shade{transition:none}.cv-ico{transform:none}}
+.askp-tag{font-size:.78rem;color:var(--ink-faded,#6c6a60)}

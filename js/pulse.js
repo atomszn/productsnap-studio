@@ -469,6 +469,7 @@
     $("book").style.setProperty("--ar", (b.pages[0].w / b.pages[0].h).toFixed(4)); // the book takes its pages' shape
     $("reader").hidden = false; document.body.classList.add("reading");
     if (first) {
+      if (!$("rd-askp").hidden) { $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false"); }
       opens[id] = (opens[id] || 0) + 1; ls(LS.opens, opens);
       var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; if (!reduce()) bk.classList.add("opening");
       if (!touch) setTimeout(function () { $("rd-close").focus({ preventScroll: true }); }, 30);
@@ -525,7 +526,7 @@
   function askRender(head, lines, src, honest) {
     var o = $("askp-out"); o.innerHTML = "";
     if (head) o.appendChild(el("p", "askp-lead", head));
-    if (lines.length) { var ul = el("ul", "askp-lines"); lines.forEach(function (l) { ul.appendChild(el("li", null, l)); }); o.appendChild(ul); }
+    if (lines.length) { var ul = el("ul", "askp-lines"); lines.forEach(function (l) { var li = el("li", null, typeof l === "string" ? l : l.l); if (l.g) li.appendChild(el("span", "askp-tag", " · 60-second version")); ul.appendChild(li); }); o.appendChild(ul); }
     if (src) o.appendChild(el("p", "askp-src", src));
     if (honest) o.appendChild(el("p", "askp-miss", honest));
   }
@@ -543,7 +544,7 @@
       var need = qs.length > 2 ? 2 : 1;
       var hit = best.filter(function (c) { return c.s >= Math.min(need, best.length ? best[0].s : need); }).slice(0, 3);
       if (!hit.length) { askRender("", [], "", (i === 0 ? "The 60-second version doesn’t cover that." : "This page doesn’t cover that.") + " Try search on the shelf, or another page in this book."); return; }
-      askRender("From " + (hit.every(function (c) { return c.g; }) ? "the book’s 60-second version" : "this page") + ":", hit.map(function (c) { return c.l; }), hit.some(function (c) { return c.g; }) && !hit.every(function (c) { return c.g; }) ? "Some lines are from the book’s 60-second version." : "");
+      askRender(hit.every(function (c) { return c.g; }) ? "This page doesn’t say directly. From the book’s 60-second version:" : "From this page:", hit.map(function (c) { return hit.every(function (h) { return h.g; }) ? c.l : c; }), "");
     }).catch(function () { askRender("", [], "", "The page text didn’t load. Check your connection and try again."); });
   }
   function explainSimply() {
