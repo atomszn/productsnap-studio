@@ -717,7 +717,25 @@
         }
       ],
       "tagline": "One bond yield quietly sets your home loan",
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "sources": [
+        {
+          "title": "TreasuryDirect: Auction announcements, data & results (auction query)",
+          "url": "https://www.treasurydirect.gov/auctions/announcements-data-results/"
+        },
+        {
+          "title": "US Treasury: Daily Treasury par yield curve rates",
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026"
+        },
+        {
+          "title": "Freddie Mac: Primary Mortgage Market Survey",
+          "url": "https://www.freddiemac.com/pmms"
+        },
+        {
+          "title": "FRED: Federal funds target range, upper limit (Federal Reserve)",
+          "url": "https://fred.stlouisfed.org/series/DFEDTARU"
+        }
+      ]
     },
     {
       "id": "debt-loop",
@@ -765,7 +783,29 @@
         }
       ],
       "tagline": "Why borrowing to pay interest feeds itself",
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "sources": [
+        {
+          "title": "US Treasury Fiscal Data: Interest Expense on the Debt Outstanding",
+          "url": "https://fiscaldata.treasury.gov/datasets/interest-expense-debt-outstanding/"
+        },
+        {
+          "title": "US Treasury Fiscal Data: Debt to the Penny",
+          "url": "https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/"
+        },
+        {
+          "title": "FRED: Overnight reverse repo (New York Fed)",
+          "url": "https://fred.stlouisfed.org/series/RRPONTSYD"
+        },
+        {
+          "title": "FRED: CPI, all items (BLS)",
+          "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
+        },
+        {
+          "title": "Federal Reserve: Financial Stability Report, May 2020, Overview",
+          "url": "https://www.federalreserve.gov/publications/2020-may-financial-stability-report-overview.htm"
+        }
+      ]
     },
     {
       "id": "dollar-gold-yen",
@@ -805,7 +845,29 @@
         }
       ],
       "tagline": "Strong dollar, weaker buying power",
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "sources": [
+        {
+          "title": "FRED: Nominal broad US dollar index (Fed H.10)",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS"
+        },
+        {
+          "title": "US Treasury Fiscal Data: US Treasury-Owned Gold",
+          "url": "https://fiscaldata.treasury.gov/datasets/status-report-government-gold-reserve/"
+        },
+        {
+          "title": "Japan MoF: Finance Minister statement on joint yen purchase",
+          "url": "https://www.mof.go.jp/english/public_relations/statement/others/20260803073000.html"
+        },
+        {
+          "title": "Japan MoF: Foreign exchange intervention operations (Jul 30 to Aug 26)",
+          "url": "https://www.mof.go.jp/english/policy/international_policy/reference/feio/monthly/20260828e.html"
+        },
+        {
+          "title": "US Treasury TIC: Major foreign holders of Treasury securities",
+          "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt"
+        }
+      ]
     }
   ]
 }
