@@ -5,7 +5,23 @@
 (function () {
   "use strict";
   var TOPICS = { AI: "AI", Tech: "Tech", Fintech: "Fintech", Macro: "Macro" };
-  var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved" };
+  var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved", last: "pulse_last", lastX: "pulse_last_x" };
+  var START = ["agent-vocabulary", "ai-agents", "stablecoin-rails", "mortgage-rates"];
+  var ICONS = {
+    "agent-vocabulary": "M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6",
+    "ai-agents": "M7 9h10v8H7zM12 5v4M9.5 12.5h.01M14.5 12.5h.01M10 15h4M5 12h2M17 12h2",
+    "agent-native-infrastructure": "M8 11V8a4 4 0 0 1 8 0v3M6 11h12v9H6zM12 14.5v2.5",
+    "agent-swarms": "M12 5.5a2 2 0 1 0 0 .01M6 17a2 2 0 1 0 0 .01M18 17a2 2 0 1 0 0 .01M11 7.5 7 15M13 7.5l4 7.5M8 17h8",
+    "ai-bottlenecks": "M7 4h10M7 20h10M8 4c0 5 8 5 8 8s-8 3-8 8M16 4c0 5-8 5-8 8s8 3 8 8",
+    "ai-moats": "M4 20V10l3-2 3 2V7l2-2 2 2v3l3-2 3 2v10zM10 20v-4h4v4M3 21c3-1.5 15-1.5 18 0",
+    "physical-ai": "M8 9h8v7H8zM10 12h.01M14 12h.01M12 6v3M6 20l2-4M18 20l-2-4M5 12H3M21 12h-2",
+    "world-models": "M12 4a8 8 0 1 0 0 16 8 8 0 1 0 0-16M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16",
+    "stablecoin-rails": "M5 4l-1 16M19 4l1 16M4.5 8h15M4.2 13h15.6M4 18h16",
+    "tokenization": "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12 4 7.5",
+    "mortgage-rates": "M4 11l8-6 8 6M6 10v10h12V10M10 20v-5h4v5",
+    "debt-loop": "M17 7a7 7 0 1 0 2 5M17 3v4h-4",
+    "dollar-gold-yen": "M12 4v16M15.5 7.5c-1-1.2-2.2-1.6-3.5-1.6-2 0-3.5 1-3.5 2.6 0 3.5 7.5 2 7.5 5.8 0 1.7-1.6 2.8-4 2.8-1.5 0-3-.5-4-1.7"
+  };
   var SYN = {
     gpu: ["chip", "compute", "nvidia", "bottleneck"], chip: ["gpu", "compute"], compute: ["gpu", "chip"],
     power: ["energy", "electricity", "grid"], energy: ["power", "electricity", "grid"], electricity: ["power", "energy"],
@@ -91,7 +107,7 @@
   function openSaved() { renderSaved(); $("saved").hidden = false; document.body.classList.add("reading"); $("saved-x").focus(); }
   function closeSaved(silent) { $("saved").hidden = true; document.body.classList.remove("reading"); if (!silent) $("saved-btn").focus(); }
 
-  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, 2400); }
+  function toast(msg, ms) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, ms || 2400); }
 
   /* ---------- living shelf state ---------- */
   var lastSeen = ls(LS.seen);
@@ -221,6 +237,7 @@
     var c = el("span", "cv t-" + b.topic.toLowerCase() + (small ? " cv-sm" : ""));
     c.setAttribute("aria-hidden", "true");
     c.appendChild(el("span", "cv-topic", b.topic));
+    if (ICONS[b.id]) { var ic = document.createElementNS("http://www.w3.org/2000/svg", "svg"); ic.setAttribute("viewBox", "0 0 24 24"); ic.setAttribute("class", "cv-ico"); var pa = document.createElementNS("http://www.w3.org/2000/svg", "path"); pa.setAttribute("d", ICONS[b.id]); ic.appendChild(pa); c.appendChild(ic); }
     c.appendChild(el("span", "cv-title", b.title));
     c.appendChild(el("span", "cv-rule"));
     c.appendChild(el("span", "cv-tag", tagline(b)));
@@ -311,6 +328,7 @@
       var row = el("div", "shelf-row covers"); res.forEach(function (r) { row.appendChild(cover(r.b, r.p, why(r.b, r.p, query))); });
       s.appendChild(row); host.appendChild(s); return;
     }
+    if (topic === "All") { var cont = continueCard(); if (cont) host.appendChild(cont); host.appendChild(startRow()); }
     var books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; });
     var groups = view === "topics"
       ? Object.keys(TOPICS).map(function (k) { return [k, books.filter(function (b) { return b.topic === k; })]; }).filter(function (g) { return g[1].length; })
@@ -322,6 +340,30 @@
       g[1].forEach(function (b) { row.appendChild(view === "shelf" ? spine(b) : cover(b)); });
       s.appendChild(row); host.appendChild(s);
     });
+  }
+  function continueCard() {
+    var L = ls(LS.last); if (!L || !find(L.id) || ls(LS.lastX) === L.id + "/" + L.p) return null;
+    var b = find(L.id), P = pages(b); if (L.p > P.length) return null;
+    var w = el("div", "cont t-" + b.topic.toLowerCase()); w.setAttribute("role", "group"); w.setAttribute("aria-label", "Continue reading");
+    var a = el("a", "cont-a"); a.href = "#book/" + b.id + "/" + L.p;
+    a.onclick = function (e) { e.preventDefault(); history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
+    a.appendChild(el("span", "cont-k", "Pick up where you left off"));
+    a.appendChild(el("span", "cont-t", b.title + " · " + pageLabel(b, L.p)));
+    a.appendChild(el("span", "cont-p", "Page " + L.p + " of " + P.length + " →"));
+    var x = el("button", "rd-btn rd-ico cont-x"); x.type = "button"; x.setAttribute("aria-label", "Dismiss continue reading");
+    x.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+    x.onclick = function () { ls(LS.lastX, L.id + "/" + L.p); w.remove(); var f = document.querySelector("#shelves a"); if (f) f.focus(); };
+    w.appendChild(a); w.appendChild(x); return w;
+  }
+  function startRow() {
+    var r = el("nav", "start-row"); r.setAttribute("aria-label", "Start here");
+    r.appendChild(el("span", "start-k", "Start here"));
+    START.map(find).filter(Boolean).forEach(function (b) {
+      var a = el("a", "start-a t-" + b.topic.toLowerCase(), b.title); a.href = "#book/" + b.id + "/1";
+      a.onclick = function (e) { e.preventDefault(); history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
+      r.appendChild(a);
+    });
+    return r;
   }
   function clearQuery() { query = ""; $("ask-input").value = ""; $("ask-hint").textContent = ""; }
   function renderChips() {
@@ -410,6 +452,10 @@
     $("rd-bm").setAttribute("aria-pressed", String(on)); $("rd-bm-lbl").textContent = on ? "Saved" : "Save page"; $("rd-bm").disabled = end;
     $("rd-bm").setAttribute("aria-label", on ? "Page saved. Remove from Saved" : "Save this page");
     $("ribbon").hidden = !on;
+    if (!end) ls(LS.last, { id: cur.id, p: idx + 1 });
+    var pg = !end && idx > 0 ? cur.pages[idx - 1] : null, tk = pg && pg.takeaway;
+    $("rd-take").hidden = !tk; if (tk) $("rd-take-t").textContent = tk;
+    if (!$("rd-askp").hidden) askReset();
     var reached = Math.min(idx + 1, P.length); if (reached > (ls(LS.prog + cur.id) || 0)) ls(LS.prog + cur.id, reached);
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
     if (location.hash !== h) history.replaceState(history.state, "", h);
@@ -432,6 +478,7 @@
   function close() {
     var was = cur; if (!was) return;
     $("reader").hidden = true; document.body.classList.remove("reading"); cur = null;
+    $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false");
     if (fromShelf()) history.back();
     else history.replaceState(null, "", location.pathname + location.search);
     renderShelves();
@@ -453,6 +500,68 @@
     book.appendChild(leaf);
     requestAnimationFrame(function () { requestAnimationFrame(function () { leaf.classList.add("go"); }); });
     setTimeout(function () { if (dir < 0) { idx = to; paint(); } leaf.remove(); turning = false; }, 620);
+  }
+  /* ---------- Ask about this page: retrieval only, over this page's cleaned text + the gist ---------- */
+  var TEXT = null, textLoading = null;
+  function loadText() {
+    if (TEXT) return Promise.resolve(TEXT);
+    if (!textLoading) textLoading = fetch("data/page-text.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) { TEXT = d; return d; });
+    return textLoading;
+  }
+  function pageLines(b, i) { // i = reader index; 0 = gist page
+    if (i === 0) return [];
+    var t = TEXT && TEXT[b.id]; return (t && t[i - 1]) || [];
+  }
+  function expand(q) {
+    var out = [];
+    words(q).forEach(function (w) { var s = stem(w); out.push(s); (SYN[w] || SYN[s] || []).forEach(function (x) { out.push(stem(norm(x))); }); });
+    return out.filter(function (x, i, a) { return x.length > 1 && a.indexOf(x) === i; });
+  }
+  function lineScore(line, qs) {
+    var ws = words(line).map(stem), n = 0;
+    qs.forEach(function (q) { if (ws.some(function (w) { return w === q || (q.length >= 4 && w.indexOf(q) === 0) || (q.length >= 5 && near(w, q)); })) n++; });
+    return n;
+  }
+  function askRender(head, lines, src, honest) {
+    var o = $("askp-out"); o.innerHTML = "";
+    if (head) o.appendChild(el("p", "askp-lead", head));
+    if (lines.length) { var ul = el("ul", "askp-lines"); lines.forEach(function (l) { ul.appendChild(el("li", null, l)); }); o.appendChild(ul); }
+    if (src) o.appendChild(el("p", "askp-src", src));
+    if (honest) o.appendChild(el("p", "askp-miss", honest));
+  }
+  function askReset() { $("askp-out").innerHTML = ""; }
+  function askPage(q) {
+    q = (q || "").trim(); if (!q || !cur) return;
+    var b = cur, i = idx;
+    askRender("Looking…", []);
+    loadText().then(function () {
+      if (cur !== b || idx !== i) return;
+      var qs = expand(q); if (!qs.length) { askRender("", [], "", "Try a few more words, like “who pays?” or “what is a sandbox?”"); return; }
+      var cand = pageLines(b, i).map(function (l) { return { l: l, s: lineScore(l, qs), g: false }; })
+        .concat(b.gist.map(function (l) { return { l: l, s: lineScore(l, qs), g: true }; }));
+      var best = cand.filter(function (c) { return c.s > 0; }).sort(function (a, c) { return c.s - a.s || a.g - c.g; });
+      var need = qs.length > 2 ? 2 : 1;
+      var hit = best.filter(function (c) { return c.s >= Math.min(need, best.length ? best[0].s : need); }).slice(0, 3);
+      if (!hit.length) { askRender("", [], "", (i === 0 ? "The 60-second version doesn’t cover that." : "This page doesn’t cover that.") + " Try search on the shelf, or another page in this book."); return; }
+      askRender("From " + (hit.every(function (c) { return c.g; }) ? "the book’s 60-second version" : "this page") + ":", hit.map(function (c) { return c.l; }), hit.some(function (c) { return c.g; }) && !hit.every(function (c) { return c.g; }) ? "Some lines are from the book’s 60-second version." : "");
+    }).catch(function () { askRender("", [], "", "The page text didn’t load. Check your connection and try again."); });
+  }
+  function explainSimply() {
+    if (!cur) return; var b = cur, i = idx;
+    loadText().then(function () {
+      if (cur !== b || idx !== i) return;
+      if (i === 0 || i >= pages(b).length) { askRender("In short:", [tagline(b)].concat(b.gist), ""); return; }
+      var pg = b.pages[i - 1], tq = expand(pg.title + " " + (pg.takeaway || ""));
+      var lines = pageLines(b, i).map(function (l, k) { return { l: l, s: lineScore(l, tq), k: k }; }).filter(function (c) { return c.s > 0 && c.l.length > 24; })
+        .sort(function (a, c) { return c.s - a.s || a.k - c.k; }).slice(0, 2).sort(function (a, c) { return a.k - c.k; }).map(function (c) { return c.l; });
+      askRender("In short:", (pg.takeaway ? [pg.takeaway] : []).concat(lines), pg.takeaway ? "The first line is this page’s takeaway; the rest are quoted from the page." : "");
+    }).catch(function () { askRender("", [], "", "The page text didn’t load. Check your connection and try again."); });
+  }
+  function toggleAsk(on) {
+    var p = $("rd-askp"); on = on == null ? p.hidden : on;
+    p.hidden = !on; $("rd-ask").setAttribute("aria-expanded", String(on)); $("rd-ask").setAttribute("aria-pressed", String(on));
+    if (on) { loadText().catch(function () {}); askReset(); setTimeout(function () { $("askp-in").focus({ preventScroll: true }); }, 30); }
+    else $("rd-ask").focus({ preventScroll: true });
   }
   var zoomFrom = null;
   function zoom(p, b) {
@@ -489,10 +598,22 @@
     $("rd-bm").onclick = function () {
       var on = isSaved(cur.id, idx + 1);
       setSaved(cur.id, idx + 1, !on);
-      if (on) toast("Removed from Saved"); else { toast("Saved · find it under Saved"); haptic(); }
+      if (on) toast("Removed from Saved"); else { toast("Saved", 1400); haptic(); }
       paint();
     };
     $("rd-share").onclick = share;
+    $("rd-ask").onclick = function () { toggleAsk(); };
+    $("askp-x").onclick = function () { toggleAsk(false); };
+    $("askp-form").onsubmit = function (e) { e.preventDefault(); askPage($("askp-in").value); };
+    $("askp-simple").onclick = explainSimply;
+    $("askp-in").addEventListener("keydown", function (e) { if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); toggleAsk(false); } });
+    $("rd-take-copy").onclick = function () {
+      var n = Math.min(idx + 1, pages(cur).length), base = location.href.replace(/[#?].*$/, "").replace(/pulse(\.html)?$/, "");
+      var t = $("rd-take-t").textContent + " — " + cur.title + ", Pulse: " + base + "share/" + cur.id + ".html?p=" + n;
+      var done = function () { toast("Takeaway copied", 1600); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, function () { fallbackCopy(t) ? done() : toast(t); });
+      else fallbackCopy(t) ? done() : toast(t);
+    };
     $("zoom-x").onclick = unzoom;
     $("zoom").onclick = function (e) { if (e.target.id === "zoom-img") $("zoom").classList.toggle("big"); else if (e.target.id === "zoom") unzoom(); };
     $("saved-btn").onclick = openSaved;
@@ -512,9 +633,11 @@
       else if (e.key === "ArrowLeft") turn(-1);
       else if (e.key === "Home") { e.preventDefault(); go(0); }
       else if (e.key === "End") { e.preventDefault(); go(pages(cur).length - 1); }
-      else if (e.key === "Escape") close();
+      else if (e.key === "Escape") { if (!$("rd-askp").hidden) toggleAsk(false); else close(); }
       else if ((e.key === "z" || e.key === "Z") && idx > 0 && idx < pages(cur).length) zoom(cur.pages[idx - 1], cur);
       else if (e.key === "b" || e.key === "B") $("rd-bm").click();
+      else if (e.key === "a" || e.key === "A") { e.preventDefault(); toggleAsk(); }
+      else if (e.key === "Escape" && !$("rd-askp").hidden) { toggleAsk(false); }
       else if (e.key === "Tab") { // keep focus inside the reader
         var f = [].slice.call($("reader").querySelectorAll("button:not([disabled]),a[href]")).filter(function (x) { return x.offsetParent; });
         if (!f.length) return; var a = f[0], z = f[f.length - 1];
