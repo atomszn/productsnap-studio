@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "books": [
     {
       "id": "agent-native-infrastructure",
@@ -237,6 +237,24 @@
           "takeaway": "When an AI agent does the work, someone still pays for it: you, an ad, or the seller."
         },
         {
+          "file": "assets/pulse/ai-agents/p05.webp",
+          "thumb": "assets/pulse/ai-agents/p05-t.webp",
+          "title": "Four ways to sell AI agents",
+          "w": 1600,
+          "h": 2760,
+          "kw": "saas beene selling ai agents part sell four way whole job now run customer journey peg weeks one chat company actually fect poe ste cre rec cipe latform eee service rxryy sos sea take een eoethelennes agent ane runs inside team already pays outsiders like bakery oven bread red ventures-style insurance policies get paid policy closed good upside old contract sets price fast deals budget exists watch new budgets slow valuable work proving caused usually stays in-house done result hard staff ecipe recipe full-sta seaaes ween pay lah sti esutt als weve aaa pies ener outcome-based heresy wee mem wwe www mow ewe wow full-stack become business itself finishes buy portfolios unpaid debts sierra support billed let collect resolved conversation creates keep value easy means bill carry licenses must agree upfront counts bie daily operations aes tra fem ways platform license rules loaf eaten atom",
+          "takeaway": "Companies can sell an AI agent as a platform, a service, a full business, or per finished result."
+        },
+        {
+          "file": "assets/pulse/ai-agents/p06.webp",
+          "thumb": "assets/pulse/ai-agents/p06-t.webp",
+          "title": "What the trade-offs actually mean",
+          "w": 1600,
+          "h": 2760,
+          "kw": "aaa selling ai agents part trade-offs actually mean n75 w.aawe platform service full-stack pay result one trades speed upside risk differently irae ros alor aol liege glin lag ope neer lone ree yee side o26 lps e77 bakery jbas blgvgvglglsu eee burden sell tool business pnr nore aie company deciding build license pick want process wait budget outsource already outsiders results fast wee eae finished jobs watch startup become competitor reality check still early different customer journeys like case prep injury lawyers fit models money old budgets big new ones slow sale slowest capped biggest grows owns shared fails sits whole market outsourcing cost job resuits modeis atom",
+          "takeaway": "Each way to sell trades speed of sale, upside and who carries the risk differently."
+        },
+        {
           "file": "assets/pulse/ai-agents/p02.webp",
           "thumb": "assets/pulse/ai-agents/p02-t.webp",
           "title": "Does your AI agent actually work for you?",
@@ -264,7 +282,7 @@
           "takeaway": "Let an agent find and draft before you let it spend, and give it limits and a valet key."
         }
       ],
-      "updated": "2026-10-13",
+      "updated": "2026-10-14",
       "tagline": "Who pays when your agent shops",
       "sources": [
         {
