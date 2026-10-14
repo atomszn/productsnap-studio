@@ -6,7 +6,7 @@
   "use strict";
   var TOPICS = { AI: "AI", Tech: "Tech", Fintech: "Fintech", Macro: "Macro" };
   var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved", last: "pulse_last", lastX: "pulse_last_x" };
-  var START = ["agent-vocabulary", "ai-agents", "stablecoin-rails", "mortgage-rates"];
+  var START = [["agent-vocabulary", "Agent Vocabulary"], ["ai-agents", "AI Agents"], ["stablecoin-rails", "Stablecoins"], ["mortgage-rates", "Mortgages"]];
   var ICONS = {
     "agent-vocabulary": "M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6",
     "ai-agents": "M7 9h10v8H7zM12 5v4M9.5 12.5h.01M14.5 12.5h.01M10 15h4M5 12h2M17 12h2",
@@ -358,8 +358,9 @@
   function startRow() {
     var r = el("nav", "start-row"); r.setAttribute("aria-label", "Start here");
     r.appendChild(el("span", "start-k", "Start here"));
-    START.map(find).filter(Boolean).forEach(function (b) {
-      var a = el("a", "start-a t-" + b.topic.toLowerCase(), b.title); a.href = "#book/" + b.id + "/1";
+    START.forEach(function (st) {
+      var b = find(st[0]); if (!b) return;
+      var a = el("a", "start-a t-" + b.topic.toLowerCase(), st[1]); a.href = "#book/" + b.id + "/1"; a.setAttribute("aria-label", b.title);
       a.onclick = function (e) { e.preventDefault(); history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
       r.appendChild(a);
     });
