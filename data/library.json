@@ -8,9 +8,9 @@
       "topic": "AI",
       "blurb": "How AI agents get a badge, not your keys.",
       "gist": [
-        "Agents need their own ID, limited permissions and keys that expire.",
-        "A sandbox and a gateway keep mistakes small and every action logged.",
-        "Builders move first; for most people the change is mostly invisible."
+        "Give each AI helper its own badge. It gets limited access and keys that run out, instead of your password.",
+        "Keep mistakes small. Run it in a sealed workspace behind one front desk, so any slip stays small and every action is written down.",
+        "Builders feel it first. For most people the change will be mostly invisible."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -21,7 +21,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agent-native infrastructure part software built people type click ai agents need badge keys workspace act safely agent filing expense reports humans nativ payroll website login oie nes cane borrows password has clicks through websites like person opens doors needs reach everything forever key expires job done giving temp worker visitor house don lend give building blocks sandbox identity sealed proof runs code mistakes can't works spread kid gateway poe short-lived one front desk access what's needed tools data e.g mcp expiring task open standard plugging business real work without getting reality check still early mostly developers large companies use today often cloud providers answer expenses payrol don't kid's permissions atom",
-          "takeaway": "AI agents should get their own limited, expiring badge, not your password."
+          "takeaway": "An AI helper should get its own limited badge that expires, not your password."
         },
         {
           "file": "assets/pulse/agent-native-infrastructure/p02.webp",
@@ -30,7 +30,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agent native infrastructure part pieces work together example pulls sales report updates support ticket get job safely update old way agent-native borrow manager's login opens everything record never expires steps identity permissions sandbox gateway expiry jel oad badge says read reports edit tickets front desk checks stops working works sealed room hands done team nothing else logs every door key runs side gets person owns data ees log step took exactly needs right away something goes wrong damage stays small waiting switch off without changing passwords clear rules time audit running reality check full setups like still early mostly built developers larger teams trust setup ai password sees",
-          "takeaway": "A sandbox, an ID, tight permissions and one gateway keep an agent's work small, logged and easy to switch off."
+          "takeaway": "A sealed workspace, an ID, tight permissions and one front desk keep an agent's work small, logged and easy to switch off."
         },
         {
           "file": "assets/pulse/agent-native-infrastructure/p03.webp",
@@ -39,7 +39,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agent-native infrastructure part changes businesses companies want ai agents real work keys everything h000 here's safer agent access doesn't yet hoo00 hbo00o ok online store handing refunds setup aie log aga tot need full admin refund small orders security team says every logged stuck tests eee builders standard pieces customer control sap faster launches safe doors let mostly invisible allow assistant sharing password view limited one job calendar hour see switch off doesn apps use haven added still check example moves dentist appointment important actions reality broad everyday early change happening inside now you'll notice wrong humans adds tasks time deny haven't yourdentist atom",
-          "takeaway": "Small, safe doors let companies hand agents real work, and for you the change is mostly invisible."
+          "takeaway": "Small, safe doors let companies hand agents real work. For you, the change is mostly invisible."
         },
         {
           "file": "assets/pulse/agent-native-infrastructure/p04.webp",
@@ -48,7 +48,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agent-native infrastructure part has adapt still hard means building blocks let ai agents act safely without person's full login lan sandbox sealed identity proves permissions gateway one checked space run work agent jobs allowed door tools data changes first now later cal cloud providers developers companies using everyday users offer must wire pieces gain control record won't notice much win together correctly every action while builders move feel last bay today new changing wwh css set right gin hote switching off shared logins takes time many teams give reality check early use larger impact ahead hotels hand room keys master next what's it's front desk hotel atom",
-          "takeaway": "Builders move first and everyday users feel it last; this is still early."
+          "takeaway": "Builders adapt first and everyday users feel it last. It's still early."
         }
       ],
       "tagline": "How AI agents get a badge, not your keys",
@@ -69,7 +69,18 @@
           "title": "NIST AI Risk Management Framework",
           "url": "https://www.nist.gov/itl/ai-risk-management-framework"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Give each AI helper its own badge.",
+        "Keep mistakes small.",
+        "Builders feel it first."
+      ],
+      "recap": [
+        "AI helpers should get their own ID badge and limited access, not your password.",
+        "A sealed workspace and one front desk keep what they do small, logged and easy to switch off.",
+        "Builders deal with this first; for you it stays mostly invisible, and it is still early."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "agent-swarms",
@@ -77,9 +88,9 @@
       "topic": "AI",
       "blurb": "When a team of AI agents works while you're away.",
       "gist": [
-        "A lead agent splits a big job; helpers work in parallel; a checker merges.",
-        "More agents speed up jobs that split, not jobs that need one big idea.",
-        "More agents mean more compute and more oversight. You still own the result."
+        "One lead, many helpers. A lead AI splits a big job into pieces, helper AIs work on the pieces at the same time, and a checker puts the results together.",
+        "More helpers only help some jobs. Extra helpers speed up work that splits into parts, not work that needs one big idea.",
+        "You still own the result. More helpers mean more computing power and more checking. Whatever they produce, you are still responsible for it."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -90,7 +101,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "ai agent swarms part aera today chat one helper question time happens team helpers works together even while you're away eadina customer calls swarm agents lead see checker paste ask wait read repeat splits batches stops close merges top complaints llours copy become finished report z42 words know wear get answers books meeting big jobs done parallel several splitting job like work continues sleep backamand keeps review results every step without asking checks new night pings reality check still early companies test coding research people output waits actually aaaaaaaaaaaaaaaaaaaa reading hours copy-paste task e.g background working atom",
-          "takeaway": "A swarm is a team of AI agents splitting one big job, often working while you're away."
+          "takeaway": "A swarm is a team of AI helpers splitting one big job, often while you're away."
         },
         {
           "file": "assets/pulse/agent-swarms/p02.webp",
@@ -99,7 +110,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agent swarms part work actually changes example checking company software security holes one chat team agents keeps going today swarm background lead repeat login payments customer data reviewer drops false alarms next session new code added overnight waits person approves fixes checks every change even reading make calls get handoff passes results much like relay fast hours alarm flagged problem often someone isn't real still decides remembers reality check companies testing mistakes people review stop doing start ai company's developer pastes file points issues opens files days atom",
-          "takeaway": "With a swarm, agents do the reading and people review and approve the results."
+          "takeaway": "Helpers do the reading; people check and approve the results."
         },
         {
           "file": "assets/pulse/agent-swarms/p03.webp",
@@ -108,7 +119,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agent swarms part ai agents help dont viral claim says better real answer depends kind job two kinds jobs splits pieces needs one big idea reading calls math proofs opus system card checking many files takes piece jump done sooner almost nothing ten cooks make pizzas faster don't invent new recipe research split lead coordinating google mit step-by-step worse study cost team uses 15x tokens chat anthropic flattens copies think alike eats time reality check numbers match report buy speed genius e.g anthropic's atom",
-          "takeaway": "More agents help when a job splits into pieces, not when it needs one big idea."
+          "takeaway": "More helpers pay off when a job splits into pieces, not when it needs one big idea."
         },
         {
           "file": "assets/pulse/agent-swarms/p04.webp",
@@ -117,7 +128,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "ai agent swarms part means compute cost agents work night read write far person chatting take pays company one today people swarm working overnight tokens questions during hours reading every call code change stops log off runs token small chunk text reads writes roughly word computing chats sip tahense has place io tools connections oversight processing power access email spending limits customer records data centers e.g through apis i.e plugs activity logs nvidia chips let software talk approves big actions business bill depends much many use reality check full scale still emerging costs keep changing meter running gulp atom",
-          "takeaway": "Agents working overnight use far more tokens than people chatting, so costs follow what the agents do."
+          "takeaway": "Helpers working overnight use far more computing than people chatting, so the bill follows what the helpers do."
         },
         {
           "file": "assets/pulse/agent-swarms/p05.webp",
@@ -126,7 +137,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agent swarms part has adapt two teams get agents review customer calls io one gets weekly insight report mess ents ditterent results eee team lags eet nlt bie sfp ttl lier ece esess greta ose sills limits today testing have oversight someone still check right approves big actions like trusting shipping code access early days fully self-running know connect rare companies reality organizations tasks running everywhere work result ai different adapts clear goal find top vague ask look complaints week connects data call can't reach recordings support tickets person reviews acting checks output every covered trusted wrong answers wasted cost multiply process good bad work.you atom",
-          "takeaway": "Agents multiply your process, good or bad, and people still own the result."
+          "takeaway": "Helpers multiply whatever process you give them, good or bad, and people still own the result."
         }
       ],
       "updated": "2026-10-12",
@@ -148,7 +159,18 @@
           "title": "Claude Opus 5.5 System Card (Anthropic, PDF), Fig. 8.12.3.B, p.195",
           "url": "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf"
         }
-      ]
+      ],
+      "gist_lead": [
+        "One lead, many helpers.",
+        "More helpers only help some jobs.",
+        "You still own the result."
+      ],
+      "recap": [
+        "A swarm is a team of AI helpers splitting one big job, with people reviewing the results.",
+        "More helpers pay off when a job splits into pieces, and they use far more computing, so costs add up.",
+        "They multiply your process, good or bad, and you still own the result."
+      ],
+      "recap_pages": 5
     },
     {
       "id": "agent-vocabulary",
@@ -156,9 +178,9 @@
       "topic": "AI",
       "blurb": "The words behind AI agents, explained as a kitchen.",
       "gist": [
-        "The model is the cook; tools, memory and skills are the kitchen.",
-        "Guardrails like permissions, hooks and checks keep it safe.",
-        "Follow one refund to see every piece working together."
+        "Picture a kitchen. The AI model is the cook. Tools, memory and skills are the kitchen around it.",
+        "Add safety rules. Permissions, automatic checks and a person who approves big calls keep a capable AI safe to trust.",
+        "Follow one refund. Watch a single customer refund pass through the AI to see every piece working together."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -169,7 +191,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agent words part made building ai like setting kitchen doesn answer takes steps get job done arye model cook describe dpd around abt cow works eee rrr ttt tre lcl lll lillie loop think act check repeat tasting adjusting tools utensils search web read file send email rae ooo oooo oos eso sss oss oes sscs ono ros sos ooooh ces sose sse ese sese tebe sesese essseeasweses mcp context protocol standard plug usb lol use tool dsasannname ones res des shore osce rse rss shas asses sshhe rad dssdonsooasacds aeons onassenenanasasvadasaneasaaassaancaanas skills recipe cards pulls needed refunds instructions note door place knows helps memory assistant notebook kumar likes spicy library reference docs look cookbook shelf jee compaction boils long notes summary run room rules house must always follow never peanuts subagents helper cooks one chops bakes report back rest doesn't assistant's atom",
-          "takeaway": "The AI model is the cook; memory, rules, tools and the agent loop are the kitchen around it."
+          "takeaway": "The AI model is the cook; memory, rules, tools and the work loop are the kitchen around it."
         },
         {
           "file": "assets/pulse/agent-vocabulary/p02.webp",
@@ -178,7 +200,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "ai agent words part keeping agents safe schedule smart still needs clock guardrails alar takes steps get job done like kitchen assistant cover stays gets checked knows start fire newer practice taking shape staying als harness software around runs loop hands tools sets limits iew sandbox mistakes cant burn house permissions cabinets open refund can't delete wan hooks automatic set moments every time edits file run check checks taste test serving work actually pass getting human-in-the-loop asks big moves ok scorecard fest hehe eee evals regular dinners scored catch quality slipping triggers doorbell wakes new message oo00p routines jobs weekly meal prep feature to-do list plus tests worked one item builds started trusted alarm atom",
-          "takeaway": "Sandboxes, permissions, checks and a human in the loop keep a capable agent safe and trusted."
+          "takeaway": "Sealed workspaces, permissions, checks and a person in the loop keep a capable AI safe and trusted."
         },
         {
           "file": "assets/pulse/agent-vocabulary/p03.webp",
@@ -187,7 +209,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "ai agent words part one job start finish follow refund through takes steps get done here's customer-refund online store every building block uses along way getting ready reads email arrives mug came broken playbook house rules trigger instructions file remembers loyal looks order customer first complaint system anf memory tool mcp doing safely follows small allowed how-to big asks person how-lo permissions skill human-in-the loop checks amount rrith later test cases make matches action sure still gets logged refunds right check hook evals reality many companies use pieces today fully hands-off agents rare people review calls whole kitchen behind nai 1to store's orders human-in-the-loop tttttt atom",
-          "takeaway": "One refund shows every building block at work, and people still review the big calls."
+          "takeaway": "One refund shows every piece at work, and people still review the big decisions."
         }
       ],
       "tagline": "The words behind AI agents, as a kitchen",
@@ -213,7 +235,18 @@
           "title": "Anthropic: Building effective agents",
           "url": "https://www.anthropic.com/engineering/building-effective-agents"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Picture a kitchen.",
+        "Add safety rules.",
+        "Follow one refund."
+      ],
+      "recap": [
+        "An AI helper is a cook (the model) working in a kitchen of tools, memory and rules.",
+        "Safety rules and a person approving the big calls keep it trustworthy.",
+        "One refund shows all the pieces working together."
+      ],
+      "recap_pages": 3
     },
     {
       "id": "ai-agents",
@@ -221,9 +254,9 @@
       "topic": "AI",
       "blurb": "Who pays, whose side it's on, and who eats mistakes.",
       "gist": [
-        "When an agent does the work, someone still has to pay for it.",
-        "A free agent paid by sellers may not pick what's best for you.",
-        "Nobody agrees yet who pays when an agent buys the wrong thing."
+        "Someone always pays. When an AI does a job for you, someone still pays for it: you, an advertiser, or the seller.",
+        "Free can mean biased. A free AI that sellers pay for may not pick what is best for you.",
+        "Blame is unsettled. If an AI buys the wrong thing, nobody has clearly agreed yet who pays for the mistake."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -234,7 +267,7 @@
           "w": 1600,
           "h": 3940,
           "kw": "big question pays tor agents ai soon everyday tasks us around clock every task costs money run picks bill walkthrough booking dentist today tooth hurts search google call offices booked tue top results ads wait hold ver minutes effort got paid bought ees find agent checks compares insurance open times wee calendar new work ways pay example prices month plan covers result actually books suggested first store fee like opentable pick best one sponsored free get sellers week seconds exampleprices atom",
-          "takeaway": "When an AI agent does the work, someone still pays for it: you, an ad, or the seller."
+          "takeaway": "When an AI does the work, someone still pays: you, an advertiser or the seller."
         },
         {
           "file": "assets/pulse/ai-agents/p05.webp",
@@ -243,7 +276,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "saas beene selling ai agents part sell four way whole job now run customer journey peg weeks one chat company actually fect poe ste cre rec cipe latform eee service rxryy sos sea take een eoethelennes agent ane runs inside team already pays outsiders like bakery oven bread red ventures-style insurance policies get paid policy closed good upside old contract sets price fast deals budget exists watch new budgets slow valuable work proving caused usually stays in-house done result hard staff ecipe recipe full-sta seaaes ween pay lah sti esutt als weve aaa pies ener outcome-based heresy wee mem wwe www mow ewe wow full-stack become business itself finishes buy portfolios unpaid debts sierra support billed let collect resolved conversation creates keep value easy means bill carry licenses must agree upfront counts bie daily operations aes tra fem ways platform license rules loaf eaten atom four ways sell ai agents own whole job platform service full-stack pay per result recipe",
-          "takeaway": "Four ways to sell AI agents that own the whole job: a platform, a service, full-stack, or pay per result."
+          "takeaway": "Four ways to sell an AI that does a whole job: as a platform, a service, a full product, or pay per result."
         },
         {
           "file": "assets/pulse/ai-agents/p06.webp",
@@ -252,7 +285,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "aaa selling ai agents part trade-offs actually mean n75 w.aawe platform service full-stack pay result one trades speed upside risk differently irae ros alor aol liege glin lag ope neer lone ree yee side o26 lps e77 bakery jbas blgvgvglglsu eee burden sell tool business pnr nore aie company deciding build license pick want process wait budget outsource already outsiders results fast wee eae finished jobs watch startup become competitor reality check still early different customer journeys like case prep injury lawyers fit models money old budgets big new ones slow sale slowest capped biggest grows owns shared fails sits whole market outsourcing cost job resuits modeis atom",
-          "takeaway": "Each way to sell trades speed of sale, upside and who carries the risk differently."
+          "takeaway": "Each way trades off how fast it sells, how much it can earn, and who carries the risk."
         },
         {
           "file": "assets/pulse/ai-agents/p02.webp",
@@ -261,7 +294,7 @@
           "w": 1600,
           "h": 3690,
           "kw": "open question ai agent caaa hvs actually work agents free because sellers pay get recommended oagaly even settle pays mistakes paid-for pick still wrong ask different boss paid works checks hotels hotel shown first compares price reviews location books best fit iooed enough great one else paying request harder spot today search decides booked see final label decide disappears choosing people want letting spend spending limit proof asked ree e.g max order saved record exact ars seamed off switch cut access shows reasons anything being worked show honest fre find austin good it's sponsored agent's tap whoever atom",
-          "takeaway": "An agent paid by sellers may not pick what's best for you, and the ad label disappears."
+          "takeaway": "An AI paid by sellers may not pick what's best for you, and the 'ad' label can disappear."
         },
         {
           "file": "assets/pulse/ai-agents/p03.webp",
@@ -270,7 +303,7 @@
           "w": 1600,
           "h": 3690,
           "kw": "open problem agent bought wrong thing pays payment pipes ai agents built visa mastercard stripe amex online purchases use tar tae tits blocker nobody agrees gets source checkout.com merchant estimates everyday mix-up ips orders reorder cases store ships paper towels porch meant shipped ordered eats cost holds risk today told buy unauthorized charge protection apply laaakatz it's seller receipt usually handles return takes loss ech company clear rule makes pay agent's mistakes announced registered live yet building checks liability unclear still stuck stores offer say full catalog pymnts intelligence sept ati until someone owns mistake people won't let spend far checkout.com2026 merchantestimates card networks atom",
-          "takeaway": "When an agent buys the wrong thing, nobody has clearly agreed who pays yet."
+          "takeaway": "When an AI buys the wrong thing, nobody has clearly agreed yet who pays."
         },
         {
           "file": "assets/pulse/ai-agents/p04.webp",
@@ -279,7 +312,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "agents part trying agent sately week want test ai without risking money data vet start use low-limit virtual card spending cap like prepaid gift ask first must pays sends deletes least access connect one app needs valet key house keys research comparing options drafting low stakes while runs eee een ween nennnne check receipt read log know off switch disconnect cancel oooo sso sooo sos oos obes soo wwe eet wee wees cee ewes eens sseescoseecoeseeeencecuces never paste passwords numbers chat reality good finding today paying still new let fetch spend safely rrrrrrrrrrs atom",
-          "takeaway": "Let an agent find and draft before you let it spend, and give it limits and a valet key."
+          "takeaway": "Let an AI search and draft before you let it spend, and give it limits and a limited 'valet key'."
         }
       ],
       "updated": "2026-10-14",
@@ -301,7 +334,18 @@
           "title": "PYMNTS: AI makes the holiday shopping list, but who gets the sale? (PYMNTS Intelligence)",
           "url": "https://www.pymnts.com/news/artificial-intelligence/2026/ai-makes-the-holiday-shopping-list-but-who-gets-the-sale/"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Someone always pays.",
+        "Free can mean biased.",
+        "Blame is unsettled."
+      ],
+      "recap": [
+        "When an AI does a job, someone pays: you, an advertiser or the seller. There are four ways to sell it, each with trade-offs.",
+        "An AI paid by sellers may not pick what is best for you, and nobody has settled who pays when it buys the wrong thing.",
+        "To try one safely, let it search and draft first, then give it limits before it spends."
+      ],
+      "recap_pages": 6
     },
     {
       "id": "ai-bottlenecks",
@@ -309,9 +353,9 @@
       "topic": "AI",
       "blurb": "Why AI growth depends on power, memory and plumbing.",
       "gist": [
-        "Chips need power, cooling, memory and fast links to be useful.",
-        "Getting power to a data center can take years, not months.",
-        "Winners plan for the plug, not just the chip."
+        "A chip is not enough. AI chips only work with power, cooling, memory and fast links between chips, all inside a data center.",
+        "Power is the slow part. Chips can arrive in months, but getting power to a data center can take years.",
+        "Plan for the plug. The winners plan for the electricity and cooling, not just the chip."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -340,7 +384,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "infrastructure part memory connections limits even plenty power fast ai chip useless waiting data two things decide next links between chips ily back restaurant kitchen ion ingredients far away chef waits fridge deo never stops aly bees s55 sooo narrow hall rile counter big orders get split shared sports car stuck traffic words know hbm high-bandwidth industry responding stacked like pancakes right made taller stacks newer hynix samsung micron generation interconnect wired together e.g nvidia's nvlink inside rack one system optical cables send light-based racks light instead electricity longer faster hops reality check supply has tight slow still leave expensive sitting idle speed isn't feed it's stove hallway dishes pile wide atom",
-          "takeaway": "A fast chip waiting on data is wasted, so memory and links between chips matter."
+          "takeaway": "A fast chip stuck waiting for data is wasted, so memory and the links between chips matter."
         },
         {
           "file": "assets/pulse/ai-bottlenecks/p04.webp",
@@ -349,7 +393,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "infrastructure part has adapt next power cooling memory connections now limit fast ai grow comes ahead feels squeeze changes gains labs clouds e.g microsoft google lock early chips sit waiting chip makers nvidia utilities data-center builders winners plan plug deals liquid becomes normal nuclear gas solar new data centers signed years saree eeeaeeeneltsewsewe link leaner models ooo expand daseeeueapescatseteurs tess factories keeps improving prices speed depend physical pieces reality check plants grid lines take build quick software fix moves foundations move construction what's adapts squeezed design faster links can't fed cooled demand long-term strain long waits exists stuck sites delays businesses using pick efficient tools higher slower rollouts there's atom",
-          "takeaway": "Power, cooling, memory and connections now limit how fast AI can grow, with no quick software fix."
+          "takeaway": "Power, cooling, memory and connections now limit how fast AI can grow, and there is no quick software fix."
         },
         {
           "file": "assets/pulse/ai-bottlenecks/p05.webp",
@@ -384,7 +428,18 @@
           "title": "arXiv 2511.23455 (inference cost vs. benchmark progress)",
           "url": "https://arxiv.org/abs/2511.23455"
         }
-      ]
+      ],
+      "gist_lead": [
+        "A chip is not enough.",
+        "Power is the slow part.",
+        "Plan for the plug."
+      ],
+      "recap": [
+        "AI needs more than chips: power, cooling, memory and fast connections all limit how fast it can grow.",
+        "Power and cooling take years to arrive; chips only months.",
+        "Even so, cheaper hardware and better efficiency keep making the same answer cheaper."
+      ],
+      "recap_pages": 5
     },
     {
       "id": "ai-moats",
@@ -392,9 +447,9 @@
       "topic": "AI",
       "blurb": "When every AI is smart, being there wins.",
       "gist": [
-        "Models get copied; habits, history and workflow don't.",
-        "A slightly better AI rarely beats the one already in your apps.",
-        "Newcomers win with a new task, a forgotten user, or a far better product."
+        "Copying is easy. AI models get copied quickly. What is hard to copy is people's habits, history and the way they already work.",
+        "Being there beats being best. A slightly better AI rarely beats the one already inside the apps you use every day.",
+        "Newcomers need a twist. They can win with a brand-new task, a user everyone forgot, or a product that is far better."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -405,7 +460,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "ai moats part every smart wins models getting alike easier anyone use lasting edge moving itself reach people hard leave moat foundation model application layer advantage core brain like ones app built top jit rivals can't easily copy ale behind chatgpt claude gemini actually coffee test slightly better good office lobby tihuala elevator eee nooo cores rate already minutes away knows usual order catch fast easy habit break loses one work best three last longer smarter owns history painful basen email team whole workflow sales tool holding years customer notes docs apps daily runs through reality check strong still matter weak won't keep users alone rarely enough anymore get copied habits don't bit tastier way team's atom",
-          "takeaway": "As AI models become more alike, the lasting edge is reach and habits, not the model."
+          "takeaway": "As AI models become alike, the lasting edge is reach and habits, not the model."
         },
         {
           "file": "assets/pulse/ai-moats/p02.webp",
@@ -445,7 +500,18 @@
           "title": "Epoch AI: The plunging price of thought",
           "url": "https://epoch.ai/publications/the-plunging-price-of-thought"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Copying is easy.",
+        "Being there beats being best.",
+        "Newcomers need a twist."
+      ],
+      "recap": [
+        "As AI models get alike, reach and habits matter more than the smartest model.",
+        "A slightly smarter AI rarely beats the one people already use, so owning where people work wins.",
+        "So being where people already work usually beats a small model upgrade."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "physical-ai",
@@ -453,9 +519,9 @@
       "topic": "AI",
       "blurb": "Robots and cars that handle surprises.",
       "gist": [
-        "Old robots follow a script; physical AI figures out the unexpected.",
-        "Reasoning cars handle the odd moment, like a worker waving you through.",
-        "Still early: mostly pilots, trials and limited cities."
+        "Beyond the script. Old robots follow a fixed script. Physical AI works out what to do when something unexpected happens.",
+        "Cars that reason. They aim to handle the odd moment, like a worker waving you through, without handing the wheel back to you.",
+        "Still early. Today it is mostly pilots, trials and a few limited cities."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -466,7 +532,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "shift physical robots handle surprises nola today follow exact instructions anything unexpected stops ai lets machines see figure act messy real world nvidia's jensen huang calls chatgpt moment warehouse robot meets something new set pick boxes squishy odd-shaped bag shows looks cameras eee works grab picks keeps going old script ones plot twist changes business fewer rescues safer items don't people step reacts instead halt line often freezing crashing foundation model trained huge amounts video powers data way text reality check still early mostly pilots trials everywhere yet need perfect conditions it's programmed expects box spot sees wasn't told waits person atom",
-          "takeaway": "Physical AI lets machines see, figure things out and act when something unexpected happens."
+          "takeaway": "Physical AI lets machines see, work things out and act when something unexpected happens."
         },
         {
           "file": "assets/pulse/physical-ai/p02.webp",
@@ -475,7 +541,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "physical ai part cars think through surprises today's self-driving features follow rules maps something unusual freeze hand wheel back shift reason they've never seen construction worker waves cones block lane signals around across yellow line today rule-following car reasoning stops beeps take now nas tell tells don fit changes seat safer odd moments fewer handoffs confidence asks work zones bad weather often rare situations get strange intersections fea panicked edge case situation like parade fallen tree cop directing traffic reality check still early robotaxis run limited cities need driver ready hard driving isnt normal weird atom rule cross sees worker's wave doesn't understand signal gets detour allowed slowly goes don't handled word know ora isn't it's",
-          "takeaway": "Reasoning cars aim to handle rare situations, the 1% weird, without handing back the wheel."
+          "takeaway": "Reasoning cars aim to handle the rare weird 1% without handing back the wheel."
         },
         {
           "file": "assets/pulse/physical-ai/p03.webp",
@@ -510,7 +576,18 @@
           "title": "1X: NEO home robot pre-order announcement",
           "url": "https://www.1x.tech/discover/neo-home-robot"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Beyond the script.",
+        "Cars that reason.",
+        "Still early."
+      ],
+      "recap": [
+        "Physical AI lets machines see, work things out and act when something unexpected happens.",
+        "Reasoning cars aim to handle the rare weird moments without handing back the wheel.",
+        "Humanoids are starting real warehouse work; home robots are still emerging."
+      ],
+      "recap_pages": 3
     },
     {
       "id": "world-models",
@@ -518,9 +595,9 @@
       "topic": "AI",
       "blurb": "AI that imagines what happens next before it acts.",
       "gist": [
-        "A language model knows the words; a world model predicts what happens.",
-        "It learns physics by watching video and guessing the next frame.",
-        "Great in the lab, still learning the real world."
+        "Words versus what happens. A chatbot knows words. A world model predicts what will happen next in the physical world, like a cup tipping over.",
+        "It learns from video. It watches video, guesses the next moment, and checks itself to learn how things move.",
+        "Lab first. It works well in the lab and is still learning the messy real world."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -540,7 +617,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "world models part learn unlock qe model isn told rules physics learns way baby watch guess get wrong try training loop repeat millions times sed compare adjust video box next moment really little being stacked looks like happened perr ttt tee eee sensor data robots cars computer simulations guessing frame unlocks robot stacking boxes seariest t-y ama zac reacts sees right now imagines outcome first finds stack tips falls tries risky moves simulation real warehouse reality check good need huge amounts still labs specialized systems lmagine act second isn't without imagine first.act atom",
-          "takeaway": "World models learn physics by guessing the next moment of video and checking."
+          "takeaway": "World models learn how things move by guessing the next moment of video and checking."
         },
         {
           "file": "assets/pulse/world-models/p03.webp",
@@ -575,7 +652,18 @@
           "title": "NVIDIA Glossary: What is Physical AI?",
           "url": "https://www.nvidia.com/en-us/glossary/generative-physical-ai/"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Words versus what happens.",
+        "It learns from video.",
+        "Lab first."
+      ],
+      "recap": [
+        "A world model predicts what happens next in the physical world, like a cup spilling.",
+        "It learns by guessing the next moment of video, so a robot can try a move in its head first.",
+        "It needs huge amounts of data, and shows up first in warehouses, factories and cars."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "stablecoin-rails",
@@ -583,9 +671,9 @@
       "topic": "Fintech",
       "blurb": "How money could move on one shared record.",
       "gist": [
-        "Banks and brokers each keep their own record; shared ledgers sync them.",
-        "A stablecoin is a digital dollar that moves any day, any hour.",
-        "Tokenized deposits do the same inside your bank."
+        "Many records, one shared list. Banks and brokers each keep their own record of who owns what. A shared ledger keeps them in sync.",
+        "A stablecoin is a digital dollar. It can move any day, at any hour.",
+        "Same idea inside banks. Tokenized deposits do the same job but stay inside your own bank."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -596,7 +684,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "stablecoins tokenization part rails underneath eee today every bank broker keeps record lly lunn owns moving value means syncing records ess apes blockchains offer one shared everyone update check sell stock friday afternoon separate ledgers ledger share token digital dollars clearing central depository messages pass between sides together settle minutes settles next business day run even saturday cash lands monday reality tokenized stocks don't trade way instead three words know smart contract claim move rules like release payment statement usdc circle shares arrive ethereum main public blockchain banks use private versions brokers aren going away many new hen lai moves atom buyer brokerage account yet ticket held aren't money",
-          "takeaway": "Money today moves as messages between separate records; new rails put it on one shared record."
+          "takeaway": "Today money moves as messages between separate records; new rails put it on one shared record."
         },
         {
           "file": "assets/pulse/stablecoin-rails/p02.webp",
@@ -605,7 +693,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "stablecoins tokenization part open digital dollar bank transfers move business hours pass through several banks stablecoin shared ledger anyone wallet hold send time sending family abroad saturday today wire e.g usdc waits monday goes now even often takes days arrives minutes fees costly network fee usually small doesn't three things know use backs always reserves held issuer moves treasuries mostly cash short-term weekends holidays circle reality check spend locally still swap back regular money exchange next building version called tokenized deposits like text message middle 500usdc along open.a atom",
-          "takeaway": "A stablecoin is a digital dollar on a shared ledger that can move any time."
+          "takeaway": "A stablecoin is a digital dollar on a shared ledger that can move at any time."
         },
         {
           "file": "assets/pulse/stablecoin-rails/p03.webp",
@@ -623,7 +711,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "rules road company issues digital dollar must prove eee us issuers genius act real money backing every coin cash rina reserves bank deposits short-term treasuries like coat check one ticket monthly proof publish reserve mix checked accounting firm signed ceo cfo approved license interest cannot pay holders elsewhere gaps wow europe mica issuer licensed e-money hold full back face value request reality deposit insurance regulators still writing details needs behind stablecoins rails underneath part it's atom",
-          "takeaway": "Every coin needs a real dollar behind it, and proof that it's there."
+          "takeaway": "Every coin needs a real dollar behind it, and proof that the dollar is there."
         }
       ],
       "updated": "2026-10-13",
@@ -649,7 +737,18 @@
           "title": "J.P. Morgan Kinexys",
           "url": "https://www.kinexys.com/"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Many records, one shared list.",
+        "A stablecoin is a digital dollar.",
+        "Same idea inside banks."
+      ],
+      "recap": [
+        "Today money moves as messages between separate records; new rails put it on one shared record.",
+        "A stablecoin is a digital dollar that leaves the bank; a tokenized deposit does the job inside it.",
+        "Either way, every coin needs a real dollar behind it, with proof."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "tokenization",
@@ -657,9 +756,9 @@
       "topic": "Fintech",
       "blurb": "A digital receipt for something real.",
       "gist": [
-        "A token is a receipt on a shared notebook; the asset stays in the vault.",
-        "Funds and loans move first; homes and sports teams come later.",
-        "Your bank app may quietly use the new rails. Same bank, faster money."
+        "A token is a receipt, not the thing. It is a receipt written in a notebook everyone shares, while the real asset stays in the vault.",
+        "Boring things first. Funds and loans move first; homes and sports teams come later.",
+        "A quiet change. Your bank app may already use the new rails behind the scenes. Same bank, faster money."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -670,7 +769,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "tokenization part actually today owns kept many separate notebooks adds one shared notebook blockchain shares sell tokenized iia ledger fff ethereum e.g schwab makes sure master record token mirrors real share robinhood sides pay us stocks ber updated separately stay messages back forth moves done next business day update everyone sees settle minutes stays vault receipt traveling bother rules ride digital claim itself approved buyers hold ose pays interest dividends automatically parties see together getting buy move even weekends version offered redeem cash reality check mostly big institutions far people still use normal brokerage account isn asset clearinghouse dtcc broker twin buyer it's isn't atom",
-          "takeaway": "A token isn't the asset; it's a receipt in a notebook everyone shares."
+          "takeaway": "A token isn't the asset itself; it's a receipt in a notebook everyone shares."
         },
         {
           "file": "assets/pulse/tokenization/p02.webp",
@@ -679,7 +778,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "tokenization part tokens crypto thing le7s live blockchain people lump together value comes completely different come crypto-native e.g.a coin tokenized asset e.g treasury fund cbo real born treasuries nothing behind off-chain recente on-chain legal claim worth buyers pay token points means eae often limited approved reality check good issuer road cargo atom recorded demand price moves who's one network blackrock rules open anyone fails still exists",
-          "takeaway": "A token points to a real thing, while a crypto-native coin is the thing itself."
+          "takeaway": "A token points to a real thing, while a crypto coin is the thing itself."
         },
         {
           "file": "assets/pulse/tokenization/p03.webp",
@@ -688,7 +787,7 @@
           "w": 1600,
           "h": 2760,
           "kw": "tokenization part what's actually tokenized today hear tokenize everything homes sports teams concert tickets real now still early moving ear ene ere satrpe ened treasury money-market funds stocks e.g stock tokens meee eee eae esa blackrock buidl sold outside us estate event rights small pilots private loans figure stablecoins often cash side trades boring assets first exciting ones later realistic path near term further regulated rails needs buyers resell mostly big investors plus clear laws easy price already trade lag enough yet reality check people buy sell through normal brokerage account treasuries touchdowns atom growing blackrock's",
-          "takeaway": "Boring assets like Treasury and money-market funds are tokenized first."
+          "takeaway": "Boring assets like Treasury and money-market funds get tokenized first."
         },
         {
           "file": "assets/pulse/tokenization/p04.webp",
@@ -728,7 +827,18 @@
           "title": "BIS Annual Economic Report 2025, ch. III (tokenisation)",
           "url": "https://www.bis.org/publ/arpdf/ar2025e3.htm"
         }
-      ]
+      ],
+      "gist_lead": [
+        "A token is a receipt, not the thing.",
+        "Boring things first.",
+        "A quiet change."
+      ],
+      "recap": [
+        "A token is a receipt for a real thing, not the thing itself, and not the same as a crypto coin.",
+        "Boring assets like Treasury and money-market funds get tokenized first, mostly behind the scenes for you.",
+        "New rails reward firms that join, with slow pressure on those that don't."
+      ],
+      "recap_pages": 5
     },
     {
       "id": "mortgage-rates",
@@ -736,9 +846,9 @@
       "topic": "Macro",
       "blurb": "One bond yield quietly sets your home loan.",
       "gist": [
-        "The Fed sets a one-night rate between banks; a 30-year mortgage is priced off the 10-year Treasury yield plus a spread.",
-        "The Fed's rate is down 1.5 points from its peak, yet the 10-year rose to about 5.2% and mortgages to about 7.4%.",
-        "On a $300,000 loan that is about $220 a month more than a year ago."
+        "The Fed does not set your mortgage rate. It sets a one-night rate between banks. A 30-year mortgage is priced off the 10-year Treasury yield plus a markup.",
+        "The numbers prove it. The Fed's rate is down 1.5 points from its peak, yet the 10-year yield rose to about 5.2% and mortgages to about 7.4%.",
+        "What it costs you. On a $300,000 loan that is about $220 a month more than a year ago."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -767,7 +877,7 @@
           "w": 1080,
           "h": 1350,
           "kw": "macro auction plain words pulse morteage aig money got pricier happened us treasury sold billion 10-year ous yield highest years borrows investors bid lowest accept fills order bid-to-cover dollars dollar means bids every offer reopening selling already exists payback date fla alal alltel alalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalelalalalalalalalalalalelalalalelalalalelalalalalalalelalalaletalalelalalalelalalalelalalelelalalelatel simple numbers lend government get year back last months earned eee buyers running away times amount bit showed simply asked pay lock takeaway price went page mortgages follow next senmnnusuenuuuuuuuuuusuuueu sut ere ure ccrcscrcsecsccccceccccccccccccccccccccccccccccccccccccccccccccccccccccsccecccsccecccsececccccecccscceccccccecccsccececsccececsccecccsccecccsccecccscceccasccecccsccecccsccecccscoccecsccecccsccsocesees real payment sources treasurydirect results note high 39b offered prior month history above earlier library mortgage moves the5.3%auction inplainwords dayio-year mortoage moneycotpricier 10us l0-year flls lou works win winning announces sale name until flled s.3% sets month's 2.7l treasurydirectauctionhistory last10-year auctionabove5.3%was about25yearsearlier",
-          "takeaway": "Buyers showed up at the auction but asked for more pay to lend for 10 years."
+          "takeaway": "Buyers came to the auction but asked for more pay to lend for 10 years."
         },
         {
           "file": "assets/pulse/mortgage-rates/p04.webp",
@@ -776,7 +886,7 @@
           "w": 1080,
           "h": 1350,
           "kw": "macro payment step pulse wuy youve mortgage real last year 10-year reached 16-year now stops new eee worked example house apart borrow years fixed rate covers loan interest taxes insurance ago 85t month week t.40% 0tt difference minus full arithmetic standard formula guote depends credit score fees eer feels buyers pay whole owners change locked hoping refinance swap cheaper math works rates drop below already watch yield fed meeting headlines moves quotes usually follow within days eurunnnnuenvuusuuuucuuuuue tetetiterrcrererssecccsececccecccccccccccccccccccccccncccccccccccccsccccccscccsccscccscccccccccsccccccccccccceccccccscccnccsccccccscccnccscccsccscccsccccccsccecccsccccccsccecccscccccccccscccsccscccsccsccccees sources freddie mac government-backed home company primary market survey 30-year earlier latest us treasury daily par curve payments library whatit mortoage spread ssookloan pts 8s7 numbers mortcage 300k s.22% workedexample thesamehouse ayearapart formula.your quote whofeelsit macrowhy",
-          "takeaway": "A higher rate raises payments for new buyers; fixed-rate owners are unaffected."
+          "takeaway": "A higher rate raises payments for new buyers; people with fixed-rate loans are unaffected."
         }
       ],
       "tagline": "One bond yield quietly sets your home loan",
@@ -798,7 +908,18 @@
           "title": "FRED: Federal funds target range, upper limit (Federal Reserve)",
           "url": "https://fred.stlouisfed.org/series/DFEDTARU"
         }
-      ]
+      ],
+      "gist_lead": [
+        "The Fed does not set your mortgage rate.",
+        "The numbers prove it.",
+        "What it costs you."
+      ],
+      "recap": [
+        "Your mortgage rate follows the 10-year Treasury yield, not the Fed's overnight rate, and one chart shows it.",
+        "That yield rose because buyers at the auction asked for more pay to lend for 10 years.",
+        "For new buyers that means a higher payment; fixed-rate owners are unaffected."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "debt-loop",
@@ -806,9 +927,9 @@
       "topic": "Macro",
       "blurb": "Why borrowing to pay interest feeds itself.",
       "gist": [
-        "The US owes about $40 trillion and now pays over $1 trillion a year in interest, much of it with new borrowing.",
-        "Every new IOU travels through money plumbing: reserves, repo and money funds. Tight pipes make borrowing pricier.",
-        "Leveraged bets on Treasuries work until margin calls hit, and new money reaches asset owners before wage earners."
+        "Borrowing to pay interest. The US owes about $40 trillion and now pays over $1 trillion a year in interest, much of it paid by borrowing more.",
+        "The pipes matter. Every new IOU passes through money plumbing: bank reserves, short-term lending and money funds. Tight pipes make borrowing cost more.",
+        "Borrowed bets are fragile. Bets on Treasuries made with borrowed money work until lenders ask for cash back. New money also reaches asset owners before wage earners."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -819,7 +940,7 @@
           "w": 1080,
           "h": 1443,
           "kw": "pulse macro big picture first debt loap pay terest gist us government spends collects borrows owes bigger yearly interest bill paid new borrowing grows itself loop everything trillion right now rent borrowed money fiscal year government's budget october september treasury outside lenders 29nb th66b yrs ago past years oct sep oldest newest cheap pricier serene eee esses sees stmple numbers grew alone every dollars see cecccccccccccccncccccceccccsceccccececcccsceccccececcccececcccsceccccececcecececcccsceccccscsccccscsccensosccccscsccccsees eeccccccccccccccccccsees eecccccccccccccsccccccnccccccsccccccscccscceccccccscccsccecscccescsccccsoes sources data expense public pul full penny total outstanding latest day earlier ratio arithmetic interchangeable compares sizes trace library lore borrowinct debtloop paytheinterest zist bil interestthe ttbs suh asod usfiscalyears octtosep old ious low rates small mostly spending oldiouscomedve newiovs repaid ones jumps cost cover simplenumbers triion trilion douars issues tatest eartier librarymacro 1or",
-          "takeaway": "When interest is paid with new borrowing, debt grows on itself."
+          "takeaway": "When interest is paid with new borrowing, the debt grows on itself."
         },
         {
           "file": "assets/pulse/debt-loop/p02.webp",
@@ -837,7 +958,7 @@
           "w": 1080,
           "h": 1372,
           "kw": "pulse macro debt loge borrowed money one idea buyers government 0us use mostly borrowing sits outside regular banks called shadow leverage works fine until lenders want cash back moment using make bigger bet allows hedge fund private investment wealthy investors institutions margin call lender saying add now sell stuff basis trade buying treasury selling nearly identical promise futures contract pocket tiny price gap eee worked example simple numbers real step has million borrows repo buys ous earns say made small look big prices wobble 50m loss gone must ious fast lots funds pushes yields calm days ser stress already happened first covid market panic rushed treasuries fed bought large amounts eermunununnuuueuunuuuuuuute tte ter orc ecrererccrccccccecccccccccccccccccccccccccccccccccccccccccccsccccccccsccecccsccecccsccecccccceccccccecccscceccccccecccccecccsccececsccecccsccecccsccecccscceccesccecccsccecccsccecccsccscecsccsccccees sources federal reserve financial stability reports early-pandemic purchases ours illustration library loop ort betsbuilton borrowedmoney somebuyersof governmentloususemostlyborrowedmoney.thatborrowingsits leverage.it borrowedmoneyto makea biggerbetthan ownmoney lou simplenumbers notarealfund i0us milion borrow cheap hold roll loan earn every night calls forced jump pulselibrary",
-          "takeaway": "Bets built on borrowed money work until lenders want their cash back at once."
+          "takeaway": "Bets built on borrowed money work until lenders want their cash back all at once."
         },
         {
           "file": "assets/pulse/debt-loop/p04.webp",
@@ -872,7 +993,18 @@
           "title": "Federal Reserve: Financial Stability Report, May 2020, Overview",
           "url": "https://www.federalreserve.gov/publications/2020-may-financial-stability-report-overview.htm"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Borrowing to pay interest.",
+        "The pipes matter.",
+        "Borrowed bets are fragile."
+      ],
+      "recap": [
+        "When interest is paid with new borrowing, the debt grows on itself.",
+        "The money pipes can seize up when spare cash runs low, and bets built on borrowed money fail when lenders want cash back.",
+        "New money reaches some people before prices rise and others after."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "dollar-gold-yen",
@@ -880,9 +1012,9 @@
       "topic": "Macro",
       "blurb": "Why the dollar can be strong and still buy less.",
       "gist": [
-        "The dollar can hold steady against other currencies while buying less at the store: two different yardsticks.",
-        "Japan is the canary: huge debt, a weak yen near ¥164, and a joint US–Japan rescue in late July.",
-        "Japan's 10-year yield is the highest in about 30 years, which could mean less Japanese money lent to the US."
+        "Two different yardsticks. The dollar can hold steady against other currencies while buying less at the store.",
+        "Japan shows the strain first. It has huge debt and a weak yen near ¥164, and the US and Japan staged a joint rescue in late July.",
+        "Japan's rates are waking up. Its 10-year yield is the highest in about 30 years, which could mean less Japanese money lent to the US."
       ],
       "added": "2026-10-12",
       "pages": [
@@ -937,7 +1069,18 @@
           "title": "US Treasury TIC: Major foreign holders of Treasury securities",
           "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt"
         }
-      ]
+      ],
+      "gist_lead": [
+        "Two different yardsticks.",
+        "Japan shows the strain first.",
+        "Japan's rates are waking up."
+      ],
+      "recap": [
+        "The dollar can look strong against other currencies and still buy less in goods and gold.",
+        "Japan shows the strain first: the yen is weak and Japan stepped in to buy it.",
+        "If Japan's rates rise, fewer Japanese investors may buy US Treasuries, which can push the 10-year up."
+      ],
+      "recap_pages": 3
     },
     {
       "id": "two-schools-economics",
@@ -945,9 +1088,9 @@
       "topic": "Macro",
       "blurb": "One recession, two readings of what went wrong.",
       "gist": [
-        "Keynesians focus on the slump: when spending falls, government or the central bank steps in to boost it, and cools an overheating economy with higher rates or taxes.",
-        "Austrians focus on the boom before the slump: they say cheap credit can push firms to build things people won't end up wanting, and the bust is the cleanup.",
-        "On money, Keynesians see the central bank as a tool to steady the economy; Austrians argue its money creation sends false signals and say leave the dial alone."
+        "Keynesians fix the slump. When spending falls, government or the central bank steps in to lift it, and cools things when they overheat.",
+        "Austrians question the boom. Cheap credit pushes firms to build things people won't end up wanting, and the bust is the cleanup.",
+        "They split on money. Keynesians see the central bank as a tool to steady the economy. Austrians say its money creation sends false signals."
       ],
       "added": "2026-10-15",
       "pages": [
@@ -993,7 +1136,18 @@
           "title": "IMF Working Paper WP/02/2: The Austrian Theory of Business Cycles: Old Lessons for Modern Economic Policy?",
           "url": "https://www.imf.org/external/pubs/ft/wp/2002/wp0202.pdf"
         }
-      ]
+      ],
+      "added_at": "2026-10-15T08:52",
+      "gist_lead": [
+        "Keynesians fix the slump.",
+        "Austrians question the boom.",
+        "They split on money."
+      ],
+      "recap": [
+        "Keynesians fix the slump; Austrians question the boom.",
+        "One trusts a steady hand on the dial; the other says leave the dial alone."
+      ],
+      "recap_pages": 2
     },
     {
       "id": "fintech-rails",
@@ -1001,9 +1155,9 @@
       "topic": "Fintech",
       "blurb": "Why apps want banks, and cards want currencies.",
       "gist": [
-        "Many fintech apps rent a bank's license. As they grow, some are buying a bank or applying for their own charter (Chime, Revolut, Nubank), and most are still waiting on regulators.",
-        "Multi-currency stablecoin cards aim to let you spend a currency you hold without forced swaps. Wise and Revolut already do this; what's new is Stripe's card rails that any app can build on. Early days.",
-        "Outlook, not fact: more charter applications, and Mastercard and Visa building similar tools, plus a few clearly labelled guesses. Announced is not arrived."
+        "Renting a bank versus owning one. Many fintech apps rent a bank's license. Some now buy a bank or apply for a charter (Chime, Revolut, Nubank); most still wait.",
+        "Spend what you hold. Stablecoin cards aim to skip the forced currency swap. Wise and Revolut do it; Stripe's rails let any app build it. Early days.",
+        "Outlook, not fact. Expect more charter applications and Mastercard and Visa building similar tools, plus a few clearly labelled guesses. Announced is not arrived."
       ],
       "added": "2026-10-15",
       "pages": [
@@ -1032,7 +1186,8 @@
           "w": 1600,
           "h": 2760,
           "kw": "fintech rails part heading has announced far plus sz02 guesses label behind-the-scenes genius systems move money sets rules stablecoins banks fintechs want applications strings attached us regulator occ logged charter approvals jan oct four year different routes buy bank chime start one revolut mercury take narrow mission lane credit-card tat guess partner lose volume big small ones keep renting asked least 95m starting capital skeptics community-bank group icba sued grants trust charters analysts add owning brings integration burdens cards networks building mastercard closed bvnk deal aug launched multi-currency platform visa says supports stablecoin-linked card programs last company figures coverage widening dates shift stripe plasma say countries now planned earlier bridge target end due act expected effect detailed still proposals italy tested stablecoin transfers found all-in costs nearly bis calls performance uneven fees spreads count arrived watch outlook fact law",
-          "takeaway": "Outlook, not fact: announced is not arrived. Watch the dates."
+          "takeaway": "Outlook, not fact: announced is not arrived. Watch the dates.",
+          "outlook": true
         }
       ],
       "tagline": "Why apps want banks, and cards want currencies",
@@ -1162,7 +1317,19 @@
           "title": "Analysis: The Financial Current, Chime company profile (secondary)",
           "url": "https://thefinancialcurrent.com/deep-dives/chime-consumer-finance-company-profile"
         }
-      ]
+      ],
+      "added_at": "2026-10-15T11:18",
+      "gist_lead": [
+        "Renting a bank versus owning one.",
+        "Spend what you hold.",
+        "Outlook, not fact."
+      ],
+      "recap": [
+        "Fintech apps rent a bank to start fast; owning one gives control, and the repair bills.",
+        "Multi-currency stablecoin cards aim to cut forced swaps: same card at the till, fewer swaps behind it.",
+        "More is expected, but outlook is not fact: announced is not arrived."
+      ],
+      "recap_pages": 3
     }
   ]
 }

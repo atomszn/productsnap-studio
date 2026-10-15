@@ -42,7 +42,6 @@
     bank: ["banks", "leverage", "deposits"], car: ["cars", "self-driving", "physical"], driving: ["cars", "physical"]
   };
   var HINTS = ["Try: robots", "Try: payments", "Try: AI pricing", "Try: mortgages", "Try: agents", "Try: the yen"];
-  var CHIPS = ["robots", "payments", "AI pricing", "mortgages", "what is an agent?"];
   var STOP = ["the", "and", "are", "why", "what", "how", "does", "for", "with", "who", "can", "this", "that", "your", "you", "about", "into", "from", "is", "a", "an", "of", "to", "in", "on", "so", "do", "my", "me", "it"];
   var $ = function (id) { return document.getElementById(id); };
   var lib = null, topic = "All", query = "";
@@ -110,6 +109,27 @@
   function closeSaved(silent) { $("saved").hidden = true; document.body.classList.remove("reading"); if (!silent) $("saved-btn").focus(); }
 
   function toast(msg, ms) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, ms || 2400); }
+
+  /* ---------- deterministic variety (seeded from the book id, stable across loads) ---------- */
+  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function rnd(s, k) { var x = hash(s + ":" + k); x = Math.imul(x ^ (x >>> 15), 2246822507); x = Math.imul(x ^ (x >>> 13), 3266489909); x ^= x >>> 16; return (x >>> 0) / 4294967296; }
+  /* "New" stamp: books from the latest drop only: added within 7 days AND within 2 days of the newest book,
+     so a launch week doesn't stamp the whole shelf. */
+  function freshSet() {
+    if (lib._fresh) return lib._fresh;
+    var B = lib.books, set = {}, max = B.reduce(function (m, b) { return b.added && b.added > m ? b.added : m; }, "");
+    if (max) {
+      var md = new Date(max + "T12:00:00");
+      B.forEach(function (b) { if (!b.added) return; var d = new Date(b.added + "T12:00:00"); if (md - d <= 2 * 864e5 && Date.now() - d <= 7.5 * 864e5) set[b.id] = 1; });
+    }
+    return (lib._fresh = set);
+  }
+  function isFresh(b) { return !!freshSet()[b.id]; }
+  function stamp(txt, cls) { var s = el("span", "stamp " + (cls || ""), txt); return s; }
+  var kbdNav = false;
+  addEventListener("keydown", function (e) { if (e.key === "Tab" || e.key === "Enter" || e.key === " " || e.key.indexOf("Arrow") === 0) { kbdNav = true; var c = document.getElementById("rd-close"); if (c) c.classList.remove("nofv"); } }, true);
+  addEventListener("pointerdown", function () { kbdNav = false; }, true);
+  var vtOK = function () { return typeof document.startViewTransition === "function" && !reduce(); };
 
   /* ---------- living shelf state ---------- */
   var lastSeen = ls(LS.seen);
@@ -219,20 +239,42 @@
   function decorate(a, b) {
     a.href = "#book/" + b.id + "/1";
     var pr = progress(b);
-    a.removeAttribute("aria-label"); var sr = a.querySelector(".sr-desc") || el("span", "sr-only sr-desc"); sr.textContent = " — " + tagline(b) + ". " + (b.pages.length + 1) + " pages" + (pr ? ", " + Math.round(pr * 100) + "% read" : "") + (b.start_here ? ". Start here." : "") + (isNew(b) ? ". New." : ""); a.appendChild(sr);
+    a.removeAttribute("aria-label"); var sr = a.querySelector(".sr-desc") || el("span", "sr-only sr-desc"); sr.textContent = " — " + tagline(b) + ". " + (b.pages.length + 1) + " pages. " + readText(b) + (b.start_here ? ". Start here." : "") + (isFresh(b) || isNew(b) ? ". New." : ""); a.appendChild(sr);
     if (isNew(b)) a.classList.add("is-new");
     if ((opens[b.id] || 0) >= 3) a.classList.add("is-lean");
     if (b.start_here) a.classList.add("is-start");
     a.addEventListener("click", pullOut);
+    a.setAttribute("aria-haspopup", "dialog");
+    a.addEventListener("keydown", function (e) { if (e.key === " " && !e.repeat) { e.preventDefault(); a.click(); } });
   }
-  /* Spines/covers slide out a little before the book opens. */
+  /* Opening / closing a book. With View Transitions the clicked spine (or cover) morphs into the reader and
+     back; without them (or with reduced motion) it's a short pull then a fade. Feature-detected, never UA-sniffed. */
+  function withVT(src, dstFind, change) {
+    if (!vtOK()) { change(); return; }
+    var root = document.documentElement, ranges = 0;
+    var tag = src && (src.classList.contains("sp") ? src.querySelector(".sp-body") : src.querySelector(".cv") || src);
+    if (tag) tag.classList.add("vt-src");
+    root.setAttribute("data-vt", "1");
+    var t;
+    try {
+      t = document.startViewTransition(function () {
+        if (tag) tag.classList.remove("vt-src");
+        change();
+        var d = dstFind && dstFind(); if (d) d.classList.add("vt-dst");
+      });
+    } catch (e) { if (tag) tag.classList.remove("vt-src"); root.removeAttribute("data-vt"); change(); return; }
+    var done = function () { root.removeAttribute("data-vt"); [].forEach.call(document.querySelectorAll(".vt-dst,.vt-src"), function (n) { n.classList.remove("vt-dst"); n.classList.remove("vt-src"); }); };
+    var quiet = function () {}; if (t.ready) t.ready.catch(quiet); if (t.updateCallbackDone) t.updateCallbackDone.catch(quiet); // a newer transition aborting this one is normal, not an error
+    t.finished.then(done, done);
+  }
   function pullOut(e) {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
     var a = e.currentTarget; e.preventDefault();
-    // push a history entry marked "opened from the shelf", so Back (or the Shelf button) returns in one step
-    var go = function () { history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
+    if (a.classList.contains("pulling")) return;
+    // push a history entry marked "opened from the shelf", so Back (or the Put-it-back button) returns in one step
+    var go = function () { withVT(a, function () { return $("book"); }, function () { history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); }); };
     if (reduce()) return go();
-    a.classList.add("pulling"); setTimeout(function () { a.classList.remove("pulling"); go(); }, 230);
+    a.classList.add("pulling"); setTimeout(function () { a.classList.remove("pulling"); go(); }, vtOK() ? 110 : 160);
   }
   function bar(b, cls) { var pr = progress(b), w = el("span", cls); w.setAttribute("aria-hidden", "true"); var f = el("i"); f.style.width = Math.round(pr * 100) + "%"; w.appendChild(f); if (!pr) w.hidden = true; return w; }
   function coverArt(b, small) {
@@ -245,7 +287,7 @@
     c.appendChild(el("span", "cv-tag", tagline(b)));
     var f = el("span", "cv-foot"); f.appendChild(el("span", "cv-vol", "Vol. " + (b.vol || 1))); f.appendChild(el("span", "cv-mark", "ProductSnap · Pulse")); c.appendChild(f);
     if (b.start_here) c.appendChild(el("span", "cv-start", "Start here"));
-    if (isNew(b) && !small) c.appendChild(el("span", "bk-newdot", "new"));
+    if (isFresh(b) && !small) c.appendChild(stamp("New", "cv-stamp"));
     return c;
   }
   function cover(b, hitPage, reason) {
@@ -261,20 +303,76 @@
     a.appendChild(a.querySelector(".sr-desc"));
     return a;
   }
+  /* pencil ticks: one slanted tick per page, filled for pages already reached */
+  function readOf(b) { var total = b.pages.length + 1; return Math.min(total, Math.round(progress(b) * total)); }
+  function readText(b) { var n = readOf(b), t = b.pages.length + 1; return n ? "Read up to page " + n + " of " + t : "0 of " + t + " pages read"; } // ticks = furthest page reached, not the page you are on
+  function ticks(b, cls) {
+    var total = b.pages.length + 1, reached = readOf(b), w = el("span", cls);
+    w.setAttribute("aria-hidden", "true");
+    if (total > 8) { // long books: a slim hand-drawn bar instead of a crowd of tiny ticks
+      w.classList.add("bar"); var f = el("b", "pb-fill"); f.style.width = Math.round(reached / total * 100) + "%"; w.appendChild(f); w.dataset.pct = Math.round(reached / total * 100);
+    } else for (var i = 0; i < total; i++) w.appendChild(el("i", i < reached ? "on" : ""));
+    if (!reached) w.hidden = true;
+    return w;
+  }
   function spine(b) {
     var a = el("a", "sp t-" + b.topic.toLowerCase()); decorate(a, b);
     a.style.setProperty("--h", (200 + Math.min(b.pages.length, 6) * 14) + "px");
-    if (b.start_here) a.appendChild(el("span", "sp-start", "Start here"));
-    a.appendChild(el("span", "sp-topic", b.topic));
-    a.appendChild(el("span", "sp-title", b.title));
-    a.appendChild(el("span", "sp-vol", "Vol. " + (b.vol || 1)));
-    a.appendChild(bar(b, "sp-prog"));
-    if (isNew(b)) a.appendChild(el("span", "sp-new", "new"));
-    var tip = el("span", "sp-tip"); tip.setAttribute("aria-hidden", "true");
-    tip.appendChild(el("b", null, b.title)); tip.appendChild(el("span", null, tagline(b)));
-    var bm = savedFor(b); if (bm.length) tip.appendChild(el("span", "bk-bm", "Saved · p." + bm.join(", ")));
-    a.appendChild(tip); a.appendChild(a.querySelector(".sr-desc"));
+    a.style.setProperty("--hv", (0.95 + rnd(b.id, "h") * 0.10).toFixed(3));
+    a.dataset.pp = b.pages.length + 1;
+    var body = el("span", "sp-body");
+    if (b.start_here) body.appendChild(el("span", "sp-start", "Start here"));
+    body.appendChild(el("span", "sp-topic", b.topic));
+    body.appendChild(el("span", "sp-title", b.title));
+    body.appendChild(el("span", "sp-vol", "Vol. " + (b.vol || 1)));
+    body.appendChild(ticks(b, "sp-prog"));
+    if (savedFor(b).length) { var mk = el("span", "sp-mark"); mk.setAttribute("aria-hidden", "true"); body.appendChild(mk); }
+    if (isFresh(b)) body.appendChild(stamp("New", "sp-stamp"));
+    a.appendChild(body); a.appendChild(a.querySelector(".sr-desc"));
     return a;
+  }
+  /* one paper tooltip for the whole shelf, positioned in JS: the shelf rows clip overflow, so a per-spine tip would be cut off */
+  var tipEl = null, tipFor = null;
+  function showTip(a) {
+    var b = find((a.getAttribute("href").match(/^#book\/([a-z0-9-]+)/) || [])[1]); if (!b) return;
+    if (!tipEl) { tipEl = el("div", "sp-tip"); tipEl.id = "sp-tip"; tipEl.setAttribute("aria-hidden", "true"); document.body.appendChild(tipEl); }
+    tipEl.innerHTML = "";
+    tipEl.appendChild(el("i", "tp-shadow"));
+    var card = el("div", "tp-card");
+    card.appendChild(el("b", null, b.title));
+    card.appendChild(el("span", "tp-meta", "Vol. " + (b.vol || 1) + " · " + (b.pages.length + 1) + " pages"));
+    card.appendChild(el("span", "tp-tag", tagline(b)));
+    card.appendChild(el("span", "tp-read", readText(b)));
+    var bm = savedFor(b); if (bm.length) card.appendChild(el("span", "bk-bm", "Saved · p." + bm.join(", ")));
+    tipEl.appendChild(card); tipEl.appendChild(el("i", "tp-notch"));
+    tipEl.className = "sp-tip t-" + b.topic.toLowerCase();
+    tipFor = a; var body = a.querySelector(".sp-body") || a, r = a.getBoundingClientRect(), br = body.getBoundingClientRect();
+    tipEl.style.visibility = "hidden"; tipEl.classList.add("on");
+    var w = tipEl.offsetWidth, h = tipEl.offsetHeight, x = r.left + r.width / 2 - w / 2, top = Math.min(r.top, br.top) - h - 12, flip = false;
+    x = Math.max(8, Math.min(x, innerWidth - w - 8));
+    if (top < 8) { top = Math.max(r.bottom, br.bottom) + 10; flip = true; }
+    tipEl.style.left = Math.round(x) + "px"; tipEl.style.top = Math.round(top) + "px";
+    tipEl.style.setProperty("--ax", Math.round(r.left + r.width / 2 - x) + "px");
+    tipEl.classList.toggle("flip", flip); tipEl.style.visibility = "";
+  }
+  function hideTip(a) { if (tipEl && (!a || tipFor === a)) { tipEl.classList.remove("on"); tipFor = null; } }
+  function wireTips() {
+    var host = $("shelves"), canHover = window.matchMedia && matchMedia("(hover:hover) and (pointer:fine)");
+    host.addEventListener("pointerover", function (e) {
+      if (e.pointerType !== "mouse" || !canHover.matches) return;
+      var a = e.target.closest && e.target.closest("a.sp"); if (a && a !== tipFor) showTip(a);
+    });
+    host.addEventListener("pointerout", function (e) {
+      var a = e.target.closest && e.target.closest("a.sp"); if (!a) return;
+      if (e.relatedTarget && a.contains(e.relatedTarget)) return; hideTip(a);
+    });
+    host.addEventListener("focusin", function (e) { var a = e.target.closest && e.target.closest("a.sp"); if (a && a.matches(":focus-visible")) showTip(a); });
+    host.addEventListener("focusout", function (e) { var a = e.target.closest && e.target.closest("a.sp"); if (a) hideTip(a); });
+    var tipRaf = 0; // keep the tip glued to its book while the page scrolls (a keyboard focus scrolls the book into view); hide it if the book leaves the screen
+    window.addEventListener("scroll", function () {
+      if (!tipFor || tipRaf) return;
+      tipRaf = requestAnimationFrame(function () { tipRaf = 0; if (!tipFor) return; var r = tipFor.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) hideTip(); else showTip(tipFor); });
+    }, { passive: true });
   }
   var ICO = {
     shelf: '<path d="M3 20.5h18"/><path d="M5 20.5V8h3v12.5M9.5 20.5V5h3v15.5"/><path d="m14.6 20.5 2.6-11.4 2.8.7-2.6 11"/>',
@@ -286,6 +384,7 @@
     Macro: '<path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>'
   };
   function ico(k, cls) { return '<svg class="' + (cls || "ci") + '" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICO[k] || ICO.All) + '</svg>'; }
+  var chipFx = null;
   function renderTabs() {
     var t = $("lib-tabs"); t.innerHTML = "";
     var g = el("div", "topictabs"); g.setAttribute("role", "group"); g.setAttribute("aria-label", "Filter by topic");
@@ -295,7 +394,8 @@
       var btn = el("button", "chip" + (k !== "All" ? " c-" + k.toLowerCase() : ""));
       btn.innerHTML = ico(k) + '<span class="ck">' + k + '<span class="cn"> · ' + n + '</span></span>';
       btn.type = "button"; btn.setAttribute("aria-pressed", String(topic === k)); btn.dataset.topic = k;
-      btn.onclick = function () { topic = k; clearQuery(); renderTabs(); renderShelves(); };
+      if (chipFx === k && topic === k) btn.classList.add("just");
+      btn.onclick = function () { chipFx = k; topic = k; clearQuery(); renderTabs(); renderShelves(); chipFx = null; };
       g.appendChild(btn);
     });
     t.appendChild(g);
@@ -312,7 +412,7 @@
     var B = lib.books, pg = B.reduce(function (s, b) { return s + b.pages.length + 1; }, 0);
     var tp = Object.keys(TOPICS).filter(function (k) { return B.some(function (b) { return b.topic === k; }); }).length;
     $("lib-stats").innerHTML = "<b>" + B.length + "</b> books<i>·</i><b>" + tp + "</b> topics<i>·</i><b>" + pg + "</b> pages";
-    var latest = B.slice().sort(function (a, b) { return (b.updated || b.added || "").localeCompare(a.updated || a.added || "") || B.indexOf(b) - B.indexOf(a); })[0];
+    var latest = B.slice().sort(function (a, b) { return (b.updated || b.added || "").localeCompare(a.updated || a.added || "") || (b.added_at || "").localeCompare(a.added_at || "") || B.indexOf(b) - B.indexOf(a); })[0];
     if (latest) {
       var d = new Date((latest.updated || latest.added) + "T12:00:00"), r = $("lib-ribbon");
       var fresh = (Date.now() - d) < 8 * 864e5;
@@ -332,7 +432,7 @@
   var PHONE = window.matchMedia("(max-width:640px)");
   (PHONE.addEventListener ? PHONE.addEventListener.bind(PHONE, "change") : PHONE.addListener.bind(PHONE))(function () { if (lib && view === "shelf" && !query) renderShelves(); });
   function tiers(books) {
-    var n = books.length, cap = PHONE.matches ? 5 : 7, k = Math.max(1, Math.ceil(n / cap)), per = Math.ceil(n / k), wrap = el("div", "tiers");
+    var spineN = 0, n = books.length, cap = PHONE.matches ? 5 : 7, k = Math.max(1, Math.ceil(n / cap)), per = Math.ceil(n / k), wrap = el("div", "tiers");
     for (var t = 0; t < k; t++) {
       var part = books.slice(t * per, (t + 1) * per); if (!part.length) break;
       var row = el("div", "shelf-row spines tier");
@@ -341,7 +441,8 @@
       var leanAt = part.length > 2 ? (t % 3 === 0 ? part.length - 1 : t % 3 === 1 ? Math.max(1, part.length - 2) : 0) : -1;
       part.forEach(function (b, i) {
         var s = spine(b), L = b.title.length;
-        s.style.setProperty("--swb", (L > 22 ? 1.18 : L > 13 ? 1.05 : .92));
+        s.style.setProperty("--swb", ((L > 22 ? 1.18 : L > 13 ? 1.05 : .92) * (0.96 + rnd(b.id, "w") * 0.08)).toFixed(3));
+        s.style.setProperty("--i", spineN++);
         if (i === leanAt) s.classList.add(t % 2 === 0 ? "is-lean-left" : "is-lean-right");
         row.appendChild(s);
       });
@@ -369,18 +470,37 @@
     });
     h.appendChild(document.createTextNode("."));
   }
+  /* if a row is wider than the screen, drop its extras (plant, cup, small stack) from the right until it fits: rows never scroll sideways */
+  function fitTiers() {
+    [].forEach.call(document.querySelectorAll(".tier"), function (row) {
+      [].forEach.call(row.querySelectorAll(".dc-off"), function (n) { n.classList.remove("dc-off"); });
+      var extras = [].slice.call(row.querySelectorAll(".dc-plant,.dc-cup,.dc-stack.sm")).filter(function (n) { return getComputedStyle(n).display !== "none"; }).reverse();
+      while (row.scrollWidth > row.clientWidth + 1 && extras.length) extras.shift().classList.add("dc-off");
+      row.style.removeProperty("--fit"); /* still too wide on a very narrow phone: ease every spine in a little */
+      for (var k = 0, f = 1; k < 4 && row.scrollWidth > row.clientWidth + 1; k++) { f = Math.max(.7, f * (row.clientWidth - 1) / row.scrollWidth); row.style.setProperty("--fit", f.toFixed(3)); }
+    });
+  }
+  var fitT; window.addEventListener("resize", function () { clearTimeout(fitT); fitT = setTimeout(fitTiers, 120); });
+  var introDone = false;
   function renderShelves() {
     var host = $("shelves"); host.innerHTML = "";
+    host.classList.remove("intro");
+    if (!introDone && !reduce() && view === "shelf" && !query) { introDone = true; host.classList.add("intro"); setTimeout(function () { host.classList.remove("intro"); }, 1500); }
     var h = $("ask-hint");
     if (query) {
       var res = search(query); h.innerHTML = "";
       if (!res.length) {
         suggest(h, "Nothing yet. Try ");
-        var empty = el("p", "lib-empty", "No book on “" + query + "” yet. Search looks at titles, gists and the words on every page.");
+        var empty = el("div", "lib-empty");
+        empty.innerHTML = '<svg class="em-art" viewBox="0 0 120 70" width="120" height="70" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 62h108"/><path d="M14 62V30l9-2v34M29 62V22h10v40"/><path d="M80 62 94 24l9 3-13 35" stroke-dasharray="3 4"/><circle cx="64" cy="40" r="11"/><path d="m72 48 9 9"/><path d="M60 38c1.5-3 6-3 7 0" stroke-opacity=".55"/></svg>';
+        empty.appendChild(el("p", "em-h", "Nothing on that shelf yet"));
+        empty.appendChild(el("p", "em-p", "No book matches “" + query + "”. Search reads titles, gists and the words on every page, so a shorter word often works."));
+        var eb = el("button", "g-go em-btn", "Back to the shelf"); eb.type = "button"; eb.onclick = function () { clearQuery(); renderShelves(); blurSearch(); };
+        empty.appendChild(eb);
         host.appendChild(empty); return;
       }
       h.appendChild(document.createTextNode(res.length + (res.length === 1 ? " book" : " books") + " for “" + query + "” · "));
-      var clr = el("button", "linkbtn", "Clear"); clr.type = "button"; clr.onclick = function () { clearQuery(); renderShelves(); $("ask-input").focus(); };
+      var clr = el("button", "linkbtn", "Clear"); clr.type = "button"; clr.onclick = function () { clearQuery(); renderShelves(); blurSearch(); };
       h.appendChild(clr);
       var s = el("section", "shelf"); s.appendChild(el("h2", "shelf-h", "Best matches"));
       var top = res[0], tp = top.p >= 0 ? top.b.pages[top.p] : null;
@@ -397,18 +517,23 @@
       s.appendChild(row); host.appendChild(s); return;
     }
     if (topic === "All") { var cont = continueCard(); if (cont) host.appendChild(cont); host.appendChild(startRow()); }
-    var books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; });
+    var trank = Object.keys(TOPICS), books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; })
+      .map(function (b, i) { return [b, i]; }).sort(function (a, c) { return trank.indexOf(a[0].topic) - trank.indexOf(c[0].topic) || a[1] - c[1]; }).map(function (x) { return x[0]; }); /* shelf groups by topic (AI, Tech, Fintech, Macro); within a topic, library order */
     var groups = view === "topics"
       ? Object.keys(TOPICS).map(function (k) { return [k, books.filter(function (b) { return b.topic === k; })]; }).filter(function (g) { return g[1].length; })
       : [[topic === "All" ? "The shelf" : topic + " shelf", books]];
     groups.forEach(function (g) {
       var s = el("section", "shelf" + (TOPICS[g[0]] ? " t-" + g[0].toLowerCase() : ""));
-      s.appendChild(el("h2", "shelf-h", g[0]));
-      if (view === "shelf") { s.appendChild(tiers(g[1])); host.appendChild(s); return; }
+      if (view === "shelf") { s.appendChild(el("h2", "shelf-h", g[0])); s.appendChild(tiers(g[1])); host.appendChild(s); return; }
+      var sh = el("div", "shelf-head"); sh.appendChild(el("h2", "shelf-h", g[0]));
+      var mini = el("span", "mini"); mini.setAttribute("aria-hidden", "true");
+      g[1].forEach(function (b, mi) { var m = el("i"); m.style.height = Math.round(16 + rnd(b.id, "m") * 14) + "px"; m.style.setProperty("--d", mi * 24 + "ms"); mini.appendChild(m); });
+      sh.appendChild(mini); s.appendChild(sh);
       var row = el("div", "shelf-row covers");
       g[1].forEach(function (b) { row.appendChild(cover(b)); });
       s.appendChild(row); host.appendChild(s);
     });
+    fitTiers();
   }
   function continueCard() {
     var L = ls(LS.last); if (!L || !find(L.id) || ls(LS.lastX) === L.id + "/" + L.p) return null;
@@ -435,12 +560,20 @@
     });
     return r;
   }
-  function clearQuery() { query = ""; $("ask-input").value = ""; $("ask-hint").textContent = ""; }
-  function renderChips() {
-    var f = $("lib-ask"), c = el("div", "ask-chips"); c.setAttribute("role", "group"); c.setAttribute("aria-label", "Suggested searches");
-    CHIPS.forEach(function (q) { var b = el("button", "chip ask-chip", q); b.type = "button"; b.onclick = function () { $("ask-input").value = q; ask(q); }; c.appendChild(b); });
-    var h = document.querySelector(".lib-bar"); c.setAttribute("aria-label", "Suggested searches"); h.parentNode.insertBefore(c, h.nextSibling);
+  /* the search field only takes focus when the reader taps it (or presses "/" on a keyboard device); never as a side effect, so no phone keyboard pops up */
+  /* touch: drop the on-screen keyboard. readonly-then-blur is the reliable way on Android, where blur() alone can leave the keyboard up */
+  function dismissKbd(inp) {
+    if (!touch || !inp) return;
+    var was = inp.readOnly; inp.readOnly = true; inp.blur(); if (document.activeElement && document.activeElement !== document.body && document.activeElement.tagName === "INPUT") document.activeElement.blur();
+    setTimeout(function () { inp.readOnly = was; }, 150);
   }
+  function wireKbdDismiss() { // tapping anywhere else, or scrolling the results, also closes the keyboard
+    var isText = function (e) { return e && e.tagName === "INPUT" && /^(text|search)$/.test(e.type); };
+    document.addEventListener("pointerdown", function (e) { var a = document.activeElement; if (touch && isText(a) && e.target !== a && !(e.target.closest && e.target.closest("label"))) dismissKbd(a); }, true);
+    document.addEventListener("touchmove", function () { var a = document.activeElement; if (touch && isText(a)) dismissKbd(a); }, { passive: true });
+  }
+  function blurSearch() { var i = $("ask-input"); if (document.activeElement === i) i.blur(); }
+  function clearQuery() { query = ""; $("ask-input").value = ""; $("ask-hint").textContent = ""; }
   function ask(q) { query = q.trim(); topic = "All"; renderTabs(); renderShelves(); }
   function rotateHints() {
     var i = 0, inp = $("ask-input");
@@ -456,9 +589,10 @@
       actx = actx || new (window.AudioContext || window.webkitAudioContext)();
       var n = actx.sampleRate * 0.22, buf = actx.createBuffer(1, n, actx.sampleRate), d = buf.getChannelData(0);
       for (var i = 0; i < n; i++) { var t = i / n; d[i] = (Math.random() * 2 - 1) * Math.pow(1 - t, 2.2) * (0.6 + 0.4 * Math.sin(t * 40)); }
+      if (actx.state === "suspended" && actx.resume) actx.resume();
       var src = actx.createBufferSource(); src.buffer = buf;
-      var f = actx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 2400; f.Q.value = 0.7;
-      var g = actx.createGain(); g.gain.value = 0.18;
+      var f = actx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 2200; f.Q.value = 0.6;
+      var g = actx.createGain(); g.gain.setValueAtTime(0.0001, actx.currentTime); g.gain.linearRampToValueAtTime(0.12, actx.currentTime + 0.025); // soft attack: a rustle, never a click
       src.connect(f); f.connect(g); g.connect(actx.destination); src.start();
     } catch (e) {}
   }
@@ -472,17 +606,59 @@
     Object.keys(TOPICS).forEach(function (k) { lib.books.forEach(function (x) { if (x.topic === k) order.push(x); }); });
     var i = order.indexOf(b); return order[(i + 1) % order.length];
   }
+  /* "Pairs with": 2-3 related books by shared topic + rare shared words (document-frequency weighted) */
+  function rawWords(b) {
+    if (b._rw) return b._rw; var o = {};
+    index(b).raw.split(/[\s-]+/).forEach(function (w) { if (w.length > 3 && STOP.indexOf(w) < 0) o[w] = 1; });
+    return (b._rw = o);
+  }
+  var NEXT_DOOR = { AI: ["Fintech"], Fintech: ["Macro", "AI"], Macro: ["Fintech"], Tech: ["AI"] };
+  function related(b, skip) {
+    if (!lib._df) { lib._df = {}; lib.books.forEach(function (x) { Object.keys(rawWords(x)).forEach(function (w) { lib._df[w] = (lib._df[w] || 0) + 1; }); }); }
+    var mine = rawWords(b), N = lib.books.length;
+    var all = lib.books.filter(function (x) { return x !== b && x !== skip; }).map(function (x) {
+      var th = rawWords(x), sc = 0;
+      Object.keys(mine).forEach(function (w) { if (!th[w]) return; var df = lib._df[w]; if (df < 2 || df > N * 0.34) return; sc += 1 / df; });
+      return { b: x, s: sc / Math.sqrt(Object.keys(th).length || 1) * 10, same: x.topic === b.topic };
+    });
+    var by = function (a, c) { return c.s - a.s || lib.books.indexOf(a.b) - lib.books.indexOf(c.b); };
+    var same = all.filter(function (r) { return r.same; }).sort(by).slice(0, 3);
+    var door = (NEXT_DOOR[b.topic] || []);
+    var cross = all.filter(function (r) { return !r.same && door.indexOf(r.b.topic) >= 0; }).sort(by);
+    return same.concat(cross.slice(0, Math.max(0, 3 - same.length)));
+  }
+  function pairsNode(b, skip) {
+    var rel = related(b, skip); if (rel.length < 2) return null;
+    var w = el("div", "pairs"); w.appendChild(el("p", "pairs-k", "Pairs with"));
+    var ul = el("ul", "pairs-list");
+    rel.forEach(function (r) {
+      var li = el("li"), a = el("a", "nbr t-" + r.b.topic.toLowerCase()); a.href = "#book/" + r.b.id + "/1";
+      a.setAttribute("aria-label", "Open " + r.b.title + " — " + tagline(r.b));
+      a.appendChild(el("span", "nbr-sp"));
+      var t = el("span", "nbr-tx"); t.appendChild(el("span", "nbr-t", r.b.title));
+      t.appendChild(el("span", "nbr-why", (r.same ? "Same shelf · " : "Next door · ") + r.b.topic));
+      a.appendChild(t); li.appendChild(a); ul.appendChild(li);
+    });
+    w.appendChild(ul); return w;
+  }
   function endNode(b) {
     var n = nextBook(b), d = el("div", "pg pg-end");
-    d.appendChild(el("p", "g-kicker", "The end of " + b.title));
+    d.appendChild(el("p", "g-kicker", "You finished " + b.title));
+    if (b.recap && b.recap.length) { // whole-book recap, written for the current page count (scripts/check_library.py enforces it)
+      var rc = el("div", "recap"); rc.appendChild(el("p", "rc-k", "In short"));
+      var rl = el("ul", "rc-list"); b.recap.forEach(function (x) { rl.appendChild(el("li", null, x)); }); rc.appendChild(rl); d.appendChild(rc);
+    }
     var sameTopic = n.topic === b.topic;
-    d.appendChild(el("p", "end-label", sameTopic ? "Up next" : "Next topic: " + n.topic));
+    var nx = el("div", "end-next"), col = el("div", "end-col");
     var a = el("a", "end-cover"); a.href = "#book/" + n.id + "/1"; a.setAttribute("aria-label", "Open next book: " + n.title + " — " + tagline(n));
-    a.appendChild(coverArt(n, true)); d.appendChild(a);
+    a.appendChild(coverArt(n, true)); nx.appendChild(a);
+    col.appendChild(el("p", "end-label", sameTopic ? "Up next" : "Next topic: " + n.topic));
+    col.appendChild(el("p", "end-nt", n.title));
     var row = el("div", "end-actions");
-    var open1 = el("a", "g-go", "Open " + n.title + " →"); open1.href = a.href; row.appendChild(open1);
+    var open1 = el("a", "g-go", "Open book →"); open1.href = a.href; open1.setAttribute("aria-label", "Open " + n.title); row.appendChild(open1);
     var back = el("button", "linkbtn end-shelf", "Back to the shelf"); back.type = "button"; back.onclick = close; row.appendChild(back);
-    d.appendChild(row);
+    col.appendChild(row); nx.appendChild(col); d.appendChild(nx);
+    var pr = pairsNode(b, n); if (pr) d.appendChild(pr);
     if (b.sources && b.sources.length) {
       var sd = el("details", "end-sources"); sd.appendChild(el("summary", null, "Sources for this book (" + b.sources.length + ")"));
       var ul = el("ul"); b.sources.forEach(function (x) { var li = el("li"), l = el("a", null, x.title); l.href = x.url; l.target = "_blank"; l.rel = "noopener"; li.appendChild(l); ul.appendChild(li); });
@@ -496,15 +672,27 @@
     var p = P[i], d = el("div", "pg");
     if (p.gist) {
       d.classList.add("pg-gist");
-      d.appendChild(el("p", "g-kicker", "The 60-second version"));
-      d.appendChild(el("h3", "g-title", b.title));
-      d.appendChild(el("p", "g-blurb", tagline(b)));
-      var ol = el("ol", "g-list"); b.gist.forEach(function (g) { ol.appendChild(el("li", null, g)); }); d.appendChild(ol);
-      var go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; d.appendChild(go);
+      var sc = el("div", "g-scroll");
+      sc.appendChild(el("p", "g-kicker", "The 60-second version"));
+      sc.appendChild(el("h3", "g-title", b.title));
+      sc.appendChild(el("p", "g-blurb", tagline(b)));
+      var ol = el("ol", "g-list"); b.gist.forEach(function (g, gi) {
+        var li = el("li"), ld = b.gist_lead && b.gist_lead[gi]; // a bold lead phrase makes each point scannable; the full sentence stays plain text everywhere else
+        if (ld && g.indexOf(ld) === 0) { li.appendChild(el("strong", "g-lead", ld)); li.appendChild(document.createTextNode(g.slice(ld.length))); } else li.textContent = g;
+        ol.appendChild(li);
+      }); sc.appendChild(ol);
+      d.appendChild(sc);
+      /* the page-turn button lives outside the scrolling text, so it is always on screen, however short the phone */
+      var ft = el("div", "g-foot"), go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; ft.appendChild(go); d.appendChild(ft);
+      var more = function () { d.classList.toggle("g-more", sc.scrollHeight - sc.scrollTop - sc.clientHeight > 3); };
+      sc.addEventListener("scroll", more, { passive: true }); requestAnimationFrame(more); setTimeout(more, 400);
     } else {
       var btn = el("button", "pg-zoom"); btn.type = "button"; btn.setAttribute("aria-label", "Zoom into page: " + p.title);
       var img = el("img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + "."; img.width = p.w; img.height = p.h; img.decoding = "async"; if (Math.abs(i - idx) > 1) img.loading = "lazy";
       btn.appendChild(img); btn.onclick = function () { zoom(p, b); }; d.appendChild(btn);
+      /* taller than the screen: the sketch fits the card's width and scrolls inside it; a small "Scroll" pill says so */
+      var more = function () { d.classList.toggle("g-more", btn.scrollHeight - btn.scrollTop - btn.clientHeight > 6); };
+      btn.addEventListener("scroll", more, { passive: true }); img.addEventListener("load", more); requestAnimationFrame(more); setTimeout(more, 500);
       var nx = P[i + 1]; if (nx) { var pre = new Image(); pre.src = nx.file; }
     }
     d.appendChild(el("span", "pg-num", (i + 1) + " of " + P.length));
@@ -513,7 +701,7 @@
   function paint() {
     var P = pages(cur), end = idx >= P.length, host = $("page");
     host.innerHTML = ""; host.appendChild(pageNode(cur, idx));
-    $("rd-pagetitle").textContent = end ? "Finished — " + P.length + " pages" : P[idx].gist ? "The 60-second version" : P[idx].title;
+    $("rd-progfill").style.width = Math.round((idx + 1) / P.length * 100) + "%"; $("rd-pagetitle").textContent = end ? "Finished — " + P.length + " pages" : P[idx].gist ? "The 60-second version" : P[idx].title;
     $("rd-prev").disabled = idx === 0; $("rd-next").disabled = end;
     $("rd-next").setAttribute("aria-label", idx === P.length - 1 ? "Finish the book" : "Next page");
     var dots = $("rd-dots"); dots.innerHTML = "";
@@ -522,10 +710,15 @@
     $("rd-bm").setAttribute("aria-pressed", String(on)); $("rd-bm-lbl").textContent = on ? "Saved" : "Save page"; $("rd-bm").disabled = end;
     $("rd-bm").setAttribute("aria-label", on ? "Page saved. Remove from Saved" : "Save this page");
     $("ribbon").hidden = !on;
+    ["rd-stamps", "rd-stamps2"].forEach(function (id, k) {
+      var st = $(id); st.innerHTML = "";
+      if (k === 0 && isFresh(cur)) st.appendChild(stamp("New", "rd-stamp"));
+      if (!end && idx > 0 && cur.pages[idx - 1].outlook) st.appendChild(stamp("Outlook", "rd-stamp"));
+    });
     if (!end) ls(LS.last, { id: cur.id, p: idx + 1 });
     var pg = !end && idx > 0 ? cur.pages[idx - 1] : null, tk = pg && pg.takeaway;
     $("rd-take").hidden = !tk; if (tk) $("rd-take-t").textContent = tk;
-    if (!$("rd-askp").hidden) askReset();
+    askReset();
     var reached = Math.min(idx + 1, P.length); if (reached > (ls(LS.prog + cur.id) || 0)) ls(LS.prog + cur.id, reached);
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
     if (location.hash !== h) history.replaceState(history.state, "", h);
@@ -535,25 +728,32 @@
     var first = !cur || cur.id !== id;
     cur = b; idx = Math.max(0, Math.min((n || 1) - 1, b.pages.length));
     $("rd-title").textContent = b.title; $("rd-topic").textContent = b.topic;
-    $("reader").className = "reader t-" + b.topic.toLowerCase();
+    var vtOn = document.documentElement.hasAttribute("data-vt");
+    $("reader").className = "reader t-" + b.topic.toLowerCase() + (first && !vtOn && !reduce() ? " rd-enter" : "");
     $("book").style.setProperty("--ar", (b.pages[0].w / b.pages[0].h).toFixed(4)); // the book takes its pages' shape
     $("reader").hidden = false; document.body.classList.add("reading");
     if (first) {
-      if (!$("rd-askp").hidden) { $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false"); }
+      askReset(); if (!$("rd-askp").hidden) { $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false"); }
       opens[id] = (opens[id] || 0) + 1; ls(LS.opens, opens);
-      var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; if (!reduce()) bk.classList.add("opening");
-      if (!touch) setTimeout(function () { $("rd-close").focus({ preventScroll: true }); }, 30);
+      var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; if (!reduce() && !vtOn) bk.classList.add("opening");
+      setTimeout(function () { if (cur) { var cb = $("rd-close"); cb.classList.toggle("nofv", !kbdNav); cb.focus({ preventScroll: true }); } }, 30);
     }
     paint(); return true;
   }
-  function close() {
-    var was = cur; if (!was) return;
+  function hideReader(was) {
     $("reader").hidden = true; document.body.classList.remove("reading"); cur = null;
     $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false");
-    if (fromShelf()) history.back();
-    else history.replaceState(null, "", location.pathname + location.search);
     renderShelves();
-    var sp = document.querySelector('#shelves a[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: false });
+    var sp = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: false });
+  }
+  function dstOf(was) { return function () { var a = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); return a && (a.querySelector(".sp-body") || a.querySelector(".cv")); }; }
+  function close() {
+    var was = cur; if (!was) return;
+    withVT($("book"), dstOf(was), function () {
+      hideReader(was);
+      if (fromShelf()) history.back();
+      else history.replaceState(null, "", location.pathname + location.search);
+    });
   }
   function go(i) { if (i === idx || turning) return; if (Math.abs(i - idx) === 1) return turn(i - idx); idx = i; paint(); }
   function turn(dir) {
@@ -591,11 +791,12 @@
     return out;
   }
   function isHeading(l) { return /,\s*part\s*\d/i.test(l) || (!/[.?!:”"]$/.test(l) && l.length < 44); }
-  function lineScore(line, qs) {
-    var ws = words(line).map(stem), n = 0;
-    qs.forEach(function (q) { var t = q.t; if (ws.some(function (w) { return w === t || (t.length >= 4 && w.indexOf(t) === 0) || (t.length >= 5 && near(w, t)); })) n += q.w; });
-    return n;
+  function lineMatch(line, qs) { // score (core words weigh 2, synonyms 1) and how many distinct core words matched
+    var ws = words(line).map(stem), s = 0, m = 0, terms = [];
+    qs.forEach(function (q) { var t = q.t; if (ws.some(function (w) { return w === t || (t.length >= 4 && w.indexOf(t) === 0) || (t.length >= 5 && near(w, t)); })) { s += q.w; if (q.w === 2) { m++; terms.push(t); } } });
+    return { s: s, m: m, terms: terms };
   }
+  function lineScore(line, qs) { return lineMatch(line, qs).s; }
   function askRender(head, lines, src, honest) {
     var o = $("askp-out"); o.innerHTML = "";
     if (head) o.appendChild(el("p", "askp-lead", head));
@@ -603,7 +804,59 @@
     if (src) o.appendChild(el("p", "askp-src", src));
     if (honest) o.appendChild(el("p", "askp-miss", honest));
   }
-  function askReset() { $("askp-out").innerHTML = ""; }
+  function askReset() { $("askp-out").innerHTML = ""; $("askp-in").value = ""; }
+  /* a short, honest snippet: the line itself when it is short, else its first sentence(s), else a clean cut */
+  function snip(l) {
+    if (l.length <= 230) return l;
+    var s = l.match(/^.{40,230}?[.!?](\s|$)/); if (s) return s[0].trim();
+    var c = l.slice(0, 215), k = c.lastIndexOf(" "); return c.slice(0, k > 120 ? k : 215).replace(/[,;:\s]+$/, "") + "…";
+  }
+  /* search every book: gist lines, page takeaways and the cleaned page text, whole library, client-side only */
+  function libHits(qs) {
+    var all = [], coreN = qs.filter(function (q) { return q.w === 2; }).length, minM = coreN >= 2 ? Math.max(2, Math.ceil(coreN * 0.6)) : 1; // a stray shared word is not an answer
+    var sc = function (l) { var r = lineMatch(l, qs); return r.m >= minM ? r.s : 0; };
+    lib.books.forEach(function (b) {
+      b.gist.forEach(function (l) { var s = sc(l); if (s >= 2) all.push({ l: l, s: s + 0.3, b: b, i: 0 }); });
+      b.pages.forEach(function (pg, k) {
+        if (pg.takeaway) { var s = sc(pg.takeaway); if (s >= 2) all.push({ l: pg.takeaway, s: s + 0.2, b: b, i: k + 1 }); }
+        pageLines(b, k + 1).forEach(function (l) { if (l.length < 28 || isHeading(l)) return; var s = sc(l); if (s >= 2) all.push({ l: l, s: s - (l.length > 230 ? 0.4 : 0), b: b, i: k + 1 }); });
+      });
+    });
+    all.sort(function (a, c) { return c.s - a.s || a.l.length - c.l.length; });
+    var need = qs.filter(function (q) { return q.w === 2; }).length > 1 ? 4 : 2;
+    var top = all.length ? Math.min(need, all[0].s) : need, out = [], seen = {};
+    all.filter(function (c) { return c.s >= top; }).forEach(function (c) {
+      var key = c.b.id + "/" + c.i, tx = snip(c.l);
+      if (out.length >= 2 || seen[key] || out.some(function (o) { return o.t === tx; })) return;
+      seen[key] = 1; out.push({ t: tx, b: c.b, i: c.i });
+    });
+    return out;
+  }
+  function grokHref(q) { return "https://grok.com/?q=" + encodeURIComponent(q + " Answer in 1-2 short bullets."); }
+  function grokLink(q) { // small outside link under every answer, so a half-answer is never a dead end
+    var a = el("a", "askp-from askp-grok2", "Ask Grok about this ↗"); a.target = "_blank"; a.rel = "noopener noreferrer"; a.href = grokHref(q);
+    $("askp-out").appendChild(a);
+  }
+  function askLib(hits) {
+    var o = $("askp-out"); o.innerHTML = "";
+    o.appendChild(el("p", "askp-lead", "From the library:"));
+    var ul = el("ul", "askp-lines askp-lib");
+    hits.forEach(function (h) {
+      var li = el("li"); li.appendChild(el("span", "askp-q", h.t));
+      var a = el("a", "askp-from", "from " + h.b.title + " · " + (h.i === 0 ? "60-second version" : "page " + (h.i + 1)) + " →");
+      a.href = "#book/" + h.b.id + "/" + (h.i + 1); li.appendChild(a); ul.appendChild(li);
+    });
+    o.appendChild(ul);
+  }
+  /* nothing in the library: say so plainly and offer an outside link (never an invented answer) */
+  function askOutside(q) {
+    var o = $("askp-out"); o.innerHTML = "";
+    o.appendChild(el("p", "askp-miss", "Nothing in the library answers that yet, and I won’t guess."));
+    var a = el("a", "rd-btn askp-grok", "Ask Grok about this ↗"); a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.href = grokHref(q);
+    o.appendChild(a);
+    o.appendChild(el("p", "askp-src", "Opens grok.com in a new tab. That is an outside site, not part of this library."));
+  }
   function askPage(q) {
     q = (q || "").trim(); if (!q || !cur) return;
     var b = cur, i = idx;
@@ -616,8 +869,11 @@
       var best = cand.filter(function (c) { return c.s >= 2; }).sort(function (a, c) { return c.s - a.s || a.g - c.g; });
       var need = qs.filter(function (q) { return q.w === 2; }).length > 1 ? 4 : 2;
       var hit = best.filter(function (c) { return c.s >= Math.min(need, best.length ? best[0].s : need); }).slice(0, 3);
-      if (!hit.length) { askRender("", [], "", (i === 0 ? "The 60-second version doesn’t cover that." : "This page doesn’t cover that.") + " Try search on the shelf, or another page in this book."); return; }
-      askRender(hit.every(function (c) { return c.g; }) ? "This page doesn’t say directly. From the book’s 60-second version:" : "From this page:", hit.map(function (c) { return hit.every(function (h) { return h.g; }) ? c.l : c; }), "");
+      var onPage = hit.length && (i === 0 || hit.some(function (c) { return !c.g; }));
+      if (onPage) { askRender("From this page:", hit, ""); grokLink(q); return; }
+      var lh = libHits(qs);
+      if (lh.length) { askLib(lh); grokLink(q); return; }
+      askOutside(q);
     }).catch(function () { askRender("", [], "", "The page text didn’t load. Check your connection and try again."); });
   }
   function explainSimply() {
@@ -634,7 +890,7 @@
   function toggleAsk(on) {
     var p = $("rd-askp"); on = on == null ? p.hidden : on;
     p.hidden = !on; $("rd-ask").setAttribute("aria-expanded", String(on)); $("rd-ask").setAttribute("aria-pressed", String(on));
-    if (on) { loadText().catch(function () {}); askReset(); setTimeout(function () { $("askp-in").focus({ preventScroll: true }); }, 30); }
+    if (on) { loadText().catch(function () {}); askReset(); if (!touch && window.matchMedia && matchMedia("(hover:hover) and (pointer:fine)").matches) setTimeout(function () { $("askp-in").focus({ preventScroll: true }); }, 30); } // touch: never raise the keyboard until the reader taps the box
     else $("rd-ask").focus({ preventScroll: true });
   }
   var zoomFrom = null;
@@ -659,32 +915,34 @@
     if (location.hash === "#topics") { if (cur) close(); if (view !== "topics") { view = "topics"; renderTabs(); renderShelves(); } return; }
     var m = location.hash.match(/^#book\/([a-z0-9-]+)(?:\/(\d+))?/);
     if (m) { if (!open(m[1], +m[2] || 1)) { history.replaceState(null, "", location.pathname); if (cur) close(); toast("That book isn’t on the shelf"); } }
-    else if (cur) { cur = null; $("reader").hidden = true; document.body.classList.remove("reading"); renderShelves(); }
+    else if (cur) { var was = cur; withVT($("book"), dstOf(was), function () { hideReader(was); }); }
   }
 
   function wire() {
     $("rd-prev").onclick = function () { turn(-1); };
     $("rd-next").onclick = function () { turn(1); };
     $("rd-close").onclick = close;
+    $("rd-stage").addEventListener("click", function (e) { if (e.target === $("rd-stage")) close(); });
+    $("reader").addEventListener("click", function (e) { if (e.target === $("reader")) close(); });
     var syncSound = function () { $("rd-sound").setAttribute("aria-pressed", String(soundOn())); };
     syncSound();
     $("rd-sound").onclick = function () { ls(LS.sound, !soundOn()); syncSound(); toast(soundOn() ? "Page-turn sound on" : "Sound off"); if (soundOn()) rustle(); };
     $("rd-bm").onclick = function () {
       var on = isSaved(cur.id, idx + 1);
       setSaved(cur.id, idx + 1, !on);
-      if (on) toast("Removed from Saved"); else { toast("Saved", 1400); haptic(); }
+      if (on) toast("Removed from Saved"); else { toast("Saved", 1400); haptic(); var bm = $("rd-bm"); bm.classList.remove("pop"); void bm.offsetWidth; bm.classList.add("pop"); }
       paint();
     };
     $("rd-share").onclick = share;
     $("rd-ask").onclick = function () { toggleAsk(); };
     $("askp-x").onclick = function () { toggleAsk(false); };
-    $("askp-form").onsubmit = function (e) { e.preventDefault(); askPage($("askp-in").value); };
+    $("askp-form").onsubmit = function (e) { e.preventDefault(); askPage($("askp-in").value); dismissKbd($("askp-in")); };
     $("askp-simple").onclick = explainSimply;
     $("askp-in").addEventListener("keydown", function (e) { if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); toggleAsk(false); } });
     $("rd-take-copy").onclick = function () {
       var n = Math.min(idx + 1, pages(cur).length), base = location.href.replace(/[#?].*$/, "").replace(/pulse(\.html)?$/, "");
       var t = $("rd-take-t").textContent + " — " + cur.title + ", Pulse: " + base + "share/" + cur.id + ".html?p=" + n;
-      var done = function () { toast("Takeaway copied", 1600); };
+      var done = function () { toast("Takeaway + link copied", 1600); };
       if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, function () { fallbackCopy(t) ? done() : toast(t); });
       else fallbackCopy(t) ? done() : toast(t);
     };
@@ -724,7 +982,8 @@
       if (sx == null) return; var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
       if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.2) turn(dx < 0 ? 1 : -1); sx = null;
     }, { passive: true });
-    $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); var r = document.querySelector("#shelves .shelf"); if (r && touch) $("ask-input").blur(); };
+    $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); dismissKbd($("ask-input")); };
+    $("ask-input").addEventListener("search", function () { if (!this.value && touch) this.blur(); });
     var deb;
     $("ask-input").addEventListener("input", function () {
       var v = this.value; clearTimeout(deb);
@@ -750,7 +1009,7 @@
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (d) {
       lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Tech"; });
-      wire(); savedBadge(); renderChips(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
+      wire(); wireTips(); wireKbdDismiss(); savedBadge(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
       if (location.hash && location.hash !== "#topics") route();
     })
     .catch(function (e) { console.error("Pulse: library failed to load", e); $("shelves").innerHTML = '<p class="lib-loading">The library didn’t load. Refresh to try again.</p>'; });

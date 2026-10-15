@@ -89,8 +89,19 @@ def cmd_book(a):
     lib = load()
     old = next((b for b in lib["books"] if b["id"] == a.slug), None)
     book = {"id": a.slug, "title": a.title, "topic": a.topic, "blurb": a.blurb,
-            "gist": a.gist, "added": (old or {}).get("added") or datetime.date.today().isoformat(),
+            "gist": a.gist, **({"gist_lead": a.gist_lead} if a.gist_lead else {}), "added": (old or {}).get("added") or datetime.date.today().isoformat(),
+            "added_at": (old or {}).get("added_at") or datetime.datetime.now().isoformat(timespec="minutes"),
             "pages": [page_entry(a.slug, i, s, t) for i, (s, t) in enumerate(zip(a.pages, titles), 1)]}
+    # recap: 1-3 plain lines that cover ALL pages; recap_pages records how many pages it was written for
+    if a.recap:
+        if not 1 <= len(a.recap) <= 3:
+            sys.exit("--recap takes 1 to 3 lines")
+        book["recap"] = a.recap
+    elif old and old.get("recap") and old.get("recap_pages") == len(a.pages):
+        book["recap"] = old["recap"]
+    else:
+        sys.exit("The 'You finished' recap must be (re)written whenever the pages change: pass --recap \"line\" [\"line\" [\"line\"]] covering ALL %d pages." % len(a.pages))
+    book["recap_pages"] = len(a.pages)
     for k in ("tagline", "vol", "start_here"):  # keep cover metadata when a book is rebuilt
         if old and k in old:
             book[k] = old[k]
@@ -111,7 +122,7 @@ def cmd_replace(a):
     p = page_entry(a.slug, int(os.path.basename(b["pages"][a.page - 1]["file"])[1:3]), a.image, a.title or b["pages"][a.page - 1]["title"])
     b["pages"][a.page - 1] = p
     b["updated"] = datetime.date.today().isoformat()
-    save(lib); print("replaced %s page %d" % (a.slug, a.page))
+    save(lib); print("replaced %s page %d (check the book's recap still matches this page)" % (a.slug, a.page))
 
 
 def free_index(b):
@@ -124,6 +135,8 @@ def free_index(b):
 
 def cmd_append(a):
     lib = load(); b = find(lib, a.slug)
+    if not a.recap or not 1 <= len(a.recap) <= 3:
+        sys.exit("Adding a page changes the book: pass --recap with 1-3 plain lines covering ALL %d pages (the 'You finished' card)." % (len(b["pages"]) + 1))
     entry = page_entry(a.slug, free_index(b), a.image, a.title)  # file names are opaque; order lives in JSON
     if a.at:
         if not 1 <= a.at <= len(b["pages"]) + 1:
@@ -132,6 +145,7 @@ def cmd_append(a):
     else:
         b["pages"].append(entry)
     b["updated"] = datetime.date.today().isoformat()
+    b["recap"] = a.recap; b["recap_pages"] = len(b["pages"])
     save(lib); print("appended to %s -> %d pages" % (a.slug, len(b["pages"])))
 
 
@@ -209,14 +223,14 @@ sp = ap.add_subparsers(dest="cmd", required=True)
 p = sp.add_parser("book"); p.set_defaults(fn=cmd_book)
 p.add_argument("--slug", required=True); p.add_argument("--title", required=True)
 p.add_argument("--topic", required=True); p.add_argument("--blurb", required=True)
-p.add_argument("--gist", nargs=3, required=True); p.add_argument("--pages", nargs="+", required=True)
+p.add_argument("--gist", nargs=3, required=True); p.add_argument("--recap", nargs="+", help="1-3 plain lines recapping the WHOLE book (shown on the end card); required whenever the page set changes"); p.add_argument("--gist-lead", nargs=3, help="optional bold lead phrase for each gist line; must be the start of that line"); p.add_argument("--pages", nargs="+", required=True)
 p.add_argument("--page-titles", nargs="+")
 p = sp.add_parser("replace"); p.set_defaults(fn=cmd_replace)
 p.add_argument("--slug", required=True); p.add_argument("--page", type=int, required=True)
 p.add_argument("--image", required=True); p.add_argument("--title")
 p = sp.add_parser("append"); p.set_defaults(fn=cmd_append)
 p.add_argument("--slug", required=True); p.add_argument("--image", required=True); p.add_argument("--title", required=True)
-p.add_argument("--at", type=int, help="insert as this 1-based drawn page instead of appending")
+p.add_argument("--recap", nargs="+", help="REQUIRED: 1-3 plain lines recapping the whole book including the new page"); p.add_argument("--at", type=int, help="insert as this 1-based drawn page instead of appending")
 p = sp.add_parser("meta", help="set cover tagline / volume / the 'Start here' book"); p.set_defaults(fn=cmd_meta)
 p.add_argument("--slug", required=True); p.add_argument("--tagline"); p.add_argument("--vol", type=int)
 p.add_argument("--start-here", action="store_true")
