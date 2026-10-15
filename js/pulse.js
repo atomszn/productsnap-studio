@@ -264,6 +264,7 @@
       });
     } catch (e) { if (tag) tag.classList.remove("vt-src"); root.removeAttribute("data-vt"); change(); return; }
     var done = function () { root.removeAttribute("data-vt"); [].forEach.call(document.querySelectorAll(".vt-dst,.vt-src"), function (n) { n.classList.remove("vt-dst"); n.classList.remove("vt-src"); }); };
+    var quiet = function () {}; if (t.ready) t.ready.catch(quiet); if (t.updateCallbackDone) t.updateCallbackDone.catch(quiet); // a newer transition aborting this one is normal, not an error
     t.finished.then(done, done);
   }
   function pullOut(e) {
