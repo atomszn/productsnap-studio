@@ -561,6 +561,17 @@
     return r;
   }
   /* the search field only takes focus when the reader taps it (or presses "/" on a keyboard device); never as a side effect, so no phone keyboard pops up */
+  /* touch: drop the on-screen keyboard. readonly-then-blur is the reliable way on Android, where blur() alone can leave the keyboard up */
+  function dismissKbd(inp) {
+    if (!touch || !inp) return;
+    var was = inp.readOnly; inp.readOnly = true; inp.blur(); if (document.activeElement && document.activeElement !== document.body && document.activeElement.tagName === "INPUT") document.activeElement.blur();
+    setTimeout(function () { inp.readOnly = was; }, 150);
+  }
+  function wireKbdDismiss() { // tapping anywhere else, or scrolling the results, also closes the keyboard
+    var isText = function (e) { return e && e.tagName === "INPUT" && /^(text|search)$/.test(e.type); };
+    document.addEventListener("pointerdown", function (e) { var a = document.activeElement; if (touch && isText(a) && e.target !== a && !(e.target.closest && e.target.closest("label"))) dismissKbd(a); }, true);
+    document.addEventListener("touchmove", function () { var a = document.activeElement; if (touch && isText(a)) dismissKbd(a); }, { passive: true });
+  }
   function blurSearch() { var i = $("ask-input"); if (document.activeElement === i) i.blur(); }
   function clearQuery() { query = ""; $("ask-input").value = ""; $("ask-hint").textContent = ""; }
   function ask(q) { query = q.trim(); topic = "All"; renderTabs(); renderShelves(); }
@@ -728,9 +739,9 @@
     $("reader").hidden = true; document.body.classList.remove("reading"); cur = null;
     $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false");
     renderShelves();
-    var sp = document.querySelector('#shelves a[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: false });
+    var sp = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: false });
   }
-  function dstOf(was) { return function () { var a = document.querySelector('#shelves a[href="#book/' + was.id + '/1"]'); return a && (a.querySelector(".sp-body") || a.querySelector(".cv")); }; }
+  function dstOf(was) { return function () { var a = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); return a && (a.querySelector(".sp-body") || a.querySelector(".cv")); }; }
   function close() {
     var was = cur; if (!was) return;
     withVT($("book"), dstOf(was), function () {
@@ -920,13 +931,13 @@
     $("rd-share").onclick = share;
     $("rd-ask").onclick = function () { toggleAsk(); };
     $("askp-x").onclick = function () { toggleAsk(false); };
-    $("askp-form").onsubmit = function (e) { e.preventDefault(); askPage($("askp-in").value); };
+    $("askp-form").onsubmit = function (e) { e.preventDefault(); askPage($("askp-in").value); dismissKbd($("askp-in")); };
     $("askp-simple").onclick = explainSimply;
     $("askp-in").addEventListener("keydown", function (e) { if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); toggleAsk(false); } });
     $("rd-take-copy").onclick = function () {
       var n = Math.min(idx + 1, pages(cur).length), base = location.href.replace(/[#?].*$/, "").replace(/pulse(\.html)?$/, "");
       var t = $("rd-take-t").textContent + " — " + cur.title + ", Pulse: " + base + "share/" + cur.id + ".html?p=" + n;
-      var done = function () { toast("Takeaway copied", 1600); };
+      var done = function () { toast("Takeaway + link copied", 1600); };
       if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, function () { fallbackCopy(t) ? done() : toast(t); });
       else fallbackCopy(t) ? done() : toast(t);
     };
@@ -966,7 +977,7 @@
       if (sx == null) return; var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
       if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.2) turn(dx < 0 ? 1 : -1); sx = null;
     }, { passive: true });
-    $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); if (touch) $("ask-input").blur(); };
+    $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); dismissKbd($("ask-input")); };
     $("ask-input").addEventListener("search", function () { if (!this.value && touch) this.blur(); });
     var deb;
     $("ask-input").addEventListener("input", function () {
@@ -993,7 +1004,7 @@
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (d) {
       lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Tech"; });
-      wire(); wireTips(); savedBadge(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
+      wire(); wireTips(); wireKbdDismiss(); savedBadge(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
       if (location.hash && location.hash !== "#topics") route();
     })
     .catch(function (e) { console.error("Pulse: library failed to load", e); $("shelves").innerHTML = '<p class="lib-loading">The library didn’t load. Refresh to try again.</p>'; });
