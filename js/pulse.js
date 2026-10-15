@@ -664,6 +664,10 @@
       var ul = el("ul"); b.sources.forEach(function (x) { var li = el("li"), l = el("a", null, x.title); l.href = x.url; l.target = "_blank"; l.rel = "noopener"; li.appendChild(l); ul.appendChild(li); });
       sd.appendChild(ul); d.appendChild(sd);
     }
+    /* short phones: the card scrolls inside itself; a small sticky pill says "more below" until the bottom is reached */
+    var more = el("span", "end-more"); more.setAttribute("aria-hidden", "true"); more.appendChild(el("span", "end-more-pill", "Scroll for more ↓")); d.appendChild(more);
+    var upd = function () { d.classList.toggle("g-more", d.scrollHeight - d.scrollTop - d.clientHeight > 8); };
+    d.addEventListener("scroll", upd, { passive: true }); requestAnimationFrame(upd); setTimeout(upd, 500); setTimeout(upd, 1200);
     return d;
   }
   function pageNode(b, i) {
