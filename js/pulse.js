@@ -589,9 +589,10 @@
       actx = actx || new (window.AudioContext || window.webkitAudioContext)();
       var n = actx.sampleRate * 0.22, buf = actx.createBuffer(1, n, actx.sampleRate), d = buf.getChannelData(0);
       for (var i = 0; i < n; i++) { var t = i / n; d[i] = (Math.random() * 2 - 1) * Math.pow(1 - t, 2.2) * (0.6 + 0.4 * Math.sin(t * 40)); }
+      if (actx.state === "suspended" && actx.resume) actx.resume();
       var src = actx.createBufferSource(); src.buffer = buf;
-      var f = actx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 2400; f.Q.value = 0.7;
-      var g = actx.createGain(); g.gain.value = 0.18;
+      var f = actx.createBiquadFilter(); f.type = "bandpass"; f.frequency.value = 2200; f.Q.value = 0.6;
+      var g = actx.createGain(); g.gain.setValueAtTime(0.0001, actx.currentTime); g.gain.linearRampToValueAtTime(0.12, actx.currentTime + 0.025); // soft attack: a rustle, never a click
       src.connect(f); f.connect(g); g.connect(actx.destination); src.start();
     } catch (e) {}
   }
@@ -642,7 +643,11 @@
   }
   function endNode(b) {
     var n = nextBook(b), d = el("div", "pg pg-end");
-    d.appendChild(el("p", "g-kicker", "The end of " + b.title));
+    d.appendChild(el("p", "g-kicker", "You finished " + b.title));
+    if (b.recap && b.recap.length) { // whole-book recap, written for the current page count (scripts/check_library.py enforces it)
+      var rc = el("div", "recap"); rc.appendChild(el("p", "rc-k", "In short"));
+      var rl = el("ul", "rc-list"); b.recap.forEach(function (x) { rl.appendChild(el("li", null, x)); }); rc.appendChild(rl); d.appendChild(rc);
+    }
     var sameTopic = n.topic === b.topic;
     var nx = el("div", "end-next"), col = el("div", "end-col");
     var a = el("a", "end-cover"); a.href = "#book/" + n.id + "/1"; a.setAttribute("aria-label", "Open next book: " + n.title + " — " + tagline(n));

@@ -695,3 +695,11 @@ a.sp:focus-visible{outline:none}
 .g-lead{background-repeat:no-repeat;background-size:100% 100%;animation:hl-swipe .6s .25s cubic-bezier(.3,.7,.3,1) both}
 .g-list li:nth-child(2) .g-lead{animation-delay:.5s}.g-list li:nth-child(3) .g-lead{animation-delay:.75s}
 @media (prefers-reduced-motion:reduce){.g-lead{animation:none}.rd-progress i{transition:none}}
+/* "You finished" end card: whole-book recap */
+.pg-end .g-kicker{font-size:1.3rem}
+.recap{width:100%;max-width:26rem;text-align:left;margin:2px 0 4px;padding:8px 12px;border-radius:10px;background:color-mix(in srgb,var(--tc) 10%,var(--card));border-left:4px solid var(--tc)}
+.rc-k{margin:0 0 3px;font:700 .68rem/1.2 var(--body);letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--tc) 72%,var(--ink))}
+.rc-list{margin:0;padding:0;list-style:none;display:grid;gap:4px;font:.9rem/1.38 var(--body);color:var(--ink)}
+.rc-list li{position:relative;padding-left:1.1em}
+.rc-list li::before{content:"✓";position:absolute;left:0;color:var(--tc);font-weight:700}
+@media (max-height:700px){.rc-list{font-size:.84rem}}

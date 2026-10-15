@@ -74,7 +74,13 @@
         "Give each AI helper its own badge.",
         "Keep mistakes small.",
         "Builders feel it first."
-      ]
+      ],
+      "recap": [
+        "AI helpers should get their own ID badge and limited access, not your password.",
+        "A sealed workspace and one front desk keep what they do small, logged and easy to switch off.",
+        "Builders deal with this first; for you it stays mostly invisible, and it is still early."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "agent-swarms",
@@ -158,7 +164,13 @@
         "One lead, many helpers.",
         "More helpers only help some jobs.",
         "You still own the result."
-      ]
+      ],
+      "recap": [
+        "A swarm is a team of AI helpers splitting one big job, with people reviewing the results.",
+        "More helpers pay off when a job splits into pieces, and they use far more computing, so costs add up.",
+        "They multiply your process, good or bad, and you still own the result."
+      ],
+      "recap_pages": 5
     },
     {
       "id": "agent-vocabulary",
@@ -228,7 +240,13 @@
         "Picture a kitchen.",
         "Add safety rules.",
         "Follow one refund."
-      ]
+      ],
+      "recap": [
+        "An AI helper is a cook (the model) working in a kitchen of tools, memory and rules.",
+        "Safety rules and a person approving the big calls keep it trustworthy.",
+        "One refund shows all the pieces working together."
+      ],
+      "recap_pages": 3
     },
     {
       "id": "ai-agents",
@@ -321,7 +339,13 @@
         "Someone always pays.",
         "Free can mean biased.",
         "Blame is unsettled."
-      ]
+      ],
+      "recap": [
+        "When an AI does a job, someone pays: you, an advertiser or the seller. There are four ways to sell it, each with trade-offs.",
+        "An AI paid by sellers may not pick what is best for you, and nobody has settled who pays when it buys the wrong thing.",
+        "To try one safely, let it search and draft first, then give it limits before it spends."
+      ],
+      "recap_pages": 6
     },
     {
       "id": "ai-bottlenecks",
@@ -409,7 +433,13 @@
         "A chip is not enough.",
         "Power is the slow part.",
         "Plan for the plug."
-      ]
+      ],
+      "recap": [
+        "AI needs more than chips: power, cooling, memory and fast connections all limit how fast it can grow.",
+        "Power and cooling take years to arrive; chips only months.",
+        "Even so, cheaper hardware and better efficiency keep making the same answer cheaper."
+      ],
+      "recap_pages": 5
     },
     {
       "id": "ai-moats",
@@ -475,7 +505,13 @@
         "Copying is easy.",
         "Being there beats being best.",
         "Newcomers need a twist."
-      ]
+      ],
+      "recap": [
+        "As AI models get alike, reach and habits matter more than the smartest model.",
+        "A slightly smarter AI rarely beats the one people already use, so owning where people work wins.",
+        "So being where people already work usually beats a small model upgrade."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "physical-ai",
@@ -545,7 +581,13 @@
         "Beyond the script.",
         "Cars that reason.",
         "Still early."
-      ]
+      ],
+      "recap": [
+        "Physical AI lets machines see, work things out and act when something unexpected happens.",
+        "Reasoning cars aim to handle the rare weird moments without handing back the wheel.",
+        "Humanoids are starting real warehouse work; home robots are still emerging."
+      ],
+      "recap_pages": 3
     },
     {
       "id": "world-models",
@@ -615,7 +657,13 @@
         "Words versus what happens.",
         "It learns from video.",
         "Lab first."
-      ]
+      ],
+      "recap": [
+        "A world model predicts what happens next in the physical world, like a cup spilling.",
+        "It learns by guessing the next moment of video, so a robot can try a move in its head first.",
+        "It needs huge amounts of data, and shows up first in warehouses, factories and cars."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "stablecoin-rails",
@@ -694,7 +742,13 @@
         "Many records, one shared list.",
         "A stablecoin is a digital dollar.",
         "Same idea inside banks."
-      ]
+      ],
+      "recap": [
+        "Today money moves as messages between separate records; new rails put it on one shared record.",
+        "A stablecoin is a digital dollar that leaves the bank; a tokenized deposit does the job inside it.",
+        "Either way, every coin needs a real dollar behind it, with proof."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "tokenization",
@@ -778,7 +832,13 @@
         "A token is a receipt, not the thing.",
         "Boring things first.",
         "A quiet change."
-      ]
+      ],
+      "recap": [
+        "A token is a receipt for a real thing, not the thing itself, and not the same as a crypto coin.",
+        "Boring assets like Treasury and money-market funds get tokenized first, mostly behind the scenes for you.",
+        "New rails reward firms that join, with slow pressure on those that don't."
+      ],
+      "recap_pages": 5
     },
     {
       "id": "mortgage-rates",
@@ -853,7 +913,13 @@
         "The Fed does not set your mortgage rate.",
         "The numbers prove it.",
         "What it costs you."
-      ]
+      ],
+      "recap": [
+        "Your mortgage rate follows the 10-year Treasury yield, not the Fed's overnight rate, and one chart shows it.",
+        "That yield rose because buyers at the auction asked for more pay to lend for 10 years.",
+        "For new buyers that means a higher payment; fixed-rate owners are unaffected."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "debt-loop",
@@ -932,7 +998,13 @@
         "Borrowing to pay interest.",
         "The pipes matter.",
         "Borrowed bets are fragile."
-      ]
+      ],
+      "recap": [
+        "When interest is paid with new borrowing, the debt grows on itself.",
+        "The money pipes can seize up when spare cash runs low, and bets built on borrowed money fail when lenders want cash back.",
+        "New money reaches some people before prices rise and others after."
+      ],
+      "recap_pages": 4
     },
     {
       "id": "dollar-gold-yen",
@@ -1002,7 +1074,13 @@
         "Two different yardsticks.",
         "Japan shows the strain first.",
         "Japan's rates are waking up."
-      ]
+      ],
+      "recap": [
+        "The dollar can look strong against other currencies and still buy less in goods and gold.",
+        "Japan shows the strain first: the yen is weak and Japan stepped in to buy it.",
+        "If Japan's rates rise, fewer Japanese investors may buy US Treasuries, which can push the 10-year up."
+      ],
+      "recap_pages": 3
     },
     {
       "id": "two-schools-economics",
@@ -1064,7 +1142,12 @@
         "Keynesians fix the slump.",
         "Austrians question the boom.",
         "They split on money."
-      ]
+      ],
+      "recap": [
+        "Keynesians fix the slump; Austrians question the boom.",
+        "One trusts a steady hand on the dial; the other says leave the dial alone."
+      ],
+      "recap_pages": 2
     },
     {
       "id": "fintech-rails",
@@ -1240,7 +1323,13 @@
         "Renting a bank versus owning one.",
         "Spend what you hold.",
         "Outlook, not fact."
-      ]
+      ],
+      "recap": [
+        "Fintech apps rent a bank to start fast; owning one gives control, and the repair bills.",
+        "Multi-currency stablecoin cards aim to cut forced swaps: same card at the till, fewer swaps behind it.",
+        "More is expected, but outlook is not fact: announced is not arrived."
+      ],
+      "recap_pages": 3
     }
   ]
 }
