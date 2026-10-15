@@ -42,7 +42,6 @@
     bank: ["banks", "leverage", "deposits"], car: ["cars", "self-driving", "physical"], driving: ["cars", "physical"]
   };
   var HINTS = ["Try: robots", "Try: payments", "Try: AI pricing", "Try: mortgages", "Try: agents", "Try: the yen"];
-  var CHIPS = ["robots", "payments", "AI pricing", "mortgages", "what is an agent?"];
   var STOP = ["the", "and", "are", "why", "what", "how", "does", "for", "with", "who", "can", "this", "that", "your", "you", "about", "into", "from", "is", "a", "an", "of", "to", "in", "on", "so", "do", "my", "me", "it"];
   var $ = function (id) { return document.getElementById(id); };
   var lib = null, topic = "All", query = "";
@@ -484,12 +483,12 @@
         empty.innerHTML = '<svg class="em-art" viewBox="0 0 120 70" width="120" height="70" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 62h108"/><path d="M14 62V30l9-2v34M29 62V22h10v40"/><path d="M80 62 94 24l9 3-13 35" stroke-dasharray="3 4"/><circle cx="64" cy="40" r="11"/><path d="m72 48 9 9"/><path d="M60 38c1.5-3 6-3 7 0" stroke-opacity=".55"/></svg>';
         empty.appendChild(el("p", "em-h", "Nothing on that shelf yet"));
         empty.appendChild(el("p", "em-p", "No book matches “" + query + "”. Search reads titles, gists and the words on every page, so a shorter word often works."));
-        var eb = el("button", "g-go em-btn", "Back to the shelf"); eb.type = "button"; eb.onclick = function () { clearQuery(); renderShelves(); $("ask-input").focus(); };
+        var eb = el("button", "g-go em-btn", "Back to the shelf"); eb.type = "button"; eb.onclick = function () { clearQuery(); renderShelves(); blurSearch(); };
         empty.appendChild(eb);
         host.appendChild(empty); return;
       }
       h.appendChild(document.createTextNode(res.length + (res.length === 1 ? " book" : " books") + " for “" + query + "” · "));
-      var clr = el("button", "linkbtn", "Clear"); clr.type = "button"; clr.onclick = function () { clearQuery(); renderShelves(); $("ask-input").focus(); };
+      var clr = el("button", "linkbtn", "Clear"); clr.type = "button"; clr.onclick = function () { clearQuery(); renderShelves(); blurSearch(); };
       h.appendChild(clr);
       var s = el("section", "shelf"); s.appendChild(el("h2", "shelf-h", "Best matches"));
       var top = res[0], tp = top.p >= 0 ? top.b.pages[top.p] : null;
@@ -549,12 +548,9 @@
     });
     return r;
   }
+  /* the search field only takes focus when the reader taps it (or presses "/" on a keyboard device); never as a side effect, so no phone keyboard pops up */
+  function blurSearch() { var i = $("ask-input"); if (document.activeElement === i) i.blur(); }
   function clearQuery() { query = ""; $("ask-input").value = ""; $("ask-hint").textContent = ""; }
-  function renderChips() {
-    var f = $("lib-ask"), c = el("div", "ask-chips"); c.setAttribute("role", "group"); c.setAttribute("aria-label", "Suggested searches");
-    CHIPS.forEach(function (q) { var b = el("button", "chip ask-chip", q); b.type = "button"; b.onclick = function () { $("ask-input").value = q; ask(q); }; c.appendChild(b); });
-    var h = document.querySelector(".lib-bar"); c.setAttribute("aria-label", "Suggested searches"); h.parentNode.insertBefore(c, h.nextSibling);
-  }
   function ask(q) { query = q.trim(); topic = "All"; renderTabs(); renderShelves(); }
   function rotateHints() {
     var i = 0, inp = $("ask-input");
@@ -648,11 +644,16 @@
     var p = P[i], d = el("div", "pg");
     if (p.gist) {
       d.classList.add("pg-gist");
-      d.appendChild(el("p", "g-kicker", "The 60-second version"));
-      d.appendChild(el("h3", "g-title", b.title));
-      d.appendChild(el("p", "g-blurb", tagline(b)));
-      var ol = el("ol", "g-list"); b.gist.forEach(function (g) { ol.appendChild(el("li", null, g)); }); d.appendChild(ol);
-      var go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; d.appendChild(go);
+      var sc = el("div", "g-scroll");
+      sc.appendChild(el("p", "g-kicker", "The 60-second version"));
+      sc.appendChild(el("h3", "g-title", b.title));
+      sc.appendChild(el("p", "g-blurb", tagline(b)));
+      var ol = el("ol", "g-list"); b.gist.forEach(function (g) { ol.appendChild(el("li", null, g)); }); sc.appendChild(ol);
+      d.appendChild(sc);
+      /* the page-turn button lives outside the scrolling text, so it is always on screen, however short the phone */
+      var ft = el("div", "g-foot"), go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; ft.appendChild(go); d.appendChild(ft);
+      var more = function () { d.classList.toggle("g-more", sc.scrollHeight - sc.scrollTop - sc.clientHeight > 3); };
+      sc.addEventListener("scroll", more, { passive: true }); requestAnimationFrame(more); setTimeout(more, 400);
     } else {
       var btn = el("button", "pg-zoom"); btn.type = "button"; btn.setAttribute("aria-label", "Zoom into page: " + p.title);
       var img = el("img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + "."; img.width = p.w; img.height = p.h; img.decoding = "async"; if (Math.abs(i - idx) > 1) img.loading = "lazy";
@@ -755,11 +756,12 @@
     return out;
   }
   function isHeading(l) { return /,\s*part\s*\d/i.test(l) || (!/[.?!:”"]$/.test(l) && l.length < 44); }
-  function lineScore(line, qs) {
-    var ws = words(line).map(stem), n = 0;
-    qs.forEach(function (q) { var t = q.t; if (ws.some(function (w) { return w === t || (t.length >= 4 && w.indexOf(t) === 0) || (t.length >= 5 && near(w, t)); })) n += q.w; });
-    return n;
+  function lineMatch(line, qs) { // score (core words weigh 2, synonyms 1) and how many distinct core words matched
+    var ws = words(line).map(stem), s = 0, m = 0, terms = [];
+    qs.forEach(function (q) { var t = q.t; if (ws.some(function (w) { return w === t || (t.length >= 4 && w.indexOf(t) === 0) || (t.length >= 5 && near(w, t)); })) { s += q.w; if (q.w === 2) { m++; terms.push(t); } } });
+    return { s: s, m: m, terms: terms };
   }
+  function lineScore(line, qs) { return lineMatch(line, qs).s; }
   function askRender(head, lines, src, honest) {
     var o = $("askp-out"); o.innerHTML = "";
     if (head) o.appendChild(el("p", "askp-lead", head));
@@ -768,6 +770,53 @@
     if (honest) o.appendChild(el("p", "askp-miss", honest));
   }
   function askReset() { $("askp-out").innerHTML = ""; }
+  /* a short, honest snippet: the line itself when it is short, else its first sentence(s), else a clean cut */
+  function snip(l) {
+    if (l.length <= 230) return l;
+    var s = l.match(/^.{40,230}?[.!?](\s|$)/); if (s) return s[0].trim();
+    var c = l.slice(0, 215), k = c.lastIndexOf(" "); return c.slice(0, k > 120 ? k : 215).replace(/[,;:\s]+$/, "") + "…";
+  }
+  /* search every book: gist lines, page takeaways and the cleaned page text, whole library, client-side only */
+  function libHits(qs) {
+    var all = [], coreN = qs.filter(function (q) { return q.w === 2; }).length, minM = coreN >= 2 ? Math.max(2, Math.ceil(coreN / 2)) : 1; // a stray shared word is not an answer
+    var sc = function (l) { var r = lineMatch(l, qs); return r.m >= minM ? r.s : 0; };
+    lib.books.forEach(function (b) {
+      b.gist.forEach(function (l) { var s = sc(l); if (s >= 2) all.push({ l: l, s: s + 0.3, b: b, i: 0 }); });
+      b.pages.forEach(function (pg, k) {
+        if (pg.takeaway) { var s = sc(pg.takeaway); if (s >= 2) all.push({ l: pg.takeaway, s: s + 0.2, b: b, i: k + 1 }); }
+        pageLines(b, k + 1).forEach(function (l) { if (l.length < 28 || isHeading(l)) return; var s = sc(l); if (s >= 2) all.push({ l: l, s: s - (l.length > 230 ? 0.4 : 0), b: b, i: k + 1 }); });
+      });
+    });
+    all.sort(function (a, c) { return c.s - a.s || a.l.length - c.l.length; });
+    var need = qs.filter(function (q) { return q.w === 2; }).length > 1 ? 4 : 2;
+    var top = all.length ? Math.min(need, all[0].s) : need, out = [], seen = {};
+    all.filter(function (c) { return c.s >= top; }).forEach(function (c) {
+      var key = c.b.id + "/" + c.i, tx = snip(c.l);
+      if (out.length >= 2 || seen[key] || out.some(function (o) { return o.t === tx; })) return;
+      seen[key] = 1; out.push({ t: tx, b: c.b, i: c.i });
+    });
+    return out;
+  }
+  function askLib(hits) {
+    var o = $("askp-out"); o.innerHTML = "";
+    o.appendChild(el("p", "askp-lead", "From the library:"));
+    var ul = el("ul", "askp-lines askp-lib");
+    hits.forEach(function (h) {
+      var li = el("li"); li.appendChild(el("span", "askp-q", h.t));
+      var a = el("a", "askp-from", "from " + h.b.title + " · " + (h.i === 0 ? "60-second version" : "page " + (h.i + 1)) + " →");
+      a.href = "#book/" + h.b.id + "/" + (h.i + 1); li.appendChild(a); ul.appendChild(li);
+    });
+    o.appendChild(ul);
+  }
+  /* nothing in the library: say so plainly and offer an outside link (never an invented answer) */
+  function askOutside(q) {
+    var o = $("askp-out"); o.innerHTML = "";
+    o.appendChild(el("p", "askp-miss", "Nothing in the library answers that yet, and I won’t guess."));
+    var a = el("a", "rd-btn askp-grok", "Ask Grok about this ↗"); a.target = "_blank"; a.rel = "noopener noreferrer";
+    a.href = "https://grok.com/?q=" + encodeURIComponent(q + " Answer in 1-2 short bullets.");
+    o.appendChild(a);
+    o.appendChild(el("p", "askp-src", "Opens grok.com in a new tab. That is an outside site, not part of this library."));
+  }
   function askPage(q) {
     q = (q || "").trim(); if (!q || !cur) return;
     var b = cur, i = idx;
@@ -780,8 +829,11 @@
       var best = cand.filter(function (c) { return c.s >= 2; }).sort(function (a, c) { return c.s - a.s || a.g - c.g; });
       var need = qs.filter(function (q) { return q.w === 2; }).length > 1 ? 4 : 2;
       var hit = best.filter(function (c) { return c.s >= Math.min(need, best.length ? best[0].s : need); }).slice(0, 3);
-      if (!hit.length) { askRender("", [], "", (i === 0 ? "The 60-second version doesn’t cover that." : "This page doesn’t cover that.") + " Try search on the shelf, or another page in this book."); return; }
-      askRender(hit.every(function (c) { return c.g; }) ? "This page doesn’t say directly. From the book’s 60-second version:" : "From this page:", hit.map(function (c) { return hit.every(function (h) { return h.g; }) ? c.l : c; }), "");
+      var onPage = hit.length && (i === 0 || hit.some(function (c) { return !c.g; }));
+      if (onPage) { askRender("From this page:", hit, ""); return; }
+      var lh = libHits(qs);
+      if (lh.length) { askLib(lh); return; }
+      askOutside(q);
     }).catch(function () { askRender("", [], "", "The page text didn’t load. Check your connection and try again."); });
   }
   function explainSimply() {
@@ -890,7 +942,8 @@
       if (sx == null) return; var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
       if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.2) turn(dx < 0 ? 1 : -1); sx = null;
     }, { passive: true });
-    $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); var r = document.querySelector("#shelves .shelf"); if (r && touch) $("ask-input").blur(); };
+    $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); if (touch) $("ask-input").blur(); };
+    $("ask-input").addEventListener("search", function () { if (!this.value && touch) this.blur(); });
     var deb;
     $("ask-input").addEventListener("input", function () {
       var v = this.value; clearTimeout(deb);
@@ -916,7 +969,7 @@
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (d) {
       lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Tech"; });
-      wire(); wireTips(); savedBadge(); renderChips(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
+      wire(); wireTips(); savedBadge(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
       if (location.hash && location.hash !== "#topics") route();
     })
     .catch(function (e) { console.error("Pulse: library failed to load", e); $("shelves").innerHTML = '<p class="lib-loading">The library didn’t load. Refresh to try again.</p>'; });

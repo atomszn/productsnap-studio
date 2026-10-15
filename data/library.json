@@ -945,9 +945,9 @@
       "topic": "Macro",
       "blurb": "One recession, two readings of what went wrong.",
       "gist": [
-        "Keynesians focus on the slump: when spending falls, government or the central bank steps in to boost it, and cools an overheating economy with higher rates or taxes.",
-        "Austrians focus on the boom before the slump: they say cheap credit can push firms to build things people won't end up wanting, and the bust is the cleanup.",
-        "On money, Keynesians see the central bank as a tool to steady the economy; Austrians argue its money creation sends false signals and say leave the dial alone."
+        "Keynesians focus on the slump: when spending falls, government or the central bank steps in to lift it, and leans against overheating.",
+        "Austrians focus on the boom: cheap credit pushes firms to build things people won't end up wanting, and the bust is the cleanup.",
+        "On money, Keynesians see the central bank as a tool to steady the economy; Austrians say its money creation sends false signals."
       ],
       "added": "2026-10-15",
       "pages": [
@@ -1002,8 +1002,8 @@
       "topic": "Fintech",
       "blurb": "Why apps want banks, and cards want currencies.",
       "gist": [
-        "Many fintech apps rent a bank's license. As they grow, some are buying a bank or applying for their own charter (Chime, Revolut, Nubank), and most are still waiting on regulators.",
-        "Multi-currency stablecoin cards aim to let you spend a currency you hold without forced swaps. Wise and Revolut already do this; what's new is Stripe's card rails that any app can build on. Early days.",
+        "Many fintech apps rent a bank's license. Some now buy a bank or seek a charter (Chime, Revolut, Nubank); most still wait.",
+        "Stablecoin cards aim to let you spend what you hold, no forced swaps. Wise and Revolut do it; Stripe's rails let any app build it. Early days.",
         "Outlook, not fact: more charter applications, and Mastercard and Visa building similar tools, plus a few clearly labelled guesses. Announced is not arrived."
       ],
       "added": "2026-10-15",
