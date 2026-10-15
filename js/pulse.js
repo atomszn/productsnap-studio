@@ -20,6 +20,7 @@
     "tokenization": "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12 4 7.5",
     "mortgage-rates": "M4 11l8-6 8 6M6 10v10h12V10M10 20v-5h4v5",
     "debt-loop": "M17 7a7 7 0 1 0 2 5M17 3v4h-4",
+    "two-schools-economics": "M12 4v16M8 20h8M4 7h16M4 7l-2.5 6a2.5 2.5 0 0 0 5 0zM20 7l-2.5 6a2.5 2.5 0 0 0 5 0z",
     "dollar-gold-yen": "M12 4v16M15.5 7.5c-1-1.2-2.2-1.6-3.5-1.6-2 0-3.5 1-3.5 2.6 0 3.5 7.5 2 7.5 5.8 0 1.7-1.6 2.8-4 2.8-1.5 0-3-.5-4-1.7"
   };
   var SYN = {
@@ -310,7 +311,7 @@
     var B = lib.books, pg = B.reduce(function (s, b) { return s + b.pages.length + 1; }, 0);
     var tp = Object.keys(TOPICS).filter(function (k) { return B.some(function (b) { return b.topic === k; }); }).length;
     $("lib-stats").innerHTML = "<b>" + B.length + "</b> books<i>·</i><b>" + tp + "</b> topics<i>·</i><b>" + pg + "</b> pages";
-    var latest = B.slice().sort(function (a, b) { return (b.updated || b.added || "").localeCompare(a.updated || a.added || ""); })[0];
+    var latest = B.slice().sort(function (a, b) { return (b.updated || b.added || "").localeCompare(a.updated || a.added || "") || B.indexOf(b) - B.indexOf(a); })[0];
     if (latest) {
       var d = new Date((latest.updated || latest.added) + "T12:00:00"), r = $("lib-ribbon");
       var fresh = (Date.now() - d) < 8 * 864e5;

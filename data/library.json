@@ -938,6 +938,62 @@
           "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt"
         }
       ]
+    },
+    {
+      "id": "two-schools-economics",
+      "title": "Two Schools of Economics",
+      "topic": "Macro",
+      "blurb": "One recession, two readings of what went wrong.",
+      "gist": [
+        "Keynesians focus on the slump: when spending falls, government or the central bank steps in to boost it, and cools an overheating economy with higher rates or taxes.",
+        "Austrians focus on the boom before the slump: they say cheap credit can push firms to build things people won't end up wanting, and the bust is the cleanup.",
+        "On money, Keynesians see the central bank as a tool to steady the economy; Austrians argue its money creation sends false signals and say leave the dial alone."
+      ],
+      "added": "2026-10-15",
+      "pages": [
+        {
+          "file": "assets/pulse/two-schools-economics/p01.webp",
+          "thumb": "assets/pulse/two-schools-economics/p01-t.webp",
+          "title": "What Keynesian and Austrian economics actually focus on",
+          "w": 1600,
+          "h": 2760,
+          "kw": "economics part keynesian austrian actually focus faa two schools read recession differently point different fixes question one ask slump boom people firms spend jobs income fall cin austrians say cheap borrowed money credit push build things fix government wont end wanting central bank steps boost spending economy overheats bust cleanup cool raising rates taxes arn like sugar rush stalled car crash bill press gas fast ease off stretch shrinks get scarce readings vovsi vitee uys reading customers vanished much built big employer lays moving ended workers shops example tax cuts let shift lose truly want rte public nee even though hurts speed matters cause keynesians won't centrai closed sale temporary projects atom keynes keynesian austrian recession stimulus central bank interest rates inflation savings economics economist boom bust credit",
+          "takeaway": "Keynesians fix the slump. Austrians question the boom."
+        },
+        {
+          "file": "assets/pulse/two-schools-economics/p02.webp",
+          "thumb": "assets/pulse/two-schools-economics/p02-t.webp",
+          "title": "How they treat money, interest rates and government action",
+          "w": 1600,
+          "h": 2760,
+          "kw": "economics part treat money interest rates government action schools care disagree steer whether anyone dial two views austrian osx central bank tool steady economy austrians argue distorts creation easin slumps credit htening send false signals overheats steered set price savers borrowing nudge spending borrowers market fills spendin iscal ina while private delays slump weak clean-up stimulus institution like us federal reserve sets short-term means practice debate reality che matters loan prices rise faster rate moves change galois have savings earn costs returns influenced real policy buy cushion neither explains every loans cost man add debt economists borrow one trusts hand says leave alone keynesian easing tightening overh ats gap fiscal check many trustsa thedial atom keynes keynesian austrian recession stimulus central bank interest rates inflation savings economics economist fiscal loans",
+          "takeaway": "One trusts a steady hand on the dial. The other says leave the dial alone."
+        }
+      ],
+      "tagline": "Fix the slump, or question the boom",
+      "vol": 1,
+      "sources": [
+        {
+          "title": "IMF Finance & Development: What Is Keynesian Economics? (Sept. 2014)",
+          "url": "https://www.imf.org/external/pubs/ft/fandd/2014/09/basics.htm"
+        },
+        {
+          "title": "Econlib: Ch. 10, Alternative Budgetary Rules (functional finance: surpluses to curb inflation, deficits when unemployment appears)",
+          "url": "https://www.econlib.org/book-chapters/chapter-ch-10-alternative-budgetary-rules/"
+        },
+        {
+          "title": "Mises Institute: Austrian Business Cycle Theory, Explained",
+          "url": "https://mises.org/mises-wire/austrian-business-cycle-theory-explained"
+        },
+        {
+          "title": "The Essential Austrian Economists, ch. 8: Business Cycles (Coyne & Boettke, Fraser Institute)",
+          "url": "https://www.essentialscholars.org/sites/default/files/2023-01/essential-austrian-economics-ch8.pdf"
+        },
+        {
+          "title": "IMF Working Paper WP/02/2: The Austrian Theory of Business Cycles: Old Lessons for Modern Economic Policy?",
+          "url": "https://www.imf.org/external/pubs/ft/wp/2002/wp0202.pdf"
+        }
+      ]
     }
   ]
 }
