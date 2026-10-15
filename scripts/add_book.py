@@ -90,6 +90,7 @@ def cmd_book(a):
     old = next((b for b in lib["books"] if b["id"] == a.slug), None)
     book = {"id": a.slug, "title": a.title, "topic": a.topic, "blurb": a.blurb,
             "gist": a.gist, "added": (old or {}).get("added") or datetime.date.today().isoformat(),
+            "added_at": (old or {}).get("added_at") or datetime.datetime.now().isoformat(timespec="minutes"),
             "pages": [page_entry(a.slug, i, s, t) for i, (s, t) in enumerate(zip(a.pages, titles), 1)]}
     for k in ("tagline", "vol", "start_here"):  # keep cover metadata when a book is rebuilt
         if old and k in old:

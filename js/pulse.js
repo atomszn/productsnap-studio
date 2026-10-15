@@ -403,7 +403,7 @@
     var B = lib.books, pg = B.reduce(function (s, b) { return s + b.pages.length + 1; }, 0);
     var tp = Object.keys(TOPICS).filter(function (k) { return B.some(function (b) { return b.topic === k; }); }).length;
     $("lib-stats").innerHTML = "<b>" + B.length + "</b> books<i>·</i><b>" + tp + "</b> topics<i>·</i><b>" + pg + "</b> pages";
-    var latest = B.slice().sort(function (a, b) { return (b.updated || b.added || "").localeCompare(a.updated || a.added || "") || B.indexOf(b) - B.indexOf(a); })[0];
+    var latest = B.slice().sort(function (a, b) { return (b.updated || b.added || "").localeCompare(a.updated || a.added || "") || (b.added_at || "").localeCompare(a.added_at || "") || B.indexOf(b) - B.indexOf(a); })[0];
     if (latest) {
       var d = new Date((latest.updated || latest.added) + "T12:00:00"), r = $("lib-ribbon");
       var fresh = (Date.now() - d) < 8 * 864e5;
@@ -506,7 +506,8 @@
       s.appendChild(row); host.appendChild(s); return;
     }
     if (topic === "All") { var cont = continueCard(); if (cont) host.appendChild(cont); host.appendChild(startRow()); }
-    var books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; });
+    var trank = Object.keys(TOPICS), books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; })
+      .map(function (b, i) { return [b, i]; }).sort(function (a, c) { return trank.indexOf(a[0].topic) - trank.indexOf(c[0].topic) || a[1] - c[1]; }).map(function (x) { return x[0]; }); /* shelf groups by topic (AI, Tech, Fintech, Macro); within a topic, library order */
     var groups = view === "topics"
       ? Object.keys(TOPICS).map(function (k) { return [k, books.filter(function (b) { return b.topic === k; })]; }).filter(function (g) { return g[1].length; })
       : [[topic === "All" ? "The shelf" : topic + " shelf", books]];
