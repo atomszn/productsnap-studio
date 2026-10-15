@@ -994,6 +994,175 @@
           "url": "https://www.imf.org/external/pubs/ft/wp/2002/wp0202.pdf"
         }
       ]
+    },
+    {
+      "id": "fintech-rails",
+      "title": "Fintech Rails",
+      "topic": "Fintech",
+      "blurb": "Why apps want banks, and cards want currencies.",
+      "gist": [
+        "Many fintech apps rent a bank's license. As they grow, some are buying a bank or applying for their own charter (Chime, Revolut, Nubank), and most are still waiting on regulators.",
+        "Multi-currency stablecoin cards aim to let you spend a currency you hold without forced swaps. Wise and Revolut already do this; what's new is Stripe's card rails that any app can build on. Early days.",
+        "Outlook, not fact: more charter applications, and Mastercard and Visa building similar tools, plus a few clearly labelled guesses. Announced is not arrived."
+      ],
+      "added": "2026-10-15",
+      "pages": [
+        {
+          "file": "assets/pulse/fintech-rails/p01.webp",
+          "thumb": "assets/pulse/fintech-rails/p01-t.webp",
+          "title": "Why fintechs are buying or becoming banks",
+          "w": 1600,
+          "h": 2760,
+          "kw": "fintech rails part fintechs buying becoming banks oflng many apps rent bank's license grow gans way renting gets costly limiting moving led gib tech company offers money charter vane lets services through app operate bank i772 partner-bank model buy get runs another van moo holds itself lower costs deposits fund launch fast fewer rules carry lending keeps economics catch partner sets limits risk capital compliance cash hand fees paying deposit stability become job like flat quick move-in landlord's ai owning house yours repairs making move far along chime revolut agreed sept us regulator gave preliminary stride years four pending approval products held back extra sign-off open yet nubank stablecoin firms trust charters conditionally approved national dec circle ripple paxos opened july others early final steps hold reserves custody everyday loans mixed reality check guarantee work keys repair bills government beforelafter good circle's first rest done atom",
+          "takeaway": "Renting a bank gets you in fast. Owning one gets you the keys, and the repair bills."
+        },
+        {
+          "file": "assets/pulse/fintech-rails/p02.webp",
+          "thumb": "assets/pulse/fintech-rails/p02-t.webp",
+          "title": "What multi-currency stablecoin cards change",
+          "w": 1600,
+          "h": 2760,
+          "kw": "fintech rails part multi-currenc stablecoin cards actually change everyday spending already hold money several currencies often forces swap one currency first sor digital token markup extra company designed stay worth adds swaps dollar euro maria pays dinner paris example vlaad naday loh holds euros card dollars back restaurant spends unique apps like wise revolut let spend held directly changes stays new stablecoin-backed balances stripe app shops still accept through existing network fewer forced people today run visa partner bank stands plasma announced collaboration oct build support brazilian reals mexican colombian pesos plus eligible stablecoins reality check early days improves shop's side till behind multi-currency typical dollar-based two time emerging swap.spend local rolls system lets stripe's atom",
+          "takeaway": "Same card at the till. Fewer swaps behind it."
+        },
+        {
+          "file": "assets/pulse/fintech-rails/p03.webp",
+          "thumb": "assets/pulse/fintech-rails/p03-t.webp",
+          "title": "Where the rails are heading",
+          "w": 1600,
+          "h": 2760,
+          "kw": "fintech rails part heading has announced far plus sz02 guesses label behind-the-scenes genius systems move money sets rules stablecoins banks fintechs want applications strings attached us regulator occ logged charter approvals jan oct four year different routes buy bank chime start one revolut mercury take narrow mission lane credit-card tat guess partner lose volume big small ones keep renting asked least 95m starting capital skeptics community-bank group icba sued grants trust charters analysts add owning brings integration burdens cards networks building mastercard closed bvnk deal aug launched multi-currency platform visa says supports stablecoin-linked card programs last company figures coverage widening dates shift stripe plasma say countries now planned earlier bridge target end due act expected effect detailed still proposals italy tested stablecoin transfers found all-in costs nearly bis calls performance uneven fees spreads count arrived watch outlook fact law",
+          "takeaway": "Outlook, not fact: announced is not arrived. Watch the dates."
+        }
+      ],
+      "tagline": "Why apps want banks, and cards want currencies",
+      "vol": 1,
+      "sources": [
+        {
+          "title": "OCC Corporate Decision 1390: Revolut preliminary conditional approval for a national bank (Sept. 2, 2026)",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-decisions/2026/cd1390.pdf"
+        },
+        {
+          "title": "OCC Conditional Approval 1362: Nubank national bank charter, preliminary (Jan. 29, 2026)",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-decisions/2026/ca1362.pdf"
+        },
+        {
+          "title": "OCC Corporate Decision 1372: Mercury national bank, conditional approval",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/interpretations-and-decisions/2026/cd1372.pdf"
+        },
+        {
+          "title": "OCC News Release 2025-125: conditional approvals of national trust charters (Dec. 12, 2025)",
+          "url": "https://www.occ.gov/news-issuances/news-releases/2025/nr-occ-2025-125.html"
+        },
+        {
+          "title": "OCC: De novo chartering (application and approval counts)",
+          "url": "https://www.occ.gov/topics/charters-and-licensing/de-novo-chartering/index-de-novo-chartering.html"
+        },
+        {
+          "title": "Chime SEC Form 8-K: agreement to acquire Stride Bank (Sept. 2026)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1795586/000119312526385383/d948605d8k.htm"
+        },
+        {
+          "title": "Chime press release (Business Wire, Sept. 8, 2026): Chime announces agreement to acquire Stride Bank",
+          "url": "https://www.businesswire.com/news/home/20260908076531/en/Chime-Announces-Agreement-to-Acquire-Stride-Bank"
+        },
+        {
+          "title": "Circle SEC filing: final OCC approval and opening of its national trust bank (July 2026)",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/R30.htm"
+        },
+        {
+          "title": "Circle press release: final OCC approval to establish a national trust bank",
+          "url": "https://www.circle.com/pressroom/circle-receives-final-occ-approval-to-establish-national-trust-bank"
+        },
+        {
+          "title": "Plasma press release (GlobeNewswire, Oct. 15, 2026): Stripe and Plasma co-develop a multi-currency card experience",
+          "url": "https://www.globenewswire.com/news-release/2026/10/15/3381757/0/en/stripe-and-plasma-co-develop-a-new-multi-currency-card-experience.html"
+        },
+        {
+          "title": "Stripe: money management availability (stablecoin cards in Preview)",
+          "url": "https://stripe.com/money-management/availability"
+        },
+        {
+          "title": "Stripe newsroom: Bridge partners with Visa",
+          "url": "https://stripe.com/newsroom/news/bridge-partners-with-visa"
+        },
+        {
+          "title": "Bridge docs: cards overview (spend anywhere Visa is accepted)",
+          "url": "https://apidocs.bridge.xyz/platform/cards/overview/overview"
+        },
+        {
+          "title": "Bridge blog: stablecoin-backed cards integrated with Stripe Issuing (issuing bank)",
+          "url": "https://www.bridge.xyz/blog/stablecoin-backed-cards-are-now-integrated-with-stripe-issuing"
+        },
+        {
+          "title": "Wise Help: spending in a currency you don't hold in your account",
+          "url": "https://wise.com/help/articles/2935778/what-if-i-spend-money-in-a-currency-i-dont-have-in-my-account"
+        },
+        {
+          "title": "Revolut blog: using Revolut abroad",
+          "url": "https://www.revolut.com/blog/post/using-revolut-abroad/"
+        },
+        {
+          "title": "Mastercard and BVNK launch global money platform (Business Wire, Oct. 15, 2026)",
+          "url": "https://www.businesswire.com/news/home/20261015326549/en/Mastercard-and-BVNK-Launch-Global-Money-Platform-to-Power-a-Multi-Money-World"
+        },
+        {
+          "title": "Mastercard: completes acquisition of BVNK (Aug. 2026)",
+          "url": "https://www.mastercard.com/us/en/news-and-trends/press/2026/august/mastercard-completes-acquisition-of-bvnk-to-advance-global-stabl.html"
+        },
+        {
+          "title": "Visa investor relations: stablecoin-linked card programs (company figures, 2026)",
+          "url": "https://investor.visa.com/news/news-details/2026/Visa-Data-Shows-Stablecoins-Gaining-Traction-in-Business-Payments/default.aspx"
+        },
+        {
+          "title": "U.S. Treasury: GENIUS Act press release",
+          "url": "https://home.treasury.gov/news/press-releases/sb0605"
+        },
+        {
+          "title": "ICBA: community banks challenge OCC trust-charter rule (Oct. 2026)",
+          "url": "https://www.icba.org/w/occ-release-oct-2026"
+        },
+        {
+          "title": "BIS Annual Economic Report 2026, ch. III: anchoring trust in money",
+          "url": "https://www.bis.org/publications/aer-2026/anchoring-trust-money"
+        },
+        {
+          "title": "Press: American Banker, Fintechs are asking for and receiving bank charters in 2026",
+          "url": "https://www.americanbanker.com/news/fintechs-asking-for-and-receiving-bank-charters-in-2026"
+        },
+        {
+          "title": "Press: American Banker, Circle officially opens its national trust bank",
+          "url": "https://www.americanbanker.com/payments/news/circle-officially-opens-its-national-trust-bank"
+        },
+        {
+          "title": "Press: Reuters, Chime to buy nationally chartered Stride Bank for $590 million (may be paywalled)",
+          "url": "https://www.reuters.com/legal/transactional/chime-buy-nationally-chartered-stride-bank-590-million-shares-jump-2026-09-08/"
+        },
+        {
+          "title": "Press: Reuters, Revolut wins conditional U.S. banking license (may be paywalled)",
+          "url": "https://www.reuters.com/business/finance/revolut-wins-conditional-us-banking-license-2026-09-03/"
+        },
+        {
+          "title": "Press: Reuters, community banks sue U.S. regulator over trust charters (may be paywalled)",
+          "url": "https://www.reuters.com/world/community-banks-sue-us-regulator-over-crypto-firm-charters-2026-10-02/"
+        },
+        {
+          "title": "Press: Banking Dive, Chime buys Stride Bank for $590M (analyst comment on integration and capital)",
+          "url": "https://www.bankingdive.com/news/chime-buys-stride-bank-590m-acquisition-fintech/829857/"
+        },
+        {
+          "title": "Press: Banking Dive, Circle gets full OCC trust-bank approval",
+          "url": "https://www.bankingdive.com/news/circle-occ-national-trust-bank-charter-full-approval-allaire-usdc-stablecoin/824969/"
+        },
+        {
+          "title": "Press: CoinDesk, summary of Bank of Italy research on stablecoin remittance costs (0.3% to almost 9%)",
+          "url": "https://www.coindesk.com/business/2026/08/01/bank-of-italy-research-suggests-stablecoins-aren-t-necessarily-cheaper-for-remittances"
+        },
+        {
+          "title": "Analysis: The Financial Current, Chime company profile (secondary)",
+          "url": "https://thefinancialcurrent.com/deep-dives/chime-consumer-finance-company-profile"
+        }
+      ]
     }
   ]
 }

@@ -412,8 +412,10 @@ body.page-pulse{--paper:#f3efe7;--paper-2:#ece6da;--card:#fbf9f4;background:#f3e
   background:none;border-radius:0;border-bottom:var(--plank-h) solid var(--plank,#d9c7a6);
   box-shadow:0 10px 14px -12px rgba(60,40,10,.45);overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
 .tier .sp{flex:none;margin-bottom:0}
-.tier .sp.is-lean{transform:rotate(-6deg);transform-origin:bottom right;margin:0 14px 0 10px}
-.tier .sp.is-lean:hover,.tier .sp.is-lean:focus-visible{transform:rotate(-6deg) translateY(-8px)}
+.tier .sp.is-lean-left{transform:rotate(-6deg);transform-origin:bottom right;margin:0 14px 0 10px}
+.tier .sp.is-lean-left:hover,.tier .sp.is-lean-left:focus-visible{transform:rotate(-6deg) translateY(-8px)}
+.tier .sp.is-lean-right{transform:rotate(6deg);transform-origin:bottom left;margin:0 22px 0 2px}
+.tier .sp.is-lean-right:hover,.tier .sp.is-lean-right:focus-visible{transform:rotate(6deg) translateY(-8px)}
 .tier .sp-decor{flex:none;grid-column:auto;width:auto;overflow:visible;margin:0;justify-self:auto;color:var(--ink-soft);line-height:0}
 .tier .sp-decor svg{margin:0;width:auto;height:auto;display:block}
 .tier .dc-plant,.tier .dc-cup{margin-left:auto}
@@ -436,7 +438,7 @@ body.page-pulse{--paper:#f3efe7;--paper-2:#ece6da;--card:#fbf9f4;background:#f3e
   .tier .sp{--sw:calc(48px * var(--swb,1));--hs:.8}
   .shelf-row.spines.tier{gap:4px;padding:22px 8px 0}
   .tier .dc-end svg{width:20px;height:92px}
-  .tier .sp.is-lean{margin:0 10px 0 6px}
+  /* lean margins: see is-lean-left/right */
 }
 @media (max-width:640px){
   .tier .sp{--sw:calc(45px * var(--swb,1))}
@@ -444,6 +446,7 @@ body.page-pulse{--paper:#f3efe7;--paper-2:#ece6da;--card:#fbf9f4;background:#f3e
   .tier .dc-stack.sm{margin-left:auto}
   .tier:last-child .dc-stack.sm{margin-left:8px}
 }
-.tier .sp.is-lean{transform:rotate(6deg);transform-origin:bottom left;margin:0 22px 0 2px}
-.tier .sp.is-lean:hover,.tier .sp.is-lean:focus-visible{transform:rotate(6deg) translateY(-8px)}
-@media (max-width:640px){.tier .sp.is-lean{margin:0 18px 0 2px}}
+@media (max-width:640px){
+  .tier .sp.is-lean-left{margin:0 10px 0 6px}
+  .tier .sp.is-lean-right{margin:0 18px 0 2px}
+}

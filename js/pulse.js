@@ -20,6 +20,7 @@
     "tokenization": "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12 4 7.5",
     "mortgage-rates": "M4 11l8-6 8 6M6 10v10h12V10M10 20v-5h4v5",
     "debt-loop": "M17 7a7 7 0 1 0 2 5M17 3v4h-4",
+    "fintech-rails": "M3 10l9-6 9 6zM5.5 10v7M10 10v7M14 10v7M18.5 10v7M3.5 20h17",
     "two-schools-economics": "M12 4v16M8 20h8M4 7h16M4 7l-2.5 6a2.5 2.5 0 0 0 5 0zM20 7l-2.5 6a2.5 2.5 0 0 0 5 0z",
     "dollar-gold-yen": "M12 4v16M15.5 7.5c-1-1.2-2.2-1.6-3.5-1.6-2 0-3.5 1-3.5 2.6 0 3.5 7.5 2 7.5 5.8 0 1.7-1.6 2.8-4 2.8-1.5 0-3-.5-4-1.7"
   };
@@ -320,7 +321,7 @@
     }
   }
   /* Shelf tiers: books split across planks (7/6 for 13), varied widths/heights,
-     one leaning spine per tier, sketch decor (bookend, flat stack, plant) placed per tier. */
+     one leaning spine per tier (left/right and position vary by row), sketch decor (bookend, flat stack, plant) placed per tier. */
   var DECOR = {
     end: '<svg viewBox="0 0 26 120" width="26" height="120"><path class="dc-end" d="M4 118V60c0-7 5-12 12-12h6v70z"/><path d="M8 70h10" stroke-opacity=".4"/></svg>',
     stack: '<svg viewBox="0 0 70 60" width="70" height="60"><rect class="dc-b1" x="4" y="44" width="60" height="14" rx="2"/><rect class="dc-b2" x="9" y="31" width="50" height="13" rx="2"/><rect class="dc-b3" x="2" y="20" width="56" height="11" rx="2"/><path d="M12 51h34M16 37h28M10 25h30" stroke-opacity=".45"/></svg>',
@@ -337,10 +338,11 @@
       var row = el("div", "shelf-row spines tier");
       if (t % 2 === 0) row.appendChild(deco("end"));
       else row.appendChild(deco("stack"));
+      var leanAt = part.length > 2 ? (t % 3 === 0 ? part.length - 1 : t % 3 === 1 ? Math.max(1, part.length - 2) : 0) : -1;
       part.forEach(function (b, i) {
         var s = spine(b), L = b.title.length;
         s.style.setProperty("--swb", (L > 22 ? 1.18 : L > 13 ? 1.05 : .92));
-        if (i === part.length - 1 && part.length > 2) s.classList.add("is-lean");
+        if (i === leanAt) s.classList.add(t % 2 === 0 ? "is-lean-left" : "is-lean-right");
         row.appendChild(s);
       });
       if (t % 2 === 0) { row.appendChild(deco("stack", "sm")); row.appendChild(deco("plant")); }
