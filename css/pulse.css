@@ -720,3 +720,12 @@ a.sp:focus-visible{outline:none}
   .pairs-k{font-size:1.1rem;margin-bottom:3px}
 }
 @media (prefers-reduced-motion:reduce){.end-more-pill{transition:none}}
+/* landscape phones: recap and "Up next" sit side by side so Open book + Back to the shelf show without scrolling */
+@media (max-height:520px) and (min-width:700px){
+  .pg-end{flex-direction:row;flex-wrap:wrap;align-items:flex-start;justify-content:center;align-content:flex-start;padding:2% 4% 30px;gap:6px 18px}
+  .pg-end .g-kicker{flex:0 0 100%;font-size:1rem}
+  .pg-end .recap{flex:1 1 50%;max-width:30rem}
+  .pg-end .end-next{flex:1 1 34%;width:auto;max-width:18rem;margin:0}
+  .pg-end .end-next .end-cover{width:min(34%,72px)}
+  .pg-end .pairs,.pg-end .end-sources,.pg-end .end-more{flex:0 0 100%;max-width:none}
+}
