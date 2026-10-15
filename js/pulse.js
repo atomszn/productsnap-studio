@@ -363,7 +363,11 @@
     });
     host.addEventListener("focusin", function (e) { var a = e.target.closest && e.target.closest("a.sp"); if (a && a.matches(":focus-visible")) showTip(a); });
     host.addEventListener("focusout", function (e) { var a = e.target.closest && e.target.closest("a.sp"); if (a) hideTip(a); });
-    window.addEventListener("scroll", function () { hideTip(); }, { passive: true });
+    var tipRaf = 0; // keep the tip glued to its book while the page scrolls (a keyboard focus scrolls the book into view); hide it if the book leaves the screen
+    window.addEventListener("scroll", function () {
+      if (!tipFor || tipRaf) return;
+      tipRaf = requestAnimationFrame(function () { tipRaf = 0; if (!tipFor) return; var r = tipFor.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) hideTip(); else showTip(tipFor); });
+    }, { passive: true });
   }
   var ICO = {
     shelf: '<path d="M3 20.5h18"/><path d="M5 20.5V8h3v12.5M9.5 20.5V5h3v15.5"/><path d="m14.6 20.5 2.6-11.4 2.8.7-2.6 11"/>',
