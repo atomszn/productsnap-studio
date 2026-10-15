@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-13",
+  "updated": "2026-10-15",
   "books": [
     {
       "id": "agent-native-infrastructure",
@@ -20,7 +20,8 @@
           "title": "What agent-native infrastructure is",
           "w": 1600,
           "h": 2760,
-          "kw": "agent-native infrastructure part software built people type click ai agents need badge keys workspace act safely agent filing expense reports humans nativ payroll website login oie nes cane borrows password has clicks through websites like person opens doors needs reach everything forever key expires job done giving temp worker visitor house don lend give building blocks sandbox identity sealed proof runs code mistakes can't works spread kid gateway poe short-lived one front desk access what's needed tools data e.g mcp expiring task open standard plugging business real work without getting reality check still early mostly developers large companies use today often cloud providers answer expenses payrol don't kid's permissions atom"
+          "kw": "agent-native infrastructure part software built people type click ai agents need badge keys workspace act safely agent filing expense reports humans nativ payroll website login oie nes cane borrows password has clicks through websites like person opens doors needs reach everything forever key expires job done giving temp worker visitor house don lend give building blocks sandbox identity sealed proof runs code mistakes can't works spread kid gateway poe short-lived one front desk access what's needed tools data e.g mcp expiring task open standard plugging business real work without getting reality check still early mostly developers large companies use today often cloud providers answer expenses payrol don't kid's permissions atom",
+          "takeaway": "AI agents should get their own limited, expiring badge, not your password."
         },
         {
           "file": "assets/pulse/agent-native-infrastructure/p02.webp",
@@ -28,7 +29,8 @@
           "title": "How the pieces work together",
           "w": 1600,
           "h": 2760,
-          "kw": "agent native infrastructure part pieces work together example pulls sales report updates support ticket get job safely update old way agent-native borrow manager's login opens everything record never expires steps identity permissions sandbox gateway expiry jel oad badge says read reports edit tickets front desk checks stops working works sealed room hands done team nothing else logs every door key runs side gets person owns data ees log step took exactly needs right away something goes wrong damage stays small waiting switch off without changing passwords clear rules time audit running reality check full setups like still early mostly built developers larger teams trust setup ai password sees"
+          "kw": "agent native infrastructure part pieces work together example pulls sales report updates support ticket get job safely update old way agent-native borrow manager's login opens everything record never expires steps identity permissions sandbox gateway expiry jel oad badge says read reports edit tickets front desk checks stops working works sealed room hands done team nothing else logs every door key runs side gets person owns data ees log step took exactly needs right away something goes wrong damage stays small waiting switch off without changing passwords clear rules time audit running reality check full setups like still early mostly built developers larger teams trust setup ai password sees",
+          "takeaway": "A sandbox, an ID, tight permissions and one gateway keep an agent's work small, logged and easy to switch off."
         },
         {
           "file": "assets/pulse/agent-native-infrastructure/p03.webp",
@@ -36,7 +38,8 @@
           "title": "What changes for businesses and for you",
           "w": 1600,
           "h": 2760,
-          "kw": "agent-native infrastructure part changes businesses companies want ai agents real work keys everything h000 here's safer agent access doesn't yet hoo00 hbo00o ok online store handing refunds setup aie log aga tot need full admin refund small orders security team says every logged stuck tests eee builders standard pieces customer control sap faster launches safe doors let mostly invisible allow assistant sharing password view limited one job calendar hour see switch off doesn apps use haven added still check example moves dentist appointment important actions reality broad everyday early change happening inside now you'll notice wrong humans adds tasks time deny haven't yourdentist atom"
+          "kw": "agent-native infrastructure part changes businesses companies want ai agents real work keys everything h000 here's safer agent access doesn't yet hoo00 hbo00o ok online store handing refunds setup aie log aga tot need full admin refund small orders security team says every logged stuck tests eee builders standard pieces customer control sap faster launches safe doors let mostly invisible allow assistant sharing password view limited one job calendar hour see switch off doesn apps use haven added still check example moves dentist appointment important actions reality broad everyday early change happening inside now you'll notice wrong humans adds tasks time deny haven't yourdentist atom",
+          "takeaway": "Small, safe doors let companies hand agents real work, and for you the change is mostly invisible."
         },
         {
           "file": "assets/pulse/agent-native-infrastructure/p04.webp",
@@ -44,7 +47,8 @@
           "title": "Who has to adapt, and what's still hard",
           "w": 1600,
           "h": 2760,
-          "kw": "agent-native infrastructure part has adapt still hard means building blocks let ai agents act safely without person's full login lan sandbox sealed identity proves permissions gateway one checked space run work agent jobs allowed door tools data changes first now later cal cloud providers developers companies using everyday users offer must wire pieces gain control record won't notice much win together correctly every action while builders move feel last bay today new changing wwh css set right gin hote switching off shared logins takes time many teams give reality check early use larger impact ahead hotels hand room keys master next what's it's front desk hotel atom"
+          "kw": "agent-native infrastructure part has adapt still hard means building blocks let ai agents act safely without person's full login lan sandbox sealed identity proves permissions gateway one checked space run work agent jobs allowed door tools data changes first now later cal cloud providers developers companies using everyday users offer must wire pieces gain control record won't notice much win together correctly every action while builders move feel last bay today new changing wwh css set right gin hote switching off shared logins takes time many teams give reality check early use larger impact ahead hotels hand room keys master next what's it's front desk hotel atom",
+          "takeaway": "Builders move first and everyday users feel it last; this is still early."
         }
       ],
       "tagline": "How AI agents get a badge, not your keys",
@@ -85,7 +89,8 @@
           "title": "What agent swarms actually are",
           "w": 1600,
           "h": 2760,
-          "kw": "ai agent swarms part aera today chat one helper question time happens team helpers works together even while you're away eadina customer calls swarm agents lead see checker paste ask wait read repeat splits batches stops close merges top complaints llours copy become finished report z42 words know wear get answers books meeting big jobs done parallel several splitting job like work continues sleep backamand keeps review results every step without asking checks new night pings reality check still early companies test coding research people output waits actually aaaaaaaaaaaaaaaaaaaa reading hours copy-paste task e.g background working atom"
+          "kw": "ai agent swarms part aera today chat one helper question time happens team helpers works together even while you're away eadina customer calls swarm agents lead see checker paste ask wait read repeat splits batches stops close merges top complaints llours copy become finished report z42 words know wear get answers books meeting big jobs done parallel several splitting job like work continues sleep backamand keeps review results every step without asking checks new night pings reality check still early companies test coding research people output waits actually aaaaaaaaaaaaaaaaaaaa reading hours copy-paste task e.g background working atom",
+          "takeaway": "A swarm is a team of AI agents splitting one big job, often working while you're away."
         },
         {
           "file": "assets/pulse/agent-swarms/p02.webp",
@@ -93,7 +98,8 @@
           "title": "How the work actually changes",
           "w": 1600,
           "h": 2760,
-          "kw": "agent swarms part work actually changes example checking company software security holes one chat team agents keeps going today swarm background lead repeat login payments customer data reviewer drops false alarms next session new code added overnight waits person approves fixes checks every change even reading make calls get handoff passes results much like relay fast hours alarm flagged problem often someone isn't real still decides remembers reality check companies testing mistakes people review stop doing start ai company's developer pastes file points issues opens files days atom"
+          "kw": "agent swarms part work actually changes example checking company software security holes one chat team agents keeps going today swarm background lead repeat login payments customer data reviewer drops false alarms next session new code added overnight waits person approves fixes checks every change even reading make calls get handoff passes results much like relay fast hours alarm flagged problem often someone isn't real still decides remembers reality check companies testing mistakes people review stop doing start ai company's developer pastes file points issues opens files days atom",
+          "takeaway": "With a swarm, agents do the reading and people review and approve the results."
         },
         {
           "file": "assets/pulse/agent-swarms/p03.webp",
@@ -101,7 +107,8 @@
           "title": "When more AI agents help, and when they don't",
           "w": 1600,
           "h": 2760,
-          "kw": "agent swarms part ai agents help dont viral claim says better real answer depends kind job two kinds jobs splits pieces needs one big idea reading calls math proofs opus system card checking many files takes piece jump done sooner almost nothing ten cooks make pizzas faster don't invent new recipe research split lead coordinating google mit step-by-step worse study cost team uses 15x tokens chat anthropic flattens copies think alike eats time reality check numbers match report buy speed genius e.g anthropic's atom"
+          "kw": "agent swarms part ai agents help dont viral claim says better real answer depends kind job two kinds jobs splits pieces needs one big idea reading calls math proofs opus system card checking many files takes piece jump done sooner almost nothing ten cooks make pizzas faster don't invent new recipe research split lead coordinating google mit step-by-step worse study cost team uses 15x tokens chat anthropic flattens copies think alike eats time reality check numbers match report buy speed genius e.g anthropic's atom",
+          "takeaway": "More agents help when a job splits into pieces, not when it needs one big idea."
         },
         {
           "file": "assets/pulse/agent-swarms/p04.webp",
@@ -109,7 +116,8 @@
           "title": "What it means for compute and cost",
           "w": 1600,
           "h": 2760,
-          "kw": "ai agent swarms part means compute cost agents work night read write far person chatting take pays company one today people swarm working overnight tokens questions during hours reading every call code change stops log off runs token small chunk text reads writes roughly word computing chats sip tahense has place io tools connections oversight processing power access email spending limits customer records data centers e.g through apis i.e plugs activity logs nvidia chips let software talk approves big actions business bill depends much many use reality check full scale still emerging costs keep changing meter running gulp atom"
+          "kw": "ai agent swarms part means compute cost agents work night read write far person chatting take pays company one today people swarm working overnight tokens questions during hours reading every call code change stops log off runs token small chunk text reads writes roughly word computing chats sip tahense has place io tools connections oversight processing power access email spending limits customer records data centers e.g through apis i.e plugs activity logs nvidia chips let software talk approves big actions business bill depends much many use reality check full scale still emerging costs keep changing meter running gulp atom",
+          "takeaway": "Agents working overnight use far more tokens than people chatting, so costs follow what the agents do."
         },
         {
           "file": "assets/pulse/agent-swarms/p05.webp",
@@ -117,7 +125,8 @@
           "title": "Who has to adapt",
           "w": 1600,
           "h": 2760,
-          "kw": "agent swarms part has adapt two teams get agents review customer calls io one gets weekly insight report mess ents ditterent results eee team lags eet nlt bie sfp ttl lier ece esess greta ose sills limits today testing have oversight someone still check right approves big actions like trusting shipping code access early days fully self-running know connect rare companies reality organizations tasks running everywhere work result ai different adapts clear goal find top vague ask look complaints week connects data call can't reach recordings support tickets person reviews acting checks output every covered trusted wrong answers wasted cost multiply process good bad work.you atom"
+          "kw": "agent swarms part has adapt two teams get agents review customer calls io one gets weekly insight report mess ents ditterent results eee team lags eet nlt bie sfp ttl lier ece esess greta ose sills limits today testing have oversight someone still check right approves big actions like trusting shipping code access early days fully self-running know connect rare companies reality organizations tasks running everywhere work result ai different adapts clear goal find top vague ask look complaints week connects data call can't reach recordings support tickets person reviews acting checks output every covered trusted wrong answers wasted cost multiply process good bad work.you atom",
+          "takeaway": "Agents multiply your process, good or bad, and people still own the result."
         }
       ],
       "updated": "2026-10-12",
@@ -159,7 +168,8 @@
           "title": "Building an AI agent is like setting up a kitchen",
           "w": 1600,
           "h": 2760,
-          "kw": "agent words part made building ai like setting kitchen doesn answer takes steps get job done arye model cook describe dpd around abt cow works eee rrr ttt tre lcl lll lillie loop think act check repeat tasting adjusting tools utensils search web read file send email rae ooo oooo oos eso sss oss oes sscs ono ros sos ooooh ces sose sse ese sese tebe sesese essseeasweses mcp context protocol standard plug usb lol use tool dsasannname ones res des shore osce rse rss shas asses sshhe rad dssdonsooasacds aeons onassenenanasasvadasaneasaaassaancaanas skills recipe cards pulls needed refunds instructions note door place knows helps memory assistant notebook kumar likes spicy library reference docs look cookbook shelf jee compaction boils long notes summary run room rules house must always follow never peanuts subagents helper cooks one chops bakes report back rest doesn't assistant's atom"
+          "kw": "agent words part made building ai like setting kitchen doesn answer takes steps get job done arye model cook describe dpd around abt cow works eee rrr ttt tre lcl lll lillie loop think act check repeat tasting adjusting tools utensils search web read file send email rae ooo oooo oos eso sss oss oes sscs ono ros sos ooooh ces sose sse ese sese tebe sesese essseeasweses mcp context protocol standard plug usb lol use tool dsasannname ones res des shore osce rse rss shas asses sshhe rad dssdonsooasacds aeons onassenenanasasvadasaneasaaassaancaanas skills recipe cards pulls needed refunds instructions note door place knows helps memory assistant notebook kumar likes spicy library reference docs look cookbook shelf jee compaction boils long notes summary run room rules house must always follow never peanuts subagents helper cooks one chops bakes report back rest doesn't assistant's atom",
+          "takeaway": "The AI model is the cook; memory, rules, tools and the agent loop are the kitchen around it."
         },
         {
           "file": "assets/pulse/agent-vocabulary/p02.webp",
@@ -167,7 +177,8 @@
           "title": "A smart agent still needs guardrails and an alarm clock",
           "w": 1600,
           "h": 2760,
-          "kw": "ai agent words part keeping agents safe schedule smart still needs clock guardrails alar takes steps get job done like kitchen assistant cover stays gets checked knows start fire newer practice taking shape staying als harness software around runs loop hands tools sets limits iew sandbox mistakes cant burn house permissions cabinets open refund can't delete wan hooks automatic set moments every time edits file run check checks taste test serving work actually pass getting human-in-the-loop asks big moves ok scorecard fest hehe eee evals regular dinners scored catch quality slipping triggers doorbell wakes new message oo00p routines jobs weekly meal prep feature to-do list plus tests worked one item builds started trusted alarm atom"
+          "kw": "ai agent words part keeping agents safe schedule smart still needs clock guardrails alar takes steps get job done like kitchen assistant cover stays gets checked knows start fire newer practice taking shape staying als harness software around runs loop hands tools sets limits iew sandbox mistakes cant burn house permissions cabinets open refund can't delete wan hooks automatic set moments every time edits file run check checks taste test serving work actually pass getting human-in-the-loop asks big moves ok scorecard fest hehe eee evals regular dinners scored catch quality slipping triggers doorbell wakes new message oo00p routines jobs weekly meal prep feature to-do list plus tests worked one item builds started trusted alarm atom",
+          "takeaway": "Sandboxes, permissions, checks and a human in the loop keep a capable agent safe and trusted."
         },
         {
           "file": "assets/pulse/agent-vocabulary/p03.webp",
@@ -175,7 +186,8 @@
           "title": "Follow one refund through an AI agent",
           "w": 1600,
           "h": 2760,
-          "kw": "ai agent words part one job start finish follow refund through takes steps get done here's customer-refund online store every building block uses along way getting ready reads email arrives mug came broken playbook house rules trigger instructions file remembers loyal looks order customer first complaint system anf memory tool mcp doing safely follows small allowed how-to big asks person how-lo permissions skill human-in-the loop checks amount rrith later test cases make matches action sure still gets logged refunds right check hook evals reality many companies use pieces today fully hands-off agents rare people review calls whole kitchen behind nai 1to store's orders human-in-the-loop tttttt atom"
+          "kw": "ai agent words part one job start finish follow refund through takes steps get done here's customer-refund online store every building block uses along way getting ready reads email arrives mug came broken playbook house rules trigger instructions file remembers loyal looks order customer first complaint system anf memory tool mcp doing safely follows small allowed how-to big asks person how-lo permissions skill human-in-the loop checks amount rrith later test cases make matches action sure still gets logged refunds right check hook evals reality many companies use pieces today fully hands-off agents rare people review calls whole kitchen behind nai 1to store's orders human-in-the-loop tttttt atom",
+          "takeaway": "One refund shows every building block at work, and people still review the big calls."
         }
       ],
       "tagline": "The words behind AI agents, as a kitchen",
@@ -221,7 +233,26 @@
           "title": "Who pays for AI agents?",
           "w": 1600,
           "h": 3940,
-          "kw": "big question pays tor agents ai soon everyday tasks us around clock every task costs money run picks bill walkthrough booking dentist today tooth hurts search google call offices booked tue top results ads wait hold ver minutes effort got paid bought ees find agent checks compares insurance open times wee calendar new work ways pay example prices month plan covers result actually books suggested first store fee like opentable pick best one sponsored free get sellers week seconds exampleprices atom"
+          "kw": "big question pays tor agents ai soon everyday tasks us around clock every task costs money run picks bill walkthrough booking dentist today tooth hurts search google call offices booked tue top results ads wait hold ver minutes effort got paid bought ees find agent checks compares insurance open times wee calendar new work ways pay example prices month plan covers result actually books suggested first store fee like opentable pick best one sponsored free get sellers week seconds exampleprices atom",
+          "takeaway": "When an AI agent does the work, someone still pays for it: you, an ad, or the seller."
+        },
+        {
+          "file": "assets/pulse/ai-agents/p05.webp",
+          "thumb": "assets/pulse/ai-agents/p05-t.webp",
+          "title": "Four ways to sell AI agents that own the whole job",
+          "w": 1600,
+          "h": 2760,
+          "kw": "saas beene selling ai agents part sell four way whole job now run customer journey peg weeks one chat company actually fect poe ste cre rec cipe latform eee service rxryy sos sea take een eoethelennes agent ane runs inside team already pays outsiders like bakery oven bread red ventures-style insurance policies get paid policy closed good upside old contract sets price fast deals budget exists watch new budgets slow valuable work proving caused usually stays in-house done result hard staff ecipe recipe full-sta seaaes ween pay lah sti esutt als weve aaa pies ener outcome-based heresy wee mem wwe www mow ewe wow full-stack become business itself finishes buy portfolios unpaid debts sierra support billed let collect resolved conversation creates keep value easy means bill carry licenses must agree upfront counts bie daily operations aes tra fem ways platform license rules loaf eaten atom four ways sell ai agents own whole job platform service full-stack pay per result recipe",
+          "takeaway": "Four ways to sell AI agents that own the whole job: a platform, a service, full-stack, or pay per result."
+        },
+        {
+          "file": "assets/pulse/ai-agents/p06.webp",
+          "thumb": "assets/pulse/ai-agents/p06-t.webp",
+          "title": "What the trade-offs actually mean",
+          "w": 1600,
+          "h": 2760,
+          "kw": "aaa selling ai agents part trade-offs actually mean n75 w.aawe platform service full-stack pay result one trades speed upside risk differently irae ros alor aol liege glin lag ope neer lone ree yee side o26 lps e77 bakery jbas blgvgvglglsu eee burden sell tool business pnr nore aie company deciding build license pick want process wait budget outsource already outsiders results fast wee eae finished jobs watch startup become competitor reality check still early different customer journeys like case prep injury lawyers fit models money old budgets big new ones slow sale slowest capped biggest grows owns shared fails sits whole market outsourcing cost job resuits modeis atom",
+          "takeaway": "Each way to sell trades speed of sale, upside and who carries the risk differently."
         },
         {
           "file": "assets/pulse/ai-agents/p02.webp",
@@ -229,7 +260,8 @@
           "title": "Does your AI agent actually work for you?",
           "w": 1600,
           "h": 3690,
-          "kw": "open question ai agent caaa hvs actually work agents free because sellers pay get recommended oagaly even settle pays mistakes paid-for pick still wrong ask different boss paid works checks hotels hotel shown first compares price reviews location books best fit iooed enough great one else paying request harder spot today search decides booked see final label decide disappears choosing people want letting spend spending limit proof asked ree e.g max order saved record exact ars seamed off switch cut access shows reasons anything being worked show honest fre find austin good it's sponsored agent's tap whoever atom"
+          "kw": "open question ai agent caaa hvs actually work agents free because sellers pay get recommended oagaly even settle pays mistakes paid-for pick still wrong ask different boss paid works checks hotels hotel shown first compares price reviews location books best fit iooed enough great one else paying request harder spot today search decides booked see final label decide disappears choosing people want letting spend spending limit proof asked ree e.g max order saved record exact ars seamed off switch cut access shows reasons anything being worked show honest fre find austin good it's sponsored agent's tap whoever atom",
+          "takeaway": "An agent paid by sellers may not pick what's best for you, and the ad label disappears."
         },
         {
           "file": "assets/pulse/ai-agents/p03.webp",
@@ -237,7 +269,8 @@
           "title": "Your AI agent bought the wrong thing. Who pays?",
           "w": 1600,
           "h": 3690,
-          "kw": "open problem agent bought wrong thing pays payment pipes ai agents built visa mastercard stripe amex online purchases use tar tae tits blocker nobody agrees gets source checkout.com merchant estimates everyday mix-up ips orders reorder cases store ships paper towels porch meant shipped ordered eats cost holds risk today told buy unauthorized charge protection apply laaakatz it's seller receipt usually handles return takes loss ech company clear rule makes pay agent's mistakes announced registered live yet building checks liability unclear still stuck stores offer say full catalog pymnts intelligence sept ati until someone owns mistake people won't let spend far checkout.com2026 merchantestimates card networks atom"
+          "kw": "open problem agent bought wrong thing pays payment pipes ai agents built visa mastercard stripe amex online purchases use tar tae tits blocker nobody agrees gets source checkout.com merchant estimates everyday mix-up ips orders reorder cases store ships paper towels porch meant shipped ordered eats cost holds risk today told buy unauthorized charge protection apply laaakatz it's seller receipt usually handles return takes loss ech company clear rule makes pay agent's mistakes announced registered live yet building checks liability unclear still stuck stores offer say full catalog pymnts intelligence sept ati until someone owns mistake people won't let spend far checkout.com2026 merchantestimates card networks atom",
+          "takeaway": "When an agent buys the wrong thing, nobody has clearly agreed who pays yet."
         },
         {
           "file": "assets/pulse/ai-agents/p04.webp",
@@ -245,10 +278,11 @@
           "title": "Trying an agent safely this week",
           "w": 1600,
           "h": 2760,
-          "kw": "agents part trying agent sately week want test ai without risking money data vet start use low-limit virtual card spending cap like prepaid gift ask first must pays sends deletes least access connect one app needs valet key house keys research comparing options drafting low stakes while runs eee een ween nennnne check receipt read log know off switch disconnect cancel oooo sso sooo sos oos obes soo wwe eet wee wees cee ewes eens sseescoseecoeseeeencecuces never paste passwords numbers chat reality good finding today paying still new let fetch spend safely rrrrrrrrrrs atom"
+          "kw": "agents part trying agent sately week want test ai without risking money data vet start use low-limit virtual card spending cap like prepaid gift ask first must pays sends deletes least access connect one app needs valet key house keys research comparing options drafting low stakes while runs eee een ween nennnne check receipt read log know off switch disconnect cancel oooo sso sooo sos oos obes soo wwe eet wee wees cee ewes eens sseescoseecoeseeeencecuces never paste passwords numbers chat reality good finding today paying still new let fetch spend safely rrrrrrrrrrs atom",
+          "takeaway": "Let an agent find and draft before you let it spend, and give it limits and a valet key."
         }
       ],
-      "updated": "2026-10-13",
+      "updated": "2026-10-14",
       "tagline": "Who pays when your agent shops",
       "sources": [
         {
@@ -287,7 +321,8 @@
           "title": "The AI bottleneck isn't just chips",
           "w": 1600,
           "h": 2760,
-          "kw": "eeeaecooooagooad2oeoe eoeeeeseoeseseeeseesce eeeoeeaeeeeeeeeeeeeeeeeeeeoeeeeoeeeeeeeeeeeoeeeeseeeeoeeeeeeee eee infrastructure part bottleneck isn chips everyone talks buying ai need power memory fast connections building run short one ail slows eecooeaooeeeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeeeeeeeeeeeesemseaeeeeeeeeeeneeeeeecucetetmucceemluccucucoulucucucucoucoucolu think busy restaurant kitchen people actually limits iel chefs hallways between stations pad lut hire cook food peely itself data center don help stove has gas words know gets slower pricier piece runs companies race lock interconnects high-speed links early e.g nvidia's nvlink electricity full cooling decides built gear reality check happening now new centers wait years grid connection everything else isn't stoves fridge next don't means pulls often much small city hbm ultra-fast stacked chip made hynix samsung micron atom"
+          "kw": "eeeaecooooagooad2oeoe eoeeeeseoeseseeeseesce eeeoeeaeeeeeeeeeeeeeeeeeeeoeeeeoeeeeeeeeeeeoeeeeseeeeoeeeeeeee eee infrastructure part bottleneck isn chips everyone talks buying ai need power memory fast connections building run short one ail slows eecooeaooeeeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeeeeeeeeeeeesemseaeeeeeeeeeeneeeeeecucetetmucceemluccucucoulucucucucoucoucolu think busy restaurant kitchen people actually limits iel chefs hallways between stations pad lut hire cook food peely itself data center don help stove has gas words know gets slower pricier piece runs companies race lock interconnects high-speed links early e.g nvidia's nvlink electricity full cooling decides built gear reality check happening now new centers wait years grid connection everything else isn't stoves fridge next don't means pulls often much small city hbm ultra-fast stacked chip made hynix samsung micron atom",
+          "takeaway": "AI needs more than chips: power, memory, fast connections and the data center itself."
         },
         {
           "file": "assets/pulse/ai-bottlenecks/p02.webp",
@@ -295,7 +330,8 @@
           "title": "Power and cooling: the real limit",
           "w": 1600,
           "h": 2760,
-          "kw": "infrastructure part power cooling veal limit chips use huge amounts electricity give off lots heat getting often slower harder buying data center building new people expect actually happens remove fans aren't enough pipe liquid done months find build sign deals aque plants ike plugging dozen space heaters one outlet hot room buy take years words know density much real examples packed rack ai racks many times regular servers microsoft signed deal restart iquid coolant piped right three mile island nuclear unit centers like car radiator because air can't carry away fast nvidia biggest built grid connection hooking local lines needs approvals reality check now available increasingly decides gets mates preven ask utility wait plug nvidia's ai's hardest problem atom"
+          "kw": "infrastructure part power cooling veal limit chips use huge amounts electricity give off lots heat getting often slower harder buying data center building new people expect actually happens remove fans aren't enough pipe liquid done months find build sign deals aque plants ike plugging dozen space heaters one outlet hot room buy take years words know density much real examples packed rack ai racks many times regular servers microsoft signed deal restart iquid coolant piped right three mile island nuclear unit centers like car radiator because air can't carry away fast nvidia biggest built grid connection hooking local lines needs approvals reality check now available increasingly decides gets mates preven ask utility wait plug nvidia's ai's hardest problem atom",
+          "takeaway": "Chips can arrive in months, but power and cooling can take years."
         },
         {
           "file": "assets/pulse/ai-bottlenecks/p03.webp",
@@ -303,7 +339,8 @@
           "title": "Memory and connections: the other limits",
           "w": 1600,
           "h": 2760,
-          "kw": "infrastructure part memory connections limits even plenty power fast ai chip useless waiting data two things decide next links between chips ily back restaurant kitchen ion ingredients far away chef waits fridge deo never stops aly bees s55 sooo narrow hall rile counter big orders get split shared sports car stuck traffic words know hbm high-bandwidth industry responding stacked like pancakes right made taller stacks newer hynix samsung micron generation interconnect wired together e.g nvidia's nvlink inside rack one system optical cables send light-based racks light instead electricity longer faster hops reality check supply has tight slow still leave expensive sitting idle speed isn't feed it's stove hallway dishes pile wide atom"
+          "kw": "infrastructure part memory connections limits even plenty power fast ai chip useless waiting data two things decide next links between chips ily back restaurant kitchen ion ingredients far away chef waits fridge deo never stops aly bees s55 sooo narrow hall rile counter big orders get split shared sports car stuck traffic words know hbm high-bandwidth industry responding stacked like pancakes right made taller stacks newer hynix samsung micron generation interconnect wired together e.g nvidia's nvlink inside rack one system optical cables send light-based racks light instead electricity longer faster hops reality check supply has tight slow still leave expensive sitting idle speed isn't feed it's stove hallway dishes pile wide atom",
+          "takeaway": "A fast chip waiting on data is wasted, so memory and links between chips matter."
         },
         {
           "file": "assets/pulse/ai-bottlenecks/p04.webp",
@@ -311,7 +348,8 @@
           "title": "Who has to adapt, and what's next",
           "w": 1600,
           "h": 2760,
-          "kw": "infrastructure part has adapt next power cooling memory connections now limit fast ai grow comes ahead feels squeeze changes gains labs clouds e.g microsoft google lock early chips sit waiting chip makers nvidia utilities data-center builders winners plan plug deals liquid becomes normal nuclear gas solar new data centers signed years saree eeeaeeeneltsewsewe link leaner models ooo expand daseeeueapescatseteurs tess factories keeps improving prices speed depend physical pieces reality check plants grid lines take build quick software fix moves foundations move construction what's adapts squeezed design faster links can't fed cooled demand long-term strain long waits exists stuck sites delays businesses using pick efficient tools higher slower rollouts there's atom"
+          "kw": "infrastructure part has adapt next power cooling memory connections now limit fast ai grow comes ahead feels squeeze changes gains labs clouds e.g microsoft google lock early chips sit waiting chip makers nvidia utilities data-center builders winners plan plug deals liquid becomes normal nuclear gas solar new data centers signed years saree eeeaeeeneltsewsewe link leaner models ooo expand daseeeueapescatseteurs tess factories keeps improving prices speed depend physical pieces reality check plants grid lines take build quick software fix moves foundations move construction what's adapts squeezed design faster links can't fed cooled demand long-term strain long waits exists stuck sites delays businesses using pick efficient tools higher slower rollouts there's atom",
+          "takeaway": "Power, cooling, memory and connections now limit how fast AI can grow, with no quick software fix."
         },
         {
           "file": "assets/pulse/ai-bottlenecks/p05.webp",
@@ -319,7 +357,8 @@
           "title": "Why AI keeps getting cheaper anyway",
           "w": 1600,
           "h": 2760,
-          "kw": "keeps getting cheaper anyway power chips tight answer keep costing three reasons price drops token chunk text word gpt-3.5-level answers million tokens smaller leaner models like compact car commute well better hardware cost year energy efficiency source stanford index means quality costs 13x aazs epoch ai eee reality check newest thinking use led bulbs light smartest ones still every gets infrastructure bottlenecks part atom"
+          "kw": "keeps getting cheaper anyway power chips tight answer keep costing three reasons price drops token chunk text word gpt-3.5-level answers million tokens smaller leaner models like compact car commute well better hardware cost year energy efficiency source stanford index means quality costs 13x aazs epoch ai eee reality check newest thinking use led bulbs light smartest ones still every gets infrastructure bottlenecks part atom",
+          "takeaway": "Cheaper hardware and better efficiency keep making the same answer cheaper."
         }
       ],
       "updated": "2026-10-12",
@@ -365,7 +404,8 @@
           "title": "If every AI is smart, who wins?",
           "w": 1600,
           "h": 2760,
-          "kw": "ai moats part every smart wins models getting alike easier anyone use lasting edge moving itself reach people hard leave moat foundation model application layer advantage core brain like ones app built top jit rivals can't easily copy ale behind chatgpt claude gemini actually coffee test slightly better good office lobby tihuala elevator eee nooo cores rate already minutes away knows usual order catch fast easy habit break loses one work best three last longer smarter owns history painful basen email team whole workflow sales tool holding years customer notes docs apps daily runs through reality check strong still matter weak won't keep users alone rarely enough anymore get copied habits don't bit tastier way team's atom"
+          "kw": "ai moats part every smart wins models getting alike easier anyone use lasting edge moving itself reach people hard leave moat foundation model application layer advantage core brain like ones app built top jit rivals can't easily copy ale behind chatgpt claude gemini actually coffee test slightly better good office lobby tihuala elevator eee nooo cores rate already minutes away knows usual order catch fast easy habit break loses one work best three last longer smarter owns history painful basen email team whole workflow sales tool holding years customer notes docs apps daily runs through reality check strong still matter weak won't keep users alone rarely enough anymore get copied habits don't bit tastier way team's atom",
+          "takeaway": "As AI models become more alike, the lasting edge is reach and habits, not the model."
         },
         {
           "file": "assets/pulse/ai-moats/p02.webp",
@@ -373,7 +413,8 @@
           "title": "Why the smarter AI doesn't always win",
           "w": 1600,
           "h": 2760,
-          "kw": "ai moats part smarter doesn't always win rival launch better tomorrow users often still don switch three everyday examples show liz moat advantage switching cost time effort risk moving something new rivals can't easily copy action newcomer tool already use writes reply right inside email paste tabs knows years client notes owns history nothing clients ask last rebuild every step approvals reports retrain team run through pan nes being beats bit points view ons fue user product costs add must much good enough wins keep data useful little pull reality check strong model helps clearly one products position habits drive people actually rarely don't painful leave atom"
+          "kw": "ai moats part smarter doesn't always win rival launch better tomorrow users often still don switch three everyday examples show liz moat advantage switching cost time effort risk moving something new rivals can't easily copy action newcomer tool already use writes reply right inside email paste tabs knows years client notes owns history nothing clients ask last rebuild every step approvals reports retrain team run through pan nes being beats bit points view ons fue user product costs add must much good enough wins keep data useful little pull reality check strong model helps clearly one products position habits drive people actually rarely don't painful leave atom",
+          "takeaway": "A slightly smarter AI rarely beats the one people already use every day."
         },
         {
           "file": "assets/pulse/ai-moats/p03.webp",
@@ -381,7 +422,8 @@
           "title": "Who gains and who feels the squeeze",
           "w": 1600,
           "h": 2760,
-          "kw": "ai moats part gains feels squeeze good enough tools people already use tend keep gets stronger has fight harder moat advantage wedge way ene ett rivals cant easily copy cae big players arent covering squeezed ooo dic apen newcomers daily add well boots iat slightly ignore better chatbot users win spot slowly lose ground easy reasons stay leave owning beats smartest still get new kind task forgotten user far bit example work nobody had small shops worth software never served hassle switching stick works teams building put reality check strong models open doors especially brand-new categories shift gradual sudden flip have find one can't aren't it's atom"
+          "kw": "ai moats part gains feels squeeze good enough tools people already use tend keep gets stronger has fight harder moat advantage wedge way ene ett rivals cant easily copy cae big players arent covering squeezed ooo dic apen newcomers daily add well boots iat slightly ignore better chatbot users win spot slowly lose ground easy reasons stay leave owning beats smartest still get new kind task forgotten user far bit example work nobody had small shops worth software never served hassle switching stick works teams building put reality check strong models open doors especially brand-new categories shift gradual sudden flip have find one can't aren't it's atom",
+          "takeaway": "Owning the spot where people work beats owning the smartest AI."
         },
         {
           "file": "assets/pulse/ai-moats/p04.webp",
@@ -389,7 +431,8 @@
           "title": "So what do you do with this?",
           "w": 1600,
           "h": 2760,
-          "kw": "moats part being people already work often matters having slightly smarter ai means builders newcomers watch awwawans distribution job done product reaches task person keeps really trying get playbook three ways teams have users everyday put inside steps pick nobody well yet usual apps features take make saved history useful serve big tools ignore fewer new learn keep happy far better bit changes arrive trapped idea different moves built app use past leaving mean redoing lot setup answers usually stronger moat reality check much model still open door especially brand-new kinds tasks shift gradual mostly old here's atom"
+          "kw": "moats part being people already work often matters having slightly smarter ai means builders newcomers watch awwawans distribution job done product reaches task person keeps really trying get playbook three ways teams have users everyday put inside steps pick nobody well yet usual apps features take make saved history useful serve big tools ignore fewer new learn keep happy far better bit changes arrive trapped idea different moves built app use past leaving mean redoing lot setup answers usually stronger moat reality check much model still open door especially brand-new kinds tasks shift gradual mostly old here's atom",
+          "takeaway": "Being where people already work usually matters more than a slightly better model."
         }
       ],
       "tagline": "If every AI is smart, who wins?",
@@ -422,7 +465,8 @@
           "title": "Physical AI: robots that can handle surprises",
           "w": 1600,
           "h": 2760,
-          "kw": "shift physical robots handle surprises nola today follow exact instructions anything unexpected stops ai lets machines see figure act messy real world nvidia's jensen huang calls chatgpt moment warehouse robot meets something new set pick boxes squishy odd-shaped bag shows looks cameras eee works grab picks keeps going old script ones plot twist changes business fewer rescues safer items don't people step reacts instead halt line often freezing crashing foundation model trained huge amounts video powers data way text reality check still early mostly pilots trials everywhere yet need perfect conditions it's programmed expects box spot sees wasn't told waits person atom"
+          "kw": "shift physical robots handle surprises nola today follow exact instructions anything unexpected stops ai lets machines see figure act messy real world nvidia's jensen huang calls chatgpt moment warehouse robot meets something new set pick boxes squishy odd-shaped bag shows looks cameras eee works grab picks keeps going old script ones plot twist changes business fewer rescues safer items don't people step reacts instead halt line often freezing crashing foundation model trained huge amounts video powers data way text reality check still early mostly pilots trials everywhere yet need perfect conditions it's programmed expects box spot sees wasn't told waits person atom",
+          "takeaway": "Physical AI lets machines see, figure things out and act when something unexpected happens."
         },
         {
           "file": "assets/pulse/physical-ai/p02.webp",
@@ -430,7 +474,8 @@
           "title": "Cars that can think through surprises",
           "w": 1600,
           "h": 2760,
-          "kw": "physical ai part cars think through surprises today's self-driving features follow rules maps something unusual freeze hand wheel back shift reason they've never seen construction worker waves cones block lane signals around across yellow line today rule-following car reasoning stops beeps take now nas tell tells don fit changes seat safer odd moments fewer handoffs confidence asks work zones bad weather often rare situations get strange intersections fea panicked edge case situation like parade fallen tree cop directing traffic reality check still early robotaxis run limited cities need driver ready hard driving isnt normal weird atom rule cross sees worker's wave doesn't understand signal gets detour allowed slowly goes don't handled word know ora isn't it's"
+          "kw": "physical ai part cars think through surprises today's self-driving features follow rules maps something unusual freeze hand wheel back shift reason they've never seen construction worker waves cones block lane signals around across yellow line today rule-following car reasoning stops beeps take now nas tell tells don fit changes seat safer odd moments fewer handoffs confidence asks work zones bad weather often rare situations get strange intersections fea panicked edge case situation like parade fallen tree cop directing traffic reality check still early robotaxis run limited cities need driver ready hard driving isnt normal weird atom rule cross sees worker's wave doesn't understand signal gets detour allowed slowly goes don't handled word know ora isn't it's",
+          "takeaway": "Reasoning cars aim to handle rare situations, the 1% weird, without handing back the wheel."
         },
         {
           "file": "assets/pulse/physical-ai/p03.webp",
@@ -438,7 +483,8 @@
           "title": "Humanoids and home robots: hype vs. today",
           "w": 1600,
           "h": 2760,
-          "kw": "lumanoids home robots hype day videos look magical actually working today humanoid robot shaped like person fits places built people agility digit paid warehouse work gxo oid since totes moved tote plastic bin ake bmw figure worked line year helping build cars new hire one repeat task do-everything butler still emerging neo pre-ordered first alr eal deliveries promised factory many chores watching clocking warehouses laundry wait physical ai part humanoids ne0 atom"
+          "kw": "lumanoids home robots hype day videos look magical actually working today humanoid robot shaped like person fits places built people agility digit paid warehouse work gxo oid since totes moved tote plastic bin ake bmw figure worked line year helping build cars new hire one repeat task do-everything butler still emerging neo pre-ordered first alr eal deliveries promised factory many chores watching clocking warehouses laundry wait physical ai part humanoids ne0 atom",
+          "takeaway": "Humanoid robots are starting real work in warehouses; home robots are still emerging."
         }
       ],
       "updated": "2026-10-13",
@@ -484,7 +530,8 @@
           "title": "What world models actually are",
           "w": 1600,
           "h": 2760,
-          "kw": "world models part actually ai today great words pictures robot car has know happens next real arm cup coffee model mae e.g chatbot eww wwe knows cups learned text scene things describe can't picture predicts push spills picks safer move first like reading swimming knowing water back language learns sate physical used robots handle new objects penaves space eau entect simulation practicing virtual self-driving cars predicting traffic flight simulator prediction imagining moments worlds training google deepmind genie nvidia cosmos acting cyclist seconds reality check still early research labs specialized systems everyday products think fall it's behaves cause effect deepmind's nvidia's atom"
+          "kw": "world models part actually ai today great words pictures robot car has know happens next real arm cup coffee model mae e.g chatbot eww wwe knows cups learned text scene things describe can't picture predicts push spills picks safer move first like reading swimming knowing water back language learns sate physical used robots handle new objects penaves space eau entect simulation practicing virtual self-driving cars predicting traffic flight simulator prediction imagining moments worlds training google deepmind genie nvidia cosmos acting cyclist seconds reality check still early research labs specialized systems everyday products think fall it's behaves cause effect deepmind's nvidia's atom",
+          "takeaway": "A world model predicts what happens next in the physical world, like a cup spilling."
         },
         {
           "file": "assets/pulse/world-models/p02.webp",
@@ -492,7 +539,8 @@
           "title": "How world models learn, and what they unlock",
           "w": 1600,
           "h": 2760,
-          "kw": "world models part learn unlock qe model isn told rules physics learns way baby watch guess get wrong try training loop repeat millions times sed compare adjust video box next moment really little being stacked looks like happened perr ttt tee eee sensor data robots cars computer simulations guessing frame unlocks robot stacking boxes seariest t-y ama zac reacts sees right now imagines outcome first finds stack tips falls tries risky moves simulation real warehouse reality check good need huge amounts still labs specialized systems lmagine act second isn't without imagine first.act atom"
+          "kw": "world models part learn unlock qe model isn told rules physics learns way baby watch guess get wrong try training loop repeat millions times sed compare adjust video box next moment really little being stacked looks like happened perr ttt tee eee sensor data robots cars computer simulations guessing frame unlocks robot stacking boxes seariest t-y ama zac reacts sees right now imagines outcome first finds stack tips falls tries risky moves simulation real warehouse reality check good need huge amounts still labs specialized systems lmagine act second isn't without imagine first.act atom",
+          "takeaway": "World models learn physics by guessing the next moment of video and checking."
         },
         {
           "file": "assets/pulse/world-models/p03.webp",
@@ -500,7 +548,8 @@
           "title": "What world models let robots do",
           "w": 1600,
           "h": 2760,
-          "kw": "world models part let robots react camera sees right now try move head first ai clearing table wine glass reacts imagines option plate tips lss sfaj sss rabs tries plans bumps alass didn't plan picks safe order acts break imagination kitchen changes real 1-v 2-v 3-v ragile multi-step jobs surprises pet walks re-imaaines wipe adjus planning trying moves choosing one reality check still early reliable use mostly labs factories warehouses homes yet think grabs fragile things predicts slips re-imagines breaks adjusts atom"
+          "kw": "world models part let robots react camera sees right now try move head first ai clearing table wine glass reacts imagines option plate tips lss sfaj sss rabs tries plans bumps alass didn't plan picks safe order acts break imagination kitchen changes real 1-v 2-v 3-v ragile multi-step jobs surprises pet walks re-imaaines wipe adjus planning trying moves choosing one reality check still early reliable use mostly labs factories warehouses homes yet think grabs fragile things predicts slips re-imagines breaks adjusts atom",
+          "takeaway": "With a world model, a robot can try a move in its head before doing it."
         },
         {
           "file": "assets/pulse/world-models/p04.webp",
@@ -508,7 +557,8 @@
           "title": "The limits today, and who has to adapt",
           "w": 1600,
           "h": 2760,
-          "kw": "world models part limits today has adapt let machines imagine act isn't every robot using one yet three rare messy moments lab real life e27 hil needs huge amounts works best eel video sensor data handles usual welll simulation learn struggles odd stuff places reliable hasn't seen busy homes streets like student aced practice tests faced exam great still learning adapting doine collect test first won't notice shows warehouses factories cars reality check useful deployment early progress gradual tied robots getting better warehouse street kitchen hungry controlled well who's they're doing robotics self-driving teams ai labs e.g google build bigger deepmind nvidia virtual training worlds watch wait relying businesses atom"
+          "kw": "world models part limits today has adapt let machines imagine act isn't every robot using one yet three rare messy moments lab real life e27 hil needs huge amounts works best eel video sensor data handles usual welll simulation learn struggles odd stuff places reliable hasn't seen busy homes streets like student aced practice tests faced exam great still learning adapting doine collect test first won't notice shows warehouses factories cars reality check useful deployment early progress gradual tied robots getting better warehouse street kitchen hungry controlled well who's they're doing robotics self-driving teams ai labs e.g google build bigger deepmind nvidia virtual training worlds watch wait relying businesses atom",
+          "takeaway": "World models need huge amounts of data and show up first in warehouses, factories and cars."
         }
       ],
       "tagline": "AI that imagines what happens next",
@@ -545,7 +595,8 @@
           "title": "The rails underneath",
           "w": 1600,
           "h": 2760,
-          "kw": "stablecoins tokenization part rails underneath eee today every bank broker keeps record lly lunn owns moving value means syncing records ess apes blockchains offer one shared everyone update check sell stock friday afternoon separate ledgers ledger share token digital dollars clearing central depository messages pass between sides together settle minutes settles next business day run even saturday cash lands monday reality tokenized stocks don't trade way instead three words know smart contract claim move rules like release payment statement usdc circle shares arrive ethereum main public blockchain banks use private versions brokers aren going away many new hen lai moves atom buyer brokerage account yet ticket held aren't money"
+          "kw": "stablecoins tokenization part rails underneath eee today every bank broker keeps record lly lunn owns moving value means syncing records ess apes blockchains offer one shared everyone update check sell stock friday afternoon separate ledgers ledger share token digital dollars clearing central depository messages pass between sides together settle minutes settles next business day run even saturday cash lands monday reality tokenized stocks don't trade way instead three words know smart contract claim move rules like release payment statement usdc circle shares arrive ethereum main public blockchain banks use private versions brokers aren going away many new hen lai moves atom buyer brokerage account yet ticket held aren't money",
+          "takeaway": "Money today moves as messages between separate records; new rails put it on one shared record."
         },
         {
           "file": "assets/pulse/stablecoin-rails/p02.webp",
@@ -553,7 +604,8 @@
           "title": "Stablecoins: the open digital dollar",
           "w": 1600,
           "h": 2760,
-          "kw": "stablecoins tokenization part open digital dollar bank transfers move business hours pass through several banks stablecoin shared ledger anyone wallet hold send time sending family abroad saturday today wire e.g usdc waits monday goes now even often takes days arrives minutes fees costly network fee usually small doesn't three things know use backs always reserves held issuer moves treasuries mostly cash short-term weekends holidays circle reality check spend locally still swap back regular money exchange next building version called tokenized deposits like text message middle 500usdc along open.a atom"
+          "kw": "stablecoins tokenization part open digital dollar bank transfers move business hours pass through several banks stablecoin shared ledger anyone wallet hold send time sending family abroad saturday today wire e.g usdc waits monday goes now even often takes days arrives minutes fees costly network fee usually small doesn't three things know use backs always reserves held issuer moves treasuries mostly cash short-term weekends holidays circle reality check spend locally still swap back regular money exchange next building version called tokenized deposits like text message middle 500usdc along open.a atom",
+          "takeaway": "A stablecoin is a digital dollar on a shared ledger that can move any time."
         },
         {
           "file": "assets/pulse/stablecoin-rails/p03.webp",
@@ -561,7 +613,8 @@
           "title": "Tokenized deposits vs. stablecoins",
           "w": 1600,
           "h": 2760,
-          "kw": "stablecoins tokenization part tokenized deposits digital dollars move fast follow rules difference holds money who's allowed use paying supplier sunday stablecoin e.g usdc deposit issued company circle jpmorgan kinexys outside bank used big companies leaves never key differences owes issuer dollar insurance reality check early mostly between banks far atom open roads lokenized private highway swap turns token send wallet moves bank's network lands supplier's account jpmorgan's customers anyone permissioned like normal keep exists anywhere"
+          "kw": "stablecoins tokenization part tokenized deposits digital dollars move fast follow rules difference holds money who's allowed use paying supplier sunday stablecoin e.g usdc deposit issued company circle jpmorgan kinexys outside bank used big companies leaves never key differences owes issuer dollar insurance reality check early mostly between banks far atom open roads lokenized private highway swap turns token send wallet moves bank's network lands supplier's account jpmorgan's customers anyone permissioned like normal keep exists anywhere",
+          "takeaway": "Stablecoins leave the bank; tokenized deposits stay inside it."
         },
         {
           "file": "assets/pulse/stablecoin-rails/p04.webp",
@@ -569,7 +622,8 @@
           "title": "The rules of the road",
           "w": 1600,
           "h": 2760,
-          "kw": "rules road company issues digital dollar must prove eee us issuers genius act real money backing every coin cash rina reserves bank deposits short-term treasuries like coat check one ticket monthly proof publish reserve mix checked accounting firm signed ceo cfo approved license interest cannot pay holders elsewhere gaps wow europe mica issuer licensed e-money hold full back face value request reality deposit insurance regulators still writing details needs behind stablecoins rails underneath part it's atom"
+          "kw": "rules road company issues digital dollar must prove eee us issuers genius act real money backing every coin cash rina reserves bank deposits short-term treasuries like coat check one ticket monthly proof publish reserve mix checked accounting firm signed ceo cfo approved license interest cannot pay holders elsewhere gaps wow europe mica issuer licensed e-money hold full back face value request reality deposit insurance regulators still writing details needs behind stablecoins rails underneath part it's atom",
+          "takeaway": "Every coin needs a real dollar behind it, and proof that it's there."
         }
       ],
       "updated": "2026-10-13",
@@ -615,7 +669,8 @@
           "title": "What tokenization actually is",
           "w": 1600,
           "h": 2760,
-          "kw": "tokenization part actually today owns kept many separate notebooks adds one shared notebook blockchain shares sell tokenized iia ledger fff ethereum e.g schwab makes sure master record token mirrors real share robinhood sides pay us stocks ber updated separately stay messages back forth moves done next business day update everyone sees settle minutes stays vault receipt traveling bother rules ride digital claim itself approved buyers hold ose pays interest dividends automatically parties see together getting buy move even weekends version offered redeem cash reality check mostly big institutions far people still use normal brokerage account isn asset clearinghouse dtcc broker twin buyer it's isn't atom"
+          "kw": "tokenization part actually today owns kept many separate notebooks adds one shared notebook blockchain shares sell tokenized iia ledger fff ethereum e.g schwab makes sure master record token mirrors real share robinhood sides pay us stocks ber updated separately stay messages back forth moves done next business day update everyone sees settle minutes stays vault receipt traveling bother rules ride digital claim itself approved buyers hold ose pays interest dividends automatically parties see together getting buy move even weekends version offered redeem cash reality check mostly big institutions far people still use normal brokerage account isn asset clearinghouse dtcc broker twin buyer it's isn't atom",
+          "takeaway": "A token isn't the asset; it's a receipt in a notebook everyone shares."
         },
         {
           "file": "assets/pulse/tokenization/p02.webp",
@@ -623,7 +678,8 @@
           "title": "Tokens vs. crypto: not the same thing",
           "w": 1600,
           "h": 2760,
-          "kw": "tokenization part tokens crypto thing le7s live blockchain people lump together value comes completely different come crypto-native e.g.a coin tokenized asset e.g treasury fund cbo real born treasuries nothing behind off-chain recente on-chain legal claim worth buyers pay token points means eae often limited approved reality check good issuer road cargo atom recorded demand price moves who's one network blackrock rules open anyone fails still exists"
+          "kw": "tokenization part tokens crypto thing le7s live blockchain people lump together value comes completely different come crypto-native e.g.a coin tokenized asset e.g treasury fund cbo real born treasuries nothing behind off-chain recente on-chain legal claim worth buyers pay token points means eae often limited approved reality check good issuer road cargo atom recorded demand price moves who's one network blackrock rules open anyone fails still exists",
+          "takeaway": "A token points to a real thing, while a crypto-native coin is the thing itself."
         },
         {
           "file": "assets/pulse/tokenization/p03.webp",
@@ -631,7 +687,8 @@
           "title": "What's actually tokenized today",
           "w": 1600,
           "h": 2760,
-          "kw": "tokenization part what's actually tokenized today hear tokenize everything homes sports teams concert tickets real now still early moving ear ene ere satrpe ened treasury money-market funds stocks e.g stock tokens meee eee eae esa blackrock buidl sold outside us estate event rights small pilots private loans figure stablecoins often cash side trades boring assets first exciting ones later realistic path near term further regulated rails needs buyers resell mostly big investors plus clear laws easy price already trade lag enough yet reality check people buy sell through normal brokerage account treasuries touchdowns atom growing blackrock's"
+          "kw": "tokenization part what's actually tokenized today hear tokenize everything homes sports teams concert tickets real now still early moving ear ene ere satrpe ened treasury money-market funds stocks e.g stock tokens meee eee eae esa blackrock buidl sold outside us estate event rights small pilots private loans figure stablecoins often cash side trades boring assets first exciting ones later realistic path near term further regulated rails needs buyers resell mostly big investors plus clear laws easy price already trade lag enough yet reality check people buy sell through normal brokerage account treasuries touchdowns atom growing blackrock's",
+          "takeaway": "Boring assets like Treasury and money-market funds are tokenized first."
         },
         {
           "file": "assets/pulse/tokenization/p04.webp",
@@ -639,7 +696,8 @@
           "title": "What changes for you",
           "w": 1600,
           "h": 2760,
-          "kw": "tokenization part changes say hold money-market fund brokerage like schwab sicalihaeh what's different tokenized saturday move platform allows pledge token collateral need loan i.e deposit backs business cash between accounts weekend instead sitting idle money stops waiting monday eee buy version offered e.g franklin templeton benji app limits doe brokerages offer tokens yet many extra sign-up checks reality check people keep using normal account change mostly happen behind scenes faster doors sat today days minutes cutoff time wait sell first getting bank redeem it's back templeton's atom"
+          "kw": "tokenization part changes say hold money-market fund brokerage like schwab sicalihaeh what's different tokenized saturday move platform allows pledge token collateral need loan i.e deposit backs business cash between accounts weekend instead sitting idle money stops waiting monday eee buy version offered e.g franklin templeton benji app limits doe brokerages offer tokens yet many extra sign-up checks reality check people keep using normal account change mostly happen behind scenes faster doors sat today days minutes cutoff time wait sell first getting bank redeem it's back templeton's atom",
+          "takeaway": "For most people, tokenization will happen behind the scenes in a normal account."
         },
         {
           "file": "assets/pulse/tokenization/p05.webp",
@@ -647,7 +705,8 @@
           "title": "Who benefits, and who has to adapt",
           "w": 1600,
           "h": 2760,
-          "kw": "tokenization part benefits has adapt money moves rails banks brokers clearing firms run new rail gets added wins feels pressure join useful like phone network worth everyone's adds sticks old notebooks keeps grows role slow overnight e.g blackrock token funds customers drift faster jpmorgan kinexys offers any-day still catch later won't replace bank it'll rewire iio means fll change comes step banking app quietly use blockchains built tokenized assets ride reality check big institutions testing scaling blackrock's jpmorgan's atom"
+          "kw": "tokenization part benefits has adapt money moves rails banks brokers clearing firms run new rail gets added wins feels pressure join useful like phone network worth everyone's adds sticks old notebooks keeps grows role slow overnight e.g blackrock token funds customers drift faster jpmorgan kinexys offers any-day still catch later won't replace bank it'll rewire iio means fll change comes step banking app quietly use blockchains built tokenized assets ride reality check big institutions testing scaling blackrock's jpmorgan's atom",
+          "takeaway": "New rails reward firms that join, with slow pressure on those that don't."
         }
       ],
       "updated": "2026-10-12",
@@ -689,7 +748,8 @@
           "title": "Who really sets your mortgage rate?",
           "w": 1080,
           "h": 1350,
-          "kw": "pulse macro mortgage loves rate gist people think fed sets rates least directly one-night between banks 30-year home loan priced off year government 10u instead 10u's set every day buyers sellers lately have asking us central bank overnight charge treasury government's finance department borrows selling ous 10-year pays back years yield yearly return iov higher lenders want pay picture csr really happens investoes buy sell 10us one idea keep follows fed's next page shows proof chart eurnnununnususuucuuuuuuu tsu eute tst totrcrcrcscscccccccccccccccccccccccccccccccccccccccccccccccccccsccccscccnccccccccccaccsccecccccccccccccscccccccccccccscccsccccccsccscscsccscccsccccccsccccccsccecccsccscccsccecccscccccccccscccsccscsccecs sources federal reserve fomc targets note library moves dor big first whoreallysets mortoage mortgace zist directly.the banks.a a10 lou lou's havebeen formore lous 10-yeartreasury 1ou 3nl mortcage changes copies way investors mortgale i0-year lender mood plus extra quotes result"
+          "kw": "pulse macro mortgage loves rate gist people think fed sets rates least directly one-night between banks 30-year home loan priced off year government 10u instead 10u's set every day buyers sellers lately have asking us central bank overnight charge treasury government's finance department borrows selling ous 10-year pays back years yield yearly return iov higher lenders want pay picture csr really happens investoes buy sell 10us one idea keep follows fed's next page shows proof chart eurnnununnususuucuuuuuuu tsu eute tst totrcrcrcscscccccccccccccccccccccccccccccccccccccccccccccccccccsccccscccnccccccccccaccsccecccccccccccccscccccccccccccscccsccccccsccscscsccscccsccccccsccccccsccecccsccscccsccecccscccccccccscccsccscsccecs sources federal reserve fomc targets note library moves dor big first whoreallysets mortoage mortgace zist directly.the banks.a a10 lou lou's havebeen formore lous 10-yeartreasury 1ou 3nl mortcage changes copies way investors mortgale i0-year lender mood plus extra quotes result",
+          "takeaway": "Your mortgage follows the 10-year Treasury yield, not the Fed's overnight rate."
         },
         {
           "file": "assets/pulse/mortgage-rates/p02.webp",
@@ -697,7 +757,8 @@
           "title": "Proof on one chart",
           "w": 1080,
           "h": 1431,
-          "kw": "macro one idea 0-year yardstick pulse morteage aig look red dashed line fed blue mortgage set rates move together don't io-year venls gate top nee years ago time week change see eee read step fed's rate fell points 10-year rose lenders wanted pay lend mortgages followed gap between minus called spread extra investors want because people off early lending homeowner riskier government wee still matter moves indirectly through expect next indirect key word suummmmemensusussususuuuuststteetrtrarcssssssssssscscccccascccccccscnaccnncnccccncncccnscncccnsnnccccsansccncancncnsoncccnsanacansnnascssnnascnsoncscnsancncnsoncnsnsoncnananncssnsnsescnaanascnsnncncnsnncncssoncsasanncncssnncncssoncnasees sources freddie mac government-backed home loan company primary market survey 30-year fixed us treasury daily par yield curve federal reserve fomc target range louis fred weekly taken day library 2or lo-year proofon chart mortoace uoah interest fedsrate s.s0% overnight i.s s.22% stepby i.the byi.spoints s.22 stil 1o-year of4"
+          "kw": "macro one idea 0-year yardstick pulse morteage aig look red dashed line fed blue mortgage set rates move together don't io-year venls gate top nee years ago time week change see eee read step fed's rate fell points 10-year rose lenders wanted pay lend mortgages followed gap between minus called spread extra investors want because people off early lending homeowner riskier government wee still matter moves indirectly through expect next indirect key word suummmmemensusussususuuuuststteetrtrarcssssssssssscscccccascccccccscnaccnncnccccncncccnscncccnsnnccccsansccncancncnsoncccnsanacansnnascssnnascnsoncscnsancncnsoncnsnsoncnananncssnsnsescnaanascnsnncncnsnncncssoncsasanncncssnncncssoncnasees sources freddie mac government-backed home loan company primary market survey 30-year fixed us treasury daily par yield curve federal reserve fomc target range louis fred weekly taken day library 2or lo-year proofon chart mortoace uoah interest fedsrate s.s0% overnight i.s s.22% stepby i.the byi.spoints s.22 stil 1o-year of4",
+          "takeaway": "Mortgage rates rose with the 10-year even as the Fed's rate fell."
         },
         {
           "file": "assets/pulse/mortgage-rates/p03.webp",
@@ -705,7 +766,8 @@
           "title": "The day 10-year money got pricier",
           "w": 1080,
           "h": 1350,
-          "kw": "macro auction plain words pulse morteage aig money got pricier happened us treasury sold billion 10-year ous yield highest years borrows investors bid lowest accept fills order bid-to-cover dollars dollar means bids every offer reopening selling already exists payback date fla alal alltel alalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalelalalalalalalalalalalelalalalelalalalelalalalalalalelalalaletalalelalalalelalalalelalalelelalalelatel simple numbers lend government get year back last months earned eee buyers running away times amount bit showed simply asked pay lock takeaway price went page mortgages follow next senmnnusuenuuuuuuuuuusuuueu sut ere ure ccrcscrcsecsccccceccccccccccccccccccccccccccccccccccccccccccccccccccccsccecccsccecccsececccccecccscceccccccecccsccececsccececsccecccsccecccsccecccscceccasccecccsccecccsccecccscoccecsccecccsccsocesees real payment sources treasurydirect results note high 39b offered prior month history above earlier library mortgage moves the5.3%auction inplainwords dayio-year mortoage moneycotpricier 10us l0-year flls lou works win winning announces sale name until flled s.3% sets month's 2.7l treasurydirectauctionhistory last10-year auctionabove5.3%was about25yearsearlier"
+          "kw": "macro auction plain words pulse morteage aig money got pricier happened us treasury sold billion 10-year ous yield highest years borrows investors bid lowest accept fills order bid-to-cover dollars dollar means bids every offer reopening selling already exists payback date fla alal alltel alalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalelalalalalalalalalalalelalalalelalalalelalalalalalalelalalaletalalelalalalelalalalelalalelelalalelatel simple numbers lend government get year back last months earned eee buyers running away times amount bit showed simply asked pay lock takeaway price went page mortgages follow next senmnnusuenuuuuuuuuuusuuueu sut ere ure ccrcscrcsecsccccceccccccccccccccccccccccccccccccccccccccccccccccccccccsccecccsccecccsececccccecccscceccccccecccsccececsccececsccecccsccecccsccecccscceccasccecccsccecccsccecccscoccecsccecccsccsocesees real payment sources treasurydirect results note high 39b offered prior month history above earlier library mortgage moves the5.3%auction inplainwords dayio-year mortoage moneycotpricier 10us l0-year flls lou works win winning announces sale name until flled s.3% sets month's 2.7l treasurydirectauctionhistory last10-year auctionabove5.3%was about25yearsearlier",
+          "takeaway": "Buyers showed up at the auction but asked for more pay to lend for 10 years."
         },
         {
           "file": "assets/pulse/mortgage-rates/p04.webp",
@@ -713,11 +775,30 @@
           "title": "What it does to a real payment",
           "w": 1080,
           "h": 1350,
-          "kw": "macro payment step pulse wuy youve mortgage real last year 10-year reached 16-year now stops new eee worked example house apart borrow years fixed rate covers loan interest taxes insurance ago 85t month week t.40% 0tt difference minus full arithmetic standard formula guote depends credit score fees eer feels buyers pay whole owners change locked hoping refinance swap cheaper math works rates drop below already watch yield fed meeting headlines moves quotes usually follow within days eurunnnnuenvuusuuuucuuuuue tetetiterrcrererssecccsececccecccccccccccccccccccccccncccccccccccccsccccccscccsccscccscccccccccsccccccccccccceccccccscccnccsccccccscccnccscccsccscccsccccccsccecccsccccccsccecccscccccccccscccsccscccsccsccccees sources freddie mac government-backed home company primary market survey 30-year earlier latest us treasury daily par curve payments library whatit mortoage spread ssookloan pts 8s7 numbers mortcage 300k s.22% workedexample thesamehouse ayearapart formula.your quote whofeelsit macrowhy"
+          "kw": "macro payment step pulse wuy youve mortgage real last year 10-year reached 16-year now stops new eee worked example house apart borrow years fixed rate covers loan interest taxes insurance ago 85t month week t.40% 0tt difference minus full arithmetic standard formula guote depends credit score fees eer feels buyers pay whole owners change locked hoping refinance swap cheaper math works rates drop below already watch yield fed meeting headlines moves quotes usually follow within days eurunnnnuenvuusuuuucuuuuue tetetiterrcrererssecccsececccecccccccccccccccccccccccncccccccccccccsccccccscccsccscccscccccccccsccccccccccccceccccccscccnccsccccccscccnccscccsccscccsccccccsccecccsccccccsccecccscccccccccscccsccscccsccsccccees sources freddie mac government-backed home company primary market survey 30-year earlier latest us treasury daily par curve payments library whatit mortoage spread ssookloan pts 8s7 numbers mortcage 300k s.22% workedexample thesamehouse ayearapart formula.your quote whofeelsit macrowhy",
+          "takeaway": "A higher rate raises payments for new buyers; fixed-rate owners are unaffected."
         }
       ],
       "tagline": "One bond yield quietly sets your home loan",
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "sources": [
+        {
+          "title": "TreasuryDirect: Auction announcements, data & results (auction query)",
+          "url": "https://www.treasurydirect.gov/auctions/announcements-data-results/"
+        },
+        {
+          "title": "US Treasury: Daily Treasury par yield curve rates",
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026"
+        },
+        {
+          "title": "Freddie Mac: Primary Mortgage Market Survey",
+          "url": "https://www.freddiemac.com/pmms"
+        },
+        {
+          "title": "FRED: Federal funds target range, upper limit (Federal Reserve)",
+          "url": "https://fred.stlouisfed.org/series/DFEDTARU"
+        }
+      ]
     },
     {
       "id": "debt-loop",
@@ -737,7 +818,8 @@
           "title": "Borrowing to pay the interest",
           "w": 1080,
           "h": 1443,
-          "kw": "pulse macro big picture first debt loap pay terest gist us government spends collects borrows owes bigger yearly interest bill paid new borrowing grows itself loop everything trillion right now rent borrowed money fiscal year government's budget october september treasury outside lenders 29nb th66b yrs ago past years oct sep oldest newest cheap pricier serene eee esses sees stmple numbers grew alone every dollars see cecccccccccccccncccccceccccsceccccececcccsceccccececcccececcccsceccccececcecececcccsceccccscsccccscsccensosccccscsccccsees eeccccccccccccccccccsees eecccccccccccccsccccccnccccccsccccccscccscceccccccscccsccecscccescsccccsoes sources data expense public pul full penny total outstanding latest day earlier ratio arithmetic interchangeable compares sizes trace library lore borrowinct debtloop paytheinterest zist bil interestthe ttbs suh asod usfiscalyears octtosep old ious low rates small mostly spending oldiouscomedve newiovs repaid ones jumps cost cover simplenumbers triion trilion douars issues tatest eartier librarymacro 1or"
+          "kw": "pulse macro big picture first debt loap pay terest gist us government spends collects borrows owes bigger yearly interest bill paid new borrowing grows itself loop everything trillion right now rent borrowed money fiscal year government's budget october september treasury outside lenders 29nb th66b yrs ago past years oct sep oldest newest cheap pricier serene eee esses sees stmple numbers grew alone every dollars see cecccccccccccccncccccceccccsceccccececcccsceccccececcccececcccsceccccececcecececcccsceccccscsccccscsccensosccccscsccccsees eeccccccccccccccccccsees eecccccccccccccsccccccnccccccsccccccscccscceccccccscccsccecscccescsccccsoes sources data expense public pul full penny total outstanding latest day earlier ratio arithmetic interchangeable compares sizes trace library lore borrowinct debtloop paytheinterest zist bil interestthe ttbs suh asod usfiscalyears octtosep old ious low rates small mostly spending oldiouscomedve newiovs repaid ones jumps cost cover simplenumbers triion trilion douars issues tatest eartier librarymacro 1or",
+          "takeaway": "When interest is paid with new borrowing, debt grows on itself."
         },
         {
           "file": "assets/pulse/debt-loop/p02.webp",
@@ -745,7 +827,8 @@
           "title": "The pipes behind the debt",
           "w": 1080,
           "h": 1350,
-          "kw": "macro money plumbing one pipe time pulse debt loge idea behind every treasury sells cash has travel through pipes called get tight borrowing costs jump even nothing else changed reserves banks checking accounts fed trillion now repo pawn-shop loan big players hand iov overnight buy back tomorrow bit market fund parks savers short safe loans reverse fed's parking spot spare uew tou gets paid lends worked example room think funds park extra step years ago held plenty holds billion basically empty new jou must pull somewhere bank scarce pawn price rate spike fora day two eee clogging empties runminnnuunuuueuunuuuuuuuu susu ere rerccrerersrccccscceccceccccccccccccccccccccccccccccccccccccccccccccecccccccccccccccccccceccccccecccccceccccccecccccceccccccecccsccccccsccccccsccecccsccecccscccccccccecccsccccccsccscccsccsccccccsccccces care sets page financed sources federal reserve h.4.1 balances week ending month 3.03t york totals louis fred peak 2.55t latest 0.3b library loop 2or debtloop borowing fed.about lou wew iou dealer 10u buys pawns lendsthatcash workedexample thespareroom triion o.3 rates needs have cushion busy days fnanced librarymacro thedebt"
+          "kw": "macro money plumbing one pipe time pulse debt loge idea behind every treasury sells cash has travel through pipes called get tight borrowing costs jump even nothing else changed reserves banks checking accounts fed trillion now repo pawn-shop loan big players hand iov overnight buy back tomorrow bit market fund parks savers short safe loans reverse fed's parking spot spare uew tou gets paid lends worked example room think funds park extra step years ago held plenty holds billion basically empty new jou must pull somewhere bank scarce pawn price rate spike fora day two eee clogging empties runminnnuunuuueuunuuuuuuuu susu ere rerccrerersrccccscceccceccccccccccccccccccccccccccccccccccccccccccccecccccccccccccccccccceccccccecccccceccccccecccccceccccccecccsccccccsccccccsccecccsccecccscccccccccecccsccccccsccscccsccsccccccsccccces care sets page financed sources federal reserve h.4.1 balances week ending month 3.03t york totals louis fred peak 2.55t latest 0.3b library loop 2or debtloop borowing fed.about lou wew iou dealer 10u buys pawns lendsthatcash workedexample thespareroom triion o.3 rates needs have cushion busy days fnanced librarymacro thedebt",
+          "takeaway": "When the system's spare cash runs low, short-term borrowing costs can jump."
         },
         {
           "file": "assets/pulse/debt-loop/p03.webp",
@@ -753,7 +836,8 @@
           "title": "Bets built on borrowed money",
           "w": 1080,
           "h": 1372,
-          "kw": "pulse macro debt loge borrowed money one idea buyers government 0us use mostly borrowing sits outside regular banks called shadow leverage works fine until lenders want cash back moment using make bigger bet allows hedge fund private investment wealthy investors institutions margin call lender saying add now sell stuff basis trade buying treasury selling nearly identical promise futures contract pocket tiny price gap eee worked example simple numbers real step has million borrows repo buys earns say made small look big prices wobble 50m loss gone must ious fast lots funds pushes yields calm days ser stress already happened first covid market panic forced treasuries fed bought 10us large amounts eernununwenususuuuuuuuuuueueut ere trot ccrererccscccscccccccccecccccccccccccccccccccccccccccccccccccccccecccccecccsccecccsccecccscceccccccecccccceccccccececsccecccccccccsccecccsccecccsccecccsccecccsccecccsccecccsccscccsccscccsccsccccees sources federal reserve financial stability reports early-pandemic purchases ours illustration library loop ort betsbuilton borrowedmoney loususemostly borrowedmoney.that leverage.it moneyto makea lou simplenumbers notarealfund i0us milion borrow cheap hold roll loan earn every night calls jump pulselibrary"
+          "kw": "pulse macro debt loge borrowed money one idea buyers government 0us use mostly borrowing sits outside regular banks called shadow leverage works fine until lenders want cash back moment using make bigger bet allows hedge fund private investment wealthy investors institutions margin call lender saying add now sell stuff basis trade buying treasury selling nearly identical promise futures contract pocket tiny price gap eee worked example simple numbers real step has million borrows repo buys ous earns say made small look big prices wobble 50m loss gone must ious fast lots funds pushes yields calm days ser stress already happened first covid market panic rushed treasuries fed bought large amounts eermunununnuuueuunuuuuuuute tte ter orc ecrererccrccccccecccccccccccccccccccccccccccccccccccccccccccsccccccccsccecccsccecccsccecccccceccccccecccscceccccccecccccecccsccececsccecccsccecccsccecccscceccesccecccsccecccsccecccsccscecsccsccccees sources federal reserve financial stability reports early-pandemic purchases ours illustration library loop ort betsbuilton borrowedmoney somebuyersof governmentloususemostlyborrowedmoney.thatborrowingsits leverage.it borrowedmoneyto makea biggerbetthan ownmoney lou simplenumbers notarealfund i0us milion borrow cheap hold roll loan earn every night calls forced jump pulselibrary",
+          "takeaway": "Bets built on borrowed money work until lenders want their cash back at once."
         },
         {
           "file": "assets/pulse/debt-loop/p04.webp",
@@ -761,11 +845,34 @@
           "title": "Who gets new money first?",
           "w": 1080,
           "h": 1350,
-          "kw": "macro gets new money first pulse debt loge gist enters system reach everyone people closest spend prices adjust farthest away get later have already risen economists call cantillon effect richard th-century banker writer described touches bond owners dealers ete rise flow alalalahekaiatalalalaladaiadahaielalalataleaiieieiaiaiabaabaacieialalaba aaa aielalaiaa aiabalalalataa ahaha lala alalal aba lalallala talaa aehal aden worked example town one bakery numbers step has total makes loaves loaf costs appears goes baker landlord buys old price good deal notices chasing bread drifts dollars eee worker pay still now real world version shopping basket cost five years ago today cconsumer whether income kept pace depends sit line close loop sevceveveususevevceseveusureveusereversusereusesereuseserersuseversereversureversureceuersesersurereeserereecuserereeserereuserereesereesrereteeseseeererereetereteeteretsereretterereteeterereesereteurerereeveretertereerrereversererertert simple number sources us bureau labor statistics consumer index items louis fed fred latest month library whocets 4ist havealreadyrisen.economists callthisthecantilloneffect 18th-century frst whotoucheswewdollarsfirst government asset banks wage earners borrows spends stocks homesrise raises come last handlethe fow workedexample atownwithonebakery ournumbers baker's worker's stiu realworld ioo fve i23 22.s% borrowing interestbill leveraged buyers page through pipes front librarymacro thedebt"
+          "kw": "macro gets new money first pulse debt loge gist enters system reach everyone people closest spend prices adjust farthest away get later have already risen economists call cantillon effect richard th-century banker writer described touches bond owners dealers ete rise flow alalalahekaiatalalalaladaiadahaielalalataleaiieieiaiaiabaabaacieialalaba aaa aielalaiaa aiabalalalataa ahaha lala alalal aba lalallala talaa aehal aden worked example town one bakery numbers step has total makes loaves loaf costs appears goes baker landlord buys old price good deal notices chasing bread drifts dollars eee worker pay still now real world version shopping basket cost five years ago today cconsumer whether income kept pace depends sit line close loop sevceveveususevevceseveusureveusereversusereusesereuseserersuseversereversureversureceuersesersurereeserereecuserereeserereuserereesereesrereteeseseeererereetereteeteretsereretterereteeterereesereteurerereeveretertereerrereversererertert simple number sources us bureau labor statistics consumer index items louis fed fred latest month library whocets 4ist havealreadyrisen.economists callthisthecantilloneffect 18th-century frst whotoucheswewdollarsfirst government asset banks wage earners borrows spends stocks homesrise raises come last handlethe fow workedexample atownwithonebakery ournumbers baker's worker's stiu realworld ioo fve i23 22.s% borrowing interestbill leveraged buyers page through pipes front librarymacro thedebt",
+          "takeaway": "New money reaches some people before prices rise and others after."
         }
       ],
       "tagline": "Why borrowing to pay interest feeds itself",
-      "updated": "2026-10-12"
+      "updated": "2026-10-15",
+      "sources": [
+        {
+          "title": "US Treasury Fiscal Data: Interest Expense on the Debt Outstanding",
+          "url": "https://fiscaldata.treasury.gov/datasets/interest-expense-debt-outstanding/"
+        },
+        {
+          "title": "US Treasury Fiscal Data: Debt to the Penny",
+          "url": "https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/"
+        },
+        {
+          "title": "FRED: Overnight reverse repo (New York Fed)",
+          "url": "https://fred.stlouisfed.org/series/RRPONTSYD"
+        },
+        {
+          "title": "FRED: CPI, all items (BLS)",
+          "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
+        },
+        {
+          "title": "Federal Reserve: Financial Stability Report, May 2020, Overview",
+          "url": "https://www.federalreserve.gov/publications/2020-may-financial-stability-report-overview.htm"
+        }
+      ]
     },
     {
       "id": "dollar-gold-yen",
@@ -785,7 +892,8 @@
           "title": "Strong dollar and a weaker dollar?",
           "w": 1080,
           "h": 1492,
-          "kw": "macro big picture first pulse pollae aor yey weakee dollar gist two things true strong next currencies still losing value groceries gold one compares money stuff buys lot yen euros pesos debasement buying real time broad index fed's scorecard against many us trading partners yardstick says treasury holds 261.s million ounces books ounce price set law long ago market times higher see eee worked example rulers bill measured ways bit years page grocery cart bought five debased different euro cenccccccccccccccccccccccccccccccccccccccccccccscccccccccecccccceccccccecccccceccccccecsccccecsccccccsccccecccsccecccsececccsccecccscceccccccecccccceccccccececcececccsccecccsccecccsccecccsccecccsccecccsccecccsccecccscceccccccsceccccsceccees sources federal reserve h.10 nominal fred latest peak bls cpi items fiscal data status report government 261.5m fine troy book 11.04b statutory library dors weaker ist canbetrue once.thedollar othercurrencies now close 121.s below roughly flat ioo basket costs lost consumer prices ground theustreasuryholdsabout26l.smillionouncesofgold onitsbooksat workedexample tworulers bil relativescore move stay dollars bread rent cpl pulselibrary 1of3"
+          "kw": "macro big picture first pulse pollae aor yey weakee dollar gist two things true strong next currencies still losing value groceries gold one compares money stuff buys lot yen euros pesos debasement buying real time broad index fed's scorecard against many us trading partners yardstick says treasury holds 261.s million ounces books ounce price set law long ago market times higher see eee worked example rulers bill measured ways bit years page grocery cart bought five debased different euro cenccccccccccccccccccccccccccccccccccccccccccccscccccccccecccccceccccccecccccceccccccecsccccecsccccccsccccecccsccecccsececccsccecccscceccccccecccccceccccccececcececccsccecccsccecccsccecccsccecccsccecccsccecccsccecccscceccccccsceccccsceccees sources federal reserve h.10 nominal fred latest peak bls cpi items fiscal data status report government 261.5m fine troy book 11.04b statutory library dors weaker ist canbetrue once.thedollar othercurrencies now close 121.s below roughly flat ioo basket costs lost consumer prices ground theustreasuryholdsabout26l.smillionouncesofgold onitsbooksat workedexample tworulers bil relativescore move stay dollars bread rent cpl pulselibrary 1of3",
+          "takeaway": "The dollar can be strong against other currencies and still lose value against goods and gold."
         },
         {
           "file": "assets/pulse/dollar-gold-yen/p02.webp",
@@ -793,7 +901,8 @@
           "title": "Japan is the canary",
           "w": 1080,
           "h": 1531,
-          "kw": "pulse macro pollar gory yey canary one idea japan coal mine miners carried struggled trouble coming has huge government debt kept rates near zero years currency strain shows first yen japan's money weaker needed buy dollar chart ministry finance version us treasury intervention buying market push value steps bveo s155 1gs time latest year ago happened late july weakened working together bought next monthly report showed trillion four weeks included firmed 1s7 within days now sits 1s% eee worked example dinner new york visitor tokyo pricier see every import buys dollars fuel food gets way seutstsusutctsusutcusussssusususctsussssususussusususctsususcusususctstsusstsususstsusssstsususstsususstsusssctsususctssusctsususctsususstesusstsususststsusstsususstsususstsususctsususststsusstststsctsusussustsusctssusststsusststsusststs sources federal reserve h.10 noon fred peak statement purchase coordination foreign exchange operations billion week period library gold 2or3 japanis tts frst thenjapanstepsin 14s whathappened inlatejuly l64 togetherwiththeustreasury boughtyen.its nextmonthlyreport is.4 it.the is7 workedexample asioodinnerinnewyork dolar pulselibrary 0f3"
+          "kw": "pulse macro pollar gory yey canary one idea japan coal mine miners carried struggled trouble coming has huge government debt kept rates near zero years currency strain shows first yen japan's money weaker needed buy dollar chart ministry finance version us treasury intervention buying market push value steps bveo s155 1gs time latest year ago happened late july weakened working together bought next monthly report showed trillion four weeks included firmed 1s7 within days now sits 1s% eee worked example dinner new york visitor tokyo pricier see every import buys dollars fuel food gets way seutstsusutctsusutcusussssusususctsussssususussusususctsususcusususctstsusstsususstsusssstsususstsususstsusssctsususctssusctsususctsususstesusstsususststsusstsususstsususstsususctsususststsusstststsctsusussustsusctssusststsusststsusststs sources federal reserve h.10 noon fred peak statement purchase coordination foreign exchange operations billion week period library gold 2or3 japanis tts frst thenjapanstepsin 14s whathappened inlatejuly l64 togetherwiththeustreasury boughtyen.its nextmonthlyreport is.4 it.the is7 workedexample asioodinnerinnewyork dolar pulselibrary 0f3",
+          "takeaway": "The yen is where strain shows first, and Japan stepped in to buy it."
         },
         {
           "file": "assets/pulse/dollar-gold-yen/p03.webp",
@@ -801,11 +910,34 @@
           "title": "When Japan's rates wake up",
           "w": 1080,
           "h": 1540,
-          "kw": "macro canary matters pulse poleae corp yey wake gist japan's interest rates finally rising because japon biggest foreign holder us government 0us japanese investors earn home lend uncle sam bank japan central like fed raised overnight rate jgb bond version treasury years ago year now 10-year 10u oldest newest yield highest zero tapanese earned cee possible chain vot forecast apan's yields 16-year need higher worked example pension fund's choice simple two million ina earns paid money went abroad currency risk staying looks much better eer errr rrr connect back fewer buyers ous push moves mortgage book sunmununuuntuueuuc ucu sure steere ttreetrerercsscccscccccccccccccccccccccccccccccccccccccccccccccccccccccccsccecccsccecccsccecccsccecccsccecccscceccccccecccsccecccsccecccsccecccscceccesccecccscceccesccecccsccecccsccececsccscccsccsccccees sources ministry finance last time above today statement monetary policy call around tic table largest page explanation prediction library macre dollar gold yen or3 tapan's ist biggestforeignholderof usgovernmentlous.if bankofjapan japan'scentralbank likethefed.itjustraiseditsovernightrate iou uoah pla1h l0-year l0u isnowthe inabout30 iwnvestors send holds buyuslous under1% about$i trillion lous notaforecast iov reason twoyearsaqo 100milionathome earnsabout 0.9milion year.aus10-year milion ious tast 103.9b"
+          "kw": "macro canary matters pulse poleae corp yey wake gist japan's interest rates finally rising because japon biggest foreign holder us government 0us japanese investors earn home lend uncle sam bank japan central like fed raised overnight rate jgb bond version treasury years ago year now 10-year 10u oldest newest yield highest zero tapanese earned cee possible chain vot forecast apan's yields 16-year need higher worked example pension fund's choice simple two million ina earns paid money went abroad currency risk staying looks much better eer errr rrr connect back fewer buyers ous push moves mortgage book sunmununuuntuueuuc ucu sure steere ttreetrerercsscccscccccccccccccccccccccccccccccccccccccccccccccccccccccccsccecccsccecccsccecccsccecccsccecccscceccccccecccsccecccsccecccsccecccscceccesccecccscceccesccecccsccecccsccececsccscccsccsccccees sources ministry finance last time above today statement monetary policy call around tic table largest page explanation prediction library macre dollar gold yen or3 tapan's ist biggestforeignholderof usgovernmentlous.if bankofjapan japan'scentralbank likethefed.itjustraiseditsovernightrate iou uoah pla1h l0-year l0u isnowthe inabout30 iwnvestors send holds buyuslous under1% about$i trillion lous notaforecast iov reason twoyearsaqo 100milionathome earnsabout 0.9milion year.aus10-year milion ious tast 103.9b",
+          "takeaway": "If Japanese investors earn more at home, fewer may buy US Treasuries, which can push the 10-year up."
         }
       ],
       "tagline": "Strong dollar, weaker buying power",
-      "updated": "2026-10-12"
+      "updated": "2026-10-12",
+      "sources": [
+        {
+          "title": "FRED: Nominal broad US dollar index (Fed H.10)",
+          "url": "https://fred.stlouisfed.org/series/DTWEXBGS"
+        },
+        {
+          "title": "US Treasury Fiscal Data: US Treasury-Owned Gold",
+          "url": "https://fiscaldata.treasury.gov/datasets/status-report-government-gold-reserve/"
+        },
+        {
+          "title": "Japan MoF: Finance Minister statement on joint yen purchase",
+          "url": "https://www.mof.go.jp/english/public_relations/statement/others/20260803073000.html"
+        },
+        {
+          "title": "Japan MoF: Foreign exchange intervention operations (Jul 30 to Aug 26)",
+          "url": "https://www.mof.go.jp/english/policy/international_policy/reference/feio/monthly/20260828e.html"
+        },
+        {
+          "title": "US Treasury TIC: Major foreign holders of Treasury securities",
+          "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt"
+        }
+      ]
     }
   ]
 }
