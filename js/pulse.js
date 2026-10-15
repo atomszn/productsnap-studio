@@ -239,7 +239,7 @@
   function decorate(a, b) {
     a.href = "#book/" + b.id + "/1";
     var pr = progress(b);
-    a.removeAttribute("aria-label"); var sr = a.querySelector(".sr-desc") || el("span", "sr-only sr-desc"); sr.textContent = " — " + tagline(b) + ". " + (b.pages.length + 1) + " pages" + (pr ? ", " + Math.round(pr * 100) + "% read" : "") + (b.start_here ? ". Start here." : "") + (isFresh(b) || isNew(b) ? ". New." : ""); a.appendChild(sr);
+    a.removeAttribute("aria-label"); var sr = a.querySelector(".sr-desc") || el("span", "sr-only sr-desc"); sr.textContent = " — " + tagline(b) + ". " + (b.pages.length + 1) + " pages. " + readText(b) + (b.start_here ? ". Start here." : "") + (isFresh(b) || isNew(b) ? ". New." : ""); a.appendChild(sr);
     if (isNew(b)) a.classList.add("is-new");
     if ((opens[b.id] || 0) >= 3) a.classList.add("is-lean");
     if (b.start_here) a.classList.add("is-start");
@@ -304,10 +304,14 @@
     return a;
   }
   /* pencil ticks: one slanted tick per page, filled for pages already reached */
+  function readOf(b) { var total = b.pages.length + 1; return Math.min(total, Math.round(progress(b) * total)); }
+  function readText(b) { var n = readOf(b), t = b.pages.length + 1; return n ? "Read up to page " + n + " of " + t : "0 of " + t + " pages read"; } // ticks = furthest page reached, not the page you are on
   function ticks(b, cls) {
-    var total = b.pages.length + 1, reached = Math.round(progress(b) * total), w = el("span", cls);
+    var total = b.pages.length + 1, reached = readOf(b), w = el("span", cls);
     w.setAttribute("aria-hidden", "true");
-    for (var i = 0; i < total; i++) w.appendChild(el("i", i < reached ? "on" : ""));
+    if (total > 8) { // long books: a slim hand-drawn bar instead of a crowd of tiny ticks
+      w.classList.add("bar"); var f = el("b", "pb-fill"); f.style.width = Math.round(reached / total * 100) + "%"; w.appendChild(f); w.dataset.pct = Math.round(reached / total * 100);
+    } else for (var i = 0; i < total; i++) w.appendChild(el("i", i < reached ? "on" : ""));
     if (!reached) w.hidden = true;
     return w;
   }
@@ -338,6 +342,7 @@
     card.appendChild(el("b", null, b.title));
     card.appendChild(el("span", "tp-meta", "Vol. " + (b.vol || 1) + " · " + (b.pages.length + 1) + " pages"));
     card.appendChild(el("span", "tp-tag", tagline(b)));
+    card.appendChild(el("span", "tp-read", readText(b)));
     var bm = savedFor(b); if (bm.length) card.appendChild(el("span", "bk-bm", "Saved · p." + bm.join(", ")));
     tipEl.appendChild(card); tipEl.appendChild(el("i", "tp-notch"));
     tipEl.className = "sp-tip t-" + b.topic.toLowerCase();
@@ -655,7 +660,11 @@
       sc.appendChild(el("p", "g-kicker", "The 60-second version"));
       sc.appendChild(el("h3", "g-title", b.title));
       sc.appendChild(el("p", "g-blurb", tagline(b)));
-      var ol = el("ol", "g-list"); b.gist.forEach(function (g) { ol.appendChild(el("li", null, g)); }); sc.appendChild(ol);
+      var ol = el("ol", "g-list"); b.gist.forEach(function (g, gi) {
+        var li = el("li"), ld = b.gist_lead && b.gist_lead[gi]; // a bold lead phrase makes each point scannable; the full sentence stays plain text everywhere else
+        if (ld && g.indexOf(ld) === 0) { li.appendChild(el("strong", "g-lead", ld)); li.appendChild(document.createTextNode(g.slice(ld.length))); } else li.textContent = g;
+        ol.appendChild(li);
+      }); sc.appendChild(ol);
       d.appendChild(sc);
       /* the page-turn button lives outside the scrolling text, so it is always on screen, however short the phone */
       var ft = el("div", "g-foot"), go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; ft.appendChild(go); d.appendChild(ft);
@@ -676,7 +685,7 @@
   function paint() {
     var P = pages(cur), end = idx >= P.length, host = $("page");
     host.innerHTML = ""; host.appendChild(pageNode(cur, idx));
-    $("rd-pagetitle").textContent = end ? "Finished — " + P.length + " pages" : P[idx].gist ? "The 60-second version" : P[idx].title;
+    $("rd-progfill").style.width = Math.round((idx + 1) / P.length * 100) + "%"; $("rd-pagetitle").textContent = end ? "Finished — " + P.length + " pages" : P[idx].gist ? "The 60-second version" : P[idx].title;
     $("rd-prev").disabled = idx === 0; $("rd-next").disabled = end;
     $("rd-next").setAttribute("aria-label", idx === P.length - 1 ? "Finish the book" : "Next page");
     var dots = $("rd-dots"); dots.innerHTML = "";
@@ -693,7 +702,7 @@
     if (!end) ls(LS.last, { id: cur.id, p: idx + 1 });
     var pg = !end && idx > 0 ? cur.pages[idx - 1] : null, tk = pg && pg.takeaway;
     $("rd-take").hidden = !tk; if (tk) $("rd-take-t").textContent = tk;
-    if (!$("rd-askp").hidden) askReset();
+    askReset();
     var reached = Math.min(idx + 1, P.length); if (reached > (ls(LS.prog + cur.id) || 0)) ls(LS.prog + cur.id, reached);
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
     if (location.hash !== h) history.replaceState(history.state, "", h);
@@ -708,7 +717,7 @@
     $("book").style.setProperty("--ar", (b.pages[0].w / b.pages[0].h).toFixed(4)); // the book takes its pages' shape
     $("reader").hidden = false; document.body.classList.add("reading");
     if (first) {
-      if (!$("rd-askp").hidden) { $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false"); }
+      askReset(); if (!$("rd-askp").hidden) { $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false"); }
       opens[id] = (opens[id] || 0) + 1; ls(LS.opens, opens);
       var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; if (!reduce() && !vtOn) bk.classList.add("opening");
       setTimeout(function () { if (cur) { var cb = $("rd-close"); cb.classList.toggle("nofv", !kbdNav); cb.focus({ preventScroll: true }); } }, 30);
@@ -779,7 +788,7 @@
     if (src) o.appendChild(el("p", "askp-src", src));
     if (honest) o.appendChild(el("p", "askp-miss", honest));
   }
-  function askReset() { $("askp-out").innerHTML = ""; }
+  function askReset() { $("askp-out").innerHTML = ""; $("askp-in").value = ""; }
   /* a short, honest snippet: the line itself when it is short, else its first sentence(s), else a clean cut */
   function snip(l) {
     if (l.length <= 230) return l;
@@ -807,6 +816,11 @@
     });
     return out;
   }
+  function grokHref(q) { return "https://grok.com/?q=" + encodeURIComponent(q + " Answer in 1-2 short bullets."); }
+  function grokLink(q) { // small outside link under every answer, so a half-answer is never a dead end
+    var a = el("a", "askp-from askp-grok2", "Ask Grok about this ↗"); a.target = "_blank"; a.rel = "noopener noreferrer"; a.href = grokHref(q);
+    $("askp-out").appendChild(a);
+  }
   function askLib(hits) {
     var o = $("askp-out"); o.innerHTML = "";
     o.appendChild(el("p", "askp-lead", "From the library:"));
@@ -823,7 +837,7 @@
     var o = $("askp-out"); o.innerHTML = "";
     o.appendChild(el("p", "askp-miss", "Nothing in the library answers that yet, and I won’t guess."));
     var a = el("a", "rd-btn askp-grok", "Ask Grok about this ↗"); a.target = "_blank"; a.rel = "noopener noreferrer";
-    a.href = "https://grok.com/?q=" + encodeURIComponent(q + " Answer in 1-2 short bullets.");
+    a.href = grokHref(q);
     o.appendChild(a);
     o.appendChild(el("p", "askp-src", "Opens grok.com in a new tab. That is an outside site, not part of this library."));
   }
@@ -840,9 +854,9 @@
       var need = qs.filter(function (q) { return q.w === 2; }).length > 1 ? 4 : 2;
       var hit = best.filter(function (c) { return c.s >= Math.min(need, best.length ? best[0].s : need); }).slice(0, 3);
       var onPage = hit.length && (i === 0 || hit.some(function (c) { return !c.g; }));
-      if (onPage) { askRender("From this page:", hit, ""); return; }
+      if (onPage) { askRender("From this page:", hit, ""); grokLink(q); return; }
       var lh = libHits(qs);
-      if (lh.length) { askLib(lh); return; }
+      if (lh.length) { askLib(lh); grokLink(q); return; }
       askOutside(q);
     }).catch(function () { askRender("", [], "", "The page text didn’t load. Check your connection and try again."); });
   }
@@ -860,7 +874,7 @@
   function toggleAsk(on) {
     var p = $("rd-askp"); on = on == null ? p.hidden : on;
     p.hidden = !on; $("rd-ask").setAttribute("aria-expanded", String(on)); $("rd-ask").setAttribute("aria-pressed", String(on));
-    if (on) { loadText().catch(function () {}); askReset(); setTimeout(function () { $("askp-in").focus({ preventScroll: true }); }, 30); }
+    if (on) { loadText().catch(function () {}); askReset(); if (!touch && window.matchMedia && matchMedia("(hover:hover) and (pointer:fine)").matches) setTimeout(function () { $("askp-in").focus({ preventScroll: true }); }, 30); } // touch: never raise the keyboard until the reader taps the box
     else $("rd-ask").focus({ preventScroll: true });
   }
   var zoomFrom = null;

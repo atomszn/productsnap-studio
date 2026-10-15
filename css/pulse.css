@@ -674,3 +674,24 @@ a.sp:focus-visible{outline:none}
 @media (max-height:520px) and (min-width:700px){
   .book{aspect-ratio:auto;width:min(calc(100cqw - 140px),680px);height:var(--avail-h)}
 }
+/* takeaways that stand out: numbered markers, bold lead phrase with a highlighter swipe, a takeaway callout under the page */
+.tp-read{font:600 .74rem/1.3 var(--body);color:var(--ink-soft);margin-top:2px}
+.pg-gist .g-list{list-style:none;padding-left:0;counter-reset:gl;gap:clamp(6px,1.8cqh,12px)}
+.pg-gist .g-list li{counter-increment:gl;position:relative;padding-left:2em;min-height:1.5em}
+.pg-gist .g-list li::before{content:counter(gl);position:absolute;left:0;top:.05em;width:1.45em;height:1.45em;border-radius:50%;background:var(--tc);color:#fff;font:700 .85em/1.45em var(--body);text-align:center}
+[data-theme="dark"] .pg-gist .g-list li::before{color:#1c1916}
+.g-lead{font-weight:700;background:linear-gradient(transparent 58%,color-mix(in srgb,var(--tc) 26%,transparent) 58%);padding:0 .1em;border-radius:2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.rd-take{background:color-mix(in srgb,var(--tc) 11%,var(--card));border:1.5px solid color-mix(in srgb,var(--tc) 35%,transparent);border-left:5px solid var(--tc);border-radius:10px;padding:6px 6px 6px 12px}
+.rd-take p{color:var(--ink);font-weight:600;text-align:left}
+.rd-take p::before{content:"Takeaway";display:block;font:700 .66rem/1.2 var(--body);letter-spacing:.09em;text-transform:uppercase;color:color-mix(in srgb,var(--tc) 72%,var(--ink));margin-bottom:1px}
+@media (max-height:700px){.rd-take p::before{display:none}.rd-take{padding:3px 4px 3px 10px}}
+/* long books (> 8 pages): one slim pencil-drawn bar instead of per-page ticks */
+.sp-prog.bar{left:18%;right:18%;height:5px;bottom:5px;display:block;background:rgba(251,245,232,.3);border-radius:3px 2px 3px 2px/2px 3px 2px 3px;rotate:-2deg;overflow:hidden}
+.sp-prog.bar .pb-fill{display:block;height:100%;background:#f3e2b3;border-radius:2px 1px 2px 1px}
+/* reading delight: a hairline of progress across the top, and the highlighter swipes in under each bold lead */
+.rd-progress{position:absolute;top:0;left:0;right:0;height:3px;z-index:7;background:color-mix(in srgb,var(--tc) 14%,transparent);pointer-events:none}
+.rd-progress i{display:block;height:100%;width:0;background:var(--tc);border-radius:0 2px 2px 0;transition:width .5s var(--ease-spring,ease)}
+@keyframes hl-swipe{from{background-size:0 100%}to{background-size:100% 100%}}
+.g-lead{background-repeat:no-repeat;background-size:100% 100%;animation:hl-swipe .6s .25s cubic-bezier(.3,.7,.3,1) both}
+.g-list li:nth-child(2) .g-lead{animation-delay:.5s}.g-list li:nth-child(3) .g-lead{animation-delay:.75s}
+@media (prefers-reduced-motion:reduce){.g-lead{animation:none}.rd-progress i{transition:none}}
