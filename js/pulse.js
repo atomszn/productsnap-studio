@@ -466,6 +466,8 @@
       [].forEach.call(row.querySelectorAll(".dc-off"), function (n) { n.classList.remove("dc-off"); });
       var extras = [].slice.call(row.querySelectorAll(".dc-plant,.dc-cup,.dc-stack.sm")).filter(function (n) { return getComputedStyle(n).display !== "none"; }).reverse();
       while (row.scrollWidth > row.clientWidth + 1 && extras.length) extras.shift().classList.add("dc-off");
+      row.style.removeProperty("--fit"); /* still too wide on a very narrow phone: ease every spine in a little */
+      for (var k = 0, f = 1; k < 4 && row.scrollWidth > row.clientWidth + 1; k++) { f = Math.max(.7, f * (row.clientWidth - 1) / row.scrollWidth); row.style.setProperty("--fit", f.toFixed(3)); }
     });
   }
   var fitT; window.addEventListener("resize", function () { clearTimeout(fitT); fitT = setTimeout(fitTiers, 120); });
@@ -658,6 +660,9 @@
       var btn = el("button", "pg-zoom"); btn.type = "button"; btn.setAttribute("aria-label", "Zoom into page: " + p.title);
       var img = el("img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + "."; img.width = p.w; img.height = p.h; img.decoding = "async"; if (Math.abs(i - idx) > 1) img.loading = "lazy";
       btn.appendChild(img); btn.onclick = function () { zoom(p, b); }; d.appendChild(btn);
+      /* taller than the screen: the sketch fits the card's width and scrolls inside it; a small "Scroll" pill says so */
+      var more = function () { d.classList.toggle("g-more", btn.scrollHeight - btn.scrollTop - btn.clientHeight > 6); };
+      btn.addEventListener("scroll", more, { passive: true }); img.addEventListener("load", more); requestAnimationFrame(more); setTimeout(more, 500);
       var nx = P[i + 1]; if (nx) { var pre = new Image(); pre.src = nx.file; }
     }
     d.appendChild(el("span", "pg-num", (i + 1) + " of " + P.length));

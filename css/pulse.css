@@ -404,15 +404,15 @@ body.page-pulse{--paper:#f3efe7;--paper-2:#ece6da;--card:#fbf9f4;background:#f3e
   .tier .dc-stack svg{width:52px;height:45px}
 }
 .tiers{max-width:920px}
-.tier .sp{--sw:calc(66px * var(--swb,1));width:calc(var(--sw) + 8px);--hs:1.08}
+.tier .sp{--sw:calc(66px * var(--swb,1) * var(--fit,1));width:calc(var(--sw) + 8px);--hs:1.08}
 @media (max-width:640px){
-  .tier .sp{--sw:calc(48px * var(--swb,1));--hs:.8}
+  .tier .sp{--sw:calc(48px * var(--swb,1) * var(--fit,1));--hs:.8}
   .shelf-row.spines.tier{gap:4px;padding:22px 8px 0}
   .tier .dc-end svg{width:20px;height:92px}
   /* lean margins: see is-lean-left/right */
 }
 @media (max-width:640px){
-  .tier .sp{--sw:calc(45px * var(--swb,1))}
+  .tier .sp{--sw:calc(45px * var(--swb,1) * var(--fit,1))}
   .tier:not(:last-child) .dc-plant,.tier:not(:last-child) .dc-cup{display:none}
   .tier .dc-stack.sm{margin-left:auto}
   .tier:last-child .dc-stack.sm{margin-left:8px}
@@ -667,3 +667,6 @@ a.sp:focus-visible{outline:none}
 .askp-from:focus-visible,.askp-grok:focus-visible{outline:3px solid var(--tc);outline-offset:2px}
 .askp-grok{text-decoration:none;margin:6px 0 2px}
 @media (max-height:700px){.rd-askp{max-height:60dvh}.askp-h{font-size:1.05rem}}
+
+.pg:not(.pg-gist):not(.pg-end)::after{content:"Scroll for more ↓";position:absolute;left:50%;bottom:8px;translate:-50% 6px;z-index:3;font:600 .75rem var(--body);color:var(--ink);background:color-mix(in srgb,var(--card) 92%,transparent);border:1.5px solid var(--ink-faded,rgba(0,0,0,.25));border-radius:999px;padding:3px 12px;box-shadow:0 2px 6px rgba(0,0,0,.18);pointer-events:none;opacity:0;transition:opacity .2s,translate .25s var(--ease-spring,ease)}
+.pg.g-more:not(.pg-gist):not(.pg-end)::after{opacity:1;translate:-50% 0}
