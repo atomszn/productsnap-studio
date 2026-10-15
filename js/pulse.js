@@ -783,7 +783,7 @@
   }
   /* search every book: gist lines, page takeaways and the cleaned page text, whole library, client-side only */
   function libHits(qs) {
-    var all = [], coreN = qs.filter(function (q) { return q.w === 2; }).length, minM = coreN >= 2 ? Math.max(2, Math.ceil(coreN / 2)) : 1; // a stray shared word is not an answer
+    var all = [], coreN = qs.filter(function (q) { return q.w === 2; }).length, minM = coreN >= 2 ? Math.max(2, Math.ceil(coreN * 0.6)) : 1; // a stray shared word is not an answer
     var sc = function (l) { var r = lineMatch(l, qs); return r.m >= minM ? r.s : 0; };
     lib.books.forEach(function (b) {
       b.gist.forEach(function (l) { var s = sc(l); if (s >= 2) all.push({ l: l, s: s + 0.3, b: b, i: 0 }); });

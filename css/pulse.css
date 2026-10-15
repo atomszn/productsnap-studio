@@ -670,3 +670,7 @@ a.sp:focus-visible{outline:none}
 
 .pg:not(.pg-gist):not(.pg-end)::after{content:"Scroll for more ↓";position:absolute;left:50%;bottom:8px;translate:-50% 6px;z-index:3;font:600 .75rem var(--body);color:var(--ink);background:color-mix(in srgb,var(--card) 92%,transparent);border:1.5px solid var(--ink-faded,rgba(0,0,0,.25));border-radius:999px;padding:3px 12px;box-shadow:0 2px 6px rgba(0,0,0,.18);pointer-events:none;opacity:0;transition:opacity .2s,translate .25s var(--ease-spring,ease)}
 .pg.g-more:not(.pg-gist):not(.pg-end)::after{opacity:1;translate:-50% 0}
+/* landscape phones: a portrait page is only ~170px wide there, so let the page go wide and scroll inside */
+@media (max-height:520px) and (min-width:700px){
+  .book{aspect-ratio:auto;width:min(calc(100cqw - 140px),680px);height:var(--avail-h)}
+}
