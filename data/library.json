@@ -1448,7 +1448,7 @@
       "blurb": "Start low, climb only when you need to.",
       "gist": [
         "Start on the lowest step. AI use has six steps, numbered 0 to 5. The lowest step that gets the job done is the cheapest and fastest.",
-        "Steps 0 to 2: ask, save, connect. Type a question, save a prompt you repeat, let the AI read your files and tools. For most product-manager work, step 2 is enough.",
+        "Steps 0 to 2: ask, save, connect. Type a question, save a prompt you repeat, let the AI read your files and tools. For most everyday work, step 2 is enough.",
         "Steps 3 to 5: it runs without you. Build a small app, link steps into a workflow, or own real software. One team rebuilt a $550-700 a month tool for about $110."
       ],
       "gist_lead": [
@@ -1465,8 +1465,8 @@
           "title": "Rungs 0 to 2: ask, then save",
           "w": 1600,
           "h": 3690,
-          "kw": "ail ladder start low climb need people use one-off questions either stay stuck jump building software soon has steps numbered matters lowest step works cheapest fastest stops working ankit shukla hellopm shared aakash gupta oct plain-english examples added whole one look example way sam marketer needs weekly campaign report real run company builds email tool automatic workflow new sign-up gets looked sent right salesperson touching vibe coding describes small app ai skills connectors reads numbers itself writes reusable prompt saves request never retypes prompting pastes chatbot asks summary rungs ask save question repeat gem instruction type chatbots like saved assistant inside google's gemini chatgpt claude answer custom gpt idea types resume rewrites summarize boss every time good lines opens monday move read live data several runa payoff starts skill step-by-step instructions task exports recipe card needed connector 10am pulls link lets tools website visitor stats trick finish turn alll roi return investment get back money put code codex helpers anthropic openat files chat want clickable answers take product manager work rung enough sam's prompts 1oam openai ankit's product-manager atom",
-          "takeaway": "Start on the lowest rung that works. For most product-manager work, rung 2 is enough."
+          "kw": "ail ladder start low climb need people use one-off questions either stay stuck jump building software soon has steps numbered matters lowest step works cheapest fastest stops working ankit shukla hellopm shared aakash gupta oct plain-english examples added whole one look example way sam marketer needs weekly campaign report real run company builds email tool automatic workflow new sign-up gets looked sent right salesperson touching vibe coding describes small app ai skills connectors reads numbers itself writes reusable prompt saves request never retypes prompting pastes chatbot asks summary rungs ask save question repeat gem instruction type chatbots like saved assistant inside google's gemini chatgpt claude answer custom gpt idea types resume rewrites summarize boss every time good lines opens monday move read live data several runa payoff starts skill step-by-step instructions task exports recipe card needed connector 10am pulls link lets tools website visitor stats trick finish turn alll roi return investment get back money put code codex helpers anthropic openat files chat want clickable answers take product manager work rung enough sam's prompts 1oam openai ankit's everyday atom",
+          "takeaway": "Start on the lowest rung that works. For most everyday work, rung 2 is enough."
         },
         {
           "file": "assets/pulse/ai-ladder/p02.webp",
@@ -1480,7 +1480,7 @@
       ],
       "recap": [
         "AI use has six steps, 0 to 5: start on the lowest one that works and climb only when it stops working.",
-        "Steps 0 to 2 are asking, saving a prompt you repeat, and letting the AI use your files and tools; for most product-manager work, step 2 is enough.",
+        "Steps 0 to 2 are asking, saving a prompt you repeat, and letting the AI use your files and tools; for most everyday work, step 2 is enough.",
         "Steps 3 to 5 make things that run on their own, from small apps to real software you own, so they need guardrails like limited permissions and a person's sign-off."
       ],
       "recap_pages": 2,
