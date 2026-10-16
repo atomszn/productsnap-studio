@@ -20,6 +20,8 @@
     "tokenization": "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12 4 7.5",
     "mortgage-rates": "M4 11l8-6 8 6M6 10v10h12V10M10 20v-5h4v5",
     "debt-loop": "M17 7a7 7 0 1 0 2 5M17 3v4h-4",
+    "stablecoin-economics": "M12 4a8 8 0 1 0 0 16 8 8 0 1 0 0-16M12 7.5v9M14.6 9.4c-.6-.8-1.6-1.1-2.6-1.1-1.5 0-2.6.8-2.6 1.9 0 2.5 5.2 1.3 5.2 3.8 0 1.1-1.1 1.9-2.6 1.9-1.1 0-2.1-.4-2.7-1.2",
+    "ai-ladder": "M8 3v18M16 3v18M8 7h8M8 12h8M8 17h8",
     "fintech-rails": "M3 10l9-6 9 6zM5.5 10v7M10 10v7M14 10v7M18.5 10v7M3.5 20h17",
     "two-schools-economics": "M12 4v16M8 20h8M4 7h16M4 7l-2.5 6a2.5 2.5 0 0 0 5 0zM20 7l-2.5 6a2.5 2.5 0 0 0 5 0z",
     "dollar-gold-yen": "M12 4v16M15.5 7.5c-1-1.2-2.2-1.6-3.5-1.6-2 0-3.5 1-3.5 2.6 0 3.5 7.5 2 7.5 5.8 0 1.7-1.6 2.8-4 2.8-1.5 0-3-.5-4-1.7"
@@ -105,8 +107,8 @@
       list.appendChild(li);
     });
   }
-  function openSaved() { renderSaved(); $("saved").hidden = false; document.body.classList.add("reading"); $("saved-x").focus(); }
-  function closeSaved(silent) { $("saved").hidden = true; document.body.classList.remove("reading"); if (!silent) $("saved-btn").focus(); }
+  function openSaved() { renderSaved(); $("saved").hidden = false; document.body.classList.add("reading"); onScrollTop(); $("saved-x").focus(); }
+  function closeSaved(silent) { $("saved").hidden = true; document.body.classList.remove("reading"); onScrollTop(); if (!silent) $("saved-btn").focus(); }
 
   function toast(msg, ms) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, ms || 2400); }
 
@@ -432,9 +434,9 @@
   var PHONE = window.matchMedia("(max-width:640px)");
   (PHONE.addEventListener ? PHONE.addEventListener.bind(PHONE, "change") : PHONE.addListener.bind(PHONE))(function () { if (lib && view === "shelf" && !query) renderShelves(); });
   function tiers(books) {
-    var spineN = 0, n = books.length, cap = PHONE.matches ? 5 : 7, k = Math.max(1, Math.ceil(n / cap)), per = Math.ceil(n / k), wrap = el("div", "tiers");
+    var spineN = 0, n = books.length, cap = PHONE.matches ? 5 : 7, k = Math.max(1, Math.ceil(n / cap)), base = Math.floor(n / k), extra = n % k, wrap = el("div", "tiers"), from = 0;
     for (var t = 0; t < k; t++) {
-      var part = books.slice(t * per, (t + 1) * per); if (!part.length) break;
+      var cnt = base + (t < extra ? 1 : 0), part = books.slice(from, from + cnt); from += cnt; if (!part.length) break;
       var row = el("div", "shelf-row spines tier");
       if (t % 2 === 0) row.appendChild(deco("end"));
       else row.appendChild(deco("stack"));
@@ -446,8 +448,9 @@
         if (i === leanAt) s.classList.add(t % 2 === 0 ? "is-lean-left" : "is-lean-right");
         row.appendChild(s);
       });
+      var plantHere = t === 0 || t === k - 1; /* a plant always sits on the first and the last plank, so phones (where the middle ones are dropped) keep one */
       if (t % 2 === 0) { row.appendChild(deco("stack", "sm")); row.appendChild(deco("plant")); }
-      else { row.appendChild(deco("cup")); row.appendChild(deco("end", "flip")); }
+      else { row.appendChild(deco(plantHere ? "plant" : "cup")); row.appendChild(deco("end", "flip")); }
       wrap.appendChild(row);
     }
     return wrap;
@@ -474,7 +477,9 @@
   function fitTiers() {
     [].forEach.call(document.querySelectorAll(".tier"), function (row) {
       [].forEach.call(row.querySelectorAll(".dc-off"), function (n) { n.classList.remove("dc-off"); });
-      var extras = [].slice.call(row.querySelectorAll(".dc-plant,.dc-cup,.dc-stack.sm")).filter(function (n) { return getComputedStyle(n).display !== "none"; }).reverse();
+      /* squeeze the small props first, the plant last; the last plank's plant is never dropped (a narrow phone eases the spines in instead) */
+      var last = row === row.parentNode.lastChild;
+      var extras = [].slice.call(row.querySelectorAll(".dc-cup,.dc-stack.sm,.dc-stack:not(.sm),.dc-plant")).filter(function (n) { return getComputedStyle(n).display !== "none" && !(last && n.classList.contains("dc-plant")); }).sort(function (a, b) { var r = function (n) { return n.classList.contains("dc-plant") ? 2 : n.classList.contains("dc-stack") && !n.classList.contains("sm") ? 1 : 0; }; return r(a) - r(b); });
       while (row.scrollWidth > row.clientWidth + 1 && extras.length) extras.shift().classList.add("dc-off");
       row.style.removeProperty("--fit"); /* still too wide on a very narrow phone: ease every spine in a little */
       for (var k = 0, f = 1; k < 4 && row.scrollWidth > row.clientWidth + 1; k++) { f = Math.max(.7, f * (row.clientWidth - 1) / row.scrollWidth); row.style.setProperty("--fit", f.toFixed(3)); }
@@ -656,7 +661,7 @@
     col.appendChild(el("p", "end-nt", n.title));
     var row = el("div", "end-actions");
     var open1 = el("a", "g-go", "Open book →"); open1.href = a.href; open1.setAttribute("aria-label", "Open " + n.title); row.appendChild(open1);
-    var back = el("button", "linkbtn end-shelf", "Back to the shelf"); back.type = "button"; back.onclick = close; row.appendChild(back);
+    var back = el("button", "linkbtn end-shelf", backTo().long); back.type = "button"; back.onclick = close; row.appendChild(back);
     col.appendChild(row); nx.appendChild(col); d.appendChild(nx);
     var pr = pairsNode(b, n); if (pr) d.appendChild(pr);
     if (b.sources && b.sources.length) {
@@ -717,8 +722,9 @@
     ["rd-stamps", "rd-stamps2"].forEach(function (id, k) {
       var st = $(id); st.innerHTML = "";
       if (k === 0 && isFresh(cur)) st.appendChild(stamp("New", "rd-stamp"));
-      if (!end && idx > 0 && cur.pages[idx - 1].outlook) st.appendChild(stamp("Outlook", "rd-stamp"));
+      if (!end && idx > 0 && cur.pages[idx - 1].outlook) { var os = stamp("Outlook", "rd-stamp"); os.classList.add("is-ol"); st.appendChild(os); }
     });
+    $("rd-pagerow").hidden = !$("rd-stamps2").childNodes.length;
     if (!end) ls(LS.last, { id: cur.id, p: idx + 1 });
     var pg = !end && idx > 0 ? cur.pages[idx - 1] : null, tk = pg && pg.takeaway;
     $("rd-take").hidden = !tk; if (tk) $("rd-take-t").textContent = tk;
@@ -727,6 +733,18 @@
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
     if (location.hash !== h) history.replaceState(history.state, "", h);
   }
+  /* where "back" goes: the view the reader was opened from (or the last one chosen; Shelf by default) */
+  function backTo() { return view === "topics" ? { long: "Back to topics", short: "Topics" } : { long: "Back to the shelf", short: "Shelf" }; }
+  function setBackLabel() {
+    var t = backTo(), c = $("rd-close");
+    c.setAttribute("aria-label", t.long + " (Esc)"); c.title = t.long;
+    c.querySelector(".cl-long").textContent = t.long; c.querySelector(".cl-short").textContent = t.short;
+    var es = document.querySelector(".end-shelf"); if (es) es.textContent = t.long;
+  }
+  var libY = 0;
+  /* history.back() lets the browser restore its own (clamped) scroll a moment later, so put ours back a few times */
+  function jump(y) { window.scrollTo({ top: y, left: 0, behavior: "instant" }); }
+  function restoreY(y) { jump(y); [0, 60, 200, 450].forEach(function (ms) { setTimeout(function () { if (!cur && !document.body.classList.contains("reading") && Math.abs((window.pageYOffset || 0) - y) > 2) jump(y); }, ms); }); }
   function open(id, n) {
     var b = find(id); if (!b) return false;
     var first = !cur || cur.id !== id;
@@ -742,13 +760,16 @@
       var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; if (!reduce() && !vtOn) bk.classList.add("opening");
       setTimeout(function () { if (cur) { var cb = $("rd-close"); cb.classList.toggle("nofv", !kbdNav); cb.focus({ preventScroll: true }); } }, 30);
     }
+    setBackLabel(); onScrollTop();
     paint(); return true;
   }
   function hideReader(was) {
     $("reader").hidden = true; document.body.classList.remove("reading"); cur = null;
     $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false");
     renderShelves();
-    var sp = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: false });
+    restoreY(libY); /* same view, same scroll position as when the book was opened */
+    var sp = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: true });
+    onScrollTop();
   }
   function dstOf(was) { return function () { var a = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); return a && (a.querySelector(".sp-body") || a.querySelector(".cv")); }; }
   function close() {
@@ -922,7 +943,18 @@
     else if (cur) { var was = cur; withVT($("book"), dstOf(was), function () { hideReader(was); }); }
   }
 
+  /* back-to-top pill: library view only, after about 1.5 screens of scrolling */
+  var topTick = false;
+  function onScrollTop() {
+    var b = $("totop"); if (!b) return;
+    if (!cur && !document.body.classList.contains("reading")) libY = window.pageYOffset || 0; /* remember where the library is scrolled, for the way back */
+    var show = !cur && !document.body.classList.contains("reading") && $("saved").hidden && (window.pageYOffset || 0) > innerHeight * 1.5;
+    if (show !== !b.hidden) { if (show) { b.hidden = false; requestAnimationFrame(function () { b.classList.add("on"); }); } else { b.classList.remove("on"); b.hidden = true; } }
+  }
   function wire() {
+    addEventListener("scroll", function () { if (!topTick) { topTick = true; requestAnimationFrame(function () { topTick = false; onScrollTop(); }); } }, { passive: true });
+    addEventListener("resize", onScrollTop);
+    $("totop").onclick = function () { window.scrollTo({ top: 0, behavior: reduce() ? "instant" : "smooth" }); };
     $("rd-prev").onclick = function () { turn(-1); };
     $("rd-next").onclick = function () { turn(1); };
     $("rd-close").onclick = close;

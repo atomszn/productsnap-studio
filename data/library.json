@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-15",
+  "updated": "2026-10-16",
   "books": [
     {
       "id": "agent-native-infrastructure",
@@ -1330,6 +1330,180 @@
         "More is expected, but outlook is not fact: announced is not arrived."
       ],
       "recap_pages": 3
+    },
+    {
+      "id": "stablecoin-economics",
+      "title": "Stablecoin Economics",
+      "topic": "Fintech",
+      "blurb": "How stablecoin issuers and apps share the interest.",
+      "gist": [
+        "A dollar with a business behind it. A stablecoin is a token meant to stay worth $1. The issuer holds the dollars in cash and short-term US government IOUs, which earn interest.",
+        "The interest gets shared. Circle says about 59 cents of each revenue dollar goes to partners such as Coinbase and Binance, plus costs. The issuer doesn't pay it to holders.",
+        "Spending is catching up. Stablecoin payments grew 45% on a year earlier while the number of coins barely moved (Allium). Cards still handle checkout; the change is mostly between companies."
+      ],
+      "gist_lead": [
+        "A dollar with a business behind it.",
+        "The interest gets shared.",
+        "Spending is catching up."
+      ],
+      "added": "2026-10-16",
+      "added_at": "2026-10-16T11:01",
+      "pages": [
+        {
+          "file": "assets/pulse/stablecoin-economics/p01.webp",
+          "thumb": "assets/pulse/stablecoin-economics/p01-t.webp",
+          "title": "How a stablecoin pays its partners",
+          "w": 1600,
+          "h": 2760,
+          "kw": "stablecoin pays partners stablecoins move money someone still has earn holding handing digital token always meant worth think dollar send seconds example usdc made company called circle three words plain english paw us treasury bill iou government lend now back plus little extra later lbba short-term paid within year often weeks months like loan notice apps companies get coin aaa people hands examples exchanges coinbase binance wallets online banks comes tas i0us pay issuer shares keeps safe cash interest big part savings account real numbers first half billion came cents every went transaction costs left profit figures one partner reported together business model that's people's t-bill ious put circle's atom",
+          "takeaway": "The interest earned on the dollars behind a stablecoin is shared between the issuer and the apps that bring it customers."
+        },
+        {
+          "file": "assets/pulse/stablecoin-economics/p02.webp",
+          "thumb": "assets/pulse/stablecoin-economics/p02-t.webp",
+          "title": "Follow one $100: how an app earns",
+          "w": 1600,
+          "h": 2760,
+          "kw": "follow one money app earns stablecoin isa digital token always meant worth issuer company makes lol step maya sends bank now holds coins keeps cash short-term us government i0us behind ious earn interest year shares part because brought get gets dollar send seconds apps pay rewards whether allowed still debated example numbers show flow real rates deals vary toes maya's fees plus share friend fee charges say half wants keep use often splits public good know partners companies coin have financial growth circle transaction costs first 319m business customers turn back directly nothing people ences exchange charae reality check running takes rules itself pays holders law bars issuers paying holdin rails move partner economics make want using t-bill that's hand aug 819m paid charge holding atom",
+          "takeaway": "In the example, sharing the interest takes the app from $0.50 to $2.50 a year, so it wants Maya's money to stay."
+        },
+        {
+          "file": "assets/pulse/stablecoin-economics/p03.webp",
+          "thumb": "assets/pulse/stablecoin-economics/p03-t.webp",
+          "title": "When payments outgrow supply",
+          "w": 1600,
+          "h": 2760,
+          "kw": "changes payments volume rows faster supply money move even number coins stays blockchain public online total dollars record book logs every coin transfer anyone exist actually sent read on-chain means pay things recorded like taxis cabs give far rides now emerging signal transfers data company called allium year earlier counts still people through sept trading exchanges versus holding billion goods since services january smaller slice anuary lms ones rose average fell comparison classification estimates practice shop aoe shopper partners places share depends take send mostly balances digital dollar payment activity fore without cashing add fee income bank account first eae reality check cards today aia visa mastercard handle final step checkout change moves between companies paying across different currencies doesn replace system pays issuer spending starting catch stablecoins business model grows fasfer taxi allium's whatit depending deal today's networks doesn't atom",
+          "takeaway": "Stablecoin payments grew far faster than the number of coins: the same coins are doing more work."
+        }
+      ],
+      "recap": [
+        "A stablecoin issuer earns interest on the dollars behind the coins and shares much of it with partner apps; it doesn't pay that interest to holders.",
+        "In a made-up $100 example, sharing the interest takes an app from $0.50 to $2.50 a year; Circle says about 59 cents of each revenue dollar goes to partners and costs.",
+        "Payments grew far faster than the number of coins, but cards still handle checkout; the change is mostly between companies."
+      ],
+      "recap_pages": 3,
+      "tagline": "How stablecoin issuers and apps share the interest",
+      "vol": 1,
+      "updated": "2026-10-16",
+      "sources": [
+        {
+          "title": "Circle blog: The Economics of USDC and Why Our Partners Win (H1 2026: about $1.4B revenue, about $819M to partners and transaction costs, 59 cents per revenue dollar, 7 cents profit; Coinbase, Binance, 150+ partners; redemption terms)",
+          "url": "https://www.circle.com/blog/the-economics-of-usdc-and-why-our-partners-win"
+        },
+        {
+          "title": "Circle Form 10-Q for the quarter ended June 30, 2026 (SEC): revenue and reserve income $1,395.4M; distribution, transaction and other costs $819.3M; net income from continuing operations $103.5M",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        },
+        {
+          "title": "Circle Q2 2026 financial results (investor relations)",
+          "url": "https://investor.circle.com/files/doc_news/2026/Aug/05/CIRCLE_Q2-2026.pdf"
+        },
+        {
+          "title": "Circle Q2 2026 earnings call transcript (Aug. 2026): 150+ distribution partners",
+          "url": "https://www.fool.com/earnings/call-transcripts/2026/08/12/circle-crcl-q2-2026-earnings-call-transcript/"
+        },
+        {
+          "title": "Circle Mint: institutional customers only, not available to individuals",
+          "url": "https://www.circle.com/circle-mint"
+        },
+        {
+          "title": "Circle USDC Terms: who can redeem directly with Circle",
+          "url": "https://www.circle.com/legal/usdc-terms"
+        },
+        {
+          "title": "GENIUS Act (Public Law 119-27), section 4(a)(11): issuers may not pay holders interest or yield solely for holding",
+          "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ27/html/PLAW-119publ27.htm"
+        },
+        {
+          "title": "Congressional Research Service IF13174: The Stablecoin Yield Debate (platform rewards still debated)",
+          "url": "https://www.congress.gov/crs-product/IF13174"
+        },
+        {
+          "title": "TreasuryDirect: Treasury bills (terms of 4 to 52 weeks, paid face value at maturity)",
+          "url": "https://www.treasurydirect.gov/marketable-securities/treasury-bills/"
+        },
+        {
+          "title": "Allium: State of Stablecoins and Payments, Q3 2026 (data through Sept. 30, 2026): payments +45% to $482B, count +71% to 1.04B, average $544 to $462, Q3 +51% on a year earlier; supply +0.4% since the start of the year, to $305B. Allium's own classification and estimates",
+          "url": "https://www.allium.so/reports/state-of-stablecoins-and-payments-q3-2026"
+        },
+        {
+          "title": "Allium: State of Stablecoins and Payments, Sep 2026 (payments up 42% or more 'on 2025', supply +6% year over year; business-to-business payments are the largest lane; trading 69% of adjusted volume)",
+          "url": "https://www.allium.so/reports/state-of-stablecoins-and-payments-september-2026"
+        },
+        {
+          "title": "Note on the Allium baselines: Allium's Q3 summary does not spell out the 45% baseline. We read it as January to September 2026 versus the same months of 2025, because (a) its September report words the same measure as 'up 42% ... on 2025', and (b) the numbers reconcile: $482B / 1.04B payments = about $463 average now, and $482B / 1.45 = about $332B over 1.04B / 1.71 = about 608M payments gives about $546 a year earlier, matching Allium's $544. Supply's +0.4% is since January (Allium: '0.4% above the start of the year'). Our arithmetic",
+          "url": "https://www.allium.so/reports/state-of-stablecoins-and-payments-q3-2026"
+        },
+        {
+          "title": "Note: the Maya example, the taxi comparison and all plain-English explanations are ours; dollar amounts in the example are labelled example numbers, not real deal terms",
+          "url": "https://www.circle.com/blog/the-economics-of-usdc-and-why-our-partners-win"
+        }
+      ]
+    },
+    {
+      "id": "ai-ladder",
+      "title": "The AI Ladder",
+      "topic": "AI",
+      "blurb": "Start low, climb only when you need to.",
+      "gist": [
+        "Start on the lowest step. AI use has six steps, numbered 0 to 5. The lowest step that gets the job done is the cheapest and fastest.",
+        "Steps 0 to 2: ask, save, connect. Type a question, save a prompt you repeat, let the AI read your files and tools. For most everyday work, step 2 is enough.",
+        "Steps 3 to 5: it runs without you. Build a small app, link steps into a workflow, or own real software. One team rebuilt a $550-700 a month tool for about $110."
+      ],
+      "gist_lead": [
+        "Start on the lowest step.",
+        "Steps 0 to 2: ask, save, connect.",
+        "Steps 3 to 5: it runs without you."
+      ],
+      "added": "2026-10-16",
+      "added_at": "2026-10-16T11:02",
+      "pages": [
+        {
+          "file": "assets/pulse/ai-ladder/p01.webp",
+          "thumb": "assets/pulse/ai-ladder/p01-t.webp",
+          "title": "Rungs 0 to 2: ask, then save",
+          "w": 1600,
+          "h": 3690,
+          "kw": "ail ladder start low climb need people use one-off questions either stay stuck jump building software soon has steps numbered matters lowest step works cheapest fastest stops working ankit shukla hellopm shared aakash gupta oct plain-english examples added whole one look example way sam marketer needs weekly campaign report real run company builds email tool automatic workflow new sign-up gets looked sent right salesperson touching vibe coding describes small app ai skills connectors reads numbers itself writes reusable prompt saves request never retypes prompting pastes chatbot asks summary rungs ask save question repeat gem instruction type chatbots like saved assistant inside google's gemini chatgpt claude answer custom gpt idea types resume rewrites summarize boss every time good lines opens monday move read live data several runa payoff starts skill step-by-step instructions task exports recipe card needed connector 10am pulls link lets tools website visitor stats trick finish turn alll roi return investment get back money put code codex helpers anthropic openat files chat want clickable answers take product manager work rung enough sam's prompts 1oam openai ankit's everyday atom",
+          "takeaway": "Start on the lowest rung that works. For most everyday work, rung 2 is enough."
+        },
+        {
+          "file": "assets/pulse/ai-ladder/p02.webp",
+          "thumb": "assets/pulse/ai-ladder/p02-t.webp",
+          "title": "Rungs 3 to 5: when it runs alone",
+          "w": 1600,
+          "h": 5550,
+          "kw": "ladder upper rungs work runs without has steps chatting ai giving instructions imi builds things keep running matters save hours replace costly software pick right step ankit shukla hellopm shared aakash gupta oct plain-english examples added rung vibe coding describing app want plain words letting write code make run fe7 tools google studio free google's site building gemini lovable bolt sites turn description working sam's report static document people sam types page team read picks campaign sees results move workflow tool link like boxes whiteboard itself happens ale n8n say n-eight-n built-in even draft lead person showed interest product someone copies new spreadsheet researched scored looks emails salesperson sent hold logic real production live paying depend every day month email platform mcp model context protocol rebuilt one connect services standard plug lets night now costs aws amazon web rents computers storage roughly internet saved vercel hosts websites apps trade-off cursor claude codex upkeep climb worth owning helpers safety pieces extra add leaves screen limited permissions sandbox memory compaction fenced-off area means liw try touching summarizes old notes anything hire long job doesn't lose plot visitor badge master key meeting minutes human loop triggers routines approves trigger wakes important manager monday yam signing off goes form arrives customer explanations ours retyping prompt need numbers several skills connectors clickable brand built four deepseek shipped time below stops ltting can't 1i0 9am ankit's atom",
+          "takeaway": "Higher rungs run on their own, so add guardrails and climb only when the lower rung stops working."
+        }
+      ],
+      "recap": [
+        "AI use has six steps, 0 to 5: start on the lowest one that works and climb only when it stops working.",
+        "Steps 0 to 2 are asking, saving a prompt you repeat, and letting the AI use your files and tools; for most everyday work, step 2 is enough.",
+        "Steps 3 to 5 make things that run on their own, from small apps to real software you own, so they need guardrails like limited permissions and a person's sign-off."
+      ],
+      "recap_pages": 2,
+      "tagline": "Start low, climb only when you need to",
+      "vol": 1,
+      "sources": [
+        {
+          "title": "Ankit Shukla (HelloPM), shared by Aakash Gupta on X, Oct. 16, 2026: the 6 levels of building with AI (text summary on AGI Hunt)",
+          "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
+        },
+        {
+          "title": "Note: the $440 to $590 a month savings is our arithmetic from the source's $550-700 down to $110",
+          "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
+        },
+        {
+          "title": "Note: lines marked 'our read' (move-up advice for rungs 1, 2 and 4, the rung 5 trade-off, and 'Which rung are you on?') are our inference, not from the source",
+          "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
+        },
+        {
+          "title": "Note: the Sam examples, the everyday comparisons, the term explanations (MCP, AWS, Vercel, n8n, Make, Gems) and the four 'safety pieces' (limited permissions and a sandbox, memory and compaction, a human in the loop, triggers and routines) are our own plain-English explanations, not from the source",
+          "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
+        }
+      ]
     }
   ]
 }
