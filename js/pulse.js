@@ -479,7 +479,7 @@
       [].forEach.call(row.querySelectorAll(".dc-off"), function (n) { n.classList.remove("dc-off"); });
       /* squeeze the small props first, the plant last; the last plank's plant is never dropped (a narrow phone eases the spines in instead) */
       var last = row === row.parentNode.lastChild;
-      var extras = [].slice.call(row.querySelectorAll(".dc-cup,.dc-stack.sm,.dc-plant")).filter(function (n) { return getComputedStyle(n).display !== "none" && !(last && n.classList.contains("dc-plant")); }).sort(function (a, b) { return (a.classList.contains("dc-plant") ? 1 : 0) - (b.classList.contains("dc-plant") ? 1 : 0); });
+      var extras = [].slice.call(row.querySelectorAll(".dc-cup,.dc-stack.sm,.dc-stack:not(.sm),.dc-plant")).filter(function (n) { return getComputedStyle(n).display !== "none" && !(last && n.classList.contains("dc-plant")); }).sort(function (a, b) { var r = function (n) { return n.classList.contains("dc-plant") ? 2 : n.classList.contains("dc-stack") && !n.classList.contains("sm") ? 1 : 0; }; return r(a) - r(b); });
       while (row.scrollWidth > row.clientWidth + 1 && extras.length) extras.shift().classList.add("dc-off");
       row.style.removeProperty("--fit"); /* still too wide on a very narrow phone: ease every spine in a little */
       for (var k = 0, f = 1; k < 4 && row.scrollWidth > row.clientWidth + 1; k++) { f = Math.max(.7, f * (row.clientWidth - 1) / row.scrollWidth); row.style.setProperty("--fit", f.toFixed(3)); }
