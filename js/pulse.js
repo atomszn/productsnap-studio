@@ -20,6 +20,8 @@
     "tokenization": "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12 4 7.5",
     "mortgage-rates": "M4 11l8-6 8 6M6 10v10h12V10M10 20v-5h4v5",
     "debt-loop": "M17 7a7 7 0 1 0 2 5M17 3v4h-4",
+    "stablecoin-economics": "M12 4a8 8 0 1 0 0 16 8 8 0 1 0 0-16M12 7.5v9M14.6 9.4c-.6-.8-1.6-1.1-2.6-1.1-1.5 0-2.6.8-2.6 1.9 0 2.5 5.2 1.3 5.2 3.8 0 1.1-1.1 1.9-2.6 1.9-1.1 0-2.1-.4-2.7-1.2",
+    "ai-ladder": "M8 3v18M16 3v18M8 7h8M8 12h8M8 17h8",
     "fintech-rails": "M3 10l9-6 9 6zM5.5 10v7M10 10v7M14 10v7M18.5 10v7M3.5 20h17",
     "two-schools-economics": "M12 4v16M8 20h8M4 7h16M4 7l-2.5 6a2.5 2.5 0 0 0 5 0zM20 7l-2.5 6a2.5 2.5 0 0 0 5 0z",
     "dollar-gold-yen": "M12 4v16M15.5 7.5c-1-1.2-2.2-1.6-3.5-1.6-2 0-3.5 1-3.5 2.6 0 3.5 7.5 2 7.5 5.8 0 1.7-1.6 2.8-4 2.8-1.5 0-3-.5-4-1.7"
@@ -432,9 +434,9 @@
   var PHONE = window.matchMedia("(max-width:640px)");
   (PHONE.addEventListener ? PHONE.addEventListener.bind(PHONE, "change") : PHONE.addListener.bind(PHONE))(function () { if (lib && view === "shelf" && !query) renderShelves(); });
   function tiers(books) {
-    var spineN = 0, n = books.length, cap = PHONE.matches ? 5 : 7, k = Math.max(1, Math.ceil(n / cap)), per = Math.ceil(n / k), wrap = el("div", "tiers");
+    var spineN = 0, n = books.length, cap = PHONE.matches ? 5 : 7, k = Math.max(1, Math.ceil(n / cap)), base = Math.floor(n / k), extra = n % k, wrap = el("div", "tiers"), from = 0;
     for (var t = 0; t < k; t++) {
-      var part = books.slice(t * per, (t + 1) * per); if (!part.length) break;
+      var cnt = base + (t < extra ? 1 : 0), part = books.slice(from, from + cnt); from += cnt; if (!part.length) break;
       var row = el("div", "shelf-row spines tier");
       if (t % 2 === 0) row.appendChild(deco("end"));
       else row.appendChild(deco("stack"));
