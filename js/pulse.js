@@ -448,8 +448,9 @@
         if (i === leanAt) s.classList.add(t % 2 === 0 ? "is-lean-left" : "is-lean-right");
         row.appendChild(s);
       });
+      var plantHere = t === 0 || t === k - 1; /* a plant always sits on the first and the last plank, so phones (where the middle ones are dropped) keep one */
       if (t % 2 === 0) { row.appendChild(deco("stack", "sm")); row.appendChild(deco("plant")); }
-      else { row.appendChild(deco("cup")); row.appendChild(deco("end", "flip")); }
+      else { row.appendChild(deco(plantHere ? "plant" : "cup")); row.appendChild(deco("end", "flip")); }
       wrap.appendChild(row);
     }
     return wrap;
@@ -476,7 +477,9 @@
   function fitTiers() {
     [].forEach.call(document.querySelectorAll(".tier"), function (row) {
       [].forEach.call(row.querySelectorAll(".dc-off"), function (n) { n.classList.remove("dc-off"); });
-      var extras = [].slice.call(row.querySelectorAll(".dc-plant,.dc-cup,.dc-stack.sm")).filter(function (n) { return getComputedStyle(n).display !== "none"; }).reverse();
+      /* squeeze the small props first, the plant last; the last plank's plant is never dropped (a narrow phone eases the spines in instead) */
+      var last = row === row.parentNode.lastChild;
+      var extras = [].slice.call(row.querySelectorAll(".dc-cup,.dc-stack.sm,.dc-plant")).filter(function (n) { return getComputedStyle(n).display !== "none" && !(last && n.classList.contains("dc-plant")); }).sort(function (a, b) { return (a.classList.contains("dc-plant") ? 1 : 0) - (b.classList.contains("dc-plant") ? 1 : 0); });
       while (row.scrollWidth > row.clientWidth + 1 && extras.length) extras.shift().classList.add("dc-off");
       row.style.removeProperty("--fit"); /* still too wide on a very narrow phone: ease every spine in a little */
       for (var k = 0, f = 1; k < 4 && row.scrollWidth > row.clientWidth + 1; k++) { f = Math.max(.7, f * (row.clientWidth - 1) / row.scrollWidth); row.style.setProperty("--fit", f.toFixed(3)); }

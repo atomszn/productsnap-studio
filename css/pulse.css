@@ -413,7 +413,7 @@ body.page-pulse{--paper:#f3efe7;--paper-2:#ece6da;--card:#fbf9f4;background:#f3e
 }
 @media (max-width:640px){
   .tier .sp{--sw:calc(45px * var(--swb,1) * var(--fit,1))}
-  .tier:not(:last-child) .dc-plant,.tier:not(:last-child) .dc-cup{display:none}
+  .tier:not(:first-child):not(:last-child) .dc-plant,.tier:not(:last-child) .dc-cup{display:none}
   .tier .dc-stack.sm{margin-left:auto}
   .tier:last-child .dc-stack.sm{margin-left:8px}
 }
