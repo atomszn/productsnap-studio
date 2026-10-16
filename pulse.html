@@ -185,7 +185,7 @@
     <div class="reader" id="reader" hidden role="dialog" aria-modal="true" aria-labelledby="rd-title">
       <div class="rd-progress" aria-hidden="true"><i id="rd-progfill"></i></div>
       <div class="rd-top">
-        <button class="rd-btn" id="rd-close" aria-label="Put it back on the shelf (Esc)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span class="cl-t"><span class="cl-long">Put it back</span><span class="cl-short">Shelf</span></span><kbd class="cl-esc" aria-hidden="true">Esc</kbd></button>
+        <button class="rd-btn" id="rd-close" aria-label="Back to the shelf (Esc)" title="Back to the shelf"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span class="cl-t"><span class="cl-long">Back to the shelf</span><span class="cl-short">Shelf</span></span><kbd class="cl-esc" aria-hidden="true">Esc</kbd></button>
         <div class="rd-head"><span class="rd-meta"><span class="rd-topic" id="rd-topic"></span><span class="rd-stamps" id="rd-stamps"></span></span><h2 id="rd-title"></h2></div>
         <div class="rd-actions">
           <button class="rd-btn rd-ico" id="rd-ask" aria-expanded="false" aria-controls="rd-askp" aria-label="Ask about this page"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M10 9.2a2 2 0 1 1 2.6 1.9c-.4.2-.6.5-.6.9v.4M12 14.2v.01"/></svg><span class="lbl">Ask</span></button>
@@ -207,7 +207,8 @@
         <p class="askp-note">Answers are lines quoted from the library. Nothing is made up.</p>
       </div>
       <div class="rd-foot">
-        <span class="rd-pagerow"><span class="rd-pagetitle" id="rd-pagetitle"></span><span class="rd-stamps rd-stamps-foot" id="rd-stamps2"></span></span>
+        <span class="rd-pagetitle sr-only" id="rd-pagetitle"></span>
+        <span class="rd-pagerow" id="rd-pagerow" hidden><span class="rd-stamps rd-stamps-foot" id="rd-stamps2"></span></span>
         <div class="rd-take" id="rd-take" hidden><p id="rd-take-t"></p><button type="button" class="rd-btn rd-ico" id="rd-take-copy" aria-label="Copy takeaway + link" title="Copy takeaway + link"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg><span class="lbl">Copy takeaway + link</span></button></div>
         <div class="rd-dots" id="rd-dots"></div>
         <p class="rd-keys" aria-hidden="true"><kbd>←</kbd><kbd>→</kbd> turn · <kbd>Z</kbd> zoom · <kbd>B</kbd> bookmark · <kbd>A</kbd> ask · <kbd>Esc</kbd> shelf</p>
@@ -221,6 +222,7 @@
         <ul class="saved-list" id="saved-list"></ul>
       </div>
     </div>
+    <button type="button" class="totop" id="totop" aria-label="Back to top" title="Back to top" hidden><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19.5c.2-4.6-.2-9.4 0-13.6"/><path d="M6.2 11.2c1.9-1.7 4-4.1 5.8-6.2 1.7 2.1 3.9 4.5 5.9 6"/></svg></button>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <footer class="footer">

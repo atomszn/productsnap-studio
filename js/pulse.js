@@ -107,8 +107,8 @@
       list.appendChild(li);
     });
   }
-  function openSaved() { renderSaved(); $("saved").hidden = false; document.body.classList.add("reading"); $("saved-x").focus(); }
-  function closeSaved(silent) { $("saved").hidden = true; document.body.classList.remove("reading"); if (!silent) $("saved-btn").focus(); }
+  function openSaved() { renderSaved(); $("saved").hidden = false; document.body.classList.add("reading"); onScrollTop(); $("saved-x").focus(); }
+  function closeSaved(silent) { $("saved").hidden = true; document.body.classList.remove("reading"); onScrollTop(); if (!silent) $("saved-btn").focus(); }
 
   function toast(msg, ms) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, ms || 2400); }
 
@@ -661,7 +661,7 @@
     col.appendChild(el("p", "end-nt", n.title));
     var row = el("div", "end-actions");
     var open1 = el("a", "g-go", "Open book →"); open1.href = a.href; open1.setAttribute("aria-label", "Open " + n.title); row.appendChild(open1);
-    var back = el("button", "linkbtn end-shelf", "Back to the shelf"); back.type = "button"; back.onclick = close; row.appendChild(back);
+    var back = el("button", "linkbtn end-shelf", backTo().long); back.type = "button"; back.onclick = close; row.appendChild(back);
     col.appendChild(row); nx.appendChild(col); d.appendChild(nx);
     var pr = pairsNode(b, n); if (pr) d.appendChild(pr);
     if (b.sources && b.sources.length) {
@@ -722,8 +722,9 @@
     ["rd-stamps", "rd-stamps2"].forEach(function (id, k) {
       var st = $(id); st.innerHTML = "";
       if (k === 0 && isFresh(cur)) st.appendChild(stamp("New", "rd-stamp"));
-      if (!end && idx > 0 && cur.pages[idx - 1].outlook) st.appendChild(stamp("Outlook", "rd-stamp"));
+      if (!end && idx > 0 && cur.pages[idx - 1].outlook) { var os = stamp("Outlook", "rd-stamp"); os.classList.add("is-ol"); st.appendChild(os); }
     });
+    $("rd-pagerow").hidden = !$("rd-stamps2").childNodes.length;
     if (!end) ls(LS.last, { id: cur.id, p: idx + 1 });
     var pg = !end && idx > 0 ? cur.pages[idx - 1] : null, tk = pg && pg.takeaway;
     $("rd-take").hidden = !tk; if (tk) $("rd-take-t").textContent = tk;
@@ -732,6 +733,18 @@
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
     if (location.hash !== h) history.replaceState(history.state, "", h);
   }
+  /* where "back" goes: the view the reader was opened from (or the last one chosen; Shelf by default) */
+  function backTo() { return view === "topics" ? { long: "Back to topics", short: "Topics" } : { long: "Back to the shelf", short: "Shelf" }; }
+  function setBackLabel() {
+    var t = backTo(), c = $("rd-close");
+    c.setAttribute("aria-label", t.long + " (Esc)"); c.title = t.long;
+    c.querySelector(".cl-long").textContent = t.long; c.querySelector(".cl-short").textContent = t.short;
+    var es = document.querySelector(".end-shelf"); if (es) es.textContent = t.long;
+  }
+  var libY = 0;
+  /* history.back() lets the browser restore its own (clamped) scroll a moment later, so put ours back a few times */
+  function jump(y) { window.scrollTo({ top: y, left: 0, behavior: "instant" }); }
+  function restoreY(y) { jump(y); [0, 60, 200, 450].forEach(function (ms) { setTimeout(function () { if (!cur && !document.body.classList.contains("reading") && Math.abs((window.pageYOffset || 0) - y) > 2) jump(y); }, ms); }); }
   function open(id, n) {
     var b = find(id); if (!b) return false;
     var first = !cur || cur.id !== id;
@@ -747,13 +760,16 @@
       var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; if (!reduce() && !vtOn) bk.classList.add("opening");
       setTimeout(function () { if (cur) { var cb = $("rd-close"); cb.classList.toggle("nofv", !kbdNav); cb.focus({ preventScroll: true }); } }, 30);
     }
+    setBackLabel(); onScrollTop();
     paint(); return true;
   }
   function hideReader(was) {
     $("reader").hidden = true; document.body.classList.remove("reading"); cur = null;
     $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false");
     renderShelves();
-    var sp = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: false });
+    restoreY(libY); /* same view, same scroll position as when the book was opened */
+    var sp = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: true });
+    onScrollTop();
   }
   function dstOf(was) { return function () { var a = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); return a && (a.querySelector(".sp-body") || a.querySelector(".cv")); }; }
   function close() {
@@ -927,7 +943,18 @@
     else if (cur) { var was = cur; withVT($("book"), dstOf(was), function () { hideReader(was); }); }
   }
 
+  /* back-to-top pill: library view only, after about 1.5 screens of scrolling */
+  var topTick = false;
+  function onScrollTop() {
+    var b = $("totop"); if (!b) return;
+    if (!cur && !document.body.classList.contains("reading")) libY = window.pageYOffset || 0; /* remember where the library is scrolled, for the way back */
+    var show = !cur && !document.body.classList.contains("reading") && $("saved").hidden && (window.pageYOffset || 0) > innerHeight * 1.5;
+    if (show !== !b.hidden) { if (show) { b.hidden = false; requestAnimationFrame(function () { b.classList.add("on"); }); } else { b.classList.remove("on"); b.hidden = true; } }
+  }
   function wire() {
+    addEventListener("scroll", function () { if (!topTick) { topTick = true; requestAnimationFrame(function () { topTick = false; onScrollTop(); }); } }, { passive: true });
+    addEventListener("resize", onScrollTop);
+    $("totop").onclick = function () { window.scrollTo({ top: 0, behavior: reduce() ? "instant" : "smooth" }); };
     $("rd-prev").onclick = function () { turn(-1); };
     $("rd-next").onclick = function () { turn(1); };
     $("rd-close").onclick = close;

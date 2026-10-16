@@ -213,7 +213,7 @@ body.reading{overflow:hidden}
 /* short screens (landscape phones, browser chrome): give the page every pixel */
 @media (max-height:520px){
   .rd-top{padding-top:4px;padding-bottom:4px}
-  .rd-pagetitle,.rd-keys{display:none}
+  .rd-keys{display:none}
   .rd-foot{padding:0 8px 4px;gap:0}
   .rd-stage{padding:6px;--avail-h:calc(100cqh - 12px)}
 }
@@ -481,10 +481,13 @@ a.sp:focus-visible{outline:none}
 .rd-stamp{background:transparent;color:var(--pen);border-color:var(--pen);box-shadow:none;font-size:.6rem;padding:2px 6px}
 [data-theme="dark"] .rd-stamp{color:var(--pen);border-color:var(--pen)}
 .rd-meta{display:inline-flex;align-items:center;gap:8px;min-height:20px}
-.rd-pagerow{display:inline-flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.rd-pagerow{align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+
 .rd-stamps-foot{display:none}
 .rd-stamps:empty{display:none}
-@media (max-width:640px){.rd-stamps-head,.rd-meta .rd-stamps{display:none}.rd-stamps-foot{display:inline-flex}.rd-stamps-foot:empty{display:none}}
+/* phones: NEW sits beside the topic in the top row; Outlook (only on outlook pages) gets its own small row under the page */
+.rd-pagerow{display:none}
+@media (max-width:640px),(min-width:641px) and (max-width:900px) and (min-height:521px){#rd-stamps .is-ol{display:none}.rd-pagerow:not([hidden]){display:inline-flex}.rd-stamps-foot{display:inline-flex}.rd-stamps-foot:empty{display:none}.rd-meta{max-width:100%;overflow:hidden}}
 
 /* ---- paper tooltip (one for the whole shelf; positioned by JS) ---- */
 .sp-tip{position:fixed;z-index:80;width:212px;box-sizing:border-box;pointer-events:none;
@@ -729,3 +732,13 @@ a.sp:focus-visible{outline:none}
   .pg-end .end-next .end-cover{width:min(34%,72px)}
   .pg-end .pairs,.pg-end .end-sources,.pg-end .end-more{flex:0 0 100%;max-width:none}
 }
+
+/* back-to-top pill (library only; JS shows it after ~1.5 screens) */
+.totop{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(18px,calc(env(safe-area-inset-bottom) + 10px));z-index:90;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;padding:0;cursor:pointer;color:var(--ink);background:var(--card);border:1.6px solid var(--ink);box-shadow:2px 3px 0 rgba(0,0,0,.18),0 6px 16px -6px rgba(0,0,0,.35);opacity:0;transform:translateY(10px) rotate(-4deg);transition:opacity .25s ease,transform .25s ease}
+.totop.on{opacity:1;transform:rotate(-3deg)}
+.totop:hover{background:var(--paper);transform:translateY(-2px) rotate(-3deg)}
+.totop:active{transform:scale(.94) rotate(-3deg)}
+.totop:focus-visible{outline:3px solid var(--t-ai,#2b3a67);outline-offset:3px}
+.totop[hidden]{display:none}
+body.reading .totop{display:none}
+@media (prefers-reduced-motion:reduce){.totop{transition:none;transform:none}.totop.on,.totop:hover,.totop:active{transform:none}}
