@@ -1504,6 +1504,125 @@
           "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
         }
       ]
+    },
+    {
+      "id": "agents-and-marketplaces",
+      "title": "Agents and Marketplaces",
+      "topic": "AI",
+      "blurb": "Who loses when AI does the shopping.",
+      "gist": [
+        "A marketplace does four jobs. It helps you find it, takes your order, handles returns and bad sellers, and delivers. Our read: AI agents are already good at the first two.",
+        "Each store chooses. Amazon blocks shopping agents it hasn't approved and is still in court with Perplexity (as of Oct 2026). Walmart lets one in on its terms. Shopify is mostly open.",
+        "Agents hit a wall at the hard jobs. Our read: booking a hotel is easy, but groceries and returns need someone to stand behind the order. The limit isn't the agent's brains."
+      ],
+      "gist_lead": [
+        "A marketplace does four jobs.",
+        "Each store chooses.",
+        "Agents hit a wall at the hard jobs."
+      ],
+      "added": "2026-10-16",
+      "added_at": "2026-10-16T18:15",
+      "pages": [
+        {
+          "file": "assets/pulse/agents-and-marketplaces/p01.webp",
+          "thumb": "assets/pulse/agents-and-marketplaces/p01-t.webp",
+          "title": "A marketplace does four jobs",
+          "w": 1600,
+          "h": 2760,
+          "kw": "agents marketplaces businesses worry shop now search even finish purchase loses keeps edge agent helper adbas marketplace place moat protects task business rivals connects buyers like booking fame sellers amazon rath around hotel expedia doordash castle four jobs helps find transaction takes thing order read strong already trust handles returns delivery gets disputes bad seellers door still need part someone stand behind handle today take real money people ratings above shopping works exposed night travel site finds room books directly example cut charge fee later runs stay earns guest pay support trucks keep protection numbers cuts vary early small easy first ai can't whois a$200 guest's atom",
+          "takeaway": "A marketplace does four jobs: search, order, trust and delivery. Our read: agents are good at the first two, not yet the last two."
+        },
+        {
+          "file": "assets/pulse/agents-and-marketplaces/p02.webp",
+          "thumb": "assets/pulse/agents-and-marketplaces/p02-t.webp",
+          "title": "Hotels vs groceries",
+          "w": 1600,
+          "h": 2760,
+          "kw": "agents marketplaces different industries look like practice agent well struggles others trust search transaction delivery help take handle returns tit find order disputes bad sellers read already good three situations local services hotels airlines everyday retail grocery restaurants brand owns guests flyers selection many small businesses book straight fast still matter uneven quality marriott delta big stores team amazon walmart someone must stand behind keep edge meal repair directly helps easy hard replace booking verdicts based shopping works today airline least proven die week hotel groceries items out-of-stock swaps pick missing item iii return short clean window handles places wrong has one rest apps work inside chatgpt impossible cleanly weekly harder hand early jobs ai get fix atom",
+          "takeaway": "Our read: agents do well where the brand already owns the trust, like hotels, and struggle with groceries, returns and delivery."
+        },
+        {
+          "file": "assets/pulse/agents-and-marketplaces/p03.webp",
+          "thumb": "assets/pulse/agents-and-marketplaces/p03-t.webp",
+          "title": "Three stores, three choices",
+          "w": 1600,
+          "h": 2760,
+          "kw": "store let ai agents choices every has decide open door shopping keep shut walled garden agent helper keeps shoppers inside shops like asking app site find order running mall one entrance shoes three stores today seczty amazon walmart opens terms shopify mostly blocks outside assistant sparky now proved works chatgpt eligible us listed sued perplexity search checkout stays gemini copilot company nov won system says default owners switch early aug off stay seller appeals court threw paid saying hacking-law claim often sent bought one-third unlikely win set new rules case goes website hearing oct sources reuters docket wired help center read ads returns control question faces visitors software visitor person browsing pages acting identity permissions return risk wrong look fill cart pays sorts buy opening brings must answer openness choice marketplaces approved walmart's chatgpt's amazon's win.it atom",
+          "takeaway": "As of Oct 2026, Amazon keeps unapproved agents out, Walmart lets one in on its own terms, and Shopify stores are mostly open."
+        },
+        {
+          "file": "assets/pulse/agents-and-marketplaces/p04.webp",
+          "thumb": "assets/pulse/agents-and-marketplaces/p04-t.webp",
+          "title": "Where your agent hits a wall",
+          "w": 1600,
+          "h": 2760,
+          "kw": "means agents agent really anything hit wall helper laaaa marketplace place task like connects buyers sellers amazon expedia ordering hotel room pizza doordash today later read promise knock many doors shopping big stay locked stores already handle trust delivery open terms store walmart need say mostly shopify data carefully owners switch off direction exact vary platform still early hits easy finding options comparing booking awh groceries return meal repair someone has stand behind bring example order arrives damaged aive you.a refund a-fix limit smart owns hard jobs stuff get house marketplaces ai store's give fix atom",
+          "takeaway": "Our read: what limits a shopping agent is not how smart it is, it is who owns the hard jobs like delivery and refunds."
+        }
+      ],
+      "recap": [
+        "A marketplace does four jobs: search, order, trust and delivery. Our read: agents already handle the first two; trust and delivery still need real money and people.",
+        "Stores choose: Amazon keeps unapproved agents out and is still in court with Perplexity (as of Oct 2026), Walmart opens on its terms, Shopify stores are mostly open.",
+        "In the $200 hotel example (made-up numbers) an agent skips the site's 15% cut. Our read: hotels are easy for agents, groceries and returns are not."
+      ],
+      "recap_pages": 4,
+      "tagline": "Who loses when AI does the shopping",
+      "vol": 1,
+      "updated": "2026-10-16",
+      "sources": [
+        {
+          "title": "Reuters, Mar 10 2026: Amazon wins order blocking Perplexity's AI shopping agent (district court preliminary injunction, signed Mar 9 2026)",
+          "url": "https://www.reuters.com/legal/litigation/amazon-wins-order-blocking-access-perplexitys-ai-shopping-agent-2026-03-10/"
+        },
+        {
+          "title": "Reuters, Aug 4 2026: Amazon loses US court ban on Perplexity's AI shopping tools (Ninth Circuit vacated the order)",
+          "url": "https://www.reuters.com/business/retail-consumer/amazon-loses-us-court-ban-perplexitys-ai-shopping-tools-2026-08-04/"
+        },
+        {
+          "title": "US Court of Appeals for the Ninth Circuit, Amazon.com Services v. Perplexity AI, No. 26-1444: opinion of Aug 4 2026 and docket (rehearing en banc denied Sep 10 2026). The court said Amazon was unlikely to win on its computer-hacking-law claim and did not set a new legal regime for AI agents",
+          "url": "https://dockets.justia.com/docket/circuit-courts/ca9/26-1444"
+        },
+        {
+          "title": "Court docket, N.D. Cal. 3:25-cv-09514, Amazon v. Perplexity AI: preliminary injunction order of Mar 9 2026; the case is ongoing as of Oct 2026 (motion to dismiss hearing set for Nov 20 2026)",
+          "url": "https://cases.justia.com/federal/district-courts/california/candce/3%3A2025cv09514/459191/81/0.pdf"
+        },
+        {
+          "title": "WIRED: Why Walmart and OpenAI are shaking up their agentic shopping deal (Walmart's Daniel Danker: in-chat purchases converted at one-third the rate of click-outs; Sparky comes to ChatGPT)",
+          "url": "https://www.wired.com/story/ai-lab-walmart-openai-shaking-up-agentic-shopping-deal/"
+        },
+        {
+          "title": "Search Engine Land, Mar 19 2026: Walmart says ChatGPT checkout converted 3x worse than its website",
+          "url": "https://searchengineland.com/walmart-chatgpt-checkout-converted-worse-472071"
+        },
+        {
+          "title": "Retail Dive: Walmart brings Sparky to ChatGPT; account linking and payment stay in a Walmart environment",
+          "url": "https://www.retaildive.com/news/walmart-sparky-chatgpt-instant-checkout/815647/"
+        },
+        {
+          "title": "Shopify Help Center: agentic storefronts are active by default for eligible stores in ChatGPT, Google AI Mode and Gemini, Microsoft Copilot and Meta; owners can switch them off",
+          "url": "https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/requirements"
+        },
+        {
+          "title": "Shopify Help Center: Selling on ChatGPT (discovery-focused; buyers finish on the merchant's checkout; products can still show up through web crawling after opting out)",
+          "url": "https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/chatgpt"
+        },
+        {
+          "title": "Skift, Feb 11 2026: Marriott says Google AI Mode will process hotel bookings, not just send links",
+          "url": "https://skift.com/2026/02/11/marriott-google-agentic-travel-booking/"
+        },
+        {
+          "title": "Instacart newsroom, Dec 8 2025: Instacart app launches in ChatGPT with checkout inside the chat (why we say some grocery apps already work in ChatGPT)",
+          "url": "https://company.instacart.com/pressreleases/instacart-app-launches-in-openai-chatgpt"
+        },
+        {
+          "title": "Note: the verdict tags and ratings (for example 'easy for agents', 'hard to replace'), why Amazon blocks agents, and the 'Later' picture are our read, not reported facts. Airline booking by agents is the least proven. Amazon is also reported to block other agents it has not approved. 'Our read' is labelled on the pages",
+          "url": "https://dockets.justia.com/docket/circuit-courts/ca9/26-1444"
+        },
+        {
+          "title": "Note: the $200 hotel night and 15% site cut ($30) are example numbers, not real deal terms; real commissions vary, and an agent may charge a fee later. Agent shopping is still early and small today",
+          "url": "https://www.wired.com/story/ai-lab-walmart-openai-shaking-up-agentic-shopping-deal/"
+        }
+      ]
     }
   ]
 }
