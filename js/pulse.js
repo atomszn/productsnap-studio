@@ -705,7 +705,7 @@
       btn.addEventListener("scroll", more, { passive: true }); img.addEventListener("load", more); requestAnimationFrame(more); setTimeout(more, 500);
       var nx = P[i + 1]; if (nx) { var pre = new Image(); pre.src = nx.file; }
     }
-    d.appendChild(el("span", "pg-num", (i + 1) + " of " + P.length));
+    d.appendChild(el("span", "pg-num", p.gist ? "Summary" : i + " of " + b.pages.length)); // drawn pages count on their own, so the number matches the art (gist = "Summary", end card has none)
     return d;
   }
   function paint() {
@@ -715,7 +715,8 @@
     $("rd-prev").disabled = idx === 0; $("rd-next").disabled = end;
     $("rd-next").setAttribute("aria-label", idx === P.length - 1 ? "Finish the book" : "Next page");
     var dots = $("rd-dots"); dots.innerHTML = "";
-    P.forEach(function (_, i) { var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + (i + 1) + " of " + P.length); if (i === idx) d.setAttribute("aria-current", "page"); d.onclick = function () { go(i); }; dots.appendChild(d); });
+    P.forEach(function (q, i) { if (q.gist) return; var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + i + " of " + (P.length - 1)); if (i === idx) d.setAttribute("aria-current", "page"); d.onclick = function () { go(i); }; dots.appendChild(d); }); // one dot per drawn page
+    var bk = $("book"), base = parseFloat(bk.dataset.ar || "0.58"); bk.style.setProperty("--ar", (end || P[idx].gist) && base > 0.75 ? "0.75" : base.toFixed(4)); // wide cards: text pages (summary, end card) get a taller frame so the recap fits
     var on = !end && isSaved(cur.id, idx + 1);
     $("rd-bm").setAttribute("aria-pressed", String(on)); $("rd-bm-lbl").textContent = on ? "Saved" : "Save page"; $("rd-bm").disabled = end;
     $("rd-bm").setAttribute("aria-label", on ? "Page saved. Remove from Saved" : "Save this page");
@@ -753,7 +754,7 @@
     $("rd-title").textContent = b.title; $("rd-topic").textContent = b.topic;
     var vtOn = document.documentElement.hasAttribute("data-vt");
     $("reader").className = "reader t-" + b.topic.toLowerCase() + (first && !vtOn && !reduce() ? " rd-enter" : "");
-    $("book").style.setProperty("--ar", (b.pages[0].w / b.pages[0].h).toFixed(4)); // the book takes its pages' shape
+    $("book").dataset.ar = (b.pages[0].w / b.pages[0].h).toFixed(4); $("book").style.setProperty("--ar", $("book").dataset.ar); // the book takes its pages' shape
     $("reader").hidden = false; document.body.classList.add("reading");
     if (first) {
       askReset(); if (!$("rd-askp").hidden) { $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false"); }
