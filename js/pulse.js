@@ -710,6 +710,16 @@
     var pn = el("span", "pg-num", p.gist ? "Summary" : i + " of " + b.pages.length); pn.setAttribute("aria-hidden", "true"); d.appendChild(pn); // kept in the page for scripts; shown in the footer (#rd-count) so it never covers the art // drawn pages count on their own, so the number matches the art (gist = "Summary", end card has none)
     return d;
   }
+  /* reserve the tallest caption once per book + screen size, so the card never moves between pages (re-measured once web fonts land) */
+  function reserveTake(b, tk) {
+    var tb = $("rd-take"), t = $("rd-take-t"), was = [tb.hidden, tb.className, t.textContent], mh = 0;
+    tb.style.minHeight = ""; tb.hidden = false; tb.classList.remove("rd-take-ghost");
+    b.pages.forEach(function (q) { if (q.takeaway) { t.textContent = q.takeaway; mh = Math.max(mh, tb.offsetHeight); } });
+    tb.style.minHeight = mh + "px"; tb.hidden = was[0]; tb.className = was[1]; t.textContent = was[2];
+    var fontsDone = !document.fonts || document.fonts.status === "loaded";
+    tb.dataset.book = fontsDone ? b.id + "@" + innerWidth + "x" + innerHeight : "";
+    if (!fontsDone) document.fonts.ready.then(function () { if (cur === b) reserveTake(b); });
+  }
   function paint() {
     var P = pages(cur), end = idx >= P.length, host = $("page");
     host.innerHTML = ""; host.appendChild(pageNode(cur, idx));
@@ -730,10 +740,15 @@
       if (k === 0 && isFresh(cur)) st.appendChild(stamp("New", "rd-stamp"));
       if (!end && idx > 0 && cur.pages[idx - 1].outlook) { var os = stamp("Outlook", "rd-stamp"); os.classList.add("is-ol"); st.appendChild(os); }
     });
-    $("rd-pagerow").hidden = !$("rd-stamps2").childNodes.length;
+    var anyOl = cur.pages.some(function (q) { return q.outlook; }), hasSt = !!$("rd-stamps2").childNodes.length; // books with an Outlook page keep the stamp row's space on every page
+    $("rd-pagerow").hidden = !hasSt && !anyOl; $("rd-pagerow").classList.toggle("rd-pagerow-ghost", !hasSt && anyOl);
     if (!end) ls(LS.last, { id: cur.id, p: idx + 1 });
     var pg = !end && idx > 0 ? cur.pages[idx - 1] : null, tk = pg && pg.takeaway;
-    $("rd-take").hidden = !tk; if (tk) $("rd-take-t").textContent = tk;
+    var tb = $("rd-take"), anyTk = cur.pages.some(function (q) { return q.takeaway; });
+    if (anyTk && tb.dataset.book !== cur.id + "@" + innerWidth + "x" + innerHeight) reserveTake(cur, tk);
+    if (!anyTk) { tb.style.minHeight = ""; tb.dataset.book = ""; }
+    tb.hidden = !tk && !anyTk; tb.classList.toggle("rd-take-ghost", !tk && anyTk); tb.setAttribute("aria-hidden", String(!tk));
+    $("rd-take-t").textContent = tk || "";
     askReset();
     var reached = Math.min(idx + 1, P.length); if (reached > (ls(LS.prog + cur.id) || 0)) ls(LS.prog + cur.id, reached);
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);

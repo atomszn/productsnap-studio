@@ -750,3 +750,6 @@ body.reading .totop{display:none}
 .rd-more[hidden]{display:none}
 .end-more,.pg:not(.pg-gist):not(.pg-end)::after{display:none!important}
 .rd-count{font:600 .8rem var(--body);color:var(--ink-soft);letter-spacing:.02em}
+.rd-take{box-sizing:border-box}
+.rd-take.rd-take-ghost{visibility:hidden}
+.rd-pagerow.rd-pagerow-ghost{visibility:hidden;min-height:16px}
