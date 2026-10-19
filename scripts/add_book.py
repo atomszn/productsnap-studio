@@ -94,8 +94,8 @@ def cmd_book(a):
             "pages": [page_entry(a.slug, i, s, t) for i, (s, t) in enumerate(zip(a.pages, titles), 1)]}
     # recap: 1-3 plain lines that cover ALL pages; recap_pages records how many pages it was written for
     if a.recap:
-        if not 1 <= len(a.recap) <= 3:
-            sys.exit("--recap takes 1 to 3 lines")
+        if not 1 <= len(a.recap) <= 4:
+            sys.exit("--recap takes 1 to 4 lines")
         book["recap"] = a.recap
     elif old and old.get("recap") and old.get("recap_pages") == len(a.pages):
         book["recap"] = old["recap"]
@@ -135,7 +135,7 @@ def free_index(b):
 
 def cmd_append(a):
     lib = load(); b = find(lib, a.slug)
-    if not a.recap or not 1 <= len(a.recap) <= 3:
+    if not a.recap or not 1 <= len(a.recap) <= 4:
         sys.exit("Adding a page changes the book: pass --recap with 1-3 plain lines covering ALL %d pages (the 'You finished' card)." % (len(b["pages"]) + 1))
     entry = page_entry(a.slug, free_index(b), a.image, a.title)  # file names are opaque; order lives in JSON
     if a.at:
