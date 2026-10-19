@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-16",
+  "updated": "2026-10-19",
   "books": [
     {
       "id": "agent-native-infrastructure",
@@ -925,86 +925,124 @@
       "id": "debt-loop",
       "title": "The Debt Loop",
       "topic": "Macro",
-      "blurb": "Why borrowing to pay interest feeds itself.",
+      "blurb": "Why borrowing to pay interest feeds itself, told through one teen's $20 a week.",
       "gist": [
-        "Borrowing to pay interest. The US owes about $40 trillion and now pays over $1 trillion a year in interest, much of it paid by borrowing more.",
-        "The pipes matter. Every new IOU passes through money plumbing: bank reserves, short-term lending and money funds. Tight pipes make borrowing cost more.",
-        "Borrowed bets are fragile. Bets on Treasuries made with borrowed money work until lenders ask for cash back. New money also reaches asset owners before wage earners."
+        "Borrowing to pay interest makes debt grow on itself: in 2026 about half of new US borrowing just covered interest.",
+        "When lots of borrowed money moves at once, a calm market can suddenly panic.",
+        "New money reaches some people before prices rise, and others after."
+      ],
+      "gist_lead": [
+        "Borrowing to pay interest",
+        "When lots of borrowed money moves at once",
+        "New money reaches some people"
       ],
       "added": "2026-10-12",
+      "added_at": "2026-10-19T12:04",
       "pages": [
         {
           "file": "assets/pulse/debt-loop/p01.webp",
           "thumb": "assets/pulse/debt-loop/p01-t.webp",
-          "title": "Borrowing to pay the interest",
-          "w": 1080,
-          "h": 1443,
-          "kw": "pulse macro big picture first debt loap pay terest gist us government spends collects borrows owes bigger yearly interest bill paid new borrowing grows itself loop everything trillion right now rent borrowed money fiscal year government's budget october september treasury outside lenders 29nb th66b yrs ago past years oct sep oldest newest cheap pricier serene eee esses sees stmple numbers grew alone every dollars see cecccccccccccccncccccceccccsceccccececcccsceccccececcccececcccsceccccececcecececcccsceccccscsccccscsccensosccccscsccccsees eeccccccccccccccccccsees eecccccccccccccsccccccnccccccsccccccscccscceccccccscccsccecscccescsccccsoes sources data expense public pul full penny total outstanding latest day earlier ratio arithmetic interchangeable compares sizes trace library lore borrowinct debtloop paytheinterest zist bil interestthe ttbs suh asod usfiscalyears octtosep old ious low rates small mostly spending oldiouscomedve newiovs repaid ones jumps cost cover simplenumbers triion trilion douars issues tatest eartier librarymacro 1or",
-          "takeaway": "When interest is paid with new borrowing, the debt grows on itself."
+          "title": "Your $20 and the government",
+          "w": 1600,
+          "h": 2400,
+          "kw": "government led fas yisye ghee vhs dep priya earns week tutoring saves bank lends non wait lending pays back fill interest whe debt money owe ai like owing friend concert tickets soy area reso gres extra fee borrowing paying governments borrow leo pay roads schools hospitals emergencies taxes dont cover source priyas story concert-ticket numbers example outside figures card lof atom i'm amo noh hauow zqaa sso don't priya's cardiofll"
         },
         {
           "file": "assets/pulse/debt-loop/p02.webp",
           "thumb": "assets/pulse/debt-loop/p02-t.webp",
-          "title": "The pipes behind the debt",
-          "w": 1080,
-          "h": 1350,
-          "kw": "macro money plumbing one pipe time pulse debt loge idea behind every treasury sells cash has travel through pipes called get tight borrowing costs jump even nothing else changed reserves banks checking accounts fed trillion now repo pawn-shop loan big players hand iov overnight buy back tomorrow bit market fund parks savers short safe loans reverse fed's parking spot spare uew tou gets paid lends worked example room think funds park extra step years ago held plenty holds billion basically empty new jou must pull somewhere bank scarce pawn price rate spike fora day two eee clogging empties runminnnuunuuueuunuuuuuuuu susu ere rerccrerersrccccscceccceccccccccccccccccccccccccccccccccccccccccccccecccccccccccccccccccceccccccecccccceccccccecccccceccccccecccsccccccsccccccsccecccsccecccscccccccccecccsccccccsccscccsccsccccccsccccces care sets page financed sources federal reserve h.4.1 balances week ending month 3.03t york totals louis fred peak 2.55t latest 0.3b library loop 2or debtloop borowing fed.about lou wew iou dealer 10u buys pawns lendsthatcash workedexample thespareroom triion o.3 rates needs have cushion busy days fnanced librarymacro thedebt",
-          "takeaway": "When the system's spare cash runs low, short-term borrowing costs can jump."
+          "title": "The debt loop",
+          "w": 1600,
+          "h": 2400,
+          "kw": "debt loop trillion sne laf yasa big us government's treasury oct ssh every american person earth cour math that's lot tutoring america japan italy france uk owe whole economy makes year vez ene borrow card things need pay bill paycheck can't cover wrong yigg glp pays i's interest now source penny census bureau population clock per-person figures arithmetic imf international monetary fund world economic outlook credit-card story example atom ll7 notjust",
+          "takeaway": "That's the debt loop: borrowing to pay interest makes debt grow on itself."
         },
         {
           "file": "assets/pulse/debt-loop/p03.webp",
           "thumb": "assets/pulse/debt-loop/p03-t.webp",
-          "title": "Bets built on borrowed money",
-          "w": 1080,
-          "h": 1372,
-          "kw": "pulse macro debt loge borrowed money one idea buyers government 0us use mostly borrowing sits outside regular banks called shadow leverage works fine until lenders want cash back moment using make bigger bet allows hedge fund private investment wealthy investors institutions margin call lender saying add now sell stuff basis trade buying treasury selling nearly identical promise futures contract pocket tiny price gap eee worked example simple numbers real step has million borrows repo buys ous earns say made small look big prices wobble 50m loss gone must ious fast lots funds pushes yields calm days ser stress already happened first covid market panic rushed treasuries fed bought large amounts eermunununnuuueuunuuuuuuute tte ter orc ecrererccrccccccecccccccccccccccccccccccccccccccccccccccccccsccccccccsccecccsccecccsccecccccceccccccecccscceccccccecccccecccsccececsccecccsccecccsccecccscceccesccecccsccecccsccecccsccscecsccsccccees sources federal reserve financial stability reports early-pandemic purchases ours illustration library loop ort betsbuilton borrowedmoney somebuyersof governmentloususemostlyborrowedmoney.thatborrowingsits leverage.it borrowedmoneyto makea biggerbetthan ownmoney lou simplenumbers notarealfund i0us milion borrow cheap hold roll loan earn every night calls forced jump pulselibrary",
-          "takeaway": "Bets built on borrowed money work until lenders want their cash back all at once."
+          "title": "The interest bill tripled",
+          "w": 1600,
+          "h": 2400,
+          "kw": "interest bill tripled billion 2025s 0s2 us treasury budget years net yearly minus government earns back year runs october september eee india's uk's run april march short deficit spending taxes collected pee sant rounded math data coon tia stats borrowed dollars paid g88 source fiscal monthly statement shares arithmetic 34s card ill atom os2 0.s3 2020vs2026 card3of",
+          "takeaway": "So about half the new borrowing just paid interest."
         },
         {
           "file": "assets/pulse/debt-loop/p04.webp",
           "thumb": "assets/pulse/debt-loop/p04-t.webp",
+          "title": "Who lends to a government?",
+          "w": 1600,
+          "h": 2400,
+          "kw": "lends government l0u bikey promise pay back later interest us called treasuries fed america's central bank like rbi india rba australia england reverse repo overnight parking spot big funds ley spare cash countries held 0us march cour math treasury data government's social security pension system savers banks everyone else source ownership mar shares arithmetic owe federal reserve card atom governmentlou rbl 10us savers'funds lou bank.rbl india.rba card4of1"
+        },
+        {
+          "file": "assets/pulse/debt-loop/p05.webp",
+          "thumb": "assets/pulse/debt-loop/p05-t.webp",
+          "title": "Less spare cash, riskier bets",
+          "w": 1600,
+          "h": 2400,
+          "kw": "spare cash riskier bets dec fed's parking spot held billion oct nearly zero work simplified hoa government sells new 0us used must tempt lenders interest borrowing get pricier say leverage using borrowed money make bigger bet allows arjun puts borrows example numbers buys bike resell prices dip it's worth friend wants back today gone source york federal reserve fed us central bank data reverse repo peak latest arjun's card atom ss4 0ct2026 o.i simplifed lous 4so soo 0ct cardofll",
+          "takeaway": "A 10% dip wiped out 100% of his own money."
+        },
+        {
+          "file": "assets/pulse/debt-loop/p06.webp",
+          "thumb": "assets/pulse/debt-loop/p06-t.webp",
+          "title": "When everyone sells at once",
+          "w": 1600,
+          "h": 2400,
+          "kw": "everyone sells hedge fund investment big investors takes bigger lijj risks margin call lender says pay back now add cash puts million borrows example numbers buys government 0us tiny gain money lee 10u prices dip lost must sell oul lll march first covid panic rushed swap us lots selling pushed fed bought 1.4s trillion weeks markets calmed sep borrowed bets billion roughly double early federal reserve research data source fund's central bank financial stability report holdings arithmetic note jun 330b owe card atom sso lous frst ious l.4s 7weeks 202s 10us 830b card6ofll",
+          "takeaway": "Our read: a calm market isn't proof of safety. Borrowed bets let small dips spread fast."
+        },
+        {
+          "file": "assets/pulse/debt-loop/p07.webp",
+          "thumb": "assets/pulse/debt-loop/p07-t.webp",
           "title": "Who gets new money first?",
-          "w": 1080,
-          "h": 1350,
-          "kw": "macro gets new money first pulse debt loge gist enters system reach everyone people closest spend prices adjust farthest away get later have already risen economists call cantillon effect richard th-century banker writer described touches bond owners dealers ete rise flow alalalahekaiatalalalaladaiadahaielalalataleaiieieiaiaiabaabaacieialalaba aaa aielalaiaa aiabalalalataa ahaha lala alalal aba lalallala talaa aehal aden worked example town one bakery numbers step has total makes loaves loaf costs appears goes baker landlord buys old price good deal notices chasing bread drifts dollars eee worker pay still now real world version shopping basket cost five years ago today cconsumer whether income kept pace depends sit line close loop sevceveveususevevceseveusureveusereversusereusesereuseserersuseversereversureversureceuersesersurereeserereecuserereeserereuserereesereesrereteeseseeererereetereteeteretsereretterereteeterereesereteurerereeveretertereerrereversererertert simple number sources us bureau labor statistics consumer index items louis fed fred latest month library whocets 4ist havealreadyrisen.economists callthisthecantilloneffect 18th-century frst whotoucheswewdollarsfirst government asset banks wage earners borrows spends stocks homesrise raises come last handlethe fow workedexample atownwithonebakery ournumbers baker's worker's stiu realworld ioo fve i23 22.s% borrowing interestbill leveraged buyers page through pipes front librarymacro thedebt",
-          "takeaway": "New money reaches some people before prices rise and others after."
+          "w": 1600,
+          "h": 2400,
+          "kw": "gets new money first see eee vacs follow through tiny town che example numbers has one bakery ais loaves loaf costs appears baker's landlord mlle buys old price bread day goaas iia drifts loa zen ztun ulatz ond hte aft stg ipaves bite us worker still earns cantillon effect economists call richard gea 18th-century writer source card io ioo frst l.10 iobuys about9loaves ofll atom",
+          "takeaway": "Same pay, less bread."
+        },
+        {
+          "file": "assets/pulse/debt-loop/p08.webp",
+          "thumb": "assets/pulse/debt-loop/p08-t.webp",
+          "title": "Who feels it first?",
+          "w": 1600,
+          "h": 2400,
+          "kw": "feels first eye assets things rise value like house tiyy shares small pieces company sep ase basket us goods bureau labor statistics price office that's snacks cost itd country tracks prices glhal india's uk's consumer index aslea lig read lisesi people often feel new money pay tends catch later families possible chain forecast loans mortgages chome future taxes cover interest businesses cafe's loan oven startups find harder raise source items arithmetic becomes family business lines card atom offce frst home fnd 202l 2026.0ur i23 card8ofl"
+        },
+        {
+          "file": "assets/pulse/debt-loop/p09.webp",
+          "thumb": "assets/pulse/debt-loop/p09-t.webp",
+          "title": "Who carries the debt?",
+          "w": 1600,
+          "h": 2400,
+          "kw": "carries debt banks pension funds countries buy government 10us because they're safe place park money get paid interest workers society possible chain forecast spent leave room schools roads today's teens future taxpayers carry economists disagree ole say manageable economy grows faster bill others squeezes spending raises risk crisis japan italy uk india australia compared one year everything country makes cimf international monetary fund estimates vit billion pounds expected cobr uk's budget watchdog tet central government's revenue cour math source imf world economic outlook share office responsibility union 1ou owe card atom lous sgueezes japan199% italy138% us127% s3% llo 202s-26 0br offce lou cardqofll"
+        },
+        {
+          "file": "assets/pulse/debt-loop/p10.webp",
+          "thumb": "assets/pulse/debt-loop/p10-t.webp",
+          "title": "What it means for you",
+          "w": 1600,
+          "h": 2400,
+          "kw": "means has saved priya's week one year later example numbers next bank pays prices rise stuff costs savings buy little lll interest-rate news central itm eee fed rbi rba england government's budget day much plans borrow interest rate car student loan sign shop versus earn detective mode source figures cour arithmetic federal reserve india australia card ill atom s21 rbl us bank.rbl india.rba",
+          "takeaway": "If prices rise faster than your savings earn, your savings shrink."
+        },
+        {
+          "file": "assets/pulse/debt-loop/p11.webp",
+          "thumb": "assets/pulse/debt-loop/p11-t.webp",
+          "title": "3 things to remember",
+          "w": 1600,
+          "h": 2400,
+          "kw": "things remember ons debt grows itself borrowing pay interest makes grow calm market suddenly panic pis kfs lots borrowed money moves markets new reaches first eis people prices rise others lil mle one thing year check savings rate beats price rises got back tutoring source recap earlier cards figures card atom frst ilofl"
         }
-      ],
-      "tagline": "Why borrowing to pay interest feeds itself",
-      "updated": "2026-10-15",
-      "sources": [
-        {
-          "title": "US Treasury Fiscal Data: Interest Expense on the Debt Outstanding",
-          "url": "https://fiscaldata.treasury.gov/datasets/interest-expense-debt-outstanding/"
-        },
-        {
-          "title": "US Treasury Fiscal Data: Debt to the Penny",
-          "url": "https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/"
-        },
-        {
-          "title": "FRED: Overnight reverse repo (New York Fed)",
-          "url": "https://fred.stlouisfed.org/series/RRPONTSYD"
-        },
-        {
-          "title": "FRED: CPI, all items (BLS)",
-          "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
-        },
-        {
-          "title": "Federal Reserve: Financial Stability Report, May 2020, Overview",
-          "url": "https://www.federalreserve.gov/publications/2020-may-financial-stability-report-overview.htm"
-        }
-      ],
-      "gist_lead": [
-        "Borrowing to pay interest.",
-        "The pipes matter.",
-        "Borrowed bets are fragile."
       ],
       "recap": [
-        "When interest is paid with new borrowing, the debt grows on itself.",
-        "The money pipes can seize up when spare cash runs low, and bets built on borrowed money fail when lenders want cash back.",
-        "New money reaches some people before prices rise and others after."
+        "Borrowing to pay interest makes debt grow on itself.",
+        "When lots of borrowed money moves at once, a calm market can suddenly panic.",
+        "New money reaches some people before prices rise, and others after.",
+        "If prices rise faster than your savings earn, your savings shrink, so compare the two once a year."
       ],
-      "recap_pages": 4
+      "recap_pages": 11,
+      "tagline": "Card 2 paying card 1. What could go wrong?",
+      "updated": "2026-10-19"
     },
     {
       "id": "dollar-gold-yen",

@@ -6,8 +6,8 @@ L = json.load(open(os.path.join(os.path.dirname(__file__), "..", "data", "librar
 bad = []
 for b in L:
     r = b.get("recap")
-    if not r or not 1 <= len(r) <= 3 or not all(isinstance(x, str) and x.strip() for x in r):
-        bad.append("%s: recap must be 1-3 non-empty lines" % b["id"])
+    if not r or not 1 <= len(r) <= 4 or not all(isinstance(x, str) and x.strip() for x in r):
+        bad.append("%s: recap must be 1-4 non-empty lines" % b["id"])
     if b.get("recap_pages") != len(b["pages"]):
         bad.append("%s: recap_pages=%s but the book has %d pages; rewrite the recap (add_book.py --recap)" % (b["id"], b.get("recap_pages"), len(b["pages"])))
 print("\n".join(bad) or "library OK: %d books, recaps match page counts" % len(L))

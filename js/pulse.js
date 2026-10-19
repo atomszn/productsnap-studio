@@ -308,7 +308,7 @@
   }
   /* pencil ticks: one slanted tick per page, filled for pages already reached */
   function readOf(b) { var total = b.pages.length + 1; return Math.min(total, Math.round(progress(b) * total)); }
-  function readText(b) { var n = readOf(b), t = b.pages.length + 1; return n ? "Read up to page " + n + " of " + t : "0 of " + t + " pages read"; } // ticks = furthest page reached, not the page you are on
+  function readText(b) { var n = readOf(b), t = b.pages.length, d = Math.min(t, Math.max(0, n - 1)); return d ? "Read up to page " + d + " of " + t : n ? "Read the summary · 0 of " + t + " pages" : "0 of " + t + " pages read"; } // counts drawn pages only, like the in-book counter // ticks = furthest page reached, not the page you are on
   function ticks(b, cls) {
     var total = b.pages.length + 1, reached = readOf(b), w = el("span", cls);
     w.setAttribute("aria-hidden", "true");
@@ -672,10 +672,12 @@
     }
     /* short phones: the card scrolls inside itself; a small sticky pill says "more below" until the bottom is reached */
     var more = el("span", "end-more"); more.setAttribute("aria-hidden", "true"); more.appendChild(el("span", "end-more-pill", "Scroll for more ↓")); d.appendChild(more);
-    var upd = function () { d.classList.toggle("g-more", d.scrollHeight - d.scrollTop - d.clientHeight > 8); };
+    var upd = function () { d.classList.toggle("g-more", d.scrollHeight - d.scrollTop - d.clientHeight > 8); syncMore(d); };
     d.addEventListener("scroll", upd, { passive: true }); requestAnimationFrame(upd); setTimeout(upd, 500); setTimeout(upd, 1200);
     return d;
   }
+  /* "Scroll for more" lives in the footer next to the counter, so it never covers a page's source line or takeaway */
+  function syncMore(d) { var m = $("rd-more"); if (m && d && d.isConnected) m.hidden = !d.classList.contains("g-more"); }
   function pageNode(b, i) {
     var P = pages(b);
     if (i >= P.length) return endNode(b);
@@ -694,19 +696,29 @@
       d.appendChild(sc);
       /* the page-turn button lives outside the scrolling text, so it is always on screen, however short the phone */
       var ft = el("div", "g-foot"), go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; ft.appendChild(go); d.appendChild(ft);
-      var more = function () { d.classList.toggle("g-more", sc.scrollHeight - sc.scrollTop - sc.clientHeight > 3); };
+      var more = function () { d.classList.toggle("g-more", sc.scrollHeight - sc.scrollTop - sc.clientHeight > 3); syncMore(d); };
       sc.addEventListener("scroll", more, { passive: true }); requestAnimationFrame(more); setTimeout(more, 400);
     } else {
       var btn = el("button", "pg-zoom"); btn.type = "button"; btn.setAttribute("aria-label", "Zoom into page: " + p.title);
       var img = el("img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + "."; img.width = p.w; img.height = p.h; img.decoding = "async"; if (Math.abs(i - idx) > 1) img.loading = "lazy";
       btn.appendChild(img); btn.onclick = function () { zoom(p, b); }; d.appendChild(btn);
       /* taller than the screen: the sketch fits the card's width and scrolls inside it; a small "Scroll" pill says so */
-      var more = function () { d.classList.toggle("g-more", btn.scrollHeight - btn.scrollTop - btn.clientHeight > 6); };
+      var more = function () { d.classList.toggle("g-more", btn.scrollHeight - btn.scrollTop - btn.clientHeight > 6); syncMore(d); };
       btn.addEventListener("scroll", more, { passive: true }); img.addEventListener("load", more); requestAnimationFrame(more); setTimeout(more, 500);
       var nx = P[i + 1]; if (nx) { var pre = new Image(); pre.src = nx.file; }
     }
-    d.appendChild(el("span", "pg-num", (i + 1) + " of " + P.length));
+    var pn = el("span", "pg-num", p.gist ? "Summary" : i + " of " + b.pages.length); pn.setAttribute("aria-hidden", "true"); d.appendChild(pn); // kept in the page for scripts; shown in the footer (#rd-count) so it never covers the art // drawn pages count on their own, so the number matches the art (gist = "Summary", end card has none)
     return d;
+  }
+  /* reserve the tallest caption once per book + screen size, so the card never moves between pages (re-measured once web fonts land) */
+  function reserveTake(b, tk) {
+    var tb = $("rd-take"), t = $("rd-take-t"), was = [tb.hidden, tb.className, t.textContent], mh = 0;
+    tb.style.minHeight = ""; tb.hidden = false; tb.classList.remove("rd-take-ghost");
+    b.pages.forEach(function (q) { if (q.takeaway) { t.textContent = q.takeaway; mh = Math.max(mh, tb.offsetHeight); } });
+    tb.style.minHeight = mh + "px"; tb.hidden = was[0]; tb.className = was[1]; t.textContent = was[2];
+    var fontsDone = !document.fonts || document.fonts.status === "loaded";
+    tb.dataset.book = fontsDone ? b.id + "@" + innerWidth + "x" + innerHeight : "";
+    if (!fontsDone) document.fonts.ready.then(function () { if (cur === b) reserveTake(b); });
   }
   function paint() {
     var P = pages(cur), end = idx >= P.length, host = $("page");
@@ -714,8 +726,11 @@
     $("rd-progfill").style.width = Math.round((idx + 1) / P.length * 100) + "%"; $("rd-pagetitle").textContent = end ? "Finished — " + P.length + " pages" : P[idx].gist ? "The 60-second version" : P[idx].title;
     $("rd-prev").disabled = idx === 0; $("rd-next").disabled = end;
     $("rd-next").setAttribute("aria-label", idx === P.length - 1 ? "Finish the book" : "Next page");
-    var dots = $("rd-dots"); dots.innerHTML = "";
-    P.forEach(function (_, i) { var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + (i + 1) + " of " + P.length); if (i === idx) d.setAttribute("aria-current", "page"); d.onclick = function () { go(i); }; dots.appendChild(d); });
+    $("rd-more").hidden = true;
+    $("rd-count").textContent = end ? "Finished" : P[idx].gist ? "Summary" : idx + " of " + (P.length - 1);
+    var dots = $("rd-dots"); dots.innerHTML = ""; dots.classList.toggle("seg", P.length - 1 > 9); // long books: a slim segmented bar, always one row
+    P.forEach(function (q, i) { if (q.gist) return; var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + i + " of " + (P.length - 1)); if (i === idx) d.setAttribute("aria-current", "page"); d.onclick = function () { go(i); }; dots.appendChild(d); }); // one dot per drawn page
+    var bk = $("book"), base = parseFloat(bk.dataset.ar || "0.58"); bk.style.setProperty("--ar", (end || P[idx].gist) && base > 0.75 ? "0.75" : base.toFixed(4)); // wide cards: text pages (summary, end card) get a taller frame so the recap fits
     var on = !end && isSaved(cur.id, idx + 1);
     $("rd-bm").setAttribute("aria-pressed", String(on)); $("rd-bm-lbl").textContent = on ? "Saved" : "Save page"; $("rd-bm").disabled = end;
     $("rd-bm").setAttribute("aria-label", on ? "Page saved. Remove from Saved" : "Save this page");
@@ -725,10 +740,15 @@
       if (k === 0 && isFresh(cur)) st.appendChild(stamp("New", "rd-stamp"));
       if (!end && idx > 0 && cur.pages[idx - 1].outlook) { var os = stamp("Outlook", "rd-stamp"); os.classList.add("is-ol"); st.appendChild(os); }
     });
-    $("rd-pagerow").hidden = !$("rd-stamps2").childNodes.length;
+    var anyOl = cur.pages.some(function (q) { return q.outlook; }), hasSt = !!$("rd-stamps2").childNodes.length; // books with an Outlook page keep the stamp row's space on every page
+    $("rd-pagerow").hidden = !hasSt && !anyOl; $("rd-pagerow").classList.toggle("rd-pagerow-ghost", !hasSt && anyOl);
     if (!end) ls(LS.last, { id: cur.id, p: idx + 1 });
     var pg = !end && idx > 0 ? cur.pages[idx - 1] : null, tk = pg && pg.takeaway;
-    $("rd-take").hidden = !tk; if (tk) $("rd-take-t").textContent = tk;
+    var tb = $("rd-take"), anyTk = cur.pages.some(function (q) { return q.takeaway; });
+    if (anyTk && tb.dataset.book !== cur.id + "@" + innerWidth + "x" + innerHeight) reserveTake(cur, tk);
+    if (!anyTk) { tb.style.minHeight = ""; tb.dataset.book = ""; }
+    tb.hidden = !tk && !anyTk; tb.classList.toggle("rd-take-ghost", !tk && anyTk); tb.setAttribute("aria-hidden", String(!tk));
+    $("rd-take-t").textContent = tk || "";
     askReset();
     var reached = Math.min(idx + 1, P.length); if (reached > (ls(LS.prog + cur.id) || 0)) ls(LS.prog + cur.id, reached);
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
@@ -753,7 +773,7 @@
     $("rd-title").textContent = b.title; $("rd-topic").textContent = b.topic;
     var vtOn = document.documentElement.hasAttribute("data-vt");
     $("reader").className = "reader t-" + b.topic.toLowerCase() + (first && !vtOn && !reduce() ? " rd-enter" : "");
-    $("book").style.setProperty("--ar", (b.pages[0].w / b.pages[0].h).toFixed(4)); // the book takes its pages' shape
+    $("book").dataset.ar = (b.pages[0].w / b.pages[0].h).toFixed(4); $("book").style.setProperty("--ar", $("book").dataset.ar); // the book takes its pages' shape
     $("reader").hidden = false; document.body.classList.add("reading");
     if (first) {
       askReset(); if (!$("rd-askp").hidden) { $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false"); }
