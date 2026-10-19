@@ -728,7 +728,7 @@
     $("rd-next").setAttribute("aria-label", idx === P.length - 1 ? "Finish the book" : "Next page");
     $("rd-more").hidden = true;
     $("rd-count").textContent = end ? "Finished" : P[idx].gist ? "Summary" : idx + " of " + (P.length - 1);
-    var dots = $("rd-dots"); dots.innerHTML = "";
+    var dots = $("rd-dots"); dots.innerHTML = ""; dots.classList.toggle("seg", P.length - 1 > 9); // long books: a slim segmented bar, always one row
     P.forEach(function (q, i) { if (q.gist) return; var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + i + " of " + (P.length - 1)); if (i === idx) d.setAttribute("aria-current", "page"); d.onclick = function () { go(i); }; dots.appendChild(d); }); // one dot per drawn page
     var bk = $("book"), base = parseFloat(bk.dataset.ar || "0.58"); bk.style.setProperty("--ar", (end || P[idx].gist) && base > 0.75 ? "0.75" : base.toFixed(4)); // wide cards: text pages (summary, end card) get a taller frame so the recap fits
     var on = !end && isSaved(cur.id, idx + 1);

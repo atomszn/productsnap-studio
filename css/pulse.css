@@ -753,3 +753,28 @@ body.reading .totop{display:none}
 .rd-take{box-sizing:border-box}
 .rd-take.rd-take-ghost{visibility:hidden}
 .rd-pagerow.rd-pagerow-ghost{visibility:hidden;min-height:16px}
+
+/* ---- phone review round (Oct 19): one-row dots, tighter footer, bigger card, full title ---- */
+.rd-dots{flex-wrap:nowrap;max-width:100%}
+.rd-dots .dot{flex:0 1 44px;min-width:0}
+.rd-dots.seg{gap:3px;padding:0 4px;width:min(100%,520px)}
+.rd-dots.seg .dot{flex:1 1 0;height:28px}
+.rd-dots.seg .dot::before{width:100%;height:5px;border-radius:3px}
+.rd-dots.seg .dot.on::before{transform:scaleY(1.6)}
+@media (max-width:640px){
+  .rd-top{flex-wrap:wrap;row-gap:2px}
+  .rd-head{order:3;flex:1 0 100%;display:flex;flex-direction:column;align-items:center;gap:0}
+  .rd-head h2{white-space:normal;overflow:hidden;text-overflow:clip;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.2;font-size:1rem;text-align:center}
+  .rd-meta{min-height:0;line-height:1.1}
+  .rd-actions{margin-left:auto}
+  .rd-foot{gap:4px;padding-top:4px;padding-bottom:4px}
+  .rd-countrow{margin:0}
+  .rd-dots .dot{height:30px}
+  .rd-dots.seg .dot{height:24px}
+  .rd-stage{padding:4px 2px;--avail-h:calc(100cqh - 8px)}
+  .book{width:calc(100cqw - 4px);height:min(var(--avail-h),calc((100cqw - 4px) / var(--ar,0.58)))}
+}
+@media (max-width:640px){
+  .rd-dots .dot{height:44px;margin:-7px 0}
+  .rd-dots.seg .dot{height:44px;margin:-10px 0}
+}
