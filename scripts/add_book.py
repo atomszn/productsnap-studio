@@ -86,12 +86,16 @@ def cmd_book(a):
     titles = a.page_titles or [""] * len(a.pages)
     if len(titles) != len(a.pages):
         sys.exit("--page-titles must match --pages")
+    if a.takeaways and len(a.takeaways) != len(a.pages):
+        sys.exit("--takeaways must match --pages (use \"\" for a page without one); shown in the caption box under the page, never drawn on the card")
     lib = load()
     old = next((b for b in lib["books"] if b["id"] == a.slug), None)
     book = {"id": a.slug, "title": a.title, "topic": a.topic, "blurb": a.blurb,
             "gist": a.gist, **({"gist_lead": a.gist_lead} if a.gist_lead else {}), "added": (old or {}).get("added") or datetime.date.today().isoformat(),
             "added_at": (old or {}).get("added_at") or datetime.datetime.now().isoformat(timespec="minutes"),
             "pages": [page_entry(a.slug, i, s, t) for i, (s, t) in enumerate(zip(a.pages, titles), 1)]}
+    for pg, tk in zip(book["pages"], a.takeaways or []):
+        if tk.strip(): pg["takeaway"] = tk.strip()
     # recap: 1-3 plain lines that cover ALL pages; recap_pages records how many pages it was written for
     if a.recap:
         if not 1 <= len(a.recap) <= 4:
@@ -223,7 +227,7 @@ sp = ap.add_subparsers(dest="cmd", required=True)
 p = sp.add_parser("book"); p.set_defaults(fn=cmd_book)
 p.add_argument("--slug", required=True); p.add_argument("--title", required=True)
 p.add_argument("--topic", required=True); p.add_argument("--blurb", required=True)
-p.add_argument("--gist", nargs=3, required=True); p.add_argument("--recap", nargs="+", help="1-3 plain lines recapping the WHOLE book (shown on the end card); required whenever the page set changes"); p.add_argument("--gist-lead", nargs=3, help="optional bold lead phrase for each gist line; must be the start of that line"); p.add_argument("--pages", nargs="+", required=True)
+p.add_argument("--gist", nargs=3, required=True); p.add_argument("--takeaways", nargs="+", help="optional: one takeaway per page (pages[].takeaway), shown in the caption box under the page"); p.add_argument("--recap", nargs="+", help="1-3 plain lines recapping the WHOLE book (shown on the end card); required whenever the page set changes"); p.add_argument("--gist-lead", nargs=3, help="optional bold lead phrase for each gist line; must be the start of that line"); p.add_argument("--pages", nargs="+", required=True)
 p.add_argument("--page-titles", nargs="+")
 p = sp.add_parser("replace"); p.set_defaults(fn=cmd_replace)
 p.add_argument("--slug", required=True); p.add_argument("--page", type=int, required=True)

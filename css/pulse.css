@@ -742,3 +742,11 @@ a.sp:focus-visible{outline:none}
 .totop[hidden]{display:none}
 body.reading .totop{display:none}
 @media (prefers-reduced-motion:reduce){.totop{transition:none;transform:none}.totop.on,.totop:hover,.totop:active{transform:none}}
+
+/* page counter lives under the book, never on the art */
+.pg-num{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;padding:0;box-shadow:none}
+.rd-countrow{margin:0 0 4px;display:flex;justify-content:center;align-items:center;gap:10px}
+.rd-more{font:600 .75rem var(--body);color:var(--ink);border:1.5px solid var(--ink-faded,rgba(0,0,0,.25));border-radius:999px;padding:1px 10px}
+.rd-more[hidden]{display:none}
+.end-more,.pg:not(.pg-gist):not(.pg-end)::after{display:none!important}
+.rd-count{font:600 .8rem var(--body);color:var(--ink-soft);letter-spacing:.02em}
