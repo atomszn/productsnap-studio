@@ -778,3 +778,12 @@ body.reading .totop{display:none}
   .rd-dots .dot{height:44px;margin:-7px 0}
   .rd-dots.seg .dot{height:44px;margin:-10px 0}
 }
+
+/* phones: prev/next sit at the bottom corners, beside the counter and progress bar (44px targets), off the art and the takeaway */
+@media (max-width:640px){
+  .rd-foot{position:relative}
+  .rd-foot.has-nav .rd-countrow,.rd-foot.has-nav .rd-dots{padding-left:58px;padding-right:58px;box-sizing:border-box;align-self:stretch}
+  .rd-foot.has-nav>.rd-nav{position:absolute;bottom:max(2px,env(safe-area-inset-bottom));top:auto;margin:0;width:44px;height:44px;box-shadow:none;background:var(--card)}
+  .rd-foot.has-nav>.rd-prev{left:8px}.rd-foot.has-nav>.rd-next{right:8px}
+  .rd-foot.has-nav>.rd-nav:disabled{opacity:.25;pointer-events:none}
+}
