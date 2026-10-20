@@ -701,7 +701,7 @@
     } else {
       var btn = el("button", "pg-zoom"); btn.type = "button"; btn.setAttribute("aria-label", "Zoom into page: " + p.title);
       var img = el("img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + "."; img.width = p.w; img.height = p.h; img.decoding = "async"; if (Math.abs(i - idx) > 1) img.loading = "lazy";
-      btn.appendChild(img); btn.onclick = function () { zoom(p, b); }; d.appendChild(btn);
+      btn.appendChild(img); btn.onclick = function () { if (Date.now() - askBlurAt < 800) { if ($("askp-in").value.trim() && !$("askp-out").textContent) askPage($("askp-in").value); return; } zoom(p, b); }; d.appendChild(btn); // a tap meant for Ask can land here after the keyboard drops
       /* taller than the screen: the sketch fits the card's width and scrolls inside it; a small "Scroll" pill says so */
       var more = function () { d.classList.toggle("g-more", btn.scrollHeight - btn.scrollTop - btn.clientHeight > 6); syncMore(d); };
       btn.addEventListener("scroll", more, { passive: true }); img.addEventListener("load", more); requestAnimationFrame(more); setTimeout(more, 500);
@@ -939,7 +939,7 @@
     if (on) { loadText().catch(function () {}); askReset(); if (!touch && window.matchMedia && matchMedia("(hover:hover) and (pointer:fine)").matches) setTimeout(function () { $("askp-in").focus({ preventScroll: true }); }, 30); } // touch: never raise the keyboard until the reader taps the box
     else $("rd-ask").focus({ preventScroll: true });
   }
-  var zoomFrom = null;
+  var zoomFrom = null, askBlurAt = 0;
   function zoom(p, b) {
     var z = $("zoom"), img = $("zoom-img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + ".";
     zoomFrom = document.activeElement;
@@ -999,6 +999,11 @@
     $("rd-ask").onclick = function () { toggleAsk(); };
     $("askp-x").onclick = function () { toggleAsk(false); };
     $("askp-form").onsubmit = function (e) { e.preventDefault(); askPage($("askp-in").value); dismissKbd($("askp-in")); };
+    /* phones: tapping Ask (or Explain simply) blurs the box first, the keyboard drops, the sheet slides down and the click
+       used to land on the page image underneath (full-page zoom, question never asked). Keep focus on pointerdown so the
+       click lands on the button, and remember the blur so a stray click on the page is ignored. */
+    [].forEach.call(document.querySelectorAll("#askp-form button[type=submit], #askp-simple"), function (x) { x.addEventListener("pointerdown", function (e) { if (document.activeElement === $("askp-in")) e.preventDefault(); }); });
+    $("askp-in").addEventListener("blur", function () { askBlurAt = Date.now(); });
     $("askp-simple").onclick = explainSimply;
     $("askp-in").addEventListener("keydown", function (e) { if (e.key === "Escape") { e.preventDefault(); e.stopPropagation(); toggleAsk(false); } });
     $("rd-take-copy").onclick = function () {

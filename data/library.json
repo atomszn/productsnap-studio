@@ -666,91 +666,6 @@
    "recap_pages": 4
   },
   {
-   "id": "stablecoin-rails",
-   "title": "Stablecoins & the Rails Underneath",
-   "topic": "Fintech",
-   "blurb": "How money could move on one shared record.",
-   "gist": [
-    "Many records, one shared list. Banks and brokers each keep their own record of who owns what. A shared ledger keeps them in sync.",
-    "A stablecoin is a digital dollar. It can move any day, at any hour.",
-    "Same idea inside banks. Tokenized deposits do the same job but stay inside your own bank."
-   ],
-   "added": "2026-10-12",
-   "pages": [
-    {
-     "file": "assets/pulse/stablecoin-rails/p01.webp",
-     "thumb": "assets/pulse/stablecoin-rails/p01-t.webp",
-     "title": "The rails underneath",
-     "w": 1600,
-     "h": 2760,
-     "kw": "stablecoins tokenization part rails underneath eee today every bank broker keeps record lly lunn owns moving value means syncing records ess apes blockchains offer one shared everyone update check sell stock friday afternoon separate ledgers ledger share token digital dollars clearing central depository messages pass between sides together settle minutes settles next business day run even saturday cash lands monday reality tokenized stocks don't trade way instead three words know smart contract claim move rules like release payment statement usdc circle shares arrive ethereum main public blockchain banks use private versions brokers aren going away many new hen lai moves atom buyer brokerage account yet ticket held aren't money",
-     "takeaway": "Today money moves as messages between separate records; new rails put it on one shared record."
-    },
-    {
-     "file": "assets/pulse/stablecoin-rails/p02.webp",
-     "thumb": "assets/pulse/stablecoin-rails/p02-t.webp",
-     "title": "Stablecoins: the open digital dollar",
-     "w": 1600,
-     "h": 2760,
-     "kw": "stablecoins tokenization part open digital dollar bank transfers move business hours pass through several banks stablecoin shared ledger anyone wallet hold send time sending family abroad saturday today wire e.g usdc waits monday goes now even often takes days arrives minutes fees costly network fee usually small doesn't three things know use backs always reserves held issuer moves treasuries mostly cash short-term weekends holidays circle reality check spend locally still swap back regular money exchange next building version called tokenized deposits like text message middle 500usdc along open.a atom",
-     "takeaway": "A stablecoin is a digital dollar on a shared ledger that can move at any time."
-    },
-    {
-     "file": "assets/pulse/stablecoin-rails/p03.webp",
-     "thumb": "assets/pulse/stablecoin-rails/p03-t.webp",
-     "title": "Tokenized deposits vs. stablecoins",
-     "w": 1600,
-     "h": 2760,
-     "kw": "stablecoins tokenization part tokenized deposits digital dollars move fast follow rules difference holds money who's allowed use paying supplier sunday stablecoin e.g usdc deposit issued company circle jpmorgan kinexys outside bank used big companies leaves never key differences owes issuer dollar insurance reality check early mostly between banks far atom open roads lokenized private highway swap turns token send wallet moves bank's network lands supplier's account jpmorgan's customers anyone permissioned like normal keep exists anywhere",
-     "takeaway": "Stablecoins leave the bank; tokenized deposits stay inside it."
-    },
-    {
-     "file": "assets/pulse/stablecoin-rails/p04.webp",
-     "thumb": "assets/pulse/stablecoin-rails/p04-t.webp",
-     "title": "The rules of the road",
-     "w": 1600,
-     "h": 2760,
-     "kw": "rules road company issues digital dollar must prove eee us issuers genius act real money backing every coin cash rina reserves bank deposits short-term treasuries like coat check one ticket monthly proof publish reserve mix checked accounting firm signed ceo cfo approved license interest cannot pay holders elsewhere gaps wow europe mica issuer licensed e-money hold full back face value request reality deposit insurance regulators still writing details needs behind stablecoins rails underneath part it's atom",
-     "takeaway": "Every coin needs a real dollar behind it, and proof that the dollar is there."
-    }
-   ],
-   "updated": "2026-10-13",
-   "tagline": "How money moves underneath your apps",
-   "sources": [
-    {
-     "title": "GENIUS Act, Public Law 119-27 (Congress.gov full text)",
-     "url": "https://www.congress.gov/119/plaws/publ27/PLAW-119publ27.htm"
-    },
-    {
-     "title": "12 U.S.C. 5903 (Cornell LII)",
-     "url": "https://www.law.cornell.edu/uscode/text/12/5903"
-    },
-    {
-     "title": "EUR-Lex: Regulation (EU) 2023/1114 (MiCA)",
-     "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114"
-    },
-    {
-     "title": "FDIC: Understanding Deposit Insurance",
-     "url": "https://www.fdic.gov/resources/deposit-insurance/understanding-deposit-insurance"
-    },
-    {
-     "title": "J.P. Morgan Kinexys",
-     "url": "https://www.kinexys.com/"
-    }
-   ],
-   "gist_lead": [
-    "Many records, one shared list.",
-    "A stablecoin is a digital dollar.",
-    "Same idea inside banks."
-   ],
-   "recap": [
-    "Today money moves as messages between separate records; new rails put it on one shared record.",
-    "A stablecoin is a digital dollar that leaves the bank; a tokenized deposit does the job inside it.",
-    "Either way, every coin needs a real dollar behind it, with proof."
-   ],
-   "recap_pages": 4
-  },
-  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
@@ -1331,116 +1246,6 @@
    ]
   },
   {
-   "id": "stablecoin-economics",
-   "title": "Stablecoin Economics",
-   "topic": "Fintech",
-   "blurb": "How stablecoin issuers and apps share the interest.",
-   "gist": [
-    "A dollar with a business behind it. A stablecoin is a token meant to stay worth $1. The issuer holds the dollars in cash and short-term US government IOUs, which earn interest.",
-    "The interest gets shared. Circle says about 59 cents of each revenue dollar goes to partners such as Coinbase and Binance, plus costs. The issuer doesn't pay it to holders.",
-    "Spending is catching up. Stablecoin payments grew 45% on a year earlier while the number of coins barely moved (Allium). Cards still handle checkout; the change is mostly between companies."
-   ],
-   "gist_lead": [
-    "A dollar with a business behind it.",
-    "The interest gets shared.",
-    "Spending is catching up."
-   ],
-   "added": "2026-10-16",
-   "added_at": "2026-10-16T11:01",
-   "pages": [
-    {
-     "file": "assets/pulse/stablecoin-economics/p01.webp",
-     "thumb": "assets/pulse/stablecoin-economics/p01-t.webp",
-     "title": "How a stablecoin pays its partners",
-     "w": 1600,
-     "h": 2760,
-     "kw": "stablecoin pays partners stablecoins move money someone still has earn holding handing digital token always meant worth think dollar send seconds example usdc made company called circle three words plain english paw us treasury bill iou government lend now back plus little extra later lbba short-term paid within year often weeks months like loan notice apps companies get coin aaa people hands examples exchanges coinbase binance wallets online banks comes tas i0us pay issuer shares keeps safe cash interest big part savings account real numbers first half billion came cents every went transaction costs left profit figures one partner reported together business model that's people's t-bill ious put circle's atom",
-     "takeaway": "The interest earned on the dollars behind a stablecoin is shared between the issuer and the apps that bring it customers."
-    },
-    {
-     "file": "assets/pulse/stablecoin-economics/p02.webp",
-     "thumb": "assets/pulse/stablecoin-economics/p02-t.webp",
-     "title": "Follow one $100: how an app earns",
-     "w": 1600,
-     "h": 2760,
-     "kw": "follow one money app earns stablecoin isa digital token always meant worth issuer company makes lol step maya sends bank now holds coins keeps cash short-term us government i0us behind ious earn interest year shares part because brought get gets dollar send seconds apps pay rewards whether allowed still debated example numbers show flow real rates deals vary toes maya's fees plus share friend fee charges say half wants keep use often splits public good know partners companies coin have financial growth circle transaction costs first 319m business customers turn back directly nothing people ences exchange charae reality check running takes rules itself pays holders law bars issuers paying holdin rails move partner economics make want using t-bill that's hand aug 819m paid charge holding atom",
-     "takeaway": "In the example, sharing the interest takes the app from $0.50 to $2.50 a year, so it wants Maya's money to stay."
-    },
-    {
-     "file": "assets/pulse/stablecoin-economics/p03.webp",
-     "thumb": "assets/pulse/stablecoin-economics/p03-t.webp",
-     "title": "When payments outgrow supply",
-     "w": 1600,
-     "h": 2760,
-     "kw": "changes payments volume rows faster supply money move even number coins stays blockchain public online total dollars record book logs every coin transfer anyone exist actually sent read on-chain means pay things recorded like taxis cabs give far rides now emerging signal transfers data company called allium year earlier counts still people through sept trading exchanges versus holding billion goods since services january smaller slice anuary lms ones rose average fell comparison classification estimates practice shop aoe shopper partners places share depends take send mostly balances digital dollar payment activity fore without cashing add fee income bank account first eae reality check cards today aia visa mastercard handle final step checkout change moves between companies paying across different currencies doesn replace system pays issuer spending starting catch stablecoins business model grows fasfer taxi allium's whatit depending deal today's networks doesn't atom",
-     "takeaway": "Stablecoin payments grew far faster than the number of coins: the same coins are doing more work."
-    }
-   ],
-   "recap": [
-    "A stablecoin issuer earns interest on the dollars behind the coins and shares much of it with partner apps; it doesn't pay that interest to holders.",
-    "In a made-up $100 example, sharing the interest takes an app from $0.50 to $2.50 a year; Circle says about 59 cents of each revenue dollar goes to partners and costs.",
-    "Payments grew far faster than the number of coins, but cards still handle checkout; the change is mostly between companies."
-   ],
-   "recap_pages": 3,
-   "tagline": "How stablecoin issuers and apps share the interest",
-   "vol": 1,
-   "updated": "2026-10-16",
-   "sources": [
-    {
-     "title": "Circle blog: The Economics of USDC and Why Our Partners Win (H1 2026: about $1.4B revenue, about $819M to partners and transaction costs, 59 cents per revenue dollar, 7 cents profit; Coinbase, Binance, 150+ partners; redemption terms)",
-     "url": "https://www.circle.com/blog/the-economics-of-usdc-and-why-our-partners-win"
-    },
-    {
-     "title": "Circle Form 10-Q for the quarter ended June 30, 2026 (SEC): revenue and reserve income $1,395.4M; distribution, transaction and other costs $819.3M; net income from continuing operations $103.5M",
-     "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
-    },
-    {
-     "title": "Circle Q2 2026 financial results (investor relations)",
-     "url": "https://investor.circle.com/files/doc_news/2026/Aug/05/CIRCLE_Q2-2026.pdf"
-    },
-    {
-     "title": "Circle Q2 2026 earnings call transcript (Aug. 2026): 150+ distribution partners",
-     "url": "https://www.fool.com/earnings/call-transcripts/2026/08/12/circle-crcl-q2-2026-earnings-call-transcript/"
-    },
-    {
-     "title": "Circle Mint: institutional customers only, not available to individuals",
-     "url": "https://www.circle.com/circle-mint"
-    },
-    {
-     "title": "Circle USDC Terms: who can redeem directly with Circle",
-     "url": "https://www.circle.com/legal/usdc-terms"
-    },
-    {
-     "title": "GENIUS Act (Public Law 119-27), section 4(a)(11): issuers may not pay holders interest or yield solely for holding",
-     "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ27/html/PLAW-119publ27.htm"
-    },
-    {
-     "title": "Congressional Research Service IF13174: The Stablecoin Yield Debate (platform rewards still debated)",
-     "url": "https://www.congress.gov/crs-product/IF13174"
-    },
-    {
-     "title": "TreasuryDirect: Treasury bills (terms of 4 to 52 weeks, paid face value at maturity)",
-     "url": "https://www.treasurydirect.gov/marketable-securities/treasury-bills/"
-    },
-    {
-     "title": "Allium: State of Stablecoins and Payments, Q3 2026 (data through Sept. 30, 2026): payments +45% to $482B, count +71% to 1.04B, average $544 to $462, Q3 +51% on a year earlier; supply +0.4% since the start of the year, to $305B. Allium's own classification and estimates",
-     "url": "https://www.allium.so/reports/state-of-stablecoins-and-payments-q3-2026"
-    },
-    {
-     "title": "Allium: State of Stablecoins and Payments, Sep 2026 (payments up 42% or more 'on 2025', supply +6% year over year; business-to-business payments are the largest lane; trading 69% of adjusted volume)",
-     "url": "https://www.allium.so/reports/state-of-stablecoins-and-payments-september-2026"
-    },
-    {
-     "title": "Note on the Allium baselines: Allium's Q3 summary does not spell out the 45% baseline. We read it as January to September 2026 versus the same months of 2025, because (a) its September report words the same measure as 'up 42% ... on 2025', and (b) the numbers reconcile: $482B / 1.04B payments = about $463 average now, and $482B / 1.45 = about $332B over 1.04B / 1.71 = about 608M payments gives about $546 a year earlier, matching Allium's $544. Supply's +0.4% is since January (Allium: '0.4% above the start of the year'). Our arithmetic",
-     "url": "https://www.allium.so/reports/state-of-stablecoins-and-payments-q3-2026"
-    },
-    {
-     "title": "Note: the Maya example, the taxi comparison and all plain-English explanations are ours; dollar amounts in the example are labelled example numbers, not real deal terms",
-     "url": "https://www.circle.com/blog/the-economics-of-usdc-and-why-our-partners-win"
-    }
-   ]
-  },
-  {
    "id": "ai-ladder",
    "title": "The AI Ladder",
    "topic": "AI",
@@ -1622,6 +1427,95 @@
      "url": "https://www.wired.com/story/ai-lab-walmart-openai-shaking-up-agentic-shopping-deal/"
     }
    ]
+  },
+  {
+   "id": "stablecoins",
+   "title": "Stablecoins",
+   "topic": "Fintech",
+   "blurb": "Follow Ana's $100 as it becomes a digital dollar: what backs it, who earns the interest, the rules around the world, and what it means for you.",
+   "gist": [
+    "A stablecoin is a digital claim ticket worth $1, backed mostly by short US government IOUs and cash.",
+    "The interest on that backing goes to the issuer and its partners; holders get none, by law in the US and EU.",
+    "It is fast and works 24/7, but it is not a bank account: no deposit insurance, and it can wobble below $1."
+   ],
+   "added": "2026-10-20",
+   "added_at": "2026-10-20T10:08",
+   "pages": [
+    {
+     "file": "assets/pulse/stablecoins/p01.webp",
+     "thumb": "assets/pulse/stablecoins/p01-t.webp",
+     "title": "Ana's $100 gets a coat-check ticket",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ana geis cor t-check ticket cneehw enh eee oom eke relais phenedvnase allararperte eae popol caw aca bia erord cerayse ors eon coed ner fall wig sod see ona ages fal ces sees watiiaee nee eco wee croc skok oie sic wie tee sila nahielmis xuhtore weeks nema ele eene wen say oxeny colors ron ono tah enera ehorexete ceo ets ere decne conc sac creo orcro bot srg lie pee een onpreke neesp ezee asus evenere orcs mop hat ekendy dmekxempive nays dips nen teks eks tern pie eceteen emul ai eneushe seer siren eve coral ene nae aor con stablecoin digital token built stay worth two big ones circle's usdc usd coin tether's usdt tether like coat check hands gets tokens back issuer company makes keeps real dollars lives blockchain shared public record app read open even sunday night bring hand get whole promise bonus interest source circle terms holders redeem oct card whatitis ana'ss1oogetsa coat-checkticket atom",
+     "takeaway": "A stablecoin is a claim ticket: the dollars sit with the issuer, and you get exactly $1 back per token, nothing more."
+    },
+    {
+     "file": "assets/pulse/stablecoins/p02.webp",
+     "thumb": "assets/pulse/stablecoins/p02-t.webp",
+     "title": "What sits in the vault",
+     "w": 1600,
+     "h": 2400,
+     "kw": "sit wal oes ori poy lal ast ees ai toes satz take uit nesses key pss nay sah mostly short 1ous us government sits fund treasury bills t-bills loans pay back weeks months safe easy sell plus plain cash dollars banks people fast idea abroad india's uk's australia's notes ous counts new law accounting firm checks vault issuer posts report every month source genius act pub jul s.4 allowed reserves monthly checked reports circle usdc transparency page reserve overnight repo oct card whatbacksit whatsitsinthevault lous ious genlus atom"
+    },
+    {
+     "file": "assets/pulse/stablecoins/p03.webp",
+     "thumb": "assets/pulse/stablecoins/p03-t.webp",
+     "title": "Who earns on Ana's $100?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "earn eae eee oke tee niv ole eatin ein ate eglewes lin ikt aie wae eop minas eile esis weve sie pie ema tae leelee peel scene erelenece edie caste eese ete ene sce ore eet 22s eis wiley ejeike hit nerd eripe eiartiane leip win terle s78 wis ele end ire cise nih els sia slpe hee oma lac aiiniver cikine wrae ble lie s16 shih san saguisiie oph sateen wall ipa bie aieiw ela athe koy wom mete wile ccmthy goatee ocr ler wees eal sle paear bip sik orm anlal teo cees snaeence sot pee ebe ees pivialig nigig elpeena ods sele io poor pact ahig bein ereraye ace une boa weta rgl ipkignis sade allel sak ai bia pis sous efiwirie ily wel temp pice vee wus viv wise aly cee les rap cilia elie roe wiprie pasc hrn rcm lrt ewe ese ooo osi rro len woo ross sess rea cls wee else toca see npeseerere clin viele sip ose spe cele lee ipi ite eel ayia us pue ev siiw onl oce ecm pon pentnaewvrnvsesvesvpoeeses een sep eer eke o's mim 010s efe.6 spsl epee sase wikis eneens aaa pags diismelie eam aca eeu rie ssa pelee proh ley eteke mek asies oirie ofa te.e dike cane celeste elm kaiwa oan ewes enews aime elem lea cae eew es.e tan beos secale mee betes enve crate wid teta cine wre feb aiene vil lil way soe peerarete ses arenas tet 1ace nell bere lesen vault earns interest t-bills short government ous paid year ana's ana gets goes issuer ticket says split circle maker usdc usd coin took billion janjjun cents went partners like coinbase coin-buying app costs profit read slice apps push stablecoins hard source 10-q results aug reserve return example arithmetic card ana'ss1oo ious jan-jun atom",
+     "takeaway": "The interest on the backing goes to the issuer and its partners, not to you; that is the business model."
+    },
+    {
+     "file": "assets/pulse/stablecoins/p04.webp",
+     "thumb": "assets/pulse/stablecoins/p04-t.webp",
+     "title": "Five referees, five rulebooks",
+     "w": 1600,
+     "h": 2400,
+     "kw": "five referees rulebooks eoeee eeeee oeee eseewevevee fle ele ie-seies eee wwe ewe eewe eeeeseeeeeeeee eevee eeeeevee wee oreo eneviet neme nenenene ere ove ewes coree ev eeeeese see wow peee sere fee prev eeees loss oeo ios onoac tene ngs yew pew vee peewee wae pyre ese ogy wey oro ooo eeeeee owe lie ene wise e's coe owree us genius act guiding establishing national innovation stablecoins safe assets coin license interest holding force jan eu mica markets crypto-assets rules live since jun licensed issuer full backing pay back face value uk fca financial conduct authority set final start oct bank england plans extra giant coins draft due end-2026 india rbi reserve leans toward ban backs digital rupee upi unified payments interface instead australia law treat like prepaid cards needing yet source s.4 s.20 reg arts ps26 code practice parliament panel australian treasury exposure bill mar notin card therules fivereferees fiverulebooks genlus rbl upl atom"
+    },
+    {
+     "file": "assets/pulse/stablecoins/p05.webp",
+     "thumb": "assets/pulse/stablecoins/p05-t.webp",
+     "title": "Open roads vs private highway",
+     "w": 1600,
+     "h": 2400,
+     "kw": "open private highway rave aie niet ai wes yar rer yaa vit nin igs area yay sss poss dos roads stablecoins ride public blockchains anyone drive hour banks build highways networks members payments growing stablecoin hit billion jan sep honest context dollars moved rest trading tether's usdt us dollar carries shop debit cards now spend card network still checkout source allium state through coindesk oct realuse openroadsvsprivatehighway jan-sep attheshop atom"
+    },
+    {
+     "file": "assets/pulse/stablecoins/p06.webp",
+     "thumb": "assets/pulse/stablecoins/p06-t.webp",
+     "title": "Four people, one $100",
+     "w": 1600,
+     "h": 2400,
+     "kw": "four people one gsc lae aes vet ara bees omar see thy ins ral sie bank ana moves savings tokens have money lend car loans mortgages shop owner maybe cheaper card fees rent rupees pounds dollars cashing must easy sending home abroad cost average s13 cash-out count regulator everyone cashes vault pay fast rush called arun source world remittance prices worldwide global quotes illustrations pointsofview s1oo run atom"
+    },
+    {
+     "file": "assets/pulse/stablecoins/p07.webp",
+     "thumb": "assets/pulse/stablecoins/p07-t.webp",
+     "title": "Good news, bad news",
+     "w": 1600,
+     "h": 2400,
+     "kw": "good news bad eee never closes works crosses borders minutes slip below mar circle's usdc usd coin fell cents billion cash stuck failed bank got back days safety net government deposit insurance us fdic federal corporation india's dicgc credit guarantee uk's fscs financial services compensation scheme australia's claims fees scams cash-out add send wrong address scammer usually gone source circle statements 3.3b silicon valley low near apra pages oct card foryou atom",
+     "takeaway": "A stablecoin is not a bank account: no deposit insurance, and it can briefly slip below $1."
+    },
+    {
+     "file": "assets/pulse/stablecoins/p08.webp",
+     "thumb": "assets/pulse/stablecoins/p08-t.webp",
+     "title": "Ana's $100, start to finish",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ana start finish wary www fis aly vers swe awageacatasd ees maw dollars tokens coat-check ticket worth vault mostly t-bills short us government ous cash earns year example issuer partners keep rules eu set uk india australia drafting read handy plumbing moving savings account source cards genius act mica fca rbi australian treasury circle alltum world bank oct card recap ana's s1oo 1.dollars 2.the ious 4.the rbl allium atom"
+    }
+   ],
+   "recap": [
+    "Dollars in, tokens out: the issuer keeps the cash and T-bills, and the interest.",
+    "The rules: US and EU set, UK from 2027, India wary, Australia drafting.",
+    "Handy plumbing for moving dollars, not a savings account."
+   ],
+   "recap_pages": 8,
+   "tagline": "A $1 ticket that never sleeps."
   }
  ]
 }
