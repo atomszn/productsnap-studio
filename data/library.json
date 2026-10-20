@@ -669,91 +669,91 @@
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
-   "blurb": "A digital receipt for something real.",
+   "blurb": "Digital receipts for real things: what tokenization is, what's real today, tokenized bank deposits, and what it means for Priya's savings.",
    "gist": [
-    "A token is a receipt, not the thing. It is a receipt written in a notebook everyone shares, while the real asset stays in the vault.",
-    "Boring things first. Funds and loans move first; homes and sports teams come later.",
-    "A quiet change. Your bank app may already use the new rails behind the scenes. Same bank, faster money."
+    "A token is a digital receipt for a real asset, kept in one shared notebook (a blockchain).",
+    "Boring assets go first: tokenized US Treasuries are about $14.5B (as of Oct 20, 2026), and banks are tokenizing deposits.",
+    "For most people it changes the plumbing, not the app; the legal link is the big risk."
    ],
    "added": "2026-10-12",
+   "added_at": "2026-10-20T12:04",
    "pages": [
     {
      "file": "assets/pulse/tokenization/p01.webp",
      "thumb": "assets/pulse/tokenization/p01-t.webp",
-     "title": "What tokenization actually is",
+     "title": "A receipt, not the thing",
      "w": 1600,
-     "h": 2760,
-     "kw": "tokenization part actually today owns kept many separate notebooks adds one shared notebook blockchain shares sell tokenized iia ledger fff ethereum e.g schwab makes sure master record token mirrors real share robinhood sides pay us stocks ber updated separately stay messages back forth moves done next business day update everyone sees settle minutes stays vault receipt traveling bother rules ride digital claim itself approved buyers hold ose pays interest dividends automatically parties see together getting buy move even weekends version offered redeem cash reality check mostly big institutions far people still use normal brokerage account isn asset clearinghouse dtcc broker twin buyer it's isn't atom",
-     "takeaway": "A token isn't the asset itself; it's a receipt in a notebook everyone shares."
+     "h": 2400,
+     "kw": "rece thing soa tele wii iff gilts fer ai cfs eamw435s ant pase tokenization making digital receipt token something real like fund share writing blockchain one shared notebook many firms read today lots notebooks app bank central record-keeper keep list us keeper dtcc depository trust clearing corporation master record owns stocks tomorrow everyone reads page updates stays put vault traveling source dtcc.jcom oct tosco financial assets report nov card whatitis areceipt bankand list.in usthatkeeper isthe depositorytrust readsthe samepage thething staysput dtcc.com 2o26 iosc0 financialassets 2o25 card1of8 atom"
     },
     {
      "file": "assets/pulse/tokenization/p02.webp",
      "thumb": "assets/pulse/tokenization/p02-t.webp",
-     "title": "Tokens vs. crypto: not the same thing",
+     "title": "Coin vs token",
      "w": 1600,
-     "h": 2760,
-     "kw": "tokenization part tokens crypto thing le7s live blockchain people lump together value comes completely different come crypto-native e.g.a coin tokenized asset e.g treasury fund cbo real born treasuries nothing behind off-chain recente on-chain legal claim worth buyers pay token points means eae often limited approved reality check good issuer road cargo atom recorded demand price moves who's one network blackrock rules open anyone fails still exists",
-     "takeaway": "A token points to a real thing, while a crypto coin is the thing itself."
+     "h": 2400,
+     "kw": "coin token tan pel aes oto aoa thing crypto like bitcoin has vault behind worth whatever next buyer pays points tokenized fund share real stuff us government lous held stablecoin built stay backed cash short ious reality check good company legal claim source bis annual economic report iii iosco tokenization nov card tokens vscrypto vstoken hasno it.it whateverthe buyerpays atoken thething atokenized stuf heldbythefund thelegal 2o25 ch.iii iosc0 card2of8 atom",
+     "takeaway": "A crypto coin is the thing itself; a token is a receipt that points to something real, so check who stands behind it."
     },
     {
      "file": "assets/pulse/tokenization/p03.webp",
      "thumb": "assets/pulse/tokenization/p03-t.webp",
-     "title": "What's actually tokenized today",
+     "title": "Safe stuff first. Fancy stuff later.",
      "w": 1600,
-     "h": 2760,
-     "kw": "tokenization part what's actually tokenized today hear tokenize everything homes sports teams concert tickets real now still early moving ear ene ere satrpe ened treasury money-market funds stocks e.g stock tokens meee eee eae esa blackrock buidl sold outside us estate event rights small pilots private loans figure stablecoins often cash side trades boring assets first exciting ones later realistic path near term further regulated rails needs buyers resell mostly big investors plus clear laws easy price already trade lag enough yet reality check people buy sell through normal brokerage account treasuries touchdowns atom growing blackrock's",
-     "takeaway": "Boring assets like Treasury and money-market funds get tokenized first."
+     "h": 2400,
+     "kw": "safe stuff first fancy later sst sesi ies wss mazza leas ses vom nat qyye boring goes tokenized us treasuries government ious total billion oct money-market fund holds short ous aims keep share one biggest buidl blackrock's holders million minimum big investors homes teams wait hard price buyers resell source rwa.xyz pages blackrock securitize card fat what's real now s14.5 asofoct20 tokenizedmoney-market s2.2 billionand 103holders 5millionminimum buyersto tokenizedtreasuries 0ct minimumper card3of8 atom"
     },
     {
      "file": "assets/pulse/tokenization/p04.webp",
      "thumb": "assets/pulse/tokenization/p04-t.webp",
-     "title": "What changes for you",
+     "title": "Your bank balance, on a blockchain",
      "w": 1600,
-     "h": 2760,
-     "kw": "tokenization part changes say hold money-market fund brokerage like schwab sicalihaeh what's different tokenized saturday move platform allows pledge token collateral need loan i.e deposit backs business cash between accounts weekend instead sitting idle money stops waiting monday eee buy version offered e.g franklin templeton benji app limits doe brokerages offer tokens yet many extra sign-up checks reality check people keep using normal account change mostly happen behind scenes faster doors sat today days minutes cutoff time wait sell first getting bank redeem it's back templeton's atom",
-     "takeaway": "For most people, tokenization will happen behind the scenes in a normal account."
+     "h": 2400,
+     "kw": "oona bank balance blockchain sis sla rey seg ine pte rez tokenized deposit normal written token still bank's money rules real example jpmorgan's unit kinexys moves billion day jpm coin opened public blockchains including ethereum oct business clients stablecoin comes company holding reserves itself bother companies pay a.m sunday source j.p morgan goes live avg daily volume internal data card atom tokenizeddeposits ona itis depositis anormal abouts7billion day.its deposittoken openedonpublicblockchains includingethereum onoct19 forbusinessclients nota companyholding reserves.a otherat a.m.on j.p.morgan internaldata card4of8",
+     "takeaway": "A tokenized deposit is still your bank's money, just written on a blockchain so it can move any hour."
     },
     {
      "file": "assets/pulse/tokenization/p05.webp",
      "thumb": "assets/pulse/tokenization/p05-t.webp",
-     "title": "Who benefits, and who has to adapt",
+     "title": "Priya's fund, before and after",
      "w": 1600,
-     "h": 2760,
-     "kw": "tokenization part benefits has adapt money moves rails banks brokers clearing firms run new rail gets added wins feels pressure join useful like phone network worth everyone's adds sticks old notebooks keeps grows role slow overnight e.g blackrock token funds customers drift faster jpmorgan kinexys offers any-day still catch later won't replace bank it'll rewire iio means fll change comes step banking app quietly use blockchains built tokenized assets ride reality check big institutions testing scaling blackrock's jpmorgan's atom",
-     "takeaway": "New rails reward firms that join, with slow pressure on those that don't."
+     "h": 2400,
+     "kw": "priy und befo ane nae cur pall aad van meet priya saves money-market fund safe short ous app like liquid mutual india cash uk isa individual savings account option australian super retirement sells friday night offices shut often lands monday tokenized share swap hour day reality check never see token changes plumbing behind source rba project acacia final report settlement times vary provider illustration card atom priya's meetpriya ina lous inher acashoption retirementsavings realitycheck token.it 2o26 7settlement varyby provider.priya card5of8"
+    },
+    {
+     "file": "assets/pulse/tokenization/p06.webp",
+     "thumb": "assets/pulse/tokenization/p06-t.webp",
+     "title": "Four views of one token",
+     "w": 1600,
+     "h": 2400,
+     "kw": "four views one token sts lot ret ibe ree nie van niza joa priya investor faster open hours mostly wants work bank builds tracks tokenized deposits clients don't drift off stablecoins fund manager shared record means fewer paperwork mix-ups cheaper admin regulator computer breaks owns law must say official source rba project acacia final report rbi executive director vasudevan's remarks global fintech fest reported mint sep legal illustrations risks card atom points ofview fourviews theinvestor hours.mostly thebank thefund meansfewer computerbreaks ownswhat thelawmust saythe tokenisthe oficialrecord 2o26 p.vasudevan's card6of"
+    },
+    {
+     "file": "assets/pulse/tokenization/p07.webp",
+     "thumb": "assets/pulse/tokenization/p07-t.webp",
+     "title": "Test labs around the world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "test labs ound tne world sos yaaa ai baa eee eu dlt distributed ledger technology shared notebook pilot regime lets firms tokenized stocks bonds since mar uk digital securities sandbox run bank england fca financial conduct authority opened sep talelt rbi reserve india official says has trades deposit certificates worth crore billion australia rba tested uses project acacia report source reg dss page executive director vasudevan's remarks reported mint release media card around testlabs theworld deu bythe conductauthority sep30 rbl oficial itspilot oftokenized tested2o reportoutmay18 eureg.2022 bankof dsspage executivedirector p.vasudevan's reportedby release2026-13 card7of8 atom"
+    },
+    {
+     "file": "assets/pulse/tokenization/p08.webp",
+     "thumb": "assets/pulse/tokenization/p08-t.webp",
+     "title": "What could snap the string",
+     "w": 1600,
+     "h": 2400,
+     "kw": "snap string sss gaal fim cle lye weak legal link law doesn't say token asset receipt worth thing lost keys bugs lose login hit software bug fixing hard buyers unusual resell read big change plumbing boring assets first fine source iosco tokenization report nov rbi executive director vasudevan mint sep rba project acacia card risks aweak saytoken fewbuyers ourread boringassets 2o25 2o26 projectacacia card8of8 atom",
+     "takeaway": "The real risk is the legal link: a token is only worth the claim the law says it gives you."
     }
-   ],
-   "updated": "2026-10-12",
-   "tagline": "A digital receipt for real things",
-   "sources": [
-    {
-     "title": "BlackRock (PR Newswire): new BUIDL share classes across multiple blockchains",
-     "url": "https://www.prnewswire.com/news-releases/blackrock-launches-new-buidl-share-classes-across-multiple-blockchains-to-expand-access-and-potential-of-buidl-ecosystem-302304035.html"
-    },
-    {
-     "title": "Franklin Templeton: first U.S.-registered mutual fund to use a public blockchain",
-     "url": "https://www.franklintempleton.com/press-releases/news-room/2021/franklin-templeton-launches-first-u-s-registered-mutual-fund-to-use-public-blockchain"
-    },
-    {
-     "title": "J.P. Morgan Kinexys",
-     "url": "https://www.kinexys.com/"
-    },
-    {
-     "title": "BIS Annual Economic Report 2025, ch. III (tokenisation)",
-     "url": "https://www.bis.org/publ/arpdf/ar2025e3.htm"
-    }
-   ],
-   "gist_lead": [
-    "A token is a receipt, not the thing.",
-    "Boring things first.",
-    "A quiet change."
    ],
    "recap": [
-    "A token is a receipt for a real thing, not the thing itself, and not the same as a crypto coin.",
-    "Boring assets like Treasury and money-market funds get tokenized first, mostly behind the scenes for you.",
-    "New rails reward firms that join, with slow pressure on those that don't."
+    "A token is a receipt that points to a real thing; a crypto coin is the thing.",
+    "Safe stuff goes first: tokenized Treasuries, and banks tokenizing deposits.",
+    "Countries are still testing, and the legal link is the big risk."
    ],
-   "recap_pages": 5
+   "recap_pages": 8,
+   "tagline": "A receipt, not the thing.",
+   "updated": "2026-10-20"
   },
   {
    "id": "mortgage-rates",
