@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-19",
+ "updated": "2026-10-20",
  "books": [
   {
    "id": "agent-native-infrastructure",
@@ -1046,79 +1046,102 @@
   },
   {
    "id": "dollar-gold-yen",
-   "title": "Dollar, Gold & the Yen",
+   "title": "Dollar, Gold and Yen",
    "topic": "Macro",
-   "blurb": "Why the dollar can be strong and still buy less.",
+   "blurb": "One teen's normal day (snacks, a phone, gas, a trip) shows how the dollar, gold, yen, euro and yuan connect.",
    "gist": [
-    "Two different yardsticks. The dollar can hold steady against other currencies while buying less at the store.",
-    "Japan shows the strain first. It has huge debt and a weak yen near ¥164, and the US and Japan staged a joint rescue in late July.",
-    "Japan's rates are waking up. Its 10-year yield is the highest in about 30 years, which could mean less Japanese money lent to the US."
+    "The dollar can be strong next to other money and weaker next to groceries at the same time.",
+    "Japan's yen is the canary: a big rate gap pulled money to the dollar, and Japan stepped in at about ¥164.",
+    "As Japan's rates rise, Europe and China set their own course, and central banks buy gold. All of it reaches your prices and loan rates."
    ],
    "added": "2026-10-12",
+   "added_at": "2026-10-20T06:23",
    "pages": [
     {
      "file": "assets/pulse/dollar-gold-yen/p01.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p01-t.webp",
-     "title": "Strong dollar and a weaker dollar?",
-     "w": 1080,
-     "h": 1492,
-     "kw": "macro big picture first pulse pollae aor yey weakee dollar gist two things true strong next currencies still losing value groceries gold one compares money stuff buys lot yen euros pesos debasement buying real time broad index fed's scorecard against many us trading partners yardstick says treasury holds 261.s million ounces books ounce price set law long ago market times higher see eee worked example rulers bill measured ways bit years page grocery cart bought five debased different euro cenccccccccccccccccccccccccccccccccccccccccccccscccccccccecccccceccccccecccccceccccccecsccccecsccccccsccccecccsccecccsececccsccecccscceccccccecccccceccccccececcececccsccecccsccecccsccecccsccecccsccecccsccecccsccecccscceccccccsceccccsceccees sources federal reserve h.10 nominal fred latest peak bls cpi items fiscal data status report government 261.5m fine troy book 11.04b statutory library dors weaker ist canbetrue once.thedollar othercurrencies now close 121.s below roughly flat ioo basket costs lost consumer prices ground theustreasuryholdsabout26l.smillionouncesofgold onitsbooksat workedexample tworulers bil relativescore move stay dollars bread rent cpl pulselibrary 1of3",
-     "takeaway": "The dollar can be strong against other currencies and still lose value against goods and gold."
+     "title": "Sam's $100, measured two ways",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ways m's measured two tal haa lire heb oan adh weal ana soe sil car sih ces sere san s74 nos fed federal reserve america's central bank like india rbi england australia's rba cpi consumer price index typical shopping basket ruler dollar money steady fed's broad oct april stuff shrinking snacks cost sep us strong next weaker source h.10 fred dtwexbgs apr bls cpi-u cpiaucsl arithmetic x1.23 card lof whatitis sam's india's rbl cpl fedh.1obroaddollarindexviafred oct16 2o26and ourarithmetic card1of atom",
+     "takeaway": "Strong vs other money and weaker vs groceries can both be true: they use different rulers."
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p02.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p02-t.webp",
-     "title": "Japan is the canary",
-     "w": 1080,
-     "h": 1531,
-     "kw": "pulse macro pollar gory yey canary one idea japan coal mine miners carried struggled trouble coming has huge government debt kept rates near zero years currency strain shows first yen japan's money weaker needed buy dollar chart ministry finance version us treasury intervention buying market push value steps bveo s155 1gs time latest year ago happened late july weakened working together bought next monthly report showed trillion four weeks included firmed 1s7 within days now sits 1s% eee worked example dinner new york visitor tokyo pricier see every import buys dollars fuel food gets way seutstsusutctsusutcusussssusususctsussssususussusususctsususcusususctstsusstsususstsusssstsususstsususstsusssctsususctssusctsususctsususstesusstsususststsusstsususstsususstsususctsususststsusstststsctsusussustsusctssusststsusststsusststs sources federal reserve h.10 noon fred peak statement purchase coordination foreign exchange operations billion week period library gold 2or3 japanis tts frst thenjapanstepsin 14s whathappened inlatejuly l64 togetherwiththeustreasury boughtyen.its nextmonthlyreport is.4 it.the is7 workedexample asioodinnerinnewyork dolar pulselibrary 0f3",
-     "takeaway": "The yen is where strain shows first, and Japan stepped in to buy it."
+     "title": "Why the world watches the dollar",
+     "w": 1600,
+     "h": 2400,
+     "kw": "vie wor vey mee see gast 4us fox ber io lie ome tans ieetie tie grt oee dress tye sees pen saat cet jed hie aes nly tig money goes paid 10-year us government iou loan oct two years view strong dollar makes sam's imported snacks trips cheaper us-made goods pricier abroad fed's dial federal reserve central bank has top rate rce treasury fete fred dcuonen fed funds target upper limit dfedtaru card cod itmatters world watches 1o-year 0ct theusview 4.oo% source yield dgs10 atom"
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p03.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p03-t.webp",
-     "title": "When Japan's rates wake up",
-     "w": 1080,
-     "h": 1540,
-     "kw": "macro canary matters pulse poleae corp yey wake gist japan's interest rates finally rising because japon biggest foreign holder us government 0us japanese investors earn home lend uncle sam bank japan central like fed raised overnight rate jgb bond version treasury years ago year now 10-year 10u oldest newest yield highest zero tapanese earned cee possible chain vot forecast apan's yields 16-year need higher worked example pension fund's choice simple two million ina earns paid money went abroad currency risk staying looks much better eer errr rrr connect back fewer buyers ous push moves mortgage book sunmununuuntuueuuc ucu sure steere ttreetrerercsscccscccccccccccccccccccccccccccccccccccccccccccccccccccccccsccecccsccecccsccecccsccecccsccecccscceccccccecccsccecccsccecccsccecccscceccesccecccscceccesccecccsccecccsccececsccscccsccsccccees sources ministry finance last time above today statement monetary policy call around tic table largest page explanation prediction library macre dollar gold yen or3 tapan's ist biggestforeignholderof usgovernmentlous.if bankofjapan japan'scentralbank likethefed.itjustraiseditsovernightrate iou uoah pla1h l0-year l0u isnowthe inabout30 iwnvestors send holds buyuslous under1% about$i trillion lous notaforecast iov reason twoyearsaqo 100milionathome earnsabout 0.9milion year.aus10-year milion ious tast 103.9b",
-     "takeaway": "If Japanese investors earn more at home, fewer may buy US Treasuries, which can push the 10-year up."
+     "title": "Meet the canary: the yen",
+     "w": 1600,
+     "h": 2400,
+     "kw": "meet canary yen alia gat lay amd spa agi yar gee pee hex wass eae suis lice ang fom see veered ainge ser eas howe wae miners carried struggled trouble coming japan's often shows money stress first seesaw 10-year us government iou loan pays slides side result bought oct dollar means weaker source japan jgb japanese bond mof fred dgsio dexjpus card cod 1o-year japan10-year mof.us10-year dgs10.yen perdollar oct16 freddexjpus atom"
+    },
+    {
+     "file": "assets/pulse/dollar-gold-yen/p04.webp",
+     "thumb": "assets/pulse/dollar-gold-yen/p04-t.webp",
+     "title": "Japan steps in, and who cheers",
+     "w": 1600,
+     "h": 2400,
+     "kw": "jap aon cheers hea sots sie moe wey gai alee rps ved hab sone wre fet ava esaxqs sop eae fie gate arescue works jul japan sold dollars buy yen trillion month's report aug japan's mof ministry finance runs like treasury uk india australias toyota weak currency moves added billion toyotas apr jun operating profit year earlier shoppers groan fuel food bought cost source intervention 399.3b published fred dexjpus fy2027 results card steps rescue india's australia's toyota's apr-jun 30-aug atom"
+    },
+    {
+     "file": "assets/pulse/dollar-gold-yen/p05.webp",
+     "thumb": "assets/pulse/dollar-gold-yen/p05-t.webp",
+     "title": "The $100 dinner, in two directions",
+     "w": 1600,
+     "h": 2400,
+     "kw": "dinn two directions eon del tie iga een see nie pri ang pag res lists rat eat eos lin aan haruto eats new york dinner cost sam tokyo weak yen works bought oct rate moods visitor's bargain locals pricier import source dollar fred dexjpus jul maths arithmetic example rates card cod foryou 10o about9%morethanat local's card5of9 atom"
+    },
+    {
+     "file": "assets/pulse/dollar-gold-yen/p06.webp",
+     "thumb": "assets/pulse/dollar-gold-yen/p06-t.webp",
+     "title": "Japan's rates wake up",
+     "w": 1600,
+     "h": 2400,
+     "kw": "japan's rates wake pas ghd rtd bee ste spo eek yeas sets nes aen ber ens get ays tie uip pre sor noo eee orta echos oey sota hice gett wto eet ten pees eae weed tiny pay home oct million 10-year jgb japanese government earned year money went abroad better now early staying looks us cares japan holds trillion ous country end aug source mof treasury tic table 068.3b yearly arithmetic card cod cold iou 1.o7 ious japanmofjgb 0.972%oct 3.111%oct ourarithmetic atom",
+     "takeaway": "When Japan pays more at home, Japanese money has less reason to buy US IOUs."
+    },
+    {
+     "file": "assets/pulse/dollar-gold-yen/p07.webp",
+     "thumb": "assets/pulse/dollar-gold-yen/p07-t.webp",
+     "title": "Sam's phone: euros and yuan",
+     "w": 1600,
+     "h": 2400,
+     "kw": "sam's phone euros yuan tide us win igi sevevy freee tea bap gis pies pawl smee gan wea rrs yee eae ere ese seo cte uk ai gin chew ager fro europe ecb pushes back european central bank raised deposit rate sep still bought year earlier china pboc holds leash people sets daily midpoint stronger read nudge prices china-made gadgets makers often absorb source key rates page fred dexuseu oct dexchus parity card cod 2.5o% people's 2o26 7of atom"
+    },
+    {
+     "file": "assets/pulse/dollar-gold-yen/p08.webp",
+     "thumb": "assets/pulse/dollar-gold-yen/p08-t.webp",
+     "title": "Who is buying all the gold?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "buying gold ime sale aad iat s50 fee tes iis vay ful ania fat foe bie aoe ono b64 sar bee gee central banks reported tonnes jan aug chinas pboc people's bank china has added months row price roller coaster record ounce end-sep end-aug read insurance one else print pays interest high rates cool source world council stats oct market commentary update safe reserves card cod china's 2o26 8of atom"
+    },
+    {
+     "file": "assets/pulse/dollar-gold-yen/p09.webp",
+     "thumb": "assets/pulse/dollar-gold-yen/p09-t.webp",
+     "title": "Sam's day, connected",
+     "w": 1600,
+     "h": 2400,
+     "kw": "m'sd ils connected neee gee vas eiht ete smee pune coast mars sss nea ene sor wee east gas snacks phone trip dollar moves prices imported fuel food gadgets follow loans fewer japanese buyers us ious government bonds push rates pricier car better savings around world weaker rupee pound aussie make phones cost india uk australia rush drip money home trickle back slowly watch yen japan's 10-year rate source see cards fred japan moff treasury tic ecb pboc gold council oct chain guess card foryou sam's day read 1o-year atom",
+     "takeaway": "Currency moves show up in your gas, snacks, phone, trip and loan rates."
     }
-   ],
-   "tagline": "Strong dollar, weaker buying power",
-   "updated": "2026-10-12",
-   "sources": [
-    {
-     "title": "FRED: Nominal broad US dollar index (Fed H.10)",
-     "url": "https://fred.stlouisfed.org/series/DTWEXBGS"
-    },
-    {
-     "title": "US Treasury Fiscal Data: US Treasury-Owned Gold",
-     "url": "https://fiscaldata.treasury.gov/datasets/status-report-government-gold-reserve/"
-    },
-    {
-     "title": "Japan MoF: Finance Minister statement on joint yen purchase",
-     "url": "https://www.mof.go.jp/english/public_relations/statement/others/20260803073000.html"
-    },
-    {
-     "title": "Japan MoF: Foreign exchange intervention operations (Jul 30 to Aug 26)",
-     "url": "https://www.mof.go.jp/english/policy/international_policy/reference/feio/monthly/20260828e.html"
-    },
-    {
-     "title": "US Treasury TIC: Major foreign holders of Treasury securities",
-     "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt"
-    }
-   ],
-   "gist_lead": [
-    "Two different yardsticks.",
-    "Japan shows the strain first.",
-    "Japan's rates are waking up."
    ],
    "recap": [
-    "The dollar can look strong against other currencies and still buy less in goods and gold.",
-    "Japan shows the strain first: the yen is weak and Japan stepped in to buy it.",
-    "If Japan's rates rise, fewer Japanese investors may buy US Treasuries, which can push the 10-year up."
+    "Two rulers: dollar vs money, dollar vs stuff.",
+    "Rate gaps move money, and the yen shows the strain first.",
+    "Japan's rising rates may pull money home from US IOUs.",
+    "Watch the yen and Japan's 10-year rate."
    ],
-   "recap_pages": 3
+   "recap_pages": 9,
+   "tagline": "Same $100. Different rulers.",
+   "updated": "2026-10-20"
   },
   {
    "id": "two-schools-economics",
