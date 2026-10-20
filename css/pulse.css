@@ -765,6 +765,7 @@ body.reading .totop{display:none}
   .rd-top{flex-wrap:wrap;row-gap:2px}
   .rd-head{order:3;flex:1 0 100%;display:flex;flex-direction:column;align-items:center;gap:0}
   .rd-head h2{white-space:normal;overflow:hidden;text-overflow:clip;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.2;font-size:1rem;text-align:center}
+  .rd-head #rd-stamps{position:relative;top:-3px} /* lift the New stamp clear of the title line (it overlapped the title by ~2px) */
   .rd-meta{min-height:0;line-height:1.1}
   .rd-actions{margin-left:auto}
   .rd-foot{gap:4px;padding-top:4px;padding-bottom:4px}

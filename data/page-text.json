@@ -457,48 +457,6 @@
     "Then your kitchen."
    ]
   ],
-  "stablecoin-rails": [
-   [
-    "The rails underneath",
-    "Moving value means syncing those records.",
-    "One record instead of three.",
-    "Ethereum is the main public blockchain for this.",
-    "Banks also use private versions.",
-    "Many will run on these new rails.",
-    "Next, it moves on one shared record."
-   ],
-   [
-    "Bank transfers move on business hours and pass through several banks.",
-    "A stablecoin is a digital dollar on a shared ledger.",
-    "Anyone with a wallet can hold it and send it, any time.",
-    "A wire waits for banks to open.",
-    "A stablecoin doesn’t.",
-    "Reality check: to spend it locally, you usually still swap it back to regular money through an exchange.",
-    "Next up: banks are building their own version, called tokenized deposits."
-   ],
-   [
-    "Tokenized deposits vs. stablecoins",
-    "Both are digital dollars that move fast and can follow rules.",
-    "The difference: who holds your money, and who's allowed to use it.",
-    "Paying a supplier $2,000 on a Sunday",
-    "Swap bank dollars for USDC",
-    "Your bank turns your deposit into a token",
-    "Supplier holds USDC",
-    "USDC is issued by a company (Circle) outside the bank.",
-    "A stablecoin leaves the bank.",
-    "A tokenized deposit never does.",
-    "Reality check: tokenized deposits are early, mostly between big companies and banks so far.",
-    "Stablecoins are open roads.",
-    "Tokenized deposits are the bank’s private highway."
-   ],
-   [
-    "Stablecoins & the rails underneath, part 4",
-    "The rules of the road",
-    "Real money backing every coin, 1 to 1, in cash",
-    "Like a coat check: one ticket, one coat.",
-    "Every coin needs a dollar behind it, and proof that it’s there."
-   ]
-  ],
   "tokenization": [
    [
     "Today, who owns what is kept in many separate notebooks.",
@@ -1049,64 +1007,6 @@
     "card 10 of 10"
    ]
   ],
-  "stablecoin-economics": [
-   [
-    "Stablecoins, the business model",
-    "How a stablecoin pays its partners",
-    "Stablecoins move money. But someone still has to earn from holding them and handing them out.",
-    "Stablecoin = a digital token that is always meant to be worth $1. Think of it as a digital dollar you can send in seconds. Example: USDC, made by a company called Circle.",
-    "Three words, in plain English",
-    "US Treasury bill = an IOU from the US government. You lend it $100 now. It pays you back $100 plus a little extra later.",
-    "Short-term = paid back within a year. Often just weeks or months. Like a loan that's over before you notice.",
-    "Partners = the apps and companies that get the coin into people's hands. Examples: exchanges like Coinbase and Binance, plus money apps, digital wallets and online banks.",
-    "Where the money comes from",
-    "You put in $100. The issuer keeps that $100 safe, in cash and short-term US government IOUs.",
-    "Those IOUs pay a little interest, like a savings account does.",
-    "The issuer shares a big part of that interest with its partners.",
-    "Circle's real numbers, first half of 2026: about $1.4 billion came in. About 59 cents of every dollar went out to partners and transaction costs. About 7 cents was left as profit.",
-    "Circle's own figures, one company. Partner pay and transaction costs are reported together."
-   ],
-   [
-    "Follow one $100: how a money app earns from a stablecoin",
-    "A stablecoin is a digital token always meant to be worth $1. The issuer is the company that makes it.",
-    "Step 1: Maya sends $100 from her bank to a money app. She now holds 100 coins.",
-    "Step 2: The issuer keeps $100 in cash and short-term US government IOUs behind those coins.",
-    "Step 3: Those IOUs earn interest. At 4% a year, that's $4 on Maya's $100.",
-    "Step 4: The issuer shares part of that $4 with the app, because the app brought Maya in.",
-    "Maya does not get that interest. She gets a digital dollar she can send in seconds. Some apps pay their own rewards. Whether that's allowed is still debated.",
-    "Example numbers to show the flow. Real rates and deals vary.",
-    "What the app earns from Maya's $100 in a year",
-    "Before: Fees only. Maya sends $20 to a friend. The app charges a $0.50 fee. App earns: $0.50.",
-    "After: Fees plus a share. Same $0.50 fee, plus a share of the interest on her $100. Say half of the $4. App earns: $0.50 + $2.00 = $2.50.",
-    "So the app wants Maya to keep her money there and use it often.",
-    "Example numbers. Real fees and splits vary and are not always public.",
-    "Good to know",
-    "150+ partners (apps and companies that hand the coin out) have a financial stake in the coin's growth, per Circle, as of Aug 2026.",
-    "$819M paid to partners and transaction costs in the first half of 2026, per Circle.",
-    "$0 Business customers who turn coins back into $1 directly with the issuer pay nothing. Most people cash out through an app or exchange, which may charge a fee.",
-    "Reality check: running this still takes money, rules and people. And the coin itself pays no interest to holders. US law bars issuers from paying holders interest just for holding.",
-    "The rails move the money. The partner economics make people want to keep using them."
-   ],
-   [
-    "Stablecoins, the business model",
-    "What changes when payments volume grows faster than supply",
-    "More money can move even when the number of coins stays about the same.",
-    "Supply = the total number of coins that exist.",
-    "Payments volume = the dollars actually sent to pay for things.",
-    "Blockchain = a public online record book that logs every coin transfer. Anyone can read it. On-chain means recorded there.",
-    "Like taxis: the same cabs can give far more rides.",
-    "Now vs. emerging",
-    "Now: Most coin transfers on the blockchain are still people trading coins on exchanges, or just holding them. Payments for goods and services are a smaller slice.",
-    "Emerging signal: A data company called Allium counts blockchain transfers. Through Sept 30, 2026: payments up 45% versus a year earlier, to $482 billion. Total coins up only 0.4% since January, to $305 billion.",
-    "More payments, and smaller ones: the number of payments rose 71% to 1.04 billion, and the average fell from $544 to $462 (same comparison as the 45%).",
-    "Allium's own classification and estimates, from public blockchain data.",
-    "What it means in practice",
-    "For a shop or a shopper: More places can take or send a digital dollar, without cashing out to a bank account first.",
-    "For partners: Their share still depends mostly on coin balances. More payment activity may add fee income, depending on each deal.",
-    "Reality check: cards and today's payment networks, like Visa and Mastercard, still handle the final step at the checkout. The change is mostly in how money moves between companies, and in paying across different currencies. It doesn't replace today's system.",
-    "Holding still pays the issuer and its partners. Spending is starting to catch up."
-   ]
-  ],
   "ai-ladder": [
    [
     "Working with AI",
@@ -1254,6 +1154,115 @@
     "The limit is not how smart the agent is. It is who owns the hard jobs.",
     "Still early. Exact terms will vary by platform.",
     "The stuff still has to get to your house. Someone has to stand behind the order."
+   ]
+  ],
+  "stablecoins": [
+   [
+    "Ana's $100 gets a coat-check ticket",
+    "Stablecoin = a digital token built to stay worth $1. Two big ones: Circle's USDC (USD Coin) and Tether's USDT (Tether USD).",
+    "Like a coat check",
+    "Ana, 16, hands over $100 and gets 100 tokens back. The issuer (the company that makes the coin) keeps her real dollars.",
+    "Where the ticket lives",
+    "On a blockchain: a shared public record that any app can read, open 24/7, even on Sunday night.",
+    "Bring the ticket back",
+    "Hand in 100 tokens, get $100. That is the whole promise. No bonus, no interest.",
+    "Source: Circle USDC Terms (holders can redeem 1:1, no interest), Tether terms; as of Oct 2026.",
+    "card 1 of 8"
+   ],
+   [
+    "What sits in the vault",
+    "Mostly short IOUs from the US government",
+    "Most sits in a fund of Treasury bills (T-bills): loans to the US government that pay back in weeks or months. Very safe, easy to sell.",
+    "Plus plain cash",
+    "Some dollars sit as cash in banks, so people can cash out fast.",
+    "Same idea abroad: India's Treasury bills, the UK's Treasury bills, Australia's Treasury Notes. All short, safe government IOUs.",
+    "Who counts it?",
+    "Under the new US law, an accounting firm checks the vault and the issuer posts a report every month.",
+    "Source: GENIUS Act (Pub. L. 119-27, Jul 18, 2025) s.4: allowed reserves and monthly checked reports; Circle USDC transparency page (Circle Reserve Fund: short T-bills, overnight repo, cash), Oct 15, 2026.",
+    "card 2 of 8"
+   ],
+   [
+    "Who earns on Ana's $100?",
+    "Example",
+    "The vault earns interest",
+    "T-bills (short US government IOUs) paid about 3.5% a year in 2026. So Ana's $100 earns about $3.50 a year.",
+    "Ana gets $0",
+    "The $3.50 goes to the issuer, not to her. Her ticket just says $1.",
+    "Then it gets split",
+    "Circle (maker of USDC, USD Coin) took in about $1.4 billion in Jan–Jun 2026. About 59 cents of each $1 went to partners like Coinbase (a coin-buying app) and costs. About 7 cents was profit.",
+    "Our read",
+    "That slice is why apps push stablecoins so hard.",
+    "Source: Circle Q1 2026 10-Q and Q2 2026 results (Aug 5, 2026); Circle reserve return 3.48% in Q2 2026. $3.50 is our example arithmetic.",
+    "card 3 of 8"
+   ],
+   [
+    "Five referees, five rulebooks",
+    "US: the GENIUS Act",
+    "The GENIUS (Guiding and Establishing National Innovation for US Stablecoins) Act: $1 of safe assets per coin, a license, no interest just for holding. In force by Jan 18, 2027.",
+    "EU: MiCA",
+    "MiCA (Markets in Crypto-Assets) rules, live since Jun 30, 2024: licensed issuer, full backing, pay back at face value, no interest.",
+    "UK",
+    "The FCA (Financial Conduct Authority) set final rules in 2026; they start Oct 25, 2027. The Bank of England plans extra rules for giant coins (draft, due end-2026).",
+    "India",
+    "The RBI (Reserve Bank of India) leans toward a ban and backs its digital rupee and UPI (Unified Payments Interface) instead.",
+    "Australia",
+    "Draft law would treat stablecoins like prepaid cards, needing a license. Not law yet.",
+    "Source: GENIUS Act s.4, s.20; EU MiCA Reg. 2023/1114 Arts. 36-50; FCA PS26/10 (2026); Bank of England draft Code of Practice, Jun 22, 2026; RBI to parliament panel (2026); Australian Treasury exposure draft bill, Mar 12, 2026 (not in Parliament as of Oct 20, 2026).",
+    "card 4 of 8"
+   ],
+   [
+    "Open roads vs private highway",
+    "Open roads",
+    "Stablecoins ride public blockchains: anyone can drive, any hour. Banks build private highways: their own networks, members only.",
+    "Payments are growing",
+    "Stablecoin payments hit $482 billion in Jan–Sep 2026, up 45%.",
+    "Honest context",
+    "Payments are only about 1 in 5 dollars moved. Most of the rest is trading. Tether's USDT (a US dollar stablecoin) carries 84% of payments.",
+    "At the shop",
+    "Some debit cards now spend stablecoins, but the card network still does checkout.",
+    "Source: Allium, State of Stablecoins and Payments Q3 2026 (through Sep 30, 2026), via CoinDesk Oct 18, 2026.",
+    "card 5 of 8"
+   ],
+   [
+    "Four people, one $100",
+    "The bank",
+    "\"If Ana moves savings into tokens, I have less money to lend for car loans and mortgages.\"",
+    "The shop owner",
+    "\"Maybe cheaper than card fees. But my rent is in rupees, pounds or dollars, so cashing out must be easy.\"",
+    "Sending money home",
+    "Sending $200 abroad cost about 6.4% on average in 2025 (about $13). Tokens can be cheaper, but cash-out fees count.",
+    "The regulator",
+    "\"If everyone cashes out at once, the vault must pay fast. That rush is called a run.\"",
+    "Source: World Bank Remittance Prices Worldwide, Q3 2025 global average 6.36%. Bank, shop and regulator quotes are our illustrations.",
+    "card 6 of 8"
+   ],
+   [
+    "Good news, bad news",
+    "Good: never closes",
+    "Works 24/7 and crosses borders in minutes.",
+    "Bad: it can slip below $1",
+    "On Mar 11, 2023, Circle's USDC (USD Coin) fell to about 87 cents when $3.3 billion of its cash was stuck at a failed bank. It got back to $1 in days.",
+    "Bad: no safety net",
+    "No government deposit insurance: not the US FDIC (Federal Deposit Insurance Corporation), India's DICGC (Deposit Insurance and Credit Guarantee Corporation), the UK's FSCS (Financial Services Compensation Scheme) or Australia's Financial Claims Scheme.",
+    "Bad: fees and scams",
+    "Cash-out fees add up. Send to a wrong address or a scammer and it is usually gone.",
+    "Source: Circle statements, Mar 10-13, 2023 (USDC $3.3B at Silicon Valley Bank; low near $0.87 on Mar 11). FDIC, DICGC, FSCS, APRA scheme pages, Oct 2026.",
+    "card 7 of 8"
+   ],
+   [
+    "Ana's $100, start to finish",
+    "1. Dollars in, tokens out",
+    "A coat-check ticket worth $1 each.",
+    "2. The vault",
+    "Mostly T-bills (short US government IOUs) and cash.",
+    "3. Who earns",
+    "About $3.50 a year (example). The issuer and its partners keep it.",
+    "4. The rules",
+    "US and EU set; UK from 2027; India wary; Australia drafting.",
+    "Our read",
+    "Handy plumbing for moving dollars, not a savings account.",
+    "Source: Cards 1-7: GENIUS Act, EU MiCA, FCA, RBI, Australian Treasury, Circle, Allium, World Bank; as of Oct 2026.",
+    "card 8 of 8"
    ]
   ]
  }
