@@ -978,6 +978,11 @@
     $("totop").onclick = function () { window.scrollTo({ top: 0, behavior: reduce() ? "instant" : "smooth" }); };
     $("rd-prev").onclick = function () { turn(-1); };
     $("rd-next").onclick = function () { turn(1); };
+    (function () { // phones: arrows sit in the counter row under the card, never over card text; desktop keeps them beside the book
+      var mq = matchMedia("(max-width: 640px)"), pv = $("rd-prev"), nx = $("rd-next"), stg = $("rd-stage"), bk = $("book"), row = document.querySelector(".rd-foot");
+      function place() { if (mq.matches) { row.appendChild(pv); row.appendChild(nx); row.classList.add("has-nav"); } else { stg.insertBefore(pv, bk); stg.appendChild(nx); row.classList.remove("has-nav"); } }
+      place(); if (mq.addEventListener) mq.addEventListener("change", place); else mq.addListener(place);
+    })();
     $("rd-close").onclick = close;
     $("rd-stage").addEventListener("click", function (e) { if (e.target === $("rd-stage")) close(); });
     $("reader").addEventListener("click", function (e) { if (e.target === $("reader")) close(); });
