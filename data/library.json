@@ -1523,6 +1523,132 @@
    ],
    "recap_pages": 8,
    "tagline": "A $1 ticket that never sleeps."
+  },
+  {
+   "id": "inflation",
+   "title": "Why is everything so expensive?",
+   "topic": "Macro",
+   "blurb": "Why prices keep climbing, told through Sam's $100 Saturday shop.",
+   "gist": [
+    "Inflation means the same money buys less: US prices roughly doubled from 2000 to 2026.",
+    "The 2021-22 spike had several causes stacked together: money and demand, supply chains, energy and some company pricing.",
+    "Inflation quietly moves buying power between shoppers, savers, workers, borrowers and governments."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T09:11",
+   "pages": [
+    {
+     "file": "assets/pulse/inflation/p01.webp",
+     "thumb": "assets/pulse/inflation/p01-t.webp",
+     "title": "Sam's $100 cart",
+     "w": 1600,
+     "h": 2400,
+     "kw": "sams cart sam saturday family shop 40s jan fills example person sep costs ai ray yet gee ras eggs bread milke bruh lnilation 77g prices across whole rising money buys ssecse go8 cpi consumer price index sii p88 one fixed shopping basket checked every month india uk australia have pay went i1s hour became caverage us hourly applied sam's source bls bureau labor statistics cpi-u seasonally adjusted average earnings private fred ces0s00000003 percentages arithmetic card atom 202l milk inflation cpl fxed cpl-u 2o2l ces0500000003 37.8l 0ur card1of12",
+     "takeaway": "The same shopping now costs about $28 more per $100."
+    },
+    {
+     "file": "assets/pulse/inflation/p02.webp",
+     "thumb": "assets/pulse/inflation/p02-t.webp",
+     "title": "26 years of receipts",
+     "w": 1600,
+     "h": 2400,
+     "kw": "years receipts us jan sep o06 eggs dozen bread pound getting around livin litinn gas gallon 24s5% rent college tuition rose milk new cars everything together tvs got cheaper same-quality costs glow-up price drop las uk beso loaf s2p 140p pint 34p 6sp litre petrol 7sp 137p india australia neither publishes long-run shelf prices caustralia stopped card uses indexes source bls bureau labor statistics average city apu00007031n apvo000702ini apv0000709ni2 apu000074714 cpi-u vehicles items cpi-v seasonally adjusted ons office national c20h c2nt c2mk abs caustralian final issue arithmetic eg9s do2en living 4.ll same-guality 201l apu0000708lll apu0000702ll apu0000709112 cpl-u ffice c2oh czmk.abs australian fnal 20ll.our 2of12 atom",
+     "takeaway": "Most everyday things roughly doubled since 2000, but tech got cheaper."
+    },
+    {
+     "file": "assets/pulse/inflation/p03.webp",
+     "thumb": "assets/pulse/inflation/p03-t.webp",
+     "title": "The 2022 spike",
+     "w": 1600,
+     "h": 2400,
+     "kw": "spike us prices change year 2025s typical central-bank target uti ata wlll uses months price data oct shutdown calm years jump oouou0u peak month june oooouqo higher now it's climbing sep oil barrel source bls bureau labor statistics cpi-u items seasonally adjusted cuuro000sa0 yearly averages arithmetic brent fred dcoilbrentev energy information administration card 201s 202s 126.ss 0ct cpl-u cuuro000sao dcoilbrenteu 3of atom"
+    },
+    {
+     "file": "assets/pulse/inflation/p04.webp",
+     "thumb": "assets/pulse/inflation/p04-t.webp",
+     "title": "Too much money, too few things",
+     "w": 1600,
+     "h": 2400,
+     "kw": "much money things supply e777 people spend fast cash checking savings us measure called dsl one year yall feb fastest since monthly records began 19s4 twice old high esl pandemic relief payments government sent straight people's pockets points core inflation late hig prices without food energy study's estimate san francisco fed part central bank spending stuff lea shops sell climb ciee gets new first story debt loop card source fred m2sl federal reserve h.6 stock seasonally adjusted arithmetic jorda liu nechio rivera-reyes economic letter mar 202l.the inhation out.prices frst 4of atom"
+    },
+    {
+     "file": "assets/pulse/inflation/p05.webp",
+     "thumb": "assets/pulse/inflation/p05-t.webp",
+     "title": "Stuck ships, pricey fuel",
+     "w": 1600,
+     "h": 2400,
+     "kw": "stuck ships pricey fuel supply chain peseeones hun bee occa ttt every step factory shop shelf like relay race sneakers mii nat shipping delays missing parts fewer things buy number buyers eee see half extra inflation came qe third demand san francisco fed study april oil barrel mar jan 126.ss oct sss ela us energy information administration says attacks facilities tankers middle east disrupted shipments world stockpiles fell moves everything trucks farms delivery apps pricier stuff source shapiro economic letter jun shares gap above pre-pandemic pce personal consumption expenditures brent fred dcoilbrentev short-term outlook card atom 202l infation 126.5s 0ct dcoilbrenteu.eia cardof"
+    },
+    {
+     "file": "assets/pulse/inflation/p06.webp",
+     "thumb": "assets/pulse/inflation/p06-t.webp",
+     "title": "Pay vs prices",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pay prices jan sep average us hourly nearly caught ginn year real slipped little wage means buy bit wage-price spiral goes round happen bernanke blanchard mostly price jumps came first wages weren't main driver effects last longer study found tight job markets keep inflation one-off shocks source bls bureau labor statistics earnings private cfred ces0s00000003 cpi-v seasonally adjusted arithmetic nber national economic research working paper jun card atom 202l frst infation fred cpl-u"
+    },
+    {
+     "file": "assets/pulse/inflation/p07.webp",
+     "thumb": "assets/pulse/inflation/p07-t.webp",
+     "title": "Are companies to blame?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "companies blame lte odo lax markup far price sits above costs make like selling lemonade cost cents kansas city fed part us central aaa bank study found markups account half rises mostly because firms raised prices early expecting climb euro area imf international monetary fund paper company profits made 4s% cimports peamaie eeil ocfee lpt wages though saw broad rise san francisco overall stayed hat even jumped industries cars fuel board note vesseed profit margins spiked cabout mid-202 late pandemic aid cheap loans without weren't unusually high read one thing studies agree didn't gain lasting new power overcharge whether hikes greed caution values call source glover mustre-del-rio von ende-becker economic review hansen toscani 2hou working jun leduc liu letter palazzo federal reserve feds notes sep card ato make.like frms profts imports proft mid-2021 palazz0 atom"
+    },
+    {
+     "file": "assets/pulse/inflation/p08.webp",
+     "thumb": "assets/pulse/inflation/p08-t.webp",
+     "title": "Four flashlights",
+     "w": 1600,
+     "h": 2400,
+     "kw": "four flashlights studies different guestions supply demand markups extra inflation apr growth year prices unclear s0% relief payments wages price shocks points added core late mostly wage effects last longer panel study units slices one pie measure things overlap dont add show together single villain several causes stacked vso source shapiro san francisco fed economic letter data glover kansas city review jorda bernanke blanchard nber working paper federal reserve us central bank card atom fashlights don't 202l 2022-1s 2023.jorda 31417.fed",
+     "takeaway": "No single villain: several causes stacked up."
+    },
+    {
+     "file": "assets/pulse/inflation/p09.webp",
+     "thumb": "assets/pulse/inflation/p09-t.webp",
+     "title": "Who wins, who loses",
+     "w": 1600,
+     "h": 2400,
+     "kw": "wins loses shoppers today buys bought jan savers while prices rise buying power year example rate workers fine raises keep sep didn't guite pay borrowers fixed-rate loan gets easier repay rises new pate loans cost fed's us central bank's main hit aug businesses fuel staff raise get squeezed governments banks interest see debt loop card rates cool source bls bureau labor statistics cpi-v fred ces0s00000003 fedfunds federal reserve bank arithmetic savings atom fxed-rate s.33% sgueezed cpl-u cesoso0ooooo3 arithmetic.the card9of12",
+     "takeaway": "Inflation quietly shuffles buying power between people."
+    },
+    {
+     "file": "assets/pulse/inflation/p10.webp",
+     "thumb": "assets/pulse/inflation/p10-t.webp",
+     "title": "Same story, other countries",
+     "w": 1600,
+     "h": 2400,
+     "kw": "story countries uk peak n.i% oct now sep bank hit ain england target australia dec caug rba sss reserve eol cree india ital provisional food prices cfpi consumer price index allowed band usa year fed federal measured pce personal consumption expenditures tool everywhere raise interest rates borrowing spending cool every month source ons office national statistics annual rate d7g7 released abs caustralian bureau cpi aug mosp india's ministry press release bls cpi-v statement conduct monetary policy gazette s.0 is80 mar longer-run goals card atom i1.1% 0ct 3.s% s.s4% cfpl consumerfood rbl bankof cpl 2026.abs australian mospl lndia's 2026.bls cpl-u.bank 202s s.0.i580 card10of12"
+    },
+    {
+     "file": "assets/pulse/inflation/p11.webp",
+     "thumb": "assets/pulse/inflation/p11-t.webp",
+     "title": "What it means for you",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means sam's les ali ysa nag lin aaty geil rugeeea cart pay hour nearly even guite savinges grows prices buys bought example rate watch monthly price headline it's news cpi consumer index inflation raise smaller cut disguise eae year compare savings lower shop around better one source arithmetic bls us bureau labor statistics cpi-u fred ces0s00000003 jan sep sam person card ise 18.9s quite or'the infation cpl-u ces0500000003 atom",
+     "takeaway": "If prices rise faster than your money grows, you're getting poorer slowly."
+    },
+    {
+     "file": "assets/pulse/inflation/p12.webp",
+     "thumb": "assets/pulse/inflation/p12-t.webp",
+     "title": "3 things to remember",
+     "w": 1600,
+     "h": 2400,
+     "kw": "things remember money stuff that's inflation us prices roughly doubled jan sep many causes stacked demand supply chains energy zin company pricing check keeps compare pay savings rate year sam's whole journey vaan goma jpea lae cart hour source bls bureau labor statistics cpi-u seasonally adjusted studies cards sam example person card atom infhation 10o hour.after i28 18.9s cpl-u card12 of12",
+     "takeaway": "Prices rise for many reasons at once, so check that your money keeps up."
+    }
+   ],
+   "recap": [
+    "Same money, less stuff: that's inflation.",
+    "The 2022 spike had several causes stacked together.",
+    "Inflation quietly moves buying power between people.",
+    "Check your pay and savings against inflation once a year."
+   ],
+   "recap_pages": 12,
+   "tagline": "Same cart. Bigger receipt. Bruh.",
+   "updated": "2026-10-21"
   }
  ]
 }
