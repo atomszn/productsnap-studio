@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-20",
+ "updated": "2026-10-21",
  "books": [
   {
    "id": "agent-native-infrastructure",
@@ -252,100 +252,107 @@
    "id": "ai-agents",
    "title": "AI Agents",
    "topic": "AI",
-   "blurb": "Who pays, whose side it's on, and who eats mistakes.",
+   "blurb": "Follow Zara, a student, as an AI agent books dinner for 8 on Saturday, seen from her side, the AI company's, the restaurant's, the bank's and the referees' around the world.",
    "gist": [
-    "Someone always pays. When an AI does a job for you, someone still pays for it: you, an advertiser, or the seller.",
-    "Free can mean biased. A free AI that sellers pay for may not pick what is best for you.",
-    "Blame is unsettled. If an AI buys the wrong thing, nobody has clearly agreed yet who pays for the mistake."
+    "An AI agent does the job (books the table), not just chats.",
+    "You pay by subscription, or ads pay for free plans, so ask whose side it is on.",
+    "When it slips up, the restaurant is the first stop, then the bank; keep the agent on a valet key."
    ],
    "added": "2026-10-12",
+   "added_at": "2026-10-20T13:55",
    "pages": [
     {
      "file": "assets/pulse/ai-agents/p01.webp",
      "thumb": "assets/pulse/ai-agents/p01-t.webp",
-     "title": "Who pays for AI agents?",
+     "title": "Who's in this story?",
      "w": 1600,
-     "h": 3940,
-     "kw": "big question pays tor agents ai soon everyday tasks us around clock every task costs money run picks bill walkthrough booking dentist today tooth hurts search google call offices booked tue top results ads wait hold ver minutes effort got paid bought ees find agent checks compares insurance open times wee calendar new work ways pay example prices month plan covers result actually books suggested first store fee like opentable pick best one sponsored free get sellers week seconds exampleprices atom",
-     "takeaway": "When an AI does the work, someone still pays: you, an advertiser or the seller."
-    },
-    {
-     "file": "assets/pulse/ai-agents/p05.webp",
-     "thumb": "assets/pulse/ai-agents/p05-t.webp",
-     "title": "Four ways to sell AI agents that own the whole job",
-     "w": 1600,
-     "h": 2760,
-     "kw": "saas beene selling ai agents part sell four way whole job now run customer journey peg weeks one chat company actually fect poe ste cre rec cipe latform eee service rxryy sos sea take een eoethelennes agent ane runs inside team already pays outsiders like bakery oven bread red ventures-style insurance policies get paid policy closed good upside old contract sets price fast deals budget exists watch new budgets slow valuable work proving caused usually stays in-house done result hard staff ecipe recipe full-sta seaaes ween pay lah sti esutt als weve aaa pies ener outcome-based heresy wee mem wwe www mow ewe wow full-stack become business itself finishes buy portfolios unpaid debts sierra support billed let collect resolved conversation creates keep value easy means bill carry licenses must agree upfront counts bie daily operations aes tra fem ways platform license rules loaf eaten atom four ways sell ai agents own whole job platform service full-stack pay per result recipe",
-     "takeaway": "Four ways to sell an AI that does a whole job: as a platform, a service, a full product, or pay per result."
-    },
-    {
-     "file": "assets/pulse/ai-agents/p06.webp",
-     "thumb": "assets/pulse/ai-agents/p06-t.webp",
-     "title": "What the trade-offs actually mean",
-     "w": 1600,
-     "h": 2760,
-     "kw": "aaa selling ai agents part trade-offs actually mean n75 w.aawe platform service full-stack pay result one trades speed upside risk differently irae ros alor aol liege glin lag ope neer lone ree yee side o26 lps e77 bakery jbas blgvgvglglsu eee burden sell tool business pnr nore aie company deciding build license pick want process wait budget outsource already outsiders results fast wee eae finished jobs watch startup become competitor reality check still early different customer journeys like case prep injury lawyers fit models money old budgets big new ones slow sale slowest capped biggest grows owns shared fails sits whole market outsourcing cost job resuits modeis atom",
-     "takeaway": "Each way trades off how fast it sells, how much it can earn, and who carries the risk."
+     "h": 2400,
+     "kw": "picture map whos story soe seal oie nik phi nal wat lil see aii jarae fob book dinner friends saturday chathot artificial intelligence chat tells restaurants agent job books table compan builds runs chatgpt openal gemini google grok xall bank referee moves zara's money regulator government body sets rules source xal product pages zara booking illustration card atom picturemap who's chatbot ai company"
     },
     {
      "file": "assets/pulse/ai-agents/p02.webp",
      "thumb": "assets/pulse/ai-agents/p02-t.webp",
-     "title": "Does your AI agent actually work for you?",
+     "title": "The money words",
      "w": 1600,
-     "h": 3690,
-     "kw": "open question ai agent caaa hvs actually work agents free because sellers pay get recommended oagaly even settle pays mistakes paid-for pick still wrong ask different boss paid works checks hotels hotel shown first compares price reviews location books best fit iooed enough great one else paying request harder spot today search decides booked see final label decide disappears choosing people want letting spend spending limit proof asked ree e.g max order saved record exact ars seamed off switch cut access shows reasons anything being worked show honest fre find austin good it's sponsored agent's tap whoever atom",
-     "takeaway": "An AI paid by sellers may not pick what's best for you, and the 'ad' label can disappear."
+     "h": 2400,
+     "kw": "picture map money words eet wid oeese ran subscription pay company every month like music app business pays show name marked sponsored deposit restaurant holds zara's group turns chargeback asking bank reverse charge didn't ok spending cap agent spend think pocket eee source plain-language definitions amounts illustrations cant card atom picturemap"
     },
     {
      "file": "assets/pulse/ai-agents/p03.webp",
      "thumb": "assets/pulse/ai-agents/p03-t.webp",
-     "title": "Your AI agent bought the wrong thing. Who pays?",
+     "title": "Same request, two helpers",
      "w": 1600,
-     "h": 3690,
-     "kw": "open problem agent bought wrong thing pays payment pipes ai agents built visa mastercard stripe amex online purchases use tar tae tits blocker nobody agrees gets source checkout.com merchant estimates everyday mix-up ips orders reorder cases store ships paper towels porch meant shipped ordered eats cost holds risk today told buy unauthorized charge protection apply laaakatz it's seller receipt usually handles return takes loss ech company clear rule makes pay agent's mistakes announced registered live yet building checks liability unclear still stuck stores offer say full catalog pymnts intelligence sept ati until someone owns mistake people won't let spend far checkout.com2026 merchantestimates card networks atom",
-     "takeaway": "When an AI buys the wrong thing, nobody has clearly agreed yet who pays."
+     "h": 2400,
+     "kw": "zara's side game request two helpers thet ttt youre wre nen fan ake crs ask table saturday chatbot gives places phone numbers zara still calls checks books agent calendar finds free asks ok pay deposit saves doing searching eee meee source openal buy chatgpt acting user's user confirms step example illustration card read atom",
+     "takeaway": "A chatbot hands you a list; an agent does the booking. The difference is who does the work, and who you trust with your card."
     },
     {
      "file": "assets/pulse/ai-agents/p04.webp",
      "thumb": "assets/pulse/ai-agents/p04-t.webp",
-     "title": "Trying an agent safely this week",
+     "title": "What Zara lets it touch",
      "w": 1600,
-     "h": 2760,
-     "kw": "agents part trying agent sately week want test ai without risking money data vet start use low-limit virtual card spending cap like prepaid gift ask first must pays sends deletes least access connect one app needs valet key house keys research comparing options drafting low stakes while runs eee een ween nennnne check receipt read log know off switch disconnect cancel oooo sso sooo sos oos obes soo wwe eet wee wees cee ewes eens sseescoseecoeseeeencecuces never paste passwords numbers chat reality good finding today paying still new let fetch spend safely rrrrrrrrrrs atom",
-     "takeaway": "Let an AI search and draft before you let it spend, and give it limits and a limited 'valet key'."
+     "h": 2400,
+     "kw": "zara's side lara lets touch yeo calendar restaurant's booking app asks first card deposit messages photos banking quer read eee wrong source uk cma competition markets authority using agents complying consumer law permissions nee atom zara'sside zara ourread"
+    },
+    {
+     "file": "assets/pulse/ai-agents/p05.webp",
+     "thumb": "assets/pulse/ai-agents/p05-t.webp",
+     "title": "Who pays for the agent?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "company's side paye agent one eth aaa ibe lee hla yss ose sss eee subscription month chatgpt plus us price oct pro show ads pay free plans cheap plan below answer zara cees restaurant list box marked sponsored pizza place paid openal isut someone paying ask source help chatgpt.com pricing introducing prices cent card atom theai pays plas sees ish't read card5of",
+     "takeaway": "You pay for the AI either with a subscription or by seeing ads. On ad plans, a business has paid to sit next to your answer, so check what is marked Sponsored."
+    },
+    {
+     "file": "assets/pulse/ai-agents/p06.webp",
+     "thumb": "assets/pulse/ai-agents/p06-t.webp",
+     "title": "Whose side is it on?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "company's side whose ante ore ves pas irise cas oral eee pil wes ton cae hal hth hon law tae pile nats sea sal worr agent paid restaurants pick one best table zara openal says ads labelled kept separate don't change chatgpt's answers catch books never see list sponsored tag zaras fix show options tell book source help chatgpt influence read card atom ai worry openai zara's"
+    },
+    {
+     "file": "assets/pulse/ai-agents/p07.webp",
+     "thumb": "assets/pulse/ai-agents/p07-t.webp",
+     "title": "The mix-up",
+     "w": 1600,
+     "h": 2400,
+     "kw": "restaurants side mix-up ors iss mit aaa cops agent books table restaurant holds deposit kept seats free mistake handles booking refund zarae move contact first ask fix stop business receipt even placed order eee source openal developers agentic commerce faq seller refunds chargebacks chatgpt.com merchants illustration card restaurantsside oops restauraht zara's read atom"
+    },
+    {
+     "file": "assets/pulse/ai-agents/p08.webp",
+     "thumb": "assets/pulse/ai-agents/p08-t.webp",
+     "title": "Can she get her $20 back?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "bank's side get back mata kia resfaurant cays zara ask bank card company chargeback banks big question ok payment agent rogue ack first matters tapped one deposit clear makes answer easier keep proof screenshot booking helps restaurant fix fast source us fair credit billing act credit-card billing-error disputes federal trade commission consumer financial protection bureau summaries card-network dispute rules vary country atom says read card8of"
+    },
+    {
+     "file": "assets/pulse/ai-agents/p09.webp",
+     "thumb": "assets/pulse/ai-agents/p09-t.webp",
+     "title": "What the referees say",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries referees say porm yee roma femmes ai abt dat aut thy ette bobot teted tet uli sfaztns lve heh uk restaurant uses booking bot still answers eu european union chatbot must tell zara she's talking ludia online shops clearly label paid-for listings auctralia government review found shopper law already mostly covers us credit-card rules let challenge wrong charge io ere source cma mar act transparency aug india consumer protection e-commerce amendment jan australian treasury oct fair credit billing card atom othercoontries australia"
+    },
+    {
+     "file": "assets/pulse/ai-agents/p10.webp",
+     "thumb": "assets/pulse/ai-agents/p10-t.webp",
+     "title": "Give it a valet key",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means give valet key tad etal nied wees set vets idea starts car won't open trunk agent booking needs ack first pays sends deletes anything spending cap small limit like prepaid card india upi lite unified payments interface payment cwitch cancel one tap fetch cpend let spend source rbi reserve bank circular dec limits valet-key rules read pee whatit ask switch cour upl card10of10 atom",
+     "takeaway": "Treat an agent like a valet: give it one key, a small spending cap, an ask-first rule and an off switch."
     }
-   ],
-   "updated": "2026-10-14",
-   "tagline": "Who pays when your agent shops",
-   "sources": [
-    {
-     "title": "American Express: Agentic Commerce Experiences (Amex Agent Purchase Protection terms)",
-     "url": "https://www.americanexpress.com/en-us/company/agentic-commerce/"
-    },
-    {
-     "title": "Checkout.com newsroom: Agentic Commerce 2026 findings (Jun 9, 2026)",
-     "url": "https://www.checkout.com/newsroom/consumer-demand-for-ai-shopping-is-forming-fast-but-trust-for-agentic-commerce-is-still-catching-up"
-    },
-    {
-     "title": "Checkout.com: Agentic Commerce 2026 report",
-     "url": "https://www.checkout.com/guides-and-reports/agentic-commerce-2026"
-    },
-    {
-     "title": "PYMNTS: AI makes the holiday shopping list, but who gets the sale? (PYMNTS Intelligence)",
-     "url": "https://www.pymnts.com/news/artificial-intelligence/2026/ai-makes-the-holiday-shopping-list-but-who-gets-the-sale/"
-    }
-   ],
-   "gist_lead": [
-    "Someone always pays.",
-    "Free can mean biased.",
-    "Blame is unsettled."
    ],
    "recap": [
-    "When an AI does a job, someone pays: you, an advertiser or the seller. There are four ways to sell it, each with trade-offs.",
-    "An AI paid by sellers may not pick what is best for you, and nobody has settled who pays when it buys the wrong thing.",
-    "To try one safely, let it search and draft first, then give it limits before it spends."
+    "Chatbot lists; agent books. Someone pays: subscription or ads.",
+    "Restaurant first, bank second.",
+    "Valet key: ask first, cap, off switch."
    ],
-   "recap_pages": 6
+   "recap_pages": 10,
+   "tagline": "A chatbot answers. An agent does.",
+   "updated": "2026-10-21"
   },
   {
    "id": "ai-bottlenecks",

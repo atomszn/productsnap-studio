@@ -13,10 +13,9 @@
         try {
           var t = localStorage.getItem('psnap-theme');
           if (t !== 'dark' && t !== 'light') {
-            /* Pulse: ambient day/night. No saved choice → follow the clock
-               (dark 19:00–07:00). The nav toggle still overrides. */
-            var h = new Date().getHours();
-            t = (h >= 19 || h < 7) ? 'dark' : 'light';
+            /* No saved choice → follow the phone/OS light or dark setting.
+               The nav toggle still overrides. */
+            t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
           }
           if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
         } catch (e) {}
