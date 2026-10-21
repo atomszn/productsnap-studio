@@ -867,6 +867,103 @@
    "tagline": "Confident isn't correct."
   },
   {
+   "id": "deepfakes",
+   "title": "Deepfakes & Scams",
+   "topic": "AI",
+   "blurb": "Ravi gets a call that sounds just like his aunt. Spot the clues, see the scammer's playbook, and set up a simple family plan.",
+   "gist": [
+    "AI can copy a voice or face from a short clip.",
+    "Rush, secrecy and odd payment methods are the biggest clues.",
+    "Hang up, call back on a known number, and use a family safe word."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T16:55",
+   "pages": [
+    {
+     "file": "assets/pulse/deepfakes/p01.webp",
+     "thumb": "assets/pulse/deepfakes/p01-t.webp",
+     "title": "Real or fake?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "spot difference map real fake ai deepfake video picture voice made artificial intelligence look sound like person clone copies someone sounds short clip secam trick get money details often hurry example ravi gets call aunt meena source ftc consumer alert scammers use enhance family emergency schemes consumer.ftc.gov fbi public service announcement i-120324-psa criminals generative facilitate financial fraud made-up examples cpe card atom themap scam"
+    },
+    {
+     "file": "assets/pulse/deepfakes/p02.webp",
+     "thumb": "assets/pulse/deepfakes/p02-t.webp",
+     "title": "Words to know",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words know phishing message whose link tries steal login money spoofed caller call made look like comes number trust safe word secret family knows label watermark ai tag hidden mark report tell bank country's fraud line source fbi public service announcement i-1290324-psa criminals use generative artificial intelligence facilitate financial fcc grandparent scams get sophisticated spoofing youtube help disclosing genai content google deepmind synthid card atom keywords toknow"
+    },
+    {
+     "file": "assets/pulse/deepfakes/p03.webp",
+     "thumb": "assets/pulse/deepfakes/p03-t.webp",
+     "title": "The call",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ravi's side call mie hears it's meena lost wallet trip send money now gift cards don't tell mum works sounds like feels urgent scammers count acting think ravi pauses says he'll back rings aunt number saved phone source ftc use fake emergencies steal urgency secrecy hang made-up examples card atom",
+     "takeaway": "Pause, hang up and call back on a number you already have."
+    },
+    {
+     "file": "assets/pulse/deepfakes/p04.webp",
+     "thumb": "assets/pulse/deepfakes/p04-t.webp",
+     "title": "How the trick is built",
+     "w": 1600,
+     "h": 2400,
+     "kw": "scammer's playbook trick built rat say eae arey allt step grab clip short video aunt meena posted online enough copy voice fake number call made show ravi trusts add pressure emergency story rush keep secret hard-to-trace money gift cards crypto digital coins wire transfers hard get back source ftc consumer alert scammers use ai enhance family schemes consumer.ftc.gov emergencies steal fcc grandparent-scam spoofed caller card thescammer'splaybook atom"
+    },
+    {
+     "file": "assets/pulse/deepfakes/p05.webp",
+     "thumb": "assets/pulse/deepfakes/p05-t.webp",
+     "title": "Clues to check",
+     "w": 1600,
+     "h": 2400,
+     "kw": "spot difference clues check csqp kolo video odd hands teeth eyes wrong shadows lips sync voice listen tone words wouldn't use story rush secrecy strange way pay biggest don't trust ears alone clones getting good checking beats spotting source fbi public service announcement i-1290324-psa criminals generative artificial intelligence facilitate financial fraud tips images ftc scammers fake emergencies steal money card read atom",
+     "takeaway": "Rush, secrecy and a strange way to pay are the biggest clues."
+    },
+    {
+     "file": "assets/pulse/deepfakes/p06.webp",
+     "thumb": "assets/pulse/deepfakes/p06-t.webp",
+     "title": "Labels and hidden marks",
+     "w": 1600,
+     "h": 2400,
+     "kw": "platform company side labels hidden marks wee ites ane coh videos youtube asks creators say realistic content ai-made changed shows label watermarks google's synthid puts invisible mark ai tools make checked later full shield scam call like ravi's won't carry checking still source help disclosing use genai google deepmind foolproof card itd and'hidden ourread atom"
+    },
+    {
+     "file": "assets/pulse/deepfakes/p07.webp",
+     "thumb": "assets/pulse/deepfakes/p07-t.webp",
+     "title": "If money already went",
+     "w": 1600,
+     "h": 2400,
+     "kw": "bank's side money already went call bank fast use number card one caller say scam try stop recall payment refunds depend live uk banks must refund people tricked transfer cases report ravi didn't pay still reports source fbi i-120324-psa organisation find yourself fraud systems regulator app reimbursement protections authorised push aunt meena made-up examples tor thebank atom"
+    },
+    {
+     "file": "assets/pulse/deepfakes/p08.webp",
+     "thumb": "assets/pulse/deepfakes/p08-t.webp",
+     "title": "Rules around the world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries rules around world ai 33a ihe iar eu european union deepfakes must labelled wmuk cases banks refund people tricked bank transfer india realistic al-made media australia phone firms apps fight scams us rivibcaeibnnnanaberninvnbion source oct act art applies aug uk psr app reimbursement amendment feb prevention framework being phased fcc declaratory ruling fcc-24-17 telephone consumer protection card aton othercountries ai-made ai-voice robocalls need consent atom"
+    },
+    {
+     "file": "assets/pulse/deepfakes/p09.webp",
+     "thumb": "assets/pulse/deepfakes/p09-t.webp",
+     "title": "Your family plan",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means family plan ine coy pick safe word ravi's chose one dinner fbi suggests ask caller hang call back use number already have slow real emergency wait two minutes check never pay hurry gift cards crypto wires rushes source public service announcement i-1290324-psa criminals generative artificial intelligence facilitate financial fraud ftc scammers fake emergencies steal money fcc grandparent-scam alert ravi aunt meena made-up examples tid card whatit foryou already.have read atom",
+     "takeaway": "Agree a family safe word, and never pay a caller who rushes you."
+    }
+   ],
+   "recap": [
+    "Real or fake? Check, don't just spot.",
+    "Rush, secrecy and a strange way to pay are the biggest clues.",
+    "Your family plan: safe word, call back, never pay in a hurry."
+   ],
+   "recap_pages": 9,
+   "tagline": "Checking beats spotting."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",

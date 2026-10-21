@@ -1834,6 +1834,128 @@
     "Source: OpenAI, \"Why language models hallucinate\"; our read on everyday checking.",
     "card 9 of 9"
    ]
+  ],
+  "deepfakes": [
+   [
+    "Real or fake?",
+    "Deepfake",
+    "A fake video, picture or voice made with AI (artificial intelligence) to look or sound like a real person.",
+    "Voice clone",
+    "AI copies how someone sounds from a short clip of their voice.",
+    "Scam",
+    "A trick to get your money or details, often in a hurry.",
+    "Our example",
+    "Ravi gets a call that sounds just like his Aunt Meena. Is it her?",
+    "Source: FTC Consumer Alert, \"Scammers use AI to enhance their family emergency schemes\" (consumer.ftc.gov); FBI Public Service Announcement I-120324-PSA, \"Criminals Use Generative Artificial Intelligence to Facilitate Financial Fraud\". Ravi and Aunt Meena are made-up examples.",
+    "card 1 of 9"
+   ],
+   [
+    "Words to know",
+    "Phishing",
+    "A message whose link tries to steal your login or money.",
+    "Spoofed caller ID",
+    "A call made to look like it comes from a number you trust.",
+    "Safe word",
+    "A secret word only your family knows.",
+    "AI label and watermark",
+    "A \"made with AI\" tag, or a hidden mark.",
+    "Report",
+    "Tell your bank and your country's fraud line.",
+    "Source: FBI Public Service Announcement I-120324-PSA, \"Criminals Use Generative Artificial Intelligence to Facilitate Financial Fraud\"; FCC, \"'Grandparent' Scams Get More Sophisticated\" (spoofing, safe word); YouTube Help, \"Disclosing use of GenAI content\"; Google DeepMind, SynthID.",
+    "card 2 of 9"
+   ],
+   [
+    "The call",
+    "What he hears",
+    "\"It's me, Meena. I lost my wallet on a trip. Send money now with gift cards. Don't tell your mum.\"",
+    "Why it works",
+    "It sounds like her and feels urgent. Scammers count on you acting before you think.",
+    "What Ravi does",
+    "He pauses, says he'll call back, and rings Aunt Meena on the number saved in his phone.",
+    "Source: FTC, \"Scammers Use Fake Emergencies To Steal Your Money\" (urgency, secrecy, gift cards; hang up and call back). Ravi and Aunt Meena are made-up examples.",
+    "card 3 of 9"
+   ],
+   [
+    "How the trick is built",
+    "Step 1: grab a clip",
+    "A short video Aunt Meena posted online is enough to copy her voice.",
+    "Step 2: fake the number",
+    "The call can be made to show a number Ravi trusts.",
+    "Step 3: add pressure",
+    "An emergency story, a rush and a \"keep it secret\".",
+    "Step 4: hard-to-trace money",
+    "Gift cards, crypto (digital coins) or wire transfers are hard to get back.",
+    "Source: FTC Consumer Alert, \"Scammers use AI to enhance their family emergency schemes\" (consumer.ftc.gov); FTC, \"Scammers Use Fake Emergencies To Steal Your Money\"; FCC grandparent-scam alert (spoofed caller ID).",
+    "card 4 of 9"
+   ],
+   [
+    "Clues to check",
+    "In a video",
+    "Odd hands, teeth or eyes, wrong shadows, lips out of sync.",
+    "In a voice",
+    "Listen for tone and words she wouldn't use.",
+    "In the story",
+    "Rush, secrecy and a strange way to pay are the biggest clues.",
+    "Our read",
+    "Don't trust your ears alone",
+    "Clones are getting good. Checking beats spotting.",
+    "Source: FBI Public Service Announcement I-120324-PSA, \"Criminals Use Generative Artificial Intelligence to Facilitate Financial Fraud\" (tips on images, video and voice); FTC, \"Scammers Use Fake Emergencies To Steal Your Money\".",
+    "card 5 of 9"
+   ],
+   [
+    "Labels and hidden marks",
+    "Labels on videos",
+    "YouTube asks creators to say when realistic content is AI-made or changed, then shows a label.",
+    "Hidden watermarks",
+    "Google's SynthID puts an invisible mark in what its AI tools make, so they can be checked later.",
+    "Our read",
+    "Not a full shield",
+    "A scam call like Ravi's won't carry a label. Checking is still on you.",
+    "Source: YouTube Help, \"Disclosing use of GenAI content\"; Google DeepMind, \"SynthID\" (watermarks are not foolproof).",
+    "card 6 of 9"
+   ],
+   [
+    "If money already went",
+    "Call the bank fast",
+    "Use the number on your card, not one from the caller.",
+    "Say it was a scam",
+    "The bank may try to stop or recall the payment.",
+    "Refunds depend on where you live",
+    "In the UK, banks must refund people tricked into a bank transfer, in most cases.",
+    "Report it",
+    "Ravi didn't pay, but he still reports the call.",
+    "Source: FBI I-120324-PSA (call the organisation on a number you find yourself; report fraud); UK Payment Systems Regulator, \"APP fraud reimbursement protections\" (Authorised Push Payment). Ravi and Aunt Meena are made-up examples.",
+    "card 7 of 9"
+   ],
+   [
+    "Rules around the world",
+    "EU (European Union)",
+    "AI deepfakes must be labelled.",
+    "UK",
+    "In most cases, banks must refund people tricked into a bank transfer.",
+    "India",
+    "Realistic AI-made media must be labelled.",
+    "Australia",
+    "Banks, phone firms and apps must fight scams.",
+    "US",
+    "AI-voice robocalls need consent.",
+    "Source: As of Oct 2026. EU AI Act Art. 50(4), applies from Aug 2, 2026; UK PSR APP reimbursement, from Oct 7, 2024; India IT Rules amendment, Feb 10, 2026; Australia Scams Prevention Framework Act 2025 (being phased in); US FCC Declaratory Ruling FCC-24-17 (Telephone Consumer Protection Act).",
+    "card 8 of 9"
+   ],
+   [
+    "Your family plan",
+    "Pick a safe word",
+    "Ravi's family chose one at dinner, as the FBI suggests. Ask the caller for it.",
+    "Hang up and call back",
+    "Use a number you already have.",
+    "Our read",
+    "Slow down",
+    "A real emergency can wait two minutes for a check.",
+    "Never pay in a hurry",
+    "No gift cards, crypto or wires to a caller who rushes you.",
+    "Source: FBI Public Service Announcement I-120324-PSA, \"Criminals Use Generative Artificial Intelligence to Facilitate Financial Fraud\"; FTC, \"Scammers Use Fake Emergencies To Steal Your Money\"; FCC grandparent-scam alert. Ravi and Aunt Meena are made-up examples.",
+    "card 9 of 9"
+   ]
   ]
  }
 }
