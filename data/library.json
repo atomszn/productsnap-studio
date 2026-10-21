@@ -673,6 +673,103 @@
    "recap_pages": 4
   },
   {
+   "id": "ai-basics",
+   "title": "AI Basics",
+   "topic": "AI",
+   "blurb": "Follow Leo as he asks a chatbot what to cook for 4 friends, and see how AI learns, how it answers, who is behind it and what the rules are around the world.",
+   "gist": [
+    "A chatbot runs on an LLM (large language model) that learned by guessing missing words.",
+    "It answers one word at a time, so it can sound sure and be wrong.",
+    "Give it details, keep secrets out, and check what matters."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T14:57",
+   "pages": [
+    {
+     "file": "assets/pulse/ai-basics/p01.webp",
+     "thumb": "assets/pulse/ai-basics/p01-t.webp",
+     "title": "What are we talking about?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map talking tii leos question cook friends rice eggs tomatoes artificial intelligence computer programs things used think needed human brain like answering leo model trained file lots numbers turn leo's answer llm large language huge amounts text guess next word chatbot app types chatgpt gemini grok sits behind meee eee source openal help foundation models developed dinner illustration card 1of picturemap intelliqence tots ananswer developed.leoandhisdinnerare anillustration card1of9 atom"
+    },
+    {
+     "file": "assets/pulse/ai-basics/p02.webp",
+     "thumb": "assets/pulse/ai-basics/p02-t.webp",
+     "title": "The words inside the machine",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words inside machine attain ptt emo eres lee sey prompt leo types question plus extra details token small piece text whole word part one model reads writes tokens parameters weights model's numbers like tiny dials nudged during training trainin learned guessing missing data centre building full computer chips runs hits send source openal help chatgpt foundation models developed card keywords lof 2of atom"
+    },
+    {
+     "file": "assets/pulse/ai-basics/p03.webp",
+     "thumb": "assets/pulse/ai-basics/p03-t.webp",
+     "title": "Leo asks for dinner ideas",
+     "w": 1600,
+     "h": 2400,
+     "kw": "leos side leo asks dinner ideas atl asd sia roi rer eee mal prompt rice eggs tomatoes friends cook answer egg fried tomato salad step seconds ask get new question bring different reply there's bit chance built better adding oven minutes gives recipe fits kitchen cme mmm meme source openal help chatgpt foundation models developed give answers example illustration card leo'sside eggfried ricewitha stepbystep inseconds askagain geta reply.there's chancebuiltin betterprompt ourread 3of atom"
+    },
+    {
+     "file": "assets/pulse/ai-basics/p04.webp",
+     "thumb": "assets/pulse/ai-basics/p04-t.webp",
+     "title": "Fill in the blank, millions of times",
+     "w": 1600,
+     "h": 2400,
+     "kw": "learned fill blank millions times saas jana baco gee eee lan cadmas aame training shows model sentences word missing instead turning left turned first random early guesses nonsense miss nudges dials little later patterns knows fried rice often comes egg kept keeps adjusted numbers copies pages read source openal help chatgpt foundation models developed fill-in-the-blank example openal's card ton howitlearned fimes qame aword atfirst copy itkeeps thepages thefill-in-the-blankexampleisopenal's card4of9 atom",
+     "takeaway": "A chatbot learns by guessing missing words millions of times and nudging its numbers each time; it keeps patterns, not copies of what it read."
+    },
+    {
+     "file": "assets/pulse/ai-basics/p05.webp",
+     "thumb": "assets/pulse/ai-basics/p05-t.webp",
+     "title": "One word at a time",
+     "w": 1600,
+     "h": 2400,
+     "kw": "answers one word time chin hom cedars ead sss guess add repeat nou fry rice egg scores high shoe low adds best guesses lookin plain chatbot predicts patterns isn't reading recipe site unless has search tool switched wrona contidentl give cooking sounds right maths magic good guesser coonagar source openal help chatgpt foundation models developed language hallucinate card cor howitanswers fime addrepeat scoreshigh scoreslow.itadds looking unlessithasasearchtoolswitchedon wrong confidentty giveacooking timethat maqic courread know-it-all whylanguagemodelshallucinate card5of9 atom",
+     "takeaway": "A chatbot writes by predicting the next word, again and again. That's why it can sound sure and still be wrong."
+    },
+    {
+     "file": "assets/pulse/ai-basics/p06.webp",
+     "thumb": "assets/pulse/ai-basics/p06-t.webp",
+     "title": "Who taught it?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "data people behind taught io assgi11i eee see gar public web paaes open websites forums blogs pages paywalls company says partner collections gets through deals organisations human trainers rate write sample answers chatbot helpful safer many voices one answer leo's recipe comes patterns countless cooks writing source openal help chatgpt foundation models developed three main sources information filters card thedataand peoplebehindit forumsand blogs.not behindpaywalls oneanswer read humantrainers card6of9 atom"
+    },
+    {
+     "file": "assets/pulse/ai-basics/p07.webp",
+     "thumb": "assets/pulse/ai-basics/p07-t.webp",
+     "title": "Running the kitchen",
+     "w": 1600,
+     "h": 2400,
+     "kw": "company's side running kitchen ants a's whe ale atta chips power every answer runs data centre costs money electricity sate rules company trains model avoid harmful answers filters learns leos chats used improve models users opt settings ask chatbot free someone paying source openal help chatgpt foundation developed privacy policy opting training card atom theai company'sside chipsandpower safetyrules leo schats askwhatitcosts ourread chips.ask outof card7of9"
+    },
+    {
+     "file": "assets/pulse/ai-basics/p08.webp",
+     "thumb": "assets/pulse/ai-basics/p08-t.webp",
+     "title": "Same question, different rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries question different rules yaotx eae frags say oor pcs litt room ill ners tabby sous ven wren tab ptieapaiiii eu european union chatbot must tell leo he's talking uk single law existing regulators cover areas india realistic al-made pictures videos voices labelled australia laws safety institute watches gaps us national consumer still applies source act art aug parliament research briefing cbp-10003 amendment feb force plan dec ftc card tom othercountries samequestion europeanunion leohe's allaw.existing alin theirown law.consumerlaw briefingcbp-10003 rulesamendment feb2o australianationalalplan dec2.2025 usftc card8of atom"
+    },
+    {
+     "file": "assets/pulse/ai-basics/p09.webp",
+     "thumb": "assets/pulse/ai-basics/p09-t.webp",
+     "title": "Use it like a smart friend, not an oracle",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means use like smart friend oracle tis lie vee ran sosa check matters leo checks rice packet cooking time give details say have need avoid keep secrets don't type passwords card numbers private youre cook answer starting point make call source openal help chatgpt foundation models developed read everyday atom whatitmeansforyou tike checkwhatmafters leochecks thericepacketforthe cookingtime giveitdetails youlrefhecookcourread ourread oneveryday card9of9",
+     "takeaway": "Treat a chatbot like a smart friend: give it details, keep secrets out, and check anything that matters."
+    }
+   ],
+   "recap": [
+    "Training = fill in the blank; answering = guess the next word.",
+    "People and data are behind every answer.",
+    "Smart friend, not an oracle."
+   ],
+   "recap_pages": 9,
+   "tagline": "Maths, not magic."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
