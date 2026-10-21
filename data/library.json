@@ -770,6 +770,103 @@
    "tagline": "Maths, not magic."
   },
   {
+   "id": "ai-wrong",
+   "title": "When AI Gets It Wrong",
+   "topic": "AI",
+   "blurb": "Follow Mia as a chatbot helps with her honeybee report, invents a book, agrees too easily and tips a story one way, and learn how to check it like a detective.",
+   "gist": [
+    "Chatbots can make up answers that sound true (hallucinations).",
+    "They can agree too easily and repeat old biases from their training data.",
+    "Open the source, ask how sure it is, and check a second place."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T16:51",
+   "pages": [
+    {
+     "file": "assets/pulse/ai-wrong/p01.webp",
+     "thumb": "assets/pulse/ai-wrong/p01-t.webp",
+     "title": "What can go wrong?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "case file picture map wrong aes fal ees eooeee eoeoee ole one cont mia asks chatbot help school report honeybees app type questions like chatgpt gemini grok artificial intelligence writes reply hallucination made-up answer sounds true bee book doesn't exist bias answers lean way because learned fact-check checking claim against real source use openal language models hallucinate unesco study illustration bed nee card doesn'texist miaand herreportarean of9 atom"
+    },
+    {
+     "file": "assets/pulse/ai-wrong/p02.webp",
+     "thumb": "assets/pulse/ai-wrong/p02-t.webp",
+     "title": "The evidence tags",
+     "w": 1600,
+     "h": 2400,
+     "kw": "case file key words evidence tags boas gulen wna ess eoeeee coonh wes sore next-word guess chatbot writes predicting next word training data huge pile text learned patterns sycophancy agreeing much please knowledge cutoff point stops newer news missing search links looks things shows found source openal language models hallucinate gpt-40 help chatgpt foundation developed tell truth searching web citations card searchwithinks gpt-4o atom"
+    },
+    {
+     "file": "assets/pulse/ai-wrong/p03.webp",
+     "thumb": "assets/pulse/ai-wrong/p03-t.webp",
+     "title": "The book that isn't there",
+     "w": 1600,
+     "h": 2400,
+     "kw": "mia's side book isn't bin rea cpa cec oeeee eoeee3e ooo ask give bee facts books cite answer neat three titles authors sounds certain clue mia looks one library online doesn't exist confident correct smooth sure still invented source openal language models hallucinate hallucinations plausible false statements example illustration card mia'sside threetitles authors.it theclue ourread plausiblebutfalse exampleis atom",
+     "takeaway": "A chatbot can invent a source that sounds perfectly real. Confident isn't the same as correct."
+    },
+    {
+     "file": "assets/pulse/ai-wrong/p04.webp",
+     "thumb": "assets/pulse/ai-wrong/p04-t.webp",
+     "title": "Graded for guessing",
+     "w": 1600,
+     "h": 2400,
+     "kw": "happens graded guessing rito pae ele ana lol oeeoe eoeeee like multiple-choice test guess score leave blank surely get zero learns scoreboards tests grade reward right answers don't know rare facts hardest common fact repeats across many pages exact book title appear never fix openai suggests mark confident errors honest sure source openal language models hallucinate analogy scoring card ithappens card4of9 atom",
+     "takeaway": "Chatbots guess partly because their tests reward lucky guesses over an honest \"I don't know\"."
+    },
+    {
+     "file": "assets/pulse/ai-wrong/p05.webp",
+     "thumb": "assets/pulse/ai-wrong/p05-t.webp",
+     "title": "The yes-machine",
+     "w": 1600,
+     "h": 2400,
+     "kw": "people behind yes-machine ont miia tests bees make honey pollen right example chatbot says nectar nods people's thumbs-up thumbs-down help train chatbots pleasing answers win thumbs really happened openal pulled back chatgpt update being flattering agreeable don't lead witness ask source sycophancy gpt-40 we're doing davis made card thepeoplebehind mia ourread gpt-4o 5of9 atom"
+    },
+    {
+     "file": "assets/pulse/ai-wrong/p06.webp",
+     "thumb": "assets/pulse/ai-wrong/p06-t.webp",
+     "title": "Who's in the picture?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "data behind who's picture anes qeemana pemenr sas phe sez mia asks write short story bee scientist helper gets example man awoman didn't ask learns human writing old patterns tip scales unesco un's education science culture agency found study chatbots linked women's names home family men's careers source challenging systematic prejudices bias against women girls large language models mia's test ran card woman atom"
+    },
+    {
+     "file": "assets/pulse/ai-wrong/p07.webp",
+     "thumb": "assets/pulse/ai-wrong/p07-t.webp",
+     "title": "Fixing the machine",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ai company's side fixing machine ait aaah say i'm sure companies train models admit doubt instead guessing show source search links lets mia click through check warn user chatgpt shows note telling important info fewer zero errors getting rarer still happen openal language hallucinate help tell truth knowledge cutoff cited card theaicompany'sside showthesource ourread 7of9 atom"
+    },
+    {
+     "file": "assets/pulse/ai-wrong/p08.webp",
+     "thumb": "assets/pulse/ai-wrong/p08-t.webp",
+     "title": "Who's on the case?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries who's case caeee renae cor fie ait peas ane aver elle eu european union chatbot must tell mia she's talking uk single law existing regulators cover alin areas india realistic al-made pictures videos voices labelled australia laws safety institute watches gaps us national consumer still applies source act art aug commons library cbp-10003 rules amendment feb plan dec congressional research service r48555 broad federal ftc card othercountries nationalal card8of9 atom"
+    },
+    {
+     "file": "assets/pulse/ai-wrong/p09.webp",
+     "thumb": "assets/pulse/ai-wrong/p09-t.webp",
+     "title": "Think like a detective",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means think like detective wees els mnt sae open source names book link find yourself ask sure say doesn't know check second place textbook library trusted site person big stuff health money legal questions need real expert openal language models hallucinate read everyday checking card whatitmeans foryou iike ourread 9of9 atom",
+     "takeaway": "Check AI like a detective: open the source, ask how sure it is, check a second place, and ask a person for health, money or legal questions."
+    }
+   ],
+   "recap": [
+    "Hallucination: sounds true, isn't. Graded for guessing.",
+    "The yes-machine, and bias tips the scales.",
+    "Think like a detective."
+   ],
+   "recap_pages": 9,
+   "tagline": "Confident isn't correct."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
