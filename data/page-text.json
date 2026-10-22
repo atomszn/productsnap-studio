@@ -2623,6 +2623,118 @@
     "Source: OpenAI, \"A practical guide to building agents\"; Model Context Protocol docs and specification (modelcontextprotocol.io); European Commission, AI Act Article 50 FAQ. Omar and the shop are made up.",
     "card 9 of 9"
    ]
+  ],
+  "what-powers-ai": [
+   [
+    "What powers AI",
+    "Chip",
+    "The tiny part that does the maths for each answer.",
+    "Data centre",
+    "A building packed with computers that run AI.",
+    "Electricity and water",
+    "Power runs the chips; water often helps cool them.",
+    "Our example",
+    "Hana asks an AI one question about her science fair.",
+    "Source: Google Cloud blog and paper on Gemini prompt energy (Aug 2025); IEA (International Energy Agency), Energy and AI (2025). Hana and her question are made up.",
+    "card 1 of 10"
+   ],
+   [
+    "Words on the bill",
+    "GPU",
+    "Graphics processing unit: a chip good at AI maths.",
+    "Server rack",
+    "A tall cabinet of computers in a data centre.",
+    "Grid",
+    "The power lines that bring electricity to towns.",
+    "Wh",
+    "Watt-hour: a small unit of energy use.",
+    "Source: Google Cloud blog and paper on Gemini prompt energy (Aug 2025); IEA (International Energy Agency), Energy and AI (2025).",
+    "card 2 of 10"
+   ],
+   [
+    "One question leaves home",
+    "Hana types: \"Give me a science fair idea about energy.\" In a blink, her words travel over the internet to a data centre, maybe far away.",
+    "Example",
+    "Source: IEA (International Energy Agency), Energy and AI (2025). Hana and her question are made up.",
+    "card 3 of 10"
+   ],
+   [
+    "Chips get hot",
+    "Without cooling Chips doing AI maths heat up fast.",
+    "With cooling Fans, air and water carry heat away.",
+    "Rx",
+    "To answer Hana, the data centre needs:",
+    "Chips to work out the answer.",
+    "Electricity to run them.",
+    "Cooling, sometimes using water.",
+    "Source: Google Cloud blog and paper on Gemini prompt energy (Aug 2025). Hana and her question are made up.",
+    "card 4 of 10"
+   ],
+   [
+    "What one prompt uses",
+    "Energy",
+    "Google says its median Gemini text prompt used 0.24 Wh (as of May 2025).",
+    "Water",
+    "Google says that same prompt used 0.26 mL, about five drops.",
+    "Baseline",
+    "Google says a prompt used 33 times less energy in May 2025 than in May 2024.",
+    "Note",
+    "Google's own figures, not checked by an outside group.",
+    "Source: Google Cloud blog and paper on Gemini prompt energy (Aug 2025).",
+    "card 5 of 10"
+   ],
+   [
+    "Big buildings, local effects",
+    "Worldwide",
+    "The IEA says data centres used about 1.5% of the world's electricity in 2024.",
+    "Next",
+    "The IEA expects that to roughly double by 2030 (baseline: 2024).",
+    "Near home",
+    "The IEA says effects are far bigger in the towns where data centres cluster.",
+    "Source: As of 2025. IEA (International Energy Agency), Energy and AI (2025).",
+    "card 6 of 10"
+   ],
+   [
+    "Kettle or TV?",
+    "Picture A A kettle boiling.",
+    "Picture B A TV left on.",
+    "Hana's one question used energy closer to which? Guess first: the answer below is upside down.",
+    "B. Google says its median text prompt used less than 9 seconds of TV.",
+    "Tilt your head to read the answer.",
+    "Source: Google Cloud blog and paper on Gemini prompt energy (Aug 2025) (May 2025 data). Hana and her question are made up.",
+    "card 7 of 10"
+   ],
+   [
+    "Where the energy went",
+    "ITEMISED",
+    "58%: AI chips doing the maths.",
+    "25%: The main computer parts helping the chips.",
+    "10%: Spare machines kept ready.",
+    "8%: The building: cooling and power losses.",
+    "Source: Google paper, median Gemini text prompt, May 2025. Hana and her question are made up.",
+    "card 8 of 10"
+   ],
+   [
+    "Who checks the meter",
+    "EU (European Union)",
+    "Data centres of 500 kW (kilowatts) of computers or more must report energy and water use every year.",
+    "Ireland",
+    "Since Dec 2025, larger new data centres must bring their own nearby power or storage to connect.",
+    "Example",
+    "Hana's project",
+    "She compares what companies say with what rules ask them to report.",
+    "Source: As of Oct 2026. European Commission, data centre reporting under the Energy Efficiency Directive; CRU (Ireland energy regulator) decision CRU/2025236. Hana and her question are made up.",
+    "card 9 of 10"
+   ],
+   [
+    "Reading the meter",
+    "DO: Ask one clear question instead of ten vague ones.",
+    "ASK: Does this company publish its energy and water figures?",
+    "SKIP: Don't trust big numbers without a date and a source.",
+    "TIP: Our read: one question is small; billions add up.",
+    "Source: Google Cloud blog and paper on Gemini prompt energy (Aug 2025); IEA (International Energy Agency), Energy and AI (2025); European Commission, data centre reporting under the Energy Efficiency Directive. Hana and her question are made up.",
+    "card 10 of 10"
+   ]
   ]
  }
 }

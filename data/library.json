@@ -1560,6 +1560,112 @@
    "tagline": "A good agent is a short recipe with a human taster."
   },
   {
+   "id": "what-powers-ai",
+   "title": "What Powers AI",
+   "topic": "AI",
+   "blurb": "Hana asks an AI one question for her science fair. Follow it to a data centre and see the chips, electricity and water behind every answer.",
+   "gist": [
+    "One AI question travels to a data centre where chips, electricity and cooling answer it.",
+    "One prompt is small; billions add up.",
+    "Look for figures with a date and a source."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:30",
+   "pages": [
+    {
+     "file": "assets/pulse/what-powers-ai/p01.webp",
+     "thumb": "assets/pulse/what-powers-ai/p01-t.webp",
+     "title": "What powers AI",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map powers pea ols let oath rose lel ian anal bee lil tay poe aes ang deg yum tes lota tiny part maths answer data centre building packed computers run electricity water power runs chips often helps cool example hana asks one question science fair source google cloud blog paper gemini prompt energy aug iea international agency made card thepicturemap chip datacentre cloudblogand herquestionaremadeup 1of atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p02.webp",
+     "thumb": "assets/pulse/what-powers-ai/p02-t.webp",
+     "title": "Words on the bill",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words bill rer gpu server rack graphics processing unit chip tall cabinet computers ina data centre good maths aax z1xsi von grid power lines bring watt-hour small energy electricity towns use source google cloud blog paper gemini prompt aug iea international agency card keywords cloudblog andal 2of10 atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p03.webp",
+     "thumb": "assets/pulse/what-powers-ai/p03-t.webp",
+     "title": "One question leaves home",
+     "w": 1600,
+     "h": 2400,
+     "kw": "nma user's side one question leaves home gar hana types give science fair idea energy ina blink words travel internet data centre maybe far away source iea international agency made card theuser'sside example andherquestionaremadeup card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p04.webp",
+     "thumb": "assets/pulse/what-powers-ai/p04-t.webp",
+     "title": "Chips get hot",
+     "w": 1600,
+     "h": 2400,
+     "kw": "inside data centre hot chips get shee glee aes say sap without cooling doing maths heat fast fans air water carry away eee eel answer hana needs work electricity run sometimes using source google cloud blog paper gemini prompt energy aug question made card atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p05.webp",
+     "thumb": "assets/pulse/what-powers-ai/p05-t.webp",
+     "title": "What one prompt uses",
+     "w": 1600,
+     "h": 2400,
+     "kw": "company's side one prompt uses yay ime energy google says median gemini text used water five drops baseline times note google's figures checked outside group source cloud blog paper aug card ai 5of10 atom",
+     "takeaway": "Google says its median Gemini text prompt used 0.24 Wh and 0.26 mL water (May 2025, own figures)."
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p06.webp",
+     "thumb": "assets/pulse/what-powers-ai/p06-t.webp",
+     "title": "Big buildings, local effects",
+     "w": 1600,
+     "h": 2400,
+     "kw": "town grid big buildings local effects erin sss led ere waa nit ill mis ope lts mel worldwide iea says data centres used world's electricity next expects roughly double baseline near home far bigger towns cluster source international energy agency card thetown 2025.iea internationalenergy atom",
+     "takeaway": "The IEA says data centres used about 1.5% of world electricity in 2024 and expects about double by 2030."
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p07.webp",
+     "thumb": "assets/pulse/what-powers-ai/p07-t.webp",
+     "title": "Kettle or TV?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal kettle swe isa fim ree rote sse hie cake yay wss hee pgs dae sty gener sata eee enact vars ape picture boiling left hana's one question used energy closer guess first answer below upside spuo0iis ssa pasn dwojd 1x9 ueipaw saes ajho009g tilt head read source google cloud blog paper gemini prompt aug data hana made card thebigreveal says median text seconds 7of atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p08.webp",
+     "thumb": "assets/pulse/what-powers-ai/p08-t.webp",
+     "title": "Where the energy went",
+     "w": 1600,
+     "h": 2400,
+     "kw": "hana's bill enert went bla chips doing maths main computer parts helping spare machines kept ready building cooling power losses source google paper median gemini text prompt hana question made card hana'sbill energy itemised 2025.hana card8of10 atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p09.webp",
+     "thumb": "assets/pulse/what-powers-ai/p09-t.webp",
+     "title": "Who checks the meter",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules countries checks meter cae cje rae hoe cael tie eu european union data centres kilowatts computers must report energy water use every year lreland since dec larger new bring nearby power storage connect hana's project compares companies say ere teer source oct commission centre reporting efficiency directive cru ireland regulator decision hana question made card example ask 0ct 2026.europeancommission underthe lrelandenergy card9of10 atom",
+     "takeaway": "The EU makes large data centres report energy and water use yearly (as of Oct 2026)."
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p10.webp",
+     "thumb": "assets/pulse/what-powers-ai/p10-t.webp",
+     "title": "Reading the meter",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means readin meter paige wey ask one clear question instead ten vague ones company publish energy water figures skip don't trust big numbers without date source tip read small billions add google cloud blog paper gemini prompt aug iea international agency european commission data centre reporting efficiency directive hana made card whatitmeansforyou reading googlecloud blogand paperongemini internationalenergyagency energyandal reportingunder card10of10 atom"
+    }
+   ],
+   "recap": [
+    "What powers AI.",
+    "What one prompt uses.",
+    "Kettle or TV?",
+    "Reading the meter."
+   ],
+   "recap_pages": 10,
+   "tagline": "One question is small; billions add up."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
