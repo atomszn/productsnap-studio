@@ -964,6 +964,210 @@
    "tagline": "Checking beats spotting."
   },
   {
+   "id": "privacy",
+   "title": "Your Data, Privacy & Copyright",
+   "topic": "AI",
+   "blurb": "Walk through Noor's first art show: what happens to what she types, whether her foxes trained an AI, who owns AI-made art, and the light on a visitor's smart glasses.",
+   "gist": [
+    "Chats can train AI unless you switch it off.",
+    "Prompts alone don't make you an author; human work does.",
+    "Smart-glasses lights help, but asking is better."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T18:11",
+   "pages": [
+    {
+     "file": "assets/pulse/privacy/p01.webp",
+     "thumb": "assets/pulse/privacy/p01-t.webp",
+     "title": "Welcome to the gallery",
+     "w": 1600,
+     "h": 2400,
+     "kw": "gallery map welcome saee personal data anything points name face voice number address training text pictures chats learns copyright legal right control copies something made example noor getting ready first small show fox paintings follow through rooms source uk ico information commissioner's office guide individual rights us artificial intelligence part copyrightability made-up card 1o0f9 thegallerymap linformation 1of9 atom"
+    },
+    {
+     "file": "assets/pulse/privacy/p02.webp",
+     "thumb": "assets/pulse/privacy/p02-t.webp",
+     "title": "Six words on the wall",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words s1x wall personal data training facts point learns opt-out copyright setting says don't use mine copy work smart glasses camera recording light microphones shows source openal help controls chatgpt used improve model performance us office artificial intelligence part copyrightability meta privacy settings capture led card keywords six 2of9 atom"
+    },
+    {
+     "file": "assets/pulse/privacy/p03.webp",
+     "thumb": "assets/pulse/privacy/p03-t.webp",
+     "title": "What she almost typed",
+     "w": 1600,
+     "h": 2400,
+     "kw": "vfy io ava lip sps noor's side almost ped example noor asks chatbot write show invitation starts pasting phone number home address stops needs details unless switches off chats help train source openal data controls chatgpt used improve model performance personal plans training opt made-up card typed card3of9 atom"
+    },
+    {
+     "file": "assets/pulse/privacy/p04.webp",
+     "thumb": "assets/pulse/privacy/p04-t.webp",
+     "title": "The switch in Settings",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ai company's side switch settings eee aes unless change personal chatgpt plans chats help train openal's models turn off data controls improve model everyone temporary chat saved history used training thumbs still shares rating answer send whole even opting source openal performance want keep disable card theai company'sside card4of9 atom",
+     "takeaway": "Find the training switch: Settings > Data controls."
+    },
+    {
+     "file": "assets/pulse/privacy/p05.webp",
+     "thumb": "assets/pulse/privacy/p05-t.webp",
+     "title": "Was my fox in there?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "artist's side fox learned web image als learn huge sets pictures include artists posted work training signals eu european union big firms must respect creator's machine-readable opt-out still being argued whether needs permission payment fought courts parliaments noor move adds note site keeps sketches source act art directive service desk recital australia attorney-general oct uk government report copyright artificial intelligence made-up example card theartist'sside ourread noor's made-upexample card5of9 atom"
+    },
+    {
+     "file": "assets/pulse/privacy/p06.webp",
+     "thumb": "assets/pulse/privacy/p06-t.webp",
+     "title": "Which fox can Noor own?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal fox noor w's tae made noor's typed painted brush stroke prompt one gets copyright guess first answer below printed upside 0.1d ued jubwaasuee dai e919 pue ipa sjued apew-uuewnh sou 39u noa ayhew usdop auuoje jdwojd suida xo4 using helper fine human parts still count example pictures rule us office's view source office artificial intelligence part copyrightability jan made-up card 6of bigreveal theanswerbelow protected author human-made edits creative arrangement typing alone doesn't make 6of9 atom",
+     "takeaway": "Typing a prompt alone doesn't make you the author; your human work does."
+    },
+    {
+     "file": "assets/pulse/privacy/p07.webp",
+     "thumb": "assets/pulse/privacy/p07-t.webp",
+     "title": "The light on the glasses",
+     "w": 1600,
+     "h": 2400,
+     "kw": "person being filmed lasses opening visitor's smart glasses blink small white light he's filming meta's blinks while recording hard see outdoors noor simply asks him film stops source meta privacy settings capture led hamburg commissioner data protection freedom information ray-ban report sep easily visible sunlight made-up example card thepersonbeing commissionerfor freedomof easilyvisible card7of9 atom"
+    },
+    {
+     "file": "assets/pulse/privacy/p08.webp",
+     "thumb": "assets/pulse/privacy/p08-t.webp",
+     "title": "Rules around the world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries rules around world sonn 11h sara bes emma eu european union gdpr general data protection regulation see delete euk uk gives rights copyright still study india dpdp digital personal act fix erase australia free pass train creators work us needs human author source oct art ico individual-rights guide report use access s.135 phased pib attorney-general release office artificial intelligence part copyrightability card othercountries creators'work 8of9 atom"
+    },
+    {
+     "file": "assets/pulse/privacy/p09.webp",
+     "thumb": "assets/pulse/privacy/p09-t.webp",
+     "title": "Your gallery rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "i't means gallery rules check switch find chatbot's training setting pick purpose keep private things addresses passwords health details chats process sketches edits show human work ask film look little light you're source openal help data controls chatgpt used improve model performance us copyright office artificial intelligence part copyrightability meta privacy settings glasses capture led noor made-up example card whatitmeansforyou read showyour card9of9 atom",
+     "takeaway": "Check the switch, keep private things out, and ask before you film."
+    }
+   ],
+   "recap": [
+    "Welcome to the gallery.",
+    "The switch in Settings.",
+    "Which fox can Noor own?",
+    "The light on the glasses."
+   ],
+   "recap_pages": 9,
+   "tagline": "Your data, your art, your face."
+  },
+  {
+   "id": "health",
+   "title": "AI and Your Health",
+   "topic": "AI",
+   "blurb": "Kofi asks a chatbot about a cough that won't go away. See what it can and can't do, how nurses and regulators use and check AI, and when to skip the chatbot entirely.",
+   "gist": [
+    "Chatbots can explain, but they can't examine you.",
+    "In one study, people with chatbots decided no better than people without.",
+    "In an emergency, call your local emergency number."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T18:12",
+   "pages": [
+    {
+     "file": "assets/pulse/health/p01.webp",
+     "thumb": "assets/pulse/health/p01-t.webp",
+     "title": "What's on the chart?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map what's chart 2ib19 health chatbot ai artificial intelligence chat app ask questions everyday words doctor nurse trained professional examines responsible care medical device equipment software including tested approved help diagnose treat example kofi has cough won't away asks booking visit source world organization ethics governance guidance large multi-modal models fda intelligence-enabled devices made-up card thepicturemap onthe doctorornurse 1of atom"
+    },
+    {
+     "file": "assets/pulse/health/p02.webp",
+     "thumb": "assets/pulse/health/p02-t.webp",
+     "title": "Words for the waiting room",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words waiting room chatbot triage answers plain deciding urgent problem wrong clinician ai scribe doctor nurse health listens visit drafts professional notes approved device emergency checked regulator call local use number source nhs england guidance ai-enabled ambient scribing products fda artificial intelligence-enabled medical devices card eee oeooooooeoooooeoo keywords wordsfor anddrafts card2of atom"
+    },
+    {
+     "file": "assets/pulse/health/p03.webp",
+     "thumb": "assets/pulse/health/p03-t.webp",
+     "title": "A late-night question",
+     "w": 1600,
+     "h": 2400,
+     "kw": "kofi side late-night question types cough while bit tired chatbot lists possible causes mild sounds calm sure can't listen chest knows typed emergency call local number seem source bean reliability llms medical assistants general public nature medicine feb people often didn't know tell answers mixed good poor advice nhs made-up example card atom kofi'sside alate-night card3of"
+    },
+    {
+     "file": "assets/pulse/health/p04.webp",
+     "thumb": "assets/pulse/health/p04-t.webp",
+     "title": "Before and after",
+     "w": 1600,
+     "h": 2400,
+     "kw": "kofi next step nis long chat full mixed advice three questions take clinic eee kofi's question prescription causing cough need tests make come back sooner source read use chatbot prepare diagnose bean reliability llms medical assistants general public nature medicine feb made-up example card kofi'snextstep beforeand diagnose.bean card4of atom",
+     "takeaway": "Use a chatbot to prepare questions, not to diagnose."
+    },
+    {
+     "file": "assets/pulse/health/p05.webp",
+     "thumb": "assets/pulse/health/p05-t.webp",
+     "title": "A helper that takes notes",
+     "w": 1600,
+     "h": 2400,
+     "kw": "nurse's side helper takes notes asked first england staff tell kofi ai scribe recording say drafts decisions nurse checks corrects hands-on check examine chatbot can't questions help kofi's list keeps visit focused source nhs guidance use ai-enabled ambient scribing products patients respect objections clinician reviews every note made-up example card ahelper read atom"
+    },
+    {
+     "file": "assets/pulse/health/p06.webp",
+     "thumb": "assets/pulse/health/p06-t.webp",
+     "title": "Does a chatbot help?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal chatbot help alone people chatbots score highly real used medical tests decide better guess first answer below upside suoijipuod qissod bulwbpu 3s40m 342m pub uawbbhpnfi umo jays yoibas qam buisn ajdoad upy 13449q pip puduwiluod dud lds ajdoed apnjs piojxo duo gap conversation didn't know needed hear source bean reliability llms assistants general public nature medicine feb university oxford news release card thebigreveal didpeople witha chatbotdecide belowis possible conditions judgment worse naming command using web search one study gpt-4o llama neededto card6of atom",
+     "takeaway": "In one study, people with chatbots decided no better than people without."
+    },
+    {
+     "file": "assets/pulse/health/p07.webp",
+     "thumb": "assets/pulse/health/p07-t.webp",
+     "title": "Rules behind the screen",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ai company's side rules behind screen iin tailored medical advice openail's ban without licensed professional involved doctor say must claim asks world health organization wants tested audited overseen kofi's chatbot pointed him helpful check-up source openai usage policies ethics governance guidance large multi-modal models kofi made-up example card rulesbehind openai's read forhealth card7of atom"
+    },
+    {
+     "file": "assets/pulse/health/p08.webp",
+     "thumb": "assets/pulse/health/p08-t.webp",
+     "title": "Tested before trusted",
+     "w": 1600,
+     "h": 2400,
+     "kw": "regulator's side tested trusted approved ai tools us fda food drug administration lists medical devices has authorised read scans everyday chatbots differ products aren't fall outside medical-device regulators checks watching launch uk mhra medicines healthcare regulatory agency studies behave real use source artificial intelligence-enabled airlock phase report card theregulator's testedbeforetrusted medicinesandhealthcareproductsregulatoryagency aiairlock card8of10 atom"
+    },
+    {
+     "file": "assets/pulse/health/p09.webp",
+     "thumb": "assets/pulse/health/p09-t.webp",
+     "title": "Rules around the world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries rules around world eu european union medical-device ai high-risk strict checks euk medical regulated device india icmr indian council research ethics australia tga therapeutic goods administration eus fda authorises devices source oct act art annex service desk mhra software ethical guidelines biomedical healthcare regulation artificial intelligence-enabled card lee ees othercountries rulesaroundtheworld uk us icmrethical forai inbiomedical researchand 9of atom"
+    },
+    {
+     "file": "assets/pulse/health/p10.webp",
+     "thumb": "assets/pulse/health/p10-t.webp",
+     "title": "Your clinic checklist",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means clinic checklist emergency call local number don't stop ask chatbot first use ai prepare turn chat questions doctor nurse tell whole story share every symptom real clinician notes whether scribe being used source nhs england guidance ai-enabled ambient scribing products bean reliability llms medical assistants general public nature medicine feb kofi made-up example card whatitmeansforyou yourclinicchecklist aitoprepare read card10of10 atom",
+     "takeaway": "In an emergency, call your local emergency number."
+    }
+   ],
+   "recap": [
+    "What's on the chart?",
+    "Before and after.",
+    "Does a chatbot help?",
+    "Tested before trusted."
+   ],
+   "recap_pages": 10,
+   "tagline": "Prepare with AI. Decide with a clinician."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
