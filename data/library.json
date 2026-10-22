@@ -1666,6 +1666,112 @@
    "tagline": "One question is small; billions add up."
   },
   {
+   "id": "robots",
+   "title": "Robots & Physical AI",
+   "topic": "AI",
+   "blurb": "Kai orders a water bottle and a robot arm called Rivet picks it. See how robots learn, what the makers say, and who keeps workers safe.",
+   "gist": [
+    "Physical AI moves real things; a world model predicts what happens next.",
+    "Ask if a robot is a demo, a pilot or a product.",
+    "Workers and robots often share the job."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:31",
+   "pages": [
+    {
+     "file": "assets/pulse/robots/p01.webp",
+     "thumb": "assets/pulse/robots/p01-t.webp",
+     "title": "Robots and physical AI",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map robots physical ai ess easy soot artificial intelligence moves real things words world model predicts happen next demo us product show works every day example kai orders water bottle robot arm rivet picks source nvidia glossary amazon robotics news pages order made card thepicturemap robotsandphysicalai physicalai demovsproducu ourexample theorder card1of10 atom"
+    },
+    {
+     "file": "assets/pulse/robots/p02.webp",
+     "thumb": "assets/pulse/robots/p02-t.webp",
+     "title": "Robot words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words robot ist fey sensor gripper camera feeler tells robot's hand often suction what's cup rei aee eran sai ser ripe ramses eee ees wea simulation pilot small real-world trial practice world made inside computer full rollout source amazon robotics news pages nvidia model glossary card robotwords 2of atom"
+    },
+    {
+     "file": "assets/pulse/robots/p03.webp",
+     "thumb": "assets/pulse/robots/p03-t.webp",
+     "title": "One tap, one pick",
+     "w": 1600,
+     "h": 2400,
+     "kw": "omit owe iia eee see wee sin user's side one tap pick example kai taps buy warehouse rivet spots red bottle messy bin works grab drops tote plastic crate source amazon robotics news pages order made card user'sside onetap onepick card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/robots/p04.webp",
+     "thumb": "assets/pulse/robots/p04-t.webp",
+     "title": "Practise in a pretend world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "learns practise pretend world capi aut sez see tine spee learning real floor practising first simulated warehouse slow things break eel nuidia says models predict happens next make practice videos data let robots test moves without real-world risk source nvidia model glossary kai rivet order made card howit practisenapretendword nvidiasayswobldmodelscane atom"
+    },
+    {
+     "file": "assets/pulse/robots/p05.webp",
+     "thumb": "assets/pulse/robots/p05-t.webp",
+     "title": "What the maker says",
+     "w": 1600,
+     "h": 2400,
+     "kw": "maker's side maker says abn eng lens arias clz eee ses sop use amazon has deployed million robots jul already working sparrow arms move single items totes pilot vulcan robot touch finished moved larger trial source robotics news pages science blog card themakerisside whatthemakersays inuse alreadyworking card5of10 atom",
+     "takeaway": "Amazon says it runs over 1 million robots (Jul 2025); it says Vulcan is still in trials."
+    },
+    {
+     "file": "assets/pulse/robots/p06.webp",
+     "thumb": "assets/pulse/robots/p06-t.webp",
+     "title": "People next to robots",
+     "w": 1600,
+     "h": 2400,
+     "kw": "workers side people next robots hie fos eas reg uyas err rae rawr read sra sss risky moments osha says many robot accidents happen during setup testing repairs union report strategic organizing center group found serious injuries amazon's sites without new roles amazon created job types like floor monitors source us occupational safety health administration robotics page primed pain using injury data news pages card theworkersside peoplenexttorobots riskymoments unionreport newroges card6of10 atom"
+    },
+    {
+     "file": "assets/pulse/robots/p07.webp",
+     "thumb": "assets/pulse/robots/p07-t.webp",
+     "title": "Show or shift?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal show shift soe tan ein eee eeee mat pern ors snl ase way san ote picture robot lit stage conveyor likely doing real work today guess first answer below upside ang ued noa onpoud jou owap oapia payusijod peal ino tilt head read source amazon robotics news pages card tts errr thebigreueal showorshifte picturea pictureb whichrobotismore likelydoingreal worktoday guessfirst begowisupsidedown buy polished video demo product card7of10 atom",
+     "takeaway": "Our read: much real robot work is warehouse arms; slick humanoid videos are often demos."
+    },
+    {
+     "file": "assets/pulse/robots/p08.webp",
+     "thumb": "assets/pulse/robots/p08-t.webp",
+     "title": "Human, tag in!",
+     "w": 1600,
+     "h": 2400,
+     "kw": "robots get stuck human tag ens woes amazon says vulcan pick item robot types floppy toy can't grip ask person take pair beats either alone source robotics news pages kai rivet order made card whenrobotsgetstuck humantagin tagin card8of10 atom"
+    },
+    {
+     "file": "assets/pulse/robots/p09.webp",
+     "thumb": "assets/pulse/robots/p09-t.webp",
+     "title": "Who keeps robots safe",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules keeps robots safe vas hal aes vay o74 wen xxx aed ant way sara oom soo rae eax eee eu european union new machinery apply jan covering safety software eus osha says standards written rivet's cage barriers keep people while arm moves source oct eur-lex summary regulation us occupational health administration robotics page kai rivet order made card anti therules whokeepsrobotssafe ceuropean riuetiscage example 2026.eur-lex card9of atom",
+     "takeaway": "EU machinery rules for robots apply from 20 Jan 2027; OSHA has no robot-specific standard (as of Oct 2026)."
+    },
+    {
+     "file": "assets/pulse/robots/p10.webp",
+     "thumb": "assets/pulse/robots/p10-t.webp",
+     "title": "Before you believe a robot",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means vou believe robot tis check it's sale video ask demo pilot product skip don't trust speed-up clips without source tip read real robots often boring arms amazon robotics news pages nvidia world model glossary kai rivet order made card whatitmeansforyou beforeyoubeltevearobot atom"
+    }
+   ],
+   "recap": [
+    "Robots and physical AI.",
+    "Practise in a pretend world.",
+    "Show or shift?",
+    "Before you believe a robot."
+   ],
+   "recap_pages": 10,
+   "tagline": "Real robots are often boring arms."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",

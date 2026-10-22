@@ -2735,6 +2735,116 @@
     "Source: Google Cloud blog and paper on Gemini prompt energy (Aug 2025); IEA (International Energy Agency), Energy and AI (2025); European Commission, data centre reporting under the Energy Efficiency Directive. Hana and her question are made up.",
     "card 10 of 10"
    ]
+  ],
+  "robots": [
+   [
+    "Robots and physical AI",
+    "Physical AI",
+    "AI (artificial intelligence) that moves real things, not just words.",
+    "World model",
+    "AI that predicts what will happen next in the real world.",
+    "Demo vs product",
+    "A demo is a show; a product works every day.",
+    "Our example",
+    "Kai orders a water bottle; a robot arm, Rivet, picks it.",
+    "Source: NVIDIA world model glossary; Amazon robotics news pages (2025). Kai, Rivet and the order are made up.",
+    "card 1 of 10"
+   ],
+   [
+    "Robot words",
+    "Sensor",
+    "A camera or feeler that tells the robot what's there.",
+    "Gripper",
+    "The robot's hand, often a suction cup.",
+    "Simulation",
+    "A practice world made inside a computer.",
+    "Pilot",
+    "A small real-world trial before a full rollout.",
+    "Source: Amazon robotics news pages (2025); NVIDIA world model glossary.",
+    "card 2 of 10"
+   ],
+   [
+    "One tap, one pick",
+    "Kai taps \"buy\". In a warehouse, Rivet spots the red bottle in a messy bin, works out where to grab it, and drops it into a tote (a plastic crate).",
+    "Example",
+    "Source: Amazon robotics news pages (2025). Kai, Rivet and the order are made up.",
+    "card 3 of 10"
+   ],
+   [
+    "Practise in a pretend world",
+    "Before Learning only on the real floor: slow, and things break.",
+    "After Practising first in a simulated warehouse.",
+    "Rx",
+    "NVIDIA says world models can:",
+    "Predict what happens next.",
+    "Make practice videos and data.",
+    "Let robots test moves without real-world risk.",
+    "Source: NVIDIA world model glossary. Kai, Rivet and the order are made up.",
+    "card 4 of 10"
+   ],
+   [
+    "What the maker says",
+    "In use",
+    "Amazon says it has deployed over 1 million robots (as of Jul 2025).",
+    "Already working",
+    "Amazon says Sparrow arms already move single items into totes.",
+    "Pilot",
+    "Amazon says Vulcan, a robot with touch, finished a pilot and moved to a larger trial.",
+    "Source: Amazon robotics news pages (2025); Amazon Science, Vulcan blog (2025).",
+    "card 5 of 10"
+   ],
+   [
+    "People next to robots",
+    "Risky moments",
+    "OSHA says many robot accidents happen during setup, testing or repairs.",
+    "Union report",
+    "The Strategic Organizing Center, a union group, found more serious injuries at Amazon's robot sites in 2019: 7.9 vs 5.1 per 100 workers.",
+    "New roles",
+    "Amazon says its robots created new job types, like robot floor monitors.",
+    "Source: OSHA (US Occupational Safety and Health Administration), Robotics page; Strategic Organizing Center, \"Primed for Pain\" (2021), using Amazon's OSHA injury data; Amazon robotics news pages (2025).",
+    "card 6 of 10"
+   ],
+   [
+    "Show or shift?",
+    "Picture A A robot on a lit stage.",
+    "Picture B A robot by a conveyor.",
+    "Which robot is more likely doing real work today? Guess first: the answer below is upside down.",
+    "B. Our read: a polished video can be a demo, not a product you can buy.",
+    "Tilt your head to read the answer.",
+    "Source: Amazon robotics news pages (2025).",
+    "card 7 of 10"
+   ],
+   [
+    "Human, tag in!",
+    "TAG IN!",
+    "ROBOT: Amazon says Vulcan can pick about 3 in 4 item types.",
+    "STUCK: A floppy toy it can't grip.",
+    "HUMAN: Amazon says Vulcan can ask a person to take over.",
+    "BOTH: Amazon says the pair beats either alone.",
+    "Source: Amazon robotics news pages (2025). Kai, Rivet and the order are made up.",
+    "card 8 of 10"
+   ],
+   [
+    "Who keeps robots safe",
+    "EU (European Union)",
+    "New machinery rules apply from 20 Jan 2027, covering robots and safety software.",
+    "US",
+    "OSHA says there are no OSHA standards written just for robots.",
+    "Example",
+    "Rivet's cage",
+    "Safety barriers keep people out while the arm moves.",
+    "Source: As of Oct 2026. EUR-Lex summary, EU Machinery Regulation 2023/1230; OSHA (US Occupational Safety and Health Administration), Robotics page. Kai, Rivet and the order are made up.",
+    "card 9 of 10"
+   ],
+   [
+    "Before you believe a robot",
+    "DO: Check if it's on sale or only in a video.",
+    "ASK: Is this a demo, a pilot or a product?",
+    "SKIP: Don't trust speed-up clips without a source.",
+    "TIP: Our read: real robots are often boring arms.",
+    "Source: Amazon robotics news pages (2025); NVIDIA world model glossary. Kai, Rivet and the order are made up.",
+    "card 10 of 10"
+   ]
   ]
  }
 }
