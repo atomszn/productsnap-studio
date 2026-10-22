@@ -2198,6 +2198,431 @@
     "Source: NHS, \"When to call 999\"; NHS England, \"Guidance on the use of AI-enabled ambient scribing products\"; Bean et al., \"Reliability of LLMs as medical assistants for the general public\", Nature Medicine, Feb 9, 2026. Kofi is a made-up example.",
     "card 10 of 10"
    ]
+  ],
+  "jobs-school": [
+   [
+    "Meet the class",
+    "Generative AI",
+    "AI (artificial intelligence) that writes, draws or answers in everyday words.",
+    "First job",
+    "An entry-level role where people learn the ropes.",
+    "Our example",
+    "Ines is writing a final essay and applying for a weekend office job.",
+    "Source: ILO (International Labour Organization), \"Generative AI and Jobs: A Refined Global Index of Occupational Exposure\" (with NASK). Ines and Mr Haddad are made up.",
+    "card 1 of 10"
+   ],
+   [
+    "Yearbook words",
+    "Study mode",
+    "OpenAI says it gives hints, not answers.",
+    "Academic honesty",
+    "Doing and owning your own work.",
+    "Exposed task",
+    "Work AI can speed up or take over.",
+    "Reskilling",
+    "Learning new skills as a job changes.",
+    "High-risk AI",
+    "In the EU, AI that grades or hires, with strict rules.",
+    "Source: OpenAI, \"Introducing study mode\"; ILO (International Labour Organization), \"Generative AI and Jobs: A Refined Global Index of Occupational Exposure\" (with NASK); EU AI Act Annex III.",
+    "card 2 of 10"
+   ],
+   [
+    "The essay at midnight",
+    "Ines asks a chatbot to write her essay intro, then deletes it: her school allows AI for brainstorming only. She switches on study mode, which OpenAI says gives hints instead of answers, and writes it herself.",
+    "Example",
+    "Source: OpenAI, \"Introducing study mode\"; UK Department for Education, \"Generative AI in education\". Ines and Mr Haddad are made up.",
+    "card 3 of 10"
+   ],
+   [
+    "Your school sets the rules",
+    "Each school decides",
+    "In England, schools choose how AI is used, with safeguards.",
+    "Teachers use it too",
+    "For planning, but they're responsible for the result.",
+    "Example",
+    "Explain it out loud",
+    "Her teacher asks her to talk it through.",
+    "Source: UK Department for Education, \"Generative AI in education\" Ines and Mr Haddad are made up.",
+    "card 4 of 10"
+   ],
+   [
+    "The office job, before and after",
+    "Before Mr Haddad typed every booking by hand.",
+    "After AI drafts the forms; he checks them and helps customers.",
+    "Rx",
+    "What changed for Mr Haddad",
+    "Fewer copy-and-paste tasks.",
+    "More checking AI drafts.",
+    "Source: ILO (International Labour Organization), \"Generative AI and Jobs: A Refined Global Index of Occupational Exposure\" (with NASK) (clerical jobs most exposed; tasks change, people still needed). Ines and Mr Haddad are made up.",
+    "card 5 of 10"
+   ],
+   [
+    "Hiring a first worker",
+    "Fewer junior hires in some jobs",
+    "In the most AI-exposed US jobs, early-career hiring has slowed.",
+    "AI that screens CVs",
+    "In the EU, AI that sorts applicants is high-risk.",
+    "Example",
+    "Ines's interview",
+    "Mr Haddad asks her to solve a task and explain it.",
+    "Source: Stanford Digital Economy Lab, \"Canaries in the Coal Mine?\" (descriptive, not causal); EU AI Act Annex III (employment). Ines and Mr Haddad are made up.",
+    "card 6 of 10"
+   ],
+   [
+    "Will AI take most jobs?",
+    "Picture A A robot sweeps everyone out.",
+    "Picture B People and AI split the tasks.",
+    "Which picture matches the evidence? Guess first: the answer below is upside down.",
+    "Right picture. ILO: AI is more likely to change jobs than replace them. Office (clerical) jobs are most exposed.",
+    "Tilt your head to read the answer.",
+    "Source: ILO WP140 (with NASK, Poland's National Research Institute), May 2025; ILO news release, May 20, 2025.",
+    "card 7 of 10"
+   ],
+   [
+    "Tutor, not ghostwriter",
+    "Study mode",
+    "OpenAI says study mode guides with questions and hints, not answers.",
+    "Our read",
+    "You can switch it off",
+    "It's a choice, so honesty still depends on Ines.",
+    "Example",
+    "Ines's pick",
+    "She uses it to check her argument, not to write it.",
+    "Source: OpenAI, \"Introducing study mode\". Ines and Mr Haddad are made up.",
+    "card 8 of 10"
+   ],
+   [
+    "Rules around the world",
+    "EU (European Union)",
+    "AI that grades or hires is high-risk; emotion-reading AI banned at school and work.",
+    "UK",
+    "Schools set their own AI rules.",
+    "India",
+    "CBSE schools in India add AI and computational thinking lessons.",
+    "Australia",
+    "A national framework guides AI in schools.",
+    "US",
+    "Federal guidance lets schools use grant money for AI tutoring.",
+    "Source: As of Oct 2026. EU AI Act Annex III, Art. 5(1)(f); UK Department for Education guidance; CBSE (Central Board of Secondary Education) AI curriculum, Classes 3-8 from 2026-27; Australian Framework for Generative AI in Schools; US Department of Education letter, Jul 22, 2025.",
+    "card 9 of 10"
+   ],
+   [
+    "Sign my yearbook",
+    "Use AI to think harder, not to skip the thinking. Proud of your essay! - your teacher",
+    "Learn the tools, but your judgment is the job. See you Saturday. - Mr Haddad",
+    "Check your school's AI rules before every big assignment. - Ines, to the reader",
+    "Source: UK Department for Education, \"Generative AI in education\"; ILO (International Labour Organization), \"Generative AI and Jobs: A Refined Global Index of Occupational Exposure\" (with NASK). Ines and Mr Haddad are made up.",
+    "card 10 of 10"
+   ]
+  ],
+  "using-ai": [
+   [
+    "The AI ladder",
+    "Chatbot",
+    "An AI (artificial intelligence) app you type or talk to.",
+    "The rungs",
+    "Ask once, then learn with it, then save a routine.",
+    "The snakes",
+    "Wrong answers and letting AI do your thinking.",
+    "Our example",
+    "Tomas climbs from one homework question to a weekly study routine.",
+    "Source: OpenAI, \"Why language models hallucinate\"; OpenAI Help Center, \"Scheduled tasks in ChatGPT\". Tomas is made up.",
+    "card 1 of 8"
+   ],
+   [
+    "Game words",
+    "Prompt",
+    "What you type to ask the AI.",
+    "Hallucination",
+    "A confident answer that is wrong.",
+    "Scheduled task",
+    "A saved prompt the AI runs on a timetable.",
+    "Over-reliance",
+    "Letting AI think so you don't.",
+    "Source: OpenAI, \"Why language models hallucinate\"; OpenAI Help Center, \"Scheduled tasks in ChatGPT\"; Carnegie Mellon University and Microsoft Research, \"The Impact of Generative AI on Critical Thinking\" (CHI 2025 survey; self-reported).",
+    "card 2 of 8"
+   ],
+   [
+    "Two sources",
+    "Tomas asks a chatbot how leaves make food. The answer sounds sure, but chatbots can guess. OpenAI says its models are trained in ways that reward guessing over saying 'I don't know'. So he checks it against his textbook.",
+    "Example",
+    "Source: OpenAI, \"Why language models hallucinate\". Tomas is made up.",
+    "card 3 of 8"
+   ],
+   [
+    "Ghostwriter vs quiz partner",
+    "Before AI writes his notes; he can't recall them.",
+    "After He writes; AI quizzes him.",
+    "Rx",
+    "What a small MIT study saw",
+    "Essay writers using AI showed less brain engagement.",
+    "Many struggled to quote their own essay.",
+    "Source: MIT Media Lab, \"Your Brain on ChatGPT\" (preprint, small study, not peer-reviewed). Tomas is made up.",
+    "card 4 of 8"
+   ],
+   [
+    "Who checks AI the least?",
+    "A classmate (not Tomas) Trusts AI a lot; takes the answer as given.",
+    "Tomas Trusts his own skills; checks the answer.",
+    "Which one thinks less critically? Guess first: the answer below is upside down.",
+    "The classmate: more trust in AI went with less critical thinking.",
+    "Tilt your head to read the answer. (From a survey of office workers.)",
+    "Source: Carnegie Mellon University and Microsoft Research, \"The Impact of Generative AI on Critical Thinking\" (CHI 2025 survey; self-reported). The classmate and Tomas are made up.",
+    "card 5 of 8"
+   ],
+   [
+    "What happens to your chats",
+    "Training switch",
+    "OpenAI says turning off \"Improve the model for everyone\" stops new chats being used to train its models.",
+    "Temporary chat",
+    "OpenAI says these aren't used for training but may be kept up to 30 days for safety.",
+    "Thumbs up or down",
+    "OpenAI says rating a reply can let that whole chat be used for training, even with training off.",
+    "Example",
+    "Tomas's move",
+    "He flips the training switch off.",
+    "Source: OpenAI Help Center, \"Data controls in ChatGPT\". Tomas is made up.",
+    "card 6 of 8"
+   ],
+   [
+    "Who sets the rules",
+    "EU (European Union)",
+    "Since 2 Aug 2026, chatbots must tell you you're talking to AI unless it's obvious.",
+    "UK",
+    "The privacy regulator urges families to discuss what's OK to share with AI.",
+    "US",
+    "Staff guidance from the consumer regulator: AI firms must keep their privacy promises.",
+    "Example",
+    "Tomas's move",
+    "He and his family agree what stays private.",
+    "Source: As of Oct 2026. European Commission, AI Act Article 50 FAQ; ICO (Information Commissioner's Office), \"Switched on to privacy checklist\"; FTC (Federal Trade Commission), \"AI Companies: Uphold Your Privacy and Confidentiality Commitments\" (staff blog, guidance), Jan 2024. Tomas is made up.",
+    "card 7 of 8"
+   ],
+   [
+    "Your move",
+    "LADDER: Tomas saves a weekly task: every Sunday the AI quizzes him on that week's notes.",
+    "LADDER: Check facts that matter in a second source.",
+    "SNAKE: Don't share sensitive personal details, or hand over your thinking.",
+    "ROLL: Our read: the higher you climb, the more you check.",
+    "Source: OpenAI Help Center, \"Scheduled tasks in ChatGPT\"; Office of the Privacy Commissioner of Canada, \"Your privacy and AI chatbots\"; Carnegie Mellon University and Microsoft Research, \"The Impact of Generative AI on Critical Thinking\" (CHI 2025 survey; self-reported). Tomas is made up.",
+    "card 8 of 8"
+   ]
+  ],
+  "searching-ai": [
+   [
+    "Ask, and it answers",
+    "AI answer",
+    "A summary written by AI (artificial intelligence) at the top of search results.",
+    "Citation",
+    "A link showing where the answer came from.",
+    "Sponsored",
+    "A paid ad, labelled as such.",
+    "Our example",
+    "Elif asks if she can pack a power bank in her suitcase for a flight.",
+    "Source: Google Search Central, \"AI features and your website\"; Google Ads Help, \"About ads and AI Overviews\". Elif is made up.",
+    "card 1 of 9"
+   ],
+   [
+    "Catalogue words",
+    "AI Overview",
+    "Google's AI summary above the links.",
+    "Query fan-out",
+    "One question split into many searches.",
+    "Citation",
+    "The link to the page used.",
+    "Sponsored",
+    "An ad, paid for by a company.",
+    "Source: Google Search Central, \"AI features and your website\"; Google Ads Help, \"About ads and AI Overviews\".",
+    "card 2 of 9"
+   ],
+   [
+    "One question",
+    "Elif types her power bank question. An AI summary appears first, with small links underneath. It sounds sure. Before packing, she wants to know which page it came from.",
+    "Example",
+    "Source: Google Search Central, \"AI features and your website\". Elif is made up.",
+    "card 3 of 9"
+   ],
+   [
+    "Links, then a summary",
+    "Before A list of links to read.",
+    "After A summary on top, built from pages.",
+    "Rx",
+    "Google says AI answers can:",
+    "Run many related searches at once.",
+    "Show links to supporting pages.",
+    "Skip queries where they don't help.",
+    "Source: Google Search Central, \"AI features and your website\".",
+    "card 4 of 9"
+   ],
+   [
+    "Where the ads go",
+    "Above and below",
+    "Google says ads can show above or below AI Overviews.",
+    "Inside, in some places",
+    "Google says ads can also appear inside them in English in some countries, including the US.",
+    "Not everywhere",
+    "Google says it skips ads there for topics like health and finance.",
+    "Example",
+    "Elif spots one",
+    "A \"Sponsored\" power bank sits above the summary.",
+    "Source: Google Ads Help, \"About ads and AI Overviews\". As of Oct 2026. Elif is made up.",
+    "card 5 of 9"
+   ],
+   [
+    "Do people click through?",
+    "Picture A Clicks through to a site.",
+    "Picture B Stops at the summary.",
+    "With an AI summary on the page, which is more common? Guess first: the answer below is upside down.",
+    "B. People clicked a result link on 8% of visits with a summary, vs 15% without.",
+    "Tilt your head to read the answer.",
+    "Source: Pew Research Center, \"Google users are less likely to click on links when an AI summary appears\", Jul 22, 2025 (US, March 2025 data).",
+    "card 6 of 9"
+   ],
+   [
+    "Who wrote it?",
+    "Fewer visits",
+    "Pew notes publishers blame falling traffic on AI summaries.",
+    "Citation mix-ups",
+    "Columbia researchers found AI search tools often cited the wrong article or a copy.",
+    "Google's view",
+    "Google says people now visit a wider range of sites.",
+    "Example",
+    "Elif's link",
+    "It leads to a forum post, not the airline.",
+    "Source: Pew Research Center, \"Google users are less likely to click on links when an AI summary appears\", Jul 22, 2025 (US, March 2025 data); Tow Center for Digital Journalism, Columbia University, \"AI Search Has a Citation Problem\", Mar 2025; Google Search Central, \"AI features and your website\". Elif is made up.",
+    "card 7 of 9"
+   ],
+   [
+    "Who sets the rules",
+    "UK",
+    "Google must let publishers opt out of AI features like AI Overviews.",
+    "Clear links",
+    "It must also credit their pages with clear links.",
+    "Deadlines",
+    "Comply by 3 Dec 2026; page-level controls by Mar 2027.",
+    "Our read",
+    "Elif's takeaway",
+    "A credited link is only useful if she opens it.",
+    "Source: As of Oct 2026. UK CMA (Competition and Markets Authority), Publisher Conduct Requirement on Google, Jun 3, 2026; CMA notice, Aug 4, 2026. Elif is made up.",
+    "card 8 of 9"
+   ],
+   [
+    "Check out the source",
+    "SOURCE CHECKED",
+    "CHECK: Open the cited page: is it the original or a copy?",
+    "CHECK: For rules, go to the official source. Elif checks her airline's page.",
+    "SKIP: Don't treat \"Sponsored\" as advice.",
+    "READ: Our read: the summary is a starting card, not the book.",
+    "Source: Google Search Central, \"AI features and your website\"; Google Ads Help, \"About ads and AI Overviews\"; Tow Center for Digital Journalism, Columbia University, \"AI Search Has a Citation Problem\", Mar 2025. Elif is made up.",
+    "card 9 of 9"
+   ]
+  ],
+  "agent-built": [
+   [
+    "One agent, one job",
+    "AI agent",
+    "An AI (artificial intelligence) system that takes steps and uses tools to finish a task.",
+    "The recipe",
+    "Ingredients plus steps, the same as cooking.",
+    "Our example",
+    "Omar builds a helper that handles one return at his family's bike shop, start to finish.",
+    "Source: OpenAI, \"A practical guide to building agents\"; Anthropic, \"Building effective agents\". Omar and the shop are made up.",
+    "card 1 of 9"
+   ],
+   [
+    "The ingredients",
+    "Model",
+    "The AI that reasons and decides.",
+    "Tools",
+    "Ways to act: look up an order.",
+    "Memory",
+    "Our term: what it keeps from earlier steps.",
+    "Instructions",
+    "The rules it follows (system prompt).",
+    "Guardrails",
+    "Checks that stop bad actions.",
+    "Keys",
+    "Our term: permission to use each tool.",
+    "Source: OpenAI, \"A practical guide to building agents\"; Model Context Protocol docs and specification (modelcontextprotocol.io). Memory and Keys are teaching terms, not official parts.",
+    "card 2 of 9"
+   ],
+   [
+    "Writing the recipe",
+    "A shopper wants to return a helmet. Omar writes the instructions from the shop's returns policy: check the order, check the date, then draft the refund. OpenAI's guide suggests building instructions from existing policies.",
+    "Example",
+    "Source: OpenAI, \"A practical guide to building agents\". Omar and the shop are made up.",
+    "card 3 of 9"
+   ],
+   [
+    "Before and after the agent",
+    "Before Omar answers every return by hand.",
+    "After The agent prepares it; Omar approves.",
+    "Rx",
+    "The agent's steps",
+    "Read the request and find the order.",
+    "Check the policy.",
+    "Draft the refund for Omar.",
+    "Source: OpenAI, \"A practical guide to building agents\". Omar and the shop are made up.",
+    "card 4 of 9"
+   ],
+   [
+    "Only the keys it needs",
+    "Plugging in tools",
+    "MCP (Model Context Protocol) is an open standard for connecting AI apps to tools, like a USB-C port.",
+    "Ask first",
+    "The MCP specification says apps must get the user's consent before using a tool.",
+    "Example",
+    "Omar's choice",
+    "The agent can read orders but not move money.",
+    "Source: Model Context Protocol docs and specification (modelcontextprotocol.io). Omar and the shop are made up.",
+    "card 5 of 9"
+   ],
+   [
+    "Should it pay out on its own?",
+    "Picture A The agent sends the refund itself.",
+    "Picture B The agent asks Omar first.",
+    "Which does the maker's guide suggest at first? Guess first: the answer below is upside down.",
+    "B. OpenAI suggests a human OK for big refunds and payments.",
+    "Tilt your head to read the answer.",
+    "Source: OpenAI, \"A practical guide to building agents\" (human intervention for high-risk actions).",
+    "card 6 of 9"
+   ],
+   [
+    "What the makers say",
+    "Three parts",
+    "OpenAI says an agent is a model, tools and instructions.",
+    "Layered guardrails",
+    "OpenAI says to stack several checks, since one isn't enough.",
+    "Start simple",
+    "Anthropic says to use the simplest setup that works.",
+    "Example",
+    "Omar listens",
+    "One agent, one job.",
+    "Source: OpenAI, \"A practical guide to building agents\"; Anthropic, \"Building effective agents\". Omar and the shop are made up.",
+    "card 7 of 9"
+   ],
+   [
+    "Who sets the rules",
+    "EU (European Union)",
+    "Since 2 Aug 2026, AI that chats with people must say it's AI, unless obvious.",
+    "US",
+    "NIST (National Institute of Standards and Technology) has a voluntary AI risk framework.",
+    "Example",
+    "Omar's helper",
+    "It opens with \"I'm an AI helper.\"",
+    "Source: As of Oct 2026. European Commission, AI Act Article 50 FAQ; NIST AI Risk Management Framework (Jan 2023) and Generative AI Profile (Jul 2024). Omar and the shop are made up.",
+    "card 8 of 9"
+   ],
+   [
+    "Serves: one shopper",
+    "TASTE-TESTED",
+    "ASK: Are you talking to an AI? It should tell you.",
+    "CHECK: Before it pays or deletes, does a person approve?",
+    "SKIP: Don't give an agent more access than the job needs.",
+    "TIP: Our read: a good agent is a short recipe with a human taster.",
+    "Source: OpenAI, \"A practical guide to building agents\"; Model Context Protocol docs and specification (modelcontextprotocol.io); European Commission, AI Act Article 50 FAQ. Omar and the shop are made up.",
+    "card 9 of 9"
+   ]
   ]
  }
 }

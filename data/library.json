@@ -1168,6 +1168,398 @@
    "tagline": "Prepare with AI. Decide with a clinician."
   },
   {
+   "id": "jobs-school",
+   "title": "AI, Jobs & School",
+   "topic": "AI",
+   "blurb": "Ines writes a final essay and applies for a weekend office job. See how AI is changing schoolwork, first jobs and the rules around both.",
+   "gist": [
+    "Schools set their own AI rules; check yours.",
+    "AI tends to change the tasks in a job more than erase it.",
+    "Employers still want people who can explain their thinking."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:20",
+   "pages": [
+    {
+     "file": "assets/pulse/jobs-school/p01.webp",
+     "thumb": "assets/pulse/jobs-school/p01-t.webp",
+     "title": "Meet the class",
+     "w": 1600,
+     "h": 2400,
+     "kw": "meet class generative ai artificial intelligence writes draws answers everyday words first job entry-level role people learn ropes example ines writing final essay applying source ilo international idbanneraenisedoan weeherative jobs refined global index occupational exposure nask haddad made card picture map weekend office lnternational labour organization atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p02.webp",
+     "thumb": "assets/pulse/jobs-school/p02-t.webp",
+     "title": "Yearbook words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words yearbook jin ai study mode academic honesty openal saus gives hints doing owning sss answers work sse exposed reskilling learning new skills job speed take changes high-risk hires eu grades trict rules source introducing ilo international labour organization generative jobs refined global index occupational exposure nask act annex iii card keywords says task strict lntroducing lnternational atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p03.webp",
+     "thumb": "assets/pulse/jobs-school/p03-t.webp",
+     "title": "The essay at midnight",
+     "w": 1600,
+     "h": 2400,
+     "kw": "wie ree log bop ere student's side essay midnight example ines asks chatbot write intro deletes school allows brainstorming switches study mode openaal says gives hints instead answers writes herself source openal introducing uk department education generative haddad made carc sss s888 thestudent'sside lntroducing card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p04.webp",
+     "thumb": "assets/pulse/jobs-school/p04-t.webp",
+     "title": "Your school sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "teacher's side school sets rules cel lupe decides england schools choose ai used safeguards teachers use planning they're responsible result explain loud teacher asks talk through source uk department education generative ines haddad made card theteacher'sside example atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p05.webp",
+     "thumb": "assets/pulse/jobs-school/p05-t.webp",
+     "title": "The office job, before and after",
+     "w": 1600,
+     "h": 2400,
+     "kw": "worker's side office job nyy wan tee line sas haddad typed every drafts forms checks booking hand helps customers eee eel changed fewer copy-and-paste tasks checking eae international labour organization generative jobs refined global index occupational exposure nask clerical exposed change people still needed ines made card theworker's source ilo lnternational card5of10 atom",
+     "takeaway": "AI tends to change the tasks in a job (drafting, checking) more than erase the job."
+    },
+    {
+     "file": "assets/pulse/jobs-school/p06.webp",
+     "thumb": "assets/pulse/jobs-school/p06-t.webp",
+     "title": "Hiring a first worker",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee employer's side ten ecrpaaaannatina fewer junior hires jobs al-exposed us early-career hiring has slowed ai screens cvs eu sorts applicants high-risk ines interview haddad asks solve task explain source stanford digital economy lab canaries coal mine descriptive causal act annex iii employment made card theemployer'sside first worker ines's example ill atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p07.webp",
+     "thumb": "assets/pulse/jobs-school/p07-t.webp",
+     "title": "Will AI take most jobs?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal ai take jobs gored gua lea sie pox picture robot sweeps everyone people split tasks matches evidence guess first answer below upside paesodxa ysoww sgofl jodi49 sdinjo widy bddj dau upyi sgof bhunyd ajay suow oc7 aunyoid 1yyhiy tilt head read source ilo wp140 nask poland's national research institute news release card sss s888 thebigreveal replace office clerical exposed right likely change wp14o atom",
+     "takeaway": "The ILO finds AI is more likely to change jobs than replace them."
+    },
+    {
+     "file": "assets/pulse/jobs-school/p08.webp",
+     "thumb": "assets/pulse/jobs-school/p08-t.webp",
+     "title": "Tutor, not ghostwriter",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ai company's side tutor ghostwriter study mode openal says guides questions hints answers switch off it's choice honesty still depends ines ines's pick uses check argument write source introducing haddad made card read example lntroducing atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p09.webp",
+     "thumb": "assets/pulse/jobs-school/p09-t.webp",
+     "title": "Rules around the world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries rules around world eu european union grades hires high-risk emotion-reading banned school work uk schools set india cbse add computational thinking lessons australia national framework guides us federal guidance lets use grant money tutoring source oct act peel art department education central board secondary curriculum classes australian generative letter jul card othercountries annex ill atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p10.webp",
+     "thumb": "assets/pulse/jobs-school/p10-t.webp",
+     "title": "Sign my yearbook",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means yearbook sae pia yan totes fal use think harder ckip thinking proud escay feacher learn tools judgment job see caturday haddad check school ai rules every big assignment ines reader rce uk department paicdien generative education ilo international labour organization jobs refined global index occupational exposure nask made card sss whatitmeansforyou sign skip jhossa unok teacher saturday school's source lnternational card10of10 atom",
+     "takeaway": "Use AI to think harder, and check your school's rules."
+    }
+   ],
+   "recap": [
+    "Meet the class.",
+    "The essay at midnight.",
+    "Will AI take most jobs?",
+    "Sign my yearbook."
+   ],
+   "recap_pages": 10,
+   "tagline": "Use AI to think harder, not to skip the thinking."
+  },
+  {
+   "id": "using-ai",
+   "title": "Using AI Yourself",
+   "topic": "AI",
+   "blurb": "Tomas climbs from one homework question to a weekly study routine. Learn the ladders and the snakes of using a chatbot yourself.",
+   "gist": [
+    "Chatbots can sound sure and still be wrong.",
+    "Let AI quiz you, not think for you.",
+    "Know what happens to your chats, and what to keep private."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:21",
+   "pages": [
+    {
+     "file": "assets/pulse/using-ai/p01.webp",
+     "thumb": "assets/pulse/using-ai/p01-t.webp",
+     "title": "The AI ladder",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map ladder wha ale chatbot artificial intelligence app type talk rungs ask learn save routine snakes wrong answers letting thinking example tomas climbs one homework question wrnokihy stucly source openal language models hallucinate opendl help center scheduled tasks chatgpt made lor card alladder weekly study atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p02.webp",
+     "thumb": "assets/pulse/using-ai/p02-t.webp",
+     "title": "Game words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee key words game hallucination prompt confident answer type ask wrong scheduled task over-reliance saved runs ona timetable letting think don't source openal language models hallucinate help center tasks chatgpt carnegie mellon university microsoft research impact generative critical thinking chi survey self-reported card sesess lllll eol ele keywords gamewords scheduledtask chl atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p03.webp",
+     "thumb": "assets/pulse/using-ai/p03-t.webp",
+     "title": "Two sources",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rung ask check two sources example tomas asks chatbot leaves make food answer sounds sure chatbots guess openal says models trained ways reward guessing saying don't know checks against textbook source language nallucinate made card hallucinate atom",
+     "takeaway": "Chatbots can guess confidently; check what matters in a second source."
+    },
+    {
+     "file": "assets/pulse/using-ai/p04.webp",
+     "thumb": "assets/pulse/using-ai/p04-t.webp",
+     "title": "Ghostwriter vs quiz partner",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rung learn ghostwriter quiz partner scares writes notes can't recall quizzes him eee small mit study saw essay writers using showed brain engagement many struggled quote source media aby chatget foreprint peer-reviewed tomas made card mlt lab chatgpt preprint atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p05.webp",
+     "thumb": "assets/pulse/using-ai/p05-t.webp",
+     "title": "Who checks AI the least?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal checks least classmate tomas trusts lot takes answer skills given one thinks critically guess first below upside burjuiyy ss9 yum juem 3sn4 s4ow zewisse tilt head read survey office workers source carnegie mellon university microsoft research impact generative critical thinking chi self-reported made card thebigreveal whochecksaltheleast thinksless trust went chl atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p06.webp",
+     "thumb": "assets/pulse/using-ai/p06-t.webp",
+     "title": "What happens to your chats",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee maker's side happens chats training switch openal says turning off improve model everyone stops new being used train models temporary chat aren't kept days safety thumbs rating reply let whole even tomas's move flips source help center data controls chatgpt tomas made card ai maker'sside lmprove example atom",
+     "takeaway": "OpenAI says you can switch off training, but rating a reply can still let that chat be used."
+    },
+    {
+     "file": "assets/pulse/using-ai/p07.webp",
+     "thumb": "assets/pulse/using-ai/p07-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee rules around world sets spee wee eu european union since aug chatbots must tell you're talking unless it's obvious uk privacy regulator urges families discuss what's ok share eus staff guidance consumer firms keep promises tomas's move family agree stays private source oct commission act article faq ico information commissioner's office switched checklist ftc federal trade companies uphold confidentiality commitments blog jan tomas made card eseses lellll ell rulesaroundtheworld setsthe example atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p08.webp",
+     "thumb": "assets/pulse/using-ai/p08-t.webp",
+     "title": "Your move",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means tomas move wen ladder saves weekly task every sunday quizzes him week's notes check facts matter second source don't share sensitive personal details hand snake thinking roll read higher climb opendl help center scheduled chatgpt office privacy commissioner canada chatbots carnegie mellon university microsoft research impact generative critical chi survey self-reported made card whatitmeansfortomas yourmove openal tasks chl card8of8 atom",
+     "takeaway": "The higher you climb, the more you check."
+    }
+   ],
+   "recap": [
+    "The AI ladder.",
+    "Ghostwriter vs quiz partner.",
+    "What happens to your chats.",
+    "Your move."
+   ],
+   "recap_pages": 8,
+   "tagline": "The higher you climb, the more you check."
+  },
+  {
+   "id": "searching-ai",
+   "title": "Searching with AI",
+   "topic": "AI",
+   "blurb": "Elif asks if she can pack a power bank for a flight. See how AI search answers are built, where the ads go, and why the source still matters.",
+   "gist": [
+    "AI answers are built from many searches and linked pages.",
+    "With an AI summary, people clicked fewer links.",
+    "Open the cited page and check the official source."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:22",
+   "pages": [
+    {
+     "file": "assets/pulse/searching-ai/p01.webp",
+     "thumb": "assets/pulse/searching-ai/p01-t.webp",
+     "title": "Ask, and it answers",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map ask answers ai answer summary written artificial intelligence top search results citation link showing came sponsored paid labelled example elif asks pack power bank suitcase flight source google central features ads website help overviews made card neeeeeeeee atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p02.webp",
+     "thumb": "assets/pulse/searching-ai/p02-t.webp",
+     "title": "Catalogue words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words catalogue zxcge oley ai overview query fan-out google's summary above one question split links many searches qe citation sponsored link page paid used company source google search central features website ads help overviews card eer keywords atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p03.webp",
+     "thumb": "assets/pulse/searching-ai/p03-t.webp",
+     "title": "One question",
+     "w": 1600,
+     "h": 2400,
+     "kw": "hein user's side one question elif types power bank ai summary appears first small links underneath sounds sure packing wants know page came source google search central features website made card theuser's example 3of atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p04.webp",
+     "thumb": "assets/pulse/searching-ai/p04-t.webp",
+     "title": "Links, then a summary",
+     "w": 1600,
+     "h": 2400,
+     "kw": "answer built links summary list read top pages eel google says ai answers run many related searches show supporting skip queries don't help source search central features website card rrr errr howtheanswerisbuilt atom",
+     "takeaway": "AI answers are built from many searches and linked pages."
+    },
+    {
+     "file": "assets/pulse/searching-ai/p05.webp",
+     "thumb": "assets/pulse/searching-ai/p05-t.webp",
+     "title": "Where the ads go",
+     "w": 1600,
+     "h": 2400,
+     "kw": "search company's side ads sss als above below google says show ai overviews inside places appear english countries including us everywhere skips topics like health finance elif spots one sponsored power bank sits summary source help oct made card rnc aac searchcompany'sside example 0ct atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p06.webp",
+     "thumb": "assets/pulse/searching-ai/p06-t.webp",
+     "title": "Do people click through?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal click through sie moat tee eed vel abl cdl aos picture clicks site stops summary ai page common guess first answer below upside 3nouuuztm azewwns sztsta yutt ftnsert ppaeyyootto etdoeg tilt head read source pew research center google users likely links appears jul us march data card ncaacraereemema thebigreveal people without link visits result clicked atom",
+     "takeaway": "With an AI summary on the page, people clicked fewer links (Pew)."
+    },
+    {
+     "file": "assets/pulse/searching-ai/p07.webp",
+     "thumb": "assets/pulse/searching-ai/p07-t.webp",
+     "title": "Who wrote it?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "websites side wrote fewer visits pew notes publishers blame falling traffic summaries citation mix-ups columbia researchers found ai search tools often cited wrong article copy google's view google says people now visit wider range sites elif's link leads forum post airline source research center users likely click links summary appears jul us march data tow has digital journalism university problem mar central features website elif made card reece thewebsites'side fewervisits example 2o25 atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p08.webp",
+     "thumb": "assets/pulse/searching-ai/p08-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules sets uk google must let publishers opt ai features like overviews clear links credit pages deadlines comply dec page-level controls mar elif's takeaway credited link useful opens source oct cma competition markets authority publisher conduct requirement jun notice aug elif made card neen read 2o26 atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p09.webp",
+     "thumb": "assets/pulse/searching-ai/p09-t.webp",
+     "title": "Check out the source",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means check source sse ees tie open cited page original copy rules official elif checks airline's skip don't treat sponsored advice read summary starting card book google search central ai features website ads help overviews tow center digital journalism columbia has citation problem mar university made neer whatitmeansforyou sourcechecked atom",
+     "takeaway": "Open the cited page and go to the official source."
+    }
+   ],
+   "recap": [
+    "Ask, and it answers.",
+    "Where the ads go.",
+    "Do people click through?",
+    "Check out the source."
+   ],
+   "recap_pages": 9,
+   "tagline": "The summary is a starting card, not the book."
+  },
+  {
+   "id": "agent-built",
+   "title": "How an AI Agent Is Built",
+   "topic": "AI",
+   "blurb": "Omar builds an AI helper for his family's bike shop that handles one return, start to finish. See the ingredients, the rules and where a person stays in charge.",
+   "gist": [
+    "An agent is a model with tools and instructions.",
+    "Give it only the access the job needs.",
+    "For money moves, a person should approve first."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:23",
+   "pages": [
+    {
+     "file": "assets/pulse/agent-built/p01.webp",
+     "thumb": "assets/pulse/agent-built/p01-t.webp",
+     "title": "One agent, one job",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pererbrereereeerbeereere ere rrr rrp eee picture map one agent job artificial intelligence system takes steps uses tools finish task recipe ingredients plus cooking example omar builds helper handles return nis family bike shop start source openal practical auras building aeeniet anth tae effective agents made card thepicturemap oneagent onejob helperthat family's atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p02.webp",
+     "thumb": "assets/pulse/agent-built/p02-t.webp",
+     "title": "The ingredients",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pereehrbrbreereheereere ere ree rrr key words ingredients tui fix model tools reasons decides ways act look order vig memory instructions term keeps rules follows system earlier steps prompt keys guardrails permission use checks stop bad actions tool eee source openal practical guide building agents context protocol docs specification modelcontextprotocol.io teaching terms official parts card oor keywords ourterm areteachingterms 2of atom",
+     "takeaway": "An agent is a model with tools and instructions, plus guardrails and limited access."
+    },
+    {
+     "file": "assets/pulse/agent-built/p03.webp",
+     "thumb": "assets/pulse/agent-built/p03-t.webp",
+     "title": "Writing the recipe",
+     "w": 1600,
+     "h": 2400,
+     "kw": "selena builder's side writing recipe example shopper wants return helmet omar writes instructions shop's returns policy check order date draft refund openal's guide suggests building existing policies source openal practical agents shop made card thebuilder'sside card3of9 atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p04.webp",
+     "thumb": "assets/pulse/agent-built/p04-t.webp",
+     "title": "Before and after the agent",
+     "w": 1600,
+     "h": 2400,
+     "kw": "prerbrbreereheereere ree rrr one job end agent qe ine omar answers every return prepares hand approves agent's steps read request find order check policy draft refund source openal practical guide building agents shop made card 4o0f onejob.end madeup 4of9 atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p05.webp",
+     "thumb": "assets/pulse/agent-built/p05-t.webp",
+     "title": "Only the keys it needs",
+     "w": 1600,
+     "h": 2400,
+     "kw": "prerbrhreerehreebeereerere ere rere ree rrr badge keys needs soe plugging tools mcp model context protocol open standard connecting apps like usb-c port ask first specification says must get users consent using tool omar's choice agent read orders move money source docs modelcontextprotocol.io omar shop made card 5of badgeandkeys askfrst user's example atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p06.webp",
+     "thumb": "assets/pulse/agent-built/p06-t.webp",
+     "title": "Should it pay out on its own?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pererbrebreree ree rrr big reveal pay winnh qrs picture agent sends refund asks omar first itself maker's guide suggest guess answer below upside tilt head read source openal practical building agents human intervention high-risk actions card thebigreveal outonitsown frst payments suggests ok refunds interventionforhigh-risk card6of9 atom",
+     "takeaway": "For big refunds and payments, OpenAI suggests a human OK at first."
+    },
+    {
+     "file": "assets/pulse/agent-built/p07.webp",
+     "thumb": "assets/pulse/agent-built/p07-t.webp",
+     "title": "What the makers say",
+     "w": 1600,
+     "h": 2400,
+     "kw": "perehrbrereereheereere ree rrr companies side makers say eet geegesdht seat var three parts openal says agent model tools instructions layered guardrails stack several checks since one isn't enough start simple anthropic use simplest setup works omar listens job sou rce practical aee ding aeenest building effective agents shop made card theaicompanies'side example 7of atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p08.webp",
+     "thumb": "assets/pulse/agent-built/p08-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "prehrbrbreereeereereerere ere ree rrr eee rules sets pars ev european union since aug chats people must say it's unless obvious nist national institute standards technology has voluntary risk framework omar's helper opens i'm source oct commission act article faq management jan generative profile jul omar shop made card therules eu us example nistalriskmanagementframework jan2023 andgenerativeal omarand card8of atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p09.webp",
+     "thumb": "assets/pulse/agent-built/p09-t.webp",
+     "title": "Serves: one shopper",
+     "w": 1600,
+     "h": 2400,
+     "kw": "prehrbrebreebrheereere ree repre rrr eee means serves one shopper soy ress ask talking tell check pays deletes person approve skip don't give agent access job needs tip read good short recipe human taster source openal practical guide building agents model context protocol docs specification modelcontextprotocol.io european commission act article faq omar shop made card whatitmeansforyou taste-tested card9of9 atom",
+     "takeaway": "Expect an agent to say it is AI, and to ask a person before money moves."
+    }
+   ],
+   "recap": [
+    "One agent, one job.",
+    "The ingredients.",
+    "Should it pay out on its own?",
+    "Serves: one shopper."
+   ],
+   "recap_pages": 9,
+   "tagline": "A good agent is a short recipe with a human taster."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
