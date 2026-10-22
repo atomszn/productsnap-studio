@@ -1,677 +1,7 @@
 {
  "version": 1,
- "updated": "2026-10-21",
+ "updated": "2026-10-22",
  "books": [
-  {
-   "id": "agent-native-infrastructure",
-   "title": "Agent-Native Infrastructure",
-   "topic": "AI",
-   "blurb": "How AI agents get a badge, not your keys.",
-   "gist": [
-    "Give each AI helper its own badge. It gets limited access and keys that run out, instead of your password.",
-    "Keep mistakes small. Run it in a sealed workspace behind one front desk, so any slip stays small and every action is written down.",
-    "Builders feel it first. For most people the change will be mostly invisible."
-   ],
-   "added": "2026-10-12",
-   "pages": [
-    {
-     "file": "assets/pulse/agent-native-infrastructure/p01.webp",
-     "thumb": "assets/pulse/agent-native-infrastructure/p01-t.webp",
-     "title": "What agent-native infrastructure is",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agent-native infrastructure part software built people type click ai agents need badge keys workspace act safely agent filing expense reports humans nativ payroll website login oie nes cane borrows password has clicks through websites like person opens doors needs reach everything forever key expires job done giving temp worker visitor house don lend give building blocks sandbox identity sealed proof runs code mistakes can't works spread kid gateway poe short-lived one front desk access what's needed tools data e.g mcp expiring task open standard plugging business real work without getting reality check still early mostly developers large companies use today often cloud providers answer expenses payrol don't kid's permissions atom",
-     "takeaway": "An AI helper should get its own limited badge that expires, not your password."
-    },
-    {
-     "file": "assets/pulse/agent-native-infrastructure/p02.webp",
-     "thumb": "assets/pulse/agent-native-infrastructure/p02-t.webp",
-     "title": "How the pieces work together",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agent native infrastructure part pieces work together example pulls sales report updates support ticket get job safely update old way agent-native borrow manager's login opens everything record never expires steps identity permissions sandbox gateway expiry jel oad badge says read reports edit tickets front desk checks stops working works sealed room hands done team nothing else logs every door key runs side gets person owns data ees log step took exactly needs right away something goes wrong damage stays small waiting switch off without changing passwords clear rules time audit running reality check full setups like still early mostly built developers larger teams trust setup ai password sees",
-     "takeaway": "A sealed workspace, an ID, tight permissions and one front desk keep an agent's work small, logged and easy to switch off."
-    },
-    {
-     "file": "assets/pulse/agent-native-infrastructure/p03.webp",
-     "thumb": "assets/pulse/agent-native-infrastructure/p03-t.webp",
-     "title": "What changes for businesses and for you",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agent-native infrastructure part changes businesses companies want ai agents real work keys everything h000 here's safer agent access doesn't yet hoo00 hbo00o ok online store handing refunds setup aie log aga tot need full admin refund small orders security team says every logged stuck tests eee builders standard pieces customer control sap faster launches safe doors let mostly invisible allow assistant sharing password view limited one job calendar hour see switch off doesn apps use haven added still check example moves dentist appointment important actions reality broad everyday early change happening inside now you'll notice wrong humans adds tasks time deny haven't yourdentist atom",
-     "takeaway": "Small, safe doors let companies hand agents real work. For you, the change is mostly invisible."
-    },
-    {
-     "file": "assets/pulse/agent-native-infrastructure/p04.webp",
-     "thumb": "assets/pulse/agent-native-infrastructure/p04-t.webp",
-     "title": "Who has to adapt, and what's still hard",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agent-native infrastructure part has adapt still hard means building blocks let ai agents act safely without person's full login lan sandbox sealed identity proves permissions gateway one checked space run work agent jobs allowed door tools data changes first now later cal cloud providers developers companies using everyday users offer must wire pieces gain control record won't notice much win together correctly every action while builders move feel last bay today new changing wwh css set right gin hote switching off shared logins takes time many teams give reality check early use larger impact ahead hotels hand room keys master next what's it's front desk hotel atom",
-     "takeaway": "Builders adapt first and everyday users feel it last. It's still early."
-    }
-   ],
-   "tagline": "How AI agents get a badge, not your keys",
-   "sources": [
-    {
-     "title": "Model Context Protocol: Introduction (official)",
-     "url": "https://modelcontextprotocol.io/introduction"
-    },
-    {
-     "title": "Anthropic: Building effective agents",
-     "url": "https://www.anthropic.com/engineering/building-effective-agents"
-    },
-    {
-     "title": "OWASP GenAI Top 10 2025: LLM06 Excessive Agency",
-     "url": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
-    },
-    {
-     "title": "NIST AI Risk Management Framework",
-     "url": "https://www.nist.gov/itl/ai-risk-management-framework"
-    }
-   ],
-   "gist_lead": [
-    "Give each AI helper its own badge.",
-    "Keep mistakes small.",
-    "Builders feel it first."
-   ],
-   "recap": [
-    "AI helpers should get their own ID badge and limited access, not your password.",
-    "A sealed workspace and one front desk keep what they do small, logged and easy to switch off.",
-    "Builders deal with this first; for you it stays mostly invisible, and it is still early."
-   ],
-   "recap_pages": 4
-  },
-  {
-   "id": "agent-swarms",
-   "title": "Agent Swarms",
-   "topic": "AI",
-   "blurb": "When a team of AI agents works while you're away.",
-   "gist": [
-    "One lead, many helpers. A lead AI splits a big job into pieces, helper AIs work on the pieces at the same time, and a checker puts the results together.",
-    "More helpers only help some jobs. Extra helpers speed up work that splits into parts, not work that needs one big idea.",
-    "You still own the result. More helpers mean more computing power and more checking. Whatever they produce, you are still responsible for it."
-   ],
-   "added": "2026-10-12",
-   "pages": [
-    {
-     "file": "assets/pulse/agent-swarms/p01.webp",
-     "thumb": "assets/pulse/agent-swarms/p01-t.webp",
-     "title": "What agent swarms actually are",
-     "w": 1600,
-     "h": 2760,
-     "kw": "ai agent swarms part aera today chat one helper question time happens team helpers works together even while you're away eadina customer calls swarm agents lead see checker paste ask wait read repeat splits batches stops close merges top complaints llours copy become finished report z42 words know wear get answers books meeting big jobs done parallel several splitting job like work continues sleep backamand keeps review results every step without asking checks new night pings reality check still early companies test coding research people output waits actually aaaaaaaaaaaaaaaaaaaa reading hours copy-paste task e.g background working atom",
-     "takeaway": "A swarm is a team of AI helpers splitting one big job, often while you're away."
-    },
-    {
-     "file": "assets/pulse/agent-swarms/p02.webp",
-     "thumb": "assets/pulse/agent-swarms/p02-t.webp",
-     "title": "How the work actually changes",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agent swarms part work actually changes example checking company software security holes one chat team agents keeps going today swarm background lead repeat login payments customer data reviewer drops false alarms next session new code added overnight waits person approves fixes checks every change even reading make calls get handoff passes results much like relay fast hours alarm flagged problem often someone isn't real still decides remembers reality check companies testing mistakes people review stop doing start ai company's developer pastes file points issues opens files days atom",
-     "takeaway": "Helpers do the reading; people check and approve the results."
-    },
-    {
-     "file": "assets/pulse/agent-swarms/p03.webp",
-     "thumb": "assets/pulse/agent-swarms/p03-t.webp",
-     "title": "When more AI agents help, and when they don't",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agent swarms part ai agents help dont viral claim says better real answer depends kind job two kinds jobs splits pieces needs one big idea reading calls math proofs opus system card checking many files takes piece jump done sooner almost nothing ten cooks make pizzas faster don't invent new recipe research split lead coordinating google mit step-by-step worse study cost team uses 15x tokens chat anthropic flattens copies think alike eats time reality check numbers match report buy speed genius e.g anthropic's atom",
-     "takeaway": "More helpers pay off when a job splits into pieces, not when it needs one big idea."
-    },
-    {
-     "file": "assets/pulse/agent-swarms/p04.webp",
-     "thumb": "assets/pulse/agent-swarms/p04-t.webp",
-     "title": "What it means for compute and cost",
-     "w": 1600,
-     "h": 2760,
-     "kw": "ai agent swarms part means compute cost agents work night read write far person chatting take pays company one today people swarm working overnight tokens questions during hours reading every call code change stops log off runs token small chunk text reads writes roughly word computing chats sip tahense has place io tools connections oversight processing power access email spending limits customer records data centers e.g through apis i.e plugs activity logs nvidia chips let software talk approves big actions business bill depends much many use reality check full scale still emerging costs keep changing meter running gulp atom",
-     "takeaway": "Helpers working overnight use far more computing than people chatting, so the bill follows what the helpers do."
-    },
-    {
-     "file": "assets/pulse/agent-swarms/p05.webp",
-     "thumb": "assets/pulse/agent-swarms/p05-t.webp",
-     "title": "Who has to adapt",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agent swarms part has adapt two teams get agents review customer calls io one gets weekly insight report mess ents ditterent results eee team lags eet nlt bie sfp ttl lier ece esess greta ose sills limits today testing have oversight someone still check right approves big actions like trusting shipping code access early days fully self-running know connect rare companies reality organizations tasks running everywhere work result ai different adapts clear goal find top vague ask look complaints week connects data call can't reach recordings support tickets person reviews acting checks output every covered trusted wrong answers wasted cost multiply process good bad work.you atom",
-     "takeaway": "Helpers multiply whatever process you give them, good or bad, and people still own the result."
-    }
-   ],
-   "updated": "2026-10-12",
-   "tagline": "When one AI becomes a team",
-   "sources": [
-    {
-     "title": "Anthropic: How we built our multi-agent research system",
-     "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
-    },
-    {
-     "title": "Google Research blog: Towards a science of scaling agent systems",
-     "url": "https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/"
-    },
-    {
-     "title": "arXiv 2512.08296: Towards a Science of Scaling Agent Systems (Google/MIT)",
-     "url": "https://arxiv.org/abs/2512.08296"
-    },
-    {
-     "title": "Claude Opus 5.5 System Card (Anthropic, PDF), Fig. 8.12.3.B, p.195",
-     "url": "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf"
-    }
-   ],
-   "gist_lead": [
-    "One lead, many helpers.",
-    "More helpers only help some jobs.",
-    "You still own the result."
-   ],
-   "recap": [
-    "A swarm is a team of AI helpers splitting one big job, with people reviewing the results.",
-    "More helpers pay off when a job splits into pieces, and they use far more computing, so costs add up.",
-    "They multiply your process, good or bad, and you still own the result."
-   ],
-   "recap_pages": 5
-  },
-  {
-   "id": "agent-vocabulary",
-   "title": "Agent Vocabulary",
-   "topic": "AI",
-   "blurb": "The words behind AI agents, explained as a kitchen.",
-   "gist": [
-    "Picture a kitchen. The AI model is the cook. Tools, memory and skills are the kitchen around it.",
-    "Add safety rules. Permissions, automatic checks and a person who approves big calls keep a capable AI safe to trust.",
-    "Follow one refund. Watch a single customer refund pass through the AI to see every piece working together."
-   ],
-   "added": "2026-10-12",
-   "pages": [
-    {
-     "file": "assets/pulse/agent-vocabulary/p01.webp",
-     "thumb": "assets/pulse/agent-vocabulary/p01-t.webp",
-     "title": "Building an AI agent is like setting up a kitchen",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agent words part made building ai like setting kitchen doesn answer takes steps get job done arye model cook describe dpd around abt cow works eee rrr ttt tre lcl lll lillie loop think act check repeat tasting adjusting tools utensils search web read file send email rae ooo oooo oos eso sss oss oes sscs ono ros sos ooooh ces sose sse ese sese tebe sesese essseeasweses mcp context protocol standard plug usb lol use tool dsasannname ones res des shore osce rse rss shas asses sshhe rad dssdonsooasacds aeons onassenenanasasvadasaneasaaassaancaanas skills recipe cards pulls needed refunds instructions note door place knows helps memory assistant notebook kumar likes spicy library reference docs look cookbook shelf jee compaction boils long notes summary run room rules house must always follow never peanuts subagents helper cooks one chops bakes report back rest doesn't assistant's atom",
-     "takeaway": "The AI model is the cook; memory, rules, tools and the work loop are the kitchen around it."
-    },
-    {
-     "file": "assets/pulse/agent-vocabulary/p02.webp",
-     "thumb": "assets/pulse/agent-vocabulary/p02-t.webp",
-     "title": "A smart agent still needs guardrails and an alarm clock",
-     "w": 1600,
-     "h": 2760,
-     "kw": "ai agent words part keeping agents safe schedule smart still needs clock guardrails alar takes steps get job done like kitchen assistant cover stays gets checked knows start fire newer practice taking shape staying als harness software around runs loop hands tools sets limits iew sandbox mistakes cant burn house permissions cabinets open refund can't delete wan hooks automatic set moments every time edits file run check checks taste test serving work actually pass getting human-in-the-loop asks big moves ok scorecard fest hehe eee evals regular dinners scored catch quality slipping triggers doorbell wakes new message oo00p routines jobs weekly meal prep feature to-do list plus tests worked one item builds started trusted alarm atom",
-     "takeaway": "Sealed workspaces, permissions, checks and a person in the loop keep a capable AI safe and trusted."
-    },
-    {
-     "file": "assets/pulse/agent-vocabulary/p03.webp",
-     "thumb": "assets/pulse/agent-vocabulary/p03-t.webp",
-     "title": "Follow one refund through an AI agent",
-     "w": 1600,
-     "h": 2760,
-     "kw": "ai agent words part one job start finish follow refund through takes steps get done here's customer-refund online store every building block uses along way getting ready reads email arrives mug came broken playbook house rules trigger instructions file remembers loyal looks order customer first complaint system anf memory tool mcp doing safely follows small allowed how-to big asks person how-lo permissions skill human-in-the loop checks amount rrith later test cases make matches action sure still gets logged refunds right check hook evals reality many companies use pieces today fully hands-off agents rare people review calls whole kitchen behind nai 1to store's orders human-in-the-loop tttttt atom",
-     "takeaway": "One refund shows every piece at work, and people still review the big decisions."
-    }
-   ],
-   "tagline": "The words behind AI agents, as a kitchen",
-   "start_here": true,
-   "sources": [
-    {
-     "title": "Model Context Protocol: Introduction",
-     "url": "https://modelcontextprotocol.io/introduction"
-    },
-    {
-     "title": "Anthropic: Equipping agents for the real world with Agent Skills",
-     "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"
-    },
-    {
-     "title": "Claude Code docs: Hooks",
-     "url": "https://docs.claude.com/en/docs/claude-code/hooks"
-    },
-    {
-     "title": "Claude Code docs: Subagents",
-     "url": "https://docs.claude.com/en/docs/claude-code/sub-agents"
-    },
-    {
-     "title": "Anthropic: Building effective agents",
-     "url": "https://www.anthropic.com/engineering/building-effective-agents"
-    }
-   ],
-   "gist_lead": [
-    "Picture a kitchen.",
-    "Add safety rules.",
-    "Follow one refund."
-   ],
-   "recap": [
-    "An AI helper is a cook (the model) working in a kitchen of tools, memory and rules.",
-    "Safety rules and a person approving the big calls keep it trustworthy.",
-    "One refund shows all the pieces working together."
-   ],
-   "recap_pages": 3
-  },
-  {
-   "id": "ai-agents",
-   "title": "AI Agents",
-   "topic": "AI",
-   "blurb": "Follow Zara, a student, as an AI agent books dinner for 8 on Saturday, seen from her side, the AI company's, the restaurant's, the bank's and the referees' around the world.",
-   "gist": [
-    "An AI agent does the job (books the table), not just chats.",
-    "You pay by subscription, or ads pay for free plans, so ask whose side it is on.",
-    "When it slips up, the restaurant is the first stop, then the bank; keep the agent on a valet key."
-   ],
-   "added": "2026-10-12",
-   "added_at": "2026-10-20T13:55",
-   "pages": [
-    {
-     "file": "assets/pulse/ai-agents/p01.webp",
-     "thumb": "assets/pulse/ai-agents/p01-t.webp",
-     "title": "Who's in this story?",
-     "w": 1600,
-     "h": 2400,
-     "kw": "picture map whos story soe seal oie nik phi nal wat lil see aii jarae fob book dinner friends saturday chathot artificial intelligence chat tells restaurants agent job books table compan builds runs chatgpt openal gemini google grok xall bank referee moves zara's money regulator government body sets rules source xal product pages zara booking illustration card atom picturemap who's chatbot ai company"
-    },
-    {
-     "file": "assets/pulse/ai-agents/p02.webp",
-     "thumb": "assets/pulse/ai-agents/p02-t.webp",
-     "title": "The money words",
-     "w": 1600,
-     "h": 2400,
-     "kw": "picture map money words eet wid oeese ran subscription pay company every month like music app business pays show name marked sponsored deposit restaurant holds zara's group turns chargeback asking bank reverse charge didn't ok spending cap agent spend think pocket eee source plain-language definitions amounts illustrations cant card atom picturemap"
-    },
-    {
-     "file": "assets/pulse/ai-agents/p03.webp",
-     "thumb": "assets/pulse/ai-agents/p03-t.webp",
-     "title": "Same request, two helpers",
-     "w": 1600,
-     "h": 2400,
-     "kw": "zara's side game request two helpers thet ttt youre wre nen fan ake crs ask table saturday chatbot gives places phone numbers zara still calls checks books agent calendar finds free asks ok pay deposit saves doing searching eee meee source openal buy chatgpt acting user's user confirms step example illustration card read atom",
-     "takeaway": "A chatbot hands you a list; an agent does the booking. The difference is who does the work, and who you trust with your card."
-    },
-    {
-     "file": "assets/pulse/ai-agents/p04.webp",
-     "thumb": "assets/pulse/ai-agents/p04-t.webp",
-     "title": "What Zara lets it touch",
-     "w": 1600,
-     "h": 2400,
-     "kw": "zara's side lara lets touch yeo calendar restaurant's booking app asks first card deposit messages photos banking quer read eee wrong source uk cma competition markets authority using agents complying consumer law permissions nee atom zara'sside zara ourread"
-    },
-    {
-     "file": "assets/pulse/ai-agents/p05.webp",
-     "thumb": "assets/pulse/ai-agents/p05-t.webp",
-     "title": "Who pays for the agent?",
-     "w": 1600,
-     "h": 2400,
-     "kw": "company's side paye agent one eth aaa ibe lee hla yss ose sss eee subscription month chatgpt plus us price oct pro show ads pay free plans cheap plan below answer zara cees restaurant list box marked sponsored pizza place paid openal isut someone paying ask source help chatgpt.com pricing introducing prices cent card atom theai pays plas sees ish't read card5of",
-     "takeaway": "You pay for the AI either with a subscription or by seeing ads. On ad plans, a business has paid to sit next to your answer, so check what is marked Sponsored."
-    },
-    {
-     "file": "assets/pulse/ai-agents/p06.webp",
-     "thumb": "assets/pulse/ai-agents/p06-t.webp",
-     "title": "Whose side is it on?",
-     "w": 1600,
-     "h": 2400,
-     "kw": "company's side whose ante ore ves pas irise cas oral eee pil wes ton cae hal hth hon law tae pile nats sea sal worr agent paid restaurants pick one best table zara openal says ads labelled kept separate don't change chatgpt's answers catch books never see list sponsored tag zaras fix show options tell book source help chatgpt influence read card atom ai worry openai zara's"
-    },
-    {
-     "file": "assets/pulse/ai-agents/p07.webp",
-     "thumb": "assets/pulse/ai-agents/p07-t.webp",
-     "title": "The mix-up",
-     "w": 1600,
-     "h": 2400,
-     "kw": "restaurants side mix-up ors iss mit aaa cops agent books table restaurant holds deposit kept seats free mistake handles booking refund zarae move contact first ask fix stop business receipt even placed order eee source openal developers agentic commerce faq seller refunds chargebacks chatgpt.com merchants illustration card restaurantsside oops restauraht zara's read atom"
-    },
-    {
-     "file": "assets/pulse/ai-agents/p08.webp",
-     "thumb": "assets/pulse/ai-agents/p08-t.webp",
-     "title": "Can she get her $20 back?",
-     "w": 1600,
-     "h": 2400,
-     "kw": "bank's side get back mata kia resfaurant cays zara ask bank card company chargeback banks big question ok payment agent rogue ack first matters tapped one deposit clear makes answer easier keep proof screenshot booking helps restaurant fix fast source us fair credit billing act credit-card billing-error disputes federal trade commission consumer financial protection bureau summaries card-network dispute rules vary country atom says read card8of"
-    },
-    {
-     "file": "assets/pulse/ai-agents/p09.webp",
-     "thumb": "assets/pulse/ai-agents/p09-t.webp",
-     "title": "What the referees say",
-     "w": 1600,
-     "h": 2400,
-     "kw": "countries referees say porm yee roma femmes ai abt dat aut thy ette bobot teted tet uli sfaztns lve heh uk restaurant uses booking bot still answers eu european union chatbot must tell zara she's talking ludia online shops clearly label paid-for listings auctralia government review found shopper law already mostly covers us credit-card rules let challenge wrong charge io ere source cma mar act transparency aug india consumer protection e-commerce amendment jan australian treasury oct fair credit billing card atom othercoontries australia"
-    },
-    {
-     "file": "assets/pulse/ai-agents/p10.webp",
-     "thumb": "assets/pulse/ai-agents/p10-t.webp",
-     "title": "Give it a valet key",
-     "w": 1600,
-     "h": 2400,
-     "kw": "means give valet key tad etal nied wees set vets idea starts car won't open trunk agent booking needs ack first pays sends deletes anything spending cap small limit like prepaid card india upi lite unified payments interface payment cwitch cancel one tap fetch cpend let spend source rbi reserve bank circular dec limits valet-key rules read pee whatit ask switch cour upl card10of10 atom",
-     "takeaway": "Treat an agent like a valet: give it one key, a small spending cap, an ask-first rule and an off switch."
-    }
-   ],
-   "recap": [
-    "Chatbot lists; agent books. Someone pays: subscription or ads.",
-    "Restaurant first, bank second.",
-    "Valet key: ask first, cap, off switch."
-   ],
-   "recap_pages": 10,
-   "tagline": "A chatbot answers. An agent does.",
-   "updated": "2026-10-21"
-  },
-  {
-   "id": "ai-bottlenecks",
-   "title": "AI Bottlenecks",
-   "topic": "AI",
-   "blurb": "Why AI growth depends on power, memory and plumbing.",
-   "gist": [
-    "A chip is not enough. AI chips only work with power, cooling, memory and fast links between chips, all inside a data center.",
-    "Power is the slow part. Chips can arrive in months, but getting power to a data center can take years.",
-    "Plan for the plug. The winners plan for the electricity and cooling, not just the chip."
-   ],
-   "added": "2026-10-12",
-   "pages": [
-    {
-     "file": "assets/pulse/ai-bottlenecks/p01.webp",
-     "thumb": "assets/pulse/ai-bottlenecks/p01-t.webp",
-     "title": "The AI bottleneck isn't just chips",
-     "w": 1600,
-     "h": 2760,
-     "kw": "eeeaecooooagooad2oeoe eoeeeeseoeseseeeseesce eeeoeeaeeeeeeeeeeeeeeeeeeeoeeeeoeeeeeeeeeeeoeeeeseeeeoeeeeeeee eee infrastructure part bottleneck isn chips everyone talks buying ai need power memory fast connections building run short one ail slows eecooeaooeeeaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeseeeeeeeeeeeeeeeesemseaeeeeeeeeeeneeeeeecucetetmucceemluccucucoulucucucucoucoucolu think busy restaurant kitchen people actually limits iel chefs hallways between stations pad lut hire cook food peely itself data center don help stove has gas words know gets slower pricier piece runs companies race lock interconnects high-speed links early e.g nvidia's nvlink electricity full cooling decides built gear reality check happening now new centers wait years grid connection everything else isn't stoves fridge next don't means pulls often much small city hbm ultra-fast stacked chip made hynix samsung micron atom",
-     "takeaway": "AI needs more than chips: power, memory, fast connections and the data center itself."
-    },
-    {
-     "file": "assets/pulse/ai-bottlenecks/p02.webp",
-     "thumb": "assets/pulse/ai-bottlenecks/p02-t.webp",
-     "title": "Power and cooling: the real limit",
-     "w": 1600,
-     "h": 2760,
-     "kw": "infrastructure part power cooling veal limit chips use huge amounts electricity give off lots heat getting often slower harder buying data center building new people expect actually happens remove fans aren't enough pipe liquid done months find build sign deals aque plants ike plugging dozen space heaters one outlet hot room buy take years words know density much real examples packed rack ai racks many times regular servers microsoft signed deal restart iquid coolant piped right three mile island nuclear unit centers like car radiator because air can't carry away fast nvidia biggest built grid connection hooking local lines needs approvals reality check now available increasingly decides gets mates preven ask utility wait plug nvidia's ai's hardest problem atom",
-     "takeaway": "Chips can arrive in months, but power and cooling can take years."
-    },
-    {
-     "file": "assets/pulse/ai-bottlenecks/p03.webp",
-     "thumb": "assets/pulse/ai-bottlenecks/p03-t.webp",
-     "title": "Memory and connections: the other limits",
-     "w": 1600,
-     "h": 2760,
-     "kw": "infrastructure part memory connections limits even plenty power fast ai chip useless waiting data two things decide next links between chips ily back restaurant kitchen ion ingredients far away chef waits fridge deo never stops aly bees s55 sooo narrow hall rile counter big orders get split shared sports car stuck traffic words know hbm high-bandwidth industry responding stacked like pancakes right made taller stacks newer hynix samsung micron generation interconnect wired together e.g nvidia's nvlink inside rack one system optical cables send light-based racks light instead electricity longer faster hops reality check supply has tight slow still leave expensive sitting idle speed isn't feed it's stove hallway dishes pile wide atom",
-     "takeaway": "A fast chip stuck waiting for data is wasted, so memory and the links between chips matter."
-    },
-    {
-     "file": "assets/pulse/ai-bottlenecks/p04.webp",
-     "thumb": "assets/pulse/ai-bottlenecks/p04-t.webp",
-     "title": "Who has to adapt, and what's next",
-     "w": 1600,
-     "h": 2760,
-     "kw": "infrastructure part has adapt next power cooling memory connections now limit fast ai grow comes ahead feels squeeze changes gains labs clouds e.g microsoft google lock early chips sit waiting chip makers nvidia utilities data-center builders winners plan plug deals liquid becomes normal nuclear gas solar new data centers signed years saree eeeaeeeneltsewsewe link leaner models ooo expand daseeeueapescatseteurs tess factories keeps improving prices speed depend physical pieces reality check plants grid lines take build quick software fix moves foundations move construction what's adapts squeezed design faster links can't fed cooled demand long-term strain long waits exists stuck sites delays businesses using pick efficient tools higher slower rollouts there's atom",
-     "takeaway": "Power, cooling, memory and connections now limit how fast AI can grow, and there is no quick software fix."
-    },
-    {
-     "file": "assets/pulse/ai-bottlenecks/p05.webp",
-     "thumb": "assets/pulse/ai-bottlenecks/p05-t.webp",
-     "title": "Why AI keeps getting cheaper anyway",
-     "w": 1600,
-     "h": 2760,
-     "kw": "keeps getting cheaper anyway power chips tight answer keep costing three reasons price drops token chunk text word gpt-3.5-level answers million tokens smaller leaner models like compact car commute well better hardware cost year energy efficiency source stanford index means quality costs 13x aazs epoch ai eee reality check newest thinking use led bulbs light smartest ones still every gets infrastructure bottlenecks part atom",
-     "takeaway": "Cheaper hardware and better efficiency keep making the same answer cheaper."
-    }
-   ],
-   "updated": "2026-10-12",
-   "tagline": "Chips, power and memory — and why prices still fall",
-   "sources": [
-    {
-     "title": "Constellation: Crane Clean Energy Center / 20-year PPA with Microsoft",
-     "url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html"
-    },
-    {
-     "title": "IEA: Energy and AI",
-     "url": "https://www.iea.org/reports/energy-and-ai"
-    },
-    {
-     "title": "Stanford HAI: 2025 AI Index Report",
-     "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
-    },
-    {
-     "title": "Epoch AI: The plunging price of thought",
-     "url": "https://epoch.ai/publications/the-plunging-price-of-thought"
-    },
-    {
-     "title": "arXiv 2511.23455 (inference cost vs. benchmark progress)",
-     "url": "https://arxiv.org/abs/2511.23455"
-    }
-   ],
-   "gist_lead": [
-    "A chip is not enough.",
-    "Power is the slow part.",
-    "Plan for the plug."
-   ],
-   "recap": [
-    "AI needs more than chips: power, cooling, memory and fast connections all limit how fast it can grow.",
-    "Power and cooling take years to arrive; chips only months.",
-    "Even so, cheaper hardware and better efficiency keep making the same answer cheaper."
-   ],
-   "recap_pages": 5
-  },
-  {
-   "id": "ai-moats",
-   "title": "AI Moats",
-   "topic": "AI",
-   "blurb": "When every AI is smart, being there wins.",
-   "gist": [
-    "Copying is easy. AI models get copied quickly. What is hard to copy is people's habits, history and the way they already work.",
-    "Being there beats being best. A slightly better AI rarely beats the one already inside the apps you use every day.",
-    "Newcomers need a twist. They can win with a brand-new task, a user everyone forgot, or a product that is far better."
-   ],
-   "added": "2026-10-12",
-   "pages": [
-    {
-     "file": "assets/pulse/ai-moats/p01.webp",
-     "thumb": "assets/pulse/ai-moats/p01-t.webp",
-     "title": "If every AI is smart, who wins?",
-     "w": 1600,
-     "h": 2760,
-     "kw": "ai moats part every smart wins models getting alike easier anyone use lasting edge moving itself reach people hard leave moat foundation model application layer advantage core brain like ones app built top jit rivals can't easily copy ale behind chatgpt claude gemini actually coffee test slightly better good office lobby tihuala elevator eee nooo cores rate already minutes away knows usual order catch fast easy habit break loses one work best three last longer smarter owns history painful basen email team whole workflow sales tool holding years customer notes docs apps daily runs through reality check strong still matter weak won't keep users alone rarely enough anymore get copied habits don't bit tastier way team's atom",
-     "takeaway": "As AI models become alike, the lasting edge is reach and habits, not the model."
-    },
-    {
-     "file": "assets/pulse/ai-moats/p02.webp",
-     "thumb": "assets/pulse/ai-moats/p02-t.webp",
-     "title": "Why the smarter AI doesn't always win",
-     "w": 1600,
-     "h": 2760,
-     "kw": "ai moats part smarter doesn't always win rival launch better tomorrow users often still don switch three everyday examples show liz moat advantage switching cost time effort risk moving something new rivals can't easily copy action newcomer tool already use writes reply right inside email paste tabs knows years client notes owns history nothing clients ask last rebuild every step approvals reports retrain team run through pan nes being beats bit points view ons fue user product costs add must much good enough wins keep data useful little pull reality check strong model helps clearly one products position habits drive people actually rarely don't painful leave atom",
-     "takeaway": "A slightly smarter AI rarely beats the one people already use every day."
-    },
-    {
-     "file": "assets/pulse/ai-moats/p03.webp",
-     "thumb": "assets/pulse/ai-moats/p03-t.webp",
-     "title": "Who gains and who feels the squeeze",
-     "w": 1600,
-     "h": 2760,
-     "kw": "ai moats part gains feels squeeze good enough tools people already use tend keep gets stronger has fight harder moat advantage wedge way ene ett rivals cant easily copy cae big players arent covering squeezed ooo dic apen newcomers daily add well boots iat slightly ignore better chatbot users win spot slowly lose ground easy reasons stay leave owning beats smartest still get new kind task forgotten user far bit example work nobody had small shops worth software never served hassle switching stick works teams building put reality check strong models open doors especially brand-new categories shift gradual sudden flip have find one can't aren't it's atom",
-     "takeaway": "Owning the spot where people work beats owning the smartest AI."
-    },
-    {
-     "file": "assets/pulse/ai-moats/p04.webp",
-     "thumb": "assets/pulse/ai-moats/p04-t.webp",
-     "title": "So what do you do with this?",
-     "w": 1600,
-     "h": 2760,
-     "kw": "moats part being people already work often matters having slightly smarter ai means builders newcomers watch awwawans distribution job done product reaches task person keeps really trying get playbook three ways teams have users everyday put inside steps pick nobody well yet usual apps features take make saved history useful serve big tools ignore fewer new learn keep happy far better bit changes arrive trapped idea different moves built app use past leaving mean redoing lot setup answers usually stronger moat reality check much model still open door especially brand-new kinds tasks shift gradual mostly old here's atom",
-     "takeaway": "Being where people already work usually matters more than a slightly better model."
-    }
-   ],
-   "tagline": "If every AI is smart, who wins?",
-   "sources": [
-    {
-     "title": "Stanford HAI: 2025 AI Index Report",
-     "url": "https://hai.stanford.edu/ai-index/2025-ai-index-report"
-    },
-    {
-     "title": "Epoch AI: The plunging price of thought",
-     "url": "https://epoch.ai/publications/the-plunging-price-of-thought"
-    }
-   ],
-   "gist_lead": [
-    "Copying is easy.",
-    "Being there beats being best.",
-    "Newcomers need a twist."
-   ],
-   "recap": [
-    "As AI models get alike, reach and habits matter more than the smartest model.",
-    "A slightly smarter AI rarely beats the one people already use, so owning where people work wins.",
-    "So being where people already work usually beats a small model upgrade."
-   ],
-   "recap_pages": 4
-  },
-  {
-   "id": "physical-ai",
-   "title": "Physical AI",
-   "topic": "AI",
-   "blurb": "Robots and cars that handle surprises.",
-   "gist": [
-    "Beyond the script. Old robots follow a fixed script. Physical AI works out what to do when something unexpected happens.",
-    "Cars that reason. They aim to handle the odd moment, like a worker waving you through, without handing the wheel back to you.",
-    "Still early. Today it is mostly pilots, trials and a few limited cities."
-   ],
-   "added": "2026-10-12",
-   "pages": [
-    {
-     "file": "assets/pulse/physical-ai/p01.webp",
-     "thumb": "assets/pulse/physical-ai/p01-t.webp",
-     "title": "Physical AI: robots that can handle surprises",
-     "w": 1600,
-     "h": 2760,
-     "kw": "shift physical robots handle surprises nola today follow exact instructions anything unexpected stops ai lets machines see figure act messy real world nvidia's jensen huang calls chatgpt moment warehouse robot meets something new set pick boxes squishy odd-shaped bag shows looks cameras eee works grab picks keeps going old script ones plot twist changes business fewer rescues safer items don't people step reacts instead halt line often freezing crashing foundation model trained huge amounts video powers data way text reality check still early mostly pilots trials everywhere yet need perfect conditions it's programmed expects box spot sees wasn't told waits person atom",
-     "takeaway": "Physical AI lets machines see, work things out and act when something unexpected happens."
-    },
-    {
-     "file": "assets/pulse/physical-ai/p02.webp",
-     "thumb": "assets/pulse/physical-ai/p02-t.webp",
-     "title": "Cars that can think through surprises",
-     "w": 1600,
-     "h": 2760,
-     "kw": "physical ai part cars think through surprises today's self-driving features follow rules maps something unusual freeze hand wheel back shift reason they've never seen construction worker waves cones block lane signals around across yellow line today rule-following car reasoning stops beeps take now nas tell tells don fit changes seat safer odd moments fewer handoffs confidence asks work zones bad weather often rare situations get strange intersections fea panicked edge case situation like parade fallen tree cop directing traffic reality check still early robotaxis run limited cities need driver ready hard driving isnt normal weird atom rule cross sees worker's wave doesn't understand signal gets detour allowed slowly goes don't handled word know ora isn't it's",
-     "takeaway": "Reasoning cars aim to handle the rare weird 1% without handing back the wheel."
-    },
-    {
-     "file": "assets/pulse/physical-ai/p03.webp",
-     "thumb": "assets/pulse/physical-ai/p03-t.webp",
-     "title": "Humanoids and home robots: hype vs. today",
-     "w": 1600,
-     "h": 2760,
-     "kw": "lumanoids home robots hype day videos look magical actually working today humanoid robot shaped like person fits places built people agility digit paid warehouse work gxo oid since totes moved tote plastic bin ake bmw figure worked line year helping build cars new hire one repeat task do-everything butler still emerging neo pre-ordered first alr eal deliveries promised factory many chores watching clocking warehouses laundry wait physical ai part humanoids ne0 atom",
-     "takeaway": "Humanoid robots are starting real work in warehouses; home robots are still emerging."
-    }
-   ],
-   "updated": "2026-10-13",
-   "tagline": "Robots that handle surprises",
-   "sources": [
-    {
-     "title": "NVIDIA Newsroom: Cosmos world foundation model platform (CES 2025)",
-     "url": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-world-foundation-model-platform-to-accelerate-physical-ai-development"
-    },
-    {
-     "title": "Agility Robotics: Digit moves over 100,000 totes at GXO",
-     "url": "https://www.agilityrobotics.com/content/digit-moves-over-100k-totes"
-    },
-    {
-     "title": "Agility Robotics: GXO signs industry-first multi-year agreement (Jun 2024)",
-     "url": "https://www.agilityrobotics.com/content/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics"
-    },
-    {
-     "title": "Figure: F.02 contributed to the production of 30,000 cars at BMW",
-     "url": "https://www.figure.ai/news/production-at-bmw"
-    },
-    {
-     "title": "1X: NEO home robot pre-order announcement",
-     "url": "https://www.1x.tech/discover/neo-home-robot"
-    }
-   ],
-   "gist_lead": [
-    "Beyond the script.",
-    "Cars that reason.",
-    "Still early."
-   ],
-   "recap": [
-    "Physical AI lets machines see, work things out and act when something unexpected happens.",
-    "Reasoning cars aim to handle the rare weird moments without handing back the wheel.",
-    "Humanoids are starting real warehouse work; home robots are still emerging."
-   ],
-   "recap_pages": 3
-  },
-  {
-   "id": "world-models",
-   "title": "World Models",
-   "topic": "AI",
-   "blurb": "AI that imagines what happens next before it acts.",
-   "gist": [
-    "Words versus what happens. A chatbot knows words. A world model predicts what will happen next in the physical world, like a cup tipping over.",
-    "It learns from video. It watches video, guesses the next moment, and checks itself to learn how things move.",
-    "Lab first. It works well in the lab and is still learning the messy real world."
-   ],
-   "added": "2026-10-12",
-   "pages": [
-    {
-     "file": "assets/pulse/world-models/p01.webp",
-     "thumb": "assets/pulse/world-models/p01-t.webp",
-     "title": "What world models actually are",
-     "w": 1600,
-     "h": 2760,
-     "kw": "world models part actually ai today great words pictures robot car has know happens next real arm cup coffee model mae e.g chatbot eww wwe knows cups learned text scene things describe can't picture predicts push spills picks safer move first like reading swimming knowing water back language learns sate physical used robots handle new objects penaves space eau entect simulation practicing virtual self-driving cars predicting traffic flight simulator prediction imagining moments worlds training google deepmind genie nvidia cosmos acting cyclist seconds reality check still early research labs specialized systems everyday products think fall it's behaves cause effect deepmind's nvidia's atom",
-     "takeaway": "A world model predicts what happens next in the physical world, like a cup spilling."
-    },
-    {
-     "file": "assets/pulse/world-models/p02.webp",
-     "thumb": "assets/pulse/world-models/p02-t.webp",
-     "title": "How world models learn, and what they unlock",
-     "w": 1600,
-     "h": 2760,
-     "kw": "world models part learn unlock qe model isn told rules physics learns way baby watch guess get wrong try training loop repeat millions times sed compare adjust video box next moment really little being stacked looks like happened perr ttt tee eee sensor data robots cars computer simulations guessing frame unlocks robot stacking boxes seariest t-y ama zac reacts sees right now imagines outcome first finds stack tips falls tries risky moves simulation real warehouse reality check good need huge amounts still labs specialized systems lmagine act second isn't without imagine first.act atom",
-     "takeaway": "World models learn how things move by guessing the next moment of video and checking."
-    },
-    {
-     "file": "assets/pulse/world-models/p03.webp",
-     "thumb": "assets/pulse/world-models/p03-t.webp",
-     "title": "What world models let robots do",
-     "w": 1600,
-     "h": 2760,
-     "kw": "world models part let robots react camera sees right now try move head first ai clearing table wine glass reacts imagines option plate tips lss sfaj sss rabs tries plans bumps alass didn't plan picks safe order acts break imagination kitchen changes real 1-v 2-v 3-v ragile multi-step jobs surprises pet walks re-imaaines wipe adjus planning trying moves choosing one reality check still early reliable use mostly labs factories warehouses homes yet think grabs fragile things predicts slips re-imagines breaks adjusts atom",
-     "takeaway": "With a world model, a robot can try a move in its head before doing it."
-    },
-    {
-     "file": "assets/pulse/world-models/p04.webp",
-     "thumb": "assets/pulse/world-models/p04-t.webp",
-     "title": "The limits today, and who has to adapt",
-     "w": 1600,
-     "h": 2760,
-     "kw": "world models part limits today has adapt let machines imagine act isn't every robot using one yet three rare messy moments lab real life e27 hil needs huge amounts works best eel video sensor data handles usual welll simulation learn struggles odd stuff places reliable hasn't seen busy homes streets like student aced practice tests faced exam great still learning adapting doine collect test first won't notice shows warehouses factories cars reality check useful deployment early progress gradual tied robots getting better warehouse street kitchen hungry controlled well who's they're doing robotics self-driving teams ai labs e.g google build bigger deepmind nvidia virtual training worlds watch wait relying businesses atom",
-     "takeaway": "World models need huge amounts of data and show up first in warehouses, factories and cars."
-    }
-   ],
-   "tagline": "AI that imagines what happens next",
-   "sources": [
-    {
-     "title": "Google DeepMind: Genie 3, a new frontier for world models",
-     "url": "https://deepmind.google/discover/blog/genie-3-a-new-frontier-for-world-models/"
-    },
-    {
-     "title": "NVIDIA Newsroom: Cosmos world foundation model platform",
-     "url": "https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-world-foundation-model-platform-to-accelerate-physical-ai-development"
-    },
-    {
-     "title": "NVIDIA Glossary: What is Physical AI?",
-     "url": "https://www.nvidia.com/en-us/glossary/generative-physical-ai/"
-    }
-   ],
-   "gist_lead": [
-    "Words versus what happens.",
-    "It learns from video.",
-    "Lab first."
-   ],
-   "recap": [
-    "A world model predicts what happens next in the physical world, like a cup spilling.",
-    "It learns by guessing the next moment of video, so a robot can try a move in its head first.",
-    "It needs huge amounts of data, and shows up first in warehouses, factories and cars."
-   ],
-   "recap_pages": 4
-  },
   {
    "id": "ai-basics",
    "title": "AI Basics",
@@ -767,7 +97,8 @@
     "Smart friend, not an oracle."
    ],
    "recap_pages": 9,
-   "tagline": "Maths, not magic."
+   "tagline": "Maths, not magic.",
+   "start_here": true
   },
   {
    "id": "ai-wrong",
@@ -843,10 +174,10 @@
     {
      "file": "assets/pulse/ai-wrong/p08.webp",
      "thumb": "assets/pulse/ai-wrong/p08-t.webp",
-     "title": "Who's on the case?",
+     "title": "Who checks the checker?",
      "w": 1600,
      "h": 2400,
-     "kw": "countries who's case caeee renae cor fie ait peas ane aver elle eu european union chatbot must tell mia she's talking uk single law existing regulators cover alin areas india realistic al-made pictures videos voices labelled australia laws safety institute watches gaps us national consumer still applies source act art aug commons library cbp-10003 rules amendment feb plan dec congressional research service r48555 broad federal ftc card othercountries nationalal card8of9 atom"
+     "kw": "countries who's case caeee renae cor fie ait peas ane aver elle eu european union chatbot must tell mia she's talking uk single law existing regulators cover alin areas india realistic al-made pictures videos voices labelled australia laws safety institute watches gaps us national consumer still applies source act art aug commons library cbp-10003 rules amendment feb plan dec congressional research service r48555 broad federal ftc card othercountries nationalal card8of9 atom who checks the checker? at school exam boards say students check ai facts themselves and list their real sources. in newsroom ap news agency says it treats any answer as \"unvetted material\". trace back tells reporters to a claim where first came from. example mia's move she each bee fact against book or trusted website."
     },
     {
      "file": "assets/pulse/ai-wrong/p09.webp",
@@ -865,6 +196,300 @@
    ],
    "recap_pages": 9,
    "tagline": "Confident isn't correct."
+  },
+  {
+   "id": "using-ai",
+   "title": "Using AI Yourself",
+   "topic": "AI",
+   "blurb": "Tomas climbs from one homework question to a weekly study routine. Learn the ladders and the snakes of using a chatbot yourself.",
+   "gist": [
+    "Chatbots can sound sure and still be wrong.",
+    "Let AI quiz you, not think for you.",
+    "Know what happens to your chats, and what to keep private."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:21",
+   "pages": [
+    {
+     "file": "assets/pulse/using-ai/p01.webp",
+     "thumb": "assets/pulse/using-ai/p01-t.webp",
+     "title": "The AI ladder",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map ladder wha ale chatbot artificial intelligence app type talk rungs ask learn save routine snakes wrong answers letting thinking example tomas climbs one homework question wrnokihy stucly source openal language models hallucinate opendl help center scheduled tasks chatgpt made lor card alladder weekly study atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p02.webp",
+     "thumb": "assets/pulse/using-ai/p02-t.webp",
+     "title": "Game words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee key words game hallucination prompt confident answer type ask wrong scheduled task over-reliance saved runs ona timetable letting think don't source openal language models hallucinate help center tasks chatgpt carnegie mellon university microsoft research impact generative critical thinking chi survey self-reported card sesess lllll eol ele keywords gamewords scheduledtask chl atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p03.webp",
+     "thumb": "assets/pulse/using-ai/p03-t.webp",
+     "title": "Two sources",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rung ask check two sources example tomas asks chatbot leaves make food answer sounds sure chatbots guess openal says models trained ways reward guessing saying don't know checks against textbook source language nallucinate made card hallucinate atom",
+     "takeaway": "Chatbots can guess confidently; check what matters in a second source."
+    },
+    {
+     "file": "assets/pulse/using-ai/p04.webp",
+     "thumb": "assets/pulse/using-ai/p04-t.webp",
+     "title": "Ghostwriter vs quiz partner",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rung learn ghostwriter quiz partner scares writes notes can't recall quizzes him eee small mit study saw essay writers using showed brain engagement many struggled quote source media aby chatget foreprint peer-reviewed tomas made card mlt lab chatgpt preprint atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p05.webp",
+     "thumb": "assets/pulse/using-ai/p05-t.webp",
+     "title": "Who checks AI the least?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal checks least classmate tomas trusts lot takes answer skills given one thinks critically guess first below upside burjuiyy ss9 yum juem 3sn4 s4ow zewisse tilt head read survey office workers source carnegie mellon university microsoft research impact generative critical thinking chi self-reported made card thebigreveal whochecksaltheleast thinksless trust went chl atom who ai the least? habit a: truster as given. b: checker answer, like does. a of compared these habits. which with less thinking? first: is down. more in thinking. your to answer. pictures show two habits, not surveyed."
+    },
+    {
+     "file": "assets/pulse/using-ai/p06.webp",
+     "thumb": "assets/pulse/using-ai/p06-t.webp",
+     "title": "What happens to your chats",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee maker's side happens chats training switch openal says turning off improve model everyone stops new being used train models temporary chat aren't kept days safety thumbs rating reply let whole even tomas's move flips source help center data controls chatgpt tomas made card ai maker'sside lmprove example atom more settings the privacy book walks through every setting, step by step. what to your openai \"improve for everyone\" its models. these but may be up 30 safety. chatbot's page lists other choices. he off.",
+     "takeaway": "OpenAI says you can switch off training, but rating a reply can still let that chat be used."
+    },
+    {
+     "file": "assets/pulse/using-ai/p07.webp",
+     "thumb": "assets/pulse/using-ai/p07-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee rules around world sets spee wee eu european union since aug chatbots must tell you're talking unless it's obvious uk privacy regulator urges families discuss what's ok share eus staff guidance consumer firms keep promises tomas's move family agree stays private source oct commission act article faq ico information commissioner's office switched checklist ftc federal trade companies uphold confidentiality commitments blog jan tomas made card eseses lellll ell rulesaroundtheworld setsthe example atom who the to with ai. us from regulator: ai their promises. he and his what private."
+    },
+    {
+     "file": "assets/pulse/using-ai/p08.webp",
+     "thumb": "assets/pulse/using-ai/p08-t.webp",
+     "title": "Your move",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means tomas move wen ladder saves weekly task every sunday quizzes him week's notes check facts matter second source don't share sensitive personal details hand snake thinking roll read higher climb opendl help center scheduled chatgpt office privacy commissioner canada chatbots carnegie mellon university microsoft research impact generative critical chi survey self-reported made card whatitmeansfortomas yourmove openal tasks chl card8of8 atom",
+     "takeaway": "The higher you climb, the more you check."
+    }
+   ],
+   "recap": [
+    "The AI ladder.",
+    "Ghostwriter vs quiz partner.",
+    "What happens to your chats.",
+    "Your move."
+   ],
+   "recap_pages": 8,
+   "tagline": "The higher you climb, the more you check."
+  },
+  {
+   "id": "searching-ai",
+   "title": "Searching with AI",
+   "topic": "AI",
+   "blurb": "Elif asks if she can pack a power bank for a flight. See how AI search answers are built, where the ads go, and why the source still matters.",
+   "gist": [
+    "AI answers are built from many searches and linked pages.",
+    "With an AI summary, people clicked fewer links.",
+    "Open the cited page and check the official source."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:22",
+   "pages": [
+    {
+     "file": "assets/pulse/searching-ai/p01.webp",
+     "thumb": "assets/pulse/searching-ai/p01-t.webp",
+     "title": "Ask, and it answers",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map ask answers ai answer summary written artificial intelligence top search results citation link showing came sponsored paid labelled example elif asks pack power bank suitcase flight source google central features ads website help overviews made card neeeeeeeee atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p02.webp",
+     "thumb": "assets/pulse/searching-ai/p02-t.webp",
+     "title": "Catalogue words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words catalogue zxcge oley ai overview query fan-out google's summary above one question split links many searches qe citation sponsored link page paid used company source google search central features website ads help overviews card eer keywords atom the splits into several searches. links. original first to publish a fact, not copy. click-through opening visit actual site."
+    },
+    {
+     "file": "assets/pulse/searching-ai/p03.webp",
+     "thumb": "assets/pulse/searching-ai/p03-t.webp",
+     "title": "One question",
+     "w": 1600,
+     "h": 2400,
+     "kw": "hein user's side one question elif types power bank ai summary appears first small links underneath sounds sure packing wants know page came source google search central features website made card theuser's example 3of atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p04.webp",
+     "thumb": "assets/pulse/searching-ai/p04-t.webp",
+     "title": "Links, then a summary",
+     "w": 1600,
+     "h": 2400,
+     "kw": "answer built links summary list read top pages eel google says ai answers run many related searches show supporting skip queries don't help source search central features website card rrr errr howtheanswerisbuilt atom",
+     "takeaway": "AI answers are built from many searches and linked pages."
+    },
+    {
+     "file": "assets/pulse/searching-ai/p05.webp",
+     "thumb": "assets/pulse/searching-ai/p05-t.webp",
+     "title": "Where the ads go",
+     "w": 1600,
+     "h": 2400,
+     "kw": "search company's side ads sss als above below google says show ai overviews inside places appear english countries including us everywhere skips topics like health finance elif spots one sponsored power bank sits summary source help oct made card rnc aac searchcompany'sside example 0ct atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p06.webp",
+     "thumb": "assets/pulse/searching-ai/p06-t.webp",
+     "title": "Do people click through?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal click through sie moat tee eed vel abl cdl aos picture clicks site stops summary ai page common guess first answer below upside 3nouuuztm azewwns sztsta yutt ftnsert ppaeyyootto etdoeg tilt head read source pew research center google users likely links appears jul us march data card ncaacraereemema thebigreveal people without link visits result clicked atom",
+     "takeaway": "With an AI summary on the page, people clicked fewer links (Pew)."
+    },
+    {
+     "file": "assets/pulse/searching-ai/p07.webp",
+     "thumb": "assets/pulse/searching-ai/p07-t.webp",
+     "title": "Who wrote it?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "websites side wrote fewer visits pew notes publishers blame falling traffic summaries citation mix-ups columbia researchers found ai search tools often cited wrong article copy google's view google says people now visit wider range sites elif's link leads forum post airline source research center users likely click links summary appears jul us march data tow has digital journalism university problem mar central features website elif made card reece thewebsites'side fewervisits example 2o25 atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p08.webp",
+     "thumb": "assets/pulse/searching-ai/p08-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules sets uk google must let publishers opt ai features like overviews clear links credit pages deadlines comply dec page-level controls mar elif's takeaway credited link useful opens source oct cma competition markets authority publisher conduct requirement jun notice aug elif made card neen read 2o26 atom when google must comply from dec 2026, with more controls in 2027."
+    },
+    {
+     "file": "assets/pulse/searching-ai/p09.webp",
+     "thumb": "assets/pulse/searching-ai/p09-t.webp",
+     "title": "Check out the source",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means check source sse ees tie open cited page original copy rules official elif checks airline's skip don't treat sponsored advice read summary starting card book google search central ai features website ads help overviews tow center digital journalism columbia has citation problem mar university made neer whatitmeansforyou sourcechecked atom",
+     "takeaway": "Open the cited page and go to the official source."
+    }
+   ],
+   "recap": [
+    "Ask, and it answers.",
+    "Where the ads go.",
+    "Do people click through?",
+    "Check out the source."
+   ],
+   "recap_pages": 9,
+   "tagline": "The summary is a starting card, not the book."
+  },
+  {
+   "id": "jobs-school",
+   "title": "AI, Jobs & School",
+   "topic": "AI",
+   "blurb": "Ines writes a final essay and applies for a weekend office job. See how AI is changing schoolwork, first jobs and the rules around both.",
+   "gist": [
+    "Schools set their own AI rules; check yours.",
+    "AI tends to change the tasks in a job more than erase it.",
+    "Employers still want people who can explain their thinking."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:20",
+   "pages": [
+    {
+     "file": "assets/pulse/jobs-school/p01.webp",
+     "thumb": "assets/pulse/jobs-school/p01-t.webp",
+     "title": "Meet the class",
+     "w": 1600,
+     "h": 2400,
+     "kw": "meet class generative ai artificial intelligence writes draws answers everyday words first job entry-level role people learn ropes example ines writing final essay applying source ilo international idbanneraenisedoan weeherative jobs refined global index occupational exposure nask haddad made card picture map weekend office lnternational labour organization atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p02.webp",
+     "thumb": "assets/pulse/jobs-school/p02-t.webp",
+     "title": "Yearbook words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words yearbook jin ai study mode academic honesty openal saus gives hints doing owning sss answers work sse exposed reskilling learning new skills job speed take changes high-risk hires eu grades trict rules source introducing ilo international labour organization generative jobs refined global index occupational exposure nask act annex iii card keywords says task strict lntroducing lnternational atom citing saying which tool you used, when and how. your own work. can up or over. as a changes. in the eu, that hires, with rules."
+    },
+    {
+     "file": "assets/pulse/jobs-school/p03.webp",
+     "thumb": "assets/pulse/jobs-school/p03-t.webp",
+     "title": "The essay at midnight",
+     "w": 1600,
+     "h": 2400,
+     "kw": "wie ree log bop ere student's side essay midnight example ines asks chatbot write intro deletes school allows brainstorming switches study mode openaal says gives hints instead answers writes herself source openal introducing uk department education generative haddad made carc sss s888 thestudent'sside lntroducing card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p04.webp",
+     "thumb": "assets/pulse/jobs-school/p04-t.webp",
+     "title": "Your school sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "teacher's side school sets rules cel lupe decides england schools choose ai used safeguards teachers use planning they're responsible result explain loud teacher asks talk through source uk department education generative ines haddad made card theteacher'sside example atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p05.webp",
+     "thumb": "assets/pulse/jobs-school/p05-t.webp",
+     "title": "The office job, before and after",
+     "w": 1600,
+     "h": 2400,
+     "kw": "worker's side office job nyy wan tee line sas haddad typed every drafts forms checks booking hand helps customers eee eel changed fewer copy-and-paste tasks checking eae international labour organization generative jobs refined global index occupational exposure nask clerical exposed change people still needed ines made card theworker's source ilo lnternational card5of10 atom",
+     "takeaway": "AI tends to change the tasks in a job (drafting, checking) more than erase the job."
+    },
+    {
+     "file": "assets/pulse/jobs-school/p06.webp",
+     "thumb": "assets/pulse/jobs-school/p06-t.webp",
+     "title": "Hiring a first worker",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee employer's side ten ecrpaaaannatina fewer junior hires jobs al-exposed us early-career hiring has slowed ai screens cvs eu sorts applicants high-risk ines interview haddad asks solve task explain source stanford digital economy lab canaries coal mine descriptive causal act annex iii employment made card theemployer'sside first worker ines's example ill atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p07.webp",
+     "thumb": "assets/pulse/jobs-school/p07-t.webp",
+     "title": "Will AI take most jobs?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal ai take jobs gored gua lea sie pox picture robot sweeps everyone people split tasks matches evidence guess first answer below upside paesodxa ysoww sgofl jodi49 sdinjo widy bddj dau upyi sgof bhunyd ajay suow oc7 aunyoid 1yyhiy tilt head read source ilo wp140 nask poland's national research institute news release card sss s888 thebigreveal replace office clerical exposed right likely change wp14o atom",
+     "takeaway": "The ILO finds AI is more likely to change jobs than replace them."
+    },
+    {
+     "file": "assets/pulse/jobs-school/p08.webp",
+     "thumb": "assets/pulse/jobs-school/p08-t.webp",
+     "title": "Show where AI helped",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ai company's side tutor ghostwriter study mode openal says guides questions hints answers switch off it's choice honesty still depends ines ines's pick uses check argument write source introducing haddad made card read example lntroducing atom show where helped name the tool uk exam boards say students must and date they used it. keep a copy also ask to screenshot of question ai's answer. our credit due owning up help is part doing honest work. note \"brainstormed ideas with chatbot; every sentence mine.\""
+    },
+    {
+     "file": "assets/pulse/jobs-school/p09.webp",
+     "thumb": "assets/pulse/jobs-school/p09-t.webp",
+     "title": "Rules around the world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries rules around world eu european union grades hires high-risk emotion-reading banned school work uk schools set india cbse add computational thinking lessons australia national framework guides us federal guidance lets use grant money tutoring source oct act peel art department education central board secondary curriculum classes australian generative letter jul card othercountries annex ill atom the (european union) ai that or is high-risk; at and work. from 2026-27. for tutoring."
+    },
+    {
+     "file": "assets/pulse/jobs-school/p10.webp",
+     "thumb": "assets/pulse/jobs-school/p10-t.webp",
+     "title": "Sign my yearbook",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means yearbook sae pia yan totes fal use think harder ckip thinking proud escay feacher learn tools judgment job see caturday haddad check school ai rules every big assignment ines reader rce uk department paicdien generative education ilo international labour organization jobs refined global index occupational exposure nask made card sss whatitmeansforyou sign skip jhossa unok teacher saturday school's source lnternational card10of10 atom",
+     "takeaway": "Use AI to think harder, and check your school's rules."
+    }
+   ],
+   "recap": [
+    "Meet the class.",
+    "The essay at midnight.",
+    "Will AI take most jobs?",
+    "Sign my yearbook."
+   ],
+   "recap_pages": 10,
+   "tagline": "Use AI to think harder, not to skip the thinking."
   },
   {
    "id": "deepfakes",
@@ -990,7 +615,7 @@
      "title": "Six words on the wall",
      "w": 1600,
      "h": 2400,
-     "kw": "key words s1x wall personal data training facts point learns opt-out copyright setting says don't use mine copy work smart glasses camera recording light microphones shows source openal help controls chatgpt used improve model performance us office artificial intelligence part copyrightability meta privacy settings capture led card keywords six 2of9 atom"
+     "kw": "key words s1x wall personal data training facts point learns opt-out copyright setting says don't use mine copy work smart glasses camera recording light microphones shows source openal help controls chatgpt used improve model performance us office artificial intelligence part copyrightability meta privacy settings capture led card keywords six 2of9 atom on the right to erase asking a company delete your data. no-training note sign site telling ai firms not learn from it. that \"don't mine\". human author person whose own creative choices made work. with and microphones. is on."
     },
     {
      "file": "assets/pulse/privacy/p03.webp",
@@ -1040,7 +665,7 @@
      "title": "Rules around the world",
      "w": 1600,
      "h": 2400,
-     "kw": "countries rules around world sonn 11h sara bes emma eu european union gdpr general data protection regulation see delete euk uk gives rights copyright still study india dpdp digital personal act fix erase australia free pass train creators work us needs human author source oct art ico individual-rights guide report use access s.135 phased pib attorney-general release office artificial intelligence part copyrightability card othercountries creators'work 8of9 atom"
+     "kw": "countries rules around world sonn 11h sara bes emma eu european union gdpr general data protection regulation see delete euk uk gives rights copyright still study india dpdp digital personal act fix erase australia free pass train creators work us needs human author source oct art ico individual-rights guide report use access s.135 phased pib attorney-general release office artificial intelligence part copyrightability card othercountries creators'work 8of9 atom the (european union) (general regulation): and your data. (digital protection) act: see, fix, erase. a author."
     },
     {
      "file": "assets/pulse/privacy/p09.webp",
@@ -1121,7 +746,7 @@
      "title": "Does a chatbot help?",
      "w": 1600,
      "h": 2400,
-     "kw": "big reveal chatbot help alone people chatbots score highly real used medical tests decide better guess first answer below upside suoijipuod qissod bulwbpu 3s40m 342m pub uawbbhpnfi umo jays yoibas qam buisn ajdoad upy 13449q pip puduwiluod dud lds ajdoed apnjs piojxo duo gap conversation didn't know needed hear source bean reliability llms assistants general public nature medicine feb university oxford news release card thebigreveal didpeople witha chatbotdecide belowis possible conditions judgment worse naming command using web search one study gpt-4o llama neededto card6of atom",
+     "kw": "big reveal chatbot help alone people chatbots score highly real used medical tests decide better guess first answer below upside suoijipuod qissod bulwbpu 3s40m 342m pub uawbbhpnfi umo jays yoibas qam buisn ajdoad upy 13449q pip puduwiluod dud lds ajdoed apnjs piojxo duo gap conversation didn't know needed hear source bean reliability llms assistants general public nature medicine feb university oxford news release card thebigreveal didpeople witha chatbotdecide belowis possible conditions judgment worse naming command using web search one study gpt-4o llama neededto card6of atom people using popular chatbots did no better",
      "takeaway": "In one study, people with chatbots decided no better than people without."
     },
     {
@@ -1168,298 +793,110 @@
    "tagline": "Prepare with AI. Decide with a clinician."
   },
   {
-   "id": "jobs-school",
-   "title": "AI, Jobs & School",
+   "id": "ai-agents",
+   "title": "AI Agents",
    "topic": "AI",
-   "blurb": "Ines writes a final essay and applies for a weekend office job. See how AI is changing schoolwork, first jobs and the rules around both.",
+   "blurb": "Follow Zara, a student, as an AI agent books dinner for 8 on Saturday, seen from her side, the AI company's, the restaurant's, the bank's and the referees' around the world.",
    "gist": [
-    "Schools set their own AI rules; check yours.",
-    "AI tends to change the tasks in a job more than erase it.",
-    "Employers still want people who can explain their thinking."
+    "An AI agent does the job (books the table), not just chats.",
+    "You pay by subscription, or ads pay for free plans, so ask whose side it is on.",
+    "When it slips up, the restaurant is the first stop, then the bank; keep the agent on a valet key."
    ],
-   "added": "2026-10-21",
-   "added_at": "2026-10-21T20:20",
+   "added": "2026-10-12",
+   "added_at": "2026-10-20T13:55",
    "pages": [
     {
-     "file": "assets/pulse/jobs-school/p01.webp",
-     "thumb": "assets/pulse/jobs-school/p01-t.webp",
-     "title": "Meet the class",
+     "file": "assets/pulse/ai-agents/p01.webp",
+     "thumb": "assets/pulse/ai-agents/p01-t.webp",
+     "title": "Who's in this story?",
      "w": 1600,
      "h": 2400,
-     "kw": "meet class generative ai artificial intelligence writes draws answers everyday words first job entry-level role people learn ropes example ines writing final essay applying source ilo international idbanneraenisedoan weeherative jobs refined global index occupational exposure nask haddad made card picture map weekend office lnternational labour organization atom"
+     "kw": "picture map whos story soe seal oie nik phi nal wat lil see aii jarae fob book dinner friends saturday chathot artificial intelligence chat tells restaurants agent job books table compan builds runs chatgpt openal gemini google grok xall bank referee moves zara's money regulator government body sets rules source xal product pages zara booking illustration card atom picturemap who's chatbot ai company"
     },
     {
-     "file": "assets/pulse/jobs-school/p02.webp",
-     "thumb": "assets/pulse/jobs-school/p02-t.webp",
-     "title": "Yearbook words",
+     "file": "assets/pulse/ai-agents/p02.webp",
+     "thumb": "assets/pulse/ai-agents/p02-t.webp",
+     "title": "The money words",
      "w": 1600,
      "h": 2400,
-     "kw": "key words yearbook jin ai study mode academic honesty openal saus gives hints doing owning sss answers work sse exposed reskilling learning new skills job speed take changes high-risk hires eu grades trict rules source introducing ilo international labour organization generative jobs refined global index occupational exposure nask act annex iii card keywords says task strict lntroducing lnternational atom"
+     "kw": "picture map money words eet wid oeese ran subscription pay company every month like music app business pays show name marked sponsored deposit restaurant holds zara's group turns chargeback asking bank reverse charge didn't ok spending cap agent spend think pocket eee source plain-language definitions amounts illustrations cant card atom picturemap"
     },
     {
-     "file": "assets/pulse/jobs-school/p03.webp",
-     "thumb": "assets/pulse/jobs-school/p03-t.webp",
-     "title": "The essay at midnight",
+     "file": "assets/pulse/ai-agents/p03.webp",
+     "thumb": "assets/pulse/ai-agents/p03-t.webp",
+     "title": "Same request, two helpers",
      "w": 1600,
      "h": 2400,
-     "kw": "wie ree log bop ere student's side essay midnight example ines asks chatbot write intro deletes school allows brainstorming switches study mode openaal says gives hints instead answers writes herself source openal introducing uk department education generative haddad made carc sss s888 thestudent'sside lntroducing card3of10 atom"
+     "kw": "zara's side game request two helpers thet ttt youre wre nen fan ake crs ask table saturday chatbot gives places phone numbers zara still calls checks books agent calendar finds free asks ok pay deposit saves doing searching eee meee source openal buy chatgpt acting user's user confirms step example illustration card read atom",
+     "takeaway": "A chatbot hands you a list; an agent does the booking. The difference is who does the work, and who you trust with your card."
     },
     {
-     "file": "assets/pulse/jobs-school/p04.webp",
-     "thumb": "assets/pulse/jobs-school/p04-t.webp",
-     "title": "Your school sets the rules",
+     "file": "assets/pulse/ai-agents/p04.webp",
+     "thumb": "assets/pulse/ai-agents/p04-t.webp",
+     "title": "What Zara lets it touch",
      "w": 1600,
      "h": 2400,
-     "kw": "teacher's side school sets rules cel lupe decides england schools choose ai used safeguards teachers use planning they're responsible result explain loud teacher asks talk through source uk department education generative ines haddad made card theteacher'sside example atom"
+     "kw": "zara's side lara lets touch yeo calendar restaurant's booking app asks first card deposit messages photos banking quer read eee wrong source uk cma competition markets authority using agents complying consumer law permissions nee atom zara'sside zara ourread"
     },
     {
-     "file": "assets/pulse/jobs-school/p05.webp",
-     "thumb": "assets/pulse/jobs-school/p05-t.webp",
-     "title": "The office job, before and after",
+     "file": "assets/pulse/ai-agents/p05.webp",
+     "thumb": "assets/pulse/ai-agents/p05-t.webp",
+     "title": "Who pays for the agent?",
      "w": 1600,
      "h": 2400,
-     "kw": "worker's side office job nyy wan tee line sas haddad typed every drafts forms checks booking hand helps customers eee eel changed fewer copy-and-paste tasks checking eae international labour organization generative jobs refined global index occupational exposure nask clerical exposed change people still needed ines made card theworker's source ilo lnternational card5of10 atom",
-     "takeaway": "AI tends to change the tasks in a job (drafting, checking) more than erase the job."
+     "kw": "company's side paye agent one eth aaa ibe lee hla yss ose sss eee subscription month chatgpt plus us price oct pro show ads pay free plans cheap plan below answer zara cees restaurant list box marked sponsored pizza place paid openal isut someone paying ask source help chatgpt.com pricing introducing prices cent card atom theai pays plas sees ish't read card5of",
+     "takeaway": "You pay for the AI either with a subscription or by seeing ads. On ad plans, a business has paid to sit next to your answer, so check what is marked Sponsored."
     },
     {
-     "file": "assets/pulse/jobs-school/p06.webp",
-     "thumb": "assets/pulse/jobs-school/p06-t.webp",
-     "title": "Hiring a first worker",
+     "file": "assets/pulse/ai-agents/p06.webp",
+     "thumb": "assets/pulse/ai-agents/p06-t.webp",
+     "title": "Whose side is it on?",
      "w": 1600,
      "h": 2400,
-     "kw": "eee employer's side ten ecrpaaaannatina fewer junior hires jobs al-exposed us early-career hiring has slowed ai screens cvs eu sorts applicants high-risk ines interview haddad asks solve task explain source stanford digital economy lab canaries coal mine descriptive causal act annex iii employment made card theemployer'sside first worker ines's example ill atom"
+     "kw": "company's side whose ante ore ves pas irise cas oral eee pil wes ton cae hal hth hon law tae pile nats sea sal worr agent paid restaurants pick one best table zara openal says ads labelled kept separate don't change chatgpt's answers catch books never see list sponsored tag zaras fix show options tell book source help chatgpt influence read card atom ai worry openai zara's"
     },
     {
-     "file": "assets/pulse/jobs-school/p07.webp",
-     "thumb": "assets/pulse/jobs-school/p07-t.webp",
-     "title": "Will AI take most jobs?",
+     "file": "assets/pulse/ai-agents/p07.webp",
+     "thumb": "assets/pulse/ai-agents/p07-t.webp",
+     "title": "The mix-up",
      "w": 1600,
      "h": 2400,
-     "kw": "big reveal ai take jobs gored gua lea sie pox picture robot sweeps everyone people split tasks matches evidence guess first answer below upside paesodxa ysoww sgofl jodi49 sdinjo widy bddj dau upyi sgof bhunyd ajay suow oc7 aunyoid 1yyhiy tilt head read source ilo wp140 nask poland's national research institute news release card sss s888 thebigreveal replace office clerical exposed right likely change wp14o atom",
-     "takeaway": "The ILO finds AI is more likely to change jobs than replace them."
+     "kw": "restaurants side mix-up ors iss mit aaa cops agent books table restaurant holds deposit kept seats free mistake handles booking refund zarae move contact first ask fix stop business receipt even placed order eee source openal developers agentic commerce faq seller refunds chargebacks chatgpt.com merchants illustration card restaurantsside oops restauraht zara's read atom"
     },
     {
-     "file": "assets/pulse/jobs-school/p08.webp",
-     "thumb": "assets/pulse/jobs-school/p08-t.webp",
-     "title": "Tutor, not ghostwriter",
+     "file": "assets/pulse/ai-agents/p08.webp",
+     "thumb": "assets/pulse/ai-agents/p08-t.webp",
+     "title": "Ask first, keep proof",
      "w": 1600,
      "h": 2400,
-     "kw": "ai company's side tutor ghostwriter study mode openal says guides questions hints answers switch off it's choice honesty still depends ines ines's pick uses check argument write source introducing haddad made card read example lntroducing atom"
+     "kw": "bank's side get back mata kia resfaurant cays zara ask bank card company chargeback banks big question ok payment agent rogue ack first matters tapped one deposit clear makes answer easier keep proof screenshot booking helps restaurant fix fast source us fair credit billing act credit-card billing-error disputes federal trade commission consumer financial protection bureau summaries card-network dispute rules vary country atom says read card8of first, the did this payment, or go rogue? our why \"ask me first\" \"ok\" for $20 8. that yes no easier. and \"ok\". it fast. money back? shopping book walks through refunds disputes. charge still wrong? contact your show proof."
     },
     {
-     "file": "assets/pulse/jobs-school/p09.webp",
-     "thumb": "assets/pulse/jobs-school/p09-t.webp",
-     "title": "Rules around the world",
+     "file": "assets/pulse/ai-agents/p09.webp",
+     "thumb": "assets/pulse/ai-agents/p09-t.webp",
+     "title": "What the referees say",
      "w": 1600,
      "h": 2400,
-     "kw": "countries rules around world eu european union grades hires high-risk emotion-reading banned school work uk schools set india cbse add computational thinking lessons australia national framework guides us federal guidance lets use grant money tutoring source oct act peel art department education central board secondary curriculum classes australian generative letter jul card othercountries annex ill atom"
+     "kw": "countries referees say porm yee roma femmes ai abt dat aut thy ette bobot teted tet uli sfaztns lve heh uk restaurant uses booking bot still answers eu european union chatbot must tell zara she's talking ludia online shops clearly label paid-for listings auctralia government review found shopper law already mostly covers us credit-card rules let challenge wrong charge io ere source cma mar act transparency aug india consumer protection e-commerce amendment jan australian treasury oct fair credit billing card atom othercoontries australia what the if its own bot, for it. from 2027, listings. our read zara's takeaway differ by country, so she checks who runs and"
     },
     {
-     "file": "assets/pulse/jobs-school/p10.webp",
-     "thumb": "assets/pulse/jobs-school/p10-t.webp",
-     "title": "Sign my yearbook",
+     "file": "assets/pulse/ai-agents/p10.webp",
+     "thumb": "assets/pulse/ai-agents/p10-t.webp",
+     "title": "Give it a valet key",
      "w": 1600,
      "h": 2400,
-     "kw": "means yearbook sae pia yan totes fal use think harder ckip thinking proud escay feacher learn tools judgment job see caturday haddad check school ai rules every big assignment ines reader rce uk department paicdien generative education ilo international labour organization jobs refined global index occupational exposure nask made card sss whatitmeansforyou sign skip jhossa unok teacher saturday school's source lnternational card10of10 atom",
-     "takeaway": "Use AI to think harder, and check your school's rules."
+     "kw": "means give valet key tad etal nied wees set vets idea starts car won't open trunk agent booking needs ack first pays sends deletes anything spending cap small limit like prepaid card india upi lite unified payments interface payment cwitch cancel one tap fetch cpend let spend source rbi reserve bank circular dec limits valet-key rules read pee whatit ask switch cour upl card10of10 atom a small limit, like a prepaid card with just enough on it for the booking. valet-key rules are our read.",
+     "takeaway": "Treat an agent like a valet: give it one key, a small spending cap, an ask-first rule and an off switch."
     }
    ],
    "recap": [
-    "Meet the class.",
-    "The essay at midnight.",
-    "Will AI take most jobs?",
-    "Sign my yearbook."
+    "Chatbot lists; agent books. Someone pays: subscription or ads.",
+    "Restaurant first, bank second.",
+    "Valet key: ask first, cap, off switch."
    ],
    "recap_pages": 10,
-   "tagline": "Use AI to think harder, not to skip the thinking."
-  },
-  {
-   "id": "using-ai",
-   "title": "Using AI Yourself",
-   "topic": "AI",
-   "blurb": "Tomas climbs from one homework question to a weekly study routine. Learn the ladders and the snakes of using a chatbot yourself.",
-   "gist": [
-    "Chatbots can sound sure and still be wrong.",
-    "Let AI quiz you, not think for you.",
-    "Know what happens to your chats, and what to keep private."
-   ],
-   "added": "2026-10-21",
-   "added_at": "2026-10-21T20:21",
-   "pages": [
-    {
-     "file": "assets/pulse/using-ai/p01.webp",
-     "thumb": "assets/pulse/using-ai/p01-t.webp",
-     "title": "The AI ladder",
-     "w": 1600,
-     "h": 2400,
-     "kw": "picture map ladder wha ale chatbot artificial intelligence app type talk rungs ask learn save routine snakes wrong answers letting thinking example tomas climbs one homework question wrnokihy stucly source openal language models hallucinate opendl help center scheduled tasks chatgpt made lor card alladder weekly study atom"
-    },
-    {
-     "file": "assets/pulse/using-ai/p02.webp",
-     "thumb": "assets/pulse/using-ai/p02-t.webp",
-     "title": "Game words",
-     "w": 1600,
-     "h": 2400,
-     "kw": "eee key words game hallucination prompt confident answer type ask wrong scheduled task over-reliance saved runs ona timetable letting think don't source openal language models hallucinate help center tasks chatgpt carnegie mellon university microsoft research impact generative critical thinking chi survey self-reported card sesess lllll eol ele keywords gamewords scheduledtask chl atom"
-    },
-    {
-     "file": "assets/pulse/using-ai/p03.webp",
-     "thumb": "assets/pulse/using-ai/p03-t.webp",
-     "title": "Two sources",
-     "w": 1600,
-     "h": 2400,
-     "kw": "rung ask check two sources example tomas asks chatbot leaves make food answer sounds sure chatbots guess openal says models trained ways reward guessing saying don't know checks against textbook source language nallucinate made card hallucinate atom",
-     "takeaway": "Chatbots can guess confidently; check what matters in a second source."
-    },
-    {
-     "file": "assets/pulse/using-ai/p04.webp",
-     "thumb": "assets/pulse/using-ai/p04-t.webp",
-     "title": "Ghostwriter vs quiz partner",
-     "w": 1600,
-     "h": 2400,
-     "kw": "rung learn ghostwriter quiz partner scares writes notes can't recall quizzes him eee small mit study saw essay writers using showed brain engagement many struggled quote source media aby chatget foreprint peer-reviewed tomas made card mlt lab chatgpt preprint atom"
-    },
-    {
-     "file": "assets/pulse/using-ai/p05.webp",
-     "thumb": "assets/pulse/using-ai/p05-t.webp",
-     "title": "Who checks AI the least?",
-     "w": 1600,
-     "h": 2400,
-     "kw": "big reveal checks least classmate tomas trusts lot takes answer skills given one thinks critically guess first below upside burjuiyy ss9 yum juem 3sn4 s4ow zewisse tilt head read survey office workers source carnegie mellon university microsoft research impact generative critical thinking chi self-reported made card thebigreveal whochecksaltheleast thinksless trust went chl atom"
-    },
-    {
-     "file": "assets/pulse/using-ai/p06.webp",
-     "thumb": "assets/pulse/using-ai/p06-t.webp",
-     "title": "What happens to your chats",
-     "w": 1600,
-     "h": 2400,
-     "kw": "eee maker's side happens chats training switch openal says turning off improve model everyone stops new being used train models temporary chat aren't kept days safety thumbs rating reply let whole even tomas's move flips source help center data controls chatgpt tomas made card ai maker'sside lmprove example atom",
-     "takeaway": "OpenAI says you can switch off training, but rating a reply can still let that chat be used."
-    },
-    {
-     "file": "assets/pulse/using-ai/p07.webp",
-     "thumb": "assets/pulse/using-ai/p07-t.webp",
-     "title": "Who sets the rules",
-     "w": 1600,
-     "h": 2400,
-     "kw": "eee rules around world sets spee wee eu european union since aug chatbots must tell you're talking unless it's obvious uk privacy regulator urges families discuss what's ok share eus staff guidance consumer firms keep promises tomas's move family agree stays private source oct commission act article faq ico information commissioner's office switched checklist ftc federal trade companies uphold confidentiality commitments blog jan tomas made card eseses lellll ell rulesaroundtheworld setsthe example atom"
-    },
-    {
-     "file": "assets/pulse/using-ai/p08.webp",
-     "thumb": "assets/pulse/using-ai/p08-t.webp",
-     "title": "Your move",
-     "w": 1600,
-     "h": 2400,
-     "kw": "means tomas move wen ladder saves weekly task every sunday quizzes him week's notes check facts matter second source don't share sensitive personal details hand snake thinking roll read higher climb opendl help center scheduled chatgpt office privacy commissioner canada chatbots carnegie mellon university microsoft research impact generative critical chi survey self-reported made card whatitmeansfortomas yourmove openal tasks chl card8of8 atom",
-     "takeaway": "The higher you climb, the more you check."
-    }
-   ],
-   "recap": [
-    "The AI ladder.",
-    "Ghostwriter vs quiz partner.",
-    "What happens to your chats.",
-    "Your move."
-   ],
-   "recap_pages": 8,
-   "tagline": "The higher you climb, the more you check."
-  },
-  {
-   "id": "searching-ai",
-   "title": "Searching with AI",
-   "topic": "AI",
-   "blurb": "Elif asks if she can pack a power bank for a flight. See how AI search answers are built, where the ads go, and why the source still matters.",
-   "gist": [
-    "AI answers are built from many searches and linked pages.",
-    "With an AI summary, people clicked fewer links.",
-    "Open the cited page and check the official source."
-   ],
-   "added": "2026-10-21",
-   "added_at": "2026-10-21T20:22",
-   "pages": [
-    {
-     "file": "assets/pulse/searching-ai/p01.webp",
-     "thumb": "assets/pulse/searching-ai/p01-t.webp",
-     "title": "Ask, and it answers",
-     "w": 1600,
-     "h": 2400,
-     "kw": "picture map ask answers ai answer summary written artificial intelligence top search results citation link showing came sponsored paid labelled example elif asks pack power bank suitcase flight source google central features ads website help overviews made card neeeeeeeee atom"
-    },
-    {
-     "file": "assets/pulse/searching-ai/p02.webp",
-     "thumb": "assets/pulse/searching-ai/p02-t.webp",
-     "title": "Catalogue words",
-     "w": 1600,
-     "h": 2400,
-     "kw": "key words catalogue zxcge oley ai overview query fan-out google's summary above one question split links many searches qe citation sponsored link page paid used company source google search central features website ads help overviews card eer keywords atom"
-    },
-    {
-     "file": "assets/pulse/searching-ai/p03.webp",
-     "thumb": "assets/pulse/searching-ai/p03-t.webp",
-     "title": "One question",
-     "w": 1600,
-     "h": 2400,
-     "kw": "hein user's side one question elif types power bank ai summary appears first small links underneath sounds sure packing wants know page came source google search central features website made card theuser's example 3of atom"
-    },
-    {
-     "file": "assets/pulse/searching-ai/p04.webp",
-     "thumb": "assets/pulse/searching-ai/p04-t.webp",
-     "title": "Links, then a summary",
-     "w": 1600,
-     "h": 2400,
-     "kw": "answer built links summary list read top pages eel google says ai answers run many related searches show supporting skip queries don't help source search central features website card rrr errr howtheanswerisbuilt atom",
-     "takeaway": "AI answers are built from many searches and linked pages."
-    },
-    {
-     "file": "assets/pulse/searching-ai/p05.webp",
-     "thumb": "assets/pulse/searching-ai/p05-t.webp",
-     "title": "Where the ads go",
-     "w": 1600,
-     "h": 2400,
-     "kw": "search company's side ads sss als above below google says show ai overviews inside places appear english countries including us everywhere skips topics like health finance elif spots one sponsored power bank sits summary source help oct made card rnc aac searchcompany'sside example 0ct atom"
-    },
-    {
-     "file": "assets/pulse/searching-ai/p06.webp",
-     "thumb": "assets/pulse/searching-ai/p06-t.webp",
-     "title": "Do people click through?",
-     "w": 1600,
-     "h": 2400,
-     "kw": "big reveal click through sie moat tee eed vel abl cdl aos picture clicks site stops summary ai page common guess first answer below upside 3nouuuztm azewwns sztsta yutt ftnsert ppaeyyootto etdoeg tilt head read source pew research center google users likely links appears jul us march data card ncaacraereemema thebigreveal people without link visits result clicked atom",
-     "takeaway": "With an AI summary on the page, people clicked fewer links (Pew)."
-    },
-    {
-     "file": "assets/pulse/searching-ai/p07.webp",
-     "thumb": "assets/pulse/searching-ai/p07-t.webp",
-     "title": "Who wrote it?",
-     "w": 1600,
-     "h": 2400,
-     "kw": "websites side wrote fewer visits pew notes publishers blame falling traffic summaries citation mix-ups columbia researchers found ai search tools often cited wrong article copy google's view google says people now visit wider range sites elif's link leads forum post airline source research center users likely click links summary appears jul us march data tow has digital journalism university problem mar central features website elif made card reece thewebsites'side fewervisits example 2o25 atom"
-    },
-    {
-     "file": "assets/pulse/searching-ai/p08.webp",
-     "thumb": "assets/pulse/searching-ai/p08-t.webp",
-     "title": "Who sets the rules",
-     "w": 1600,
-     "h": 2400,
-     "kw": "rules sets uk google must let publishers opt ai features like overviews clear links credit pages deadlines comply dec page-level controls mar elif's takeaway credited link useful opens source oct cma competition markets authority publisher conduct requirement jun notice aug elif made card neen read 2o26 atom"
-    },
-    {
-     "file": "assets/pulse/searching-ai/p09.webp",
-     "thumb": "assets/pulse/searching-ai/p09-t.webp",
-     "title": "Check out the source",
-     "w": 1600,
-     "h": 2400,
-     "kw": "means check source sse ees tie open cited page original copy rules official elif checks airline's skip don't treat sponsored advice read summary starting card book google search central ai features website ads help overviews tow center digital journalism columbia has citation problem mar university made neer whatitmeansforyou sourcechecked atom",
-     "takeaway": "Open the cited page and go to the official source."
-    }
-   ],
-   "recap": [
-    "Ask, and it answers.",
-    "Where the ads go.",
-    "Do people click through?",
-    "Check out the source."
-   ],
-   "recap_pages": 9,
-   "tagline": "The summary is a starting card, not the book."
+   "tagline": "A chatbot answers. An agent does.",
+   "updated": "2026-10-21"
   },
   {
    "id": "agent-built",
@@ -1538,7 +975,7 @@
      "title": "Who sets the rules",
      "w": 1600,
      "h": 2400,
-     "kw": "prehrbrbreereeereereerere ere ree rrr eee rules sets pars ev european union since aug chats people must say it's unless obvious nist national institute standards technology has voluntary risk framework omar's helper opens i'm source oct commission act article faq management jan generative profile jul omar shop made card therules eu us example nistalriskmanagementframework jan2023 andgenerativeal omarand card8of atom"
+     "kw": "prehrbrbreereeereereerere ere ree rrr eee rules sets pars ev european union since aug chats people must say it's unless obvious nist national institute standards technology has voluntary risk framework omar's helper opens i'm source oct commission act article faq management jan generative profile jul omar shop made card therules eu us example nistalriskmanagementframework jan2023 andgenerativeal omarand card8of atom who the (national of and technology) a ai framework. test, then launch nist's suggests testing before release keeping an eye on it after. with \"i'm helper.\""
     },
     {
      "file": "assets/pulse/agent-built/p09.webp",
@@ -1558,6 +995,112 @@
    ],
    "recap_pages": 9,
    "tagline": "A good agent is a short recipe with a human taster."
+  },
+  {
+   "id": "ai-shopping",
+   "title": "When AI Does the Shopping",
+   "topic": "AI",
+   "blurb": "Jonah lets an AI watch the price of rain boots and buy them for him. Then he gets charged twice. Who sells, who pays, and how you get your money back.",
+   "gist": [
+    "A shopping agent can watch prices and buy only after you confirm.",
+    "The AI shops; the store still sells.",
+    "Keep your receipts and know your dispute window."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:41",
+   "pages": [
+    {
+     "file": "assets/pulse/ai-shopping/p01.webp",
+     "thumb": "assets/pulse/ai-shopping/p01-t.webp",
+     "title": "When AI does the shopping",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map shopping uum agent artificial intelligence helper finds buys things checkout step pay merchant store sells ships example jonah wants rain boots source google help blog agentic shop prices made card aldoes ourexample atom when ai does the an (artificial intelligence) that and for you. where you pay. it. our boots, but only under his price limit."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p02.webp",
+     "thumb": "assets/pulse/ai-shopping/p02-t.webp",
+     "title": "Shopping words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words shopping cet agentic checkout product feed completes purchase store's list items prices guth ral dispute pay site asking card company app fix charge source google help blog openal merchants page checked oct ftc federal trade commission credit disputes guide aaa daa vasa vzv keywords shoppingwords agenticcheckout store'sowncheckout of10 atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p03.webp",
+     "thumb": "assets/pulse/ai-shopping/p03-t.webp",
+     "title": "Set a price, then wait",
+     "w": 1600,
+     "h": 2400,
+     "kw": "iin buyer's side set price wait xample jonah tracks pair rain boots sets target google says drops notifies him tap buy always asks confirm first source shopping help blog agentic checkout shop prices made card thebuyer'sside example card3 atom a price, then of and price. when the it him, he can \"buy for me\". to first."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p04.webp",
+     "thumb": "assets/pulse/ai-shopping/p04-t.webp",
+     "title": "Before and after the agent",
+     "w": 1600,
+     "h": 2400,
+     "kw": "one item end agent jonah checks prices every approves night buys ess google says confirms price payment address store's website pays pay source shopping help blog agentic checkout shop made card oneitem card4of10 atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p05.webp",
+     "thumb": "assets/pulse/ai-shopping/p05-t.webp",
+     "title": "The shop still sells it",
+     "w": 1600,
+     "h": 2400,
+     "kw": "store's side shop still sells ene site google says agent buys merchant's website checkout openal chatgpt purchases finish app jonah's boots ships handles returns poles shopping help alee ecenic merchants page checked oct jonah prices made card jonah'sboots example source blog agentic atom",
+     "takeaway": "Stores still sell, ship and handle returns."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p06.webp",
+     "thumb": "assets/pulse/ai-shopping/p06-t.webp",
+     "title": "Where AI fits in",
+     "w": 1600,
+     "h": 2400,
+     "kw": "companies side fits vvw openai openal says moving away in-chat checkout focusing helping people find products fees purchases start chatgpt google agentic works eligible us stores source oct merchants page checked shopping help blog card theaicompanies'side wherealfitsin atom",
+     "takeaway": "OpenAI says no fees on purchases that start in ChatGPT (as of Oct 21, 2026)."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p07.webp",
+     "thumb": "assets/pulse/ai-shopping/p07-t.webp",
+     "title": "Charged twice. Now what?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal charged twice now ai picture two boxes charges jonah holds receipt get extra gharge back guess first answer below upside saep uiywm sjoiid sui paed 1ip a3yndsip noa s2a tilt head read source ftc federal trade commission credit card disputes sulde fair billing act cards debit follow different rules getthe chargeback guessfirst within days bill errors us law lets dispute guide atom twice. what? a boxes, charges. b receipt. can the charge back? first: is down. usually. in us, for example, be disputed 60 of bill. your to answer."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p08.webp",
+     "thumb": "assets/pulse/ai-shopping/p08-t.webp",
+     "title": "Follow the 60",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pays follow lhe sek vast e'e jonah card made-up example fee payment company keeps small cut say made store ships boots goes wrong returns through billing errors source figures ftc federal trade commission credit disputes guide openal merchants page checked oct shop prices aaa daa s60 jonahpayss60 cardfee storekeepss58 ifitgoeswrong atom the 60 in his own currency, on (made up). a cut: 2 58 then if it go store; card."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p09.webp",
+     "thumb": "assets/pulse/ai-shopping/p09-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules sets credit cards dispute errors within days bill cap unauthorized charges us debit different lose depends fast report eu european union online buyers usually get change mind source oct fair billing act ftc federal trade commission card disputes guide lost stolen suide europe returns jonah shop prices made ai aaa daa esa vzv creditcards usdebitcards ceuropean unioni card9of10 atom who the 60 of bill; $50 on charges. rules: what you how it. (european union) 14 to their mind. our read anywhere else check your company's and national consumer agency.",
+     "takeaway": "US card billing errors can be disputed within 60 days of the bill; EU buyers usually get 14 days to withdraw."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p10.webp",
+     "thumb": "assets/pulse/ai-shopping/p10-t.webp",
+     "title": "Clip and keep",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means clip keep coupon shop smart skip openal merchants page checked oct ftc federal trade commission credit card disputes guide jonah prices made shopsmart set price limit check every confirmation ask whose checkout store's al's don't save details can't review purchases read receipts returns start tip store source google shopping help blog agentic card10 of10 atom"
+    }
+   ],
+   "recap": [
+    "When AI shops.",
+    "Set a price, then wait.",
+    "Charged twice.",
+    "Who sets the rules."
+   ],
+   "recap_pages": 10,
+   "tagline": "Always confirm the buy; keep the receipt."
   },
   {
    "id": "what-powers-ai",
@@ -1610,7 +1153,7 @@
      "title": "What one prompt uses",
      "w": 1600,
      "h": 2400,
-     "kw": "company's side one prompt uses yay ime energy google says median gemini text used water five drops baseline times note google's figures checked outside group source cloud blog paper aug card ai 5of10 atom",
+     "kw": "company's side one prompt uses yay ime energy google says median gemini text used water five drops baseline times note google's figures checked outside group source cloud blog paper aug card ai 5of10 atom getting cheaper google says the energy per prompt fell sharply in a year.",
      "takeaway": "Google says its median Gemini text prompt used 0.24 Wh and 0.26 mL water (May 2025, own figures)."
     },
     {
@@ -1633,10 +1176,10 @@
     {
      "file": "assets/pulse/what-powers-ai/p08.webp",
      "thumb": "assets/pulse/what-powers-ai/p08-t.webp",
-     "title": "Where the energy went",
+     "title": "Most of it goes to the chips",
      "w": 1600,
      "h": 2400,
-     "kw": "hana's bill enert went bla chips doing maths main computer parts helping spare machines kept ready building cooling power losses source google paper median gemini text prompt hana question made card hana'sbill energy itemised 2025.hana card8of10 atom"
+     "kw": "hana's bill enert went bla chips doing maths main computer parts helping spare machines kept ready building cooling power losses source google paper median gemini text prompt hana question made card hana'sbill energy itemised 2025.hana card8of10 atom most of it goes to the ai chips: 58% | rest says that for a typical prompt, used energy. helper parts, and cooling."
     },
     {
      "file": "assets/pulse/what-powers-ai/p09.webp",
@@ -1725,7 +1268,7 @@
      "title": "People next to robots",
      "w": 1600,
      "h": 2400,
-     "kw": "workers side people next robots chet tartan genie ris reg serra corm risky moments osha says many robot accidents happen during setup testing repairs union report group using amazon's safety reports found serious injuries higher sites note figures werent independently checked new roles amazon created job types like floor monitors source us occupational health administration robotics page strategic organizing center coalition primed pain news pages card theworkersside peoplenexttorobots riskymoments weren't newroes card6of10 atom"
+     "kw": "workers side people next robots chet tartan genie ris reg serra corm risky moments osha says many robot accidents happen during setup testing repairs union report group using amazon's safety reports found serious injuries higher sites note figures werent independently checked new roles amazon created job types like floor monitors source us occupational health administration robotics page strategic organizing center coalition primed pain news pages card theworkersside peoplenexttorobots riskymoments weren't newroes card6of10 atom to the risk setup, or repairs. who what a group, own reports, were at with robots. checked. its types."
     },
     {
      "file": "assets/pulse/robots/p07.webp",
@@ -1877,112 +1420,6 @@
    ],
    "recap_pages": 10,
    "tagline": "Read the licence; know where your data goes."
-  },
-  {
-   "id": "ai-shopping",
-   "title": "When AI Does the Shopping",
-   "topic": "AI",
-   "blurb": "Jonah lets an AI watch the price of rain boots and buy them for him. Then he gets charged twice. Who sells, who pays, and how you get your money back.",
-   "gist": [
-    "A shopping agent can watch prices and buy only after you confirm.",
-    "The AI shops; the store still sells.",
-    "Keep your receipts and know your dispute window."
-   ],
-   "added": "2026-10-21",
-   "added_at": "2026-10-21T20:41",
-   "pages": [
-    {
-     "file": "assets/pulse/ai-shopping/p01.webp",
-     "thumb": "assets/pulse/ai-shopping/p01-t.webp",
-     "title": "When AI does the shopping",
-     "w": 1600,
-     "h": 2400,
-     "kw": "picture map shopping uum agent artificial intelligence helper finds buys things checkout step pay merchant store sells ships example jonah wants rain boots source google help blog agentic shop prices made card aldoes ourexample atom"
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p02.webp",
-     "thumb": "assets/pulse/ai-shopping/p02-t.webp",
-     "title": "Shopping words",
-     "w": 1600,
-     "h": 2400,
-     "kw": "key words shopping cet agentic checkout product feed completes purchase store's list items prices guth ral dispute pay site asking card company app fix charge source google help blog openal merchants page checked oct ftc federal trade commission credit disputes guide aaa daa vasa vzv keywords shoppingwords agenticcheckout store'sowncheckout of10 atom"
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p03.webp",
-     "thumb": "assets/pulse/ai-shopping/p03-t.webp",
-     "title": "Set a price, then wait",
-     "w": 1600,
-     "h": 2400,
-     "kw": "iin buyer's side set price wait xample jonah tracks pair rain boots sets target google says drops notifies him tap buy always asks confirm first source shopping help blog agentic checkout shop prices made card thebuyer'sside example card3 atom"
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p04.webp",
-     "thumb": "assets/pulse/ai-shopping/p04-t.webp",
-     "title": "Before and after the agent",
-     "w": 1600,
-     "h": 2400,
-     "kw": "one item end agent jonah checks prices every approves night buys ess google says confirms price payment address store's website pays pay source shopping help blog agentic checkout shop made card oneitem card4of10 atom"
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p05.webp",
-     "thumb": "assets/pulse/ai-shopping/p05-t.webp",
-     "title": "The shop still sells it",
-     "w": 1600,
-     "h": 2400,
-     "kw": "store's side shop still sells ene site google says agent buys merchant's website checkout openal chatgpt purchases finish app jonah's boots ships handles returns poles shopping help alee ecenic merchants page checked oct jonah prices made card jonah'sboots example source blog agentic atom",
-     "takeaway": "Stores still sell, ship and handle returns."
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p06.webp",
-     "thumb": "assets/pulse/ai-shopping/p06-t.webp",
-     "title": "Where AI fits in",
-     "w": 1600,
-     "h": 2400,
-     "kw": "companies side fits vvw openai openal says moving away in-chat checkout focusing helping people find products fees purchases start chatgpt google agentic works eligible us stores source oct merchants page checked shopping help blog card theaicompanies'side wherealfitsin atom",
-     "takeaway": "OpenAI says no fees on purchases that start in ChatGPT (as of Oct 21, 2026)."
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p07.webp",
-     "thumb": "assets/pulse/ai-shopping/p07-t.webp",
-     "title": "Charged twice. Now what?",
-     "w": 1600,
-     "h": 2400,
-     "kw": "big reveal charged twice now ai picture two boxes charges jonah holds receipt get extra gharge back guess first answer below upside saep uiywm sjoiid sui paed 1ip a3yndsip noa s2a tilt head read source ftc federal trade commission credit card disputes sulde fair billing act cards debit follow different rules getthe chargeback guessfirst within days bill errors us law lets dispute guide atom"
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p08.webp",
-     "thumb": "assets/pulse/ai-shopping/p08-t.webp",
-     "title": "Follow the $60",
-     "w": 1600,
-     "h": 2400,
-     "kw": "pays follow lhe sek vast e'e jonah card made-up example fee payment company keeps small cut say made store ships boots goes wrong returns through billing errors source figures ftc federal trade commission credit disputes guide openal merchants page checked oct shop prices aaa daa s60 jonahpayss60 cardfee storekeepss58 ifitgoeswrong atom"
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p09.webp",
-     "thumb": "assets/pulse/ai-shopping/p09-t.webp",
-     "title": "Who sets the rules",
-     "w": 1600,
-     "h": 2400,
-     "kw": "rules sets credit cards dispute errors within days bill cap unauthorized charges us debit different lose depends fast report eu european union online buyers usually get change mind source oct fair billing act ftc federal trade commission card disputes guide lost stolen suide europe returns jonah shop prices made ai aaa daa esa vzv creditcards usdebitcards ceuropean unioni card9of10 atom",
-     "takeaway": "US card billing errors can be disputed within 60 days of the bill; EU buyers usually get 14 days to withdraw."
-    },
-    {
-     "file": "assets/pulse/ai-shopping/p10.webp",
-     "thumb": "assets/pulse/ai-shopping/p10-t.webp",
-     "title": "Clip and keep",
-     "w": 1600,
-     "h": 2400,
-     "kw": "means clip keep coupon shop smart skip openal merchants page checked oct ftc federal trade commission credit card disputes guide jonah prices made shopsmart set price limit check every confirmation ask whose checkout store's al's don't save details can't review purchases read receipts returns start tip store source google shopping help blog agentic card10 of10 atom"
-    }
-   ],
-   "recap": [
-    "When AI shops.",
-    "Set a price, then wait.",
-    "Charged twice.",
-    "Who sets the rules."
-   ],
-   "recap_pages": 10,
-   "tagline": "Always confirm the buy; know your 60 days."
   },
   {
    "id": "tokenization",
@@ -2565,189 +2002,6 @@
    ]
   },
   {
-   "id": "ai-ladder",
-   "title": "The AI Ladder",
-   "topic": "AI",
-   "blurb": "Start low, climb only when you need to.",
-   "gist": [
-    "Start on the lowest step. AI use has six steps, numbered 0 to 5. The lowest step that gets the job done is the cheapest and fastest.",
-    "Steps 0 to 2: ask, save, connect. Type a question, save a prompt you repeat, let the AI read your files and tools. For most everyday work, step 2 is enough.",
-    "Steps 3 to 5: it runs without you. Build a small app, link steps into a workflow, or own real software. One team rebuilt a $550-700 a month tool for about $110."
-   ],
-   "gist_lead": [
-    "Start on the lowest step.",
-    "Steps 0 to 2: ask, save, connect.",
-    "Steps 3 to 5: it runs without you."
-   ],
-   "added": "2026-10-16",
-   "added_at": "2026-10-16T11:02",
-   "pages": [
-    {
-     "file": "assets/pulse/ai-ladder/p01.webp",
-     "thumb": "assets/pulse/ai-ladder/p01-t.webp",
-     "title": "Rungs 0 to 2: ask, then save",
-     "w": 1600,
-     "h": 3690,
-     "kw": "ail ladder start low climb need people use one-off questions either stay stuck jump building software soon has steps numbered matters lowest step works cheapest fastest stops working ankit shukla hellopm shared aakash gupta oct plain-english examples added whole one look example way sam marketer needs weekly campaign report real run company builds email tool automatic workflow new sign-up gets looked sent right salesperson touching vibe coding describes small app ai skills connectors reads numbers itself writes reusable prompt saves request never retypes prompting pastes chatbot asks summary rungs ask save question repeat gem instruction type chatbots like saved assistant inside google's gemini chatgpt claude answer custom gpt idea types resume rewrites summarize boss every time good lines opens monday move read live data several runa payoff starts skill step-by-step instructions task exports recipe card needed connector 10am pulls link lets tools website visitor stats trick finish turn alll roi return investment get back money put code codex helpers anthropic openat files chat want clickable answers take product manager work rung enough sam's prompts 1oam openai ankit's everyday atom",
-     "takeaway": "Start on the lowest rung that works. For most everyday work, rung 2 is enough."
-    },
-    {
-     "file": "assets/pulse/ai-ladder/p02.webp",
-     "thumb": "assets/pulse/ai-ladder/p02-t.webp",
-     "title": "Rungs 3 to 5: when it runs alone",
-     "w": 1600,
-     "h": 5550,
-     "kw": "ladder upper rungs work runs without has steps chatting ai giving instructions imi builds things keep running matters save hours replace costly software pick right step ankit shukla hellopm shared aakash gupta oct plain-english examples added rung vibe coding describing app want plain words letting write code make run fe7 tools google studio free google's site building gemini lovable bolt sites turn description working sam's report static document people sam types page team read picks campaign sees results move workflow tool link like boxes whiteboard itself happens ale n8n say n-eight-n built-in even draft lead person showed interest product someone copies new spreadsheet researched scored looks emails salesperson sent hold logic real production live paying depend every day month email platform mcp model context protocol rebuilt one connect services standard plug lets night now costs aws amazon web rents computers storage roughly internet saved vercel hosts websites apps trade-off cursor claude codex upkeep climb worth owning helpers safety pieces extra add leaves screen limited permissions sandbox memory compaction fenced-off area means liw try touching summarizes old notes anything hire long job doesn't lose plot visitor badge master key meeting minutes human loop triggers routines approves trigger wakes important manager monday yam signing off goes form arrives customer explanations ours retyping prompt need numbers several skills connectors clickable brand built four deepseek shipped time below stops ltting can't 1i0 9am ankit's atom",
-     "takeaway": "Higher rungs run on their own, so add guardrails and climb only when the lower rung stops working."
-    }
-   ],
-   "recap": [
-    "AI use has six steps, 0 to 5: start on the lowest one that works and climb only when it stops working.",
-    "Steps 0 to 2 are asking, saving a prompt you repeat, and letting the AI use your files and tools; for most everyday work, step 2 is enough.",
-    "Steps 3 to 5 make things that run on their own, from small apps to real software you own, so they need guardrails like limited permissions and a person's sign-off."
-   ],
-   "recap_pages": 2,
-   "tagline": "Start low, climb only when you need to",
-   "vol": 1,
-   "sources": [
-    {
-     "title": "Ankit Shukla (HelloPM), shared by Aakash Gupta on X, Oct. 16, 2026: the 6 levels of building with AI (text summary on AGI Hunt)",
-     "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
-    },
-    {
-     "title": "Note: the $440 to $590 a month savings is our arithmetic from the source's $550-700 down to $110",
-     "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
-    },
-    {
-     "title": "Note: lines marked 'our read' (move-up advice for rungs 1, 2 and 4, the rung 5 trade-off, and 'Which rung are you on?') are our inference, not from the source",
-     "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
-    },
-    {
-     "title": "Note: the Sam examples, the everyday comparisons, the term explanations (MCP, AWS, Vercel, n8n, Make, Gems) and the four 'safety pieces' (limited permissions and a sandbox, memory and compaction, a human in the loop, triggers and routines) are our own plain-English explanations, not from the source",
-     "url": "https://agihunt.info/en/p/1a140880a404e2e6524e12b65c4"
-    }
-   ]
-  },
-  {
-   "id": "agents-and-marketplaces",
-   "title": "Agents and Marketplaces",
-   "topic": "AI",
-   "blurb": "Who loses when AI does the shopping.",
-   "gist": [
-    "A marketplace does four jobs. It helps you find it, takes your order, handles returns and bad sellers, and delivers. Our read: AI agents are already good at the first two.",
-    "Each store chooses. Amazon blocks shopping agents it hasn't approved and is still in court with Perplexity (as of Oct 2026). Walmart lets one in on its terms. Shopify is mostly open.",
-    "Agents hit a wall at the hard jobs. Our read: booking a hotel is easy, but groceries and returns need someone to stand behind the order. The limit isn't the agent's brains."
-   ],
-   "gist_lead": [
-    "A marketplace does four jobs.",
-    "Each store chooses.",
-    "Agents hit a wall at the hard jobs."
-   ],
-   "added": "2026-10-16",
-   "added_at": "2026-10-16T18:15",
-   "pages": [
-    {
-     "file": "assets/pulse/agents-and-marketplaces/p01.webp",
-     "thumb": "assets/pulse/agents-and-marketplaces/p01-t.webp",
-     "title": "A marketplace does four jobs",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agents marketplaces businesses worry shop now search even finish purchase loses keeps edge agent helper adbas marketplace place moat protects task business rivals connects buyers like booking fame sellers amazon rath around hotel expedia doordash castle four jobs helps find transaction takes thing order read strong already trust handles returns delivery gets disputes bad seellers door still need part someone stand behind handle today take real money people ratings above shopping works exposed night travel site finds room books directly example cut charge fee later runs stay earns guest pay support trucks keep protection numbers cuts vary early small easy first ai can't whois a$200 guest's atom",
-     "takeaway": "A marketplace does four jobs: search, order, trust and delivery. Our read: agents are good at the first two, not yet the last two."
-    },
-    {
-     "file": "assets/pulse/agents-and-marketplaces/p02.webp",
-     "thumb": "assets/pulse/agents-and-marketplaces/p02-t.webp",
-     "title": "Hotels vs groceries",
-     "w": 1600,
-     "h": 2760,
-     "kw": "agents marketplaces different industries look like practice agent well struggles others trust search transaction delivery help take handle returns tit find order disputes bad sellers read already good three situations local services hotels airlines everyday retail grocery restaurants brand owns guests flyers selection many small businesses book straight fast still matter uneven quality marriott delta big stores team amazon walmart someone must stand behind keep edge meal repair directly helps easy hard replace booking verdicts based shopping works today airline least proven die week hotel groceries items out-of-stock swaps pick missing item iii return short clean window handles places wrong has one rest apps work inside chatgpt impossible cleanly weekly harder hand early jobs ai get fix atom",
-     "takeaway": "Our read: agents do well where the brand already owns the trust, like hotels, and struggle with groceries, returns and delivery."
-    },
-    {
-     "file": "assets/pulse/agents-and-marketplaces/p03.webp",
-     "thumb": "assets/pulse/agents-and-marketplaces/p03-t.webp",
-     "title": "Three stores, three choices",
-     "w": 1600,
-     "h": 2760,
-     "kw": "store let ai agents choices every has decide open door shopping keep shut walled garden agent helper keeps shoppers inside shops like asking app site find order running mall one entrance shoes three stores today seczty amazon walmart opens terms shopify mostly blocks outside assistant sparky now proved works chatgpt eligible us listed sued perplexity search checkout stays gemini copilot company nov won system says default owners switch early aug off stay seller appeals court threw paid saying hacking-law claim often sent bought one-third unlikely win set new rules case goes website hearing oct sources reuters docket wired help center read ads returns control question faces visitors software visitor person browsing pages acting identity permissions return risk wrong look fill cart pays sorts buy opening brings must answer openness choice marketplaces approved walmart's chatgpt's amazon's win.it atom",
-     "takeaway": "As of Oct 2026, Amazon keeps unapproved agents out, Walmart lets one in on its own terms, and Shopify stores are mostly open."
-    },
-    {
-     "file": "assets/pulse/agents-and-marketplaces/p04.webp",
-     "thumb": "assets/pulse/agents-and-marketplaces/p04-t.webp",
-     "title": "Where your agent hits a wall",
-     "w": 1600,
-     "h": 2760,
-     "kw": "means agents agent really anything hit wall helper laaaa marketplace place task like connects buyers sellers amazon expedia ordering hotel room pizza doordash today later read promise knock many doors shopping big stay locked stores already handle trust delivery open terms store walmart need say mostly shopify data carefully owners switch off direction exact vary platform still early hits easy finding options comparing booking awh groceries return meal repair someone has stand behind bring example order arrives damaged aive you.a refund a-fix limit smart owns hard jobs stuff get house marketplaces ai store's give fix atom",
-     "takeaway": "Our read: what limits a shopping agent is not how smart it is, it is who owns the hard jobs like delivery and refunds."
-    }
-   ],
-   "recap": [
-    "A marketplace does four jobs: search, order, trust and delivery. Our read: agents already handle the first two; trust and delivery still need real money and people.",
-    "Stores choose: Amazon keeps unapproved agents out and is still in court with Perplexity (as of Oct 2026), Walmart opens on its terms, Shopify stores are mostly open.",
-    "In the $200 hotel example (made-up numbers) an agent skips the site's 15% cut. Our read: hotels are easy for agents, groceries and returns are not."
-   ],
-   "recap_pages": 4,
-   "tagline": "Who loses when AI does the shopping",
-   "vol": 1,
-   "updated": "2026-10-16",
-   "sources": [
-    {
-     "title": "Reuters, Mar 10 2026: Amazon wins order blocking Perplexity's AI shopping agent (district court preliminary injunction, signed Mar 9 2026)",
-     "url": "https://www.reuters.com/legal/litigation/amazon-wins-order-blocking-access-perplexitys-ai-shopping-agent-2026-03-10/"
-    },
-    {
-     "title": "Reuters, Aug 4 2026: Amazon loses US court ban on Perplexity's AI shopping tools (Ninth Circuit vacated the order)",
-     "url": "https://www.reuters.com/business/retail-consumer/amazon-loses-us-court-ban-perplexitys-ai-shopping-tools-2026-08-04/"
-    },
-    {
-     "title": "US Court of Appeals for the Ninth Circuit, Amazon.com Services v. Perplexity AI, No. 26-1444: opinion of Aug 4 2026 and docket (rehearing en banc denied Sep 10 2026). The court said Amazon was unlikely to win on its computer-hacking-law claim and did not set a new legal regime for AI agents",
-     "url": "https://dockets.justia.com/docket/circuit-courts/ca9/26-1444"
-    },
-    {
-     "title": "Court docket, N.D. Cal. 3:25-cv-09514, Amazon v. Perplexity AI: preliminary injunction order of Mar 9 2026; the case is ongoing as of Oct 2026 (motion to dismiss hearing set for Nov 20 2026)",
-     "url": "https://cases.justia.com/federal/district-courts/california/candce/3%3A2025cv09514/459191/81/0.pdf"
-    },
-    {
-     "title": "WIRED: Why Walmart and OpenAI are shaking up their agentic shopping deal (Walmart's Daniel Danker: in-chat purchases converted at one-third the rate of click-outs; Sparky comes to ChatGPT)",
-     "url": "https://www.wired.com/story/ai-lab-walmart-openai-shaking-up-agentic-shopping-deal/"
-    },
-    {
-     "title": "Search Engine Land, Mar 19 2026: Walmart says ChatGPT checkout converted 3x worse than its website",
-     "url": "https://searchengineland.com/walmart-chatgpt-checkout-converted-worse-472071"
-    },
-    {
-     "title": "Retail Dive: Walmart brings Sparky to ChatGPT; account linking and payment stay in a Walmart environment",
-     "url": "https://www.retaildive.com/news/walmart-sparky-chatgpt-instant-checkout/815647/"
-    },
-    {
-     "title": "Shopify Help Center: agentic storefronts are active by default for eligible stores in ChatGPT, Google AI Mode and Gemini, Microsoft Copilot and Meta; owners can switch them off",
-     "url": "https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/requirements"
-    },
-    {
-     "title": "Shopify Help Center: Selling on ChatGPT (discovery-focused; buyers finish on the merchant's checkout; products can still show up through web crawling after opting out)",
-     "url": "https://help.shopify.com/en/manual/online-sales-channels/agentic-storefronts/chatgpt"
-    },
-    {
-     "title": "Skift, Feb 11 2026: Marriott says Google AI Mode will process hotel bookings, not just send links",
-     "url": "https://skift.com/2026/02/11/marriott-google-agentic-travel-booking/"
-    },
-    {
-     "title": "Instacart newsroom, Dec 8 2025: Instacart app launches in ChatGPT with checkout inside the chat (why we say some grocery apps already work in ChatGPT)",
-     "url": "https://company.instacart.com/pressreleases/instacart-app-launches-in-openai-chatgpt"
-    },
-    {
-     "title": "Note: the verdict tags and ratings (for example 'easy for agents', 'hard to replace'), why Amazon blocks agents, and the 'Later' picture are our read, not reported facts. Airline booking by agents is the least proven. Amazon is also reported to block other agents it has not approved. 'Our read' is labelled on the pages",
-     "url": "https://dockets.justia.com/docket/circuit-courts/ca9/26-1444"
-    },
-    {
-     "title": "Note: the $200 hotel night and 15% site cut ($30) are example numbers, not real deal terms; real commissions vary, and an agent may charge a fee later. Agent shopping is still early and small today",
-     "url": "https://www.wired.com/story/ai-lab-walmart-openai-shaking-up-agentic-shopping-deal/"
-    }
-   ]
-  },
-  {
    "id": "stablecoins",
    "title": "Stablecoins",
    "topic": "Fintech",
@@ -2881,7 +2135,7 @@
      "title": "Too much money, too few things",
      "w": 1600,
      "h": 2400,
-     "kw": "much money things supply e777 people spend fast cash checking savings us measure called dsl one year yall feb fastest since monthly records began 19s4 twice old high esl pandemic relief payments government sent straight people's pockets points core inflation late hig prices without food energy study's estimate san francisco fed part central bank spending stuff lea shops sell climb ciee gets new first story debt loop card source fred m2sl federal reserve h.6 stock seasonally adjusted arithmetic jorda liu nechio rivera-reyes economic letter mar 202l.the inhation out.prices frst 4of atom"
+     "kw": "much money things supply e777 people spend fast cash checking savings us measure called dsl one year yall feb fastest since monthly records began 19s4 twice old high esl pandemic relief payments government sent straight people's pockets points core inflation late hig prices without food energy study's estimate san francisco fed part central bank spending stuff lea shops sell climb ciee gets new first story debt loop card source fred m2sl federal reserve h.6 stock seasonally adjusted arithmetic jorda liu nechio rivera-reyes economic letter mar 202l.the inhation out.prices frst 4of atom too money, few = all the can fast: cash, and savings. is m2. +26.8% in 2020 to 2021. 1959, about (1976). pockets. +3 on by 2021 energy. (san fed, of bank). more spending, same out. climb. who first? our read: whoever it before catch up."
     },
     {
      "file": "assets/pulse/inflation/p05.webp",
@@ -2922,7 +2176,7 @@
      "title": "Who wins, who loses",
      "w": 1600,
      "h": 2400,
-     "kw": "wins loses shoppers today buys bought jan savers while prices rise buying power year example rate workers fine raises keep sep didn't guite pay borrowers fixed-rate loan gets easier repay rises new pate loans cost fed's us central bank's main hit aug businesses fuel staff raise get squeezed governments banks interest see debt loop card rates cool source bls bureau labor statistics cpi-v fred ces0s00000003 fedfunds federal reserve bank arithmetic savings atom fxed-rate s.33% sgueezed cpl-u cesoso0ooooo3 arithmetic.the card9of12",
+     "kw": "wins loses shoppers today buys bought jan savers while prices rise buying power year example rate workers fine raises keep sep didn't guite pay borrowers fixed-rate loan gets easier repay rises new pate loans cost fed's us central bank's main hit aug businesses fuel staff raise get squeezed governments banks interest see debt loop card rates cool source bls bureau labor statistics cpi-v fred ces0s00000003 fedfunds federal reserve bank arithmetic savings atom fxed-rate s.33% sgueezed cpl-u cesoso0ooooo3 arithmetic.the card9of12 who wins, $100 what about $78 in 2021. $1,000 at 2% 3.7% = $16 less a (example rate). if up. the to 2026 they quite: +3.0%, +3.7%. as rises. more: (us bank's) 5.33% 2023. more for and staff. some can prices. squeezed. on borrowing.",
      "takeaway": "Inflation quietly shuffles buying power between people."
     },
     {
@@ -2962,5 +2216,43 @@
    "tagline": "Same cart. Bigger receipt. Bruh.",
    "updated": "2026-10-21"
   }
- ]
+ ],
+ "moved": {
+  "agent-native-infrastructure": {
+   "to": "agent-built",
+   "was": "Agent-Native Infrastructure"
+  },
+  "agent-vocabulary": {
+   "to": "agent-built",
+   "was": "Agent Vocabulary"
+  },
+  "agent-swarms": {
+   "to": "agent-built",
+   "was": "Agent Swarms"
+  },
+  "agents-and-marketplaces": {
+   "to": "ai-shopping",
+   "was": "Agents and Marketplaces"
+  },
+  "ai-bottlenecks": {
+   "to": "what-powers-ai",
+   "was": "AI Bottlenecks"
+  },
+  "ai-ladder": {
+   "to": "using-ai",
+   "was": "The AI Ladder"
+  },
+  "physical-ai": {
+   "to": "robots",
+   "was": "Physical AI"
+  },
+  "world-models": {
+   "to": "robots",
+   "was": "World Models"
+  },
+  "ai-moats": {
+   "to": null,
+   "was": "AI Moats"
+  }
+ }
 }
