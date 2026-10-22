@@ -1793,11 +1793,11 @@
    "id": "dollar-gold-yen",
    "title": "Dollar, Gold and Yen",
    "topic": "Macro",
-   "blurb": "One person's normal day (snacks, a phone, gas, a trip) shows how the dollar, gold, yen, euro and yuan connect.",
+   "blurb": "Lucia is saving dollars for a trip to Japan. Why does her money buy more yen this year, why do central banks keep buying gold, and why do people watch the yen?",
    "gist": [
-    "The dollar can be strong next to other money and weaker next to groceries at the same time.",
-    "Japan's yen is the canary: a big rate gap pulled money to the dollar, and Japan stepped in at about ¥164.",
-    "As Japan's rates rise, Europe and China set their own course, and central banks buy gold. All of it reaches your prices and loan rates."
+    "A dollar can look strong against other money and still buy less at the shop.",
+    "Money tends to move toward higher interest rates, which moves exchange rates.",
+    "A sudden jump in the yen can be an early sign of market stress."
    ],
    "added": "2026-10-12",
    "added_at": "2026-10-20T06:23",
@@ -1805,88 +1805,137 @@
     {
      "file": "assets/pulse/dollar-gold-yen/p01.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p01-t.webp",
-     "title": "Sam's $100, measured two ways",
+     "title": "Three ways to measure money",
      "w": 1600,
      "h": 2400,
-     "kw": "ways m's measured two tal haa lire heb oan adh weal ana soe sil car sih ces sere san s74 nos fed federal reserve america's central bank like india rbi england australia's rba cpi consumer price index typical shopping basket ruler dollar money steady fed's broad oct april stuff shrinking snacks cost sep us strong next weaker source h.10 fred dtwexbgs apr bls cpi-u cpiaucsl arithmetic x1.23 card lof whatitis sam's india's rbl cpl fedh.1obroaddollarindexviafred oct16 2o26and ourarithmetic card1of atom",
-     "takeaway": "Strong vs other money and weaker vs groceries can both be true: they use different rulers."
+     "kw": "three ways to measure money exchange rate the price of one country's in another's. gold a metal people and central banks keep hold value. bank manager, like us federal reserve (the fed). example our lucia is saving dollars for trip japan. source: board; world council. her fund are made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p02.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p02-t.webp",
-     "title": "Why the world watches the dollar",
+     "title": "Six words to know",
      "w": 1600,
      "h": 2400,
-     "kw": "vie wor vey mee see gast 4us fox ber io lie ome tans ieetie tie grt oee dress tye sees pen saat cet jed hie aes nly tig money goes paid 10-year us government iou loan oct two years view strong dollar makes sam's imported snacks trips cheaper us-made goods pricier abroad fed's dial federal reserve central bank has top rate rce treasury fete fred dcuonen fed funds target upper limit dfedtaru card cod itmatters world watches 1o-year 0ct theusview 4.oo% source yield dgs10 atom"
+     "kw": "six words to know exchange rate how much of one money you get for another. strong dollar each $1 buys more foreign money. yen (¥) japan's central bank sets interest rates: the fed, japan. what savers earn and borrowers pay, per year. safe haven people buy when worried, like gold. source: federal reserve board; japan; world gold council.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p03.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p03-t.webp",
-     "title": "Meet the canary: the yen",
+     "title": "Two rulers for one dollar",
      "w": 1600,
      "h": 2400,
-     "kw": "meet canary yen alia gat lay amd spa agi yar gee pee hex wass eae suis lice ang fom see veered ainge ser eas howe wae miners carried struggled trouble coming japan's often shows money stress first seesaw 10-year us government iou loan pays slides side result bought oct dollar means weaker source japan jgb japanese bond mof fred dgsio dexjpus card cod 1o-year japan10-year mof.us10-year dgs10.yen perdollar oct16 freddexjpus atom"
+     "kw": "two rulers for one dollar ruler 1 measures the against other money. 2, shop prices. lucia's can hold on and shrink other. example source: federal reserve h.10 (dollar index); us bureau of labor statistics (consumer prices). lucia her trip fund are made up.",
+     "takeaway": "A dollar can be strong against other money and still buy less at the shop."
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p04.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p04-t.webp",
-     "title": "Japan steps in, and who cheers",
+     "title": "Same dollars, more yen",
      "w": 1600,
      "h": 2400,
-     "kw": "jap aon cheers hea sots sie moe wey gai alee rps ved hab sone wre fet ava esaxqs sop eae fie gate arescue works jul japan sold dollars buy yen trillion month's report aug japan's mof ministry finance runs like treasury uk india australias toyota weak currency moves added billion toyotas apr jun operating profit year earlier shoppers groan fuel food bought cost source intervention 399.3b published fred dexjpus fy2027 results card steps rescue india's australia's toyota's apr-jun 30-aug atom"
+     "kw": "same dollars, more yen a year ago about ¥152 per dollar. now ¥158 dollar, as of oct 2026. rx lucia's $2,000 trip fund (made up) ago: ¥304,000. now: ¥316,000. ¥12,000 to spend in japan. source: federal reserve h.10 (yen dollar). amounts: our arithmetic. lucia and her are made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p05.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p05-t.webp",
-     "title": "The $100 dinner, in two directions",
+     "title": "Two captains, one sea",
      "w": 1600,
      "h": 2400,
-     "kw": "dinn two directions eon del tie iga een see nie pri ang pag res lists rat eat eos lin aan haruto eats new york dinner cost sam tokyo weak yen works bought oct rate moods visitor's bargain locals pricier import source dollar fred dexjpus jul maths arithmetic example rates card cod foryou 10o about9%morethanat local's card5of9 atom"
+     "kw": "two captains, one sea the fed steers us short-term interest rates. bank of japan japan's. our read: they have long been lower than 10-year a government loan paid about 5.1%, as oct 2026. read so what? money tends to sail toward higher rates, which can lift that currency. source: federal reserve board; japan; treasury daily par yield curve.",
+     "takeaway": "Money tends to flow toward higher interest rates."
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p06.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p06-t.webp",
-     "title": "Japan's rates wake up",
+     "title": "Why central banks stack gold",
      "w": 1600,
      "h": 2400,
-     "kw": "japan's rates wake pas ghd rtd bee ste spo eek yeas sets nes aen ber ens get ays tie uip pre sor noo eee orta echos oey sota hice gett wto eet ten pees eae weed tiny pay home oct million 10-year jgb japanese government earned year money went abroad better now early staying looks us cares japan holds trillion ous country end aug source mof treasury tic table 068.3b yearly arithmetic card cod cold iou 1.o7 ious japanmofjgb 0.972%oct 3.111%oct ourarithmetic atom",
-     "takeaway": "When Japan pays more at home, Japanese money has less reason to buy US IOUs."
+     "kw": "why central banks stack gold still buying the world council says kept in 2026. price about $4,100 an ounce, as of oct appeal pays no interest, but one can print more. our read lucia's view is a safe haven, not trip fund: its swings. source: council; lbma price.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p07.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p07-t.webp",
-     "title": "Sam's phone: euros and yuan",
+     "title": "Meet the canary: the yen",
      "w": 1600,
      "h": 2400,
-     "kw": "sam's phone euros yuan tide us win igi sevevy freee tea bap gis pies pawl smee gan wea rrs yee eae ere ese seo cte uk ai gin chew ager fro europe ecb pushes back european central bank raised deposit rate sep still bought year earlier china pboc holds leash people sets daily midpoint stronger read nudge prices china-made gadgets makers often absorb source key rates page fred dexuseu oct dexchus parity card cod 2.5o% people's 2o26 7of atom"
+     "kw": "meet the canary: yen canary miners carried a as an early warning. carry trade investors borrow cheap to invest where rates are higher. rush home when markets get scared, they repay fast and jumps, in sudden unwind 2024 (bis). our read why it matters jumping can be sign of stress. source: bis (bank for international settlements), bulletin no 90.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p08.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p08-t.webp",
-     "title": "Who is buying all the gold?",
+     "title": "Strong yen or weak yen?",
      "w": 1600,
      "h": 2400,
-     "kw": "buying gold ime sale aad iat s50 fee tes iis vay ful ania fat foe bie aoe ono b64 sar bee gee central banks reported tonnes jan aug chinas pboc people's bank china has added months row price roller coaster record ounce end-sep end-aug read insurance one else print pays interest high rates cool source world council stats oct market commentary update safe reserves card cod china's 2o26 8of atom"
+     "kw": "strong yen or weak yen? picture a yen: $1 buys few yen. b pile. which does lucia want? guess, then flip. b. each dollar more, so her trip costs less. but imports cost more for people in japan. source: federal reserve h.10 (yen per dollar); our explanation. and fund are made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/dollar-gold-yen/p09.webp",
      "thumb": "assets/pulse/dollar-gold-yen/p09-t.webp",
-     "title": "Sam's day, connected",
+     "title": "Same dollar, different rules",
      "w": 1600,
      "h": 2400,
-     "kw": "m'sd ils connected neee gee vas eiht ete smee pune coast mars sss nea ene sor wee east gas snacks phone trip dollar moves prices imported fuel food gadgets follow loans fewer japanese buyers us ious government bonds push rates pricier car better savings around world weaker rupee pound aussie make phones cost india uk australia rush drip money home trickle back slowly watch yen japan's 10-year rate source see cards fred japan moff treasury tic ecb pboc gold council oct chain guess card foryou sam's day read 1o-year atom",
-     "takeaway": "Currency moves show up in your gas, snacks, phone, trip and loan rates."
+     "kw": "same dollar, different rules japan the ministry of finance sometimes buys yen to slow a sharp fall. china people's bank sets daily midpoint for yuan. euro area european central one rate all countries. our read lucia's takeaway governments nudge currencies; markets move them most days. source: finance; china; bank. as oct 2026.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/dollar-gold-yen/p10.webp",
+     "thumb": "assets/pulse/dollar-gold-yen/p10-t.webp",
+     "title": "Lucia gets her ramen",
+     "w": 1600,
+     "h": 2400,
+     "kw": "lucia gets her ramen bon voyage do: check the exchange rate and fee before you swap. ask: dollars or yen? our read: choosing yen often avoids an extra markup. watch: a jumping yen. markets may be nervous. tip: swap in chunks, not on one guessed day. source: cfpb (consumer financial protection bureau); read. trip fund are made up.",
+     "takeaway": "Check the exchange rate and the fee, and choose to pay in the local currency."
     }
    ],
    "recap": [
-    "Two rulers: dollar vs money, dollar vs stuff.",
-    "Rate gaps move money, and the yen shows the strain first.",
-    "Japan's rising rates may pull money home from US IOUs.",
-    "Watch the yen and Japan's 10-year rate."
+    "The dollar has two rulers: other money, and shop prices.",
+    "Interest-rate gaps pull money between countries; a weak yen made Lucia's trip cheaper.",
+    "Central banks keep buying gold, and a jumping yen can warn of stress."
    ],
-   "recap_pages": 9,
-   "tagline": "Same $100. Different rulers.",
-   "updated": "2026-10-20"
+   "recap_pages": 10,
+   "tagline": "Two rulers, one canary, and a trip to Japan.",
+   "updated": "2026-10-22",
+   "gist_lead": [
+    "Two rulers.",
+    "Money follows rates.",
+    "Watch the yen."
+   ],
+   "sources": [
+    {
+     "title": "Federal Reserve H.10 via FRED: Japanese yen per US dollar (DEXJPUS)",
+     "url": "https://fred.stlouisfed.org/series/DEXJPUS"
+    },
+    {
+     "title": "US Treasury: Daily par yield curve rates",
+     "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=2026"
+    },
+    {
+     "title": "World Gold Council: Central banks continue summer spree in August (Oct 6, 2026)",
+     "url": "https://www.gold.org/goldhub/gold-focus/2026/10/central-bank-gold-statistics-central-banks-continue-summer-spree-august"
+    },
+    {
+     "title": "LBMA: Precious metal prices (LBMA Gold Price)",
+     "url": "https://www.lbma.org.uk/prices-and-data/lbma-precious-metal-prices"
+    },
+    {
+     "title": "BIS Bulletin No 90: The market turbulence and carry trade unwind of August 2024",
+     "url": "https://www.bis.org/publ/bisbull90.htm"
+    },
+    {
+     "title": "Japan Ministry of Finance: Foreign exchange intervention operations",
+     "url": "https://www.mof.go.jp/english/policy/international_policy/reference/feio/"
+    },
+    {
+     "title": "ECB: Key interest rates",
+     "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/"
+    }
+   ]
   },
   {
    "id": "two-schools-economics",
