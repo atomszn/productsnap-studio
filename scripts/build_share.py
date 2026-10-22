@@ -76,7 +76,7 @@ try:
                 '<div style="font:600 22px var(--body);color:var(--ink-soft);margin-top:34px">productsnap.studio/pulse</div>';
               st.append(w, t); document.body.append(st);
               if (!document.getElementById('og-css')) { const k = document.createElement('style'); k.id = 'og-css';
-                k.textContent = '#og-stage .cv-ico{display:none}#og-stage .cv{container-type:normal}#og-stage .cv-topic{font-size:17px}#og-stage .cv-title{font-size:40px}#og-stage .cv-tag{font-size:25px}#og-stage .cv-foot{font-size:14px}#og-stage .cv-vol{font-size:22px}#og-stage .cv-start{font-size:15px}';
+                k.textContent = '#og-stage .cv-ico{display:none}#og-stage .cv{container-type:normal}#og-stage .cv-topic{font-size:17px}#og-stage .cv-title{font-size:38px;hyphens:manual}#og-stage .cv-stamp{display:none}#og-stage .cv-tag{font-size:25px}#og-stage .cv-foot{font-size:14px}#og-stage .cv-vol{font-size:22px}#og-stage .cv-start{font-size:15px}';
                 document.head.append(k); }
             }""", b["id"])
             pg.wait_for_timeout(120)
