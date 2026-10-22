@@ -40,7 +40,7 @@
     price: ["cheaper", "cost", "pricing"], pricing: ["cheaper", "cost", "price"], cost: ["cheaper", "price", "pricing"], cheap: ["cheaper", "cost"],
     mortgage: ["mortgages", "10-year", "yield", "home"], rate: ["rates", "mortgage", "yield", "fed"], fed: ["federal", "mortgage", "plumbing", "reserves"],
     home: ["mortgage", "house", "housing"], house: ["mortgage", "home", "housing"], housing: ["mortgage", "home"],
-    debt: ["debt", "loop", "deficit", "interest"], deficit: ["debt"], inflation: ["debasement", "dollar", "cpi", "prices"],
+    debt: ["debt", "loop", "deficit", "interest"], deficit: ["debt"], inflation: ["debasement", "cpi", "prices", "expensive"],
     dollar: ["dollar", "debasement"], gold: ["gold"], yen: ["japan", "yen"], japan: ["yen"],
     bank: ["banks", "leverage", "deposits"], car: ["cars", "self-driving", "physical"], driving: ["cars", "physical"]
   };
@@ -184,7 +184,8 @@
     return out || "closest match";
   }
   // 1 for an exact or prefix match, 0.5 for a typo-tolerant (near) match, so "BUIDL" prefers BUIDL over "build"
-  function hits(list, t) { var f = 0; for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0)) return 1; if (!f && near(w, t)) f = 0.5; } return f; }
+  function hits(list, t) { var f = 0; for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0)) return 1; if (!f && !EXACT[t] && near(w, t)) f = 0.5; } return f; }
+  var EXACT = {}; // words that appear verbatim somewhere in the library: no typo-matching for those
   function terms(q) {
     var out = [];
     words(q).forEach(function (w) {
@@ -217,6 +218,8 @@
   }
   function search(q) {
     var g = terms(q); if (!g.length) return [];
+    EXACT = {}; g.forEach(function (grp) { grp.forEach(function (t) { var c = t.replace(/[^a-z0-9]/g, ""); if (!c) return; var re = new RegExp("\\b" + c + "\\b");
+      if (lib.books.some(function (b) { return re.test(index(b).raw); })) EXACT[t] = 1; }); });
     // down-weight words that match almost every book (e.g. "ai"), like a tiny IDF
     var weights = g.map(function (grp) {
       var df = lib.books.filter(function (b) { return score(b, [grp]).s > 0; }).length;
