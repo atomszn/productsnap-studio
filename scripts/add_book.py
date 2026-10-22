@@ -29,7 +29,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIB = os.path.join(ROOT, "data", "library.json")
 ASSETS = os.path.join(ROOT, "assets", "pulse")
-TOPICS = ("AI", "Tech", "Fintech", "Macro")
+TOPICS = ("AI", "Fintech", "Macro")
 MAX_W, THUMB_W = 1600, 480
 
 

@@ -291,7 +291,7 @@
         const counts = {};
         books.forEach((x) => { counts[x.topic] = (counts[x.topic] || 0) + 1; });
         const stats = document.getElementById("home-pulse-stats");
-        if (stats) stats.textContent = books.length + " books · " + ["AI", "Tech", "Fintech", "Macro"].filter((t) => counts[t]).map((t) => t + " " + counts[t]).join(" · ");
+        if (stats) stats.textContent = books.length + " books · " + ["AI", "Fintech", "Macro"].filter((t) => counts[t]).map((t) => t + " " + counts[t]).join(" · ");
       })
       .catch((err) => {
         console.error("Home Pulse: failed to load library", err);

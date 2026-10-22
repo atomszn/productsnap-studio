@@ -4,7 +4,7 @@
    Deep links: #book/<id>/<page>  (1-based, counting the gist page). #topics opens Topics. */
 (function () {
   "use strict";
-  var TOPICS = { AI: "AI", Tech: "Tech", Fintech: "Fintech", Macro: "Macro" };
+  var TOPICS = { AI: "AI", Fintech: "Fintech", Macro: "Macro" };
   var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved", last: "pulse_last", lastX: "pulse_last_x" };
   var START = [["ai-basics", "AI Basics"], ["ai-agents", "AI Agents"], ["stablecoins", "Stablecoins"], ["mortgage-rates", "Mortgages"]];
   var ICONS = {
@@ -385,7 +385,6 @@
     topics: '<rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/>',
     All: '<path d="M4 6h16M4 12h16M4 18h10"/>',
     AI: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>',
-    Tech: '<rect x="3.5" y="5" width="17" height="11" rx="1.5"/><path d="M2 19.5h20M10 8.5l-2 2 2 2M14 8.5l2 2-2 2"/>',
     Fintech: '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h4"/>',
     Macro: '<path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>'
   };
@@ -623,7 +622,7 @@
     index(b).raw.split(/[\s-]+/).forEach(function (w) { if (w.length > 3 && STOP.indexOf(w) < 0) o[w] = 1; });
     return (b._rw = o);
   }
-  var NEXT_DOOR = { AI: ["Fintech"], Fintech: ["Macro", "AI"], Macro: ["Fintech"], Tech: ["AI"] };
+  var NEXT_DOOR = { AI: ["Fintech"], Fintech: ["Macro", "AI"], Macro: ["Fintech"] };
   function related(b, skip) {
     if (!lib._df) { lib._df = {}; lib.books.forEach(function (x) { Object.keys(rawWords(x)).forEach(function (w) { lib._df[w] = (lib._df[w] || 0) + 1; }); }); }
     var mine = rawWords(b), N = lib.books.length;
@@ -1086,7 +1085,7 @@
   fetch("data/library.json", { cache: "no-cache" })
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (d) {
-      lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Tech"; });
+      lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Fintech"; });
       wire(); wireTips(); wireKbdDismiss(); savedBadge(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
       if (location.hash && location.hash !== "#topics") route();
     })
