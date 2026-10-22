@@ -1676,7 +1676,7 @@
     "Workers and robots often share the job."
    ],
    "added": "2026-10-21",
-   "added_at": "2026-10-21T20:31",
+   "added_at": "2026-10-21T20:39",
    "pages": [
     {
      "file": "assets/pulse/robots/p01.webp",
@@ -1725,7 +1725,7 @@
      "title": "People next to robots",
      "w": 1600,
      "h": 2400,
-     "kw": "workers side people next robots hie fos eas reg uyas err rae rawr read sra sss risky moments osha says many robot accidents happen during setup testing repairs union report strategic organizing center group found serious injuries amazon's sites without new roles amazon created job types like floor monitors source us occupational safety health administration robotics page primed pain using injury data news pages card theworkersside peoplenexttorobots riskymoments unionreport newroges card6of10 atom"
+     "kw": "workers side people next robots chet tartan genie ris reg serra corm risky moments osha says many robot accidents happen during setup testing repairs union report group using amazon's safety reports found serious injuries higher sites note figures werent independently checked new roles amazon created job types like floor monitors source us occupational health administration robotics page strategic organizing center coalition primed pain news pages card theworkersside peoplenexttorobots riskymoments weren't newroes card6of10 atom"
     },
     {
      "file": "assets/pulse/robots/p07.webp",
@@ -1769,7 +1769,114 @@
     "Before you believe a robot."
    ],
    "recap_pages": 10,
-   "tagline": "Real robots are often boring arms."
+   "tagline": "Real robots are often boring arms.",
+   "updated": "2026-10-21"
+  },
+  {
+   "id": "open-closed",
+   "title": "Open vs Closed AI",
+   "topic": "AI",
+   "blurb": "Rosa wants AI to help answer her bakery's emails. Should she download an open model or pay for a closed one? Compare cost, privacy, control and the rules.",
+   "gist": [
+    "Open-weight models can be downloaded and run yourself; closed ones are used via an app or API.",
+    "Read the licence before you build on a model.",
+    "Know where your data goes."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:40",
+   "pages": [
+    {
+     "file": "assets/pulse/open-closed/p01.webp",
+     "thumb": "assets/pulse/open-closed/p01-t.webp",
+     "title": "Open vs closed AI",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map open closed clr pps execs wit open-weight model ai download run computer like mistral small use through maker's app api application programming interface way software send work computers example rosa wants help answer bakery's doinde sete snail hollel dard bnlmugathg feb anthropic privacy center bakery made card thepicturemap vsclosed customer emails privacycenter.rosaand herbakeryaremadeup card1of atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p02.webp",
+     "thumb": "assets/pulse/open-closed/p02-t.webp",
+     "title": "Parts list",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words parts list ai weights licence numbers model learned rules settings cfo dr-as open source self-hosting plus training code running computers data details control eee initiative definition mistral small card hugging face keywords partslist opensource 1.o small3model onhuggingface atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p03.webp",
+     "thumb": "assets/pulse/open-closed/p03-t.webp",
+     "title": "Same job, two choices",
+     "w": 1600,
+     "h": 2400,
+     "kw": "iif esay user's side job two choices rosa gets fifty emails day download mistral small open-weight model run herself pay use closed through api source ai card hugging face anthropic privacy center bakery made aton theuser'sside samejob example center.rosaand herbakeryare madeup card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p04.webp",
+     "thumb": "assets/pulse/open-closed/p04-t.webp",
+     "title": "Sealed box or flat-pack?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "works sealed box flat-pack adt lee closed open emails travel maker's model runs rosa's computers machine eee eel rosa compares cost pay use buy privacy control safety change meee ees source read bakery made card howeachworks fat-pack read.rosa atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p05.webp",
+     "thumb": "assets/pulse/open-closed/p05-t.webp",
+     "title": "What the makers say",
+     "w": 1600,
+     "h": 2400,
+     "kw": "makers side say aig ssiaaicey pet eee essere sss ame hall ead ere abn tah ese zeb mistral says small uses apache licence allows business use changes runs locally shrunk fits one strong well-equipped laptop anthropic default train models api inputs outputs source oct ai model card hugging face privacy center themakers'side whatthe makerssay mistralal asofoct21 2026.mistralai mistralsmall3modelcardon atom",
+     "takeaway": "Mistral says Mistral Small 3 uses the Apache 2.0 licence; Anthropic says it doesn't train on API data by default (as of Oct 21, 2026)."
+    },
+    {
+     "file": "assets/pulse/open-closed/p06.webp",
+     "thumb": "assets/pulse/open-closed/p06-t.webp",
+     "title": "Is \"open\" really open?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "developers side open really fab sig eas psa laan ext rcs ai awe cee sas 2ao imal aaa tat iil bot definition source initiative says open-source must share weights code training-data details open-weight shares rest read many models open-weisght fully card ato thedevelopers'side reallyopen ourread 6of atom",
+     "takeaway": "Open-weight is not the same as open source (OSI wants code and data details too)."
+    },
+    {
+     "file": "assets/pulse/open-closed/p07.webp",
+     "thumb": "assets/pulse/open-closed/p07-t.webp",
+     "title": "Laptop or server room?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal laptop server room otz wens rie neni picture counter servers small open model like rosa's run without guess first answer below upside tilt head read card thebigreveal laptoporserverroom picturea pictureb withoutaserverroom guessfirst belowis computer a.mistral says mistral one strong source ai hugging face card7of atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p08.webp",
+     "thumb": "assets/pulse/open-closed/p08-t.webp",
+     "title": "Some assembly required",
+     "w": 1600,
+     "h": 2400,
+     "kw": "read trade-offs assembly required lee equired sez cost open free licence pay computers ihe emails stay in-house ote parte closed maker update retire safety add checks source based mistral ai small model card hugging face anthropic privacy center rosa bakery made ourread thetrade-offs someassembly someassemblyrequired control basedonmistralai mistralsmall3modelcardon atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p09.webp",
+     "thumb": "assets/pulse/open-closed/p09-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules countries sets vig eu european union since aug makers truly open-source models get lighter paperwork biggest riskiest eus america's ai action plan jul says sovernment support open while release choices stay developers rosa's check reads model's licence using source oct commission act guidance general-purpose white house rosa bakery made card rulesandothercountries setstherules us government rosa'scheck example asof oct2026.europeancommissionaiactguidanceon thewhite herbakeryare madeup card9of atom",
+     "takeaway": "EU gives truly open-source models lighter paperwork since 2 Aug 2025."
+    },
+    {
+     "file": "assets/pulse/open-closed/p10.webp",
+     "thumb": "assets/pulse/open-closed/p10-t.webp",
+     "title": "Pick the right box",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means pick right box cow cea read licence build model ask data see skip don't assume open free use way tip start closed test ready source mistral ai small card hugging face anthropic privacy center initiative definition rosa bakery made whatitmeansforyou picktherightbox anthropicprivacycenter opensourceinitiative sourceai 1.0.rosa atom"
+    }
+   ],
+   "recap": [
+    "Open vs closed AI.",
+    "Is \"open\" really open?",
+    "Laptop or server room?",
+    "Pick the right box."
+   ],
+   "recap_pages": 10,
+   "tagline": "Read the licence; know where your data goes."
   },
   {
    "id": "tokenization",

@@ -2798,10 +2798,12 @@
     "Risky moments",
     "OSHA says many robot accidents happen during setup, testing or repairs.",
     "Union report",
-    "The Strategic Organizing Center, a union group, found more serious injuries at Amazon's robot sites in 2019: 7.9 vs 5.1 per 100 workers.",
+    "A union group, using Amazon's own safety reports, found serious injuries were higher at sites with robots.",
+    "Note",
+    "Amazon's own figures weren't independently checked.",
     "New roles",
     "Amazon says its robots created new job types, like robot floor monitors.",
-    "Source: OSHA (US Occupational Safety and Health Administration), Robotics page; Strategic Organizing Center, \"Primed for Pain\" (2021), using Amazon's OSHA injury data; Amazon robotics news pages (2025).",
+    "Source: OSHA (US Occupational Safety and Health Administration), Robotics page; Strategic Organizing Center (union coalition), \"Primed for Pain\"; Amazon robotics news pages (2025).",
     "card 6 of 10"
    ],
    [
@@ -2843,6 +2845,116 @@
     "SKIP: Don't trust speed-up clips without a source.",
     "TIP: Our read: real robots are often boring arms.",
     "Source: Amazon robotics news pages (2025); NVIDIA world model glossary. Kai, Rivet and the order are made up.",
+    "card 10 of 10"
+   ]
+  ],
+  "open-closed": [
+   [
+    "Open vs closed AI",
+    "Open-weight model",
+    "An AI model you can download and run on your own computer, like Mistral Small.",
+    "Closed model",
+    "You use it only through the maker's app or API.",
+    "API",
+    "Application programming interface: a way for your software to send work to the maker's computers.",
+    "Our example",
+    "Rosa wants AI to help answer her bakery's customer emails.",
+    "Source: Mistral AI, Mistral Small 3 model card on Hugging Face; Anthropic Privacy Center. Rosa and her bakery are made up.",
+    "card 1 of 10"
+   ],
+   [
+    "Parts list",
+    "Weights",
+    "The numbers a model learned: its \"settings\".",
+    "Licence",
+    "The rules for what you may do with a model.",
+    "Open source",
+    "Weights plus training code and data details.",
+    "Self-hosting",
+    "Running a model on computers you control.",
+    "Source: Open Source Initiative, Open Source AI Definition 1.0; Mistral AI, Mistral Small 3 model card on Hugging Face.",
+    "card 2 of 10"
+   ],
+   [
+    "Same job, two choices",
+    "Rosa gets fifty emails a day. She can download Mistral Small, an open-weight model, and run it herself, or pay to use a closed model through an API.",
+    "Example",
+    "Source: Mistral AI, Mistral Small 3 model card on Hugging Face; Anthropic Privacy Center. Rosa and her bakery are made up.",
+    "card 3 of 10"
+   ],
+   [
+    "Sealed box or flat-pack?",
+    "Closed Emails travel to the maker's computers.",
+    "Open The model runs on Rosa's own machine.",
+    "Rx",
+    "Rosa compares:",
+    "Cost: pay per use, or buy computers.",
+    "Privacy: where her emails go.",
+    "Control and safety: who can change it.",
+    "Source: Our read. Rosa and her bakery are made up.",
+    "card 4 of 10"
+   ],
+   [
+    "What the makers say",
+    "Mistral AI",
+    "Mistral says Mistral Small uses the Apache 2.0 licence, which allows business use and changes.",
+    "Runs locally",
+    "Mistral says, once shrunk, it fits on one strong PC or a well-equipped laptop.",
+    "Anthropic",
+    "Anthropic says by default it does not train its models on API inputs or outputs.",
+    "Source: As of Oct 21, 2026. Mistral AI, Mistral Small 3 model card on Hugging Face; Anthropic Privacy Center.",
+    "card 5 of 10"
+   ],
+   [
+    "Is \"open\" really open?",
+    "The definition",
+    "The Open Source Initiative says open-source AI must share weights, code and training-data details.",
+    "Open-weight",
+    "Shares the weights, but may not share all of the rest.",
+    "Our read",
+    "Many \"open\" models are open-weight, not fully open source.",
+    "Source: Open Source Initiative, Open Source AI Definition 1.0.",
+    "card 6 of 10"
+   ],
+   [
+    "Laptop or server room?",
+    "Picture A A laptop on the counter.",
+    "Picture B A room of servers.",
+    "Can a small open model like Rosa's run without a server room? Guess first: the answer below is upside down.",
+    "Yes, A. Mistral says Mistral Small can run on one strong computer.",
+    "Tilt your head to read the answer.",
+    "Source: Mistral AI, Mistral Small 3 model card on Hugging Face.",
+    "card 7 of 10"
+   ],
+   [
+    "Some assembly required",
+    "SOME ASSEMBLY REQUIRED",
+    "COST: Open: free licence, but you pay for computers.",
+    "PRIVACY: Open: emails can stay in-house.",
+    "CONTROL: Closed: the maker can update or retire it.",
+    "SAFETY: Open: you add your own safety checks.",
+    "Source: Our read, based on Mistral AI, Mistral Small 3 model card on Hugging Face and Anthropic Privacy Center. Rosa and her bakery are made up.",
+    "card 8 of 10"
+   ],
+   [
+    "Who sets the rules",
+    "EU (European Union)",
+    "Since 2 Aug 2025, makers of truly open-source AI models get lighter paperwork, but not the biggest, riskiest models.",
+    "US",
+    "America's AI Action Plan (Jul 2025) says the government should support open models, while release choices stay with developers.",
+    "Example",
+    "Rosa's check",
+    "She reads each model's licence before using it.",
+    "Source: As of Oct 2026. European Commission AI Act guidance on general-purpose AI; The White House, America's AI Action Plan (Jul 2025). Rosa and her bakery are made up.",
+    "card 9 of 10"
+   ],
+   [
+    "Pick the right box",
+    "DO: Read the licence before you build on a model.",
+    "ASK: Where does my data go, and who can see it?",
+    "SKIP: Don't assume \"open\" means free to use any way.",
+    "TIP: Our read: start closed, test open when ready.",
+    "Source: Mistral AI, Mistral Small 3 model card on Hugging Face; Anthropic Privacy Center; Open Source Initiative, Open Source AI Definition 1.0. Rosa and her bakery are made up.",
     "card 10 of 10"
    ]
   ]
