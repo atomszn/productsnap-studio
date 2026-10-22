@@ -112,9 +112,9 @@
     "Zara tapped \"OK\" for one $20 deposit for 8. That clear yes or no makes the bank's answer easier.",
     "Keep proof",
     "Screenshot the booking and the $20 \"OK\". It helps the restaurant and the bank fix it fast.",
-    "Money back?",
-    "The Shopping book walks through refunds and card disputes.",
-    "Source: Our read; OpenAI Developers, agentic commerce FAQ (the seller handles refunds and chargebacks). Dispute rules vary by country; see When AI Does the Shopping.",
+    "Charge still wrong?",
+    "Contact your card company and show your proof.",
+    "Source: Our read; OpenAI Developers, agentic commerce FAQ (the seller handles refunds and chargebacks). Dispute rules vary by country.",
     "card 8 of 10"
    ],
    [
@@ -919,7 +919,7 @@
     "More spending, same stuff",
     "Shops sell out. Prices climb.",
     "Who gets new money first?",
-    "That part of the story is in The Debt Loop, card 7.",
+    "Our read: whoever gets new money first can spend it before prices catch up.",
     "Source: FRED M2SL (Federal Reserve H.6, M2 money stock, seasonally adjusted), our arithmetic. Jorda, Liu, Nechio and Rivera-Reyes, San Francisco Fed Economic Letter 2022-07, Mar 28, 2022.",
     "card 4 of 12"
    ],
@@ -1844,7 +1844,7 @@
     "Temporary chat",
     "OpenAI says these aren't used for training but may be kept up to 30 days for safety.",
     "More settings",
-    "The Privacy book walks through every setting, step by step.",
+    "Your chatbot's settings page lists the other privacy choices.",
     "Example",
     "Tomas's move",
     "He flips the training switch off.",
