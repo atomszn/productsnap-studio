@@ -183,7 +183,8 @@
     }); });
     return out || "closest match";
   }
-  function hits(list, t) { for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0) || near(w, t)) return true; } return false; }
+  // 1 for an exact or prefix match, 0.5 for a typo-tolerant (near) match, so "BUIDL" prefers BUIDL over "build"
+  function hits(list, t) { var f = 0; for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0)) return 1; if (!f && near(w, t)) f = 0.5; } return f; }
   function terms(q) {
     var out = [];
     words(q).forEach(function (w) {
@@ -202,11 +203,9 @@
       var gs = 0;
       g.forEach(function (t, ti) {
         var w = ti === 0 ? 1 : 0.6; // synonyms count a bit less
-        if (hits(ix.title, t)) gs = Math.max(gs, 8 * w);
-        if (hits(ix.tag, t)) gs = Math.max(gs, 5 * w);
-        if (hits(ix.gist, t)) gs = Math.max(gs, 4 * w);
+        gs = Math.max(gs, 8 * w * hits(ix.title, t), 5 * w * hits(ix.tag, t), 4 * w * hits(ix.gist, t));
         ix.pages.forEach(function (p, i) {
-          var ps = hits(p.t, t) ? 4 * w : hits(p.k, t) ? 2 * w : 0;
+          var ps = Math.max(4 * w * hits(p.t, t), 2 * w * hits(p.k, t));
           if (ps) { pageScore[i] += ps; gs = Math.max(gs, ps); }
         });
       });
