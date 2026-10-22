@@ -1168,6 +1168,823 @@
    "tagline": "Prepare with AI. Decide with a clinician."
   },
   {
+   "id": "jobs-school",
+   "title": "AI, Jobs & School",
+   "topic": "AI",
+   "blurb": "Ines writes a final essay and applies for a weekend office job. See how AI is changing schoolwork, first jobs and the rules around both.",
+   "gist": [
+    "Schools set their own AI rules; check yours.",
+    "AI tends to change the tasks in a job more than erase it.",
+    "Employers still want people who can explain their thinking."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:20",
+   "pages": [
+    {
+     "file": "assets/pulse/jobs-school/p01.webp",
+     "thumb": "assets/pulse/jobs-school/p01-t.webp",
+     "title": "Meet the class",
+     "w": 1600,
+     "h": 2400,
+     "kw": "meet class generative ai artificial intelligence writes draws answers everyday words first job entry-level role people learn ropes example ines writing final essay applying source ilo international idbanneraenisedoan weeherative jobs refined global index occupational exposure nask haddad made card picture map weekend office lnternational labour organization atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p02.webp",
+     "thumb": "assets/pulse/jobs-school/p02-t.webp",
+     "title": "Yearbook words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words yearbook jin ai study mode academic honesty openal saus gives hints doing owning sss answers work sse exposed reskilling learning new skills job speed take changes high-risk hires eu grades trict rules source introducing ilo international labour organization generative jobs refined global index occupational exposure nask act annex iii card keywords says task strict lntroducing lnternational atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p03.webp",
+     "thumb": "assets/pulse/jobs-school/p03-t.webp",
+     "title": "The essay at midnight",
+     "w": 1600,
+     "h": 2400,
+     "kw": "wie ree log bop ere student's side essay midnight example ines asks chatbot write intro deletes school allows brainstorming switches study mode openaal says gives hints instead answers writes herself source openal introducing uk department education generative haddad made carc sss s888 thestudent'sside lntroducing card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p04.webp",
+     "thumb": "assets/pulse/jobs-school/p04-t.webp",
+     "title": "Your school sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "teacher's side school sets rules cel lupe decides england schools choose ai used safeguards teachers use planning they're responsible result explain loud teacher asks talk through source uk department education generative ines haddad made card theteacher'sside example atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p05.webp",
+     "thumb": "assets/pulse/jobs-school/p05-t.webp",
+     "title": "The office job, before and after",
+     "w": 1600,
+     "h": 2400,
+     "kw": "worker's side office job nyy wan tee line sas haddad typed every drafts forms checks booking hand helps customers eee eel changed fewer copy-and-paste tasks checking eae international labour organization generative jobs refined global index occupational exposure nask clerical exposed change people still needed ines made card theworker's source ilo lnternational card5of10 atom",
+     "takeaway": "AI tends to change the tasks in a job (drafting, checking) more than erase the job."
+    },
+    {
+     "file": "assets/pulse/jobs-school/p06.webp",
+     "thumb": "assets/pulse/jobs-school/p06-t.webp",
+     "title": "Hiring a first worker",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee employer's side ten ecrpaaaannatina fewer junior hires jobs al-exposed us early-career hiring has slowed ai screens cvs eu sorts applicants high-risk ines interview haddad asks solve task explain source stanford digital economy lab canaries coal mine descriptive causal act annex iii employment made card theemployer'sside first worker ines's example ill atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p07.webp",
+     "thumb": "assets/pulse/jobs-school/p07-t.webp",
+     "title": "Will AI take most jobs?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal ai take jobs gored gua lea sie pox picture robot sweeps everyone people split tasks matches evidence guess first answer below upside paesodxa ysoww sgofl jodi49 sdinjo widy bddj dau upyi sgof bhunyd ajay suow oc7 aunyoid 1yyhiy tilt head read source ilo wp140 nask poland's national research institute news release card sss s888 thebigreveal replace office clerical exposed right likely change wp14o atom",
+     "takeaway": "The ILO finds AI is more likely to change jobs than replace them."
+    },
+    {
+     "file": "assets/pulse/jobs-school/p08.webp",
+     "thumb": "assets/pulse/jobs-school/p08-t.webp",
+     "title": "Tutor, not ghostwriter",
+     "w": 1600,
+     "h": 2400,
+     "kw": "ai company's side tutor ghostwriter study mode openal says guides questions hints answers switch off it's choice honesty still depends ines ines's pick uses check argument write source introducing haddad made card read example lntroducing atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p09.webp",
+     "thumb": "assets/pulse/jobs-school/p09-t.webp",
+     "title": "Rules around the world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "countries rules around world eu european union grades hires high-risk emotion-reading banned school work uk schools set india cbse add computational thinking lessons australia national framework guides us federal guidance lets use grant money tutoring source oct act peel art department education central board secondary curriculum classes australian generative letter jul card othercountries annex ill atom"
+    },
+    {
+     "file": "assets/pulse/jobs-school/p10.webp",
+     "thumb": "assets/pulse/jobs-school/p10-t.webp",
+     "title": "Sign my yearbook",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means yearbook sae pia yan totes fal use think harder ckip thinking proud escay feacher learn tools judgment job see caturday haddad check school ai rules every big assignment ines reader rce uk department paicdien generative education ilo international labour organization jobs refined global index occupational exposure nask made card sss whatitmeansforyou sign skip jhossa unok teacher saturday school's source lnternational card10of10 atom",
+     "takeaway": "Use AI to think harder, and check your school's rules."
+    }
+   ],
+   "recap": [
+    "Meet the class.",
+    "The essay at midnight.",
+    "Will AI take most jobs?",
+    "Sign my yearbook."
+   ],
+   "recap_pages": 10,
+   "tagline": "Use AI to think harder, not to skip the thinking."
+  },
+  {
+   "id": "using-ai",
+   "title": "Using AI Yourself",
+   "topic": "AI",
+   "blurb": "Tomas climbs from one homework question to a weekly study routine. Learn the ladders and the snakes of using a chatbot yourself.",
+   "gist": [
+    "Chatbots can sound sure and still be wrong.",
+    "Let AI quiz you, not think for you.",
+    "Know what happens to your chats, and what to keep private."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:21",
+   "pages": [
+    {
+     "file": "assets/pulse/using-ai/p01.webp",
+     "thumb": "assets/pulse/using-ai/p01-t.webp",
+     "title": "The AI ladder",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map ladder wha ale chatbot artificial intelligence app type talk rungs ask learn save routine snakes wrong answers letting thinking example tomas climbs one homework question wrnokihy stucly source openal language models hallucinate opendl help center scheduled tasks chatgpt made lor card alladder weekly study atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p02.webp",
+     "thumb": "assets/pulse/using-ai/p02-t.webp",
+     "title": "Game words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee key words game hallucination prompt confident answer type ask wrong scheduled task over-reliance saved runs ona timetable letting think don't source openal language models hallucinate help center tasks chatgpt carnegie mellon university microsoft research impact generative critical thinking chi survey self-reported card sesess lllll eol ele keywords gamewords scheduledtask chl atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p03.webp",
+     "thumb": "assets/pulse/using-ai/p03-t.webp",
+     "title": "Two sources",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rung ask check two sources example tomas asks chatbot leaves make food answer sounds sure chatbots guess openal says models trained ways reward guessing saying don't know checks against textbook source language nallucinate made card hallucinate atom",
+     "takeaway": "Chatbots can guess confidently; check what matters in a second source."
+    },
+    {
+     "file": "assets/pulse/using-ai/p04.webp",
+     "thumb": "assets/pulse/using-ai/p04-t.webp",
+     "title": "Ghostwriter vs quiz partner",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rung learn ghostwriter quiz partner scares writes notes can't recall quizzes him eee small mit study saw essay writers using showed brain engagement many struggled quote source media aby chatget foreprint peer-reviewed tomas made card mlt lab chatgpt preprint atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p05.webp",
+     "thumb": "assets/pulse/using-ai/p05-t.webp",
+     "title": "Who checks AI the least?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal checks least classmate tomas trusts lot takes answer skills given one thinks critically guess first below upside burjuiyy ss9 yum juem 3sn4 s4ow zewisse tilt head read survey office workers source carnegie mellon university microsoft research impact generative critical thinking chi self-reported made card thebigreveal whochecksaltheleast thinksless trust went chl atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p06.webp",
+     "thumb": "assets/pulse/using-ai/p06-t.webp",
+     "title": "What happens to your chats",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee maker's side happens chats training switch openal says turning off improve model everyone stops new being used train models temporary chat aren't kept days safety thumbs rating reply let whole even tomas's move flips source help center data controls chatgpt tomas made card ai maker'sside lmprove example atom",
+     "takeaway": "OpenAI says you can switch off training, but rating a reply can still let that chat be used."
+    },
+    {
+     "file": "assets/pulse/using-ai/p07.webp",
+     "thumb": "assets/pulse/using-ai/p07-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "eee rules around world sets spee wee eu european union since aug chatbots must tell you're talking unless it's obvious uk privacy regulator urges families discuss what's ok share eus staff guidance consumer firms keep promises tomas's move family agree stays private source oct commission act article faq ico information commissioner's office switched checklist ftc federal trade companies uphold confidentiality commitments blog jan tomas made card eseses lellll ell rulesaroundtheworld setsthe example atom"
+    },
+    {
+     "file": "assets/pulse/using-ai/p08.webp",
+     "thumb": "assets/pulse/using-ai/p08-t.webp",
+     "title": "Your move",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means tomas move wen ladder saves weekly task every sunday quizzes him week's notes check facts matter second source don't share sensitive personal details hand snake thinking roll read higher climb opendl help center scheduled chatgpt office privacy commissioner canada chatbots carnegie mellon university microsoft research impact generative critical chi survey self-reported made card whatitmeansfortomas yourmove openal tasks chl card8of8 atom",
+     "takeaway": "The higher you climb, the more you check."
+    }
+   ],
+   "recap": [
+    "The AI ladder.",
+    "Ghostwriter vs quiz partner.",
+    "What happens to your chats.",
+    "Your move."
+   ],
+   "recap_pages": 8,
+   "tagline": "The higher you climb, the more you check."
+  },
+  {
+   "id": "searching-ai",
+   "title": "Searching with AI",
+   "topic": "AI",
+   "blurb": "Elif asks if she can pack a power bank for a flight. See how AI search answers are built, where the ads go, and why the source still matters.",
+   "gist": [
+    "AI answers are built from many searches and linked pages.",
+    "With an AI summary, people clicked fewer links.",
+    "Open the cited page and check the official source."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:22",
+   "pages": [
+    {
+     "file": "assets/pulse/searching-ai/p01.webp",
+     "thumb": "assets/pulse/searching-ai/p01-t.webp",
+     "title": "Ask, and it answers",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map ask answers ai answer summary written artificial intelligence top search results citation link showing came sponsored paid labelled example elif asks pack power bank suitcase flight source google central features ads website help overviews made card neeeeeeeee atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p02.webp",
+     "thumb": "assets/pulse/searching-ai/p02-t.webp",
+     "title": "Catalogue words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words catalogue zxcge oley ai overview query fan-out google's summary above one question split links many searches qe citation sponsored link page paid used company source google search central features website ads help overviews card eer keywords atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p03.webp",
+     "thumb": "assets/pulse/searching-ai/p03-t.webp",
+     "title": "One question",
+     "w": 1600,
+     "h": 2400,
+     "kw": "hein user's side one question elif types power bank ai summary appears first small links underneath sounds sure packing wants know page came source google search central features website made card theuser's example 3of atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p04.webp",
+     "thumb": "assets/pulse/searching-ai/p04-t.webp",
+     "title": "Links, then a summary",
+     "w": 1600,
+     "h": 2400,
+     "kw": "answer built links summary list read top pages eel google says ai answers run many related searches show supporting skip queries don't help source search central features website card rrr errr howtheanswerisbuilt atom",
+     "takeaway": "AI answers are built from many searches and linked pages."
+    },
+    {
+     "file": "assets/pulse/searching-ai/p05.webp",
+     "thumb": "assets/pulse/searching-ai/p05-t.webp",
+     "title": "Where the ads go",
+     "w": 1600,
+     "h": 2400,
+     "kw": "search company's side ads sss als above below google says show ai overviews inside places appear english countries including us everywhere skips topics like health finance elif spots one sponsored power bank sits summary source help oct made card rnc aac searchcompany'sside example 0ct atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p06.webp",
+     "thumb": "assets/pulse/searching-ai/p06-t.webp",
+     "title": "Do people click through?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal click through sie moat tee eed vel abl cdl aos picture clicks site stops summary ai page common guess first answer below upside 3nouuuztm azewwns sztsta yutt ftnsert ppaeyyootto etdoeg tilt head read source pew research center google users likely links appears jul us march data card ncaacraereemema thebigreveal people without link visits result clicked atom",
+     "takeaway": "With an AI summary on the page, people clicked fewer links (Pew)."
+    },
+    {
+     "file": "assets/pulse/searching-ai/p07.webp",
+     "thumb": "assets/pulse/searching-ai/p07-t.webp",
+     "title": "Who wrote it?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "websites side wrote fewer visits pew notes publishers blame falling traffic summaries citation mix-ups columbia researchers found ai search tools often cited wrong article copy google's view google says people now visit wider range sites elif's link leads forum post airline source research center users likely click links summary appears jul us march data tow has digital journalism university problem mar central features website elif made card reece thewebsites'side fewervisits example 2o25 atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p08.webp",
+     "thumb": "assets/pulse/searching-ai/p08-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules sets uk google must let publishers opt ai features like overviews clear links credit pages deadlines comply dec page-level controls mar elif's takeaway credited link useful opens source oct cma competition markets authority publisher conduct requirement jun notice aug elif made card neen read 2o26 atom"
+    },
+    {
+     "file": "assets/pulse/searching-ai/p09.webp",
+     "thumb": "assets/pulse/searching-ai/p09-t.webp",
+     "title": "Check out the source",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means check source sse ees tie open cited page original copy rules official elif checks airline's skip don't treat sponsored advice read summary starting card book google search central ai features website ads help overviews tow center digital journalism columbia has citation problem mar university made neer whatitmeansforyou sourcechecked atom",
+     "takeaway": "Open the cited page and go to the official source."
+    }
+   ],
+   "recap": [
+    "Ask, and it answers.",
+    "Where the ads go.",
+    "Do people click through?",
+    "Check out the source."
+   ],
+   "recap_pages": 9,
+   "tagline": "The summary is a starting card, not the book."
+  },
+  {
+   "id": "agent-built",
+   "title": "How an AI Agent Is Built",
+   "topic": "AI",
+   "blurb": "Omar builds an AI helper for his family's bike shop that handles one return, start to finish. See the ingredients, the rules and where a person stays in charge.",
+   "gist": [
+    "An agent is a model with tools and instructions.",
+    "Give it only the access the job needs.",
+    "For money moves, a person should approve first."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:23",
+   "pages": [
+    {
+     "file": "assets/pulse/agent-built/p01.webp",
+     "thumb": "assets/pulse/agent-built/p01-t.webp",
+     "title": "One agent, one job",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pererbrereereeerbeereere ere rrr rrp eee picture map one agent job artificial intelligence system takes steps uses tools finish task recipe ingredients plus cooking example omar builds helper handles return nis family bike shop start source openal practical auras building aeeniet anth tae effective agents made card thepicturemap oneagent onejob helperthat family's atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p02.webp",
+     "thumb": "assets/pulse/agent-built/p02-t.webp",
+     "title": "The ingredients",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pereehrbrbreereheereere ere ree rrr key words ingredients tui fix model tools reasons decides ways act look order vig memory instructions term keeps rules follows system earlier steps prompt keys guardrails permission use checks stop bad actions tool eee source openal practical guide building agents context protocol docs specification modelcontextprotocol.io teaching terms official parts card oor keywords ourterm areteachingterms 2of atom",
+     "takeaway": "An agent is a model with tools and instructions, plus guardrails and limited access."
+    },
+    {
+     "file": "assets/pulse/agent-built/p03.webp",
+     "thumb": "assets/pulse/agent-built/p03-t.webp",
+     "title": "Writing the recipe",
+     "w": 1600,
+     "h": 2400,
+     "kw": "selena builder's side writing recipe example shopper wants return helmet omar writes instructions shop's returns policy check order date draft refund openal's guide suggests building existing policies source openal practical agents shop made card thebuilder'sside card3of9 atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p04.webp",
+     "thumb": "assets/pulse/agent-built/p04-t.webp",
+     "title": "Before and after the agent",
+     "w": 1600,
+     "h": 2400,
+     "kw": "prerbrbreereheereere ree rrr one job end agent qe ine omar answers every return prepares hand approves agent's steps read request find order check policy draft refund source openal practical guide building agents shop made card 4o0f onejob.end madeup 4of9 atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p05.webp",
+     "thumb": "assets/pulse/agent-built/p05-t.webp",
+     "title": "Only the keys it needs",
+     "w": 1600,
+     "h": 2400,
+     "kw": "prerbrhreerehreebeereerere ere rere ree rrr badge keys needs soe plugging tools mcp model context protocol open standard connecting apps like usb-c port ask first specification says must get users consent using tool omar's choice agent read orders move money source docs modelcontextprotocol.io omar shop made card 5of badgeandkeys askfrst user's example atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p06.webp",
+     "thumb": "assets/pulse/agent-built/p06-t.webp",
+     "title": "Should it pay out on its own?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pererbrebreree ree rrr big reveal pay winnh qrs picture agent sends refund asks omar first itself maker's guide suggest guess answer below upside tilt head read source openal practical building agents human intervention high-risk actions card thebigreveal outonitsown frst payments suggests ok refunds interventionforhigh-risk card6of9 atom",
+     "takeaway": "For big refunds and payments, OpenAI suggests a human OK at first."
+    },
+    {
+     "file": "assets/pulse/agent-built/p07.webp",
+     "thumb": "assets/pulse/agent-built/p07-t.webp",
+     "title": "What the makers say",
+     "w": 1600,
+     "h": 2400,
+     "kw": "perehrbrereereheereere ree rrr companies side makers say eet geegesdht seat var three parts openal says agent model tools instructions layered guardrails stack several checks since one isn't enough start simple anthropic use simplest setup works omar listens job sou rce practical aee ding aeenest building effective agents shop made card theaicompanies'side example 7of atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p08.webp",
+     "thumb": "assets/pulse/agent-built/p08-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "prehrbrbreereeereereerere ere ree rrr eee rules sets pars ev european union since aug chats people must say it's unless obvious nist national institute standards technology has voluntary risk framework omar's helper opens i'm source oct commission act article faq management jan generative profile jul omar shop made card therules eu us example nistalriskmanagementframework jan2023 andgenerativeal omarand card8of atom"
+    },
+    {
+     "file": "assets/pulse/agent-built/p09.webp",
+     "thumb": "assets/pulse/agent-built/p09-t.webp",
+     "title": "Serves: one shopper",
+     "w": 1600,
+     "h": 2400,
+     "kw": "prehrbrebreebrheereere ree repre rrr eee means serves one shopper soy ress ask talking tell check pays deletes person approve skip don't give agent access job needs tip read good short recipe human taster source openal practical guide building agents model context protocol docs specification modelcontextprotocol.io european commission act article faq omar shop made card whatitmeansforyou taste-tested card9of9 atom",
+     "takeaway": "Expect an agent to say it is AI, and to ask a person before money moves."
+    }
+   ],
+   "recap": [
+    "One agent, one job.",
+    "The ingredients.",
+    "Should it pay out on its own?",
+    "Serves: one shopper."
+   ],
+   "recap_pages": 9,
+   "tagline": "A good agent is a short recipe with a human taster."
+  },
+  {
+   "id": "what-powers-ai",
+   "title": "What Powers AI",
+   "topic": "AI",
+   "blurb": "Hana asks an AI one question for her science fair. Follow it to a data centre and see the chips, electricity and water behind every answer.",
+   "gist": [
+    "One AI question travels to a data centre where chips, electricity and cooling answer it.",
+    "One prompt is small; billions add up.",
+    "Look for figures with a date and a source."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:30",
+   "pages": [
+    {
+     "file": "assets/pulse/what-powers-ai/p01.webp",
+     "thumb": "assets/pulse/what-powers-ai/p01-t.webp",
+     "title": "What powers AI",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map powers pea ols let oath rose lel ian anal bee lil tay poe aes ang deg yum tes lota tiny part maths answer data centre building packed computers run electricity water power runs chips often helps cool example hana asks one question science fair source google cloud blog paper gemini prompt energy aug iea international agency made card thepicturemap chip datacentre cloudblogand herquestionaremadeup 1of atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p02.webp",
+     "thumb": "assets/pulse/what-powers-ai/p02-t.webp",
+     "title": "Words on the bill",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words bill rer gpu server rack graphics processing unit chip tall cabinet computers ina data centre good maths aax z1xsi von grid power lines bring watt-hour small energy electricity towns use source google cloud blog paper gemini prompt aug iea international agency card keywords cloudblog andal 2of10 atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p03.webp",
+     "thumb": "assets/pulse/what-powers-ai/p03-t.webp",
+     "title": "One question leaves home",
+     "w": 1600,
+     "h": 2400,
+     "kw": "nma user's side one question leaves home gar hana types give science fair idea energy ina blink words travel internet data centre maybe far away source iea international agency made card theuser'sside example andherquestionaremadeup card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p04.webp",
+     "thumb": "assets/pulse/what-powers-ai/p04-t.webp",
+     "title": "Chips get hot",
+     "w": 1600,
+     "h": 2400,
+     "kw": "inside data centre hot chips get shee glee aes say sap without cooling doing maths heat fast fans air water carry away eee eel answer hana needs work electricity run sometimes using source google cloud blog paper gemini prompt energy aug question made card atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p05.webp",
+     "thumb": "assets/pulse/what-powers-ai/p05-t.webp",
+     "title": "What one prompt uses",
+     "w": 1600,
+     "h": 2400,
+     "kw": "company's side one prompt uses yay ime energy google says median gemini text used water five drops baseline times note google's figures checked outside group source cloud blog paper aug card ai 5of10 atom",
+     "takeaway": "Google says its median Gemini text prompt used 0.24 Wh and 0.26 mL water (May 2025, own figures)."
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p06.webp",
+     "thumb": "assets/pulse/what-powers-ai/p06-t.webp",
+     "title": "Big buildings, local effects",
+     "w": 1600,
+     "h": 2400,
+     "kw": "town grid big buildings local effects erin sss led ere waa nit ill mis ope lts mel worldwide iea says data centres used world's electricity next expects roughly double baseline near home far bigger towns cluster source international energy agency card thetown 2025.iea internationalenergy atom",
+     "takeaway": "The IEA says data centres used about 1.5% of world electricity in 2024 and expects about double by 2030."
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p07.webp",
+     "thumb": "assets/pulse/what-powers-ai/p07-t.webp",
+     "title": "Kettle or TV?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal kettle swe isa fim ree rote sse hie cake yay wss hee pgs dae sty gener sata eee enact vars ape picture boiling left hana's one question used energy closer guess first answer below upside spuo0iis ssa pasn dwojd 1x9 ueipaw saes ajho009g tilt head read source google cloud blog paper gemini prompt aug data hana made card thebigreveal says median text seconds 7of atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p08.webp",
+     "thumb": "assets/pulse/what-powers-ai/p08-t.webp",
+     "title": "Where the energy went",
+     "w": 1600,
+     "h": 2400,
+     "kw": "hana's bill enert went bla chips doing maths main computer parts helping spare machines kept ready building cooling power losses source google paper median gemini text prompt hana question made card hana'sbill energy itemised 2025.hana card8of10 atom"
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p09.webp",
+     "thumb": "assets/pulse/what-powers-ai/p09-t.webp",
+     "title": "Who checks the meter",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules countries checks meter cae cje rae hoe cael tie eu european union data centres kilowatts computers must report energy water use every year lreland since dec larger new bring nearby power storage connect hana's project compares companies say ere teer source oct commission centre reporting efficiency directive cru ireland regulator decision hana question made card example ask 0ct 2026.europeancommission underthe lrelandenergy card9of10 atom",
+     "takeaway": "The EU makes large data centres report energy and water use yearly (as of Oct 2026)."
+    },
+    {
+     "file": "assets/pulse/what-powers-ai/p10.webp",
+     "thumb": "assets/pulse/what-powers-ai/p10-t.webp",
+     "title": "Reading the meter",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means readin meter paige wey ask one clear question instead ten vague ones company publish energy water figures skip don't trust big numbers without date source tip read small billions add google cloud blog paper gemini prompt aug iea international agency european commission data centre reporting efficiency directive hana made card whatitmeansforyou reading googlecloud blogand paperongemini internationalenergyagency energyandal reportingunder card10of10 atom"
+    }
+   ],
+   "recap": [
+    "What powers AI.",
+    "What one prompt uses.",
+    "Kettle or TV?",
+    "Reading the meter."
+   ],
+   "recap_pages": 10,
+   "tagline": "One question is small; billions add up."
+  },
+  {
+   "id": "robots",
+   "title": "Robots & Physical AI",
+   "topic": "AI",
+   "blurb": "Kai orders a water bottle and a robot arm called Rivet picks it. See how robots learn, what the makers say, and who keeps workers safe.",
+   "gist": [
+    "Physical AI moves real things; a world model predicts what happens next.",
+    "Ask if a robot is a demo, a pilot or a product.",
+    "Workers and robots often share the job."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:39",
+   "pages": [
+    {
+     "file": "assets/pulse/robots/p01.webp",
+     "thumb": "assets/pulse/robots/p01-t.webp",
+     "title": "Robots and physical AI",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map robots physical ai ess easy soot artificial intelligence moves real things words world model predicts happen next demo us product show works every day example kai orders water bottle robot arm rivet picks source nvidia glossary amazon robotics news pages order made card thepicturemap robotsandphysicalai physicalai demovsproducu ourexample theorder card1of10 atom"
+    },
+    {
+     "file": "assets/pulse/robots/p02.webp",
+     "thumb": "assets/pulse/robots/p02-t.webp",
+     "title": "Robot words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words robot ist fey sensor gripper camera feeler tells robot's hand often suction what's cup rei aee eran sai ser ripe ramses eee ees wea simulation pilot small real-world trial practice world made inside computer full rollout source amazon robotics news pages nvidia model glossary card robotwords 2of atom"
+    },
+    {
+     "file": "assets/pulse/robots/p03.webp",
+     "thumb": "assets/pulse/robots/p03-t.webp",
+     "title": "One tap, one pick",
+     "w": 1600,
+     "h": 2400,
+     "kw": "omit owe iia eee see wee sin user's side one tap pick example kai taps buy warehouse rivet spots red bottle messy bin works grab drops tote plastic crate source amazon robotics news pages order made card user'sside onetap onepick card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/robots/p04.webp",
+     "thumb": "assets/pulse/robots/p04-t.webp",
+     "title": "Practise in a pretend world",
+     "w": 1600,
+     "h": 2400,
+     "kw": "learns practise pretend world capi aut sez see tine spee learning real floor practising first simulated warehouse slow things break eel nuidia says models predict happens next make practice videos data let robots test moves without real-world risk source nvidia model glossary kai rivet order made card howit practisenapretendword nvidiasayswobldmodelscane atom"
+    },
+    {
+     "file": "assets/pulse/robots/p05.webp",
+     "thumb": "assets/pulse/robots/p05-t.webp",
+     "title": "What the maker says",
+     "w": 1600,
+     "h": 2400,
+     "kw": "maker's side maker says abn eng lens arias clz eee ses sop use amazon has deployed million robots jul already working sparrow arms move single items totes pilot vulcan robot touch finished moved larger trial source robotics news pages science blog card themakerisside whatthemakersays inuse alreadyworking card5of10 atom",
+     "takeaway": "Amazon says it runs over 1 million robots (Jul 2025); it says Vulcan is still in trials."
+    },
+    {
+     "file": "assets/pulse/robots/p06.webp",
+     "thumb": "assets/pulse/robots/p06-t.webp",
+     "title": "People next to robots",
+     "w": 1600,
+     "h": 2400,
+     "kw": "workers side people next robots chet tartan genie ris reg serra corm risky moments osha says many robot accidents happen during setup testing repairs union report group using amazon's safety reports found serious injuries higher sites note figures werent independently checked new roles amazon created job types like floor monitors source us occupational health administration robotics page strategic organizing center coalition primed pain news pages card theworkersside peoplenexttorobots riskymoments weren't newroes card6of10 atom"
+    },
+    {
+     "file": "assets/pulse/robots/p07.webp",
+     "thumb": "assets/pulse/robots/p07-t.webp",
+     "title": "Show or shift?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal show shift soe tan ein eee eeee mat pern ors snl ase way san ote picture robot lit stage conveyor likely doing real work today guess first answer below upside ang ued noa onpoud jou owap oapia payusijod peal ino tilt head read source amazon robotics news pages card tts errr thebigreueal showorshifte picturea pictureb whichrobotismore likelydoingreal worktoday guessfirst begowisupsidedown buy polished video demo product card7of10 atom",
+     "takeaway": "Our read: much real robot work is warehouse arms; slick humanoid videos are often demos."
+    },
+    {
+     "file": "assets/pulse/robots/p08.webp",
+     "thumb": "assets/pulse/robots/p08-t.webp",
+     "title": "Human, tag in!",
+     "w": 1600,
+     "h": 2400,
+     "kw": "robots get stuck human tag ens woes amazon says vulcan pick item robot types floppy toy can't grip ask person take pair beats either alone source robotics news pages kai rivet order made card whenrobotsgetstuck humantagin tagin card8of10 atom"
+    },
+    {
+     "file": "assets/pulse/robots/p09.webp",
+     "thumb": "assets/pulse/robots/p09-t.webp",
+     "title": "Who keeps robots safe",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules keeps robots safe vas hal aes vay o74 wen xxx aed ant way sara oom soo rae eax eee eu european union new machinery apply jan covering safety software eus osha says standards written rivet's cage barriers keep people while arm moves source oct eur-lex summary regulation us occupational health administration robotics page kai rivet order made card anti therules whokeepsrobotssafe ceuropean riuetiscage example 2026.eur-lex card9of atom",
+     "takeaway": "EU machinery rules for robots apply from 20 Jan 2027; OSHA has no robot-specific standard (as of Oct 2026)."
+    },
+    {
+     "file": "assets/pulse/robots/p10.webp",
+     "thumb": "assets/pulse/robots/p10-t.webp",
+     "title": "Before you believe a robot",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means vou believe robot tis check it's sale video ask demo pilot product skip don't trust speed-up clips without source tip read real robots often boring arms amazon robotics news pages nvidia world model glossary kai rivet order made card whatitmeansforyou beforeyoubeltevearobot atom"
+    }
+   ],
+   "recap": [
+    "Robots and physical AI.",
+    "Practise in a pretend world.",
+    "Show or shift?",
+    "Before you believe a robot."
+   ],
+   "recap_pages": 10,
+   "tagline": "Real robots are often boring arms.",
+   "updated": "2026-10-21"
+  },
+  {
+   "id": "open-closed",
+   "title": "Open vs Closed AI",
+   "topic": "AI",
+   "blurb": "Rosa wants AI to help answer her bakery's emails. Should she download an open model or pay for a closed one? Compare cost, privacy, control and the rules.",
+   "gist": [
+    "Open-weight models can be downloaded and run yourself; closed ones are used via an app or API.",
+    "Read the licence before you build on a model.",
+    "Know where your data goes."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:40",
+   "pages": [
+    {
+     "file": "assets/pulse/open-closed/p01.webp",
+     "thumb": "assets/pulse/open-closed/p01-t.webp",
+     "title": "Open vs closed AI",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map open closed clr pps execs wit open-weight model ai download run computer like mistral small use through maker's app api application programming interface way software send work computers example rosa wants help answer bakery's doinde sete snail hollel dard bnlmugathg feb anthropic privacy center bakery made card thepicturemap vsclosed customer emails privacycenter.rosaand herbakeryaremadeup card1of atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p02.webp",
+     "thumb": "assets/pulse/open-closed/p02-t.webp",
+     "title": "Parts list",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words parts list ai weights licence numbers model learned rules settings cfo dr-as open source self-hosting plus training code running computers data details control eee initiative definition mistral small card hugging face keywords partslist opensource 1.o small3model onhuggingface atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p03.webp",
+     "thumb": "assets/pulse/open-closed/p03-t.webp",
+     "title": "Same job, two choices",
+     "w": 1600,
+     "h": 2400,
+     "kw": "iif esay user's side job two choices rosa gets fifty emails day download mistral small open-weight model run herself pay use closed through api source ai card hugging face anthropic privacy center bakery made aton theuser'sside samejob example center.rosaand herbakeryare madeup card3of10 atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p04.webp",
+     "thumb": "assets/pulse/open-closed/p04-t.webp",
+     "title": "Sealed box or flat-pack?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "works sealed box flat-pack adt lee closed open emails travel maker's model runs rosa's computers machine eee eel rosa compares cost pay use buy privacy control safety change meee ees source read bakery made card howeachworks fat-pack read.rosa atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p05.webp",
+     "thumb": "assets/pulse/open-closed/p05-t.webp",
+     "title": "What the makers say",
+     "w": 1600,
+     "h": 2400,
+     "kw": "makers side say aig ssiaaicey pet eee essere sss ame hall ead ere abn tah ese zeb mistral says small uses apache licence allows business use changes runs locally shrunk fits one strong well-equipped laptop anthropic default train models api inputs outputs source oct ai model card hugging face privacy center themakers'side whatthe makerssay mistralal asofoct21 2026.mistralai mistralsmall3modelcardon atom",
+     "takeaway": "Mistral says Mistral Small 3 uses the Apache 2.0 licence; Anthropic says it doesn't train on API data by default (as of Oct 21, 2026)."
+    },
+    {
+     "file": "assets/pulse/open-closed/p06.webp",
+     "thumb": "assets/pulse/open-closed/p06-t.webp",
+     "title": "Is \"open\" really open?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "developers side open really fab sig eas psa laan ext rcs ai awe cee sas 2ao imal aaa tat iil bot definition source initiative says open-source must share weights code training-data details open-weight shares rest read many models open-weisght fully card ato thedevelopers'side reallyopen ourread 6of atom",
+     "takeaway": "Open-weight is not the same as open source (OSI wants code and data details too)."
+    },
+    {
+     "file": "assets/pulse/open-closed/p07.webp",
+     "thumb": "assets/pulse/open-closed/p07-t.webp",
+     "title": "Laptop or server room?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal laptop server room otz wens rie neni picture counter servers small open model like rosa's run without guess first answer below upside tilt head read card thebigreveal laptoporserverroom picturea pictureb withoutaserverroom guessfirst belowis computer a.mistral says mistral one strong source ai hugging face card7of atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p08.webp",
+     "thumb": "assets/pulse/open-closed/p08-t.webp",
+     "title": "Some assembly required",
+     "w": 1600,
+     "h": 2400,
+     "kw": "read trade-offs assembly required lee equired sez cost open free licence pay computers ihe emails stay in-house ote parte closed maker update retire safety add checks source based mistral ai small model card hugging face anthropic privacy center rosa bakery made ourread thetrade-offs someassembly someassemblyrequired control basedonmistralai mistralsmall3modelcardon atom"
+    },
+    {
+     "file": "assets/pulse/open-closed/p09.webp",
+     "thumb": "assets/pulse/open-closed/p09-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules countries sets vig eu european union since aug makers truly open-source models get lighter paperwork biggest riskiest eus america's ai action plan jul says sovernment support open while release choices stay developers rosa's check reads model's licence using source oct commission act guidance general-purpose white house rosa bakery made card rulesandothercountries setstherules us government rosa'scheck example asof oct2026.europeancommissionaiactguidanceon thewhite herbakeryare madeup card9of atom",
+     "takeaway": "EU gives truly open-source models lighter paperwork since 2 Aug 2025."
+    },
+    {
+     "file": "assets/pulse/open-closed/p10.webp",
+     "thumb": "assets/pulse/open-closed/p10-t.webp",
+     "title": "Pick the right box",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means pick right box cow cea read licence build model ask data see skip don't assume open free use way tip start closed test ready source mistral ai small card hugging face anthropic privacy center initiative definition rosa bakery made whatitmeansforyou picktherightbox anthropicprivacycenter opensourceinitiative sourceai 1.0.rosa atom"
+    }
+   ],
+   "recap": [
+    "Open vs closed AI.",
+    "Is \"open\" really open?",
+    "Laptop or server room?",
+    "Pick the right box."
+   ],
+   "recap_pages": 10,
+   "tagline": "Read the licence; know where your data goes."
+  },
+  {
+   "id": "ai-shopping",
+   "title": "When AI Does the Shopping",
+   "topic": "AI",
+   "blurb": "Jonah lets an AI watch the price of rain boots and buy them for him. Then he gets charged twice. Who sells, who pays, and how you get your money back.",
+   "gist": [
+    "A shopping agent can watch prices and buy only after you confirm.",
+    "The AI shops; the store still sells.",
+    "Keep your receipts and know your dispute window."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:41",
+   "pages": [
+    {
+     "file": "assets/pulse/ai-shopping/p01.webp",
+     "thumb": "assets/pulse/ai-shopping/p01-t.webp",
+     "title": "When AI does the shopping",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map shopping uum agent artificial intelligence helper finds buys things checkout step pay merchant store sells ships example jonah wants rain boots source google help blog agentic shop prices made card aldoes ourexample atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p02.webp",
+     "thumb": "assets/pulse/ai-shopping/p02-t.webp",
+     "title": "Shopping words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words shopping cet agentic checkout product feed completes purchase store's list items prices guth ral dispute pay site asking card company app fix charge source google help blog openal merchants page checked oct ftc federal trade commission credit disputes guide aaa daa vasa vzv keywords shoppingwords agenticcheckout store'sowncheckout of10 atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p03.webp",
+     "thumb": "assets/pulse/ai-shopping/p03-t.webp",
+     "title": "Set a price, then wait",
+     "w": 1600,
+     "h": 2400,
+     "kw": "iin buyer's side set price wait xample jonah tracks pair rain boots sets target google says drops notifies him tap buy always asks confirm first source shopping help blog agentic checkout shop prices made card thebuyer'sside example card3 atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p04.webp",
+     "thumb": "assets/pulse/ai-shopping/p04-t.webp",
+     "title": "Before and after the agent",
+     "w": 1600,
+     "h": 2400,
+     "kw": "one item end agent jonah checks prices every approves night buys ess google says confirms price payment address store's website pays pay source shopping help blog agentic checkout shop made card oneitem card4of10 atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p05.webp",
+     "thumb": "assets/pulse/ai-shopping/p05-t.webp",
+     "title": "The shop still sells it",
+     "w": 1600,
+     "h": 2400,
+     "kw": "store's side shop still sells ene site google says agent buys merchant's website checkout openal chatgpt purchases finish app jonah's boots ships handles returns poles shopping help alee ecenic merchants page checked oct jonah prices made card jonah'sboots example source blog agentic atom",
+     "takeaway": "Stores still sell, ship and handle returns."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p06.webp",
+     "thumb": "assets/pulse/ai-shopping/p06-t.webp",
+     "title": "Where AI fits in",
+     "w": 1600,
+     "h": 2400,
+     "kw": "companies side fits vvw openai openal says moving away in-chat checkout focusing helping people find products fees purchases start chatgpt google agentic works eligible us stores source oct merchants page checked shopping help blog card theaicompanies'side wherealfitsin atom",
+     "takeaway": "OpenAI says no fees on purchases that start in ChatGPT (as of Oct 21, 2026)."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p07.webp",
+     "thumb": "assets/pulse/ai-shopping/p07-t.webp",
+     "title": "Charged twice. Now what?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal charged twice now ai picture two boxes charges jonah holds receipt get extra gharge back guess first answer below upside saep uiywm sjoiid sui paed 1ip a3yndsip noa s2a tilt head read source ftc federal trade commission credit card disputes sulde fair billing act cards debit follow different rules getthe chargeback guessfirst within days bill errors us law lets dispute guide atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p08.webp",
+     "thumb": "assets/pulse/ai-shopping/p08-t.webp",
+     "title": "Follow the $60",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pays follow lhe sek vast e'e jonah card made-up example fee payment company keeps small cut say made store ships boots goes wrong returns through billing errors source figures ftc federal trade commission credit disputes guide openal merchants page checked oct shop prices aaa daa s60 jonahpayss60 cardfee storekeepss58 ifitgoeswrong atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p09.webp",
+     "thumb": "assets/pulse/ai-shopping/p09-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules sets credit cards dispute errors within days bill cap unauthorized charges us debit different lose depends fast report eu european union online buyers usually get change mind source oct fair billing act ftc federal trade commission card disputes guide lost stolen suide europe returns jonah shop prices made ai aaa daa esa vzv creditcards usdebitcards ceuropean unioni card9of10 atom",
+     "takeaway": "US card billing errors can be disputed within 60 days of the bill; EU buyers usually get 14 days to withdraw."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p10.webp",
+     "thumb": "assets/pulse/ai-shopping/p10-t.webp",
+     "title": "Clip and keep",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means clip keep coupon shop smart skip openal merchants page checked oct ftc federal trade commission credit card disputes guide jonah prices made shopsmart set price limit check every confirmation ask whose checkout store's al's don't save details can't review purchases read receipts returns start tip store source google shopping help blog agentic card10 of10 atom"
+    }
+   ],
+   "recap": [
+    "When AI shops.",
+    "Set a price, then wait.",
+    "Charged twice.",
+    "Who sets the rules."
+   ],
+   "recap_pages": 10,
+   "tagline": "Always confirm the buy; know your 60 days."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
