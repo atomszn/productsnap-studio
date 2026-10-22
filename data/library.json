@@ -1425,11 +1425,11 @@
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
-   "blurb": "Digital receipts for real things: what tokenization is, what's real today, tokenized bank deposits, and what it means for Priya's savings.",
+   "blurb": "Amara has $1,000 saved and spots a tokenized fund in her app. Is it a new kind of money, or the same fund with a new receipt? Here's what changes and what doesn't.",
    "gist": [
-    "A token is a digital receipt for a real asset, kept in one shared notebook (a blockchain).",
-    "Boring assets go first: tokenized US Treasuries are about $14.5B (as of Oct 20, 2026), and banks are tokenizing deposits.",
-    "For most people it changes the plumbing, not the app; the legal link is the big risk."
+    "Tokenizing a fund changes how ownership is recorded, not what the fund holds.",
+    "Big firms like BlackRock, Franklin Templeton and DTCC are trying it, mostly for large investors so far.",
+    "A tokenized security is still a security: ask who keeps the record and who can fix mistakes."
    ],
    "added": "2026-10-12",
    "added_at": "2026-10-20T12:04",
@@ -1437,79 +1437,145 @@
     {
      "file": "assets/pulse/tokenization/p01.webp",
      "thumb": "assets/pulse/tokenization/p01-t.webp",
-     "title": "A receipt, not the thing",
+     "title": "Same fund, new receipt",
      "w": 1600,
      "h": 2400,
-     "kw": "rece thing soa tele wii iff gilts fer ai cfs eamw435s ant pase tokenization making digital receipt token something real like fund share writing blockchain one shared notebook many firms read today lots notebooks app bank central record-keeper keep list us keeper dtcc depository trust clearing corporation master record owns stocks tomorrow everyone reads page updates stays put vault traveling source dtcc.jcom oct tosco financial assets report nov card whatitis areceipt bankand list.in usthatkeeper isthe depositorytrust readsthe samepage thething staysput dtcc.com 2o26 iosc0 financialassets 2o25 card1of8 atom"
+     "kw": "same fund, new receipt the thing a fund share: your slice of shared pot savings. blockchain record saying share is yours. example our amara has $1,000 saved and spots tokenized in an app. source: sec staff statement on securities; franklin onchain prospectus. made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/tokenization/p02.webp",
      "thumb": "assets/pulse/tokenization/p02-t.webp",
-     "title": "Coin vs token",
+     "title": "Six words to know",
      "w": 1600,
      "h": 2400,
-     "kw": "coin token tan pel aes oto aoa thing crypto like bitcoin has vault behind worth whatever next buyer pays points tokenized fund share real stuff us government lous held stablecoin built stay backed cash short ious reality check good company legal claim source bis annual economic report iii iosco tokenization nov card tokens vscrypto vstoken hasno it.it whateverthe buyerpays atoken thething atokenized stuf heldbythefund thelegal 2o25 ch.iii iosc0 card2of8 atom",
-     "takeaway": "A crypto coin is the thing itself; a token is a receipt that points to something real, so check who stands behind it."
+     "kw": "six words to know token a digital entry showing who owns what. blockchain record book shared across many computers. tokenized fund whose owner records are tokens. custody keeping assets safe for owners, usually at bank. dtcc depository trust & clearing corporation: the main us vault stocks and bonds. money-market of short, loans like treasury bills (us government ious). source: sec; dtcc; investor.gov.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/tokenization/p03.webp",
      "thumb": "assets/pulse/tokenization/p03-t.webp",
-     "title": "Safe stuff first. Fancy stuff later.",
+     "title": "Amara's idle $1,000",
      "w": 1600,
      "h": 2400,
-     "kw": "safe stuff first fancy later sst sesi ies wss mazza leas ses vom nat qyye boring goes tokenized us treasuries government ious total billion oct money-market fund holds short ous aims keep share one biggest buidl blackrock's holders million minimum big investors homes teams wait hard price buyers resell source rwa.xyz pages blackrock securitize card fat what's real now s14.5 asofoct20 tokenizedmoney-market s2.2 billionand 103holders 5millionminimum buyersto tokenizedtreasuries 0ct minimumper card3of8 atom"
+     "kw": "amara's idle $1,000 her savings sit in a bank account. app offers tokenized money-market fund. new kind of money, or the same fund with receipt? example source: franklin templeton, benji page. amara is made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/tokenization/p04.webp",
      "thumb": "assets/pulse/tokenization/p04-t.webp",
-     "title": "Your bank balance, on a blockchain",
+     "title": "Paper ledger, glass ledger",
      "w": 1600,
      "h": 2400,
-     "kw": "oona bank balance blockchain sis sla rey seg ine pte rez tokenized deposit normal written token still bank's money rules real example jpmorgan's unit kinexys moves billion day jpm coin opened public blockchains including ethereum oct business clients stablecoin comes company holding reserves itself bother companies pay a.m sunday source j.p morgan goes live avg daily volume internal data card atom tokenizeddeposits ona itis depositis anormal abouts7billion day.its deposittoken openedonpublicblockchains includingethereum onoct19 forbusinessclients nota companyholding reserves.a otherat a.m.on j.p.morgan internaldata card4of8",
-     "takeaway": "A tokenized deposit is still your bank's money, just written on a blockchain so it can move any hour."
+     "kw": "paper ledger, glass ledger before the owner list sits in fund's books. after same lives on a blockchain. rx amara's year (made up) $1,000 buys about 1,000 tokens at $1 each. made-up 4% year: $40 new tokens. money stays treasury bills; record moved. source: franklin onchain fund prospectus. amara and all figures are made up.",
+     "takeaway": "A token changes where the owner list lives, not what the fund holds."
     },
     {
      "file": "assets/pulse/tokenization/p05.webp",
      "thumb": "assets/pulse/tokenization/p05-t.webp",
-     "title": "Priya's fund, before and after",
+     "title": "Big names, familiar pots",
      "w": 1600,
      "h": 2400,
-     "kw": "priy und befo ane nae cur pall aad van meet priya saves money-market fund safe short ous app like liquid mutual india cash uk isa individual savings account option australian super retirement sells friday night offices shut often lands monday tokenized share swap hour day reality check never see token changes plumbing behind source rba project acacia final report settlement times vary provider illustration card atom priya's meetpriya ina lous inher acashoption retirementsavings realitycheck token.it 2o26 7settlement varyby provider.priya card5of8"
+     "kw": "big names, familiar pots blackrock says its buidl fund holds cash, treasury bills and repos (short loans backed by bonds). who can buy only large, qualified investors with millions to invest. franklin templeton us-registered keeps official owner list on public blockchains. example amara's option app is open ordinary us investors. source: launch release; sec form d; page prospectus. amara made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/tokenization/p06.webp",
      "thumb": "assets/pulse/tokenization/p06-t.webp",
-     "title": "Four views of one token",
+     "title": "A digital twin in the vault",
      "w": 1600,
      "h": 2400,
-     "kw": "four views one token sts lot ret ibe ree nie van niza joa priya investor faster open hours mostly wants work bank builds tracks tokenized deposits clients don't drift off stablecoins fund manager shared record means fewer paperwork mix-ups cheaper admin regulator computer breaks owns law must say official source rba project acacia final report rbi executive director vasudevan's remarks global fintech fest reported mint sep legal illustrations risks card atom points ofview fourviews theinvestor hours.mostly thebank thefund meansfewer computerbreaks ownswhat thelawmust saythe tokenisthe oficialrecord 2o26 p.vasudevan's card6of"
+     "kw": "a digital twin in the vault what dtcc does its depository holds us stocks and bonds tracks who owns them. new service says held share can get token with same rights. it plans to open this wider, as of oct 2026. limits only registered wallets big firms, for large stocks, etfs (index funds) treasuries. example amara's world she never touches dtcc; her broker might. source: sec no-action letter dtc. amara is made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/tokenization/p07.webp",
      "thumb": "assets/pulse/tokenization/p07-t.webp",
-     "title": "Test labs around the world",
+     "title": "Still a security",
      "w": 1600,
      "h": 2400,
-     "kw": "test labs ound tne world sos yaaa ai baa eee eu dlt distributed ledger technology shared notebook pilot regime lets firms tokenized stocks bonds since mar uk digital securities sandbox run bank england fca financial conduct authority opened sep talelt rbi reserve india official says has trades deposit certificates worth crore billion australia rba tested uses project acacia report source reg dss page executive director vasudevan's remarks reported mint release media card around testlabs theworld deu bythe conductauthority sep30 rbl oficial itspilot oftokenized tested2o reportoutmay18 eureg.2022 bankof dsspage executivedirector p.vasudevan's reportedby release2026-13 card7of8 atom"
+     "kw": "still a security the rule an sec commissioner: tokenized securities are securities. two kinds staff say some tokens come from fund itself, others outside firm. catch those can add risks, like that firm going bust. example amara's check hers comes straight fund's record-keeper. source: commissioner hester peirce, enchanting, but not magical; statement on amara is made up.",
+     "takeaway": "Tokenized securities are still securities, with the same rules."
     },
     {
      "file": "assets/pulse/tokenization/p08.webp",
      "thumb": "assets/pulse/tokenization/p08-t.webp",
-     "title": "What could snap the string",
+     "title": "Can a token be undone?",
      "w": 1600,
      "h": 2400,
-     "kw": "snap string sss gaal fim cle lye weak legal link law doesn't say token asset receipt worth thing lost keys bugs lose login hit software bug fixing hard buyers unusual resell read big change plumbing boring assets first fine source iosco tokenization report nov rbi executive director vasudevan mint sep rba project acacia card risks aweak saytoken fewbuyers ourread boringassets 2o25 2o26 projectacacia card8of8 atom",
-     "takeaway": "The real risk is the legal link: a token is only worth the claim the law says it gives you."
+     "kw": "can a token be undone? picture carved in stone: no undo. b pencil and eraser: fixable. tokens go to the wrong person. which fits amara's fund? guess, then flip. b. fund's filing says its record-keeper fix errors limit transfers. our read: referee stays charge. source: franklin onchain fund prospectus. amara is made up.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/tokenization/p09.webp",
+     "thumb": "assets/pulse/tokenization/p09-t.webp",
+     "title": "Test labs abroad",
+     "w": 1600,
+     "h": 2400,
+     "kw": "test labs abroad singapore its central bank (mas) runs project guardian: banks and fund firms tokenized funds bonds. european union dlt pilot regime eases some rules so venues can (distributed ledger technology). our read amara's takeaway regulators in small steps, not with a switch. source: monetary authority of singapore, guardian; esma, regime. amara is made up.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/tokenization/p10.webp",
+     "thumb": "assets/pulse/tokenization/p10-t.webp",
+     "title": "Amara reads the receipt",
+     "w": 1600,
+     "h": 2400,
+     "kw": "amara reads the receipt read ask: who keeps official record, and can they fix mistakes? do: check what fund holds it safe. watch: fees, lost passwords app hacks. tip: our read: a token changes paperwork, not risk inside. source: sec staff statement on tokenized securities; franklin onchain prospectus; read. is made up.",
+     "takeaway": "Ask who keeps the official record and whether they can fix mistakes."
     }
    ],
    "recap": [
-    "A token is a receipt that points to a real thing; a crypto coin is the thing.",
-    "Safe stuff goes first: tokenized Treasuries, and banks tokenizing deposits.",
-    "Countries are still testing, and the legal link is the big risk."
+    "A token is a new receipt for the same fund share; the money inside doesn't change.",
+    "Big firms are testing it, and regulators in the US, Singapore and the EU move in small steps.",
+    "Before you buy, ask who keeps the official record, can they fix mistakes, and what the fund holds."
    ],
-   "recap_pages": 8,
-   "tagline": "A receipt, not the thing.",
-   "updated": "2026-10-20"
+   "recap_pages": 10,
+   "tagline": "Same fund, new receipt.",
+   "updated": "2026-10-22",
+   "gist_lead": [
+    "A new receipt.",
+    "Big names, small steps.",
+    "Still a security."
+   ],
+   "sources": [
+    {
+     "title": "SEC staff: Statement on Tokenized Securities (Jan 28, 2026)",
+     "url": "https://www.sec.gov/newsroom/speeches-statements/corp-fin-statement-tokenized-securities-012826-statement-tokenized-securities"
+    },
+    {
+     "title": "SEC Commissioner Hester M. Peirce: Enchanting, but Not Magical (Jul 9, 2025)",
+     "url": "https://www.sec.gov/newsroom/speeches-statements/peirce-statement-tokenized-securities-070925"
+    },
+    {
+     "title": "Franklin Templeton Trust prospectus (485BPOS, Jul 27, 2026), SEC EDGAR",
+     "url": "https://www.sec.gov/Archives/edgar/data/1786958/000165558926000970/c485bpos.htm"
+    },
+    {
+     "title": "Franklin Templeton: Benji",
+     "url": "https://digitalassets.franklintempleton.com/benji/"
+    },
+    {
+     "title": "BlackRock USD Institutional Digital Liquidity Fund: Form D/A (Jul 27, 2026), SEC EDGAR",
+     "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=2013810"
+    },
+    {
+     "title": "DTCC: Advances development of new tokenization service (May 4, 2026)",
+     "url": "https://www.dtcc.com/press-releases/2026/dtcc-advances-development-of-new-tokenization-service"
+    },
+    {
+     "title": "DTCC: Turns tokenization into reality (Jul 15, 2026)",
+     "url": "https://www.dtcc.com/press-releases/2026/dtcc-turns-tokenization-into-reality"
+    },
+    {
+     "title": "Monetary Authority of Singapore: Guardian",
+     "url": "https://www.mas.gov.sg/schemes-and-initiatives/project-guardian"
+    },
+    {
+     "title": "ESMA: DLT Pilot Regime",
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime"
+    }
+   ]
   },
   {
    "id": "mortgage-rates",
