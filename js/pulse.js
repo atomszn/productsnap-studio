@@ -389,6 +389,13 @@
     Macro: '<path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>'
   };
   function ico(k, cls) { return '<svg class="' + (cls || "ci") + '" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICO[k] || ICO.All) + '</svg>'; }
+  /* page dots: each has a 44x44 hit area (::after) that overlaps its neighbours on long books, so a tap goes to the dot nearest the finger */
+  function nearestDot(e, i) {
+    if (!e || !e.detail || e.clientX == null) return i; // keyboard activation: the focused dot
+    var best = i, bd = Infinity;
+    [].forEach.call(document.querySelectorAll("#rd-dots .dot"), function (d) { var r = d.getBoundingClientRect(), dx = Math.abs(r.left + r.width / 2 - e.clientX); if (dx < bd) { bd = dx; best = +d.dataset.i; } });
+    return best;
+  }
   var chipFx = null;
   function renderTabs() {
     var t = $("lib-tabs"); t.innerHTML = "";
@@ -733,7 +740,7 @@
     $("rd-more").hidden = true;
     $("rd-count").textContent = end ? "Finished" : P[idx].gist ? "Summary" : idx + " of " + (P.length - 1);
     var dots = $("rd-dots"); dots.innerHTML = ""; dots.classList.toggle("seg", P.length - 1 > 9); // long books: a slim segmented bar, always one row
-    P.forEach(function (q, i) { if (q.gist) return; var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + i + " of " + (P.length - 1)); if (i === idx) d.setAttribute("aria-current", "page"); d.onclick = function () { go(i); }; dots.appendChild(d); }); // one dot per drawn page
+    P.forEach(function (q, i) { if (q.gist) return; var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + i + " of " + (P.length - 1)); if (i === idx) d.setAttribute("aria-current", "page"); d.dataset.i = i; d.onclick = function (e) { go(nearestDot(e, i)); }; dots.appendChild(d); }); // one dot per drawn page
     var bk = $("book"), base = parseFloat(bk.dataset.ar || "0.58"); bk.style.setProperty("--ar", (end || P[idx].gist) && base > 0.75 ? "0.75" : base.toFixed(4)); // wide cards: text pages (summary, end card) get a taller frame so the recap fits
     var on = !end && isSaved(cur.id, idx + 1);
     $("rd-bm").setAttribute("aria-pressed", String(on)); $("rd-bm-lbl").textContent = on ? "Saved" : "Save page"; $("rd-bm").disabled = end;
