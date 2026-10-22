@@ -6,7 +6,7 @@
   "use strict";
   var TOPICS = { AI: "AI", Tech: "Tech", Fintech: "Fintech", Macro: "Macro" };
   var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved", last: "pulse_last", lastX: "pulse_last_x" };
-  var START = [["agent-vocabulary", "Agent Vocabulary"], ["ai-agents", "AI Agents"], ["stablecoin-rails", "Stablecoins"], ["mortgage-rates", "Mortgages"]];
+  var START = [["ai-basics", "AI Basics"], ["ai-agents", "AI Agents"], ["stablecoins", "Stablecoins"], ["mortgage-rates", "Mortgages"]];
   var ICONS = {
     "agent-vocabulary": "M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6",
     "ai-agents": "M7 9h10v8H7zM12 5v4M9.5 12.5h.01M14.5 12.5h.01M10 15h4M5 12h2M17 12h2",
@@ -70,7 +70,8 @@
       try { Object.keys(localStorage).forEach(function (k) { if (k.indexOf(LS.bm) === 0) { var p = ls(k); if (p) s.push({ id: k.slice(LS.bm.length), p: p }); localStorage.removeItem(k); } }); } catch (e) {}
       ls(LS.saved, s);
     }
-    return s.filter(function (x) { return x && find(x.id); });
+    var seenK = {};
+    return s.map(function (x) { var mv = x && moved(x.id); return mv && mv.to ? { id: mv.to, p: 1, t: x.t } : x; }).filter(function (x) { var k = x && x.id + "/" + x.p; if (!x || !find(x.id) || seenK[k]) return false; seenK[k] = 1; return true; });
   }
   function isSaved(id, p) { return saved().some(function (x) { return x.id === id && x.p === p; }); }
   function setSaved(id, p, on) {
@@ -606,6 +607,8 @@
 
   /* ---------- reader ---------- */
   function pages(b) { return [{ gist: true }].concat(b.pages); }
+  /* retired books: old links and saved pages land on the book that replaced them (library.json "moved") */
+  function moved(id) { return lib && lib.moved && lib.moved[id]; }
   function find(id) { return lib.books.filter(function (b) { return b.id === id; })[0]; }
   function nextBook(b) {
     var order = [];
@@ -960,6 +963,12 @@
   function route() {
     if (location.hash === "#topics") { if (cur) close(); if (view !== "topics") { view = "topics"; renderTabs(); renderShelves(); } return; }
     var m = location.hash.match(/^#book\/([a-z0-9-]+)(?:\/(\d+))?/);
+    if (m && moved(m[1])) {
+      var mv = moved(m[1]), to = mv.to && find(mv.to);
+      if (to) { history.replaceState(history.state, "", "#book/" + to.id + "/1"); open(to.id, 1); toast("\u201c" + mv.was + "\u201d is now part of \u201c" + to.title + "\u201d", 3200); }
+      else { history.replaceState(null, "", location.pathname); if (cur) close(); toast("\u201c" + mv.was + "\u201d has been retired for now. It will return in a new version.", 3600); }
+      return;
+    }
     if (m) { if (!open(m[1], +m[2] || 1)) { history.replaceState(null, "", location.pathname); if (cur) close(); toast("That book isn’t on the shelf"); } }
     else if (cur) { var was = cur; withVT($("book"), dstOf(was), function () { hideReader(was); }); }
   }
