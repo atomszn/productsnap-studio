@@ -1941,68 +1941,149 @@
    "id": "two-schools-economics",
    "title": "Two Schools of Economics",
    "topic": "Macro",
-   "blurb": "One recession, two readings of what went wrong.",
+   "blurb": "A factory closes and Grace's café goes quiet. Two schools of economics read the same slump in different ways. Hear both, then decide what you think.",
    "gist": [
-    "Keynesians fix the slump. When spending falls, government or the central bank steps in to lift it, and cools things when they overheat.",
-    "Austrians question the boom. Cheap credit pushes firms to build things people won't end up wanting, and the bust is the cleanup.",
-    "They split on money. Keynesians see the central bank as a tool to steady the economy. Austrians say its money creation sends false signals."
+    "Keynesians focus on the slump: when spending falls, boost it, and ease off when things run hot.",
+    "Austrians look at the boom before: cheap credit can lead firms to build more than people want.",
+    "Both want steady prices and jobs; they differ on how, and real countries mix both."
    ],
    "added": "2026-10-15",
    "pages": [
     {
      "file": "assets/pulse/two-schools-economics/p01.webp",
      "thumb": "assets/pulse/two-schools-economics/p01-t.webp",
-     "title": "What Keynesian and Austrian economics actually focus on",
+     "title": "One town, two maps",
      "w": 1600,
-     "h": 2760,
-     "kw": "economics part keynesian austrian actually focus faa two schools read recession differently point different fixes question one ask slump boom people firms spend jobs income fall cin austrians say cheap borrowed money credit push build things fix government wont end wanting central bank steps boost spending economy overheats bust cleanup cool raising rates taxes arn like sugar rush stalled car crash bill press gas fast ease off stretch shrinks get scarce readings vovsi vitee uys reading customers vanished much built big employer lays moving ended workers shops example tax cuts let shift lose truly want rte public nee even though hurts speed matters cause keynesians won't centrai closed sale temporary projects atom keynes keynesian austrian recession stimulus central bank interest rates inflation savings economics economist boom bust credit",
-     "takeaway": "Keynesians fix the slump. Austrians question the boom."
+     "h": 2400,
+     "kw": "one town, two maps recession a stretch when the economy shrinks and jobs get scarce. keynesian school ideas from john maynard keynes: fight slump by boosting spending. austrian ludwig von mises friedrich hayek: look at boom first. example our grace runs café beside her town's factory, which just closed. source: imf, what is economics?; econlib, of economics. town are made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/two-schools-economics/p02.webp",
      "thumb": "assets/pulse/two-schools-economics/p02-t.webp",
-     "title": "How they treat money, interest rates and government action",
+     "title": "Six words to know",
      "w": 1600,
-     "h": 2760,
-     "kw": "economics part treat money interest rates government action schools care disagree steer whether anyone dial two views austrian osx central bank tool steady economy austrians argue distorts creation easin slumps credit htening send false signals overheats steered set price savers borrowing nudge spending borrowers market fills spendin iscal ina while private delays slump weak clean-up stimulus institution like us federal reserve sets short-term means practice debate reality che matters loan prices rise faster rate moves change galois have savings earn costs returns influenced real policy buy cushion neither explains every loans cost man add debt economists borrow one trusts hand says leave alone keynesian easing tightening overh ats gap fiscal check many trustsa thedial atom keynes keynesian austrian recession stimulus central bank interest rates inflation savings economics economist fiscal loans",
-     "takeaway": "One trusts a steady hand on the dial. The other says leave the dial alone."
+     "h": 2400,
+     "kw": "six words to know demand all the spending by people, firms and government. interest rate yearly price of borrowing. central bank sets short-term rates, like us federal reserve (the fed). fiscal stimulus government or tax cuts boost demand. credit money you borrow pay back. boom bust a rush growth, then sharp fall. source: imf; board; econlib.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/two-schools-economics/p03.webp",
+     "thumb": "assets/pulse/two-schools-economics/p03-t.webp",
+     "title": "The factory goes quiet",
+     "w": 1600,
+     "h": 2400,
+     "kw": "the factory goes quiet closes and grace's regulars stop coming. neighbours cut back too. both schools agree it hurts; they disagree on why what to do. example source: imf; econlib. grace her town are made up.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/two-schools-economics/p04.webp",
+     "thumb": "assets/pulse/two-schools-economics/p04-t.webp",
+     "title": "Grace's café, before and after",
+     "w": 1600,
+     "h": 2400,
+     "kw": "grace's café, before and after workers fill every table at lunch. one customer, many empty chairs. rx week (made up) before: about $4,000 in sales. after: $2,400. she cuts staff hours delays a new oven, so her own spending drops too. source: our example; grace all figures are made up.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/two-schools-economics/p05.webp",
+     "thumb": "assets/pulse/two-schools-economics/p05-t.webp",
+     "title": "Stalled car? Press the gas",
+     "w": 1600,
+     "h": 2400,
+     "kw": "stalled car? press the gas worry keynesians say less spending means income, then even spending. fix government or central bank boosts spending: tax cuts, public projects, lower rates. brake if economy runs hot, raise rates taxes. example in grace's town a new bridge project brings workers, and lunch customers, back. source: j. m. keynes, general theory; imf, what is keynesian economics?. grace made up.",
+     "takeaway": "Keynesians say: when spending falls, boost it."
+    },
+    {
+     "file": "assets/pulse/two-schools-economics/p06.webp",
+     "thumb": "assets/pulse/two-schools-economics/p06-t.webp",
+     "title": "Sugar rush? The crash is the bill",
+     "w": 1600,
+     "h": 2400,
+     "kw": "sugar rush? the crash is bill worry austrians say cheap credit in boom led firms to build more than people wanted. fix let bust clear out mistakes, so workers and money move what want. caution they warn rescues can delay that shift add debt. example grace's town small workshops open old factory sheds. source: f. a. hayek, prices production; econlib, austrian school of economics. grace made up.",
+     "takeaway": "Austrians say: cheap credit in a boom can lead firms to overbuild."
+    },
+    {
+     "file": "assets/pulse/two-schools-economics/p07.webp",
+     "thumb": "assets/pulse/two-schools-economics/p07-t.webp",
+     "title": "Same dial, two views",
+     "w": 1600,
+     "h": 2400,
+     "kw": "same dial, two views the dial fed targets an overnight interest rate: about 4%, as of oct 2026. keynesian view turn dial: down in slumps, up when overheating. austrian rates should come from savers and borrowers, not a dial. our read common ground both want steady prices jobs; they differ on how. source: federal reserve board (h.15); imf; econlib.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/two-schools-economics/p08.webp",
+     "thumb": "assets/pulse/two-schools-economics/p08-t.webp",
+     "title": "Rivals on the roof",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rivals on the roof picture a keynes and hayek argue. b keep watch. in world war ii, where could you find them at night? guess, then flip. b. as story goes, cambridge college roof, watching for fire bombs. had helped rooms there. source: university of cambridge, cam magazine, city refuge; king's archive.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/two-schools-economics/p09.webp",
+     "thumb": "assets/pulse/two-schools-economics/p09-t.webp",
+     "title": "Different towns, different rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "different towns, rules germany its constitution has a debt brake that limits federal borrowing in normal times. japan the bank of kept rates below zero for years to lift spending, then ended that. uk an independent watchdog, office budget responsibility, checks plans. our read grace's takeaway no country runs on one school alone. source: german ministry finance; japan; responsibility. as oct 2026.",
+     "takeaway": null
+    },
+    {
+     "file": "assets/pulse/two-schools-economics/p10.webp",
+     "thumb": "assets/pulse/two-schools-economics/p10-t.webp",
+     "title": "Grace hears both sides",
+     "w": 1600,
+     "h": 2400,
+     "kw": "grace hears both sides hear do: in a slump, ask: is this about spending now, or the boom before? who speaking, and which school do they lean on? watch: interest rates: change what loans cost savings earn. tip: our read: many economists borrow from schools. source: federal reserve board; read. her town are made up.",
+     "takeaway": "In a slump, ask who is speaking and which school they lean on."
     }
    ],
-   "tagline": "Fix the slump, or question the boom",
-   "vol": 1,
+   "tagline": "One closed factory, two readings, and a shared rooftop.",
    "sources": [
     {
-     "title": "IMF Finance & Development: What Is Keynesian Economics? (Sept. 2014)",
+     "title": "IMF Finance & Development: What Is Keynesian Economics? (Sep 2014)",
      "url": "https://www.imf.org/external/pubs/ft/fandd/2014/09/basics.htm"
     },
     {
-     "title": "Econlib: Ch. 10, Alternative Budgetary Rules (functional finance: surpluses to curb inflation, deficits when unemployment appears)",
-     "url": "https://www.econlib.org/book-chapters/chapter-ch-10-alternative-budgetary-rules/"
+     "title": "Econlib Concise Encyclopedia: Austrian School of Economics (Peter J. Boettke)",
+     "url": "https://www.econlib.org/library/Enc/AustrianSchoolofEconomics.html"
     },
     {
-     "title": "Mises Institute: Austrian Business Cycle Theory, Explained",
-     "url": "https://mises.org/mises-wire/austrian-business-cycle-theory-explained"
+     "title": "FRED: Federal funds target range, upper limit (DFEDTARU)",
+     "url": "https://fred.stlouisfed.org/series/DFEDTARU"
     },
     {
-     "title": "The Essential Austrian Economists, ch. 8: Business Cycles (Coyne & Boettke, Fraser Institute)",
-     "url": "https://www.essentialscholars.org/sites/default/files/2023-01/essential-austrian-economics-ch8.pdf"
+     "title": "University of Cambridge, CAM magazine 98: City of refuge",
+     "url": "https://www.alumni.cam.ac.uk/magazine/issue-98/city-of-refuge"
     },
     {
-     "title": "IMF Working Paper WP/02/2: The Austrian Theory of Business Cycles: Old Lessons for Modern Economic Policy?",
-     "url": "https://www.imf.org/external/pubs/ft/wp/2002/wp0202.pdf"
+     "title": "German Federal Ministry of Finance: Germany's Federal Debt Rule (Debt Brake)",
+     "url": "https://www.bundesfinanzministerium.de/Content/EN/Downloads/Public-Finances/germanys-federal-debt-rule.html"
+    },
+    {
+     "title": "Bank of Japan: Changes in the monetary policy framework (Mar 19, 2024)",
+     "url": "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2024/k240319a.pdf"
+    },
+    {
+     "title": "Office for Budget Responsibility: What we do",
+     "url": "https://obr.uk/about-the-obr/what-we-do/"
     }
    ],
    "added_at": "2026-10-15T08:52",
    "gist_lead": [
-    "Keynesians fix the slump.",
-    "Austrians question the boom.",
-    "They split on money."
+    "Fix the slump.",
+    "Question the boom.",
+    "Hear both."
    ],
    "recap": [
-    "Keynesians fix the slump; Austrians question the boom.",
-    "One trusts a steady hand on the dial; the other says leave the dial alone."
+    "Keynesians say boost spending in a slump; Austrians say the boom's cheap credit caused it.",
+    "They split on the central bank's dial: steer it, or let savers and borrowers set rates.",
+    "No country runs on one school alone, so ask who is speaking and which school they lean on."
    ],
-   "recap_pages": 2
+   "recap_pages": 10,
+   "updated": "2026-10-22"
   },
   {
    "id": "fintech-rails",
