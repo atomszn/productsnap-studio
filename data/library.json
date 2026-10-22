@@ -2155,11 +2155,11 @@
    "id": "fintech-rails",
    "title": "Fintech Rails",
    "topic": "Fintech",
-   "blurb": "How money actually moves, from renting a bank to Maya's $20 boba tap, told as a subway map.",
+   "blurb": "Felix buys a $600 bike from a small shop. The same money can travel five different roads: card, ACH, wire, instant transfer or stablecoin. Here's how fast each one is, what it costs, and which one has an undo.",
    "gist": [
-    "Fintech apps that rent a bank's license are now buying banks or getting their own charters, with strings attached.",
-    "Multi-currency and stablecoin cards aim to cut forced currency swaps, but still run on the same card networks.",
-    "A card tap is approved in seconds and settles about a day later; instant bank rails like FedNow, RTP, UPI, Faster Payments and NPP move money in seconds."
+    "A card tap is approved in seconds, but the money follows later, in batches between banks.",
+    "Instant rails like RTP and FedNow move money in seconds, any day, but those payments are final.",
+    "Speed and safety pull in opposite directions: card buyers can dispute charges, instant payers usually can't."
    ],
    "added": "2026-10-15",
    "added_at": "2026-10-15T11:18",
@@ -2167,108 +2167,149 @@
     {
      "file": "assets/pulse/fintech-rails/p01.webp",
      "thumb": "assets/pulse/fintech-rails/p01-t.webp",
-     "title": "Rent a bank or own one?",
+     "title": "Five roads for one bike",
      "w": 1600,
      "h": 2400,
-     "kw": "rent bank one fintech tech company doing money stuff app charter government license launch fast fewer rules landlord sets limits fees see soos att lower costs control capital repairs now job guarantee pays tay baz source occ office comptroller currency corporate decision sep analyst comment banking dive card 10f bankline abank card1of10 atom",
-     "takeaway": "Renting gets you in fast. Owning gets you the keys, and the repair bills."
+     "kw": "five roads for one bike payment rail the system that carries money from bank to another. settlement moment truly lands and cannot bounce. example our felix buys a $600 used small shop. source: federal reserve financial services; nacha; clearing house. shop are made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/fintech-rails/p02.webp",
      "thumb": "assets/pulse/fintech-rails/p02-t.webp",
-     "title": "Who is moving in, how far along",
+     "title": "Six rails to know",
      "w": 1600,
      "h": 2400,
-     "kw": "moving far along tty rey sie sss file fly ong sai lay jie eoliesal wight pas mer cosa ete chime buying stride bank deal agreed sept waiting regulators revolut preliminary occ office comptroller currency us licenser open yet nubank early stablecoin firms mixed trust charters hold reserves make loans circle's opened july others still digital token built stay worth step one business source wire sec 8-k sep cd1390 ca1362 jan dec circle 10-q card bankline notopenforbusiness 2026.revolut dec2025 circle10-q atom"
+     "kw": "six rails to know card network visa or mastercard: links your bank the shop's. ach automated clearing house: transfers sent in batches. wire fedwire: one payment at a time via federal reserve. rtp real-time payments: an instant owned by big banks. fednow reserve's own service. stablecoin crypto token built hold $1. source: visa; nacha; reserve financial services; house.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/fintech-rails/p03.webp",
      "thumb": "assets/pulse/fintech-rails/p03-t.webp",
-     "title": "Maria pays for dinner in Paris",
+     "title": "Felix taps his card",
      "w": 1600,
      "h": 2400,
-     "kw": "maria pays dinner paris foreign exchange markup extra fee swapping currencies today two swaps bites maria's euros dollars tolls one bridge jae s77 faa sis sok qe sipgis emerging stay forced swap spend like local rolls las mars rirery ans get ete source plasma stripe release globenewswire oct wise revolut already let held currency directly help pages example card stablecoinline 2026.wise card3of10 atom",
-     "takeaway": "Same card at the till. Fewer swaps behind it."
+     "kw": "felix taps his card approved in seconds, so it feels done. but approval is a promise. the money follows later, batches between banks. example source: visa, how visa transaction works. made up.",
+     "takeaway": "A card approval is a promise; the money follows later."
     },
     {
      "file": "assets/pulse/fintech-rails/p04.webp",
      "thumb": "assets/pulse/fintech-rails/p04-t.webp",
-     "title": "What changes, what stays the same",
+     "title": "Same $600, five arrivals",
      "w": 1600,
      "h": 2400,
-     "kw": "changes stays stablecoin digital token built stay worth ray ket kae wea gest eee apps offer stablecoin-backed balances stripe's card rails fewer forced swaps shops take like always still runs visa partner bank stands announced oct dollars euros brazilian reals mexican colombian pesos countries now planned reality check early days better spenders yet source plasma stripe release globenewswire usd brl eur mxn cop bridge blog apr prepaid cards issued lead stablecoinline whereitstands oct15 card4of10 atom"
+     "kw": "same $600, five arrivals before card: approved now, paid later. after instant: in seconds, even sunday. rx the shop's $600 (made up) credit $585 a made-up fee, day or more ach: next business day. wire: right away, but weekdays only. rtp fednow: any stablecoin: 600 tokens, then swapped to dollars. source: clearing house; nacha; federal reserve financial services. all figures made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/fintech-rails/p05.webp",
      "thumb": "assets/pulse/fintech-rails/p05-t.webp",
-     "title": "Banks: more fintechs want in",
+     "title": "What the shop weighs",
      "w": 1600,
      "h": 2400,
-     "kw": "banks fintechs vib craic wss seneoe line got long bank-license applications approvals jan oct year many ways buy bank chime start one revolut get narrow charter mission lane credit-card partner lose business guess small keep renting asked least 95m skeptics icba independent community bankers america sued occ us licenser source novo chartering page years arithmetic cd1390 cd1394 sep release card outlook fact want manyways losebusiness lndependent 2026.icba oct2 card5 atom",
-     "outlook": true
+     "kw": "what the shop weighs card fees us rules cap big banks' debit fees: about 52¢ on $600. credit aren't capped. disputes buyers can challenge charges, so a sale come undone. instant cash payments land final, pay bills now. example at bike it gives small discount for bank transfers. source: federal reserve, regulation ii; cfpb; clearing house. felix is made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/fintech-rails/p06.webp",
      "thumb": "assets/pulse/fintech-rails/p06-t.webp",
-     "title": "Cards: the networks are building it too",
+     "title": "How big, how fast",
      "w": 1600,
      "h": 2400,
-     "kw": "cards networks building beg elle daa ema ome gee vis elie axes sse pea pom indie oer see sty glp raw ges dvs big mastercard bought bvnk closed aug visa stablecoin card programs company figure spreading fast stripe's countries aimed end multi-currency one plasma now rules due genius act us law takes effect jan skeptics bank italy test found all-in costs nearly bis international settlements calls uneven source oct release treasury sbo605 stripe blog paper jul annual economic report outlook notfact o.3% bls sb0605 2026.bisannual report2026 card6of10 atom",
-     "takeaway": "Announced is not arrived. Watch the dates.",
-     "outlook": true
+     "kw": "how big, fast wire fedwire runs most of the day on business days, not weekends; once sent, it is final. ach same settles in a few set windows each day. instant rtp and fednow run around clock with high limits, as oct 2026. example felix's bank can him lower limit. source: federal reserve financial services; nacha; clearing house. felix made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/fintech-rails/p07.webp",
      "thumb": "assets/pulse/fintech-rails/p07-t.webp",
-     "title": "Maya's $20 boba, stop by stop",
+     "title": "A dollar on a blockchain",
      "w": 1600,
      "h": 2400,
-     "kw": "maya boba stop cash checks carry bank wait sloow-mo money tap buys aaa tas bree vea psi fb2 bra ail piet yas hes paar czz aman lou eu ait iam eis mee ice q-o reader processor card herbank shop network seconds faster pearls sink day later settles actually moves next minus fees source philadelphia fed settlement tutorial us treasury acquiring service next-day funds oct example cardline maya's slow-mo yesinseconds 2026.maya 7of atom",
-     "takeaway": "A card tap gets approved in seconds, but the shop usually gets the money about a day later."
+     "kw": "a dollar on blockchain what it is token meant to stay at $1, sent (a shared record). the rule 2025 us law, genius act, requires $1 of reserves per coin, in cash or short treasury bills. check issuers must publish their monthly. example for shop needs crypto wallet, then swap dollars. source: act (public law 119-27). felix made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/fintech-rails/p08.webp",
      "thumb": "assets/pulse/fintech-rails/p08-t.webp",
-     "title": "Bank-to-bank in seconds, around the world",
+     "title": "Which road has an undo?",
      "w": 1600,
      "h": 2400,
-     "kw": "bank-to-bank seconds around world fae seed nee cpp ati cia liss chi sed ome sos pte breit qiat sse ail fen wee pee cas tee dee us aos los nse las eno ach automated clearing house paychecks bills mostly within banking day fednow rtp real-time payments run fed central bank india upi unified interface scan code done billion sep uk faster night since australia npp new platform pay phone number email payid source nacha frb services jul tch rules npci statistics pay.uk data card fps upilines payld servicesfednow tchrtp npciupi sep2026 2025data jul31 card8of10 atom"
+     "kw": "which road has an undo? picture a credit card charge. b instant bank transfer. the bike never shows up. payment can felix dispute? guess, then flip. a. buyers dispute in writing within 60 days of bill. transfers are final. our read: speed and safety pull opposite directions. source: cfpb; clearing house. is made",
+     "takeaway": "Credit card charges can be disputed; instant transfers are final."
     },
     {
      "file": "assets/pulse/fintech-rails/p09.webp",
      "thumb": "assets/pulse/fintech-rails/p09-t.webp",
-     "title": "What it means for you (and everyone else)",
+     "title": "One fast road for all",
      "w": 1600,
      "h": 2400,
-     "kw": "means everyone else itl vig cas jane spe fen ane instant usually final check name hit send shop owners card seconds cash day later minus fees agents helpers visa mastercard spend limits plus proof said government uk eligible scam victims get refunds read speed mostly solved trust next source apr agent pay stripe mar psr payment systems regulator reimbursement oct lines e85 9of atom",
-     "takeaway": "Before you send money instantly, check who you're paying."
+     "kw": "one fast road for all india upi (unified payments interface), run by the national corporation of india, pays phone or qr code, 24/7. brazil pix, brazil's central bank, is free people paying sending money. our read felix's takeaway and each built shared road; us has several. source: npci; banco do brasil (resolution bcb 19). felix made up.",
+     "takeaway": null
     },
     {
      "file": "assets/pulse/fintech-rails/p10.webp",
      "thumb": "assets/pulse/fintech-rails/p10-t.webp",
-     "title": "Recap: the whole ride",
+     "title": "Felix picks a road",
      "w": 1600,
      "h": 2400,
-     "kw": "recap whole ride ees iss inl afl lui vam jas net ok vws sreaek iee see lifes lmm bes bei rent fintechs bank start fast big ones now want maria paris new cards aim cut currency swaps card networks maya's tap seconds money day later lanes instant payments move fednow us federal reserve's service india's upi unified interface uk faster australia's npp platform watch dates genius act stablecoin law takes effect jan source occ plasma stripe philadelphia fed frb services npci pay.uk treasury oct lines mariain fastlanes upl watchthe npcl card10of10 atom"
+     "kw": "felix picks a road pick your ask: can i undo this if something goes wrong? do: check the name before you send an instant payment. watch: anyone who says must pay by wire, crypto, gift card or app is probably scammer. tip: our read: fast great when trust pay. source: ftc; cfpb; read. made up.",
+     "takeaway": "Anyone who says you must pay by wire, crypto, gift card or app is probably a scammer."
     }
    ],
    "recap": [
-    "Fintechs rent a bank to start fast; big ones now want to own one.",
-    "New cards aim to cut currency swaps, on the same card networks.",
-    "A tap is approved in seconds; instant bank rails settle in seconds too.",
-    "Before you send money instantly, check who you're paying."
+    "A payment rail carries money between banks; card, ACH, wire, instant and stablecoin are different roads.",
+    "Cards feel instant but settle later; RTP and FedNow pay in seconds and can't be undone.",
+    "Before you pay fast, check who you're paying, and never pay someone who insists on wire, crypto or gift cards."
    ],
    "recap_pages": 10,
-   "tagline": "Tap in seconds. Settle tomorrow. Unless you take the fast lane.",
+   "tagline": "Five roads for one $600 bike.",
    "vol": 1,
-   "updated": "2026-10-19",
-   "palette": "transit map: paper #F4F1EA, navy #14213D panels and text, line colors Card #E63946, ACH #2A9D8F, UPI #F4A261, Faster Payments #457B9D, Stablecoin #8E44AD",
-   "layout": "illustrated sketch scenes (ink + watercolor) with transit-line accents: line badge top-left, colored accent bars, navy decoder panels; takeaway lives in the page caption",
-   "format": "phone cards, about 2 ideas per card, portrait 1600x2400 (2:3)",
+   "updated": "2026-10-22",
    "gist_lead": [
-    "Fintech apps that rent a bank's license",
-    "Multi-currency and stablecoin cards",
-    "A card tap is approved in seconds"
+    "Approved isn't paid.",
+    "Instant is final.",
+    "Pick your road."
+   ],
+   "sources": [
+    {
+     "title": "eCFR: 12 CFR 235.3 and 235.4 (Regulation II debit interchange cap)",
+     "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-235"
+    },
+    {
+     "title": "Federal Reserve Financial Services: Fedwire Funds Service operating hours",
+     "url": "https://www.frbservices.org/resources/financial-services/wires/operating-hours.html"
+    },
+    {
+     "title": "Nacha: Increasing the Same Day ACH dollar limit ($1 million)",
+     "url": "https://www.nacha.org/million"
+    },
+    {
+     "title": "The Clearing House: RTP network",
+     "url": "https://www.theclearinghouse.org/payment-systems/rtp"
+    },
+    {
+     "title": "FRFS: FedNow Service will raise transaction limit to $10 million (Sep 9, 2025)",
+     "url": "https://www.frbservices.org/news/press-releases/090525-fednow-transaction-limit-increase"
+    },
+    {
+     "title": "GENIUS Act, Public Law 119-27 (govinfo)",
+     "url": "https://www.govinfo.gov/content/pkg/PLAW-119publ27/html/PLAW-119publ27.htm"
+    },
+    {
+     "title": "CFPB: How do I dispute a charge on my credit card bill?",
+     "url": "https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-a-charge-on-my-credit-card-bill-en-61/"
+    },
+    {
+     "title": "FTC: A way to spot scams: how someone asks you to pay (Jul 22, 2026)",
+     "url": "https://consumer.ftc.gov/consumer-alerts/2026/07/way-spot-scams-how-someone-asks-you-pay"
+    },
+    {
+     "title": "NPCI: UPI",
+     "url": "https://www.npci.org.in/product/upi"
+    },
+    {
+     "title": "Banco Central do Brasil: Pix",
+     "url": "https://www.bcb.gov.br/en/financialstability/pix_en"
+    }
    ]
   },
   {
