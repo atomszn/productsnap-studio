@@ -2957,6 +2957,120 @@
     "Source: Mistral AI, Mistral Small 3 model card on Hugging Face; Anthropic Privacy Center; Open Source Initiative, Open Source AI Definition 1.0. Rosa and her bakery are made up.",
     "card 10 of 10"
    ]
+  ],
+  "ai-shopping": [
+   [
+    "When AI does the shopping",
+    "Shopping agent",
+    "An AI (artificial intelligence) helper that finds and buys things for you.",
+    "Checkout",
+    "The step where you pay.",
+    "Merchant",
+    "The store that sells and ships it.",
+    "Our example",
+    "Jonah wants rain boots for $60 or less.",
+    "Source: Google Shopping Help and Google blog (agentic checkout). Jonah, the shop and all prices are made up.",
+    "card 1 of 10"
+   ],
+   [
+    "Shopping words",
+    "Agentic checkout",
+    "The AI completes the purchase for you.",
+    "Product feed",
+    "A store's list of items and prices for AI.",
+    "Store's own checkout",
+    "You pay on the store's site or app.",
+    "Dispute",
+    "Asking your card company to fix a charge.",
+    "Source: Google Shopping Help and Google blog (agentic checkout); OpenAI merchants page (checked Oct 21, 2026); FTC (Federal Trade Commission) credit card disputes guide.",
+    "card 2 of 10"
+   ],
+   [
+    "Set a price, then wait",
+    "Jonah tracks a pair of rain boots and sets a $60 target. Google says when the price drops it notifies him, and he can tap \"Buy for me\". It always asks him to confirm first.",
+    "Example",
+    "Source: Google Shopping Help and Google blog (agentic checkout). Jonah, the shop and all prices are made up.",
+    "card 3 of 10"
+   ],
+   [
+    "Before and after the agent",
+    "Before Jonah checks prices every night.",
+    "After He approves once; the agent buys.",
+    "Rx",
+    "Google says its agent:",
+    "Confirms price, payment and address with Jonah.",
+    "Buys on the store's own website.",
+    "Pays with Google Pay.",
+    "Source: Google Shopping Help and Google blog (agentic checkout). Jonah, the shop and all prices are made up.",
+    "card 4 of 10"
+   ],
+   [
+    "The shop still sells it",
+    "Store's site",
+    "Google says the agent buys from the merchant's website.",
+    "Store's checkout",
+    "OpenAI says ChatGPT purchases finish on the store's site or app.",
+    "Example",
+    "Jonah's boots",
+    "The shop ships them and handles returns.",
+    "Source: Google Shopping Help and Google blog (agentic checkout); OpenAI merchants page (checked Oct 21, 2026). Jonah, the shop and all prices are made up.",
+    "card 5 of 10"
+   ],
+   [
+    "Where AI fits in",
+    "OpenAI",
+    "OpenAI says it is moving away from in-chat checkout and focusing on helping people find products.",
+    "Fees",
+    "OpenAI says there are no fees on purchases that start in ChatGPT.",
+    "Google",
+    "Google says agentic checkout works with eligible US stores.",
+    "Source: As of Oct 21, 2026. OpenAI merchants page (checked Oct 21, 2026); Google Shopping Help and Google blog (agentic checkout).",
+    "card 6 of 10"
+   ],
+   [
+    "Charged twice. Now what?",
+    "Picture A Two boxes, two charges.",
+    "Picture B Jonah holds a receipt.",
+    "Can Jonah get the extra charge back? Guess first: the answer below is upside down.",
+    "Yes. US law lets you dispute credit card billing errors within 60 days of the bill.",
+    "Tilt your head to read the answer.",
+    "Source: FTC (Federal Trade Commission) credit card disputes guide (Fair Credit Billing Act, credit cards only; debit cards follow different rules).",
+    "card 7 of 10"
+   ],
+   [
+    "Follow the $60",
+    "Jonah pays $60",
+    "On his card (made-up example).",
+    "Card fee",
+    "The payment company keeps a small cut: say $2 (made up).",
+    "Store keeps $58",
+    "Then ships the boots (made up).",
+    "If it goes wrong",
+    "Returns go through the store; billing errors through the card.",
+    "Source: Made-up figures. FTC (Federal Trade Commission) credit card disputes guide; OpenAI merchants page (checked Oct 21, 2026). Jonah, the shop and all prices are made up.",
+    "card 8 of 10"
+   ],
+   [
+    "Who sets the rules",
+    "Credit cards",
+    "Dispute errors within 60 days of the bill; $50 cap on unauthorized charges.",
+    "US debit cards",
+    "Different rules: what you lose depends on how fast you report it.",
+    "EU (European Union)",
+    "Online buyers usually get 14 days to change their mind.",
+    "Source: As of Oct 2026. Fair Credit Billing Act; FTC (Federal Trade Commission) credit card disputes guide; FTC lost or stolen cards guide; Your Europe returns guide. Jonah, the shop and all prices are made up.",
+    "card 9 of 10"
+   ],
+   [
+    "Clip and keep",
+    "COUPON: SHOP SMART",
+    "DO: Set a price limit and check every confirmation.",
+    "ASK: Whose checkout is this: the store's or the AI's?",
+    "SKIP: Don't save card details where you can't review purchases.",
+    "TIP: Our read: keep receipts; returns start with the store.",
+    "Source: Google Shopping Help and Google blog (agentic checkout); OpenAI merchants page (checked Oct 21, 2026); FTC (Federal Trade Commission) credit card disputes guide. Jonah, the shop and all prices are made up.",
+    "card 10 of 10"
+   ]
   ]
  }
 }

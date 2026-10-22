@@ -1879,6 +1879,112 @@
    "tagline": "Read the licence; know where your data goes."
   },
   {
+   "id": "ai-shopping",
+   "title": "When AI Does the Shopping",
+   "topic": "AI",
+   "blurb": "Jonah lets an AI watch the price of rain boots and buy them for him. Then he gets charged twice. Who sells, who pays, and how you get your money back.",
+   "gist": [
+    "A shopping agent can watch prices and buy only after you confirm.",
+    "The AI shops; the store still sells.",
+    "Keep your receipts and know your dispute window."
+   ],
+   "added": "2026-10-21",
+   "added_at": "2026-10-21T20:41",
+   "pages": [
+    {
+     "file": "assets/pulse/ai-shopping/p01.webp",
+     "thumb": "assets/pulse/ai-shopping/p01-t.webp",
+     "title": "When AI does the shopping",
+     "w": 1600,
+     "h": 2400,
+     "kw": "picture map shopping uum agent artificial intelligence helper finds buys things checkout step pay merchant store sells ships example jonah wants rain boots source google help blog agentic shop prices made card aldoes ourexample atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p02.webp",
+     "thumb": "assets/pulse/ai-shopping/p02-t.webp",
+     "title": "Shopping words",
+     "w": 1600,
+     "h": 2400,
+     "kw": "key words shopping cet agentic checkout product feed completes purchase store's list items prices guth ral dispute pay site asking card company app fix charge source google help blog openal merchants page checked oct ftc federal trade commission credit disputes guide aaa daa vasa vzv keywords shoppingwords agenticcheckout store'sowncheckout of10 atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p03.webp",
+     "thumb": "assets/pulse/ai-shopping/p03-t.webp",
+     "title": "Set a price, then wait",
+     "w": 1600,
+     "h": 2400,
+     "kw": "iin buyer's side set price wait xample jonah tracks pair rain boots sets target google says drops notifies him tap buy always asks confirm first source shopping help blog agentic checkout shop prices made card thebuyer'sside example card3 atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p04.webp",
+     "thumb": "assets/pulse/ai-shopping/p04-t.webp",
+     "title": "Before and after the agent",
+     "w": 1600,
+     "h": 2400,
+     "kw": "one item end agent jonah checks prices every approves night buys ess google says confirms price payment address store's website pays pay source shopping help blog agentic checkout shop made card oneitem card4of10 atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p05.webp",
+     "thumb": "assets/pulse/ai-shopping/p05-t.webp",
+     "title": "The shop still sells it",
+     "w": 1600,
+     "h": 2400,
+     "kw": "store's side shop still sells ene site google says agent buys merchant's website checkout openal chatgpt purchases finish app jonah's boots ships handles returns poles shopping help alee ecenic merchants page checked oct jonah prices made card jonah'sboots example source blog agentic atom",
+     "takeaway": "Stores still sell, ship and handle returns."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p06.webp",
+     "thumb": "assets/pulse/ai-shopping/p06-t.webp",
+     "title": "Where AI fits in",
+     "w": 1600,
+     "h": 2400,
+     "kw": "companies side fits vvw openai openal says moving away in-chat checkout focusing helping people find products fees purchases start chatgpt google agentic works eligible us stores source oct merchants page checked shopping help blog card theaicompanies'side wherealfitsin atom",
+     "takeaway": "OpenAI says no fees on purchases that start in ChatGPT (as of Oct 21, 2026)."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p07.webp",
+     "thumb": "assets/pulse/ai-shopping/p07-t.webp",
+     "title": "Charged twice. Now what?",
+     "w": 1600,
+     "h": 2400,
+     "kw": "big reveal charged twice now ai picture two boxes charges jonah holds receipt get extra gharge back guess first answer below upside saep uiywm sjoiid sui paed 1ip a3yndsip noa s2a tilt head read source ftc federal trade commission credit card disputes sulde fair billing act cards debit follow different rules getthe chargeback guessfirst within days bill errors us law lets dispute guide atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p08.webp",
+     "thumb": "assets/pulse/ai-shopping/p08-t.webp",
+     "title": "Follow the $60",
+     "w": 1600,
+     "h": 2400,
+     "kw": "pays follow lhe sek vast e'e jonah card made-up example fee payment company keeps small cut say made store ships boots goes wrong returns through billing errors source figures ftc federal trade commission credit disputes guide openal merchants page checked oct shop prices aaa daa s60 jonahpayss60 cardfee storekeepss58 ifitgoeswrong atom"
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p09.webp",
+     "thumb": "assets/pulse/ai-shopping/p09-t.webp",
+     "title": "Who sets the rules",
+     "w": 1600,
+     "h": 2400,
+     "kw": "rules sets credit cards dispute errors within days bill cap unauthorized charges us debit different lose depends fast report eu european union online buyers usually get change mind source oct fair billing act ftc federal trade commission card disputes guide lost stolen suide europe returns jonah shop prices made ai aaa daa esa vzv creditcards usdebitcards ceuropean unioni card9of10 atom",
+     "takeaway": "US card billing errors can be disputed within 60 days of the bill; EU buyers usually get 14 days to withdraw."
+    },
+    {
+     "file": "assets/pulse/ai-shopping/p10.webp",
+     "thumb": "assets/pulse/ai-shopping/p10-t.webp",
+     "title": "Clip and keep",
+     "w": 1600,
+     "h": 2400,
+     "kw": "means clip keep coupon shop smart skip openal merchants page checked oct ftc federal trade commission credit card disputes guide jonah prices made shopsmart set price limit check every confirmation ask whose checkout store's al's don't save details can't review purchases read receipts returns start tip store source google shopping help blog agentic card10 of10 atom"
+    }
+   ],
+   "recap": [
+    "When AI shops.",
+    "Set a price, then wait.",
+    "Charged twice.",
+    "Who sets the rules."
+   ],
+   "recap_pages": 10,
+   "tagline": "Always confirm the buy; know your 60 days."
+  },
+  {
    "id": "tokenization",
    "title": "Tokenization",
    "topic": "Fintech",
