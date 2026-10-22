@@ -1534,9 +1534,9 @@
    "tagline": "Same fund, new receipt.",
    "updated": "2026-10-22",
    "gist_lead": [
-    "A new receipt.",
-    "Big names, small steps.",
-    "Still a security."
+    "Tokenizing a fund changes how ownership is recorded",
+    "Big firms like BlackRock, Franklin Templeton and DTCC are trying it",
+    "A tokenized security is still a security"
    ],
    "sources": [
     {
@@ -1721,9 +1721,9 @@
     }
    ],
    "gist_lead": [
-    "Investors set your rate.",
-    "Watch the 10-year.",
-    "Shop three offers."
+    "A mortgage rate is set by investors",
+    "Mortgage rates tend to move with the 10-year",
+    "Get at least three written offers"
    ],
    "recap": [
     "Lenders sell home loans to investors, so investors' demands set Diego's rate.",
@@ -1949,9 +1949,9 @@
    "tagline": "Two rulers, one canary, and a trip to Japan.",
    "updated": "2026-10-22",
    "gist_lead": [
-    "Two rulers.",
-    "Money follows rates.",
-    "Watch the yen."
+    "A dollar can look strong against other money",
+    "Money tends to move toward higher interest rates",
+    "A sudden jump in the yen"
    ],
    "sources": [
     {
@@ -2120,9 +2120,9 @@
    ],
    "added_at": "2026-10-15T08:52",
    "gist_lead": [
-    "Fix the slump.",
-    "Question the boom.",
-    "Hear both."
+    "Keynesians focus on the slump",
+    "Austrians look at the boom before",
+    "Both want steady prices and jobs"
    ],
    "recap": [
     "Keynesians say boost spending in a slump; Austrians say the boom's cheap credit caused it.",
@@ -2246,9 +2246,9 @@
    "vol": 1,
    "updated": "2026-10-22",
    "gist_lead": [
-    "Approved isn't paid.",
-    "Instant is final.",
-    "Pick your road."
+    "A card tap is approved in seconds, but the money follows later",
+    "Instant rails like RTP and FedNow move money in seconds",
+    "Speed and safety pull in opposite directions"
    ],
    "sources": [
     {
@@ -2390,7 +2390,12 @@
    "palette": "comic strip: cream #FFF7E8 base, navy ink #1B2A4A, coral #D64E40, mint #1E8264, butter #F2C14E, mustard #A06900, plum #783C78",
    "layout": "bold ink + halftone comic panels with black frames and navy drop shadows, yellow caption-box badge top-left, starburst headings, halftone dot strip bottom edge; takeaways live in the page caption",
    "format": "phone cards, portrait 1600x2400 (2:3), 8 cards",
-   "updated": "2026-10-22"
+   "updated": "2026-10-22",
+   "gist_lead": [
+    "A stablecoin is a digital claim ticket worth $1",
+    "The interest on that backing goes to the issuer",
+    "It is fast and works 24/7, but it is not a bank account"
+   ]
   },
   {
    "id": "inflation",
@@ -2498,7 +2503,12 @@
    "updated": "2026-10-22",
    "palette": "receipt cream paper (one shade per card), tomato red and navy ink, mint highlighter",
    "layout": "till receipt: numbered vertical flow with sketch icons and mint arrows, hero sketch on cards 1 and 9, real-data chart on card 3; takeaway lives in the page caption",
-   "format": "phone cards, 2 ideas per card, numbered vertical flow, portrait 1600x2400 (2:3)"
+   "format": "phone cards, 2 ideas per card, numbered vertical flow, portrait 1600x2400 (2:3)",
+   "gist_lead": [
+    "Inflation means the same money buys less",
+    "The 2021-22 spike had several causes stacked together",
+    "Inflation quietly moves buying power"
+   ]
   }
  ],
  "moved": {
