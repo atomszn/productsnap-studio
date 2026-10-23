@@ -31,7 +31,8 @@
 .lib-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:36px 0 8px}
 .lib-tabs,.topictabs{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .viewtog{display:flex;gap:4px;margin-left:8px;padding-left:12px;border-left:1.5px solid var(--ink-faded,rgba(0,0,0,.2))}
-.lib-new{font:600 .82rem var(--body);color:#fff;background:var(--new);border-radius:999px;padding:5px 12px}
+.lib-new{font:600 .82rem var(--body);color:#fff;background:#bf4579;border-radius:999px;padding:5px 12px} /* deeper shade of the New pink so white text is 4.8:1 */
+[data-theme="dark"] .lib-new{background:var(--new);color:#1c1916} /* dark mode: same pink, dark text 7.5:1 */
 .lib-loading{font-family:var(--hand-2);color:var(--ink-soft);padding:40px 0}
 
 .shelf{margin-top:28px}
@@ -131,6 +132,8 @@ body.reading{overflow:hidden}
 .dot{width:44px;height:44px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
 .dot::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--ink-faded,rgba(0,0,0,.25));transition:transform .2s}
 .dot.on::before{background:var(--tc);transform:scale(1.35)}
+.dot{position:relative}
+.dot::after{content:"";position:absolute;left:50%;top:50%;width:max(44px,100%);height:max(44px,100%);translate:-50% -50%} /* invisible 44px hit area; overlapping taps resolve to the nearest dot (nearestDot) */
 .zoom{position:fixed;inset:0;z-index:300;background:rgba(15,14,12,.92);overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:20px;cursor:zoom-out}
 .zoom[hidden]{display:none}
 .zoom img{max-width:min(100%,1000px);height:auto;cursor:zoom-in;border-radius:4px}
@@ -780,6 +783,7 @@ body.reading .totop{display:none}
   .rd-foot{position:relative}
   .rd-foot.has-nav .rd-countrow,.rd-foot.has-nav .rd-dots{padding-left:58px;padding-right:58px;box-sizing:border-box;align-self:stretch}
   .rd-foot.has-nav>.rd-nav{position:absolute;bottom:max(2px,env(safe-area-inset-bottom));top:auto;margin:0;width:44px;height:44px;box-shadow:none;background:var(--card)}
+  .rd-foot.has-nav>.rd-nav{z-index:2} /* above the dots' 44px hit areas */
   .rd-foot.has-nav>.rd-prev{left:8px}.rd-foot.has-nav>.rd-next{right:8px}
   .rd-foot.has-nav>.rd-nav:disabled{opacity:.25;pointer-events:none}
 }
