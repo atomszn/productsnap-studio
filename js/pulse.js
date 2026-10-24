@@ -523,7 +523,7 @@
       return { s: s, r: r, sc: sc, last: last, idx: idx, right: right, spare: spare, slug: (s.className.match(/\bt-([\w-]+)/) || [])[1] };
     }).filter(Boolean);
     /* the framed quote: at most one per page, on a shelf with room, rotating by date among the roomiest; a second only on the bottom shelf with lots of room, far from the first */
-    var C = info.filter(function (x) { return x.spare >= 280 && QUOTES[x.slug] && (x.slug !== "ai" || !phone); }).sort(function (a, b) { return b.spare - a.spare; });
+    var C = info.filter(function (x) { return x.spare >= (phone ? 120 : 280) && QUOTES[x.slug] && (x.slug !== "ai" || !phone); }).sort(function (a, b) { return b.spare - a.spare; });
     var Q = [], pl = 1;
     if (C.length) {
       var pool = C.slice(0, Math.max(1, Math.ceil(C.length / 2))); pl = pool.length; var q1 = pool[day % pool.length], L = info[info.length - 1]; Q.push(q1);
@@ -539,15 +539,19 @@
       box.style.top = (x.sc.getBoundingClientRect().top - rr.top) + "px";
       box.appendChild(prop("end"));
       if (x.spare >= 130 && TOPIC_PROP[x.slug] && (x.slug !== "ai" || !phone)) box.appendChild(prop(TOPIC_PROP[x.slug]));
+      var frame = null, big = Q.indexOf(x) >= 0 && x.spare >= 280;
       if (Q.indexOf(x) >= 0) {
-        var lines = QUOTES[x.slug], f = el("span", "pr-quote"); f.innerHTML = PROP.pin.replace("<svg ", '<svg fill="none" stroke="currentColor" focusable="false" ');
-        var qt = el("span"); lines[(Math.floor(day / pl) + x.idx) % lines.length].split(". ").forEach(function (t, i, A) { qt.appendChild(el("b", "", t + (i < A.length - 1 ? "." : ""))); }); f.appendChild(qt); box.appendChild(f);
+        var lines = QUOTES[x.slug]; frame = el("span", "pr-quote" + (big ? "" : " sm")); frame.innerHTML = PROP.pin.replace("<svg ", '<svg fill="none" stroke="currentColor" focusable="false" ');
+        var qt = el("span"); lines[(Math.floor(day / pl) + x.idx) % lines.length].split(". ").forEach(function (t, i, A) { qt.appendChild(el("b", "", t + (i < A.length - 1 ? "." : ""))); }); frame.appendChild(qt);
+        if (big) box.appendChild(frame);
       }
       if (x.spare >= 420) box.appendChild(prop("plant"));
       if (x.spare >= 560 && Q.indexOf(x) < 0) box.appendChild(prop(x.idx % 2 ? "cup" : "stack"));
       x.r.appendChild(box);
       while (box.lastChild && box.scrollWidth > box.clientWidth + 1) box.removeChild(box.lastChild); /* never crowd: drop from the end until it fits */
       if (!box.firstChild) { box.remove(); x.last.classList.remove("is-lean-left", "is-lean-right"); }
+      /* narrow screens: a compact frame hangs on the wall above the props (out of the flow, so it never pushes the bookend or prop) */
+      if (frame && !big && box.parentNode) { box.appendChild(frame); var fr = frame.lastChild.getBoundingClientRect(), bx = box.getBoundingClientRect(); if (fr.left < bx.left || fr.right > bx.right || frame.offsetTop + frame.offsetHeight > box.clientHeight - 112) frame.remove(); }
     });
   }
   var propT = 0; function fitPropsSoon() { cancelAnimationFrame(propT); propT = requestAnimationFrame(fitProps); }
