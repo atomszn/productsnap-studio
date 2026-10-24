@@ -346,13 +346,6 @@ body.page-pulse{--paper:#f3efe7;--paper-2:#ece6da;--card:#fbf9f4;background:#f3e
 .topictabs .chip[data-topic="All"][aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .topictabs .chip[aria-pressed="true"] .ci,.topictabs .chip[aria-pressed="true"] .cn{color:inherit;opacity:.85}
 [data-theme="dark"] .topictabs .chip[aria-pressed="true"]:not([data-topic="All"]){color:#1c1916}
-/* shelf decor: bookend, lying stack, potted plant — sketch strokes */
-.sp-decor{grid-column:span 3;justify-self:end;align-self:end;margin-bottom:var(--plank-h);color:var(--ink-soft);pointer-events:none;line-height:0}
-.sp-decor svg{display:block;width:150px;height:120px}
-.dc-end{fill:#8d8a80}.dc-b1{fill:#b0484a}.dc-b2{fill:#d9b65c}.dc-b3{fill:#4b4a8a}.dc-pot{fill:#c46a45}.dc-leaf{fill:#5f8a52}
-[data-theme="dark"] .sp-decor{color:#d8cdb9}
-[data-theme="dark"] .dc-end{fill:#5e5a52}[data-theme="dark"] .dc-b1{fill:#7e3436}[data-theme="dark"] .dc-b2{fill:#9a7f3c}[data-theme="dark"] .dc-b3{fill:#3a3970}[data-theme="dark"] .dc-pot{fill:#8e4b31}[data-theme="dark"] .dc-leaf{fill:#46663d}
-.shelf-row.spines{--plank:#d9c7a6;box-shadow:inset 0 -1px 0 rgba(0,0,0,.06)}
 @media (max-width:640px){
   .lib-ribbon{font-size:.82rem;margin-bottom:16px}
   .lib-title{font-size:2.3rem}
@@ -361,18 +354,12 @@ body.page-pulse{--paper:#f3efe7;--paper-2:#ece6da;--card:#fbf9f4;background:#f3e
   .lib-ask{flex-basis:100%;max-width:none;order:3}
   .ask-kbd{display:none}
   .lib-controls .saved-btn{order:2}
-  .sp-decor{grid-column:span 2}
-  .sp-decor svg{width:96px;height:77px}
   .topictabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-16px;padding-right:16px}
   .topictabs::-webkit-scrollbar{display:none}
   .topictabs .chip{flex:none}
 }
 .lib-ask-hint:empty{min-height:0;margin:0}
 .lib-bar{margin-top:16px}
-@media (max-width:640px){
-  .sp-decor{grid-column:auto;width:44px;overflow:hidden;justify-self:start}
-  .sp-decor svg{margin-left:-54px}
-}
 .viewtog .chip{min-height:44px}
 .lib-ask{box-sizing:border-box;min-width:0}
 .lib-ask input{min-height:44px;padding:0}
@@ -380,43 +367,6 @@ body.page-pulse{--paper:#f3efe7;--paper-2:#ece6da;--card:#fbf9f4;background:#f3e
 .lib-ribbon{max-width:100%;box-sizing:border-box;padding-top:0;padding-bottom:0}
 .rb-k{margin:6px 0}
 .lib-ribbon a{display:inline-flex;align-items:center;min-height:44px}
-/* ---- Tiered shelf ---- */
-.tiers{display:flex;flex-direction:column;gap:30px}
-.shelf-row.spines.tier{display:flex;align-items:flex-end;gap:5px;padding:26px 22px 0;min-height:0;
-  background:none;border-radius:0;border-bottom:var(--plank-h) solid var(--plank,#d9c7a6);
-  box-shadow:0 10px 14px -12px rgba(60,40,10,.45);overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
-.tier .sp{flex:none;margin:0 -4px}
-.tier .sp.is-lean-left{margin:0 4px 0 calc(var(--bh) * .08 - 4px)}
-.tier .sp.is-lean-right{margin:0 calc(var(--bh) * .09 - 4px) 0 0}
-.tier .sp-decor{flex:none;grid-column:auto;width:auto;overflow:visible;margin:0;justify-self:auto;color:var(--ink-soft);line-height:0}
-.tier .sp-decor svg{margin:0;width:auto;height:auto;display:block}
-.tier .dc-plant,.tier .dc-cup{margin-left:auto}
-.tier .dc-stack.sm{margin-left:10px}
-.tier .dc-end.flip svg{transform:scaleX(-1)}
-.dc-cup .dc-cup,.dc-cup path.dc-cup{fill:#e9dcc2}
-[data-theme="dark"] .dc-cup path.dc-cup{fill:#4a4033}
-[data-theme="dark"] .shelf-row.spines.tier{--plank:#5a4632}
-@media (max-width:640px){
-  .tiers{gap:22px}
-  .shelf-row.spines.tier{padding:22px 10px 0;margin:0 -6px}
-  .tier .sp{--hs:.82}
-  .tier .dc-plant svg{width:42px;height:83px}
-  .tier .dc-stack svg{width:52px;height:45px}
-}
-.tiers{max-width:920px}
-.tier .sp{--sw:calc(66px * var(--swb,1) * var(--fit,1));width:calc(var(--sw) + 8px);--hs:1.08}
-@media (max-width:640px){
-  .tier .sp{--sw:calc(48px * var(--swb,1) * var(--fit,1));--hs:.8}
-  .shelf-row.spines.tier{gap:4px;padding:22px 8px 0}
-  .tier .dc-end svg{width:20px;height:92px}
-  /* lean margins: see is-lean-left/right */
-}
-@media (max-width:640px){
-  .tier .sp{--sw:calc(45px * var(--swb,1) * var(--fit,1))}
-  .tier:not(:first-child):not(:last-child) .dc-plant,.tier:not(:last-child) .dc-cup{display:none}
-  .tier .dc-stack.sm{margin-left:auto}
-  .tier:last-child .dc-stack.sm{margin-left:8px}
-}
 
 
 
@@ -445,7 +395,6 @@ a.sp:focus-visible{outline:none}
 .sp:focus-visible::after{opacity:1;transform:none}
 .sp:focus-visible .sp-body,.sp:focus-visible:hover .sp-body{translate:0 -12px;rotate:var(--tilt,-1.5deg)}
 .sp:focus-visible::before{opacity:.5;transform:none}
-.tier .sp:nth-child(even){--tilt:1.5deg}
 @media (hover:hover) and (pointer:fine){
   .sp:hover .sp-body{translate:0 -12px;rotate:var(--tilt,-1.5deg)}
   .sp:hover::before{opacity:.5;transform:none}
@@ -456,10 +405,7 @@ a.sp:focus-visible{outline:none}
 .sp.pulling .sp-body{translate:0 -14px;scale:1.03;transition:translate .16s ease-out,scale .16s ease-out}
 .sp.pulling::before{opacity:.5;transform:none}
 /* leaning books keep their lean (separate `rotate`), hover only adds the lift */
-.tier .sp.is-lean-left .sp-body{rotate:-5deg;transform-origin:bottom right}
-.tier .sp.is-lean-right .sp-body{rotate:5deg;transform-origin:bottom left}
-@media (hover:hover) and (pointer:fine){.tier .sp.is-lean-left:hover .sp-body,.tier .sp.is-lean-right:hover .sp-body{translate:0 -9px}}
-.tier .sp.is-lean-left:focus-visible .sp-body,.tier .sp.is-lean-right:focus-visible .sp-body{translate:0 -9px}
+
 
 /* pencil ticks: one per page; filled = reached */
 .sp-prog{position:absolute;left:0;right:0;bottom:3px;height:9px;display:flex;justify-content:center;align-items:flex-end;gap:2.5px}
@@ -509,9 +455,6 @@ a.sp:focus-visible{outline:none}
 .lib-hero>:nth-child(2){animation-delay:60ms}.lib-hero>:nth-child(3){animation-delay:120ms}.lib-hero>:nth-child(4){animation-delay:180ms}.lib-hero>:nth-child(5){animation-delay:240ms}.lib-hero>:nth-child(6){animation-delay:300ms}.lib-hero>:nth-child(7){animation-delay:340ms}
 @keyframes sp-drop{from{opacity:0;translate:0 -30px}55%{opacity:1}}
 .shelves.intro .sp-body{animation:sp-drop .6s var(--ease-spring) backwards;animation-delay:calc(180ms + var(--i,0) * 36ms)}
-.shelves.intro .sp-decor{animation:rise .6s ease-out backwards;animation-delay:.2s}
-@keyframes sway{0%,100%{rotate:-2deg}50%{rotate:2deg}}
-.tier .dc-plant svg{transform-origin:50% 97%;animation:sway 7s ease-in-out infinite}
 
 /* ---- paper stock per topic (subtle; text contrast checked in QA) ---- */
 .reader{--stock:none;background:var(--stock),var(--paper)}
@@ -605,14 +548,12 @@ a.sp:focus-visible{outline:none}
 
 /* ---- reduced motion: no intro, no sway, no morph, no hover travel ---- */
 @media (prefers-reduced-motion:reduce){
-  .lib-hero>*,.shelves.intro .sp-body,.shelves.intro .sp-decor,.tier .dc-plant svg,.reader.rd-enter,.topictabs .chip.just::after,#rd-bm.pop .rd-star,#rd-bm.pop>svg:first-child{animation:none}
+  .lib-hero>*,.shelves.intro .sp-body,.reader.rd-enter,.topictabs .chip.just::after,#rd-bm.pop .rd-star,#rd-bm.pop>svg:first-child{animation:none}
   .sp-body,.sp::before,.sp::after,.nbr,.mini i,.sv-item,.sp-tip{transition:none}
   .sp:hover .sp-body,.sp:focus-visible .sp-body{rotate:none}
-  .tier .sp.is-lean-left .sp-body{rotate:-5deg}.tier .sp.is-lean-right .sp-body{rotate:5deg}
 }
 
 .rd-topic{color:color-mix(in srgb,var(--tc) 68%,var(--ink))}
-.dc-off{display:none !important}
 
 /* ---- compact end card: Up next + Pairs with visible without hunting ---- */
 .pg-end{gap:8px;padding:6% 7%;justify-content:safe flex-start}
@@ -1026,3 +967,31 @@ body.searching .lib-title{position:absolute;width:1px;height:1px;overflow:hidden
 .end-sources a{display:inline-block;min-height:44px;padding:10px 0;box-sizing:border-box;line-height:1.4}
 .end-sources a::after{display:inline}
 .end-sources a{display:block;width:fit-content;max-width:100%;padding:8px 0}
+
+/* ---- shelf props: decorative sketches in the spare space after the last book (js fitProps); never between books, never scroll ---- */
+.props{position:absolute;bottom:0;z-index:1;display:flex;align-items:flex-end;gap:12px;pointer-events:none;user-select:none;line-height:0;color:var(--ink-soft);overflow:hidden}
+.props>*{flex:none}
+.props svg{display:block;overflow:visible}
+.pr-end svg{width:22px;height:104px}
+.pr-rocket svg{width:44px;height:102px}.pr-piggy svg{width:76px;height:56px}.pr-coins svg{width:70px;height:58px}.pr-robot svg{width:56px;height:80px}
+.pr-plant svg{width:52px;height:104px;transform-origin:50% 97%;animation:sway 7s ease-in-out infinite}
+.pr-stack svg{width:62px;height:54px}.pr-cup svg{width:46px;height:60px}
+@keyframes sway{0%,100%{rotate:-2deg}50%{rotate:2deg}}
+.dc-end{fill:#8d8a80}.dc-b1{fill:#b0484a}.dc-b2{fill:#d9b65c}.dc-b3{fill:#4b4a8a}.dc-pot{fill:#c46a45}.dc-leaf{fill:#5f8a52}.dc-cup{fill:#e9dcc2}.dc-rk{fill:#ece4d2}.dc-fin{fill:#c4544a}.dc-pig{fill:#e9a6a8}.dc-coin{fill:#d9b65c}.dc-bot{fill:#b9c4cc}
+[data-theme="dark"] .props{color:#d8cdb9}
+[data-theme="dark"] .dc-end{fill:#5e5a52}[data-theme="dark"] .dc-b1{fill:#7e3436}[data-theme="dark"] .dc-b2,[data-theme="dark"] .dc-coin{fill:#9a7f3c}[data-theme="dark"] .dc-b3{fill:#3a3970}[data-theme="dark"] .dc-pot{fill:#8e4b31}[data-theme="dark"] .dc-leaf{fill:#46663d}[data-theme="dark"] .dc-cup,[data-theme="dark"] .dc-rk{fill:#4a4033}[data-theme="dark"] .dc-fin{fill:#8a3a33}[data-theme="dark"] .dc-pig{fill:#8a5a5c}[data-theme="dark"] .dc-bot{fill:#4f5a62}
+/* the framed quote: cream card, thin wood frame, hung from a pin by a thread */
+.pr-quote{align-self:flex-start;position:relative;margin-top:44px;transform-origin:50% -34px;rotate:-2deg}
+.pr-quote:nth-child(odd){rotate:1.6deg}
+.pr-quote svg{position:absolute;left:50%;top:-38px;width:80px;height:40px;translate:-50% 0}
+.pr-quote span{display:block;box-sizing:border-box;padding:10px 10px 11px;border:4px solid #a77b4f;border-radius:2px;background:#fbf3df;color:#3b2f17;font:600 1.15rem/1.15 var(--hand);text-align:center;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(60,40,10,.25),2px 3px 0 rgba(0,0,0,.12)}
+.pr-quote b{display:block;font-weight:inherit}
+[data-theme="dark"] .pr-quote span{border-color:#7a5a3a;background:#efe4c8;color:#2a2116}
+/* the last book leans ~5° (against the bookend, or back on its neighbour); hover/focus only add the lift */
+.spines .sp.is-lean-right .sp-body{rotate:5deg;transform-origin:bottom right}
+.spines .sp.is-lean-left{margin-left:calc(var(--bh) * .08)}
+.spines .sp.is-lean-left .sp-body{rotate:-5deg;transform-origin:bottom left}
+@media (hover:hover) and (pointer:fine){.spines .sp.is-lean-left:hover .sp-body,.spines .sp.is-lean-right:hover .sp-body{translate:0 -9px}}
+.spines .sp.is-lean-left:focus-visible .sp-body,.spines .sp.is-lean-right:focus-visible .sp-body{translate:0 -9px}
+@media (max-width:640px){.props{gap:9px}.pr-end svg{width:18px;height:86px}.pr-rocket svg{width:36px;height:84px}.pr-piggy svg{width:62px;height:46px}.pr-coins svg{width:58px;height:48px}.pr-plant svg{width:42px;height:84px}.pr-quote span{font-size:1.02rem;padding:8px 8px 9px}}
+@media (prefers-reduced-motion:reduce){.pr-plant svg{animation:none}.spines .sp.is-lean-left .sp-body{rotate:-5deg}.spines .sp.is-lean-right .sp-body{rotate:5deg}}

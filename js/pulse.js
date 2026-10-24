@@ -427,7 +427,8 @@
     host.classList.remove("intro");
     if (!introDone && !reduce()) { introDone = true; host.classList.add("intro"); setTimeout(function () { host.classList.remove("intro"); }, 1500); }
     if (t) renderTopic(host, t); else renderHome(host);
-    wireRows(host);
+    wireRows(host); fitPropsSoon();
+    if (window.ResizeObserver && !host._propRO) { host._propRO = new ResizeObserver(fitPropsSoon); host._propRO.observe(host); }
     if (query || document.body.classList.contains("searching")) renderResults();
   }
   function renderHome(host) {
@@ -484,6 +485,73 @@
     s.appendChild(el("div", "plank"));
     return s;
   }
+  /* ---------- shelf props: sketches in the spare space after a shelf's last book (decorative, aria-hidden, never between books, never scroll) ----------
+     Measured once after layout and again on resize: >=60px bookend (+ the last book leans from ~100px), >=130px one topic prop,
+     >=280px the framed quote (at most one per page, picked by date among the roomiest shelves), >=420px a plant. A full row gets nothing. */
+  var PROP = {
+    end: '<svg viewBox="0 0 26 120"><path class="dc-end" d="M4 118V60c0-7 5-12 12-12h6v70z"/><path d="M8 70h10" stroke-opacity=".4"/></svg>',
+    stack: '<svg viewBox="0 0 70 60"><rect class="dc-b1" x="4" y="44" width="60" height="14" rx="2"/><rect class="dc-b2" x="9" y="31" width="50" height="13" rx="2"/><rect class="dc-b3" x="2" y="20" width="56" height="11" rx="2"/><path d="M12 51h34M16 37h28M10 25h30" stroke-opacity=".45"/></svg>',
+    plant: '<svg viewBox="0 0 56 110"><path class="dc-leaf" d="M28 66c-2-16-12-24-20-32 12 2 20 12 20 24 0-18 4-32 14-44-2 18-7 32-12 44 4-10 12-16 22-18-8 8-14 18-18 28"/><path class="dc-pot" d="M10 66h36l-5 42H15z"/><path d="M8 66h40"/></svg>',
+    cup: '<svg viewBox="0 0 54 70"><path class="dc-cup" d="M6 30h32v26c0 7-5 12-12 12h-8c-7 0-12-5-12-12z"/><path d="M38 36h4c5 0 8 4 8 8s-3 8-8 8h-4"/><path d="M16 22c-3-4 3-7 0-12M26 22c-3-4 3-7 0-12" stroke-opacity=".5"/></svg>',
+    rocket: '<svg viewBox="0 0 48 110"><path class="dc-fin" d="M15 44l-9 15 9-3zM33 44l9 15-9-3z"/><path class="dc-rk" d="M24 5c9 10 12 25 9 52H15C12 30 15 15 24 5z"/><circle cx="24" cy="31" r="5"/><path d="M19 57l-1 6h12l-1-6M24 63v34M12 107h24l-3-10H15z"/><path d="M21 67c1 3-1 5 0 8M27 67c-1 3 1 5 0 8" stroke-opacity=".45"/></svg>',
+    piggy: '<svg viewBox="0 0 80 60"><path class="dc-pig" d="M12 32c0-13 13-22 29-22 13 0 23 6 27 14h5v12h-4c-2 4-5 7-9 9l-2 11h-8l-1-7H32l-1 7h-8l-3-11c-5-3-8-7-8-13z"/><path d="M50 13l5-8 4 10M34 15h12M12 30c-6 1-9-4-5-7"/><circle cx="60" cy="25" r="1.4" fill="currentColor"/><path d="M71 28v4" stroke-opacity=".6"/></svg>',
+    coins: '<svg viewBox="0 0 74 60"><path class="dc-coin" d="M4 58V33h24v25zM32 58V17h24v41z"/><ellipse class="dc-coin" cx="16" cy="33" rx="12" ry="3.5"/><ellipse class="dc-coin" cx="44" cy="17" rx="12" ry="3.5"/><path d="M4 41h24M4 49h24M32 25h24M32 33h24M32 41h24M32 49h24" stroke-opacity=".5"/><ellipse class="dc-coin" cx="65" cy="55" rx="8" ry="3"/></svg>',
+    robot: '<svg viewBox="0 0 60 84"><path d="M30 16V8"/><circle cx="30" cy="6" r="2.5"/><rect class="dc-bot" x="14" y="16" width="32" height="24" rx="6"/><circle cx="23" cy="28" r="2.4"/><circle cx="37" cy="28" r="2.4"/><path d="M25 35h10"/><rect class="dc-bot" x="18" y="44" width="24" height="26" rx="4"/><path d="M18 50l-8 10M42 50l8 10M24 70v12M36 70v12M20 82h8M32 82h8"/></svg>',
+    pin: '<svg viewBox="0 0 80 40"><path d="M40 4L6 39M40 4l34 35" stroke-width="1" stroke-opacity=".7"/><circle cx="40" cy="4" r="3.2" fill="#c4544a"/></svg>'
+  };
+  var TOPIC_PROP = { "frontier-tech": "rocket", fintech: "piggy", macro: "coins", ai: "robot" };
+  var QUOTES = {
+    "frontier-tech": ["Space travel. Still no legroom.", "Big rocket. Bigger countdown.", "Reached orbit. Lost my keys.", "Zero gravity. Same laundry."],
+    ai: ["Artificial intelligence. Natural confusion.", "Deep learning. Shallow sleep.", "Neural network. Nervous owner.", "Smart speaker. Selective hearing."],
+    fintech: ["Moving money faster. Mostly away.", "Buy now. Panic later.", "Instant payment. Slow regret.", "Digital wallet. Analog panic.", "Smart card. Silly purchases."],
+    macro: ["Strong economy. Weak wallet.", "Big picture. Tiny budget.", "Prices rise. Wallet sighs.", "Soft landing. Bumpy checkout."]
+  };
+  function prop(k) { var d = el("span", "pr-" + k); d.innerHTML = PROP[k].replace("<svg ", '<svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false" '); return d; }
+  function dayNo() { var d = new Date(); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5); } /* the local calendar day: one quote per day, no timers */
+  function fitProps() {
+    var S = [].slice.call(document.querySelectorAll("#shelves > section.shelf")); if (!S.length) return;
+    var phone = matchMedia("(max-width:640px)").matches, vw = document.documentElement.clientWidth, day = dayNo();
+    var info = S.map(function (s, idx) {
+      var r = s.querySelector(".row"), sc = r && r.querySelector(".row-scroll"); if (!sc) return null;
+      [].forEach.call(r.querySelectorAll(".props"), function (n) { n.remove(); });
+      [].forEach.call(sc.querySelectorAll(".is-lean-left,.is-lean-right"), function (n) { n.classList.remove("is-lean-left", "is-lean-right"); });
+      var last = sc.lastElementChild; if (!last || !sc.clientWidth) return null;
+      var sr = sc.getBoundingClientRect(), right = sr.right - (parseFloat(getComputedStyle(sc).paddingRight) || 0);
+      if (phone) right = Math.min(right, vw - 56); /* keep clear of the back-to-top pill */
+      var spare = sc.scrollWidth > sc.clientWidth + 1 ? 0 : Math.floor(right - last.getBoundingClientRect().right);
+      return { s: s, r: r, sc: sc, last: last, idx: idx, right: right, spare: spare, slug: (s.className.match(/\bt-([\w-]+)/) || [])[1] };
+    }).filter(Boolean);
+    /* the framed quote: at most one per page, on a shelf with room, rotating by date among the roomiest; a second only on the bottom shelf with lots of room, far from the first */
+    var C = info.filter(function (x) { return x.spare >= 280 && QUOTES[x.slug] && (x.slug !== "ai" || !phone); }).sort(function (a, b) { return b.spare - a.spare; });
+    var Q = [];
+    if (C.length) {
+      var pool = C.slice(0, Math.max(1, Math.ceil(C.length / 2))), q1 = pool[day % pool.length], L = info[info.length - 1]; Q.push(q1);
+      if (!phone && L !== q1 && C.indexOf(L) >= 0 && L.spare >= 600 && L.idx - q1.idx >= 2) Q.push(L);
+    }
+    info.forEach(function (x) {
+      if (x.spare < 60) return;
+      if (x.spare >= 100 && x.last.classList.contains("sp")) x.last.classList.add(x.idx % 2 ? "is-lean-left" : "is-lean-right");
+      var lr = x.last.getBoundingClientRect(), rr = x.r.getBoundingClientRect(), lean = x.last.classList.contains("is-lean-right");
+      var gap = lean ? (phone ? 8 : 10) : 4; /* a 5° lean meets the bookend top (~100px tall) about 9px out */
+      var box = el("div", "props"); box.setAttribute("aria-hidden", "true");
+      box.style.left = (lr.right - rr.left + gap) + "px"; box.style.width = Math.max(0, x.right - lr.right - gap) + "px";
+      box.style.top = (x.sc.getBoundingClientRect().top - rr.top) + "px";
+      box.appendChild(prop("end"));
+      if (x.spare >= 130 && TOPIC_PROP[x.slug] && (x.slug !== "ai" || !phone)) box.appendChild(prop(TOPIC_PROP[x.slug]));
+      if (Q.indexOf(x) >= 0) {
+        var lines = QUOTES[x.slug], f = el("span", "pr-quote"); f.innerHTML = PROP.pin.replace("<svg ", '<svg fill="none" stroke="currentColor" focusable="false" ');
+        var qt = el("span"); lines[(day + x.idx) % lines.length].split(". ").forEach(function (t, i, A) { qt.appendChild(el("b", "", t + (i < A.length - 1 ? "." : ""))); }); f.appendChild(qt); box.appendChild(f);
+      }
+      if (x.spare >= 420) box.appendChild(prop("plant"));
+      if (x.spare >= 560 && Q.indexOf(x) < 0) box.appendChild(prop(x.idx % 2 ? "cup" : "stack"));
+      x.r.appendChild(box);
+      while (box.lastChild && box.scrollWidth > box.clientWidth + 1) box.removeChild(box.lastChild); /* never crowd: drop from the end until it fits */
+      if (!box.firstChild) { box.remove(); x.last.classList.remove("is-lean-left", "is-lean-right"); }
+    });
+  }
+  var propT = 0; function fitPropsSoon() { cancelAnimationFrame(propT); propT = requestAnimationFrame(fitProps); }
+  addEventListener("resize", fitPropsSoon); addEventListener("load", fitPropsSoon);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitPropsSoon);
   function pathRow() {
     var P = (lib.path || []).map(find).filter(Boolean); if (P.length < 2) return null;
     var s = el("section", "path-sec"); s.setAttribute("aria-labelledby", "path-h");
