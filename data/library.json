@@ -2721,11 +2721,11 @@
       "id": "spacex-rockets",
       "title": "How SpaceX Rockets Work",
       "topic": "Frontier Tech",
-      "blurb": "Nia, a student with a cardboard rocket and a lot of questions, finds out why SpaceX lands its rockets, how a tower catches one with 'chopsticks', and why a gas station in orbit could get people back to the Moon.",
+      "blurb": "Nia follows the money and the hardware for her science-fair poster: why a $74 million rocket is mostly hardware, how landing and tower catches make reuse pay, what Starship is, why a Moon trip needs 6 to 22 launches to refill in orbit, and how NASA's 2026 plan changes reshape the 2028 landing.",
       "gist": [
-        "Rockets cost far more than their parts, and most are still thrown away after one flight.",
-        "SpaceX lands its boosters and catches its giant Super Heavy booster with a tower, so it can fly them again.",
-        "The twist: refilling in orbit. Estimates run from 6 to 22 launches, all made before NASA's Oct 23 route change."
+        "A Falcon 9 launch lists at $74 million, and about 90% of the cost is hardware. Propellant is under 1%.",
+        "Reuse means only the upper stage is lost. One booster has flown 37 times; Super Heavy is caught by its tower.",
+        "Starship needs 6 to 22 launches to refill in orbit for the Moon. NASA made Artemis III a 2027 docking test (Feb 2026) with the first landing on Artemis IV in early 2028, and changed the lander route on Oct 23."
       ],
       "added": "2026-10-24",
       "added_at": "2026-10-24T10:41",
@@ -2734,118 +2734,135 @@
         {
           "file": "assets/pulse/spacex-rockets/p01.webp",
           "thumb": "assets/pulse/spacex-rockets/p01-t.webp",
-          "title": "Why land a rocket?",
+          "title": "Why does SpaceX land its rockets?",
           "w": 1600,
-          "h": 2325,
-          "kw": "hook land rocket nia made rockets fly spacex lands theirs get us moon company falcon giant starship source pages facts oct project card"
+          "h": 3166,
+          "kw": "hook spacex land rockets nia's science-fair question project nia making poster work follows money hardware plan made us rocket company flies falcon test-flying starship giant new big number flew times world's orbital combined cost reuse landing refilling orbit rivals moon mars used spacex's come back matter much source pages space.com launch count facts oct card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p02.webp",
           "thumb": "assets/pulse/spacex-rockets/p02-t.webp",
-          "title": "Meet the rocket",
+          "title": "Words to know",
           "w": 1600,
-          "h": 2100,
-          "kw": "key words meet rocket starship super heavy tanks engines booster bottom part first big push upper stage top carries cargo giant ship propellant fuel plus oxygen burn methane liquid orbit falling around earth fast keep missing nia made two names one got source nasa spacex falcon pages card"
+          "h": 2756,
+          "kw": "key words know every rocket book has basic parts upper stage booster engines section tanks empty stages drop off bottom gives first big push separates top carries payload rest way satellites cargo crew capsule propellant fuel plus oxygen burn falcon kerosene liquid starship methane orbit circling earth fast keep falling around leo low below mass put tonnes super heavy spacex's giant whole stack called source spacex pages esa art generic two-stage card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p03.webp",
           "thumb": "assets/pulse/spacex-rockets/p03-t.webp",
-          "title": "Rockets cost way more than their parts",
+          "title": "What a Falcon 9 launch costs",
           "w": 1600,
-          "h": 2466,
-          "kw": "problem rockets cost way parts nia's kit made inside card wood glue first principles start basic facts others prices elon musk spacex's founder priced rocket's raw metals carbon fiber share price materials answer flip phone far cheaper wow source interview wired's chris anderson"
+          "h": 2112,
+          "kw": "cost falcon launch costs money goes musk's breakdown list price million spacex standard plan through payload leo booster thrown away lands upper stage nose cone fairing share 9's elon musk spacex's founder propellant cheap said much hardware rocket itself rockets throw source capabilities services page cnbc transcript inverse spaceflight now arithmetic card",
+          "takeaway": "A $74 million Falcon 9 launch is about 90% hardware (booster ~60%, upper stage ~20%, fairing ~10%, per Musk in 2018); propellant is under 1% of the price."
         },
         {
           "file": "assets/pulse/spacex-rockets/p04.webp",
           "thumb": "assets/pulse/spacex-rockets/p04-t.webp",
-          "title": "Thrown away vs flown again",
+          "title": "Why rockets cost so much",
           "w": 1600,
-          "h": 2378,
-          "kw": "big idea thrown away flown old way like nasa's sls space launch system get tossed every buys new rocket spacex falcon 9's booster priciest part nose cone fairing reused upper stage musk's plane line imagine had have flight people fly nia tapes poster made rockets basically fancy paper cups source nasa pages page musk wired card",
-          "takeaway": "Most rockets are used once and tossed. SpaceX lands its Falcon 9 booster and reuses its nose cone, so customers stop paying for a whole new rocket every launch."
+          "h": 2656,
+          "kw": "problem rockets cost much start raw materials nia's model kit made what's inside card wood glue first principles reason basic facts others charge musk priced rocket's aerospace aluminum titanium copper carbon fiber share price answer flip phone far cheaper wow rest goes playing safe parts designed 1960s layers suppliers adding profit source elon interview wired's chris anderson prices"
         },
         {
           "file": "assets/pulse/spacex-rockets/p05.webp",
           "thumb": "assets/pulse/spacex-rockets/p05-t.webp",
-          "title": "How a booster lands",
+          "title": "Thrown away vs flown again",
           "w": 1600,
-          "h": 2360,
-          "kw": "works booster lands let drops upper stage saving fuel flip land burns back home sea usually arcs ship brake steer entry burn slows grid fins waffle last legs touchdown nia made mine uses parachute show-off source spacex falcon page space explored zlsa design landing guide card"
+          "h": 2931,
+          "kw": "big idea thrown away flown reuse changes numbers musk's plane line imagine had have new every flight people fly nia tapes poster like nasa's sls space launch system reused falcon lost whole rocket upper stage cost flights booster record aug fastest turnaround build one days between launches spacex doesn't publish musk said reusing part push launch's toward million made trips that's lot tally marks source wired cnbc transcript space.com b1067's 37th spaceflight now 9-day mar card",
+          "takeaway": "Reuse means only the upper stage is lost each launch: one Falcon 9 booster has flown 37 times, and the fastest turnaround between launches is 9 days."
         },
         {
           "file": "assets/pulse/spacex-rockets/p06.webp",
           "thumb": "assets/pulse/spacex-rockets/p06-t.webp",
-          "title": "Caught by chopsticks",
+          "title": "How a Falcon 9 booster lands",
           "w": 1600,
-          "h": 2946,
-          "kw": "works caught chopsticks legs needed super heavy flies back tower hovers giant arms nicknamed grab next catch starship top part nia made adding model obviously source spacex ars technica nasaspaceflight nia's card"
+          "h": 2539,
+          "kw": "works falcon booster lands four steps one matters separate shuts drops upper stage keeps propellant back trip home flip boost land burns launch site sea usually arcs drone ship robot barge payload entry burn engines relight slow grid fins waffle-shaped steer speed means heating landing last typically legs swing seconds touchdown must reach zero right ground source spacex page space explored rtls zlsa design profile heights typical fixed card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p07.webp",
           "thumb": "assets/pulse/spacex-rockets/p07-t.webp",
-          "title": "SpaceX vs the rest",
+          "title": "Super Heavy: caught by the tower",
           "w": 1600,
-          "h": 2668,
-          "kw": "it's different spacex rest sls nasa tossed one launch sends astronauts straight moon ariane europe reusable test rocket coming vulcan ula boeing lockheed now plans save engines new glenn blue origin booster landed ship flew falcon lands flies lot starship super heavy caught tower next top china government first net catch startup landspace lab building stands used boosters catches nia made everybody wants comeback source esa spacenews nasaspaceflight xinhua space.com card"
+          "h": 3425,
+          "kw": "works super heavy caught tower legs launch catches fly back turns burns landing pad skips slow ship ride home hover engines beside arms need nearly still target catch two giant nicknamed chopsticks close hold build carry reuse already spacex aims refly quickly refurbishment falcon booster gear none ends moved status routine next starship upper stage source page call ars technica nasaspaceflight card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p08.webp",
           "thumb": "assets/pulse/spacex-rockets/p08-t.webp",
-          "title": "A gas station in orbit",
+          "title": "Starship by the numbers",
           "w": 1600,
-          "h": 2260,
-          "kw": "twist gas station orbit tanker depot fill tankers carry fuel tank lander starship hls moon reaches little propellant human landing system hard part super-cold slowly boils away two starships have swapped yet first try early oct nia made highway rockets source nasa update oig report ig-26-004 ars technica card",
-          "takeaway": "To reach the Moon, the Starship HLS lander first fills up in orbit from tanker Starships. No two Starships have swapped propellant yet; SpaceX aims to try early in 2027."
+          "h": 2748,
+          "kw": "meet starship numbers powerful rocket ever built next falcon full stack whole tall wide payload orbit fully reusable spacex's design goal booster thrown away thrust super heavy tonnes force liftoff upper stage height engines raptors space propellant comes back tower catch planned raptor engine burns methane liquid oxygen has twice status still test flights book catches done ship source spacex page art exactly scale card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p09.webp",
           "thumb": "assets/pulse/spacex-rockets/p09-t.webp",
-          "title": "How many fill-ups?",
+          "title": "Refilling in orbit",
           "w": 1600,
-          "h": 2516,
-          "kw": "nasa customer many fill-ups musk oct nasa's watchdog inspector general spaceflight now news site charlie precourt safety panel ex-astronaut musk's reply that's way high actual number like nia made wide arrow poster source x.com elonmusk status ars technica oig ig-26-004 card"
+          "h": 2840,
+          "kw": "twist refilling orbit moon trip starts gas station space tanker depot fill it's needed climbing leo burns starship's propellant land needs full tanks refills first starship launches waits tankers starships without windows launch one another transfer meets moves super-cold across nasa similar earth lander fuels hls human landing system moon-lander version hard parts cryogenic slowly boils off moving between ships scale has never done ship-to-ship test early source update oct spacex page oig ig-26-004 ars technica card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p10.webp",
           "thumb": "assets/pulse/spacex-rockets/p10-t.webp",
-          "title": "Then NASA changed the route",
+          "title": "6 to 8 fill-ups, or about 22?",
           "w": 1600,
-          "h": 2353,
-          "kw": "plot twist nasa changed route old far stretched orbit new low oct nasa's plan uses around moon says needs much fuel every estimate last card came nobody knows yet depends tanker loads boil-off read nia made updating poster source lander update ars technica near-rectilinear halo"
+          "h": 3196,
+          "kw": "big question fill-ups starship launches needed fuel one moon landing musk oct nasa's watchdog inspector general mar spaceflight now news site charlie precourt nasa safety panel ex-astronaut musk's reply that's way high actual number like estimates differ load much propellant tanker carries bigger means fewer trips boil-off warms escapes while depot waits transfer lost moving ship route new plan needs four came time takes even two week months fill ars technica nobody knows yet depends first tests read nia made i'm drawing wide arrow source x.com elonmusk status oig ig-26-004 lander update card",
+          "takeaway": "Estimates for a Moon landing range from 6 to 8 Starship launches (Musk) to about 22 (NASA safety panel), depending on tanker load, boil-off and transfer losses, and all predate NASA's Oct 23 route change."
         },
         {
           "file": "assets/pulse/spacex-rockets/p11.webp",
           "thumb": "assets/pulse/spacex-rockets/p11-t.webp",
-          "title": "How astronauts get there",
+          "title": "SpaceX vs the world's big rockets",
           "w": 1600,
-          "h": 2512,
-          "kw": "mission astronauts get starship hls orion fill tankers depot tops meet four ride sls capsule earth orbit dock moon lander pushes low land two several days wait blue origin's skips fill-up first nasa flies whichever ready nia made steps one long poster source partners accelerate development oct card"
+          "h": 2947,
+          "kw": "rivals spacex world's big rockets payload leo comes back plain numbers rocket maker gets reused sls nasa us nothing ariane europe yet reusable test coming vulcan ula plans save engines new glenn blue origin booster landed ship flew long march 10b china caught net jul falcon fairing flights starship goal built reuse fine print biggest versions shown 9's thrown away 10b's cost one launch lists million nasa's watchdog put orion capsule billion estimate lifts times still tonne startup landspace legs aug government's catch lab building source reference guide esa casc reuters oig ig-22-003 xinhua per-tonne comparison arithmetic card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p12.webp",
           "thumb": "assets/pulse/spacex-rockets/p12-t.webp",
-          "title": "Moon first, then Mars",
+          "title": "NASA changed the route",
           "w": 1600,
-          "h": 2610,
-          "kw": "it's heading moon first mars trip days months musk nasa next chance every spacex's plan says self-growing city refill starship's methane oxygen made nia backyard camping big source x.com elonmusk status feb long take get jupiter spacex page card"
+          "h": 2899,
+          "kw": "moon plan nasa changed route nasa's artemis program old far stretched orbit new low orion meets spacex's lander around near-rectilinear halo earth pushes lunar propellant starship needs significantly says iii first landing docking test announced early versions landers two hls blue origin's origin skips refilling using three transfer stages polar picks whichever ready source feb mar updates update oct ars technica drawing schematic scale card",
+          "takeaway": "In 2026 NASA made Artemis III a 2027 docking test in Earth orbit (announced Feb 27) with the first landing on Artemis IV in early 2028, and on Oct 23 moved SpaceX's lander-Orion meeting to Earth orbit with a push to low lunar orbit."
         },
         {
           "file": "assets/pulse/spacex-rockets/p13.webp",
           "thumb": "assets/pulse/spacex-rockets/p13-t.webp",
+          "title": "How a 2028 landing would work",
+          "w": 1600,
+          "h": 2620,
+          "kw": "mission landing work spacex's lander starship hls orion fill tankers depot leo tops waits earth orbit meet four astronauts launch sls nasa's crew capsule dock moon fires engines pushes itself low lunar land two several days wait fly home it's quicker means shorter trip back surface nasa says source update oct ars technica docking card"
+        },
+        {
+          "file": "assets/pulse/spacex-rockets/p14.webp",
+          "thumb": "assets/pulse/spacex-rockets/p14-t.webp",
+          "title": "Moon first, then Mars",
+          "w": 1600,
+          "h": 2563,
+          "kw": "it's heading moon first mars takes much longer trip time days months musk nasa next chance every planets line make propellant starship's methane oxygen made spacex's plan feb self-growing city price list spacex offers starship cargo earliest million tonne trips short frequent problems get fixed faster read source long take jupiter pages card"
+        },
+        {
+          "file": "assets/pulse/spacex-rockets/p15.webp",
+          "thumb": "assets/pulse/spacex-rockets/p15-t.webp",
           "title": "What Nia tells her class",
           "w": 1600,
-          "h": 2542,
-          "kw": "ending nia tells class problem pricey rockets tossed one flight fix land booster fly twist refill orbit reach moon watch tests work trips get far cheaper read meanwhile spacex's landing waits blue origin's first lander doesn't need refills next mars made mic drop okay cardboard source recap book nasa update card",
-          "takeaway": "Price the parts, land the booster, refill in orbit. The refill tests decide how soon SpaceX reaches the Moon."
+          "h": 2954,
+          "kw": "ending nia tells class poster three numbers problem rocket's cost hardware rockets thrown away one flight fix land refly booster has flown times twist refill orbit launches estimated watch tests work moon trips get far cheaper read meanwhile spacex's landing waits blue origin's first lander doesn't need refills next artemis iii docking test landings planned made done cardboard rocket still reusable source recap book nasa update feb oct card"
         }
       ],
       "recap": [
-        "Problem: pricey rockets, tossed after one flight.",
-        "Fix: land the booster and fly it again; others now try too.",
-        "Twist: refill in orbit to reach the Moon (6 to 22 fill-ups estimated, before NASA's Oct 23 route change).",
-        "Next: Moon first, then Mars."
+        "Problem: about 90% of a rocket's cost is hardware, and most rockets are thrown away after one flight.",
+        "Fix: land and refly; one booster has flown 37 times.",
+        "Twist: refill in orbit; 6 to 22 launches estimated, all before NASA's Oct 23 route change.",
+        "Next: Artemis III docking test in 2027, first landing on Artemis IV in early 2028, then Mars every 26 months."
       ],
-      "recap_pages": 13,
+      "recap_pages": 15,
       "sources": [
         {
           "title": "Elon Musk on X – 6 to 8 refills",
@@ -2856,8 +2873,24 @@
           "url": "https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/"
         },
         {
+          "title": "NASA – Artemis III becomes a 2027 test mission",
+          "url": "https://www.nasa.gov/news-release/nasa-adds-mission-to-artemis-lunar-program-updates-architecture/"
+        },
+        {
+          "title": "SpaceX – Starship",
+          "url": "https://www.spacex.com/vehicles/starship/"
+        },
+        {
+          "title": "CNBC – Musk on Falcon 9 costs, May 2018 transcript",
+          "url": "https://www.cnbc.com/2018/05/11/full-elon-musk-transcript-about-spacex-falcon-9-block-5.html"
+        },
+        {
           "title": "WIRED – Elon Musk interview with Chris Anderson",
           "url": "https://www.wired.com/2012/10/ff-elon-musk-qa/"
+        },
+        {
+          "title": "Ars Technica – latest estimate, 22 Starship launches",
+          "url": "https://arstechnica.com/space/2026/10/latest-estimate-for-starship-launches-required-to-support-a-moon-landing-22/"
         },
         {
           "title": "Ars Technica – NASA changes its Moon lander plans",
@@ -2868,40 +2901,24 @@
           "url": "https://arstechnica.com/space/2026/10/spacex-will-attempt-to-reach-weekly-starship-launches-by-early-2027/"
         },
         {
-          "title": "Ars Technica – latest estimate, 22 Starship launches",
-          "url": "https://arstechnica.com/space/2026/10/latest-estimate-for-starship-launches-required-to-support-a-moon-landing-22/"
-        },
-        {
           "title": "NASA OIG – Human Landing System contracts report, IG-26-004",
           "url": "https://oig.nasa.gov/wp-content/uploads/2026/03/final-report-ig-26-004-nasas-management-of-the-human-landing-system-contracts.pdf"
         },
         {
-          "title": "Spaceflight Now – 10 to 20 tanker flights",
-          "url": "https://spaceflightnow.com/2026/03/10/nasa-inspector-general-assesses-agencys-management-of-moon-lander-risk/"
+          "title": "Space.com – Falcon 9 booster's record 37th flight",
+          "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-record-37th-booster-flight-100-falcon-9-launches"
         },
         {
-          "title": "NASA – How long does it take to get to the Moon and Mars?",
-          "url": "https://www.nasa.gov/directorates/smd/how-long-does-it-take-to-get-to-the-moon-mars-jupiter-we-asked-a-nasa-expert-episode-51/"
+          "title": "NASA OIG – Artemis missions cost report, IG-22-003",
+          "url": "https://oig.nasa.gov/wp-content/uploads/2024/02/IG-22-003.pdf"
         },
         {
           "title": "Space.com – China lands its Long March 10B rocket",
           "url": "https://www.space.com/space-exploration/launches-spacecraft/making-history-china-lands-rocket-during-an-orbital-launch-for-1st-time-ever"
         },
         {
-          "title": "Elon Musk on X – Moon city first, then Mars",
-          "url": "https://x.com/elonmusk/status/2020640004628742577"
-        },
-        {
-          "title": "SpaceX – Falcon 9",
-          "url": "https://www.spacex.com/vehicles/falcon-9/"
-        },
-        {
-          "title": "NASA – Space Launch System",
-          "url": "https://www.nasa.gov/humans-in-space/space-launch-system/"
-        },
-        {
-          "title": "SpaceX – Starship to Mars",
-          "url": "https://www.spacex.com/humanspaceflight/mars"
+          "title": "NASA – How long does it take to get to the Moon and Mars?",
+          "url": "https://www.nasa.gov/directorates/smd/how-long-does-it-take-to-get-to-the-moon-mars-jupiter-we-asked-a-nasa-expert-episode-51/"
         }
       ]
     }

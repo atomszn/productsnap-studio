@@ -435,15 +435,31 @@
         "orion",
         "hls",
         "moon lander",
-        "rocket lab"
+        "rocket lab",
+        "sls",
+        "space launch system",
+        "new glenn",
+        "refill",
+        "refilling",
+        "refuel",
+        "artemis iii",
+        "artemis iv",
+        "tanker",
+        "propellant depot",
+        "ariane 6",
+        "vulcan",
+        "long march",
+        "raptor",
+        "launch cost",
+        "reuse"
       ],
       "cover": {
         "page": 1,
         "box": [
-          40,
-          300,
-          1560,
-          1440
+          168,
+          500,
+          1432,
+          1448
         ]
       }
     }
