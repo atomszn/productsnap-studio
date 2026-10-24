@@ -2529,80 +2529,125 @@
           "thumb": "assets/pulse/how-starlink-works/p01-t.webp",
           "title": "Ila's internet from space",
           "w": 1600,
-          "h": 3243,
-          "kw": "ila's internet space ila field guide starlink plate problem lives farm town cable reaches nearest cell tower back phone signal home weak fine calls slow video family get online sky service rocket company spacex made fig two ways dish satellite ground station fiber companies like us vodafone uk europe airtel india work way talks nearby carries data reach first hop differs sources technology page safety press release 75x arithmetic card",
+          "h": 3546,
+          "kw": "ila ila's internet space cell tower problem made lives farm town cable reaches nearest back phone signal home weak fine calls slow video family get online sky starlink service rocket company spacex fiber dish satellite ground station nearby companies like us vodafone uk europe airtel india work way talks carries data reach first hop differs card sources technology page safety press release",
           "takeaway": "Ila's farm is too far for cable, and her phone signal there is weak, so her dish talks to a satellite about 480 km up; the data then goes down to a ground station and onto the same internet everyone uses."
         },
         {
           "file": "assets/pulse/how-starlink-works/p02.webp",
           "thumb": "assets/pulse/how-starlink-works/p02-t.webp",
-          "title": "Five words to know",
+          "title": "How low? How many?",
           "w": 1600,
-          "h": 3442,
-          "kw": "five words know key field guide starlink plate low orbit means anything below flies 75x closer internet satellites shorter trip lag delay page reacts thousandths second constellation thousands one always overhead others pass dish flat antenna size large pizza box steers beam electronically motors spectrum full range radio frequencies like every station dial cut lanes governments license fcc federal communications commission us ofcom uk india's telecom department licensed lane company transmit place wi-fi uses free shared bandwidth much get going 1-lane road 6-lane highway data moves example ila's phone use different far higher wide enough lots companies cell made sources technology specifications space safety apnic labs india dot licensing licence band simplified ila card",
-          "takeaway": "Low orbit means short trips and little lag; spectrum is the radio dial cut into licensed lanes; bandwidth is how much of the dial you get."
+          "h": 2790,
+          "kw": "key words low many know follow ila's data orbit means anything below starlink flies 75x closer internet satellites height drawn scale tv-style ground higher lag high delay page reacts shorter trip thousandths second constellation thousands one always overhead others pass dish flat antenna size large pizza box steers beam electronically motors card sources technology specifications space safety apnic labs arithmetic ila made",
+          "takeaway": "Low orbit means short trips and little lag: Starlink flies about 480 km up, about 75x closer than TV-style satellites, so lag is about 25 ms instead of 600+ ms."
         },
         {
           "file": "assets/pulse/how-starlink-works/p03.webp",
           "thumb": "assets/pulse/how-starlink-works/p03-t.webp",
-          "title": "Catching a moving satellite",
+          "title": "Radio lanes",
           "w": 1600,
-          "h": 3003,
-          "kw": "catching moving satellite ila's dish field guide starlink plate fig satellites move left right shown post clarity hands off never parked laps earth every minutes cross india guess first long one sky answer upside handoff slips away switches beam next open trees roof edge block cause short dropouts needs clear view sources apnic labs pass times space safety height support obstructions orbit time speed crossing arithmetic ila made card",
-          "takeaway": "Each satellite crosses Ila's sky in a few minutes, so her dish keeps handing off to the next one; trees or roofs that block the sky cause dropouts."
+          "h": 3208,
+          "kw": "key words radio lanes know spectrum bandwidth full range frequencies like every station dial cut lane hands governments license us fcc federal communications commission uk ofcom india telecom department licensed one company transmit place wi-fi uses free shared much get going 1-lane road 6-lane highway data moves ila's dish made far higher wide enough lots phone companies cell card sources dot licensing starlink licence band specifications simplified ila",
+          "takeaway": "Spectrum is the radio dial cut into licensed lanes; bandwidth is how much of the dial you get."
         },
         {
           "file": "assets/pulse/how-starlink-works/p04.webp",
           "thumb": "assets/pulse/how-starlink-works/p04-t.webp",
-          "title": "Down to the ground",
+          "title": "Catching a moving satellite",
           "w": 1600,
-          "h": 2760,
-          "kw": "ground ila's data field guide starlink plate fig drops straight lasers fill gaps time satellite doesn't keep passes like relay runner beams station called gateway fenced yard antennas wired fiber far oceans remote land satellites pass laser until one reach example video call dish friend's screen made sources improving starlink's latency path technology page ila card",
-          "takeaway": "Ila's satellite doesn't keep her data: it passes it straight down to a ground station wired to fiber; lasers between satellites only fill gaps far from any station."
+          "h": 3386,
+          "kw": "ila's dish catching moving satellite never sits still next now leaving switches one satellites move left right shown post clarity hands off parked laps earth every minutes cross india guess first long sky answer upside handoff slips away beam open trees roof edge block causing short dropouts needs clear view card sources apnic labs pass times starlink space safety height support obstructions orbit time speed crossing arithmetic ila made",
+          "takeaway": "Each satellite crosses Ila's sky in a few minutes, so her dish keeps handing off to the next one; trees or roofs that block the sky cause dropouts."
         },
         {
           "file": "assets/pulse/how-starlink-works/p05.webp",
           "thumb": "assets/pulse/how-starlink-works/p05-t.webp",
-          "title": "A phone that talks to space",
+          "title": "Down to the ground",
           "w": 1600,
-          "h": 3505,
-          "kw": "phone talks space ila's field guide starlink plate fig ila hike far beyond last cell tower direct hikes hills gets signal ordinary dish texts satellite acts weak reaches can't shout louder listens harder has big antenna flies lower home-internet satellites today carrier company like t-mobile vodafone team others back rival next card whose lanes now borrows partner carriers t-mobile's us that's needs spacex buying echostar limits photos location apps whatsapp google maps slowly video browsing works best open sky sources page safety t-satellite releases made",
-          "takeaway": "An ordinary phone can text through a satellite that acts as a cell tower in space, using a partner carrier's lanes; the satellite has a big antenna and flies about 360 km up, lower than most home-internet satellites today."
+          "h": 3188,
+          "kw": "ila's data ground goes satellite dish station far stations laser hops fiber internet drops straight lasers fill gaps time doesn't keep passes like relay runner beams called gateway fenced yard antennas wired oceans remote land satellites pass until one reach video call made friend's screen card sources starlink improving starlink's latency path technology page ila",
+          "takeaway": "Ila's satellite doesn't keep her data: it passes it straight down to a ground station wired to fiber; lasers between satellites only fill gaps far from any station."
         },
         {
           "file": "assets/pulse/how-starlink-works/p06.webp",
           "thumb": "assets/pulse/how-starlink-works/p06-t.webp",
-          "title": "How it's different",
+          "title": "A phone that talks to space",
           "w": 1600,
-          "h": 2900,
-          "kw": "it's different rivals field guide starlink plate twist others beam internet sky stands flies low has thousands satellites already serves homes phones ground fiber cable cell towers vodafone airtel fastest wires reach often stop short farms like ila's high viasat hughesnet cover huge areas lag lost home customers year says low-orbit orbit eutelsat oneweb amazon leo sells mostly businesses governments launched plans start service space ast spacemobile dozen big phone far backed verizon first patchy targeted end real rival yet today families order phone-from-space running hundreds iphones android text satellite through globalstar skylo texts sos read sources annual report update releases hughes court filing del genio declaration apple spacex call card",
-          "takeaway": "Others beam internet from the sky too, and HughesNet is losing home customers to low-orbit rivals; today Starlink is the only low-orbit service most homes can order, and the biggest phone-from-space network (our read)."
+          "h": 3112,
+          "kw": "ila's phone talks space ordinary dish big antenna tower range ila hike far beyond last cell direct hikes hills gets signal texts satellite acts weak reaches can't shout louder listens harder catches faint flies lower home-internet satellites today card sources starlink page safety made",
+          "takeaway": "An ordinary phone can text through a satellite that acts as a cell tower in space; the satellite has a big antenna and flies about 360 km up, lower than most home-internet satellites today."
         },
         {
           "file": "assets/pulse/how-starlink-works/p07.webp",
           "thumb": "assets/pulse/how-starlink-works/p07-t.webp",
-          "title": "Who pays for Ila's internet?",
+          "title": "Whose lanes?",
           "w": 1600,
-          "h": 3234,
-          "kw": "pays ila's internet field guide starlink plate fig ila dad check bill family home rockets new satellites dish fee read cash helps phone company plan amount private lends cell lanes monthly across countries averages month regular customer homes businesses ready-made plans real price depends country oct satellite texting comes t-mobile included top big picture airlines ships governments pay much bigger bills altogether brought billion three months third spacex's sales money goes sources spacex earnings release sec call s-1 carrier fees average figured t-satellite page made card",
-          "takeaway": "Ila's family pays for the dish plus a monthly fee (about $69 a month on average across all countries); her phone company pays Starlink a fee for satellite texting (amount private); our read: that cash helps fund rockets and new satellites."
+          "h": 2400,
+          "kw": "ila's phone whose lanes lends radio ila today cell carrier company like t-mobile vodafone team starlink others back rival see card now borrows partner carriers t-mobile's us that's needs spacex buying echostar satellite works texts photos location apps whatsapp google maps slowly yet video browsing best open sky sources t-satellite page 8-k releases made",
+          "takeaway": "For now Starlink borrows a partner carrier's cell lanes (T-Mobile's in the US) and is buying its own from EchoStar; texts, photos, location and a few apps work today, video and browsing don't yet."
         },
         {
           "file": "assets/pulse/how-starlink-works/p08.webp",
           "thumb": "assets/pulse/how-starlink-works/p08-t.webp",
-          "title": "More lanes in the sky",
+          "title": "How it's different",
           "w": 1600,
-          "h": 3232,
-          "kw": "lanes sky spacex field guide starlink plate today goal satellite bandwidth 10x satellites 100x green bar math total arithmetic boss elon musk's forecast probably within three years promise starship spacex's giant new rocket built carry bigger faster phones next us regulators cleared phone none launched yet start flying aims service early data centers orbit buildings full computers wants put ai space powered sunlight big ifs heat hard get rid repairs launches cost lot read ila notice speeds evening everyone nearby online hikes texts sources earnings call shotwell plans fcc order update orbital made card",
-          "takeaway": "About 10x more satellites with about 10x more bandwidth each would mean about 100x more capacity (our arithmetic), a goal, not a promise; SpaceX also wants data centers in orbit, a long shot (our read)."
+          "h": 2400,
+          "kw": "rivals it's different part others beam internet sky twist starlink stands flies low has thousands satellites already serves homes phones ground fiber cable cell towers vodafone airtel fastest wires reach often stop short farms like ila's high viasat hughesnet cover huge areas lag lost home customers year says low-orbit card sources hughes court filing del genio declaration aug carrier sites ila made",
+          "takeaway": "Others beam internet from the sky too: ground networks stop short of farms, and high satellites lag; HughesNet lost about 1 in 5 home customers in a year and blames low-orbit rivals."
         },
         {
           "file": "assets/pulse/how-starlink-works/p09.webp",
           "thumb": "assets/pulse/how-starlink-works/p09-t.webp",
+          "title": "How it's different",
+          "w": 1600,
+          "h": 2534,
+          "kw": "rivals it's different part low orbit phones dates cards oct label covers every figure eutelsat oneweb sells mostly businesses governments amazon leo has launched satellites says plans start service space ast spacemobile dozen big phone far backed verizon vodafone first patchy targeted end real rival yet read today starlink low-orbit internet families like ila's order home phone-from-space running hundreds iphones android already text satellite through globalstar skylo texts sos card sources annual report update releases apple spacex call ila made",
+          "takeaway": "Other low-orbit networks are smaller or just starting; today Starlink is the only low-orbit service most homes can order, and the biggest phone-from-space network (our read)."
+        },
+        {
+          "file": "assets/pulse/how-starlink-works/p10.webp",
+          "thumb": "assets/pulse/how-starlink-works/p10-t.webp",
+          "title": "Who pays for Ila's internet?",
+          "w": 1600,
+          "h": 2752,
+          "kw": "pays ila's internet follow money family ila dad check bill home starlink rockets new satellites dish fee read cash helps phone company plan amount private lends cell lanes monthly across countries averages month regular customer homes businesses ready-made plans july september real price depends country card sources spacex earnings release sec s-1 average figured made",
+          "takeaway": "Ila's family pays for the dish once, then a monthly fee; across all countries Starlink averages about $69 a month per regular customer (July to September 2026)."
+        },
+        {
+          "file": "assets/pulse/how-starlink-works/p11.webp",
+          "thumb": "assets/pulse/how-starlink-works/p11-t.webp",
+          "title": "Phone bill, big picture",
+          "w": 1600,
+          "h": 2400,
+          "kw": "pays phone bill big picture else money goes satellite texting comes ila's plan t-mobile included top month company starlink fee amount private lends cell lanes airlines ships governments pay much bigger bills altogether brought billion three months july september third spacex's sales read cash helps rockets new satellites card sources spacex earnings release sec call s-1 carrier fees t-satellite page ila family made",
+          "takeaway": "Her phone company pays Starlink a fee (amount private) and lends it lanes; Starlink brought in $5.2 billion in three months, and that cash helps pay for rockets and satellites (our read)."
+        },
+        {
+          "file": "assets/pulse/how-starlink-works/p12.webp",
+          "thumb": "assets/pulse/how-starlink-works/p12-t.webp",
+          "title": "More lanes in the sky",
+          "w": 1600,
+          "h": 3330,
+          "kw": "spacex lanes sky says heading today goal satellite bandwidth 10x satellites 100x bar math total arithmetic boss elon musk's forecast probably within three years promise starship spacex's giant new rocket built carry bigger faster phones next us regulators cleared phone none launched yet start flying aims service early ila notice read speeds evening everyone nearby online data hikes texts card sources earnings call shotwell plans fcc order made",
+          "takeaway": "About 10x more satellites with about 10x more bandwidth each would mean about 100x more capacity (our arithmetic), a goal, not a promise; new phone satellites start flying in 2027."
+        },
+        {
+          "file": "assets/pulse/how-starlink-works/p13.webp",
+          "thumb": "assets/pulse/how-starlink-works/p13-t.webp",
+          "title": "Data centers in orbit?",
+          "w": 1600,
+          "h": 2400,
+          "kw": "spacex data centers orbit idea working center building full computers wants put ai space powered sunlight built yet big ifs read heat hard get rid repairs launches cost lot ila nothing notice isn't card sources update orbital feb made",
+          "takeaway": "SpaceX also wants AI data centers in orbit, powered by sunlight; heat, repairs and launch costs are big ifs (our read), and nothing is built yet."
+        },
+        {
+          "file": "assets/pulse/how-starlink-works/p14.webp",
+          "thumb": "assets/pulse/how-starlink-works/p14-t.webp",
           "title": "What could stop it?",
           "w": 1600,
-          "h": 2760,
-          "kw": "stop world field guide starlink plate fig heavy rain slow ila's dish while countries set rules namibia said requires local ownership among reasons india data kept weather crowded sky thousands satellites need careful traffic control moving fleet lower partly dead drop back burn air within months years bottom line moves tower ground first homes next ordinary phones read subscribers monthly fees help pay rockets make bigger sources reuters cran namibia's regulator licence decision hindu permit support michael nicolls jan lowering decay times ila made card",
+          "h": 3036,
+          "kw": "world stop limits countries weather space itself heavy rain slow ila's dish while set rules namibia said requires local ownership among reasons india data kept crowded sky thousands satellites need careful traffic control starlink moving fleet lower partly dead drop back burn air within months years bottom line moves tower ground first homes next ordinary phones read subscribers monthly fees help pay rockets make bigger card sources reuters cran namibia's regulator licence decision hindu permit support michael nicolls jan lowering decay times ila made",
           "takeaway": "Country rules, heavy rain and a crowded sky limit Starlink. Bottom line: the tower moves from the ground to the sky."
         }
       ],
@@ -2612,18 +2657,18 @@
         "Starlink is low, large and already serving homes and phones; most low-orbit rivals are just starting. Fees from homes and phone companies pay for it.",
         "Next: more lanes in the sky (and maybe data centers in orbit), limited by country rules, weather and a crowded sky."
       ],
-      "recap_pages": 9,
+      "recap_pages": 14,
       "sources": []
     },
     {
       "id": "spacex-rockets",
       "title": "How SpaceX Rockets Work",
       "topic": "Frontier Tech",
-      "blurb": "Follow Nia, a student building a science-fair project, as she finds out why SpaceX lands its rockets, how a booster comes home, why refilling in orbit matters, and how it could lead to the Moon, then Mars.",
+      "blurb": "Nia, a student with a cardboard rocket and a lot of questions, finds out why SpaceX lands its rockets, how a tower catches one with 'chopsticks', and why a gas station in orbit could get people back to the Moon.",
       "gist": [
         "Rockets cost far more than their parts, and most are still thrown away after one flight.",
         "SpaceX lands its boosters and catches its giant Super Heavy booster with a tower, so it can fly them again.",
-        "The twist: refilling in orbit. How many fill-ups a Moon landing needs is still debated."
+        "The twist: refilling in orbit. Estimates run from 6 to 22 launches, all made before NASA's Oct 23 route change."
       ],
       "added": "2026-10-24",
       "added_at": "2026-10-24T10:41",
@@ -2634,65 +2679,65 @@
           "thumb": "assets/pulse/spacex-rockets/p01-t.webp",
           "title": "Why land a rocket?",
           "w": 1600,
-          "h": 2400,
-          "kw": "land rocket made nia's question science-fair project nia asks spacex rockets used get people moon us company falcon giant starship story throwing away space expensive flies trick take back mars source pages facts oct card"
+          "h": 2325,
+          "kw": "hook land rocket nia made rockets fly spacex lands theirs get us moon company falcon giant starship source pages facts oct project card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p02.webp",
           "thumb": "assets/pulse/spacex-rockets/p02-t.webp",
-          "title": "The rocket words",
+          "title": "Meet the rocket",
           "w": 1600,
-          "h": 2400,
-          "kw": "rocket words upper stage propellant tanks booster orbit big bottom part gives first hard push lets top carries cargo rest way super heavy starship spacex's giant has two parts ship stacked together going around earth fast keep falling fuel plus oxygen burns methane liquid reuse landing flying like airliner nia's goal model flies twice source nasa spacex falcon pages card"
+          "h": 2100,
+          "kw": "key words meet rocket starship super heavy tanks engines booster bottom part first big push upper stage top carries cargo giant ship propellant fuel plus oxygen burn methane liquid orbit falling around earth fast keep missing nia made two names one got source nasa spacex falcon pages card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p03.webp",
           "thumb": "assets/pulse/spacex-rockets/p03-t.webp",
-          "title": "Rockets cost far more than their parts",
+          "title": "Rockets cost way more than their parts",
           "w": 1600,
-          "h": 2400,
-          "kw": "rockets cost far parts made nia's test model-rocket kit costs card wood glue inside first principles start basic facts others charge elon musk started spacex real rocket priced raw aluminum titanium copper carbon fiber guess share rocket's price materials answer read upside worked blamed playing safe decades-old layers suppliers adding profit cheaper source interview wired's chris anderson prices"
+          "h": 2466,
+          "kw": "problem rockets cost way parts nia's kit made inside card wood glue first principles start basic facts others prices elon musk spacex's founder priced rocket's raw metals carbon fiber share price materials answer flip phone far cheaper wow source interview wired's chris anderson"
         },
         {
           "file": "assets/pulse/spacex-rockets/p04.webp",
           "thumb": "assets/pulse/spacex-rockets/p04-t.webp",
           "title": "Thrown away vs flown again",
           "w": 1600,
-          "h": 2400,
-          "kw": "thrown away flown old way rockets like nasa's sls space launch system drop used parts sea every needs new rocket spacex falcon 9's booster costly part lands flies nose cone fairing fished reused upper stage pays customer satellite company nasa price whole ticket musk's plane line imagine had have flight people fly nia tapes poster source pages page musk wired card",
-          "takeaway": "Most rockets are used once and thrown away. SpaceX lands its booster and flies it again, so customers stop paying for a whole new rocket every launch."
+          "h": 2378,
+          "kw": "big idea thrown away flown old way like nasa's sls space launch system get tossed every buys new rocket spacex falcon 9's booster priciest part nose cone fairing reused upper stage musk's plane line imagine had have flight people fly nia tapes poster made rockets basically fancy paper cups source nasa pages page musk wired card",
+          "takeaway": "Most rockets are used once and tossed. SpaceX lands its Falcon 9 booster and reuses its nose cone, so customers stop paying for a whole new rocket every launch."
         },
         {
           "file": "assets/pulse/spacex-rockets/p05.webp",
           "thumb": "assets/pulse/spacex-rockets/p05-t.webp",
           "title": "How a booster lands",
           "w": 1600,
-          "h": 2400,
-          "kw": "booster lands let lets upper stage keeping fuel trip flip flips landing land burns back toward home sea usually arcs waiting ship brake steer entry burn slows thick air grid fins waffle-shaped last almost stop legs unfold touches made nia's model hers floats parachute real flies itself source spacex falcon page space explored zlsa design guide card"
+          "h": 2360,
+          "kw": "works booster lands let drops upper stage saving fuel flip land burns back home sea usually arcs ship brake steer entry burn slows grid fins waffle last legs touchdown nia made mine uses parachute show-off source spacex falcon page space explored zlsa design landing guide card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p06.webp",
           "thumb": "assets/pulse/spacex-rockets/p06-t.webp",
           "title": "Caught by chopsticks",
           "w": 1600,
-          "h": 2400,
-          "kw": "caught chopsticks super heavy has landing legs flies back tower launched slows hover two huge arms nicknamed close around next spacex wants catch ship top whole rocket nia adds model source ars technica nasaspaceflight nia's made card"
+          "h": 2946,
+          "kw": "works caught chopsticks legs needed super heavy flies back tower hovers giant arms nicknamed grab next catch starship top part nia made adding model obviously source spacex ars technica nasaspaceflight nia's card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p07.webp",
           "thumb": "assets/pulse/spacex-rockets/p07-t.webp",
           "title": "SpaceX vs the rest",
           "w": 1600,
-          "h": 2400,
-          "kw": "spacex rest sls nasa thrown away sends astronauts straight moon one launch ariane europe building reusable test rocket vulcan ula boeing lockheed now plans save engines later new glenn blue origin us booster lands ship has flown falcon flies starship super heavy already caught tower next top part china boosters first government net startup landspace lab zealand stands others land rockets reflies far often anyone catching nia puts list poster source esa spacenews nasaspaceflight xinhua space.com card"
+          "h": 2668,
+          "kw": "it's different spacex rest sls nasa tossed one launch sends astronauts straight moon ariane europe reusable test rocket coming vulcan ula boeing lockheed now plans save engines new glenn blue origin booster landed ship flew falcon lands flies lot starship super heavy caught tower next top china government first net catch startup landspace lab building stands used boosters catches nia made everybody wants comeback source esa spacenews nasaspaceflight xinhua space.com card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p08.webp",
           "thumb": "assets/pulse/spacex-rockets/p08-t.webp",
           "title": "A gas station in orbit",
           "w": 1600,
-          "h": 2400,
-          "kw": "gas station orbit problem starship reaches little propellant left moon tankers depot tanker starships carry storage tank lander hls human landing system fills hard part super-cold slowly boils away two have swapped yet spacex aims try early made nia's way say like car burns getting onto highway trucks stock first source nasa update oig report ig-26-004 ars technica card",
+          "h": 2260,
+          "kw": "twist gas station orbit tanker depot fill tankers carry fuel tank lander starship hls moon reaches little propellant human landing system hard part super-cold slowly boils away two starships have swapped yet first try early oct nia made highway rockets source nasa update oig report ig-26-004 ars technica card",
           "takeaway": "To reach the Moon, the Starship HLS lander first fills up in orbit from tanker Starships. No two Starships have swapped propellant yet; SpaceX aims to try early in 2027."
         },
         {
@@ -2700,43 +2745,55 @@
           "thumb": "assets/pulse/spacex-rockets/p09-t.webp",
           "title": "How many fill-ups?",
           "w": 1600,
-          "h": 2400,
-          "kw": "many fill-ups nasa safety adviser charlie precourt ex-astronaut nasa's panel said latest estimate around launches moon landing elon musk replying that's way high actual number like watchdog inspector general counts depot plus tankers news site spaceflight now says pays fixed price lander extra mostly cost spacex plan changed came oct route change needs much fuel read nobody knows yet depends tanker carries boils off nia writes source ars technica x.com elonmusk status oig ig-26-004 card"
+          "h": 2516,
+          "kw": "nasa customer many fill-ups musk oct nasa's watchdog inspector general spaceflight now news site charlie precourt safety panel ex-astronaut musk's reply that's way high actual number like nia made wide arrow poster source x.com elonmusk status ars technica oig ig-26-004 card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p10.webp",
           "thumb": "assets/pulse/spacex-rockets/p10-t.webp",
-          "title": "How astronauts get there",
+          "title": "Then NASA changed the route",
           "w": 1600,
-          "h": 2400,
-          "kw": "astronauts get fill tankers depot starship hls lander tops meet four ride sls earth orbit orion capsule dock waiting moon pushes close land two several days fly back wait aboard made nia's poster draws steps blue origin's skips fill-up first nasa whichever ready source partners accelerate development oct card"
+          "h": 2353,
+          "kw": "plot twist nasa changed route old far stretched orbit new low oct nasa's plan uses around moon says needs much fuel every estimate last card came nobody knows yet depends tanker loads boil-off read nia made updating poster source lander update ars technica near-rectilinear halo"
         },
         {
           "file": "assets/pulse/spacex-rockets/p11.webp",
           "thumb": "assets/pulse/spacex-rockets/p11-t.webp",
-          "title": "Moon first, then Mars",
+          "title": "How astronauts get there",
           "w": 1600,
-          "h": 2400,
-          "kw": "moon first mars spacex's plan musk says spacex has shifted building self-growing city launch every days lines months far away takes nasa refill starship's methane oxygen made ships fill trip home nia's practice close like camping backyard source x.com elonmusk status feb long take get jupiter page card"
+          "h": 2512,
+          "kw": "mission astronauts get starship hls orion fill tankers depot tops meet four ride sls capsule earth orbit dock moon lander pushes low land two several days wait blue origin's skips fill-up first nasa flies whichever ready nia made steps one long poster source partners accelerate development oct card"
         },
         {
           "file": "assets/pulse/spacex-rockets/p12.webp",
           "thumb": "assets/pulse/spacex-rockets/p12-t.webp",
+          "title": "Moon first, then Mars",
+          "w": 1600,
+          "h": 2610,
+          "kw": "it's heading moon first mars trip days months musk nasa next chance every spacex's plan says self-growing city refill starship's methane oxygen made nia backyard camping big source x.com elonmusk status feb long take get jupiter spacex page card"
+        },
+        {
+          "file": "assets/pulse/spacex-rockets/p13.webp",
+          "thumb": "assets/pulse/spacex-rockets/p13-t.webp",
           "title": "What Nia tells her class",
           "w": 1600,
-          "h": 2400,
-          "kw": "nia tells class problem rockets cost far parts still thrown away one flight fix land booster fly like airliner twist refill orbit reusable rocket reach moon read watch tests work trips get cheaper meanwhile spacex's landing waits blue origin's first lander doesn't need refills next mars source recap book nasa update card",
-          "takeaway": "Price the parts, land the booster, refill in orbit: that is the SpaceX recipe. The refill tests decide how soon it reaches the Moon."
+          "h": 2542,
+          "kw": "ending nia tells class problem pricey rockets tossed one flight fix land booster fly twist refill orbit reach moon watch tests work trips get far cheaper read meanwhile spacex's landing waits blue origin's first lander doesn't need refills next mars made mic drop okay cardboard source recap book nasa update card",
+          "takeaway": "Price the parts, land the booster, refill in orbit. The refill tests decide how soon SpaceX reaches the Moon."
         }
       ],
       "recap": [
-        "Problem: rockets cost far more than their parts, and most are still thrown away.",
+        "Problem: pricey rockets, tossed after one flight.",
         "Fix: land the booster and fly it again; others now try too.",
         "Twist: refill in orbit to reach the Moon (6 to 22 fill-ups estimated, before NASA's Oct 23 route change).",
         "Next: Moon first, then Mars."
       ],
-      "recap_pages": 12,
+      "recap_pages": 13,
       "sources": [
+        {
+          "title": "arstechnica.com · nasa updates lander plans for moon landings finally solves long festering orion ",
+          "url": "https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/"
+        },
         {
           "title": "x.com · post by @elonmusk",
           "url": "https://x.com/elonmusk/status/2113377866478231647"
@@ -2756,10 +2813,6 @@
         {
           "title": "spaceflightnow.com · nasa inspector general assesses agencys management of moon lander risk",
           "url": "https://spaceflightnow.com/2026/03/10/nasa-inspector-general-assesses-agencys-management-of-moon-lander-risk/"
-        },
-        {
-          "title": "arstechnica.com · nasa updates lander plans for moon landings finally solves long festering orion ",
-          "url": "https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/"
         },
         {
           "title": "spacex.com · falcon 9",

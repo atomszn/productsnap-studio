@@ -16,15 +16,25 @@ def load(p, default=None):
     return json.load(open(p)) if os.path.exists(p) else default
 
 
-def cover_img(b):
-    """A small cover picture (320px wide) cut from the book's first page, so the shelf loads fast. Rebuilt when the page changes."""
-    p0 = b["pages"][0]; src = os.path.join(ROOT, p0["file"]); dst = os.path.join(ROOT, "assets", "pulse", b["id"], "cover.webp")
-    if not os.path.exists(src): return p0.get("thumb") or p0["file"], p0["w"], p0["h"]
-    if not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src):
-        from PIL import Image
-        im = Image.open(src).convert("RGB"); w = 320; h = round(im.height * w / im.width)
-        im.resize((w, h), Image.LANCZOS).save(dst, "WEBP", quality=72, method=6)
+def cover_img(b, crop=None):
+    """A small cover picture (320px wide) cut from the book's first page, so the shelf loads fast.
+    crop (taxonomy.json books.<id>.cover = {"page": 1, "box": [x0, y0, x1, y1]} in page pixels) picks the
+    book's own art instead of the top of page 1; aim for 4:3, the cover window's shape.
+    Rebuilt when the page or the crop changes."""
     from PIL import Image
+    pg = b["pages"][max(0, min(len(b["pages"]) - 1, (crop or {}).get("page", 1) - 1))]
+    src = os.path.join(ROOT, pg["file"]); adir = os.path.join(ROOT, "assets", "pulse", b["id"])
+    dst = os.path.join(adir, "cover.webp"); keyf = os.path.join(adir, "cover.key")
+    if not os.path.exists(src): return pg.get("thumb") or pg["file"], pg["w"], pg["h"]
+    key = json.dumps({"src": pg["file"], "box": (crop or {}).get("box")})
+    stale = (not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src)
+             or (open(keyf).read() if os.path.exists(keyf) else "") != key)
+    if stale:
+        im = Image.open(src).convert("RGB")
+        if crop and crop.get("box"): im = im.crop(tuple(crop["box"]))
+        w = 320; h = round(im.height * w / im.width)
+        im.resize((w, h), Image.LANCZOS).save(dst, "WEBP", quality=72, method=6)
+        with open(keyf, "w") as f: f.write(key)
     with Image.open(dst) as im: w, h = im.size
     return "assets/pulse/%s/cover.webp" % b["id"], w, h
 
@@ -42,7 +52,7 @@ def build(write=True):
         words = sum(len(" ".join(l).split()) for l in text.get(b["id"], [])) + len(" ".join(b.get("gist", [])).split())
         if not text.get(b["id"]):  # no cleaned text yet: estimate from the page count
             words = 140 * len(b["pages"])
-        p0 = b["pages"][0]; cv, cw, ch = cover_img(b)
+        p0 = b["pages"][0]; cv, cw, ch = cover_img(b, t.get("cover"))
         e = {"id": b["id"], "title": b["title"], "topic": b["topic"], "tagline": b.get("tagline") or b["blurb"],
              "blurb": b["blurb"], "gist": b["gist"], "added": b.get("added"), "added_at": b.get("added_at"),
              "n": len(b["pages"]), "minutes": max(3, round(words / WPM)),

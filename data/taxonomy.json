@@ -382,8 +382,25 @@
         "phone to satellite",
         "direct to cell",
         "t-mobile",
-        "space"
-      ]
+        "space",
+        "amazon leo",
+        "oneweb",
+        "hughesnet",
+        "echostar",
+        "data centers in orbit",
+        "ground station",
+        "spectrum",
+        "bandwidth"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          0,
+          960,
+          1600,
+          2160
+        ]
+      }
     },
     "spacex-rockets": {
       "sub": "Space",
@@ -408,8 +425,27 @@
         "refueling",
         "refill in orbit",
         "space",
-        "launch"
-      ]
+        "launch",
+        "super heavy",
+        "chopsticks",
+        "tower catch",
+        "propellant",
+        "artemis",
+        "blue origin",
+        "orion",
+        "hls",
+        "moon lander",
+        "rocket lab"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          40,
+          300,
+          1560,
+          1440
+        ]
+      }
     }
   }
 }
