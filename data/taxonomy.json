@@ -511,6 +511,59 @@
           1155
         ]
       }
+    },
+    "how-neuralink-works": {
+      "sub": "Robots & brains",
+      "tags": [
+        "big-names"
+      ],
+      "aka": [
+        "neuralink",
+        "brain chip",
+        "brain chips",
+        "brain implant",
+        "brain implants",
+        "brain-computer interface",
+        "brain computer interface",
+        "bci",
+        "bcis",
+        "telepathy",
+        "n1",
+        "n1 implant",
+        "neural implant",
+        "neurotech",
+        "neurotechnology",
+        "mind control cursor",
+        "thought to text",
+        "paralysis",
+        "quadriplegia",
+        "als",
+        "spinal cord injury",
+        "elon",
+        "elon musk",
+        "synchron",
+        "stentrode",
+        "utah array",
+        "braingate",
+        "precision neuroscience",
+        "paradromics",
+        "neuracle",
+        "blindsight",
+        "speech bci",
+        "robot arm",
+        "fda",
+        "electrodes",
+        "motor cortex"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          340,
+          455,
+          1380,
+          1215
+        ]
+      }
     }
   }
 }
