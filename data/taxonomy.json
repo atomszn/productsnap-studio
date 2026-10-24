@@ -462,6 +462,108 @@
           1448
         ]
       }
+    },
+    "boring-company": {
+      "sub": "Getting around",
+      "tags": [
+        "big-names"
+      ],
+      "aka": [
+        "boring company",
+        "the boring company",
+        "boring",
+        "tunnel",
+        "tunnels",
+        "tunneling",
+        "tunnelling",
+        "tunnel boring machine",
+        "tbm",
+        "prufrock",
+        "loop",
+        "vegas loop",
+        "las vegas loop",
+        "lvcc loop",
+        "las vegas",
+        "nashville",
+        "music city loop",
+        "dubai",
+        "elon",
+        "elon musk",
+        "traffic",
+        "subway",
+        "subway cost",
+        "crossrail",
+        "elizabeth line",
+        "second avenue subway",
+        "transit cost",
+        "digging",
+        "hyperloop",
+        "tesla",
+        "self-driving",
+        "osha"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          300,
+          375,
+          1340,
+          1155
+        ]
+      }
+    },
+    "how-neuralink-works": {
+      "sub": "Robots & brains",
+      "tags": [
+        "big-names"
+      ],
+      "aka": [
+        "neuralink",
+        "brain chip",
+        "brain chips",
+        "brain implant",
+        "brain implants",
+        "brain-computer interface",
+        "brain computer interface",
+        "bci",
+        "bcis",
+        "telepathy",
+        "n1",
+        "n1 implant",
+        "neural implant",
+        "neurotech",
+        "neurotechnology",
+        "mind control cursor",
+        "thought to text",
+        "paralysis",
+        "quadriplegia",
+        "als",
+        "spinal cord injury",
+        "elon",
+        "elon musk",
+        "synchron",
+        "stentrode",
+        "utah array",
+        "braingate",
+        "precision neuroscience",
+        "paradromics",
+        "neuracle",
+        "blindsight",
+        "speech bci",
+        "robot arm",
+        "fda",
+        "electrodes",
+        "motor cortex"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          340,
+          455,
+          1380,
+          1215
+        ]
+      }
     }
   }
 }
