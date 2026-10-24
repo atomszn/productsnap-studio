@@ -1018,3 +1018,11 @@ body.searching .lib-title{position:absolute;width:1px;height:1px;overflow:hidden
 .end-stamp{position:relative;right:auto;top:auto;align-self:center;margin:2px 0 0}
 .pg-end .g-kicker{padding-right:0;text-align:center}
 .lib-bar{top:var(--nav-h,0px)}
+/* end-card sources look like links: topic-coloured (>=4.5:1 on the card in both themes) + underline + ↗ */
+.end-sources a{color:var(--tc,var(--ink));text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:color-mix(in srgb,currentColor 55%,transparent)}
+.end-sources a::after{content:"\2197";margin-left:.3em;font-size:.85em;text-decoration:none;display:inline-block}
+.end-sources a:hover{text-decoration-thickness:2px;text-decoration-color:currentColor}
+.end-sources a:focus-visible{outline:3px solid currentColor;outline-offset:2px;border-radius:3px}
+.end-sources a{display:inline-block;min-height:44px;padding:10px 0;box-sizing:border-box;line-height:1.4}
+.end-sources a::after{display:inline}
+.end-sources a{display:block;width:fit-content;max-width:100%;padding:8px 0}

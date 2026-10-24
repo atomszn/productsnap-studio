@@ -763,7 +763,7 @@
     var pr = pairsNode(b, n); if (pr) d.appendChild(pr);
     if (b.sources && b.sources.length) {
       var sd = el("details", "end-sources"); sd.appendChild(el("summary", null, "Sources for this book (" + b.sources.length + ")"));
-      var ul = el("ul"); b.sources.forEach(function (x) { var li = el("li"), l = el("a", null, x.title || srcHost(x.url)); l.href = x.url; l.target = "_blank"; l.rel = "noopener"; li.appendChild(l); ul.appendChild(li); });
+      var ul = el("ul"); b.sources.forEach(function (x) { var li = el("li"), l = el("a", null, x.title || srcHost(x.url)); l.href = x.url; l.target = "_blank"; l.rel = "noopener"; l.appendChild(el("span", "sr-only", " (opens in a new tab)")); li.appendChild(l); ul.appendChild(li); });
       sd.appendChild(ul); d.appendChild(sd);
     }
     /* short phones: the card scrolls inside itself; a small sticky pill says "more below" until the bottom is reached */

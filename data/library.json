@@ -2676,7 +2676,7 @@
           "url": "https://www.aboutamazon.com/news/innovation-at-amazon/project-kuiper-satellite-rocket-launch-progress-updates"
         },
         {
-          "title": "AST SpaceMobile release, Oct 20, 2026",
+          "title": "AST SpaceMobile release",
           "url": "https://www.businesswire.com/news/home/20261020527793/en/AST-SpaceMobile-Advances-Service-Readiness-Ahead-of-Initial-Space-Based-Cellular-Broadband-Coverage-in-Key-Global-Markets"
         },
         {
@@ -2700,7 +2700,7 @@
           "url": "https://www.t-mobile.com/coverage/satellite-phone-service"
         },
         {
-          "title": "EchoStar 8-K, May 22, 2026",
+          "title": "EchoStar 8-K",
           "url": "https://www.sec.gov/Archives/edgar/data/1533758/000141540426000013/sats-20260522x8k.htm"
         },
         {
@@ -2708,7 +2708,7 @@
           "url": "https://www.fool.com/earnings/call-transcripts/2026/10/20/spacex-spcx-q3-2026-earnings-call-transcript/"
         },
         {
-          "title": "Michael Nicolls on X, Jan 1, 2026",
+          "title": "Michael Nicolls on X",
           "url": "https://x.com/michaelnicollsx/status/2006790372681220530"
         },
         {
@@ -2848,60 +2848,60 @@
       "recap_pages": 13,
       "sources": [
         {
-          "title": "Ars Technica: NASA updates lander plans for Moon landings…",
-          "url": "https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/"
-        },
-        {
-          "title": "Post by @elonmusk on X",
+          "title": "Elon Musk on X – 6 to 8 refills",
           "url": "https://x.com/elonmusk/status/2113377866478231647"
         },
         {
-          "title": "Post by @SciGuySpace on X",
-          "url": "https://x.com/SciGuySpace/status/2113340439893856278"
+          "title": "NASA – Moon lander update for 2028 missions",
+          "url": "https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/"
         },
         {
-          "title": "Ars Technica, Eric Berger: Latest estimate for Starship launches required to support a…",
-          "url": "https://arstechnica.com/space/2026/10/latest-estimate-for-starship-launches-required-to-support-a-moon-landing-22/"
-        },
-        {
-          "title": "NASA OIG, IG-26-004: NASA's Management of the Human Landing System Contracts",
-          "url": "https://oig.nasa.gov/wp-content/uploads/2026/03/final-report-ig-26-004-nasas-management-of-the-human-landing-system-contracts.pdf"
-        },
-        {
-          "title": "Spaceflight Now on the OIG report",
-          "url": "https://spaceflightnow.com/2026/03/10/nasa-inspector-general-assesses-agencys-management-of-moon-lander-risk/"
-        },
-        {
-          "title": "SpaceX vehicle pages",
-          "url": "https://www.spacex.com/vehicles/falcon-9/"
-        },
-        {
-          "title": "Elon Musk interview with Chris Anderson, WIRED: Elon Musk's Mission to Mars",
+          "title": "WIRED – Elon Musk interview with Chris Anderson",
           "url": "https://www.wired.com/2012/10/ff-elon-musk-qa/"
         },
         {
-          "title": "Space Explored: RTLS: How SpaceX returns Falcon 9 rocket boosters to land",
-          "url": "https://spaceexplored.com/2020/12/16/rtls-how-spacex-returns-falcon-9-rocket-boosters-to-land/"
+          "title": "Ars Technica – NASA changes its Moon lander plans",
+          "url": "https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/"
         },
         {
-          "title": "ZLSA Design ship-landing trajectory, no boostback",
-          "url": "https://zlsadesign.com/infographic/trajectory/spacex-falcon9-booster-dpl-no-boostback/"
-        },
-        {
-          "title": "SpaceX Q3 earnings call via Ars Technica and NASASpaceflight",
+          "title": "Ars Technica – SpaceX refueling test early 2027",
           "url": "https://arstechnica.com/space/2026/10/spacex-will-attempt-to-reach-weekly-starship-launches-by-early-2027/"
         },
         {
-          "title": "nasaspaceflight.com",
-          "url": "https://www.nasaspaceflight.com/2026/10/spacex-flight-15-16-milestones/"
+          "title": "Ars Technica – latest estimate, 22 Starship launches",
+          "url": "https://arstechnica.com/space/2026/10/latest-estimate-for-starship-launches-required-to-support-a-moon-landing-22/"
         },
         {
-          "title": "NASA",
+          "title": "NASA OIG – Human Landing System contracts report, IG-26-004",
+          "url": "https://oig.nasa.gov/wp-content/uploads/2026/03/final-report-ig-26-004-nasas-management-of-the-human-landing-system-contracts.pdf"
+        },
+        {
+          "title": "Spaceflight Now – 10 to 20 tanker flights",
+          "url": "https://spaceflightnow.com/2026/03/10/nasa-inspector-general-assesses-agencys-management-of-moon-lander-risk/"
+        },
+        {
+          "title": "NASA – How long does it take to get to the Moon and Mars?",
+          "url": "https://www.nasa.gov/directorates/smd/how-long-does-it-take-to-get-to-the-moon-mars-jupiter-we-asked-a-nasa-expert-episode-51/"
+        },
+        {
+          "title": "Space.com – China lands its Long March 10B rocket",
+          "url": "https://www.space.com/space-exploration/launches-spacecraft/making-history-china-lands-rocket-during-an-orbital-launch-for-1st-time-ever"
+        },
+        {
+          "title": "Elon Musk on X – Moon city first, then Mars",
+          "url": "https://x.com/elonmusk/status/2020640004628742577"
+        },
+        {
+          "title": "SpaceX – Falcon 9",
+          "url": "https://www.spacex.com/vehicles/falcon-9/"
+        },
+        {
+          "title": "NASA – Space Launch System",
           "url": "https://www.nasa.gov/humans-in-space/space-launch-system/"
         },
         {
-          "title": "ESA Ariane 6 overview and Themis pages",
-          "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Themis"
+          "title": "SpaceX – Starship to Mars",
+          "url": "https://www.spacex.com/humanspaceflight/mars"
         }
       ]
     }

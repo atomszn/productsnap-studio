@@ -249,6 +249,20 @@ def _fallback_label(url):
     return host
 
 
+DATE_TAIL = re.compile(r",\s*(?:(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+(?:\d{1,2},\s*)?)?\d{4}\s*$")
+
+
+def _key_label(t):
+    """A 'Key sources' line is written as a title: 'NASA – Moon lander update for 2028 missions, Oct 23, 2026 (cards 8, 10)'.
+    Keep it as written (publisher – title), dropping only list markers, the (cards …) note and a trailing date."""
+    t = re.sub(r"^\s*(?:[-*]|\d+\.)\s*", "", t.strip()); t = re.sub(r"\*\*|`", "", t)
+    for _ in range(3): t = re.sub(r"\s*\([^()]*\)", "", t)
+    t = re.sub(r"\s+", " ", t).strip(" ,;.:")
+    t = DATE_TAIL.sub("", t).strip(" ,;:")
+    t = re.sub(r"\s+[-\u2013\u2014]\s+", " \u2013 ", t)   # one separator style: "Publisher – title"
+    return t if len(t) >= 3 and not URL_RE.search(t) else ""
+
+
 def _clean_label(t):
     """Turn the text written just before a link into a short label. Handles the usual hand-in shapes:
       'SpaceX Q3 2026 earnings release, 8-K Exhibit 99.1 (cards 10-11)'   -> the text, minus the (…) note
@@ -278,7 +292,8 @@ def _clean_label(t):
 
 def _sources(md, limit=14):
     """[{title, url}] for the end card, from a hand-in sources.md.
-    1. A "Key sources" section, if there is one, is the list (in its order).
+    1. A "Key sources" section, if there is one, is the list (in its order), labelled as written there
+       ("NASA – Moon lander update for 2028 missions"; the publisher is never dropped).
     2. Otherwise every link in the file, in order. The label is the text written just before the link
        (e.g. 'SpaceX Q3 2026 earnings (SEC)'); with no text, a clean site name ('sec.gov', 'Post by @x on X')."""
     lines = open(md, encoding="utf-8").read().splitlines()
@@ -288,14 +303,15 @@ def _sources(md, limit=14):
             if l.startswith("#"): break
             key.append(l)
     out, seen = [], set()
-    for l in (key if any(URL_RE.search(x) for x in key) else lines):
+    key_mode = any(URL_RE.search(x) for x in key)
+    for l in (key if key_mode else lines):
         pos = 0
         for m in URL_RE.finditer(l):
             url = m.group(0).rstrip(".,;")
             seg = l[pos:m.start()]; pos = m.end()
             seg = re.split(r"\s;\s|;\s*$", seg)[-1] if ";" in seg else seg  # "A link ; B title <url>" -> "B title"
             if url in seen: continue
-            lab = "" if (_host(url) in ("x.com", "twitter.com") and not key) else _clean_label(seg)
+            lab = _key_label(seg) if key_mode else ("" if _host(url) in ("x.com", "twitter.com") else _clean_label(seg))
             seen.add(url); out.append({"title": lab or _fallback_label(url), "url": url})
     return out[:limit]
 
