@@ -524,9 +524,9 @@
     }).filter(Boolean);
     /* the framed quote: at most one per page, on a shelf with room, rotating by date among the roomiest; a second only on the bottom shelf with lots of room, far from the first */
     var C = info.filter(function (x) { return x.spare >= 280 && QUOTES[x.slug] && (x.slug !== "ai" || !phone); }).sort(function (a, b) { return b.spare - a.spare; });
-    var Q = [];
+    var Q = [], pl = 1;
     if (C.length) {
-      var pool = C.slice(0, Math.max(1, Math.ceil(C.length / 2))), q1 = pool[day % pool.length], L = info[info.length - 1]; Q.push(q1);
+      var pool = C.slice(0, Math.max(1, Math.ceil(C.length / 2))); pl = pool.length; var q1 = pool[day % pool.length], L = info[info.length - 1]; Q.push(q1);
       if (!phone && L !== q1 && C.indexOf(L) >= 0 && L.spare >= 600 && L.idx - q1.idx >= 2) Q.push(L);
     }
     info.forEach(function (x) {
@@ -541,7 +541,7 @@
       if (x.spare >= 130 && TOPIC_PROP[x.slug] && (x.slug !== "ai" || !phone)) box.appendChild(prop(TOPIC_PROP[x.slug]));
       if (Q.indexOf(x) >= 0) {
         var lines = QUOTES[x.slug], f = el("span", "pr-quote"); f.innerHTML = PROP.pin.replace("<svg ", '<svg fill="none" stroke="currentColor" focusable="false" ');
-        var qt = el("span"); lines[(day + x.idx) % lines.length].split(". ").forEach(function (t, i, A) { qt.appendChild(el("b", "", t + (i < A.length - 1 ? "." : ""))); }); f.appendChild(qt); box.appendChild(f);
+        var qt = el("span"); lines[(Math.floor(day / pl) + x.idx) % lines.length].split(". ").forEach(function (t, i, A) { qt.appendChild(el("b", "", t + (i < A.length - 1 ? "." : ""))); }); f.appendChild(qt); box.appendChild(f);
       }
       if (x.spare >= 420) box.appendChild(prop("plant"));
       if (x.spare >= 560 && Q.indexOf(x) < 0) box.appendChild(prop(x.idx % 2 ? "cup" : "stack"));
