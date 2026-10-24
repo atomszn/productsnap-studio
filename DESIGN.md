@@ -5,7 +5,7 @@ description: >-
   Picture-led explainer books on a hand-drawn bookshelf at productsnap.studio/pulse.html.
   Four topics, in shelf order: Frontier Tech, AI, Fintech, Macro. Light and dark themes. Phone-first.
   Every value below comes from css/style.css, css/pulse.css or css/pulse-sig.css
-  (approved by Kumar, Oct 24 2026; shipped to productsnap.studio from pulse-redesign-frontier).
+  (approved Oct 24 2026; shipped to productsnap.studio from pulse-redesign-frontier).
 colors:
   primary: "#2c3e66"            # --t-ai (light): AI navy, also the default topic tint
   secondary: "#7535b6"          # --t-fintech (light): Fintech plum
@@ -205,7 +205,7 @@ The journey, start to finish (every step must work in light and dark at 375/390/
 
 ## Colors
 
-Four topics, **in this order everywhere** (rows, chips, Start here, See all, Next shelf): **Frontier Tech, AI, Fintech, Macro** (Kumar, Oct 24 2026). The order and the list live in one place, `scripts/topics.py` (copied into `shelf.json`); class names come from a slug (`t-frontier-tech`), never from the raw name. An unknown topic is **never** coerced to another shelf: `add_book.py` and `check_library.py` reject it, and `pulse.js` drops the book with a console error.
+Four topics, **in this order everywhere** (rows, chips, Start here, See all, Next shelf): **Frontier Tech, AI, Fintech, Macro** (set Oct 24 2026). The order and the list live in one place, `scripts/topics.py` (copied into `shelf.json`); class names come from a slug (`t-frontier-tech`), never from the raw name. An unknown topic is **never** coerced to another shelf: `add_book.py` and `check_library.py` reject it, and `pulse.js` drops the book with a console error.
 
 - **AI navy** (#2c3e66 light / #8fa6d6 dark; cloth #2c3e66 / #33497a). Calm and technical.
 - **Fintech plum** (#7535b6 / #b779d8; cloth #683296 / #7c45ae). Money with a modern edge.
@@ -316,17 +316,17 @@ Hand-made, slightly imperfect: covers 3px 9px 9px 3px (bound spine edge), sketch
 - **Cover art:** the shelf cover shows a 4:3 window of the book's own art. By default it's the top of page 1; when that is mostly text, set `taxonomy.json` → `books.<id>.cover = {"page": 1, "box": [x0, y0, x1, y1]}` (page pixels, about 4:3) so the cover shows the book's picture and style (e.g. Starlink's notebook pencil sketch, SpaceX's sticker-book Nia).
 - **Version swaps** reuse the id: Starlink v2 and SpaceX v2 replaced their v1 entries (Oct 24, 2026) with `add_book.py entry --dir … --slug how-starlink-works` / `--slug spacex-rockets`, then `check_library.py`.
 
-## Quality gate (before Kumar sees a book)
+## Quality gate (before a book goes up for review)
 
 1. **High-school backtest:** read every card end to end as a newcomer. Any spot where the dots don't connect means rework. Check every source, the one example and the labels.
 2. **Contrast:** WCAG AA, 4.5:1 for body text and 3:1 for large text and key icons/arrows. axe stays clean.
 3. **Tap targets:** 44px minimum everywhere, including page dots.
 4. **QA matrix:** light + dark × 360/390/412/430 + desktop × Chromium and WebKit, **one browser at a time**. Scripts in `pulse_mockup/`: `qa_e2e_35.py` (journey end to end), `fit_driver.sh` (every book and page fits, one process per book), `dots_check.py`, `arrow_check.py` (arrows never cover the card or takeaway), `contrast_check.py`, `topic_colors_check.py`, plus the share/OG check and `scripts/check_library.py`.
-5. Staging (pulse-preview) first, then live, then rerun live QA. Books that pass QA may be published, with a short note per batch. Structural or homepage changes need a heads-up to Kumar first.
+5. Staging (pulse-preview) first, then live, then rerun live QA. Books that pass QA may be published, with a short note per batch. Structural or homepage changes need sign-off first.
 
 ## Do's and Don'ts
 
-- Don't add a fifth topic without Kumar, don't coerce an unknown topic onto another shelf, and don't use pink anywhere but the New badge.
+- Don't add a fifth topic without sign-off, don't coerce an unknown topic onto another shelf, and don't use pink anywhere but the New badge.
 - Don't write paragraph cards; don't shrink text to fit (split the card).
 - Don't let a signature animation run past ~1.2s, block a tap, or play under reduced motion.
 - Don't let search "fix" a word into something unrelated; show "Did you mean" and label related results.
