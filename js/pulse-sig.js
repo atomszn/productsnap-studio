@@ -1,7 +1,7 @@
-/* Pulse signature "open book" moments, one per shelf (Frontier Tech, Macro, Fintech; AI keeps the plain open).
+/* Pulse signature "open book" moments, one per shelf (Frontier Tech, AI, Fintech, Macro).
    cover(book, topic, info): puts a closed cloth cover over the book the moment it opens (so the shelf morph lands on it).
-   play(): the shelf's moment plays ACROSS the whole cover (rocket streaks across it, coins rain into a full-width chart,
-           a card rides a subway map), then the cover swings open onto the 60-second page. Under ~1.15s in all.
+   play(): the shelf's moment plays ACROSS the whole cover (rocket streaks across it, a neural network lights up layer by
+           layer into a spark, coins rain into a full-width chart, a card rides a subway map), then the cover swings open onto the 60-second page. Under ~1.15s in all.
    burst(el, topic): a ~250ms flourish over a tapped spine or cover on the shelf.
    Any tap, key, wheel or route change skips (120ms fade). Nothing is ever created under prefers-reduced-motion.
    The cover never stays once reading starts: it removes itself when it ends, is skipped, or the book closes.
@@ -71,6 +71,51 @@
     A(g, [{ opacity: 1 }, { opacity: .55 }], { duration: 200, delay: 640, easing: "ease-in", fill: "both" });
   }
 
+
+  /* ---------- AI: a hand-drawn neural network fills the cover and lights up layer by layer; the answer node sparks ---------- */
+  function neural(svg, W, H) {
+    var g = S("g", {}, svg), top = H * .42, bot = H - 38, xs = [34, 104, 174, 238], counts = [3, 4, 4, 1], lay = [];
+    xs.forEach(function (x, i) { // node positions, spread evenly down the art area (well below the title)
+      var n = counts[i], pts = [];
+      for (var k = 0; k < n; k++) pts.push([x, n === 1 ? (top + bot) / 2 : top + (bot - top) * (k + .5) / n + (i % 2 ? 6 : -6)]);
+      lay.push(pts);
+    });
+    var STEP = 170, T0 = 70; // each layer fires 170ms after the last: 70, 240, 410, 580; spark at ~640
+    // wires: faint pencil first, then a bright pulse runs along each wire as its layer fires
+    for (var i = 0; i < 3; i++) lay[i].forEach(function (a, ai) {
+      lay[i + 1].forEach(function (b, bi) {
+        var d = "M" + a[0] + " " + a[1] + " L " + b[0] + " " + b[1];
+        drawOn([S("path", { d: d, "class": "sg-wire" }, g)], 20 + i * 50, 200, "ease-out");
+        if ((ai + bi + i) % 2 === 0 || i === 2) { // about half the wires carry a signal (all into the answer)
+          var hot = S("path", { d: d, "class": "sg-wirehot" }, g), l = hot.getTotalLength();
+          hot.style.strokeDasharray = "14 " + (l + 14);
+          A(hot, [{ strokeDashoffset: 14, opacity: 0 }, { strokeDashoffset: 14, opacity: 1, offset: .05 }, { strokeDashoffset: -l, opacity: 1, offset: .9 }, { strokeDashoffset: -l, opacity: 0 }],
+            { duration: STEP + 30, delay: T0 + i * STEP + (ai * 13) % 40, easing: "ease-in-out", fill: "both" });
+        }
+      });
+    });
+    lay.forEach(function (pts, i) {
+      pts.forEach(function (c, k) {
+        var r = i === 3 ? 17 : 12, at = T0 + i * STEP + (i ? 0 : k * 25);
+        var halo = S("circle", { cx: c[0], cy: c[1], r: r + 9, "class": "sg-halo" }, g); box(halo, c[0], c[1]);
+        var node = S("circle", { cx: c[0], cy: c[1], r: r, "class": "sg-node" }, g); box(node, c[0], c[1]);
+        pop(node, 10 + i * 45 + k * 18, 200);
+        A(node, [{ fill: getComputedStyle(node).fill || "#2c3e66" }, { fill: "#ffd76a", offset: .35 }, { fill: "#fff3c9" }], { duration: 220, delay: at + 40, fill: "forwards" }); // lights up
+        A(halo, [{ opacity: 0, transform: "scale(.6)" }, { opacity: .85, transform: "scale(1.15)", offset: .4 }, { opacity: .35, transform: "scale(1)" }], { duration: 300, delay: at + 30, easing: "ease-out", fill: "both" });
+      });
+    });
+    // the answer: a spark bursts out of the last node
+    var o = lay[3][0], sp = S("g", {}, g);
+    for (var j = 0; j < 8; j++) {
+      var an = j * Math.PI / 4, r1 = 24, r2 = j % 2 ? 40 : 52;
+      var ray = S("path", { d: "M" + (o[0] + Math.cos(an) * r1) + " " + (o[1] + Math.sin(an) * r1) + " L " + (o[0] + Math.cos(an) * r2) + " " + (o[1] + Math.sin(an) * r2), "class": "sg-spark" }, sp);
+      drawOn([ray], T0 + 3 * STEP + 50, 150, "ease-out");
+    }
+    var ring = S("circle", { cx: o[0], cy: o[1], r: 18, "class": "sg-ring2" }, g);
+    A(ring, [{ r: 18, opacity: .9 }, { r: 64, opacity: 0 }], { duration: 260, delay: T0 + 3 * STEP + 60, easing: "ease-out", fill: "both" });
+    A(sp, [{ opacity: 1 }, { opacity: .6 }], { duration: 140, delay: 790, fill: "forwards" });
+  }
+
   /* ---------- Macro A: coins rain down and stack into a full-width bar chart, then a trend arrow sweeps over it ---------- */
   function coins(svg, W, H) {
     var g = S("g", {}, svg), base = H - 34, cols = [42, 96, 150, 204, 258], hts = [2, 3, 5, 6, 8], n = 0, gap = 17;
@@ -134,7 +179,7 @@
     var ok = S("path", { d: "M252 " + (y2 - 58) + " l9 9 l17 -20", "class": "sg-okmark", "stroke-width": 5 }, g); drawOn([ok], 730, 140, "ease-out");
   }
 
-  var PLAY = { "Frontier Tech": rocket, "Macro": null, "Fintech": swipe };
+  var PLAY = { "Frontier Tech": rocket, "AI": neural, "Fintech": swipe, "Macro": null };
   function sceneFor(topic) { if (topic === "Macro") return (macroFlip++ % 2) ? oil : coins; return PLAY[topic]; }
   function has(topic) { return topic === "Macro" || !!PLAY[topic]; }
 
@@ -189,6 +234,11 @@
     if (topic === "Frontier Tech") {
       var rk = rocketShape(svg, 1.3); go(rk.g, [{ transform: "translate(" + cx + "px," + (top + 40) + "px) rotate(-90deg)", opacity: 0 }, { transform: "translate(" + cx + "px," + (top + 10) + "px) rotate(-90deg)", opacity: 1, offset: .25 }, { transform: "translate(" + (cx + 14) + "px," + (-30) + "px) rotate(-80deg)", opacity: 0 }], { duration: 300, easing: "cubic-bezier(.5,0,.9,.5)", fill: "both" });
       var tr = S("path", { d: "M" + cx + " " + (top + 46) + " L " + (cx + 8) + " " + (top - 20), "class": "sg-smoke", "stroke-width": 4 }, svg); var l = tr.getTotalLength(); tr.style.strokeDasharray = l; go(tr, [{ strokeDashoffset: l, opacity: 1 }, { strokeDashoffset: 0, opacity: .8, offset: .6 }, { strokeDashoffset: 0, opacity: 0 }], { duration: 320, fill: "both" });
+    } else if (topic === "AI") { // three nodes pop above the spine, wires flash between them, the top one sparks
+      var P = [[cx - 34, top + 10], [cx + 34, top + 10], [cx, top - 38]];
+      [[0, 2], [1, 2], [0, 1]].forEach(function (e, i) { var w2 = S("path", { d: "M" + P[e[0]][0] + " " + P[e[0]][1] + " L " + P[e[1]][0] + " " + P[e[1]][1], "class": "sg-wirehot", "stroke-width": 3.6 }, svg); var l = w2.getTotalLength(); w2.style.strokeDasharray = l; go(w2, [{ strokeDashoffset: l, opacity: 1 }, { strokeDashoffset: 0, opacity: 1, offset: .55 }, { strokeDashoffset: 0, opacity: 0 }], { duration: 300, delay: 30 + i * 30, fill: "both" }); });
+      P.forEach(function (q, i) { var c = S("circle", { cx: q[0], cy: q[1], r: i === 2 ? 9.5 : 7, "class": "sg-node sg-node-on" }, svg); box(c, q[0], q[1]); go(c, [{ transform: "scale(.2)", opacity: 0 }, { transform: "scale(1.25)", opacity: 1, offset: .45 }, { transform: "scale(1)", opacity: 0 }], { duration: 320, delay: i * 45, easing: "ease-out", fill: "both" }); });
+      for (var j = 0; j < 6; j++) { var ang = j * Math.PI / 3, q = P[2], ray = S("path", { d: "M" + (q[0] + Math.cos(ang) * 14) + " " + (q[1] + Math.sin(ang) * 14) + " L " + (q[0] + Math.cos(ang) * 27) + " " + (q[1] + Math.sin(ang) * 27), "class": "sg-spark", "stroke-width": 2.6 }, svg); go(ray, [{ opacity: 0 }, { opacity: 1, offset: .3 }, { opacity: 0 }], { duration: 220, delay: 130, fill: "both" }); }
     } else if (topic === "Macro") {
       [-18, 0, 18].forEach(function (dx, i) { var c = S("ellipse", { cx: 0, cy: 0, rx: 9, ry: 3.2, "class": "sg-coin-face" }, svg); go(c, [{ transform: "translate(" + cx + "px," + (top + 20) + "px)", opacity: 0 }, { transform: "translate(" + (cx + dx * 1.6) + "px," + (top - 18 - i % 2 * 10) + "px)", opacity: 1, offset: .5 }, { transform: "translate(" + (cx + dx * 2) + "px," + (top - 6) + "px)", opacity: 0 }], { duration: 300, delay: i * 25, easing: "ease-out", fill: "both" }); });
     } else {

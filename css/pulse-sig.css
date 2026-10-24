@@ -43,3 +43,14 @@
 .sg-tick{stroke:#3b2f17;fill:none}
 .sg-okmark{stroke:#9ee6a0;fill:none}
 @media (prefers-reduced-motion:reduce){.sg-cover,.sg-burst{display:none!important}}
+
+/* AI: neural network */
+.sg-wire{stroke:color-mix(in srgb,#fbf5e8 42%,transparent);stroke-width:1.8;fill:none}
+.sg-wirehot{stroke:#8fe3ff;stroke-width:4;fill:none}
+.sg-node{fill:var(--cloth,#2c3e66);stroke:#fbf5e8;stroke-width:2.6}
+.sg-node-on{fill:#ffd76a;stroke:var(--tc)}
+.sg-halo{fill:color-mix(in srgb,#8fe3ff 28%,transparent);stroke:none;opacity:0}
+.sg-spark{stroke:#ffd76a;stroke-width:4;fill:none}
+.sg-ring2{stroke:#fff3c9;stroke-width:2.4;fill:none}
+.sg-burst .sg-wirehot{stroke:color-mix(in srgb,var(--tc) 80%,#8fe3ff)}
+.sg-burst .sg-spark{stroke:var(--sg-pen)}

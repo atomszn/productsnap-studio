@@ -282,7 +282,7 @@
     var go = function () { withVT(a, function () { return $("book"); }, function () { history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); }); };
     loadFull().catch(function () {});
     if (reduce()) return go();
-    var bt = window.PulseSig && a.dataset.topic ? PulseSig.burst(a.querySelector(".sp-body,.cv") || a, a.dataset.topic) : 0; // the shelf's quick flourish (none for AI)
+    var bt = window.PulseSig && a.dataset.topic ? PulseSig.burst(a.querySelector(".sp-body,.cv") || a, a.dataset.topic) : 0; // the shelf's quick flourish
     a.classList.add("pulling"); setTimeout(function () { a.classList.remove("pulling"); go(); }, bt ? 200 : vtOK() ? 110 : 160);
   }
   function bar(b, cls) { var pr = progress(b), w = el("span", cls); w.setAttribute("aria-hidden", "true"); var f = el("i"); f.style.width = Math.round(pr * 100) + "%"; w.appendChild(f); if (!pr || isDone(b)) w.hidden = true; return w; }
@@ -686,14 +686,16 @@
   /* retired books: old links and saved pages land on the book that replaced them (library.json "moved") */
   function moved(id) { return lib && lib.moved && lib.moved[id]; }
   function find(id) { return lib.books.filter(function (b) { return b.id === id; })[0]; }
-  /* "Up next": the next unread book on the same shelf (in the shelf's order), else the first unread one on a shelf next door, else anything unread */
   /* a source with no title shows a clean site name ("sec.gov"), never the raw URL */
   function srcHost(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return "Source"; } }
+  /* shelves after this one in shelf order (Frontier Tech, AI, Fintech, Macro), wrapping round */
+  function shelvesAfter(topic) { var N = TOPICS.map(function (t) { return t.name; }), i = N.indexOf(topic); return i < 0 ? N : N.slice(i + 1).concat(N.slice(0, i)); }
+  /* "Up next": the next unread book on the same shelf (in the shelf's order), else the first unread one on the NEXT shelf in order, and so on */
   function nextBook(b) {
     var unread = function (x) { return x !== b && !isDone(x); };
     var same = booksOf(b.topic), i = same.indexOf(b);
     var n = same.slice(i + 1).concat(same.slice(0, i)).filter(unread)[0]; if (n) return n;
-    var doors = (NEXT_DOOR[b.topic] || []).concat(TOPICS.map(function (t) { return t.name; }));
+    var doors = shelvesAfter(b.topic);
     for (var k = 0; k < doors.length; k++) { n = booksOf(doors[k]).filter(unread)[0]; if (n) return n; }
     return null;
   }
@@ -703,7 +705,8 @@
     index(b).raw.split(/[\s-]+/).forEach(function (w) { if (w.length > 3 && STOP.indexOf(w) < 0) o[w] = 1; });
     return (b._rw = o);
   }
-  var NEXT_DOOR = { AI: ["Frontier Tech", "Fintech"], Fintech: ["Macro", "AI"], Macro: ["Fintech", "Frontier Tech"], "Frontier Tech": ["AI", "Macro"] };
+  /* "next door" for Pairs with = the shelves either side in shelf order (wrapping) */
+  function nextDoor(topic) { var N = TOPICS.map(function (t) { return t.name; }), i = N.indexOf(topic); return i < 0 ? [] : [N[(i + 1) % N.length], N[(i + N.length - 1) % N.length]]; }
   function related(b, skip) {
     if (!lib._df) { lib._df = {}; lib.books.forEach(function (x) { Object.keys(rawWords(x)).forEach(function (w) { lib._df[w] = (lib._df[w] || 0) + 1; }); }); }
     var mine = rawWords(b), N = lib.books.length;
@@ -714,7 +717,7 @@
     });
     var by = function (a, c) { return c.s - a.s || lib.books.indexOf(a.b) - lib.books.indexOf(c.b); };
     var same = all.filter(function (r) { return r.same; }).sort(by).slice(0, 3);
-    var door = (NEXT_DOOR[b.topic] || []);
+    var door = nextDoor(b.topic);
     var cross = all.filter(function (r) { return !r.same && door.indexOf(r.b.topic) >= 0; }).sort(by);
     return same.concat(cross.slice(0, Math.max(0, 3 - same.length)));
   }
