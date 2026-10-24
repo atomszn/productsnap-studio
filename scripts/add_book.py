@@ -233,23 +233,71 @@ def cmd_index(a):
     save(lib)
 
 
-def _sources(md):
-    """[{title, url}] from a hand-in sources.md. Titles are built from the link itself ("site · page words"),
-    never guessed from nearby notes, so a title can't name the wrong article."""
+URL_RE = re.compile(r"https?://[^\s)>\]]+")
+
+
+def _host(url):
+    from urllib.parse import urlparse
+    return urlparse(url).netloc.lower().replace("www.", "")
+
+
+def _fallback_label(url):
+    """No title in sources.md: a clean site name, never a slice of the URL path."""
     from urllib.parse import urlparse, unquote
+    host = _host(url); segs = [x for x in unquote(urlparse(url).path).split("/") if x]
+    if host in ("x.com", "twitter.com") and segs: return "Post by @%s on X" % segs[0]
+    return host
+
+
+def _clean_label(t):
+    """Turn the text written just before a link into a short label. Handles the usual hand-in shapes:
+      'SpaceX Q3 2026 earnings release, 8-K Exhibit 99.1 (cards 10-11)'   -> the text, minus the (…) note
+      'Ars Technica, Eric Berger, "Latest estimate …" (Oct 22, 2026). …'  -> 'Ars Technica, Eric Berger: Latest estimate …'
+      'Falcon 9 flies reused boosters far more than anyone: Space.com (…).' -> 'Space.com' (claim: source)
+    Returns '' when nothing title-like is there (the caller then uses a clean site name)."""
+    t = re.sub(r"^\s*(?:[-*]|\d+\.|c\d+\s*->)\s*", "", t.strip())
+    t = re.sub(r"\*\*|`", "", t).replace("\u201c", '"').replace("\u201d", '"')
+    t = re.sub(r'\s*\("[^)]*\)', "", t)                                   # ("quoted excerpt") notes
+    qs = list(re.finditer(r',\s*"([^"]{4,})"', t))
+    if qs:  # Publisher, "Article title"
+        q = qs[-1]; pub = re.split(r"(?:[.;]|:)\s", t[:q.start()])[-1].strip(" ,")
+        pub = re.split(r"\s(?:per|via|from)\s", pub)[-1].strip(" ,")  # "… per Ars Technica" -> "Ars Technica"
+        lab = (pub + ": " if pub else "") + q.group(1).strip()
+    else:
+        for _ in range(3): t = re.sub(r"\s*\([^()]*\)", "", t)
+        t = re.sub(r"\s+", " ", t).strip(" ,;.:-\u2013")
+        parts = t.split(": ")
+        if len(parts) > 1 and 2 < len(parts[-1]) <= 60 and '"' not in parts[-1]: lab = parts[-1].split(", ")[0]   # claim: Source
+        else: lab = parts[0]
+        if "; " in lab: lab = lab.split("; ")[-1]
+        if len(lab) > 70 or '"' in lab: return ""   # a claim, not a title
+    lab = re.sub(r"\s+", " ", lab).strip(" ,;.:-\u2013")
+    if len(lab) > 90: lab = lab[:88].rsplit(" ", 1)[0].rstrip(" ,;:") + "\u2026"
+    return lab if len(lab) >= 3 and not URL_RE.search(lab) else ""
+
+
+def _sources(md, limit=14):
+    """[{title, url}] for the end card, from a hand-in sources.md.
+    1. A "Key sources" section, if there is one, is the list (in its order).
+    2. Otherwise every link in the file, in order. The label is the text written just before the link
+       (e.g. 'SpaceX Q3 2026 earnings (SEC)'); with no text, a clean site name ('sec.gov', 'Post by @x on X')."""
+    lines = open(md, encoding="utf-8").read().splitlines()
+    key, i = [], next((n for n, l in enumerate(lines) if re.match(r"#+\s*key sources", l, re.I)), None)
+    if i is not None:
+        for l in lines[i + 1:]:
+            if l.startswith("#"): break
+            key.append(l)
     out, seen = [], set()
-    for m in re.finditer(r"https?://[^\s)>\]]+", open(md, encoding="utf-8").read()):
-        url = m.group(0).rstrip(".,;")
-        if url in seen: continue
-        u = urlparse(url); host = u.netloc.replace("www.", "")
-        segs = [x for x in unquote(u.path).split("/") if x]
-        if host in ("x.com", "twitter.com") and segs: words = "post by @" + segs[0]
-        else:
-            last = next((x for x in reversed(segs) if not re.fullmatch(r"[0-9-]+|index\.html?", x)), "")
-            words = re.sub(r"\.(pdf|html?|php)$", "", last).replace("-", " ").replace("_", " ").strip()
-        title = host + (" · " + words[:80] if words else "")
-        seen.add(url); out.append({"title": title, "url": url})
-    return out[:14]
+    for l in (key if any(URL_RE.search(x) for x in key) else lines):
+        pos = 0
+        for m in URL_RE.finditer(l):
+            url = m.group(0).rstrip(".,;")
+            seg = l[pos:m.start()]; pos = m.end()
+            seg = re.split(r"\s;\s|;\s*$", seg)[-1] if ";" in seg else seg  # "A link ; B title <url>" -> "B title"
+            if url in seen: continue
+            lab = "" if (_host(url) in ("x.com", "twitter.com") and not key) else _clean_label(seg)
+            seen.add(url); out.append({"title": lab or _fallback_label(url), "url": url})
+    return out[:limit]
 
 
 def cmd_entry(a):

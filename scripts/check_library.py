@@ -3,8 +3,9 @@
 - every book has a 1-4 line 'You finished' recap written for the CURRENT page count
 - every book's topic is one of the shelves in scripts/topics.py (no silent fallback to another shelf)
 - every book has a taxonomy entry with a known sub-topic; the Start-here path only names real books
+- every end-card source has a real label (a title from sources.md or a clean site name, never "site · url-path words") and an http(s) link
 - every page image exists; data/shelf.json is up to date with library.json + taxonomy.json"""
-import json, os, sys
+import json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, "..")
 sys.path.insert(0, HERE)
 from topics import NAMES
@@ -25,6 +26,11 @@ for b in L:
     if not tx: bad.append("%s: no entry in data/taxonomy.json (sub-topic, tags, aka)" % b["id"])
     elif tx.get("sub") not in T["_subs"].get(b.get("topic"), []):
         bad.append("%s: sub-topic %r is not one of %s" % (b["id"], tx.get("sub"), T["_subs"].get(b.get("topic"))))
+    for x in b.get("sources") or []:
+        t, u = (x.get("title") or "").strip(), x.get("url") or ""
+        if not u.startswith(("http://", "https://")): bad.append("%s: source %r has no http(s) link" % (b["id"], t))
+        if not t or re.match(r"^[\w.-]+\.[a-z]{2,} \u00b7 ", t) or "/" in t.split(" ")[0]:
+            bad.append("%s: source label %r looks made from the URL; use the title from sources.md (add_book.py entry)" % (b["id"], t))
     for p in b["pages"]:
         if not os.path.exists(os.path.join(ROOT, p["thumb"])): bad.append("%s: missing thumb %s" % (b["id"], p["thumb"]))
         if not os.path.exists(os.path.join(ROOT, p["file"])): bad.append("%s: missing image %s" % (b["id"], p["file"]))

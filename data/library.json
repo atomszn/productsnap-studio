@@ -2658,7 +2658,64 @@
         "Next: more lanes in the sky (and maybe data centers in orbit), limited by country rules, weather and a crowded sky."
       ],
       "recap_pages": 14,
-      "sources": []
+      "sources": [
+        {
+          "title": "SpaceX Q3 2026 earnings release, 8-K Exhibit 99.1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026066482/spaceexplorationtechnologi.htm"
+        },
+        {
+          "title": "SpaceX S-1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm"
+        },
+        {
+          "title": "FCC order DA 26-1078, 15,000 phone satellites",
+          "url": "https://docs.fcc.gov/public/attachments/DA-26-1078A1.pdf"
+        },
+        {
+          "title": "Amazon Leo mission updates",
+          "url": "https://www.aboutamazon.com/news/innovation-at-amazon/project-kuiper-satellite-rocket-launch-progress-updates"
+        },
+        {
+          "title": "AST SpaceMobile release, Oct 20, 2026",
+          "url": "https://www.businesswire.com/news/home/20261020527793/en/AST-SpaceMobile-Advances-Service-Readiness-Ahead-of-Initial-Space-Based-Cellular-Broadband-Coverage-in-Key-Global-Markets"
+        },
+        {
+          "title": "Hughes court filing, Del Genio declaration",
+          "url": "https://document.epiq11.com/document/getdocumentbycode?docId=4597286&projectCode=HSQ"
+        },
+        {
+          "title": "Starlink technology page",
+          "url": "https://www.starlink.com/technology"
+        },
+        {
+          "title": "Starlink Space Safety, constellation altitudes",
+          "url": "https://space-safety.starlink.com/docs/space-safety-articles/constellation_altitudes/"
+        },
+        {
+          "title": "Starlink Direct to Cell page",
+          "url": "https://starlink.com/us/business/direct-to-cell"
+        },
+        {
+          "title": "T-Mobile T-Satellite page",
+          "url": "https://www.t-mobile.com/coverage/satellite-phone-service"
+        },
+        {
+          "title": "EchoStar 8-K, May 22, 2026",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533758/000141540426000013/sats-20260522x8k.htm"
+        },
+        {
+          "title": "SpaceX Q3 2026 call transcript",
+          "url": "https://www.fool.com/earnings/call-transcripts/2026/10/20/spacex-spcx-q3-2026-earnings-call-transcript/"
+        },
+        {
+          "title": "Michael Nicolls on X, Jan 1, 2026",
+          "url": "https://x.com/michaelnicollsx/status/2006790372681220530"
+        },
+        {
+          "title": "CRAN decision on Starlink, Namibia Gazette No. 8872",
+          "url": "https://www.lac.org.na/laws/2026/8872.pdf"
+        }
+      ]
     },
     {
       "id": "spacex-rockets",
@@ -2791,59 +2848,59 @@
       "recap_pages": 13,
       "sources": [
         {
-          "title": "arstechnica.com · nasa updates lander plans for moon landings finally solves long festering orion ",
+          "title": "Ars Technica: NASA updates lander plans for Moon landings…",
           "url": "https://arstechnica.com/space/2026/10/nasa-updates-lander-plans-for-moon-landings-finally-solves-long-festering-orion-issue/"
         },
         {
-          "title": "x.com · post by @elonmusk",
+          "title": "Post by @elonmusk on X",
           "url": "https://x.com/elonmusk/status/2113377866478231647"
         },
         {
-          "title": "x.com · post by @SciGuySpace",
+          "title": "Post by @SciGuySpace on X",
           "url": "https://x.com/SciGuySpace/status/2113340439893856278"
         },
         {
-          "title": "arstechnica.com · latest estimate for starship launches required to support a moon landing 22",
+          "title": "Ars Technica, Eric Berger: Latest estimate for Starship launches required to support a…",
           "url": "https://arstechnica.com/space/2026/10/latest-estimate-for-starship-launches-required-to-support-a-moon-landing-22/"
         },
         {
-          "title": "oig.nasa.gov · final report ig 26 004 nasas management of the human landing system contracts",
+          "title": "NASA OIG, IG-26-004: NASA's Management of the Human Landing System Contracts",
           "url": "https://oig.nasa.gov/wp-content/uploads/2026/03/final-report-ig-26-004-nasas-management-of-the-human-landing-system-contracts.pdf"
         },
         {
-          "title": "spaceflightnow.com · nasa inspector general assesses agencys management of moon lander risk",
+          "title": "Spaceflight Now on the OIG report",
           "url": "https://spaceflightnow.com/2026/03/10/nasa-inspector-general-assesses-agencys-management-of-moon-lander-risk/"
         },
         {
-          "title": "spacex.com · falcon 9",
+          "title": "SpaceX vehicle pages",
           "url": "https://www.spacex.com/vehicles/falcon-9/"
         },
         {
-          "title": "wired.com · ff elon musk qa",
+          "title": "Elon Musk interview with Chris Anderson, WIRED: Elon Musk's Mission to Mars",
           "url": "https://www.wired.com/2012/10/ff-elon-musk-qa/"
         },
         {
-          "title": "spaceexplored.com · rtls how spacex returns falcon 9 rocket boosters to land",
+          "title": "Space Explored: RTLS: How SpaceX returns Falcon 9 rocket boosters to land",
           "url": "https://spaceexplored.com/2020/12/16/rtls-how-spacex-returns-falcon-9-rocket-boosters-to-land/"
         },
         {
-          "title": "zlsadesign.com · spacex falcon9 booster dpl no boostback",
+          "title": "ZLSA Design ship-landing trajectory, no boostback",
           "url": "https://zlsadesign.com/infographic/trajectory/spacex-falcon9-booster-dpl-no-boostback/"
         },
         {
-          "title": "arstechnica.com · spacex will attempt to reach weekly starship launches by early 2027",
+          "title": "SpaceX Q3 earnings call via Ars Technica and NASASpaceflight",
           "url": "https://arstechnica.com/space/2026/10/spacex-will-attempt-to-reach-weekly-starship-launches-by-early-2027/"
         },
         {
-          "title": "nasaspaceflight.com · spacex flight 15 16 milestones",
+          "title": "nasaspaceflight.com",
           "url": "https://www.nasaspaceflight.com/2026/10/spacex-flight-15-16-milestones/"
         },
         {
-          "title": "nasa.gov · space launch system",
+          "title": "NASA",
           "url": "https://www.nasa.gov/humans-in-space/space-launch-system/"
         },
         {
-          "title": "esa.int · Themis",
+          "title": "ESA Ariane 6 overview and Themis pages",
           "url": "https://www.esa.int/Enabling_Support/Space_Transportation/Themis"
         }
       ]

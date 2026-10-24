@@ -687,6 +687,8 @@
   function moved(id) { return lib && lib.moved && lib.moved[id]; }
   function find(id) { return lib.books.filter(function (b) { return b.id === id; })[0]; }
   /* "Up next": the next unread book on the same shelf (in the shelf's order), else the first unread one on a shelf next door, else anything unread */
+  /* a source with no title shows a clean site name ("sec.gov"), never the raw URL */
+  function srcHost(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return "Source"; } }
   function nextBook(b) {
     var unread = function (x) { return x !== b && !isDone(x); };
     var same = booksOf(b.topic), i = same.indexOf(b);
@@ -761,7 +763,7 @@
     var pr = pairsNode(b, n); if (pr) d.appendChild(pr);
     if (b.sources && b.sources.length) {
       var sd = el("details", "end-sources"); sd.appendChild(el("summary", null, "Sources for this book (" + b.sources.length + ")"));
-      var ul = el("ul"); b.sources.forEach(function (x) { var li = el("li"), l = el("a", null, x.title); l.href = x.url; l.target = "_blank"; l.rel = "noopener"; li.appendChild(l); ul.appendChild(li); });
+      var ul = el("ul"); b.sources.forEach(function (x) { var li = el("li"), l = el("a", null, x.title || srcHost(x.url)); l.href = x.url; l.target = "_blank"; l.rel = "noopener"; li.appendChild(l); ul.appendChild(li); });
       sd.appendChild(ul); d.appendChild(sd);
     }
     /* short phones: the card scrolls inside itself; a small sticky pill says "more below" until the bottom is reached */
