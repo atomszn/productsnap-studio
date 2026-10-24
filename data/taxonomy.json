@@ -1,0 +1,415 @@
+{
+  "_note": "Curated reader vocabulary. sub = one sub-topic (shown as a chip on the shelf page once the shelf has 8+ books and the chip has 3+). tags = cross-cutting rows/search. aka = words readers actually type (names, synonyms, everyday phrases). Edited by hand or by Explainiac at build; merged into data/shelf.json by scripts/build_shelf.py.",
+  "_subs": {
+    "AI": [
+      "Basics",
+      "Everyday use",
+      "Trust & risk",
+      "How it's built"
+    ],
+    "Fintech": [
+      "Payments",
+      "Digital assets"
+    ],
+    "Macro": [
+      "Prices",
+      "Rates & debt",
+      "Big ideas"
+    ],
+    "Frontier Tech": [
+      "Space",
+      "Getting around",
+      "Robots & brains",
+      "Energy"
+    ]
+  },
+  "_path": [
+    "ai-basics",
+    "stablecoins",
+    "mortgage-rates",
+    "how-starlink-works"
+  ],
+  "_popular": [
+    "rockets",
+    "inflation",
+    "stablecoins",
+    "robots",
+    "mortgages",
+    "deepfakes",
+    "Starlink",
+    "AI at school"
+  ],
+  "_questions": [
+    "Why is everything so expensive?",
+    "Can I trust AI answers?",
+    "How does a rocket land?",
+    "Who keeps the interest on a stablecoin?"
+  ],
+  "books": {
+    "ai-basics": {
+      "sub": "Basics",
+      "tags": [
+        "start-here"
+      ],
+      "aka": [
+        "artificial intelligence",
+        "chatbot",
+        "chatgpt",
+        "gemini",
+        "grok",
+        "llm",
+        "large language model",
+        "machine learning",
+        "how ai works",
+        "beginner"
+      ]
+    },
+    "ai-agents": {
+      "sub": "Basics",
+      "tags": [],
+      "aka": [
+        "agent",
+        "agents",
+        "ai assistant",
+        "book a table",
+        "does tasks for you",
+        "automation",
+        "agentic"
+      ]
+    },
+    "open-closed": {
+      "sub": "Basics",
+      "tags": [
+        "showdown"
+      ],
+      "aka": [
+        "open source",
+        "open weights",
+        "open-weight",
+        "closed model",
+        "api",
+        "mistral",
+        "run ai at home",
+        "free models"
+      ]
+    },
+    "using-ai": {
+      "sub": "Everyday use",
+      "tags": [],
+      "aka": [
+        "prompt",
+        "prompting",
+        "how to use ai",
+        "tips",
+        "homework help",
+        "chatgpt tips"
+      ]
+    },
+    "searching-ai": {
+      "sub": "Everyday use",
+      "tags": [],
+      "aka": [
+        "google",
+        "search engine",
+        "ai overview",
+        "ai summary",
+        "sources",
+        "citations",
+        "fact check"
+      ]
+    },
+    "ai-shopping": {
+      "sub": "Everyday use",
+      "tags": [
+        "your-money"
+      ],
+      "aka": [
+        "shopping",
+        "buy online",
+        "checkout",
+        "online store",
+        "agent pays",
+        "card",
+        "returns"
+      ]
+    },
+    "health": {
+      "sub": "Everyday use",
+      "tags": [],
+      "aka": [
+        "doctor",
+        "medical",
+        "symptoms",
+        "medicine",
+        "hospital",
+        "health advice",
+        "diagnosis"
+      ]
+    },
+    "jobs-school": {
+      "sub": "Everyday use",
+      "tags": [],
+      "aka": [
+        "jobs",
+        "work",
+        "school",
+        "students",
+        "teachers",
+        "homework",
+        "cheating",
+        "career",
+        "ai at school"
+      ]
+    },
+    "ai-wrong": {
+      "sub": "Trust & risk",
+      "tags": [],
+      "aka": [
+        "hallucination",
+        "mistakes",
+        "wrong answers",
+        "made up",
+        "trust ai",
+        "errors",
+        "can i trust ai"
+      ]
+    },
+    "deepfakes": {
+      "sub": "Trust & risk",
+      "tags": [],
+      "aka": [
+        "deepfake",
+        "fake video",
+        "voice clone",
+        "scam",
+        "fraud",
+        "phishing",
+        "fake call"
+      ]
+    },
+    "privacy": {
+      "sub": "Trust & risk",
+      "tags": [],
+      "aka": [
+        "data",
+        "privacy",
+        "copyright",
+        "training data",
+        "personal data",
+        "artists",
+        "who owns"
+      ]
+    },
+    "agent-built": {
+      "sub": "How it's built",
+      "tags": [],
+      "aka": [
+        "how agents are built",
+        "tools",
+        "memory",
+        "sandbox",
+        "permissions",
+        "api",
+        "agent loop"
+      ]
+    },
+    "what-powers-ai": {
+      "sub": "How it's built",
+      "tags": [],
+      "aka": [
+        "chips",
+        "gpu",
+        "data center",
+        "data centres",
+        "electricity",
+        "power",
+        "energy",
+        "compute",
+        "cooling"
+      ]
+    },
+    "robots": {
+      "sub": "How it's built",
+      "tags": [],
+      "aka": [
+        "robot",
+        "robot arm",
+        "warehouse robots",
+        "physical ai",
+        "world model",
+        "simulation",
+        "gripper",
+        "amazon robots",
+        "automation"
+      ]
+    },
+    "tokenization": {
+      "sub": "Digital assets",
+      "tags": [],
+      "aka": [
+        "tokenized",
+        "tokens",
+        "blockchain",
+        "real world assets",
+        "buidl",
+        "shares on chain",
+        "tokenised"
+      ]
+    },
+    "fintech-rails": {
+      "sub": "Payments",
+      "tags": [],
+      "aka": [
+        "payments",
+        "upi",
+        "card networks",
+        "visa",
+        "mastercard",
+        "bank transfer",
+        "how money moves",
+        "pay"
+      ]
+    },
+    "stablecoins": {
+      "sub": "Payments",
+      "tags": [
+        "start-here",
+        "your-money"
+      ],
+      "aka": [
+        "stablecoin",
+        "usdc",
+        "usdt",
+        "tether",
+        "circle",
+        "crypto dollar",
+        "digital dollar",
+        "genius act"
+      ]
+    },
+    "mortgage-rates": {
+      "sub": "Rates & debt",
+      "tags": [
+        "start-here",
+        "your-money"
+      ],
+      "aka": [
+        "mortgage",
+        "home loan",
+        "interest rate",
+        "rates",
+        "fed",
+        "bond market",
+        "10-year",
+        "housing"
+      ]
+    },
+    "debt-loop": {
+      "sub": "Rates & debt",
+      "tags": [],
+      "aka": [
+        "debt",
+        "deficit",
+        "government debt",
+        "national debt",
+        "interest",
+        "borrowing",
+        "treasury"
+      ]
+    },
+    "dollar-gold-yen": {
+      "sub": "Prices",
+      "tags": [],
+      "aka": [
+        "dollar",
+        "gold",
+        "yen",
+        "japan",
+        "currency",
+        "exchange rate",
+        "safe haven"
+      ]
+    },
+    "inflation": {
+      "sub": "Prices",
+      "tags": [
+        "your-money"
+      ],
+      "aka": [
+        "inflation",
+        "prices",
+        "expensive",
+        "cost of living",
+        "groceries",
+        "eggs",
+        "cpi",
+        "why is everything so expensive"
+      ]
+    },
+    "two-schools-economics": {
+      "sub": "Big ideas",
+      "tags": [
+        "showdown"
+      ],
+      "aka": [
+        "keynes",
+        "keynesian",
+        "austrian",
+        "hayek",
+        "economics",
+        "stimulus",
+        "free market"
+      ]
+    },
+    "how-starlink-works": {
+      "sub": "Space",
+      "tags": [
+        "start-here",
+        "big-names"
+      ],
+      "aka": [
+        "starlink",
+        "satellite",
+        "satellites",
+        "satellite internet",
+        "spacex",
+        "elon",
+        "elon musk",
+        "orbit",
+        "low earth orbit",
+        "dish",
+        "rural internet",
+        "phone to satellite",
+        "direct to cell",
+        "t-mobile",
+        "space"
+      ]
+    },
+    "spacex-rockets": {
+      "sub": "Space",
+      "tags": [
+        "big-names"
+      ],
+      "aka": [
+        "rocket",
+        "rockets",
+        "spacex",
+        "starship",
+        "falcon 9",
+        "falcon",
+        "booster",
+        "reusable rocket",
+        "landing",
+        "elon",
+        "elon musk",
+        "moon",
+        "mars",
+        "nasa",
+        "refueling",
+        "refill in orbit",
+        "space",
+        "launch"
+      ]
+    }
+  }
+}

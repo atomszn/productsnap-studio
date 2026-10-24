@@ -1,0 +1,45 @@
+/* Pulse signature "open book" moments (see js/pulse-sig.js). Cover-wide scenes for Frontier Tech, Macro and Fintech; AI keeps the plain open. */
+.sg-cover{position:absolute;inset:0;z-index:8;border-radius:4px 10px 10px 4px;overflow:hidden;transform-origin:left center;backface-visibility:hidden;
+  color:#fbf5e8;box-shadow:inset 9px 0 0 rgba(0,0,0,.2),inset 11px 0 0 rgba(255,255,255,.1),0 18px 40px -18px rgba(0,0,0,.55);
+  --tc:#f3e2b3;--sg-paper:var(--cloth);--sg-pen:#ff8a5c;cursor:pointer;will-change:transform,opacity}
+.sg-cover::after{content:"";position:absolute;inset:3.5% 4% 3.5% 7%;border:1.5px solid rgba(251,245,232,.38);border-radius:4px;pointer-events:none}
+.sgc-text{position:absolute;left:11%;right:9%;top:7%;display:grid;gap:6px;z-index:1}
+.sgc-k{font:700 clamp(.62rem,2.6cqw,.8rem) var(--body);letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.sgc-t{font:600 clamp(1.3rem,8.5cqw,2.3rem)/1.05 var(--serif);text-wrap:balance}
+.sgc-skip{position:absolute;right:7%;bottom:3.5%;z-index:1;font:600 .72rem var(--body);opacity:.7;letter-spacing:.02em}
+.sgc-art{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.sg-burst{position:fixed;z-index:60;pointer-events:none}
+.sg-burst svg{width:100%;height:100%;overflow:visible}
+.sg-burst{--sg-paper:var(--card,#fbf9f4);--sg-pen:var(--pen,#c2391f)}
+/* scene ink: on the cloth it is cream; the burst on the shelf uses the topic colour */
+.sg-ink{stroke:var(--tc);fill:none}
+.sg-ghost{opacity:.45}
+.sg-star{fill:#fff3c9;stroke:none;opacity:.9}
+.sg-smoke{stroke:color-mix(in srgb,#fff7e3 80%,transparent);fill:none}
+.sg-burst .sg-smoke{stroke:color-mix(in srgb,var(--tc) 55%,var(--sg-paper))}
+.sg-puff{fill:color-mix(in srgb,#fff7e3 26%,transparent);stroke:color-mix(in srgb,#fff7e3 85%,transparent);stroke-width:2}
+.sg-body{fill:#fbf5e8;stroke:#3b2f17;stroke-width:1.6}
+.sg-fin{stroke:#fbf5e8}
+.sg-burst .sg-body{stroke:var(--tc)}.sg-burst .sg-fin{stroke:var(--tc)}
+.sg-window{fill:#7fc6e8;stroke:#3b2f17;stroke-width:1.3}
+.sg-flame{fill:var(--sg-pen);stroke:none;opacity:.95}
+.sg-coin-face{fill:#e9c868;stroke:#5a3d06;stroke-width:1.8}
+.sg-coin-edge{fill:#c99a2e;stroke:#5a3d06;stroke-width:1.8}
+.sg-coin .sg-ink{stroke:#5a3d06}
+.sg-accent{stroke:#fff3c9;fill:none}
+.sg-oil{fill:#141210;stroke:#fbf5e8;stroke-width:1.6}
+.sg-ring{stroke:#fbf5e8;stroke-width:2.2}
+.sg-dot{fill:#ffcf5c;stroke:#fbf5e8;stroke-width:2.4}
+.sg-line{stroke:#fbf5e8;fill:none}
+.sg-line2{stroke:color-mix(in srgb,#ff9a85 85%,transparent)}
+.sg-line3{stroke:color-mix(in srgb,#8fd0c4 85%,transparent)}
+.sg-burst .sg-line{stroke:var(--tc)}
+.sg-stop{fill:var(--cloth,#683296);stroke:#fbf5e8;stroke-width:3.4}
+.sg-shopface{fill:#fbf5e8;stroke:#3b2f17;stroke-width:1.8}
+.sg-cardface{fill:#fbf5e8;stroke:#3b2f17;stroke-width:2}
+.sg-card .sg-ink{stroke:#3b2f17}
+.sg-chip{fill:#e9c868;stroke:#5a3d06;stroke-width:1.4}
+.sg-paydot{fill:#ffcf5c;stroke:#3b2f17;stroke-width:2}
+.sg-tick{stroke:#3b2f17;fill:none}
+.sg-okmark{stroke:#9ee6a0;fill:none}
+@media (prefers-reduced-motion:reduce){.sg-cover,.sg-burst{display:none!important}}

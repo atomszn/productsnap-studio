@@ -1,62 +1,52 @@
-/* Pulse — the sketch library. Reads data/library.json (built by scripts/add_book.py).
-   Page 1 of every book is the "60-second version"; the drawn pages follow, then an
-   "Up next" card (not counted in page numbers).
-   Deep links: #book/<id>/<page>  (1-based, counting the gist page). #topics opens Topics. */
+/* Pulse — the sketch library.
+   Loads data/shelf.json first (a light list: titles, covers, reading time, page titles, sub-topics; built by
+   scripts/build_shelf.py) so the shelf paints fast, then data/library.json (the full books) in the background
+   for the reader and deep page search.
+   Page 1 of every book is the 60-second "Summary"; drawn pages follow ("page N of M"); then the end card.
+   Routes: (none) home · #shelf/<slug> one shelf · #book/<id>/<n> (n is 1-based and counts the Summary). #topics → home. */
 (function () {
   "use strict";
-  var TOPICS = { AI: "AI", Fintech: "Fintech", Macro: "Macro" };
-  var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved", last: "pulse_last", lastX: "pulse_last_x" };
-  var START = [["ai-basics", "AI Basics"], ["ai-agents", "AI Agents"], ["stablecoins", "Stablecoins"], ["mortgage-rates", "Mortgages"]];
-  var ICONS = {
-    "agent-vocabulary": "M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3zM5 17a3 3 0 0 1 3-3h11M9 8h6",
-    "ai-agents": "M7 9h10v8H7zM12 5v4M9.5 12.5h.01M14.5 12.5h.01M10 15h4M5 12h2M17 12h2",
-    "agent-native-infrastructure": "M8 11V8a4 4 0 0 1 8 0v3M6 11h12v9H6zM12 14.5v2.5",
-    "agent-swarms": "M12 5.5a2 2 0 1 0 0 .01M6 17a2 2 0 1 0 0 .01M18 17a2 2 0 1 0 0 .01M11 7.5 7 15M13 7.5l4 7.5M8 17h8",
-    "ai-bottlenecks": "M7 4h10M7 20h10M8 4c0 5 8 5 8 8s-8 3-8 8M16 4c0 5-8 5-8 8s8 3 8 8",
-    "ai-moats": "M4 20V10l3-2 3 2V7l2-2 2 2v3l3-2 3 2v10zM10 20v-4h4v4M3 21c3-1.5 15-1.5 18 0",
-    "physical-ai": "M8 9h8v7H8zM10 12h.01M14 12h.01M12 6v3M6 20l2-4M18 20l-2-4M5 12H3M21 12h-2",
-    "world-models": "M12 4a8 8 0 1 0 0 16 8 8 0 1 0 0-16M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16",
-    "stablecoin-rails": "M5 4l-1 16M19 4l1 16M4.5 8h15M4.2 13h15.6M4 18h16",
-    "tokenization": "M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12 4 7.5",
-    "mortgage-rates": "M4 11l8-6 8 6M6 10v10h12V10M10 20v-5h4v5",
-    "debt-loop": "M17 7a7 7 0 1 0 2 5M17 3v4h-4",
-    "stablecoin-economics": "M12 4a8 8 0 1 0 0 16 8 8 0 1 0 0-16M12 7.5v9M14.6 9.4c-.6-.8-1.6-1.1-2.6-1.1-1.5 0-2.6.8-2.6 1.9 0 2.5 5.2 1.3 5.2 3.8 0 1.1-1.1 1.9-2.6 1.9-1.1 0-2.1-.4-2.7-1.2",
-    "ai-ladder": "M8 3v18M16 3v18M8 7h8M8 12h8M8 17h8",
-    "agents-and-marketplaces": "M6 8h12l1 12H5zM9 8V6a3 3 0 0 1 6 0v2M9.5 13.5l2.5 2.5 2.5-2.5",
-    "fintech-rails": "M3 10l9-6 9 6zM5.5 10v7M10 10v7M14 10v7M18.5 10v7M3.5 20h17",
-    "two-schools-economics": "M12 4v16M8 20h8M4 7h16M4 7l-2.5 6a2.5 2.5 0 0 0 5 0zM20 7l-2.5 6a2.5 2.5 0 0 0 5 0z",
-    "dollar-gold-yen": "M12 4v16M15.5 7.5c-1-1.2-2.2-1.6-3.5-1.6-2 0-3.5 1-3.5 2.6 0 3.5 7.5 2 7.5 5.8 0 1.7-1.6 2.8-4 2.8-1.5 0-3-.5-4-1.7"
-  };
+  var TOPICS = [], TOP = {}; // the shelves, in order, from shelf.json: {name, short, desc, slug, subs}
+  var LS = { seen: "pulse_seen", opens: "pulse_opens", bm: "pulse_bm_", prog: "pulse_prog_", sound: "pulse_sound", saved: "pulse_saved", last: "pulse_last", lastX: "pulse_last_x", done: "pulse_done", hideRead: "pulse_hide_read" };
+  /* related words. A synonym never stands in for a word silently: results found only through one are labelled "related". */
   var SYN = {
-    gpu: ["chip", "compute", "nvidia", "bottleneck"], chip: ["gpu", "compute"], compute: ["gpu", "chip"],
+    gpu: ["chip", "compute", "nvidia"], chip: ["gpu", "compute"], chips: ["gpu", "compute"], compute: ["gpu", "chip"], nvidia: ["gpu", "chip"],
     power: ["energy", "electricity", "grid"], energy: ["power", "electricity", "grid"], electricity: ["power", "energy"],
-    robot: ["physical", "humanoid", "robots"], humanoid: ["robot", "physical"],
-    money: ["payments", "rails", "dollar"], payment: ["stablecoin", "rails", "checkout", "pay"], pay: ["payments", "checkout"],
-    agent: ["agents", "swarm"], swarm: ["agents", "team"], bot: ["agent"], assistant: ["agent"],
-    moat: ["moats", "switching", "defensible"], scarce: ["bottleneck", "shortage"], shortage: ["bottleneck", "scarce"],
-    word: ["vocabulary", "glossary"], jargon: ["vocabulary", "glossary"], glossary: ["vocabulary"],
+    nuclear: ["energy", "power", "electricity"], fusion: ["energy", "power"], solar: ["energy", "power"], battery: ["energy", "power"],
+    robot: ["robots", "physical", "warehouse"], humanoid: ["robot", "physical"], optimus: ["robot", "humanoid"],
+    rocket: ["rockets", "spacex", "starship", "booster", "launch"], rockets: ["rocket", "spacex", "starship"], spacex: ["rocket", "starship", "starlink", "falcon"],
+    starship: ["spacex", "rocket"], launch: ["rocket", "launches"], booster: ["rocket", "falcon"], space: ["rocket", "satellite", "orbit"], nasa: ["moon", "rocket"],
+    starlink: ["satellite", "internet", "spacex"], satellite: ["starlink", "orbit"], satellites: ["starlink", "orbit"], internet: ["starlink", "satellite"], orbit: ["satellite", "starlink"],
+    elon: ["musk", "spacex", "starlink"], musk: ["elon", "spacex", "starlink"], tesla: ["elon", "musk", "robot"], robotaxi: ["robot", "physical"], waymo: ["robot", "physical"],
+    neuralink: ["brain", "elon"],
+    money: ["payments", "rails", "dollar"], payment: ["payments", "stablecoin", "rails", "checkout", "pay"], payments: ["payment", "rails", "stablecoin", "pay"], pay: ["payments", "checkout"],
+    crypto: ["stablecoin", "tokenization", "blockchain"], bitcoin: ["crypto", "stablecoin", "blockchain"], blockchain: ["tokenization", "stablecoin"],
+    agent: ["agents", "assistant"], bot: ["agent", "chatbot"], assistant: ["agent"], chatgpt: ["chatbot", "llm"],
+    word: ["vocabulary", "glossary"], jargon: ["vocabulary", "glossary"],
     asset: ["tokenization", "tokenized"], token: ["tokens", "tokenization"],
-    simulate: ["world", "models"], simulation: ["world", "models"], security: ["permissions", "sandbox", "keys"], safe: ["safely", "permissions", "sandbox"],
-    price: ["cheaper", "cost", "pricing"], pricing: ["cheaper", "cost", "price"], cost: ["cheaper", "price", "pricing"], cheap: ["cheaper", "cost"],
-    mortgage: ["mortgages", "10-year", "yield", "home"], rate: ["rates", "mortgage", "yield", "fed"], fed: ["federal", "mortgage", "plumbing", "reserves"],
+    simulate: ["world", "simulation"], security: ["permissions", "sandbox", "privacy"], safe: ["safely", "permissions", "sandbox"],
+    price: ["prices", "cost", "inflation"], cost: ["price", "prices"], cheap: ["cheaper", "cost"], expensive: ["inflation", "prices"],
+    mortgage: ["mortgages", "yield", "home"], rate: ["rates", "mortgage", "yield", "fed"], fed: ["federal", "mortgage", "rates"],
     home: ["mortgage", "house", "housing"], house: ["mortgage", "home", "housing"], housing: ["mortgage", "home"],
-    debt: ["debt", "loop", "deficit", "interest"], deficit: ["debt"], inflation: ["debasement", "cpi", "prices", "expensive"],
-    dollar: ["dollar", "debasement"], gold: ["gold"], yen: ["japan", "yen"], japan: ["yen"],
-    bank: ["banks", "leverage", "deposits"], car: ["cars", "self-driving", "physical"], driving: ["cars", "physical"]
+    debt: ["deficit", "interest"], deficit: ["debt"], inflation: ["prices", "expensive", "cpi"],
+    driving: ["robot", "physical"], car: ["robot", "physical"], cars: ["robot", "physical"],
+    yen: ["japan"], japan: ["yen"], bank: ["banks", "deposits"], scam: ["deepfake", "fraud"], fake: ["deepfake", "scam"]
   };
-  var HINTS = ["Try: robots", "Try: payments", "Try: AI pricing", "Try: mortgages", "Try: agents", "Try: the yen"];
+  var HINTS = ["try \u201crockets\u201d", "try \u201cinflation\u201d", "try \u201cdeepfakes\u201d", "try \u201cstablecoins\u201d", "try \u201cStarlink\u201d", "try \u201cmortgages\u201d"];
   var STOP = ["the", "and", "are", "why", "what", "how", "does", "for", "with", "who", "can", "this", "that", "your", "you", "about", "into", "from", "is", "a", "an", "of", "to", "in", "on", "so", "do", "my", "me", "it"];
   var $ = function (id) { return document.getElementById(id); };
-  var lib = null, topic = "All", query = "";
-  /* The Shelf (spines) is the default view at every width; Topics is opt-in and never
-     restored from storage. Only an explicit #topics link opens it. */
-  var view = location.hash === "#topics" ? "topics" : "shelf";
+  var lib = null, query = "", libSlug = "", tSub = "All", tSort = "suggested";
   var cur = null, idx = 0, turning = false;
   var fromShelf = function () { return !!(history.state && history.state.pulseShelf); };
   var reduce = function () { return window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches; };
   var touch = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
   if (touch) document.documentElement.classList.add("touch");
-
+  /* class-safe topic names: "Frontier Tech" -> t-frontier-tech (the slug comes from shelf.json) */
+  function tcls(name) { return "t-" + (TOP[name] ? TOP[name].slug : "none"); }
+  function np(b) { return b.pages ? b.pages.length : b.n; } // drawn pages (the light list carries n before the full book loads)
+  function titlesOf(b) { return b.pages ? b.pages.map(function (p) { return p.title; }) : (b.pt || []); }
+  function booksOf(name) { return lib.books.filter(function (b) { return b.topic === name; }); }
+  function mins(b) { return (b.minutes || Math.max(3, Math.round(np(b) * .5))) + " min"; }
   function ls(k, v) {
     try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); }
     catch (e) { return null; }
@@ -80,7 +70,8 @@
     ls(LS.saved, s); savedBadge();
   }
   function savedFor(b) { return saved().filter(function (x) { return x.id === b.id; }).map(function (x) { return x.p; }).sort(function (a, c) { return a - c; }); }
-  function pageLabel(b, p) { return p === 1 ? "The 60-second version" : b.pages[p - 2] ? b.pages[p - 2].title : "Page " + p; }
+  function pageLabel(b, p) { var t = titlesOf(b); return p === 1 ? "Summary" : t[p - 2] || "page " + (p - 1); }
+  function pageNum(b, p) { return p === 1 ? "Summary" : "page " + (p - 1) + " of " + np(b); } // one numbering everywhere: Summary, then page N of M (drawn pages)
   function savedBadge() {
     var n = lib ? saved().length : 0, c = $("saved-count");
     if (!c) return;
@@ -92,24 +83,24 @@
     var s = saved();
     $("saved-empty").hidden = !!s.length;
     s.forEach(function (x) {
-      var b = find(x.id), li = el("li", "sv-item t-" + b.topic.toLowerCase());
+      var b = find(x.id), li = el("li", "sv-item " + tcls(b.topic));
       var a = el("a", "sv-link"); a.href = "#book/" + b.id + "/" + x.p;
-      var pg = x.p >= 2 && b.pages[x.p - 2];
+      var pg = x.p >= 2 && b.pages && b.pages[x.p - 2];
       if (pg) { var im = el("img", "sv-thumb"); im.src = pg.thumb || pg.file; im.alt = ""; im.loading = "lazy"; im.width = 56; im.height = Math.round(56 * pg.h / pg.w); a.appendChild(im); }
-      else a.appendChild(el("span", "sv-thumb sv-gist", "60s"));
+      else a.appendChild(el("span", "sv-thumb sv-gist", "Sum."));
       var tx = el("span", "sv-text");
-      tx.appendChild(el("span", "sv-book", b.title + " · p." + x.p));
+      tx.appendChild(el("span", "sv-book", b.title + " · " + pageNum(b, x.p)));
       tx.appendChild(el("span", "sv-page", pageLabel(b, x.p)));
       a.appendChild(tx);
       a.onclick = function (e) { e.preventDefault(); closeSaved(true); history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
       li.appendChild(a);
-      var rm = el("button", "sv-rm", "Remove"); rm.type = "button"; rm.setAttribute("aria-label", "Remove " + b.title + ", page " + x.p + " from Saved");
-      rm.onclick = function () { setSaved(x.id, x.p, false); renderSaved(); renderShelves(); toast("Removed from Saved"); var f = $("saved-list").querySelector(".sv-rm") || $("saved-x"); f.focus(); };
+      var rm = el("button", "sv-rm", "Remove"); rm.type = "button"; rm.setAttribute("aria-label", "Remove " + b.title + ", " + pageNum(b, x.p) + " from Saved");
+      rm.onclick = function () { setSaved(x.id, x.p, false); renderSaved(); renderLib(); toast("Removed from Saved"); var f = $("saved-list").querySelector(".sv-rm") || $("saved-x"); f.focus(); };
       li.appendChild(rm);
       list.appendChild(li);
     });
   }
-  function openSaved() { renderSaved(); $("saved").hidden = false; document.body.classList.add("reading"); onScrollTop(); $("saved-x").focus(); }
+  function openSaved() { loadFull().then(renderSaved, function () {}); renderSaved(); $("saved").hidden = false; document.body.classList.add("reading"); onScrollTop(); $("saved-x").focus(); }
   function closeSaved(silent) { $("saved").hidden = true; document.body.classList.remove("reading"); onScrollTop(); if (!silent) $("saved-btn").focus(); }
 
   function toast(msg, ms) { var t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(function () { t.classList.remove("on"); }, ms || 2400); }
@@ -117,140 +108,150 @@
   /* ---------- deterministic variety (seeded from the book id, stable across loads) ---------- */
   function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
   function rnd(s, k) { var x = hash(s + ":" + k); x = Math.imul(x ^ (x >>> 15), 2246822507); x = Math.imul(x ^ (x >>> 13), 3266489909); x ^= x >>> 16; return (x >>> 0) / 4294967296; }
-  /* "New" stamp: books from the latest drop only: added within 7 days AND within 2 days of the newest book,
-     so a launch week doesn't stamp the whole shelf. */
+  /* "New": the latest batch only. Books added within 2 days of the newest one, and no more than 10 days ago, at most 6.
+     The stamp goes away once you've opened the book (the "New this week" row still lists it). */
   function freshSet() {
     if (lib._fresh) return lib._fresh;
-    var B = lib.books, set = {}, max = B.reduce(function (m, b) { return b.added && b.added > m ? b.added : m; }, "");
+    var B = lib.books.filter(function (b) { return b.added; }), set = {}, n = 0;
+    var max = B.reduce(function (m, b) { return b.added > m ? b.added : m; }, "");
     if (max) {
       var md = new Date(max + "T12:00:00");
-      B.forEach(function (b) { if (!b.added) return; var d = new Date(b.added + "T12:00:00"); if (md - d <= 2 * 864e5 && Date.now() - d <= 7.5 * 864e5) set[b.id] = 1; });
+      B.slice().sort(function (a, c) { return (c.added_at || c.added).localeCompare(a.added_at || a.added); }).forEach(function (b) {
+        var d = new Date(b.added + "T12:00:00");
+        if (n < 6 && md - d <= 2 * 864e5 && Date.now() - d <= 10.5 * 864e5) { set[b.id] = 1; n++; }
+      });
     }
     return (lib._fresh = set);
   }
-  function isFresh(b) { return !!freshSet()[b.id]; }
+  function isFresh(b) { return !!freshSet()[b.id] && !opens[b.id]; }
   function stamp(txt, cls) { var s = el("span", "stamp " + (cls || ""), txt); return s; }
   var kbdNav = false;
   addEventListener("keydown", function (e) { if (e.key === "Tab" || e.key === "Enter" || e.key === " " || e.key.indexOf("Arrow") === 0) { kbdNav = true; var c = document.getElementById("rd-close"); if (c) c.classList.remove("nofv"); } }, true);
   addEventListener("pointerdown", function () { kbdNav = false; }, true);
   var vtOK = function () { return typeof document.startViewTransition === "function" && !reduce(); };
-
   /* ---------- living shelf state ---------- */
-  var lastSeen = ls(LS.seen);
   var opens = ls(LS.opens) || {};
-  function isNew(b) { return lastSeen && (b.updated || b.added) > lastSeen; }
-  function progress(b) { var p = ls(LS.prog + b.id) || 0; return Math.min(1, p / (b.pages.length + 1)); }
-
-  /* ---------- search: titles, taglines, gists, page titles and page text (OCR keywords) ---------- */
+  function progress(b) { var p = ls(LS.prog + b.id) || 0; return isDone(b) ? 1 : Math.min(1, p / (np(b) + 1)); }
+  function doneMap() { var d = ls(LS.done); return d && typeof d === "object" ? d : {}; }
+  function isDone(b) { return !!doneMap()[b.id]; }
+  function markDone(b) { var d = doneMap(); if (!d[b.id]) { d[b.id] = new Date().toISOString().slice(0, 10); ls(LS.done, d); } }
+  /* ---------- search ----------
+     Words are matched on what the books actually say: titles, taglines, blurbs, summaries, page titles, takeaways,
+     plus each book's reader words (taxonomy "aka", e.g. "elon", "rocket") and its sub-topic and shelf.
+     Typos are fixed ONLY against that real vocabulary, and the fix is shown ("Did you mean rocket?").
+     The OCR'd words on the drawn pages count only on an exact (or long-prefix) match, never fuzzily,
+     so "rocket" can no longer find "pocket", or "elon" find a misread "clon". */
   function norm(s) { return (s || "").toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9 -]+/g, " "); }
   function stem(w) { return w.length > 4 ? w.replace(/(ies)$/, "y").replace(/(ing|ers|ed|es|s)$/, "") : w; }
   function words(s) { return norm(s).split(/[\s-]+/).filter(function (w) { return w.length > 1 && STOP.indexOf(w) < 0; }); }
-  function near(a, b) { // optimal-string-alignment distance <= 1 (<= 2 for long words); swaps count once
-    if (a === b) return true;
-    var la = a.length, lb = b.length, max = Math.min(la, lb) >= 7 ? 2 : 1;
-    if (Math.min(la, lb) < 4 || Math.abs(la - lb) > max) return false;
+  function dist(a, b, max) { // optimal-string-alignment distance, gives up above max
+    var la = a.length, lb = b.length; if (Math.abs(la - lb) > max) return max + 1;
     var d = [], i, j;
-    for (i = 0; i <= la; i++) { d[i] = [i]; }
+    for (i = 0; i <= la; i++) d[i] = [i];
     for (j = 0; j <= lb; j++) d[0][j] = j;
     for (i = 1; i <= la; i++) {
       var rowMin = Infinity;
       for (j = 1; j <= lb; j++) {
-        var c = a[i - 1] === b[j - 1] ? 0 : 1;
-        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + c);
+        d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
         if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
         if (d[i][j] < rowMin) rowMin = d[i][j];
       }
-      if (rowMin > max) return false;
+      if (rowMin > max) return max + 1;
     }
-    return d[la][lb] <= max;
+    return d[la][lb];
+  }
+  function near(a, b) { if (a === b) return true; var m = Math.min(a.length, b.length); if (m < 4) return false; var max = m >= 7 ? 2 : 1; return dist(a, b, max) <= max; }
+  var VOC = null;
+  function vocab() {
+    if (VOC) return VOC; VOC = {};
+    var add = function (s) { words(s).forEach(function (w) { VOC[w] = (VOC[w] || 0) + 1; }); };
+    lib.books.forEach(function (b) {
+      [b.title, b.tagline, b.blurb, (b.gist || []).join(" "), (b.aka || []).join(" "), (b.tags || []).join(" "), b.sub, b.topic].forEach(add);
+      titlesOf(b).forEach(add);
+      if (b.pages) b.pages.forEach(function (p) { if (p.takeaway) add(p.takeaway); });
+    });
+    TOPICS.forEach(function (t) { add(t.name); add(t.short); (t.subs || []).forEach(add); });
+    Object.keys(SYN).forEach(function (k) { VOC[k] = VOC[k] || 1; });
+    return VOC;
+  }
+  function fixWord(w) {
+    var V = vocab(); if (V[w] || V[stem(w)] || SYN[w] || w.length < 5) return w; // short words are too easy to "fix" into another word (self -> sell)
+    var keys = Object.keys(V), i;
+    for (i = 0; i < keys.length; i++) if (keys[i].indexOf(w) === 0) return w; // a prefix of a real word: still typing
+    var best = null, bd = 9, bf = 0, max = w.length >= 9 ? 2 : 1;
+    keys.forEach(function (k) { if (k.length < 4) return; var d = dist(k, w, max); if (d <= max && (d < bd || (d === bd && V[k] > bf))) { best = k; bd = d; bf = V[k]; } });
+    return best || w;
   }
   function index(b) {
     if (b._ix) return b._ix;
     var bag = function (s) { var o = {}; words(s).forEach(function (w) { o[w] = 1; o[stem(w)] = 1; }); return Object.keys(o); };
-    b._ix = { title: bag(b.title), tag: bag((b.tagline || "") + " " + b.blurb + " " + b.topic), gist: bag(b.gist.join(" ")),
-      pages: b.pages.map(function (p) { return { t: bag(p.title), k: bag(p.kw || "") }; }),
-      raw: norm([b.title, b.tagline, b.blurb, b.gist.join(" ")].concat(b.pages.map(function (p) { return p.title + " " + (p.kw || ""); })).join(" ")) };
+    var P = b.pages || (b.pt || []).map(function (t) { return { title: t }; });
+    b._ix = { title: bag(b.title), aka: bag((b.aka || []).join(" ")), phr: (b.aka || []).map(norm),
+      tag: bag([b.tagline, b.blurb, b.topic, b.sub, (b.tags || []).join(" ")].join(" ")), gist: bag((b.gist || []).join(" ")),
+      pages: P.map(function (p) { return { t: bag(p.title + " " + (p.takeaway || "")), k: bag(p.kw || "") }; }),
+      raw: norm([b.title, b.tagline, b.blurb, (b.gist || []).join(" "), (b.aka || []).join(" ")].concat(P.map(function (p) { return p.title + " " + (p.takeaway || ""); })).join(" ")) };
     return b._ix;
   }
-  function hitWord(list, t) { for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0) || near(w, t)) return w; } return null; }
+  // 1 for an exact match, .8 for a prefix (4+ letters typed); OCR words only exact or a 5+ letter prefix
+  function hits(list, t, ocr, exact) { var f = 0; for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t) return 1; if (!f && !exact && t.length >= (ocr ? 5 : 4) && w.indexOf(t) === 0) f = .8; } return f; } // exact: related words never prefix-match (power != powerful)
+  function terms(q) {
+    var out = [], fixed = [], any = false;
+    words(q).forEach(function (w) {
+      var f = fixWord(w); if (f !== w) any = true; fixed.push(f);
+      var s = stem(f), g = [{ t: f, w: 1 }]; if (s !== f) g.push({ t: s, w: 1 });
+      (SYN[f] || SYN[s] || []).forEach(function (x) { words(x).forEach(function (y) { if (y !== f && y !== s) g.push({ t: y, w: .6, syn: true }); }); });
+      out.push(g);
+    });
+    return { groups: out, fixed: any ? fixed.join(" ") : null };
+  }
+  function scoreGroup(ix, g) {
+    var best = 0, real = 0, pageS = ix.pages.map(function () { return 0; });
+    g.forEach(function (x) {
+      var e = !!x.syn, s = Math.max(8 * hits(ix.title, x.t, 0, e), 7 * hits(ix.aka, x.t, 0, e), 5 * hits(ix.tag, x.t, 0, e), 4 * hits(ix.gist, x.t, 0, e));
+      ix.pages.forEach(function (p, i) { var ps = Math.max(4 * hits(p.t, x.t, 0, e), 1.5 * hits(p.k, x.t, true, e)); if (ps) { pageS[i] += ps * x.w; s = Math.max(s, ps); } });
+      s *= x.w; if (s > best) best = s; if (s && !x.syn) real = Math.max(real, s);
+    });
+    return { s: best, real: real, pages: pageS };
+  }
+  /* returns {res:[{b, s, p, real}], fixed, related}: related = nothing matched the words themselves, only related words */
+  function search(q) {
+    var T = terms(q), G = T.groups; if (!G.length) return { res: [], fixed: null };
+    var qn = norm(T.fixed || q).trim();
+    var res = lib.books.map(function (b) {
+      var ix = index(b), s = 0, real = 0, matched = 0, pages = ix.pages.map(function () { return 0; });
+      G.forEach(function (g) { var r = scoreGroup(ix, g); if (r.s) { matched++; s += r.s; real += r.real; r.pages.forEach(function (v, i) { pages[i] += v; }); } });
+      if (G.length > 1 && matched < Math.ceil(G.length * .6)) s = 0; // most words should match
+      if (s && qn.indexOf(" ") > 0 && ix.phr.some(function (p) { return p === qn || p.indexOf(qn) >= 0; })) { s += 10; real += 10; } // a reader phrase like "elon musk" or "ai at school"
+      if (s && G.length > 1 && ix.raw.indexOf(qn) >= 0) s += 8;
+      var p = -1, bp = 2.9; pages.forEach(function (v, i) { if (v > bp) { bp = v; p = i; } });
+      return { b: b, s: s, p: p, real: real };
+    }).filter(function (r) { return r.s > 0; }).sort(function (a, c) { return c.real - a.real || c.s - a.s || lib.books.indexOf(a.b) - lib.books.indexOf(c.b); });
+    if (!res.length) return { res: res, fixed: T.fixed };
+    var related = !res.some(function (r) { return r.real > 0; }), top = res[0].s;
+    if (!related) res = res.filter(function (r) { return r.real > 0 || r.s >= top * .5; });
+    return { res: res.filter(function (r) { return r.s >= top * (related ? .5 : .3); }), fixed: T.fixed, related: related };
+  }
   function why(b, page, q) {
-    var ix = index(b), g = terms(q), out = null;
-    g.forEach(function (grp) { if (out) return; grp.forEach(function (t) {
+    var ix = index(b), g = terms(q).groups, out = null;
+    g.forEach(function (grp) { grp.forEach(function (x) {
       if (out) return;
-      if (page >= 0) { var w = hitWord(ix.pages[page].t, t); if (w) { out = "page title says “" + w + "”"; return; } w = hitWord(ix.pages[page].k, t); if (w) { out = "the page mentions “" + w + "”"; return; } }
-      var w2 = hitWord(ix.title, t) || hitWord(ix.tag, t); if (w2) { out = "it’s what the book is about"; return; }
-      w2 = hitWord(ix.gist, t); if (w2) { out = "the 60-second version mentions “" + w2 + "”"; }
+      var pre = x.syn ? "related word \u201c" : "\u201c";
+      if (hits(ix.title, x.t)) out = x.syn ? pre + x.t + "\u201d is in the title" : "it\u2019s in the title";
+      else if (hits(ix.aka, x.t) || hits(ix.tag, x.t)) out = x.syn ? "it\u2019s about " + x.t : "it\u2019s what the book is about";
+      else if (page >= 0 && hits(ix.pages[page].t, x.t)) out = "a page title says " + pre + x.t + "\u201d";
+      else if (page >= 0 && hits(ix.pages[page].k, x.t, true)) out = "the page mentions " + pre + x.t + "\u201d";
+      else if (hits(ix.gist, x.t)) out = "the summary mentions " + pre + x.t + "\u201d";
     }); });
     return out || "closest match";
   }
-  // 1 for an exact or prefix match, 0.5 for a typo-tolerant (near) match, so "BUIDL" prefers BUIDL over "build"
-  function hits(list, t) { var f = 0; for (var i = 0; i < list.length; i++) { var w = list[i]; if (w === t || (t.length >= 4 && w.indexOf(t) === 0)) return 1; if (!f && !EXACT[t] && near(w, t)) f = 0.5; } return f; }
-  var EXACT = {}; // words that appear verbatim somewhere in the library: no typo-matching for those
-  function terms(q) {
-    var out = [];
-    words(q).forEach(function (w) {
-      var s = stem(w), group = [w]; if (s !== w) group.push(s);
-      var key = SYN[w] ? w : SYN[s] ? s : Object.keys(SYN).filter(function (k) { return near(k, w) || near(k, s); })[0];
-      if (key && key !== w && key !== s) group.push(key);
-      (key ? SYN[key] : []).forEach(function (x) { group.push(x); });
-      out.push(group);
-    });
-    return out;
-  }
-  function score(b, groups) {
-    var ix = index(b), s = 0, matched = 0, best = 0, page = -1;
-    var pageScore = ix.pages.map(function () { return 0; });
-    groups.forEach(function (g, gi) {
-      var gs = 0;
-      g.forEach(function (t, ti) {
-        var w = ti === 0 ? 1 : 0.6; // synonyms count a bit less
-        gs = Math.max(gs, 8 * w * hits(ix.title, t), 5 * w * hits(ix.tag, t), 4 * w * hits(ix.gist, t));
-        ix.pages.forEach(function (p, i) {
-          var ps = Math.max(4 * w * hits(p.t, t), 2 * w * hits(p.k, t));
-          if (ps) { pageScore[i] += ps; gs = Math.max(gs, ps); }
-        });
-      });
-      if (gs) matched++; s += gs;
-    });
-    pageScore.forEach(function (v, i) { if (v > best) { best = v; page = i; } });
-    if (groups.length > 1 && matched < Math.ceil(groups.length / 2)) s = 0; // most words should match
-    return { s: s, page: page };
-  }
-  function search(q) {
-    var g = terms(q); if (!g.length) return [];
-    EXACT = {}; g.forEach(function (grp) { grp.forEach(function (t) { var c = t.replace(/[^a-z0-9]/g, ""); if (!c) return; var re = new RegExp("\\b" + c + "\\b");
-      if (lib.books.some(function (b) { return re.test(index(b).raw); })) EXACT[t] = 1; }); });
-    // down-weight words that match almost every book (e.g. "ai"), like a tiny IDF
-    var weights = g.map(function (grp) {
-      var df = lib.books.filter(function (b) { return score(b, [grp]).s > 0; }).length;
-      return df >= lib.books.length * 0.7 ? 0.2 : 1;
-    });
-    var ws = words(q), phrase = ws.length > 1 ? new RegExp("\\b" + ws.map(function (w) { return stem(w).replace(/[^a-z0-9]/g, ""); }).join("[a-z]*\\s+") ) : null;
-    var res = lib.books.map(function (b) {
-      var s = 0, page = -1, best = 0, matched = 0;
-      g.forEach(function (grp, i) { var r = score(b, [grp]); if (r.s) { matched++; s += r.s * weights[i]; if (r.s * weights[i] > best) { best = r.s * weights[i]; page = r.page; } } });
-      var strong = g.filter(function (_, i) { return weights[i] === 1; }).length;
-      if (strong > 1 && matched < Math.ceil(g.length / 2)) s = 0;
-      if (s && phrase && phrase.test(index(b).raw)) s += 12; // the whole phrase appears
-      if (s && g.length > 1) { var all = score(b, g); if (all.page >= 0) page = all.page; }
-      return { b: b, s: s, p: page };
-    }).filter(function (r) { return r.s > 0; }).sort(function (a, b) { return b.s - a.s; });
-    if (!res.length) return res;
-    var top = res[0].s;
-    return res.filter(function (r) { return r.s >= top * 0.4; }).slice(0, 6);
-  }
-
-  /* ---------- shelf ---------- */
+  /* ---------- covers and spines ---------- */
   function tagline(b) { return b.tagline || b.blurb; }
   function decorate(a, b) {
-    a.href = "#book/" + b.id + "/1";
-    var pr = progress(b);
-    a.removeAttribute("aria-label"); var sr = a.querySelector(".sr-desc") || el("span", "sr-only sr-desc"); sr.textContent = " — " + tagline(b) + ". " + (b.pages.length + 1) + " pages. " + readText(b) + (b.start_here ? ". Start here." : "") + (isFresh(b) || isNew(b) ? ". New." : ""); a.appendChild(sr);
-    if (isNew(b)) a.classList.add("is-new");
+    a.href = "#book/" + b.id + "/1"; a.dataset.topic = b.topic; a.dataset.id = b.id;
+    a.removeAttribute("aria-label"); var sr = a.querySelector(".sr-desc") || el("span", "sr-only sr-desc");
+    sr.textContent = " \u2014 " + tagline(b) + ". " + b.topic + ". " + np(b) + " pages, about " + mins(b) + ". " + readText(b) + (isFresh(b) ? ". New." : ""); a.appendChild(sr);
     if ((opens[b.id] || 0) >= 3) a.classList.add("is-lean");
-    if (b.start_here) a.classList.add("is-start");
     a.addEventListener("click", pullOut);
-    a.setAttribute("aria-haspopup", "dialog");
     a.addEventListener("keydown", function (e) { if (e.key === " " && !e.repeat) { e.preventDefault(); a.click(); } });
   }
   /* Opening / closing a book. With View Transitions the clicked spine (or cover) morphs into the reader and
@@ -279,60 +280,56 @@
     if (a.classList.contains("pulling")) return;
     // push a history entry marked "opened from the shelf", so Back (or the Put-it-back button) returns in one step
     var go = function () { withVT(a, function () { return $("book"); }, function () { history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); }); };
+    loadFull().catch(function () {});
     if (reduce()) return go();
-    a.classList.add("pulling"); setTimeout(function () { a.classList.remove("pulling"); go(); }, vtOK() ? 110 : 160);
+    var bt = window.PulseSig && a.dataset.topic ? PulseSig.burst(a.querySelector(".sp-body,.cv") || a, a.dataset.topic) : 0; // the shelf's quick flourish (none for AI)
+    a.classList.add("pulling"); setTimeout(function () { a.classList.remove("pulling"); go(); }, bt ? 200 : vtOK() ? 110 : 160);
   }
-  function bar(b, cls) { var pr = progress(b), w = el("span", cls); w.setAttribute("aria-hidden", "true"); var f = el("i"); f.style.width = Math.round(pr * 100) + "%"; w.appendChild(f); if (!pr) w.hidden = true; return w; }
-  function coverArt(b, small) {
-    var c = el("span", "cv t-" + b.topic.toLowerCase() + (small ? " cv-sm" : ""));
+  function bar(b, cls) { var pr = progress(b), w = el("span", cls); w.setAttribute("aria-hidden", "true"); var f = el("i"); f.style.width = Math.round(pr * 100) + "%"; w.appendChild(f); if (!pr || isDone(b)) w.hidden = true; return w; }
+  /* a cover: the shelf's cloth (each shelf has its own weave, so colour is never the only cue), the book's own first page as art,
+     the reading time, and its state: New, read, or a progress bar */
+  function coverArt(b, opt) {
+    opt = opt || {};
+    var c = el("span", "cv cloth " + tcls(b.topic) + (opt.small ? " cv-sm" : ""));
     c.setAttribute("aria-hidden", "true");
-    c.appendChild(el("span", "cv-topic", b.topic));
-    if (ICONS[b.id]) { var ic = document.createElementNS("http://www.w3.org/2000/svg", "svg"); ic.setAttribute("viewBox", "0 0 24 24"); ic.setAttribute("class", "cv-ico"); var pa = document.createElementNS("http://www.w3.org/2000/svg", "path"); pa.setAttribute("d", ICONS[b.id]); ic.appendChild(pa); c.appendChild(ic); }
-    c.appendChild(el("span", "cv-title", b.title));
-    c.appendChild(el("span", "cv-rule"));
-    c.appendChild(el("span", "cv-tag", tagline(b)));
-    var f = el("span", "cv-foot"); f.appendChild(el("span", "cv-vol", "Vol. " + (b.vol || 1))); f.appendChild(el("span", "cv-mark", "ProductSnap · Pulse")); c.appendChild(f);
-    if (b.start_here) c.appendChild(el("span", "cv-start", "Start here"));
-    if (isFresh(b) && !small) c.appendChild(stamp("New", "cv-stamp"));
+    var top = el("span", "cv-top"), tk = el("span", "cv-topic", TOP[b.topic].short); if (opt.step) tk.insertBefore(el("span", "cv-step", String(opt.step)), tk.firstChild); top.appendChild(tk); top.appendChild(el("span", "cv-title", b.title)); c.appendChild(top);
+    var art = el("span", "cv-art"); var im = el("img"); im.src = b.thumb; im.alt = ""; im.width = b.tw; im.height = b.th; im.loading = opt.eager ? "eager" : "lazy"; if (opt.eager) im.setAttribute("fetchpriority", "high"); im.decoding = "async"; art.appendChild(im);
+    art.appendChild(el("span", "cv-min", mins(b))); c.appendChild(art);
+    if (!opt.small) c.appendChild(el("span", "cv-tag", tagline(b)));
+    if (isDone(b)) c.appendChild(el("span", "cv-state is-read", "\u2713 Read"));
+    else if (isFresh(b)) c.appendChild(el("span", "cv-state is-new", "New"));
+    c.appendChild(bar(b, "cv-prog"));
     return c;
   }
-  function cover(b, hitPage, reason) {
-    var a = el("a", "bk t-" + b.topic.toLowerCase()); decorate(a, b);
-    if (hitPage >= 0) a.href = "#book/" + b.id + "/" + (hitPage + 2);
-    a.appendChild(coverArt(b));
-    a.appendChild(bar(b, "bk-prog"));
-    var meta = el("span", "bk-meta", (b.pages.length + 1) + " pages");
-    var bm = savedFor(b); if (bm.length) meta.appendChild(el("span", "bk-bm", " · saved p." + bm.join(", ")));
-    a.appendChild(meta);
-    if (hitPage >= 0) a.appendChild(el("span", "bk-hit", "Opens at “" + b.pages[hitPage].title + "”"));
-    if (reason) a.appendChild(el("span", "bk-why", "Why: " + reason));
+  function cover(b, opt) {
+    var a = el("a", "bk " + tcls(b.topic)); decorate(a, b);
+    a.appendChild(coverArt(b, opt));
     a.appendChild(a.querySelector(".sr-desc"));
     return a;
   }
   /* pencil ticks: one slanted tick per page, filled for pages already reached */
-  function readOf(b) { var total = b.pages.length + 1; return Math.min(total, Math.round(progress(b) * total)); }
-  function readText(b) { var n = readOf(b), t = b.pages.length, d = Math.min(t, Math.max(0, n - 1)); return d ? "Read up to page " + d + " of " + t : n ? "Read the summary · 0 of " + t + " pages" : "0 of " + t + " pages read"; } // counts drawn pages only, like the in-book counter // ticks = furthest page reached, not the page you are on
+  function readOf(b) { var total = np(b) + 1; return Math.min(total, Math.round(progress(b) * total)); }
+  function readText(b) { if (isDone(b)) return "Finished"; var n = readOf(b), t = np(b), d = Math.min(t, Math.max(0, n - 1)); return d ? "Read to page " + d + " of " + t : n ? "Read the summary" : "Not started"; }
   function ticks(b, cls) {
-    var total = b.pages.length + 1, reached = readOf(b), w = el("span", cls);
+    var total = np(b) + 1, reached = readOf(b), w = el("span", cls);
     w.setAttribute("aria-hidden", "true");
-    if (total > 8) { // long books: a slim hand-drawn bar instead of a crowd of tiny ticks
-      w.classList.add("bar"); var f = el("b", "pb-fill"); f.style.width = Math.round(reached / total * 100) + "%"; w.appendChild(f); w.dataset.pct = Math.round(reached / total * 100);
-    } else for (var i = 0; i < total; i++) w.appendChild(el("i", i < reached ? "on" : ""));
-    if (!reached) w.hidden = true;
+    if (total > 8) { w.classList.add("bar"); var f = el("b", "pb-fill"); f.style.width = Math.round(reached / total * 100) + "%"; w.appendChild(f); }
+    else for (var i = 0; i < total; i++) w.appendChild(el("i", i < reached ? "on" : ""));
+    if (!reached || isDone(b)) w.hidden = true;
     return w;
   }
   function spine(b) {
-    var a = el("a", "sp t-" + b.topic.toLowerCase()); decorate(a, b);
-    a.style.setProperty("--h", (200 + Math.min(b.pages.length, 6) * 14) + "px");
+    var a = el("a", "sp " + tcls(b.topic)); decorate(a, b);
+    a.style.setProperty("--h", (200 + Math.min(np(b), 6) * 14) + "px");
     a.style.setProperty("--hv", (0.95 + rnd(b.id, "h") * 0.10).toFixed(3));
-    a.dataset.pp = b.pages.length + 1;
-    var body = el("span", "sp-body");
-    if (b.start_here) body.appendChild(el("span", "sp-start", "Start here"));
-    body.appendChild(el("span", "sp-topic", b.topic));
+    var L = b.title.length; a.style.setProperty("--swb", ((L > 22 ? 1.16 : L > 13 ? 1.04 : .94) * (0.97 + rnd(b.id, "w") * 0.06)).toFixed(3));
+    var body = el("span", "sp-body cloth");
+    body.appendChild(el("span", "sp-topic", TOP[b.topic].short));
     body.appendChild(el("span", "sp-title", b.title));
-    body.appendChild(el("span", "sp-vol", "Vol. " + (b.vol || 1)));
+    body.appendChild(el("span", "sp-vol", mins(b)));
     body.appendChild(ticks(b, "sp-prog"));
     if (savedFor(b).length) { var mk = el("span", "sp-mark"); mk.setAttribute("aria-hidden", "true"); body.appendChild(mk); }
+    if (isDone(b)) body.appendChild(el("span", "sp-ck", "\u2713"));
     if (isFresh(b)) body.appendChild(stamp("New", "sp-stamp"));
     a.appendChild(body); a.appendChild(a.querySelector(".sr-desc"));
     return a;
@@ -346,12 +343,12 @@
     tipEl.appendChild(el("i", "tp-shadow"));
     var card = el("div", "tp-card");
     card.appendChild(el("b", null, b.title));
-    card.appendChild(el("span", "tp-meta", "Vol. " + (b.vol || 1) + " · " + (b.pages.length + 1) + " pages"));
+    card.appendChild(el("span", "tp-meta", TOP[b.topic].name + " · " + np(b) + " pages · " + mins(b)));
     card.appendChild(el("span", "tp-tag", tagline(b)));
     card.appendChild(el("span", "tp-read", readText(b)));
     var bm = savedFor(b); if (bm.length) card.appendChild(el("span", "bk-bm", "Saved · p." + bm.join(", ")));
     tipEl.appendChild(card); tipEl.appendChild(el("i", "tp-notch"));
-    tipEl.className = "sp-tip t-" + b.topic.toLowerCase();
+    tipEl.className = "sp-tip " + tcls(b.topic);
     tipFor = a; var body = a.querySelector(".sp-body") || a, r = a.getBoundingClientRect(), br = body.getBoundingClientRect();
     tipEl.style.visibility = "hidden"; tipEl.classList.add("on");
     var w = tipEl.offsetWidth, h = tipEl.offsetHeight, x = r.left + r.width / 2 - w / 2, top = Math.min(r.top, br.top) - h - 12, flip = false;
@@ -381,12 +378,11 @@
     }, { passive: true });
   }
   var ICO = {
-    shelf: '<path d="M3 20.5h18"/><path d="M5 20.5V8h3v12.5M9.5 20.5V5h3v15.5"/><path d="m14.6 20.5 2.6-11.4 2.8.7-2.6 11"/>',
-    topics: '<rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/>',
     All: '<path d="M4 6h16M4 12h16M4 18h10"/>',
     AI: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>',
     Fintech: '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h4"/>',
-    Macro: '<path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>'
+    Macro: '<path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>',
+    "Frontier Tech": '<path d="M14.5 4.5c3-1 5-1 5-1s0 2-1 5l-6.5 6.5-4-4z"/><path d="M8 11l-3 .5-2 2.5 4 .5M13 16l-.5 3-2.5 2-.5-4M15.5 8.5h.01"/><path d="M5 19c.5-1.5 1.5-2.5 3-3" stroke-dasharray="1.5 2"/>'
   };
   function ico(k, cls) { return '<svg class="' + (cls || "ci") + '" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICO[k] || ICO.All) + '</svg>'; }
   /* page dots: each has a 44x44 hit area (::after) that overlaps its neighbours on long books, so a tap goes to the dot nearest the finger */
@@ -396,185 +392,257 @@
     [].forEach.call(document.querySelectorAll("#rd-dots .dot"), function (d) { var r = d.getBoundingClientRect(), dx = Math.abs(r.left + r.width / 2 - e.clientX); if (dx < bd) { bd = dx; best = +d.dataset.i; } });
     return best;
   }
-  var chipFx = null;
+  /* ---------- the library: sticky search + chips, home rows, one page per shelf ---------- */
+  function go2(hash) { // move between library views (home, a shelf) as real history entries
+    if (location.hash === hash || (!hash && !location.hash)) { route(); return; }
+    history.pushState(null, "", hash || location.pathname + location.search); route();
+  }
   function renderTabs() {
     var t = $("lib-tabs"); t.innerHTML = "";
-    var g = el("div", "topictabs"); g.setAttribute("role", "group"); g.setAttribute("aria-label", "Filter by topic");
-    ["All"].concat(Object.keys(TOPICS)).forEach(function (k) {
-      var n = k === "All" ? lib.books.length : lib.books.filter(function (b) { return b.topic === k; }).length;
-      if (!n) return;
-      var btn = el("button", "chip" + (k !== "All" ? " c-" + k.toLowerCase() : ""));
-      btn.innerHTML = ico(k) + '<span class="ck">' + k + '<span class="cn"> · ' + n + '</span></span>';
-      btn.type = "button"; btn.setAttribute("aria-pressed", String(topic === k)); btn.dataset.topic = k;
-      if (chipFx === k && topic === k) btn.classList.add("just");
-      btn.onclick = function () { chipFx = k; topic = k; clearQuery(); renderTabs(); renderShelves(); chipFx = null; };
+    var g = el("div", "topictabs"); g.setAttribute("role", "group"); g.setAttribute("aria-label", "Shelves");
+    [{ name: "All", short: "All", slug: "" }].concat(TOPICS).forEach(function (k) {
+      var n = k.slug ? booksOf(k.name).length : lib.books.length; if (!n) return;
+      var btn = el("button", "chip" + (k.slug ? " c-" + k.slug : ""));
+      btn.innerHTML = ico(k.name) + '<span class="ck">' + k.short + '</span>';
+      btn.type = "button"; btn.setAttribute("aria-pressed", String(libSlug === k.slug)); btn.dataset.topic = k.name;
+      btn.setAttribute("aria-label", k.slug ? k.name + " shelf, " + n + " books" : "All shelves, " + n + " books");
+      btn.onclick = function () { if (query) clearQuery(); closeSearch(); go2(k.slug ? "#shelf/" + k.slug : ""); };
       g.appendChild(btn);
     });
     t.appendChild(g);
-    var vh = $("lib-view"); vh.innerHTML = "";
-    var v = el("div", "viewtog"); v.setAttribute("role", "group"); v.setAttribute("aria-label", "View");
-    [["shelf", "Shelf"], ["topics", "Topics"]].forEach(function (p) {
-      var b = el("button", "chip vt"); b.innerHTML = ico(p[0], "vi") + "<span>" + p[1] + "</span>";
-      b.type = "button"; b.dataset.view = p[0]; b.setAttribute("aria-pressed", String(view === p[0]));
-      b.onclick = function () { view = p[0]; clearQuery(); renderTabs(); renderShelves(); }; v.appendChild(b);
-    });
-    vh.appendChild(v);
   }
   function heroMeta() {
-    var B = lib.books, pg = B.reduce(function (s, b) { return s + b.pages.length + 1; }, 0);
-    var tp = Object.keys(TOPICS).filter(function (k) { return B.some(function (b) { return b.topic === k; }); }).length;
-    $("lib-stats").innerHTML = "<b>" + B.length + "</b> books<i>·</i><b>" + tp + "</b> topics<i>·</i><b>" + pg + "</b> pages";
-    var latest = B.slice().sort(function (a, b) { return (b.updated || b.added || "").localeCompare(a.updated || a.added || "") || (b.added_at || "").localeCompare(a.added_at || "") || B.indexOf(b) - B.indexOf(a); })[0];
-    if (latest) {
-      var d = new Date((latest.updated || latest.added) + "T12:00:00"), r = $("lib-ribbon");
-      var fresh = (Date.now() - d) < 8 * 864e5;
-      r.innerHTML = '<span class="rb-k">' + (fresh ? "This week’s pulse" : "Latest in the library") + '</span><span class="rb-t">Latest: <a href="#book/' + latest.id + '/1"></a> · ' + d.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + "</span>";
-      r.querySelector("a").textContent = latest.title; r.hidden = false;
-    }
+    var B = lib.books, sh = TOPICS.filter(function (t) { return booksOf(t.name).length; }).length;
+    var mm = B.map(function (b) { return b.minutes || 5; }).sort(function (a, c) { return a - c; }), med = mm[Math.floor(mm.length / 2)] || 5;
+    $("lib-stats").innerHTML = "<b>" + B.length + "</b> books<i>\u00b7</i><b>" + sh + "</b> shelves<i>\u00b7</i>about <b>" + med + "</b> min each";
+    $("ask-input").placeholder = "Search " + B.length + " books\u2026 " + HINTS[0];
   }
-  /* Shelf tiers: books split across planks (7/6 for 13), varied widths/heights,
-     one leaning spine per tier (left/right and position vary by row), sketch decor (bookend, flat stack, plant) placed per tier. */
-  var DECOR = {
-    end: '<svg viewBox="0 0 26 120" width="26" height="120"><path class="dc-end" d="M4 118V60c0-7 5-12 12-12h6v70z"/><path d="M8 70h10" stroke-opacity=".4"/></svg>',
-    stack: '<svg viewBox="0 0 70 60" width="70" height="60"><rect class="dc-b1" x="4" y="44" width="60" height="14" rx="2"/><rect class="dc-b2" x="9" y="31" width="50" height="13" rx="2"/><rect class="dc-b3" x="2" y="20" width="56" height="11" rx="2"/><path d="M12 51h34M16 37h28M10 25h30" stroke-opacity=".45"/></svg>',
-    plant: '<svg viewBox="0 0 56 110" width="56" height="110"><path class="dc-leaf" d="M28 66c-2-16-12-24-20-32 12 2 20 12 20 24 0-18 4-32 14-44-2 18-7 32-12 44 4-10 12-16 22-18-8 8-14 18-18 28"/><path class="dc-pot" d="M10 66h36l-5 42H15z"/><path d="M8 66h40"/></svg>',
-    cup: '<svg viewBox="0 0 54 70" width="54" height="70"><path class="dc-cup" d="M6 30h32v26c0 7-5 12-12 12h-8c-7 0-12-5-12-12z"/><path d="M38 36h4c5 0 8 4 8 8s-3 8-8 8h-4"/><path d="M16 22c-3-4 3-7 0-12M26 22c-3-4 3-7 0-12" stroke-opacity=".5"/></svg>'
-  };
-  function deco(k, cls) { var d = el("span", "sp-decor dc-" + k + (cls ? " " + cls : "")); d.setAttribute("aria-hidden", "true"); d.innerHTML = DECOR[k].replace("<svg ", '<svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" '); return d; }
-  var PHONE = window.matchMedia("(max-width:640px)");
-  (PHONE.addEventListener ? PHONE.addEventListener.bind(PHONE, "change") : PHONE.addListener.bind(PHONE))(function () { if (lib && view === "shelf" && !query) renderShelves(); });
-  function tiers(books) {
-    var spineN = 0, n = books.length, cap = PHONE.matches ? 5 : 7, k = Math.max(1, Math.ceil(n / cap)), base = Math.floor(n / k), extra = n % k, wrap = el("div", "tiers"), from = 0;
-    for (var t = 0; t < k; t++) {
-      var cnt = base + (t < extra ? 1 : 0), part = books.slice(from, from + cnt); from += cnt; if (!part.length) break;
-      var row = el("div", "shelf-row spines tier");
-      if (t % 2 === 0) row.appendChild(deco("end"));
-      else row.appendChild(deco("stack"));
-      var leanAt = part.length > 2 ? (t % 3 === 0 ? part.length - 1 : t % 3 === 1 ? Math.max(1, part.length - 2) : 0) : -1;
-      part.forEach(function (b, i) {
-        var s = spine(b), L = b.title.length;
-        s.style.setProperty("--swb", ((L > 22 ? 1.18 : L > 13 ? 1.05 : .92) * (0.96 + rnd(b.id, "w") * 0.08)).toFixed(3));
-        s.style.setProperty("--i", spineN++);
-        if (i === leanAt) s.classList.add(t % 2 === 0 ? "is-lean-left" : "is-lean-right");
-        row.appendChild(s);
-      });
-      var plantHere = t === 0 || t === k - 1; /* a plant always sits on the first and the last plank, so phones (where the middle ones are dropped) keep one */
-      if (t % 2 === 0) { row.appendChild(deco("stack", "sm")); row.appendChild(deco("plant")); }
-      else { row.appendChild(deco(plantHere ? "plant" : "cup")); row.appendChild(deco("end", "flip")); }
-      wrap.appendChild(row);
-    }
-    return wrap;
-  }
-  function shelfDecor() {
-    var d = el("div", "sp-decor"); d.setAttribute("aria-hidden", "true");
-    d.innerHTML = '<svg viewBox="0 0 150 120" width="150" height="120" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
-      '<path class="dc-end" d="M6 118V62c0-6 4-10 10-10h4v66z"/>' +
-      '<rect class="dc-b1" x="34" y="104" width="54" height="14" rx="2"/><rect class="dc-b2" x="38" y="92" width="46" height="12" rx="2"/><rect class="dc-b3" x="31" y="81" width="50" height="11" rx="2"/>' +
-      '<path d="M40 98h30M44 86h24" stroke-opacity=".45"/>' +
-      '<path class="dc-pot" d="M104 92h34l-4 26h-26z"/><path d="M102 92h38"/>' +
-      '<path class="dc-leaf" d="M121 92c0-14-10-22-18-30 10 2 18 10 18 20 1-14 4-26 12-36-2 14-6 26-10 36 3-8 10-14 18-16-6 8-12 16-16 26"/></svg>';
-    return d;
-  }
-  function suggest(h, lead) {
-    h.appendChild(document.createTextNode(lead));
-    ["robots", "payments"].forEach(function (w, i) {
-      var b = el("button", "linkbtn", w); b.type = "button"; b.onclick = function () { $("ask-input").value = w; ask(w); };
-      if (i) h.appendChild(document.createTextNode(" or ")); h.appendChild(b);
-    });
-    h.appendChild(document.createTextNode("."));
-  }
-  /* if a row is wider than the screen, drop its extras (plant, cup, small stack) from the right until it fits: rows never scroll sideways */
-  function fitTiers() {
-    [].forEach.call(document.querySelectorAll(".tier"), function (row) {
-      [].forEach.call(row.querySelectorAll(".dc-off"), function (n) { n.classList.remove("dc-off"); });
-      /* squeeze the small props first, the plant last; the last plank's plant is never dropped (a narrow phone eases the spines in instead) */
-      var last = row === row.parentNode.lastChild;
-      var extras = [].slice.call(row.querySelectorAll(".dc-cup,.dc-stack.sm,.dc-stack:not(.sm),.dc-plant")).filter(function (n) { return getComputedStyle(n).display !== "none" && !(last && n.classList.contains("dc-plant")); }).sort(function (a, b) { var r = function (n) { return n.classList.contains("dc-plant") ? 2 : n.classList.contains("dc-stack") && !n.classList.contains("sm") ? 1 : 0; }; return r(a) - r(b); });
-      while (row.scrollWidth > row.clientWidth + 1 && extras.length) extras.shift().classList.add("dc-off");
-      row.style.removeProperty("--fit"); /* still too wide on a very narrow phone: ease every spine in a little */
-      for (var k = 0, f = 1; k < 4 && row.scrollWidth > row.clientWidth + 1; k++) { f = Math.max(.7, f * (row.clientWidth - 1) / row.scrollWidth); row.style.setProperty("--fit", f.toFixed(3)); }
-    });
-  }
-  var fitT; window.addEventListener("resize", function () { clearTimeout(fitT); fitT = setTimeout(fitTiers, 120); });
   var introDone = false;
-  function renderShelves() {
+  function renderLib() {
     var host = $("shelves"); host.innerHTML = "";
+    renderTabs();
+    var t = libSlug && TOPICS.filter(function (x) { return x.slug === libSlug; })[0];
+    $("lib-hero").hidden = !!t;
+    document.title = t ? t.name + " \u2014 Pulse \u2014 ProductSnap Studio" : "Pulse \u2014 ProductSnap Studio";
     host.classList.remove("intro");
-    if (!introDone && !reduce() && view === "shelf" && !query) { introDone = true; host.classList.add("intro"); setTimeout(function () { host.classList.remove("intro"); }, 1500); }
-    var h = $("ask-hint");
-    if (query) {
-      var res = search(query); h.innerHTML = "";
-      if (!res.length) {
-        suggest(h, "Nothing yet. Try ");
-        var empty = el("div", "lib-empty");
-        empty.innerHTML = '<svg class="em-art" viewBox="0 0 120 70" width="120" height="70" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 62h108"/><path d="M14 62V30l9-2v34M29 62V22h10v40"/><path d="M80 62 94 24l9 3-13 35" stroke-dasharray="3 4"/><circle cx="64" cy="40" r="11"/><path d="m72 48 9 9"/><path d="M60 38c1.5-3 6-3 7 0" stroke-opacity=".55"/></svg>';
-        empty.appendChild(el("p", "em-h", "Nothing on that shelf yet"));
-        empty.appendChild(el("p", "em-p", "No book matches “" + query + "”. Search reads titles, gists and the words on every page, so a shorter word often works."));
-        var eb = el("button", "g-go em-btn", "Back to the shelf"); eb.type = "button"; eb.onclick = function () { clearQuery(); renderShelves(); blurSearch(); };
-        empty.appendChild(eb);
-        host.appendChild(empty); return;
-      }
-      h.appendChild(document.createTextNode(res.length + (res.length === 1 ? " book" : " books") + " for “" + query + "” · "));
-      var clr = el("button", "linkbtn", "Clear"); clr.type = "button"; clr.onclick = function () { clearQuery(); renderShelves(); blurSearch(); };
-      h.appendChild(clr);
-      var s = el("section", "shelf"); s.appendChild(el("h2", "shelf-h", "Best matches"));
-      var top = res[0], tp = top.p >= 0 ? top.b.pages[top.p] : null;
-      var best = el("a", "best t-" + top.b.topic.toLowerCase()); best.href = "#book/" + top.b.id + "/" + (top.p + 2);
-      best.onclick = function (e) { e.preventDefault(); history.pushState({ pulseShelf: true }, "", best.getAttribute("href")); route(); };
-      if (tp) { var bi = el("img", "best-thumb"); bi.src = tp.thumb || tp.file; bi.alt = ""; bi.width = 64; bi.height = Math.round(64 * tp.h / tp.w); best.appendChild(bi); }
-      var bt = el("span", "best-text");
-      bt.appendChild(el("span", "best-k", "Best page"));
-      bt.appendChild(el("span", "best-t", top.b.title + " · " + (tp ? tp.title : "The 60-second version")));
-      bt.appendChild(el("span", "best-why", "Why: " + why(top.b, top.p, query)));
-      best.appendChild(bt); best.appendChild(el("span", "best-go", "Open →"));
-      host.appendChild(best);
-      var row = el("div", "shelf-row covers"); res.forEach(function (r) { row.appendChild(cover(r.b, r.p, why(r.b, r.p, query))); });
-      s.appendChild(row); host.appendChild(s); return;
-    }
-    if (topic === "All") { var cont = continueCard(); if (cont) host.appendChild(cont); host.appendChild(startRow()); }
-    var trank = Object.keys(TOPICS), books = lib.books.filter(function (b) { return topic === "All" || b.topic === topic; })
-      .map(function (b, i) { return [b, i]; }).sort(function (a, c) { return trank.indexOf(a[0].topic) - trank.indexOf(c[0].topic) || a[1] - c[1]; }).map(function (x) { return x[0]; }); /* shelf groups by topic (AI, Tech, Fintech, Macro); within a topic, library order */
-    var groups = view === "topics"
-      ? Object.keys(TOPICS).map(function (k) { return [k, books.filter(function (b) { return b.topic === k; })]; }).filter(function (g) { return g[1].length; })
-      : [[topic === "All" ? "The shelf" : topic + " shelf", books]];
-    groups.forEach(function (g) {
-      var s = el("section", "shelf" + (TOPICS[g[0]] ? " t-" + g[0].toLowerCase() : ""));
-      if (view === "shelf") { s.appendChild(el("h2", "shelf-h", g[0])); s.appendChild(tiers(g[1])); host.appendChild(s); return; }
-      var sh = el("div", "shelf-head"); sh.appendChild(el("h2", "shelf-h", g[0]));
-      var mini = el("span", "mini"); mini.setAttribute("aria-hidden", "true");
-      g[1].forEach(function (b, mi) { var m = el("i"); m.style.height = Math.round(16 + rnd(b.id, "m") * 14) + "px"; m.style.setProperty("--d", mi * 24 + "ms"); mini.appendChild(m); });
-      sh.appendChild(mini); s.appendChild(sh);
-      var row = el("div", "shelf-row covers");
-      g[1].forEach(function (b) { row.appendChild(cover(b)); });
-      s.appendChild(row); host.appendChild(s);
+    if (!introDone && !reduce()) { introDone = true; host.classList.add("intro"); setTimeout(function () { host.classList.remove("intro"); }, 1500); }
+    if (t) renderTopic(host, t); else renderHome(host);
+    wireRows(host);
+    if (query || document.body.classList.contains("searching")) renderResults();
+  }
+  function renderHome(host) {
+    var c = continueCard(); if (c) host.appendChild(c);
+    var p = pathRow(); if (p) host.appendChild(p);
+    var n = newRow(); if (n) host.appendChild(n);
+    host.appendChild(el("h2", "lib-h", "The shelves"));
+    TOPICS.forEach(function (t) { var bs = booksOf(t.name); if (bs.length) host.appendChild(shelfRow(t, bs)); });
+  }
+  function rowHead(h, sub, extra) {
+    var hd = el("header", "rw-head"), tx = el("div"); tx.appendChild(h); if (sub) tx.appendChild(el("p", "rw-sub", sub)); hd.appendChild(tx);
+    if (extra) hd.appendChild(extra); return hd;
+  }
+  /* a sideways row: the next item always peeks in, snaps on swipe, and has arrow buttons (mouse) + arrow keys (keyboard) */
+  function swipeRow(label, items, cls) {
+    var r = el("div", "row " + (cls || "")); r.setAttribute("role", "group"); r.setAttribute("aria-label", label);
+    var pv = el("button", "row-btn row-prev"), nx = el("button", "row-btn row-next");
+    pv.type = nx.type = "button"; pv.setAttribute("aria-label", "Scroll " + label + " back"); nx.setAttribute("aria-label", "Scroll " + label + " forward");
+    pv.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+    nx.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+    pv.tabIndex = nx.tabIndex = -1; // keyboard users move with the arrow keys inside the row; the buttons are for mice
+    var sc = el("div", "row-scroll"); items.forEach(function (x) { sc.appendChild(x); });
+    r.appendChild(pv); r.appendChild(sc); r.appendChild(nx);
+    return r;
+  }
+  function wireRows(host) {
+    [].forEach.call(host.querySelectorAll(".row"), function (r) {
+      var sc = r.querySelector(".row-scroll"), pv = r.querySelector(".row-prev"), nx = r.querySelector(".row-next");
+      var upd = function () { var max = sc.scrollWidth - sc.clientWidth; r.classList.toggle("can-l", sc.scrollLeft > 4); r.classList.toggle("can-r", sc.scrollLeft < max - 4); };
+      sc.addEventListener("scroll", function () { requestAnimationFrame(upd); }, { passive: true }); upd(); setTimeout(upd, 300);
+      if (window.ResizeObserver) { var ro = new ResizeObserver(function () { requestAnimationFrame(upd); }); ro.observe(sc); if (sc.firstElementChild) ro.observe(sc.firstElementChild); }
+      addEventListener("load", upd);
+      var by = function (d) { sc.scrollBy({ left: d * Math.max(160, sc.clientWidth * .8), behavior: reduce() ? "auto" : "smooth" }); };
+      pv.onclick = function () { by(-1); }; nx.onclick = function () { by(1); };
+      sc.addEventListener("keydown", function (e) {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft" && e.key !== "Home" && e.key !== "End") return;
+        var L = [].slice.call(sc.querySelectorAll("a")), i = L.indexOf(document.activeElement); if (i < 0) return;
+        var j = e.key === "ArrowRight" ? Math.min(L.length - 1, i + 1) : e.key === "ArrowLeft" ? Math.max(0, i - 1) : e.key === "Home" ? 0 : L.length - 1;
+        e.preventDefault(); e.stopPropagation(); L[j].focus({ preventScroll: true }); L[j].scrollIntoView({ inline: "nearest", block: "nearest", behavior: reduce() ? "auto" : "smooth" });
+      });
     });
-    fitTiers();
+  }
+  var ROW_MAX = 10;
+  function shelfRow(t, bs) {
+    var s = el("section", "shelf " + tcls(t.name)); s.setAttribute("aria-labelledby", "sh-" + t.slug);
+    var h = el("h2", "sh-name"); h.id = "sh-" + t.slug; h.innerHTML = '<span class="sh-ico">' + ico(t.name) + "</span>"; h.appendChild(document.createTextNode(t.name));
+    var read = bs.filter(isDone).length;
+    var all = el("a", "sh-all"); all.href = "#shelf/" + t.slug; all.innerHTML = "See all " + bs.length + '<span class="sr-only"> ' + t.name + " books</span> \u2192";
+    all.onclick = function (e) { e.preventDefault(); go2("#shelf/" + t.slug); };
+    s.appendChild(rowHead(h, t.desc + (read ? " \u00b7 \u2713 " + read + " of " + bs.length + " read" : ""), all));
+    var items = bs.slice(0, ROW_MAX).map(spine);
+    if (bs.length > ROW_MAX) { var more = el("a", "row-more"); more.href = "#shelf/" + t.slug; more.innerHTML = "<b>+" + (bs.length - ROW_MAX) + " more</b><span>See all \u2192</span>"; more.onclick = all.onclick; items.push(more); }
+    s.appendChild(swipeRow(t.name + " shelf", items, "spines"));
+    s.appendChild(el("div", "plank"));
+    return s;
+  }
+  function pathRow() {
+    var P = (lib.path || []).map(find).filter(Boolean); if (P.length < 2) return null;
+    var s = el("section", "path-sec"); s.setAttribute("aria-labelledby", "path-h");
+    var h = el("h2", "rw-h", "New to Pulse? Start here"); h.id = "path-h";
+    s.appendChild(rowHead(h, "One easy book from each shelf, in this order."));
+    s.appendChild(swipeRow("Start here", P.map(function (b, i) { return cover(b, { step: i + 1, eager: i < 3 }); }), "covers path"));
+    return s;
+  }
+  function newRow() {
+    var F = freshSet(), B = lib.books.filter(function (b) { return F[b.id]; }); if (!B.length) return null;
+    var s = el("section", "new-sec"); s.setAttribute("aria-labelledby", "new-h");
+    var h = el("h2", "rw-h", "New this week"); h.id = "new-h";
+    var un = B.filter(function (b) { return !opens[b.id]; }).length; if (un) { h.appendChild(document.createTextNode(" ")); h.appendChild(el("span", "nw", un + " new")); }
+    var opened = TOPICS.filter(function (t) { var bs = booksOf(t.name); return bs.length && bs.every(function (b) { return F[b.id]; }); }).map(function (t) { return t.name; });
+    s.appendChild(rowHead(h, opened.length ? "Fresh off the press: the " + opened.join(" and ") + " shelf opens." : "Fresh off the press."));
+    s.appendChild(swipeRow("New this week", B.map(function (b) { return cover(b); }), "covers"));
+    return s;
   }
   function continueCard() {
     var L = ls(LS.last); if (!L || !find(L.id) || ls(LS.lastX) === L.id + "/" + L.p) return null;
-    var b = find(L.id), P = pages(b); if (L.p > P.length) return null;
-    var w = el("div", "cont t-" + b.topic.toLowerCase()); w.setAttribute("role", "group"); w.setAttribute("aria-label", "Continue reading");
+    var b = find(L.id); if (isDone(b) || L.p > np(b) + 1) return null;
+    var w = el("div", "cont " + tcls(b.topic)); w.setAttribute("role", "group"); w.setAttribute("aria-label", "Continue reading");
     var a = el("a", "cont-a"); a.href = "#book/" + b.id + "/" + L.p;
-    a.onclick = function (e) { e.preventDefault(); history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
+    a.onclick = function (e) { e.preventDefault(); loadFull().then(function () { history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); }, function () {}); };
     a.appendChild(el("span", "cont-k", "Pick up where you left off"));
-    a.appendChild(el("span", "cont-t", b.title + " · " + pageLabel(b, L.p)));
-    a.appendChild(el("span", "cont-p", "Page " + L.p + " of " + P.length + " →"));
+    a.appendChild(el("span", "cont-t", b.title));
+    a.appendChild(el("span", "cont-p", (L.p === 1 ? "Summary" : "page " + (L.p - 1) + " of " + np(b))));
+    var br = el("span", "cont-bar"); br.setAttribute("aria-hidden", "true"); var f = el("i"); f.style.width = Math.round(L.p / (np(b) + 1) * 100) + "%"; br.appendChild(f); a.appendChild(br);
+    a.appendChild(el("span", "cont-go", "Resume \u2192"));
     var x = el("button", "rd-btn rd-ico cont-x"); x.type = "button"; x.setAttribute("aria-label", "Dismiss continue reading");
     x.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
-    x.onclick = function () { ls(LS.lastX, L.id + "/" + L.p); w.remove(); var f = document.querySelector("#shelves a"); if (f) f.focus(); };
+    x.onclick = function () { ls(LS.lastX, L.id + "/" + L.p); w.remove(); var f2 = document.querySelector("#shelves a"); if (f2) f2.focus(); };
     w.appendChild(a); w.appendChild(x); return w;
   }
-  function startRow() {
-    var r = el("nav", "start-row"); r.setAttribute("aria-label", "Start here");
-    r.appendChild(el("span", "start-k", "Start here"));
-    START.forEach(function (st) {
-      var b = find(st[0]); if (!b) return;
-      var a = el("a", "start-a t-" + b.topic.toLowerCase(), st[1]); a.href = "#book/" + b.id + "/1"; a.setAttribute("aria-label", b.title);
-      a.onclick = function (e) { e.preventDefault(); history.pushState({ pulseShelf: true }, "", a.getAttribute("href")); route(); };
-      r.appendChild(a);
+  /* one shelf: header, sub-topic chips (shelves of 8+ books, sub-topics of 3+), order, and a hide-read switch */
+  function renderTopic(host, t) {
+    var all = booksOf(t.name), read = all.filter(isDone).length, total = all.reduce(function (s, b) { return s + (b.minutes || 5); }, 0);
+    var hero = el("section", "tp-hero " + tcls(t.name));
+    var back = el("a", "tp-back", "\u2190 All shelves"); back.href = location.pathname + location.search; back.onclick = function (e) { e.preventDefault(); go2(""); };
+    hero.appendChild(back);
+    var h = el("h1", "tp-name"); h.innerHTML = '<span class="tp-ico">' + ico(t.name) + "</span>"; h.appendChild(document.createTextNode(t.name)); hero.appendChild(h);
+    hero.appendChild(el("p", "tp-desc", t.desc));
+    hero.appendChild(el("p", "tp-stats", all.length + " books \u00b7 about " + total + " min in all \u00b7 " + (read ? "\u2713 " + read + " read" : "none read yet")));
+    var pb = el("div", "tp-prog"); pb.setAttribute("role", "progressbar"); pb.setAttribute("aria-label", t.name + " shelf read"); pb.setAttribute("aria-valuemin", "0"); pb.setAttribute("aria-valuemax", String(all.length)); pb.setAttribute("aria-valuenow", String(read));
+    var pf = el("i"); pf.style.width = Math.round(read / all.length * 100) + "%"; pb.appendChild(pf); hero.appendChild(pb);
+    host.appendChild(hero);
+    var ctl = el("div", "tp-ctl");
+    var subs = all.length >= 8 ? (t.subs || []).filter(function (s) { return all.filter(function (b) { return b.sub === s; }).length >= 3; }) : [];
+    if (subs.indexOf(tSub) < 0) tSub = "All";
+    if (subs.length >= 2) {
+      var sc = el("div", "subchips"); sc.setAttribute("role", "group"); sc.setAttribute("aria-label", t.name + " sub-topics");
+      ["All"].concat(subs).forEach(function (s) {
+        var n = s === "All" ? all.length : all.filter(function (b) { return b.sub === s; }).length;
+        var c = el("button", "chip sub", s); c.appendChild(el("span", "cn", " " + n)); c.type = "button"; c.setAttribute("aria-pressed", String(tSub === s));
+        c.onclick = function () { tSub = s; renderLib(); var f = document.querySelector('.subchips [aria-pressed="true"]'); if (f) f.focus(); };
+        sc.appendChild(c);
+      });
+      ctl.appendChild(sc);
+    }
+    var row = el("div", "tp-row2");
+    var seg = el("div", "seg"); seg.setAttribute("role", "group"); seg.setAttribute("aria-label", "Order");
+    [["suggested", "Suggested"], ["newest", "Newest"], ["shortest", "Shortest"]].forEach(function (o) {
+      var b = el("button", "seg-b", o[1]); b.type = "button"; b.setAttribute("aria-pressed", String(tSort === o[0]));
+      b.onclick = function () { tSort = o[0]; renderLib(); var f = document.querySelector('.seg [aria-pressed="true"]'); if (f) f.focus(); };
+      seg.appendChild(b);
     });
-    return r;
+    row.appendChild(seg);
+    var hide = !!ls(LS.hideRead), sw = el("button", "switch"); sw.type = "button"; sw.setAttribute("role", "switch"); sw.setAttribute("aria-checked", String(hide));
+    sw.innerHTML = '<span class="sw-t">Hide read</span><span class="sw-k" aria-hidden="true"><i></i></span>';
+    sw.disabled = !read && !hide;
+    sw.onclick = function () { ls(LS.hideRead, !hide); renderLib(); var f = document.querySelector(".tp-ctl .switch"); if (f) f.focus(); };
+    row.appendChild(sw); ctl.appendChild(row); host.appendChild(ctl);
+    var list = all.filter(function (b) { return tSub === "All" || b.sub === tSub; });
+    var hidden = hide ? list.filter(isDone).length : 0; if (hide) list = list.filter(function (b) { return !isDone(b); });
+    var order = lib.books;
+    if (tSort === "newest") list.sort(function (a, c) { return (c.added_at || c.added || "").localeCompare(a.added_at || a.added || "") || order.indexOf(a) - order.indexOf(c); });
+    else if (tSort === "shortest") list.sort(function (a, c) { return (a.minutes || 5) - (c.minutes || 5) || order.indexOf(a) - order.indexOf(c); });
+    else list.sort(function (a, c) { return (lib.path.indexOf(c.id) >= 0) - (lib.path.indexOf(a.id) >= 0) || order.indexOf(a) - order.indexOf(c); }); // the Start-here book first, then the shelf's own order
+    var grid = el("div", "tp-grid"); grid.setAttribute("aria-label", t.name + " books");
+    list.forEach(function (b, i) { grid.appendChild(cover(b, { eager: i < 4 })); });
+    host.appendChild(grid);
+    if (!list.length) {
+      var em = el("div", "lib-empty"); em.appendChild(el("p", "em-h", "You\u2019ve read every book here"));
+      em.appendChild(el("p", "em-p", hidden + " finished " + (hidden === 1 ? "book is" : "books are") + " hidden. New ones land every week."));
+      var sb = el("button", "g-go em-btn", "Show read books"); sb.type = "button"; sb.onclick = function () { ls(LS.hideRead, false); renderLib(); }; em.appendChild(sb);
+      host.appendChild(em);
+    } else if (hidden) host.appendChild(el("p", "tp-note", hidden + " read " + (hidden === 1 ? "book" : "books") + " hidden."));
   }
+
+  /* ---------- search results: a sheet right under the sticky bar, sized to stay above the phone keyboard ---------- */
+  var SHOW = 8, showAll = false;
+  function chipBtn(txt, cls, fn) { var b = el("button", cls, txt); b.type = "button"; b.onclick = fn; return b; }
+  function setQuery(v) { $("ask-input").value = v; query = v; showAll = false; syncClear(); renderResults(); }
+  function suggestions(R, lead) {
+    if (lead) R.appendChild(el("p", "s-k", lead));
+    var kw = el("div", "kw"); (lib.popular || []).forEach(function (w) { kw.appendChild(chipBtn(w, "kw-b", function () { setQuery(w); })); }); R.appendChild(kw);
+    if ((lib.questions || []).length) {
+      R.appendChild(el("p", "s-k", "Questions people ask"));
+      var qs = el("div", "kw q"); lib.questions.forEach(function (w) { qs.appendChild(chipBtn(w, "kw-b", function () { setQuery(w); })); }); R.appendChild(qs);
+    }
+  }
+  function openBook(href) { return function (e) { e.preventDefault(); loadFull().then(function () { history.pushState({ pulseShelf: true }, "", href); route(); }, function () { toast("The book didn\u2019t load. Check your connection."); }); }; }
+  function renderResults() {
+    var R = $("lib-results"), H = $("ask-hint"); R.innerHTML = ""; H.innerHTML = ""; R.hidden = false;
+    if (!query.trim()) { suggestions(R, "Popular searches"); fitResults(); return; }
+    var r = search(query), res = r.res, q = r.fixed || query.trim();
+    if (r.fixed) { // "Did you mean": only ever a word the books actually use
+      H.appendChild(document.createTextNode("Did you mean "));
+      H.appendChild(chipBtn(r.fixed, "linkbtn", function () { setQuery(r.fixed); }));
+      H.appendChild(document.createTextNode("? Showing results for \u201c" + r.fixed + "\u201d. "));
+    }
+    if (!res.length) {
+      H.appendChild(document.createTextNode("No books match \u201c" + query.trim() + "\u201d."));
+      var em = el("div", "nores"); em.appendChild(el("p", "em-h", "Nothing on the shelves for that yet"));
+      em.appendChild(el("p", "em-p", "Search reads titles, summaries and the words on every page. A shorter or more everyday word often works."));
+      R.appendChild(em); suggestions(R, "Try one of these"); fitResults(); return;
+    }
+    var n = res.length, shown = showAll ? res : res.slice(0, SHOW);
+    if (r.related) H.appendChild(document.createTextNode("No book mentions \u201c" + q + "\u201d yet. Related books: "));
+    H.appendChild(document.createTextNode(n > shown.length ? "Showing " + shown.length + " of " + n + " books. " : n + (n === 1 ? " book." : " books.")));
+    if (n > shown.length) { H.appendChild(document.createTextNode(" ")); H.appendChild(chipBtn("Show all " + n, "linkbtn", function () { showAll = true; renderResults(); })); }
+    var top = shown[0];
+    if (!r.related && top.p >= 0) { // the best single page, one tap away
+      var tp = titlesOf(top.b)[top.p], best = el("a", "best " + tcls(top.b.topic)), href = "#book/" + top.b.id + "/" + (top.p + 2);
+      best.href = href; best.onclick = openBook(href);
+      var bi = el("img", "best-thumb"); bi.src = top.b.thumb; bi.alt = ""; bi.width = 52; bi.height = Math.round(52 * top.b.th / top.b.tw); best.appendChild(bi);
+      var bt = el("span", "best-text"); bt.appendChild(el("span", "best-k", "Best page"));
+      bt.appendChild(el("span", "best-t", top.b.title + " \u00b7 page " + (top.p + 1) + ": " + tp));
+      bt.appendChild(el("span", "best-why", "Why: " + why(top.b, top.p, q))); best.appendChild(bt); best.appendChild(el("span", "best-go", "Open \u2192"));
+      R.appendChild(best);
+    }
+    var ul = el("ul", "res-list"); ul.setAttribute("aria-label", "Books matching " + q);
+    shown.forEach(function (x) {
+      var li = el("li"), a = el("a", "res " + tcls(x.b.topic)), href = "#book/" + x.b.id + "/" + (x.p >= 0 ? x.p + 2 : 1); a.href = href; a.onclick = openBook(href);
+      var im = el("img", "res-thumb"); im.src = x.b.thumb; im.alt = ""; im.loading = "lazy"; im.width = 48; im.height = Math.round(48 * x.b.th / x.b.tw); a.appendChild(im);
+      var tx = el("span", "res-tx"); tx.appendChild(el("span", "res-t", x.b.title));
+      tx.appendChild(el("span", "res-m", TOP[x.b.topic].name + " \u00b7 " + mins(x.b) + (isDone(x.b) ? " \u00b7 \u2713 read" : "")));
+      tx.appendChild(el("span", "res-why", x.p >= 0 ? "Opens at page " + (x.p + 1) + ": " + titlesOf(x.b)[x.p] : "Why: " + why(x.b, x.p, q)));
+      a.appendChild(tx); li.appendChild(a); ul.appendChild(li);
+    });
+    R.appendChild(ul);
+    if (!lib._full) { R.appendChild(el("p", "s-note", "Searching titles and summaries\u2026 the words on every page are still loading.")); loadFull().then(function () { if (query) renderResults(); }, function () {}); }
+    fitResults();
+  }
+  /* keep the results above the on-screen keyboard: the sheet never runs under it, it scrolls inside instead */
+  function fitResults() {
+    var R = $("lib-results"), vv = window.visualViewport; if (!R || R.hidden) return;
+    var kbd = vv && vv.height < innerHeight * .8;
+    if (!kbd) { R.style.maxHeight = ""; R.classList.remove("in-kbd"); return; }
+    var top = R.getBoundingClientRect().top; R.style.maxHeight = Math.max(160, vv.height + vv.offsetTop - top - 8) + "px"; R.classList.add("in-kbd");
+  }
+  function syncClear() { $("ask-clear").hidden = !$("ask-input").value; }
+  function openSearch() {
+    if (document.body.classList.contains("searching")) return;
+    document.body.classList.add("searching"); renderResults();
+    // phones: bring the bar to the top of the screen so the results have the room above the keyboard
+    if (touch) requestAnimationFrame(function () { var nv = document.querySelector("header.topnav-wrap"), y = $("bar-anchor").getBoundingClientRect().top + (window.pageYOffset || 0) - (nv ? nv.offsetHeight : 0); if (Math.abs((window.pageYOffset || 0) - y) > 2) window.scrollTo({ top: y, behavior: "instant" }); fitResults(); });
+  }
+  function closeSearch() { document.body.classList.remove("searching"); $("lib-results").hidden = true; $("lib-results").innerHTML = ""; $("ask-hint").textContent = ""; }
   /* the search field only takes focus when the reader taps it (or presses "/" on a keyboard device); never as a side effect, so no phone keyboard pops up */
   /* touch: drop the on-screen keyboard. readonly-then-blur is the reliable way on Android, where blur() alone can leave the keyboard up */
   function dismissKbd(inp) {
@@ -588,11 +656,11 @@
     document.addEventListener("touchmove", function () { var a = document.activeElement; if (touch && isText(a)) dismissKbd(a); }, { passive: true });
   }
   function blurSearch() { var i = $("ask-input"); if (document.activeElement === i) i.blur(); }
-  function clearQuery() { query = ""; $("ask-input").value = ""; $("ask-hint").textContent = ""; }
-  function ask(q) { query = q.trim(); topic = "All"; renderTabs(); renderShelves(); }
+  function clearQuery() { query = ""; showAll = false; $("ask-input").value = ""; $("ask-hint").textContent = ""; syncClear(); }
+  function ask(q) { query = q.trim(); showAll = false; openSearch(); renderResults(); }
   function rotateHints() {
     var i = 0, inp = $("ask-input");
-    setInterval(function () { if (document.activeElement === inp || inp.value || document.hidden) return; i = (i + 1) % HINTS.length; inp.placeholder = HINTS[i]; }, 2600);
+    setInterval(function () { if (document.activeElement === inp || inp.value || document.hidden) return; i = (i + 1) % HINTS.length; inp.placeholder = "Search " + lib.books.length + " books\u2026 " + HINTS[i]; }, 3200);
   }
 
   /* ---------- delight: page-turn sound (off by default) + haptics ---------- */
@@ -618,10 +686,14 @@
   /* retired books: old links and saved pages land on the book that replaced them (library.json "moved") */
   function moved(id) { return lib && lib.moved && lib.moved[id]; }
   function find(id) { return lib.books.filter(function (b) { return b.id === id; })[0]; }
+  /* "Up next": the next unread book on the same shelf (in the shelf's order), else the first unread one on a shelf next door, else anything unread */
   function nextBook(b) {
-    var order = [];
-    Object.keys(TOPICS).forEach(function (k) { lib.books.forEach(function (x) { if (x.topic === k) order.push(x); }); });
-    var i = order.indexOf(b); return order[(i + 1) % order.length];
+    var unread = function (x) { return x !== b && !isDone(x); };
+    var same = booksOf(b.topic), i = same.indexOf(b);
+    var n = same.slice(i + 1).concat(same.slice(0, i)).filter(unread)[0]; if (n) return n;
+    var doors = (NEXT_DOOR[b.topic] || []).concat(TOPICS.map(function (t) { return t.name; }));
+    for (var k = 0; k < doors.length; k++) { n = booksOf(doors[k]).filter(unread)[0]; if (n) return n; }
+    return null;
   }
   /* "Pairs with": 2-3 related books by shared topic + rare shared words (document-frequency weighted) */
   function rawWords(b) {
@@ -629,7 +701,7 @@
     index(b).raw.split(/[\s-]+/).forEach(function (w) { if (w.length > 3 && STOP.indexOf(w) < 0) o[w] = 1; });
     return (b._rw = o);
   }
-  var NEXT_DOOR = { AI: ["Fintech"], Fintech: ["Macro", "AI"], Macro: ["Fintech"] };
+  var NEXT_DOOR = { AI: ["Frontier Tech", "Fintech"], Fintech: ["Macro", "AI"], Macro: ["Fintech", "Frontier Tech"], "Frontier Tech": ["AI", "Macro"] };
   function related(b, skip) {
     if (!lib._df) { lib._df = {}; lib.books.forEach(function (x) { Object.keys(rawWords(x)).forEach(function (w) { lib._df[w] = (lib._df[w] || 0) + 1; }); }); }
     var mine = rawWords(b), N = lib.books.length;
@@ -649,7 +721,7 @@
     var w = el("div", "pairs"); w.appendChild(el("p", "pairs-k", "Pairs with"));
     var ul = el("ul", "pairs-list");
     rel.forEach(function (r) {
-      var li = el("li"), a = el("a", "nbr t-" + r.b.topic.toLowerCase()); a.href = "#book/" + r.b.id + "/1";
+      var li = el("li"), a = el("a", "nbr cloth " + tcls(r.b.topic)); a.href = "#book/" + r.b.id + "/1";
       a.setAttribute("aria-label", "Open " + r.b.title + " — " + tagline(r.b));
       a.appendChild(el("span", "nbr-sp"));
       var t = el("span", "nbr-tx"); t.appendChild(el("span", "nbr-t", r.b.title));
@@ -660,19 +732,30 @@
   }
   function endNode(b) {
     var n = nextBook(b), d = el("div", "pg pg-end");
-    d.appendChild(el("p", "g-kicker", "You finished " + b.title));
+    var st = el("span", "end-stamp", "Finished!"); st.setAttribute("aria-hidden", "true"); d.appendChild(st);
+    var k = el("p", "g-kicker", "You finished "); k.appendChild(el("b", null, b.title)); d.appendChild(k);
     if (b.recap && b.recap.length) { // whole-book recap, written for the current page count (scripts/check_library.py enforces it)
       var rc = el("div", "recap"); rc.appendChild(el("p", "rc-k", "In short"));
       var rl = el("ul", "rc-list"); b.recap.forEach(function (x) { rl.appendChild(el("li", null, x)); }); rc.appendChild(rl); d.appendChild(rc);
     }
-    var sameTopic = n.topic === b.topic;
+    var sh = booksOf(b.topic), rd = sh.filter(isDone).length, sp = el("div", "end-prog");
+    sp.appendChild(el("span", "ep-t", TOP[b.topic].name + " shelf: " + rd + " of " + sh.length + " read"));
+    var eb = el("span", "ep-bar"); eb.setAttribute("aria-hidden", "true"); var ef = el("i"); ef.style.width = Math.round(rd / sh.length * 100) + "%"; eb.appendChild(ef); sp.appendChild(eb);
+    d.appendChild(sp);
     var nx = el("div", "end-next"), col = el("div", "end-col");
-    var a = el("a", "end-cover"); a.href = "#book/" + n.id + "/1"; a.setAttribute("aria-label", "Open next book: " + n.title + " — " + tagline(n));
-    a.appendChild(coverArt(n, true)); nx.appendChild(a);
-    col.appendChild(el("p", "end-label", sameTopic ? "Up next" : "Next topic: " + n.topic));
-    col.appendChild(el("p", "end-nt", n.title));
+    if (n) {
+      var a = el("a", "end-cover"); a.href = "#book/" + n.id + "/1"; a.setAttribute("aria-label", "Open next book: " + n.title + " \u2014 " + tagline(n));
+      a.appendChild(coverArt(n, { small: true, eager: true })); nx.appendChild(a);
+      col.appendChild(el("p", "end-label", n.topic === b.topic ? "Up next on this shelf" : "Next shelf: " + n.topic));
+      col.appendChild(el("p", "end-nt", n.title));
+      col.appendChild(el("p", "end-why", tagline(n) + " \u00b7 " + mins(n)));
+    } else {
+      col.appendChild(el("p", "end-label", "You\u2019ve read every book"));
+      col.appendChild(el("p", "end-nt", "The whole library, done."));
+      col.appendChild(el("p", "end-why", "New books land every week."));
+    }
     var row = el("div", "end-actions");
-    var open1 = el("a", "g-go", "Open book →"); open1.href = a.href; open1.setAttribute("aria-label", "Open " + n.title); row.appendChild(open1);
+    if (n) { var open1 = el("a", "g-go", "Open book \u2192"); open1.href = "#book/" + n.id + "/1"; open1.setAttribute("aria-label", "Open " + n.title); row.appendChild(open1); }
     var back = el("button", "linkbtn end-shelf", backTo().long); back.type = "button"; back.onclick = close; row.appendChild(back);
     col.appendChild(row); nx.appendChild(col); d.appendChild(nx);
     var pr = pairsNode(b, n); if (pr) d.appendChild(pr);
@@ -682,7 +765,7 @@
       sd.appendChild(ul); d.appendChild(sd);
     }
     /* short phones: the card scrolls inside itself; a small sticky pill says "more below" until the bottom is reached */
-    var more = el("span", "end-more"); more.setAttribute("aria-hidden", "true"); more.appendChild(el("span", "end-more-pill", "Scroll for more ↓")); d.appendChild(more);
+    var more = el("span", "end-more"); more.setAttribute("aria-hidden", "true"); more.appendChild(el("span", "end-more-pill", "Scroll for more \u2193")); d.appendChild(more);
     var upd = function () { d.classList.toggle("g-more", d.scrollHeight - d.scrollTop - d.clientHeight > 8); syncMore(d); };
     d.addEventListener("scroll", upd, { passive: true }); requestAnimationFrame(upd); setTimeout(upd, 500); setTimeout(upd, 1200);
     return d;
@@ -718,7 +801,7 @@
       btn.addEventListener("scroll", more, { passive: true }); img.addEventListener("load", more); requestAnimationFrame(more); setTimeout(more, 500);
       var nx = P[i + 1]; if (nx) { var pre = new Image(); pre.src = nx.file; }
     }
-    var pn = el("span", "pg-num", p.gist ? "Summary" : i + " of " + b.pages.length); pn.setAttribute("aria-hidden", "true"); d.appendChild(pn); // kept in the page for scripts; shown in the footer (#rd-count) so it never covers the art // drawn pages count on their own, so the number matches the art (gist = "Summary", end card has none)
+    var pn = el("span", "pg-num", p.gist ? "Summary" : "page " + i + " of " + b.pages.length); pn.setAttribute("aria-hidden", "true"); d.appendChild(pn); // kept in the page for scripts; shown in the footer (#rd-count) so it never covers the art // drawn pages count on their own, so the number matches the art (gist = "Summary", end card has none)
     return d;
   }
   /* reserve the tallest caption once per book + screen size, so the card never moves between pages (re-measured once web fonts land) */
@@ -733,12 +816,13 @@
   }
   function paint() {
     var P = pages(cur), end = idx >= P.length, host = $("page");
+    if (end) markDone(cur); // the end card counts as finished (and drives "Up next", the shelf progress and the ✓ on the cover)
     host.innerHTML = ""; host.appendChild(pageNode(cur, idx));
     $("rd-progfill").style.width = Math.round((idx + 1) / P.length * 100) + "%"; $("rd-pagetitle").textContent = end ? "Finished — " + P.length + " pages" : P[idx].gist ? "The 60-second version" : P[idx].title;
     $("rd-prev").disabled = idx === 0; $("rd-next").disabled = end;
     $("rd-next").setAttribute("aria-label", idx === P.length - 1 ? "Finish the book" : "Next page");
     $("rd-more").hidden = true;
-    $("rd-count").textContent = end ? "Finished" : P[idx].gist ? "Summary" : idx + " of " + (P.length - 1);
+    $("rd-count").textContent = end ? "Finished" : P[idx].gist ? "Summary" : "Page " + idx + " of " + (P.length - 1);
     var dots = $("rd-dots"); dots.innerHTML = ""; dots.classList.toggle("seg", P.length - 1 > 9); // long books: a slim segmented bar, always one row
     P.forEach(function (q, i) { if (q.gist) return; var d = el("button", "dot" + (i === idx ? " on" : "")); d.type = "button"; d.setAttribute("aria-label", "Page " + i + " of " + (P.length - 1)); if (i === idx) d.setAttribute("aria-current", "page"); d.dataset.i = i; d.onclick = function (e) { go(nearestDot(e, i)); }; dots.appendChild(d); }); // one dot per drawn page
     var bk = $("book"), base = parseFloat(bk.dataset.ar || "0.58"); bk.style.setProperty("--ar", (end || P[idx].gist) && base > 0.75 ? "0.75" : base.toFixed(4)); // wide cards: text pages (summary, end card) get a taller frame so the recap fits
@@ -748,7 +832,7 @@
     $("ribbon").hidden = !on;
     ["rd-stamps", "rd-stamps2"].forEach(function (id, k) {
       var st = $(id); st.innerHTML = "";
-      if (k === 0 && isFresh(cur)) st.appendChild(stamp("New", "rd-stamp"));
+      if (k === 0 && freshSet()[cur.id]) st.appendChild(stamp("New", "rd-stamp"));
       if (!end && idx > 0 && cur.pages[idx - 1].outlook) { var os = stamp("Outlook", "rd-stamp"); os.classList.add("is-ol"); st.appendChild(os); }
     });
     var anyOl = cur.pages.some(function (q) { return q.outlook; }), hasSt = !!$("rd-stamps2").childNodes.length; // books with an Outlook page keep the stamp row's space on every page
@@ -765,8 +849,8 @@
     var h = "#book/" + cur.id + "/" + Math.min(idx + 1, P.length);
     if (location.hash !== h) history.replaceState(history.state, "", h);
   }
-  /* where "back" goes: the view the reader was opened from (or the last one chosen; Shelf by default) */
-  function backTo() { return view === "topics" ? { long: "Back to topics", short: "Topics" } : { long: "Back to the shelf", short: "Shelf" }; }
+  /* where "back" goes: the library view the book was opened from (home, or one shelf) */
+  function backTo() { var t = libSlug && TOPICS.filter(function (x) { return x.slug === libSlug; })[0]; return t ? { long: "Back to " + t.name, short: t.short } : { long: "Back to the shelf", short: "Shelf" }; }
   function setBackLabel() {
     var t = backTo(), c = $("rd-close");
     c.setAttribute("aria-label", t.long + " (Esc)"); c.title = t.long;
@@ -777,39 +861,51 @@
   /* history.back() lets the browser restore its own (clamped) scroll a moment later, so put ours back a few times */
   function jump(y) { window.scrollTo({ top: y, left: 0, behavior: "instant" }); }
   function restoreY(y) { jump(y); [0, 60, 200, 450].forEach(function (ms) { setTimeout(function () { if (!cur && !document.body.classList.contains("reading") && Math.abs((window.pageYOffset || 0) - y) > 2) jump(y); }, ms); }); }
+  var sigSeen = {};
   function open(id, n) {
     var b = find(id); if (!b) return false;
+    if (!b.pages) { // the light list is in, the full book isn't yet: wait for it (it's already on its way)
+      var t = setTimeout(function () { toast("Opening the book\u2026", 1600); }, 250);
+      loadFull().then(function () { clearTimeout(t); if (location.hash.indexOf("#book/" + id) === 0) route(); }, function () { clearTimeout(t); toast("The book didn\u2019t load. Check your connection and try again."); });
+      return true;
+    }
     var first = !cur || cur.id !== id;
     cur = b; idx = Math.max(0, Math.min((n || 1) - 1, b.pages.length));
     $("rd-title").textContent = b.title; $("rd-topic").textContent = b.topic;
     var vtOn = document.documentElement.hasAttribute("data-vt");
-    $("reader").className = "reader t-" + b.topic.toLowerCase() + (first && !vtOn && !reduce() ? " rd-enter" : "");
+    $("reader").className = "reader " + tcls(b.topic) + (first && !vtOn && !reduce() ? " rd-enter" : "");
     $("book").dataset.ar = (b.pages[0].w / b.pages[0].h).toFixed(4); $("book").style.setProperty("--ar", $("book").dataset.ar); // the book takes its pages' shape
     $("reader").hidden = false; document.body.classList.add("reading");
     if (first) {
       askReset(); if (!$("rd-askp").hidden) { $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false"); }
       opens[id] = (opens[id] || 0) + 1; ls(LS.opens, opens);
-      var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth; if (!reduce() && !vtOn) bk.classList.add("opening");
+      var bk = $("book"); bk.classList.remove("opening"); void bk.offsetWidth;
+      /* the shelf's signature: a closed cloth cover lands first (the shelf morph lands on it), then the moment plays across it and it swings open.
+         Once per book per visit, only when opening at the start, never under reduced motion; tap to skip. AI keeps the plain open. */
+      var sig = idx === 0 && !sigSeen[id] && window.PulseSig && PulseSig.has(b.topic) && !reduce() && PulseSig.cover(bk, b.topic, { title: b.title, cls: tcls(b.topic) });
+      if (sig) { sigSeen[id] = 1; setTimeout(function () { if (cur === b) PulseSig.play(); }, vtOn ? 400 : 140); }
+      else if (!reduce() && !vtOn) bk.classList.add("opening");
       setTimeout(function () { if (cur) { var cb = $("rd-close"); cb.classList.toggle("nofv", !kbdNav); cb.focus({ preventScroll: true }); } }, 30);
     }
     setBackLabel(); onScrollTop();
     paint(); return true;
   }
   function hideReader(was) {
+    if (window.PulseSig) PulseSig.stop();
     $("reader").hidden = true; document.body.classList.remove("reading"); cur = null;
     $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false");
-    renderShelves();
+    renderLib();
     restoreY(libY); /* same view, same scroll position as when the book was opened */
-    var sp = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); if (sp) sp.focus({ preventScroll: true });
+    var sp = document.querySelector('#shelves a[data-id="' + was.id + '"]'); if (sp) { sp.focus({ preventScroll: true }); var sc = sp.closest(".row-scroll"); if (sc) sp.scrollIntoView({ inline: "nearest", block: "nearest" }); }
     onScrollTop();
   }
-  function dstOf(was) { return function () { var a = document.querySelector('#shelves a:not(.cont-a)[href="#book/' + was.id + '/1"]'); return a && (a.querySelector(".sp-body") || a.querySelector(".cv")); }; }
+  function dstOf(was) { return function () { var a = document.querySelector('#shelves a[data-id="' + was.id + '"]'); return a && (a.querySelector(".sp-body") || a.querySelector(".cv")); }; }
   function close() {
     var was = cur; if (!was) return;
     withVT($("book"), dstOf(was), function () {
       hideReader(was);
       if (fromShelf()) history.back();
-      else history.replaceState(null, "", location.pathname + location.search);
+      else history.replaceState(null, "", libSlug ? "#shelf/" + libSlug : location.pathname + location.search);
     });
   }
   function go(i) { if (i === idx || turning) return; if (Math.abs(i - idx) === 1) return turn(i - idx); idx = i; paint(); }
@@ -857,7 +953,7 @@
   function askRender(head, lines, src, honest) {
     var o = $("askp-out"); o.innerHTML = "";
     if (head) o.appendChild(el("p", "askp-lead", head));
-    if (lines.length) { var ul = el("ul", "askp-lines"); lines.forEach(function (l) { var li = el("li", null, typeof l === "string" ? l : l.l); if (l.g) li.appendChild(el("span", "askp-tag", " · 60-second version")); ul.appendChild(li); }); o.appendChild(ul); }
+    if (lines.length) { var ul = el("ul", "askp-lines"); lines.forEach(function (l) { var li = el("li", null, typeof l === "string" ? l : l.l); if (l.g) li.appendChild(el("span", "askp-tag", " · Summary")); ul.appendChild(li); }); o.appendChild(ul); }
     if (src) o.appendChild(el("p", "askp-src", src));
     if (honest) o.appendChild(el("p", "askp-miss", honest));
   }
@@ -900,7 +996,7 @@
     var ul = el("ul", "askp-lines askp-lib");
     hits.forEach(function (h) {
       var li = el("li"); li.appendChild(el("span", "askp-q", h.t));
-      var a = el("a", "askp-from", "from " + h.b.title + " · " + (h.i === 0 ? "60-second version" : "page " + (h.i + 1)) + " →");
+      var a = el("a", "askp-from", "from " + h.b.title + " · " + (h.i === 0 ? "Summary" : "page " + h.i) + " →");
       a.href = "#book/" + h.b.id + "/" + (h.i + 1); li.appendChild(a); ul.appendChild(li);
     });
     o.appendChild(ul);
@@ -969,16 +1065,25 @@
   function fallbackCopy(t) { try { var ta = el("textarea"); ta.value = t; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); var ok = document.execCommand("copy"); ta.remove(); return ok; } catch (e) { return false; } }
 
   function route() {
-    if (location.hash === "#topics") { if (cur) close(); if (view !== "topics") { view = "topics"; renderTabs(); renderShelves(); } return; }
-    var m = location.hash.match(/^#book\/([a-z0-9-]+)(?:\/(\d+))?/);
+    var h = location.hash;
+    if (h === "#topics") { history.replaceState(null, "", location.pathname + location.search); h = ""; } // the old Topics view is now the home rows
+    var m = h.match(/^#book\/([a-z0-9-]+)(?:\/(\d+))?/);
     if (m && moved(m[1])) {
       var mv = moved(m[1]), to = mv.to && find(mv.to);
       if (to) { history.replaceState(history.state, "", "#book/" + to.id + "/1"); open(to.id, 1); toast("\u201c" + mv.was + "\u201d is now part of \u201c" + to.title + "\u201d", 3200); }
       else { history.replaceState(null, "", location.pathname); if (cur) close(); toast("\u201c" + mv.was + "\u201d has been retired for now. It will return in a new version.", 3600); }
       return;
     }
-    if (m) { if (!open(m[1], +m[2] || 1)) { history.replaceState(null, "", location.pathname); if (cur) close(); toast("That book isn’t on the shelf"); } }
-    else if (cur) { var was = cur; withVT($("book"), dstOf(was), function () { hideReader(was); }); }
+    if (m) {
+      if (!find(m[1]) && !lib._full) { loadFull().then(route, function () {}); return; } // maybe a retired id: library.json knows
+      if (!open(m[1], +m[2] || 1)) { history.replaceState(null, "", location.pathname); if (cur) close(); toast("That book isn\u2019t on the shelf"); }
+      return;
+    }
+    var s = h.match(/^#shelf\/([a-z0-9-]+)/), want = s ? s[1] : "";
+    if (want && !TOPICS.some(function (t) { return t.slug === want; })) { history.replaceState(null, "", location.pathname + location.search); want = ""; toast("That shelf isn\u2019t here"); }
+    var changed = want !== libSlug; if (changed) { libSlug = want; tSub = "All"; }
+    if (cur) { var was = cur; withVT($("book"), dstOf(was), function () { if (changed) libY = 0; hideReader(was); }); }
+    else if (changed) { renderLib(); jump(0); }
   }
 
   /* back-to-top pill: library view only, after about 1.5 screens of scrolling */
@@ -1068,12 +1173,18 @@
     }, { passive: true });
     $("lib-ask").onsubmit = function (e) { e.preventDefault(); ask($("ask-input").value); dismissKbd($("ask-input")); };
     $("ask-input").addEventListener("search", function () { if (!this.value && touch) this.blur(); });
+    $("ask-input").addEventListener("focus", function () { openSearch(); });
+    $("ask-input").addEventListener("keydown", function (e) { if (e.key === "Escape") { e.preventDefault(); clearQuery(); closeSearch(); this.blur(); } });
+    $("ask-clear").onclick = function () { clearQuery(); renderResults(); $("ask-input").focus(); };
     var deb;
     $("ask-input").addEventListener("input", function () {
-      var v = this.value; clearTimeout(deb);
-      if (!v.trim()) { query = ""; $("ask-hint").textContent = ""; renderShelves(); return; }
-      deb = setTimeout(function () { if (v.trim().length >= 2) ask(v); }, 220);
+      var v = this.value; clearTimeout(deb); syncClear();
+      if (!v.trim()) { query = ""; renderResults(); return; }
+      deb = setTimeout(function () { if (v.trim().length >= 2) ask(v); }, 180);
     });
+    // close the empty search sheet when you tap anywhere else (a typed search stays until cleared)
+    document.addEventListener("pointerdown", function (e) { if (!document.body.classList.contains("searching") || query || !$("reader").hidden) return; if (e.target.closest && e.target.closest("#lib-bar,#lib-results")) return; closeSearch(); }, true);
+    if (window.visualViewport) visualViewport.addEventListener("resize", fitResults);
     document.addEventListener("keydown", function (e) {
       if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey || !$("reader").hidden) return;
       var a = document.activeElement; if (a && (a.tagName === "INPUT" || a.tagName === "TEXTAREA" || a.isContentEditable)) return;
@@ -1082,19 +1193,35 @@
     window.addEventListener("hashchange", route);
     window.addEventListener("popstate", function (e) { if (e.state && e.state.pulseShelf) route(); });
   }
-
-  function newBadge() {
-    var n = lib.books.filter(isNew).length, b = $("lib-new");
-    if (n) { b.hidden = false; b.textContent = n + " new since you last looked"; }
-    ls(LS.seen, new Date().toISOString().slice(0, 10));
+  /* the full books (pages, recaps, sources, page words) load after the shelf has painted */
+  var fullP = null;
+  function loadFull() {
+    if (!fullP) fullP = fetch("data/library.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (d) {
+        var byId = {}; d.books.forEach(function (x) { byId[x.id] = x; });
+        lib.books.forEach(function (b) { var x = byId[b.id]; if (!x) return; ["pages", "recap", "recap_pages", "sources", "gist_lead", "gist"].forEach(function (k) { if (x[k] != null) b[k] = x[k]; }); b._ix = null; b._rw = null; });
+        lib.moved = d.moved; lib._full = true; lib._df = null; VOC = null;
+        return lib;
+      })
+      .catch(function (e) { fullP = null; throw e; });
+    return fullP;
   }
-
-  fetch("data/library.json", { cache: "no-cache" })
+  fetch("data/shelf.json", { cache: "no-cache" })
     .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
     .then(function (d) {
-      lib = d; lib.books.forEach(function (b) { if (!TOPICS[b.topic]) b.topic = "Fintech"; });
-      wire(); wireTips(); wireKbdDismiss(); savedBadge(); renderTabs(); heroMeta(); renderShelves(); newBadge(); rotateHints();
-      if (location.hash && location.hash !== "#topics") route();
+      TOPICS = d.topics || []; TOPICS.forEach(function (t) { TOP[t.name] = t; });
+      lib = { books: d.books.filter(function (b) { if (TOP[b.topic]) return true; console.error("Pulse: \u201c" + b.id + "\u201d is on an unknown shelf (" + b.topic + "), so it is not shown"); return false; }),
+        path: d.path || [], popular: d.popular || [], questions: d.questions || [], updated: d.updated };
+      wire(); wireTips(); wireKbdDismiss(); savedBadge(); heroMeta(); rotateHints();
+      // the site's own sticky header stays on top; our search bar sticks just under it
+      var navH = function () { var n = document.querySelector("header.topnav-wrap"); document.documentElement.style.setProperty("--nav-h", (n ? n.offsetHeight : 0) + "px"); };
+      navH(); addEventListener("resize", navH); if (document.fonts) document.fonts.ready.then(navH);
+      var s = location.hash.match(/^#shelf\/([a-z0-9-]+)/); libSlug = s && TOPICS.some(function (t) { return t.slug === s[1]; }) ? s[1] : "";
+      renderLib();
+      if (location.hash && !/^#shelf\//.test(location.hash) || (s && !libSlug)) route();
+      var idle = window.requestIdleCallback || function (f) { setTimeout(f, 400); };
+      idle(function () { loadFull().catch(function (e) { console.error("Pulse: books failed to load", e); }); }, { timeout: 1500 });
     })
-    .catch(function (e) { console.error("Pulse: library failed to load", e); $("shelves").innerHTML = '<p class="lib-loading">The library didn’t load. Refresh to try again.</p>'; });
+    .catch(function (e) { console.error("Pulse: library failed to load", e); $("shelves").innerHTML = '<p class="lib-loading">The library didn\u2019t load. Refresh to try again.</p>'; });
 })();
