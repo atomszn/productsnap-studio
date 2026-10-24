@@ -18,6 +18,9 @@ Examples
   # append a new page to an existing book
   python3 scripts/add_book.py append --slug physical-ai --image new.png --title "Humanoids vs hype" [--at 3]
 
+  # add a finished book from its hand-in folder (library-entry.json + c01.. images + page-text.json + sources.md)
+  python3 scripts/add_book.py entry --dir /path/to/books/starlink-v1
+
   # list books
   python3 scripts/add_book.py list
 Requires Pillow (pip install pillow).
@@ -29,7 +32,9 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIB = os.path.join(ROOT, "data", "library.json")
 ASSETS = os.path.join(ROOT, "assets", "pulse")
-TOPICS = ("AI", "Fintech", "Macro")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from topics import NAMES as TOPICS, canon  # one shared topic list (scripts/topics.py)
+import build_shelf
 MAX_W, THUMB_W = 1600, 480
 
 
@@ -45,6 +50,10 @@ def save(lib):
     with open(LIB, "w") as f:
         json.dump(lib, f, indent=2, ensure_ascii=False)
         f.write("\n")
+    _, errs, warns = build_shelf.build()  # keep the light shelf list (data/shelf.json) in step
+    for w in warns: print("warning:", w, file=sys.stderr)
+    if errs:
+        sys.exit("shelf.json NOT rebuilt:\n" + "\n".join(errs))
 
 
 def convert(src, slug, name):
@@ -60,13 +69,15 @@ def convert(src, slug, name):
     return im.width, im.height
 
 
-def page_entry(slug, idx, src, title):
+def page_entry(slug, idx, src, title, text=None):
+    """text: the page's cleaned text (from the hand-in's page-text.json); when given, keywords come from it and no OCR runs."""
     name = "p%02d" % idx
     w, h = convert(src, slug, name)
+    kw = keywords_from(" ".join(text)) if text else page_keywords(os.path.join(ASSETS, slug, name + ".webp"))
     return {"file": "assets/pulse/%s/%s.webp" % (slug, name),
             "thumb": "assets/pulse/%s/%s-t.webp" % (slug, name),
             "title": title, "w": w, "h": h,
-            **({"kw": kw} if (kw := page_keywords(os.path.join(ASSETS, slug, name + ".webp"))) else {})}
+            **({"kw": kw} if kw else {})}
 
 
 def find(lib, slug):
@@ -78,9 +89,10 @@ def find(lib, slug):
 
 
 def cmd_book(a):
-    a.topic = {t.lower(): t for t in TOPICS}.get(a.topic.lower(), a.topic)  # accepts "fintech", "AI", ...
-    if a.topic not in TOPICS:
-        sys.exit("topic must be one of %s" % (TOPICS,))
+    t = canon(a.topic)  # accepts "fintech", "AI", "frontier tech", ...
+    if not t:
+        sys.exit("topic must be one of %s (no fallback: add a new shelf in scripts/topics.py first)" % (TOPICS,))
+    a.topic = t
     if not 2 <= len(a.title.split()) <= 5 and len(a.title.split()) != 1:
         print("warning: titles read best at 2-5 words", file=sys.stderr)
     titles = a.page_titles or [""] * len(a.pages)
@@ -106,7 +118,7 @@ def cmd_book(a):
     else:
         sys.exit("The 'You finished' recap must be (re)written whenever the pages change: pass --recap \"line\" [\"line\" [\"line\"]] covering ALL %d pages." % len(a.pages))
     book["recap_pages"] = len(a.pages)
-    for k in ("tagline", "vol", "start_here"):  # keep cover metadata when a book is rebuilt
+    for k in ("tagline", "vol", "start_here", "sources"):  # keep cover metadata when a book is rebuilt
         if old and k in old:
             book[k] = old[k]
     if old:
@@ -195,8 +207,12 @@ def _ocr_text(path):
 
 def page_keywords(path):
     """OCR a page once at build time into a compact keyword string for search."""
+    return keywords_from(_ocr_text(path))
+
+
+def keywords_from(txt):
     words, seen = [], set()
-    for w in re.findall(r"[a-z0-9][a-z0-9'$%.-]*[a-z0-9%]", _ocr_text(path).lower()):
+    for w in re.findall(r"[a-z0-9][a-z0-9'$%.-]*[a-z0-9%]", txt.lower()):
         w = w.strip("'-.")
         if len(w) > 1 and not w.isdigit() and w not in STOP and w not in seen and re.search(r"[a-z]", w):
             if len(w) == 2 and not re.match(r"^(ai|us|uk|eu|ev|ok|io|qe|qt)$", w):
@@ -217,9 +233,141 @@ def cmd_index(a):
     save(lib)
 
 
+URL_RE = re.compile(r"https?://[^\s)>\]]+")
+
+
+def _host(url):
+    from urllib.parse import urlparse
+    return urlparse(url).netloc.lower().replace("www.", "")
+
+
+def _fallback_label(url):
+    """No title in sources.md: a clean site name, never a slice of the URL path."""
+    from urllib.parse import urlparse, unquote
+    host = _host(url); segs = [x for x in unquote(urlparse(url).path).split("/") if x]
+    if host in ("x.com", "twitter.com") and segs: return "Post by @%s on X" % segs[0]
+    return host
+
+
+DATE_TAIL = re.compile(r",\s*(?:(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+(?:\d{1,2},\s*)?)?\d{4}\s*$")
+
+
+def _key_label(t):
+    """A 'Key sources' line is written as a title: 'NASA – Moon lander update for 2028 missions, Oct 23, 2026 (cards 8, 10)'.
+    Keep it as written (publisher – title), dropping only list markers, the (cards …) note and a trailing date."""
+    t = re.sub(r"^\s*(?:[-*]|\d+\.)\s*", "", t.strip()); t = re.sub(r"\*\*|`", "", t)
+    for _ in range(3): t = re.sub(r"\s*\([^()]*\)", "", t)
+    t = re.sub(r"\s+", " ", t).strip(" ,;.:")
+    t = DATE_TAIL.sub("", t).strip(" ,;:")
+    t = re.sub(r"\s+[-\u2013\u2014]\s+", " \u2013 ", t)   # one separator style: "Publisher – title"
+    return t if len(t) >= 3 and not URL_RE.search(t) else ""
+
+
+def _clean_label(t):
+    """Turn the text written just before a link into a short label. Handles the usual hand-in shapes:
+      'SpaceX Q3 2026 earnings release, 8-K Exhibit 99.1 (cards 10-11)'   -> the text, minus the (…) note
+      'Ars Technica, Eric Berger, "Latest estimate …" (Oct 22, 2026). …'  -> 'Ars Technica, Eric Berger: Latest estimate …'
+      'Falcon 9 flies reused boosters far more than anyone: Space.com (…).' -> 'Space.com' (claim: source)
+    Returns '' when nothing title-like is there (the caller then uses a clean site name)."""
+    t = re.sub(r"^\s*(?:[-*]|\d+\.|c\d+\s*->)\s*", "", t.strip())
+    t = re.sub(r"\*\*|`", "", t).replace("\u201c", '"').replace("\u201d", '"')
+    t = re.sub(r'\s*\("[^)]*\)', "", t)                                   # ("quoted excerpt") notes
+    qs = list(re.finditer(r',\s*"([^"]{4,})"', t))
+    if qs:  # Publisher, "Article title"
+        q = qs[-1]; pub = re.split(r"(?:[.;]|:)\s", t[:q.start()])[-1].strip(" ,")
+        pub = re.split(r"\s(?:per|via|from)\s", pub)[-1].strip(" ,")  # "… per Ars Technica" -> "Ars Technica"
+        lab = (pub + ": " if pub else "") + q.group(1).strip()
+    else:
+        for _ in range(3): t = re.sub(r"\s*\([^()]*\)", "", t)
+        t = re.sub(r"\s+", " ", t).strip(" ,;.:-\u2013")
+        parts = t.split(": ")
+        if len(parts) > 1 and 2 < len(parts[-1]) <= 60 and '"' not in parts[-1]: lab = parts[-1].split(", ")[0]   # claim: Source
+        else: lab = parts[0]
+        if "; " in lab: lab = lab.split("; ")[-1]
+        if len(lab) > 70 or '"' in lab: return ""   # a claim, not a title
+    lab = re.sub(r"\s+", " ", lab).strip(" ,;.:-\u2013")
+    if len(lab) > 90: lab = lab[:88].rsplit(" ", 1)[0].rstrip(" ,;:") + "\u2026"
+    return lab if len(lab) >= 3 and not URL_RE.search(lab) else ""
+
+
+def _sources(md, limit=14):
+    """[{title, url}] for the end card, from a hand-in sources.md.
+    1. A "Key sources" section, if there is one, is the list (in its order), labelled as written there
+       ("NASA – Moon lander update for 2028 missions"; the publisher is never dropped).
+    2. Otherwise every link in the file, in order. The label is the text written just before the link
+       (e.g. 'SpaceX Q3 2026 earnings (SEC)'); with no text, a clean site name ('sec.gov', 'Post by @x on X')."""
+    lines = open(md, encoding="utf-8").read().splitlines()
+    key, i = [], next((n for n, l in enumerate(lines) if re.match(r"#+\s*key sources", l, re.I)), None)
+    if i is not None:
+        for l in lines[i + 1:]:
+            if l.startswith("#"): break
+            key.append(l)
+    out, seen = [], set()
+    key_mode = any(URL_RE.search(x) for x in key)
+    for l in (key if key_mode else lines):
+        pos = 0
+        for m in URL_RE.finditer(l):
+            url = m.group(0).rstrip(".,;")
+            seg = l[pos:m.start()]; pos = m.end()
+            seg = re.split(r"\s;\s|;\s*$", seg)[-1] if ";" in seg else seg  # "A link ; B title <url>" -> "B title"
+            if url in seen: continue
+            lab = _key_label(seg) if key_mode else ("" if _host(url) in ("x.com", "twitter.com") else _clean_label(seg))
+            seen.add(url); out.append({"title": lab or _fallback_label(url), "url": url})
+    return out[:limit]
+
+
+def cmd_entry(a):
+    """Add (or replace) a whole book from a hand-in folder: library-entry.json is the source of truth.
+    Swapping in a restyled version keeps the same id, shelf, taxonomy, "added" date and reader links, e.g.
+      python3 scripts/add_book.py entry --dir /path/to/books/starlink-v2 --slug how-starlink-works
+    Page images left over from a longer old version are removed."""
+    d = a.dir.rstrip("/")
+    e = json.load(open(os.path.join(d, "library-entry.json")))
+    topic = canon(e.get("topic") or e.get("shelf", ""))
+    if not topic:
+        sys.exit("library-entry.json topic %r is not a shelf (%s)" % (e.get("topic"), ", ".join(TOPICS)))
+    slug = a.slug or e["id"]
+    text = json.load(open(os.path.join(d, "page-text.json"))) if os.path.exists(os.path.join(d, "page-text.json")) else {}
+    tks = json.load(open(os.path.join(d, "takeaways.json"))) if os.path.exists(os.path.join(d, "takeaways.json")) else {}
+    lib = load(); old = next((b for b in lib["books"] if b["id"] == slug), None)
+    pages, ptext = [], []
+    for i, pg in enumerate(e["pages"], 1):
+        stem = os.path.splitext(os.path.basename(pg["file"]))[0]  # c01
+        src = next((os.path.join(d, stem + x) for x in (".png", ".webp", ".jpg") if os.path.exists(os.path.join(d, stem + x))), None)
+        if not src: sys.exit("missing image for %s in %s" % (stem, d))
+        lines = text.get(stem, [])
+        if lines and isinstance(lines[0], list): lines = [x for part in lines for x in part]  # some hand-ins wrap each page's lines once more
+        p = page_entry(slug, i, src, pg["title"], lines or None)
+        tk = pg.get("takeaway") or (tks.get(stem) if isinstance(tks, dict) else None)
+        if tk: p["takeaway"] = tk.strip()
+        pages.append(p); ptext.append(lines)
+    if not 1 <= len(e.get("recap", [])) <= 4: sys.exit("library-entry.json needs a 1-4 line recap")
+    today = datetime.date.today().isoformat()
+    book = {"id": slug, "title": e["title"], "topic": topic, "blurb": e["blurb"], "gist": e["gist"],
+            "added": (old or {}).get("added") or today, "added_at": (old or {}).get("added_at") or datetime.datetime.now().isoformat(timespec="minutes"),
+            "tagline": e.get("tagline") or (old or {}).get("tagline"), "pages": pages, "recap": e["recap"], "recap_pages": len(pages)}
+    if e.get("gist_lead"): book["gist_lead"] = e["gist_lead"]
+    if os.path.exists(os.path.join(d, "sources.md")): book["sources"] = _sources(os.path.join(d, "sources.md"))
+    if old:  # drop page images the new version no longer has (p10.webp etc. when the new book is shorter)
+        keep = {os.path.basename(p["file"]) for p in pages} | {os.path.basename(p["thumb"]) for p in pages if p.get("thumb")}
+        adir = os.path.join(ROOT, "assets", "pulse", slug)
+        for f in os.listdir(adir) if os.path.isdir(adir) else []:
+            if re.fullmatch(r"p\d+(-t)?\.(webp|png|jpg)", f) and f not in keep: os.remove(os.path.join(adir, f))
+        if old.get("added") and old["added"] != today: book["added"] = old["added"]; book["updated"] = today
+        lib["books"][lib["books"].index(old)] = book
+    else: lib["books"].append(book)
+    # cleaned page text for "Ask the library" and deep search
+    pt_path = os.path.join(ROOT, "data", "page-text.json")
+    pt = json.load(open(pt_path)) if os.path.exists(pt_path) else {"version": 1, "pages": {}}
+    pt.setdefault("pages", {})[slug] = ptext
+    with open(pt_path, "w") as f: json.dump(pt, f, ensure_ascii=False, indent=1); f.write("\n")
+    save(lib)
+    print("saved %s: %s, %d pages, %d sources%s" % (slug, topic, len(pages), len(book.get("sources", [])), " (replaced)" if old else " (new)"))
+
+
 def cmd_list(a):
     for b in load()["books"]:
-        print("%-30s %-5s %2d pages  %s" % (b["id"], b["topic"], len(b["pages"]), b["title"]))
+        print("%-30s %-13s %2d pages  %s" % (b["id"], b["topic"], len(b["pages"]), b["title"]))
 
 
 ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -240,5 +388,7 @@ p.add_argument("--slug", required=True); p.add_argument("--tagline"); p.add_argu
 p.add_argument("--start-here", action="store_true")
 p = sp.add_parser("index", help="OCR page text into search keywords"); p.set_defaults(fn=cmd_index)
 p.add_argument("--slug")
+p = sp.add_parser("entry", help="add a finished book from its hand-in folder"); p.set_defaults(fn=cmd_entry)
+p.add_argument("--dir", required=True); p.add_argument("--slug", help="override the id in library-entry.json")
 p = sp.add_parser("list"); p.set_defaults(fn=cmd_list)
 a = ap.parse_args(); a.fn(a)

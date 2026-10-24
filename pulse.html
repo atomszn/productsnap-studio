@@ -36,14 +36,14 @@
     <title>Pulse — ProductSnap Studio</title>
     <meta
       name="description"
-      content="A quiet library of hand-drawn explainers on AI, tech and the economy. Open a book, turn the pages, read the 60-second version."
+      content="Hand-drawn picture books that explain frontier tech, AI, money and the economy, about 5 minutes each. Read the 60-second summary, then turn the pages."
     />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Pulse — ProductSnap Studio" />
     <meta
       property="og:description"
-      content="A quiet library of hand-drawn explainers on AI, tech and the economy. Open a book, turn the pages, read the 60-second version."
+      content="Hand-drawn picture books that explain frontier tech, AI, money and the economy, about 5 minutes each. Read the 60-second summary, then turn the pages."
     />
     <meta property="og:site_name" content="ProductSnap Studio" />
     <meta property="og:url" content="https://productsnap.studio/pulse" />
@@ -54,7 +54,7 @@
     <meta property="og:image:alt" content="Pulse — a library of sketch explainers" />
     <meta name="twitter:image" content="https://productsnap.studio/assets/og-default.png" />
     <meta name="twitter:title" content="Pulse — ProductSnap Studio" />
-    <meta name="twitter:description" content="A quiet library of hand-drawn explainers on AI, tech and the economy. Open a book, turn the pages, read the 60-second version." />
+    <meta name="twitter:description" content="Hand-drawn picture books that explain frontier tech, AI, money and the economy, about 5 minutes each. Read the 60-second summary, then turn the pages." />
 
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="canonical" href="https://productsnap.studio/pulse" />
@@ -66,8 +66,9 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/pulse.css" />
+    <link rel="stylesheet" href="css/pulse-sig.css" />
     <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"CollectionPage","name":"Pulse — the sketch library","url":"https://productsnap.studio/pulse","description":"A quiet library of hand-drawn explainers on AI, tech and the economy. Open a book, turn the pages, read the 60-second version.","isPartOf":{"@type":"WebSite","name":"ProductSnap Studio","url":"https://productsnap.studio/"}}
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Pulse — the sketch library","url":"https://productsnap.studio/pulse","description":"Hand-drawn picture books that explain frontier tech, AI, money and the economy, about 5 minutes each. Read the 60-second summary, then turn the pages.","isPartOf":{"@type":"WebSite","name":"ProductSnap Studio","url":"https://productsnap.studio/"}}
     </script>
   </head>
   <body class="page-pulse">
@@ -149,32 +150,31 @@
 
 
     <main class="lib" id="lib">
-      <section class="lib-hero">
-        <p class="lib-ribbon" id="lib-ribbon" hidden></p>
+      <section class="lib-hero" id="lib-hero">
         <p class="lib-kicker">Pulse · the sketch library</p>
         <h1 class="lib-title">Small books for big shifts.</h1>
+        <p class="lib-sub">Picture books that explain frontier tech, AI, money and the economy in about 5 minutes each.</p>
         <p class="lib-stats" id="lib-stats"></p>
-        <p class="lib-sub">Hand-drawn explainers on AI, tech, fintech and the economy. Pick a book, read the 60-second version, turn the pages.</p>
+      </section>
+
+      <span id="bar-anchor" aria-hidden="true"></span>
+      <div class="lib-bar" id="lib-bar">
         <div class="lib-controls">
-          <div class="lib-view" id="lib-view"></div>
           <form class="lib-ask" id="lib-ask" role="search" autocomplete="off">
             <svg class="ask-mag" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
             <label class="sr-only" for="ask-input">Search the library: a topic, a word or a question</label>
-            <input id="ask-input" type="search" enterkeyhint="search" autocapitalize="off" spellcheck="false" placeholder="Try: robots" aria-describedby="ask-hint" aria-keyshortcuts="/" />
+            <input id="ask-input" type="search" enterkeyhint="search" autocapitalize="off" spellcheck="false" placeholder="Search the books… try “rockets”" aria-describedby="ask-hint" aria-controls="lib-results" aria-keyshortcuts="/" />
+            <button type="button" class="ask-clear" id="ask-clear" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></button>
             <kbd class="ask-kbd" aria-hidden="true">/</kbd>
-            <button type="submit">Search</button>
           </form>
-          <button type="button" class="saved-btn" id="saved-btn" aria-haspopup="dialog" aria-label="Saved pages"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg><span>Saved</span><span class="saved-count" id="saved-count" hidden>0</span></button>
+          <button type="button" class="saved-btn" id="saved-btn" aria-haspopup="dialog" aria-label="Saved pages"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg><span class="saved-lbl">Saved</span><span class="saved-count" id="saved-count" hidden>0</span></button>
         </div>
-        <p class="lib-ask-hint" id="ask-hint" aria-live="polite"></p>
-      </section>
-
-      <div class="lib-bar">
         <div class="lib-tabs" id="lib-tabs"></div>
-        <span class="lib-new" id="lib-new" hidden></span>
       </div>
+      <p class="lib-ask-hint" id="ask-hint" aria-live="polite"></p>
+      <div class="lib-results" id="lib-results" hidden role="region" aria-label="Search results"></div>
 
-      <div id="shelves" class="shelves" aria-live="polite">
+      <div id="shelves" class="shelves">
         <p class="lib-loading">Opening the library…</p>
       </div>
       <noscript><p class="lib-loading">Pulse needs JavaScript to open the books.</p></noscript>
@@ -264,6 +264,7 @@
     <script src="js/nav.js" defer></script>
     <script src="js/theme.js" defer></script>
     <script src="js/reveal.js" defer></script>
+    <script src="js/pulse-sig.js" defer></script>
     <script src="js/pulse.js" defer></script>
     <!-- Privacy-friendly analytics (Umami) — cookieless, deferred, no-op until configured. See README. -->
     <script src="js/analytics.js" defer></script>

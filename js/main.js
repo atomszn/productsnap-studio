@@ -275,23 +275,25 @@
      same reveal logic. Keeping it here too would double-observe on index. */
 
   /* ---------- Homepage Pulse insert ----------
-     Shows the newest book from data/library.json (the Pulse sketch library). */
+     Shows the newest book from data/shelf.json (the Pulse sketch library's light book list). */
   function initHomePulse() {
     const titleEl = document.getElementById("home-pulse-title");
     const lineEl = document.getElementById("home-pulse-line");
     if (!titleEl || !lineEl) return;
-    fetch("data/library.json", { cache: "no-cache" })
+    // the light shelf list (data/shelf.json, built by scripts/build_shelf.py) carries the shelves in order, so a new shelf shows up here on its own
+    fetch("data/shelf.json", { cache: "no-cache" })
       .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
       .then((data) => {
         const books = (data && data.books) || [];
         if (!books.length) throw new Error("no books");
-        const b = books.slice().sort((x, y) => (y.updated || y.added).localeCompare(x.updated || x.added))[0];
+        const b = books.slice().sort((x, y) => (y.updated || y.added).localeCompare(x.updated || x.added) || (y.added_at || "").localeCompare(x.added_at || ""))[0];
         titleEl.textContent = b.title;
         lineEl.textContent = b.blurb;
         const counts = {};
         books.forEach((x) => { counts[x.topic] = (counts[x.topic] || 0) + 1; });
         const stats = document.getElementById("home-pulse-stats");
-        if (stats) stats.textContent = books.length + " books · " + ["AI", "Fintech", "Macro"].filter((t) => counts[t]).map((t) => t + " " + counts[t]).join(" · ");
+        const shelves = (data.topics || []).map((t) => t.name);
+        if (stats) stats.textContent = books.length + " books · " + shelves.filter((t) => counts[t]).map((t) => t + " " + counts[t]).join(" · ");
       })
       .catch((err) => {
         console.error("Home Pulse: failed to load library", err);
