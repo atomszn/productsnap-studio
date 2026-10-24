@@ -500,12 +500,13 @@
     pin: '<svg viewBox="0 0 80 40"><path d="M40 4L6 39M40 4l34 35" stroke-width="1" stroke-opacity=".7"/><circle cx="40" cy="4" r="3.2" fill="#c4544a"/></svg>'
   };
   var TOPIC_PROP = { "frontier-tech": "rocket", fintech: "piggy", macro: "coins", ai: "robot" };
-  var QUOTES = {
-    "frontier-tech": ["Space travel. Still no legroom.", "Big rocket. Bigger countdown.", "Reached orbit. Lost my keys.", "Zero gravity. Same laundry."],
-    ai: ["Artificial intelligence. Natural confusion.", "Deep learning. Shallow sleep.", "Neural network. Nervous owner.", "Smart speaker. Selective hearing."],
-    fintech: ["Moving money faster. Mostly away.", "Buy now. Panic later.", "Instant payment. Slow regret.", "Digital wallet. Analog panic.", "Smart card. Silly purchases."],
-    macro: ["Strong economy. Weak wallet.", "Big picture. Tiny budget.", "Prices rise. Wallet sighs.", "Soft landing. Bumpy checkout."]
+  var QUOTES = { /* Kumar's lines only, verbatim */
+    "frontier-tech": ["Space travel. Still no legroom."],
+    ai: ["Artificial intelligence. Natural confusion."],
+    fintech: ["Moving money faster. Mostly away.", "Buy now. Panic later."],
+    macro: ["Strong economy. Weak wallet."]
   };
+
   function prop(k) { var d = el("span", "pr-" + k); d.innerHTML = PROP[k].replace("<svg ", '<svg fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false" '); return d; }
   function dayNo() { var d = new Date(); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5); } /* the local calendar day: one quote per day, no timers */
   function fitProps() {
