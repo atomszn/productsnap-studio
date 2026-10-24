@@ -2921,6 +2921,261 @@
           "url": "https://www.nasa.gov/directorates/smd/how-long-does-it-take-to-get-to-the-moon-mars-jupiter-we-asked-a-nasa-expert-episode-51/"
         }
       ]
+    },
+    {
+      "id": "boring-company",
+      "title": "How The Boring Company Digs",
+      "topic": "Frontier Tech",
+      "blurb": "Wren's field journal tests one mile of tunnel: why subways cost $100 million to $1 billion+ a mile, how a tunnel boring machine digs, Prufrock's tricks, how the Vegas Loop works, what a mile costs from Madrid to New York, and what Boring promised vs delivered.",
+      "gist": [
+        "Tunnels are slow and costly: a standard TBM digs a mile in 8 to 12 weeks, and big-city lines cost $100 million to $1 billion+ a mile, mostly in stations.",
+        "Boring shrinks the tunnel to 12 ft and builds its own Prufrock machines; the first Vegas Loop cost about $60 million a route mile, and Prufrock digs about a mile a month against a mile-a-week goal.",
+        "The Vegas Loop has 14 stations and 4 million+ riders, but cars at about 35 mph carry far fewer people than trains, several city projects were dropped, and safety and oversight questions remain."
+      ],
+      "added": "2026-10-24",
+      "added_at": "2026-10-24T15:06",
+      "tagline": "Smaller tunnels, no pits, no stopping. Does it scale?",
+      "pages": [
+        {
+          "file": "assets/pulse/boring-company/p01.webp",
+          "thumb": "assets/pulse/boring-company/p01-t.webp",
+          "title": "Can a tunnel beat traffic?",
+          "w": 1600,
+          "h": 2658,
+          "kw": "sheet hook tunnel beat traffic wren's field journal one mile question hours typical driver lost chicago new york los angeles started dec elon musk twitter now driving nuts going build boring machine start digging wren made almost five days year car i'd rather spend underground probably source inrix global scorecard facts oct card"
+        },
+        {
+          "file": "assets/pulse/boring-company/p02.webp",
+          "thumb": "assets/pulse/boring-company/p02-t.webp",
+          "title": "Words to know",
+          "w": 1600,
+          "h": 2100,
+          "kw": "sheet key words know tbm tunnel boring machine spinning wheel grinds soft ground lines hole muck dug-out soil rock loop boring's system cars small tunnels stops between stations cost mile total length systems included capacity people moved hour one direction route line has twin tubes miles source herrenknecht epb shield company prufrock pages transit costs project cost-per-length method music city faq card"
+        },
+        {
+          "file": "assets/pulse/boring-company/p03.webp",
+          "thumb": "assets/pulse/boring-company/p03-t.webp",
+          "title": "Why tunnels cost so much",
+          "w": 1600,
+          "h": 2100,
+          "kw": "sheet problem tunnels cost much 100m usual mile boring 10x boring's goal costs cut times stations hard new york's second avenue subway width half means quarter dirt pits one pit start finish big dig wren's phase prices billion running example source company faq archived transit project york case report data prufrock page geometry card",
+          "takeaway": "Big-city tunnels cost $100 million to $1 billion+ a mile, and much of it is stations: 77% of New York's Second Avenue Subway hard costs were stations."
+        },
+        {
+          "file": "assets/pulse/boring-company/p04.webp",
+          "thumb": "assets/pulse/boring-company/p04-t.webp",
+          "title": "Guess first: snail or machine?",
+          "w": 1600,
+          "h": 2546,
+          "kw": "sheet problem guess first snail machine faster garden standard tbm tie answer flip phone times says boring company digs one mile weeks slow stops every feet build lining muck rides back wren made timed porch won i'm leaving report source faq archived comparison company's wren's race card",
+          "takeaway": "A standard tunnel boring machine digs a mile in 8 to 12 weeks, which the Boring Company says is about 14 times slower than a garden snail."
+        },
+        {
+          "file": "assets/pulse/boring-company/p05.webp",
+          "thumb": "assets/pulse/boring-company/p05-t.webp",
+          "title": "How a tunnel boring machine digs",
+          "w": 1600,
+          "h": 2906,
+          "kw": "sheet works tunnel boring machine digs soft-ground earth pressure balance tbm cutting wheel push cylinders concrete rings screw conveyor cut spinning steel discs knives loosens soil packed sealed chamber holds face ground above doesn't sink remove pulls muck speed sets shove off last ring line robot arm new grout fills gap source herrenknecht shield art generic cutaway parts pulled apart scale card",
+          "takeaway": "An earth pressure balance TBM cuts soil with a spinning wheel, holds the face up with pressurised muck, pushes off the last concrete ring and builds the next one."
+        },
+        {
+          "file": "assets/pulse/boring-company/p06.webp",
+          "thumb": "assets/pulse/boring-company/p06-t.webp",
+          "title": "Why tunnel size matters",
+          "w": 1600,
+          "h": 2540,
+          "kw": "sheet works tunnel size matters drawn scale loop inside crossrail dug gotthard mountain rail bored hole boring's choice narrower standard transport tunnels says boring dirt cubic yards foot crossrail-size machine digs times much trade-off fits car full-size train source company faq archived music city learning legacy herrenknecht propublica document arithmetic card",
+          "takeaway": "Boring's 12 ft Loop tunnels remove about 6 cubic yards of soil per foot, about 2.6 times less than a Crossrail-size 7.1 m machine."
+        },
+        {
+          "file": "assets/pulse/boring-company/p07.webp",
+          "thumb": "assets/pulse/boring-company/p07-t.webp",
+          "title": "Prufrock's five tricks",
+          "w": 1600,
+          "h": 2601,
+          "kw": "sheet works prufrock's five tricks boring's tbm built texas prufrock trailer porpoising soft ground dives surface within hours pops onto pits continuous mining lines tunnel while digs stop every nobody underground designed zero people inside run control center make boring builds machines liners loop itself one size design job big safety margins source company page oct features work today see card",
+          "takeaway": "Prufrock is designed to dive in from the surface in soft ground, line the tunnel while it digs and run with nobody underground."
+        },
+        {
+          "file": "assets/pulse/boring-company/p08.webp",
+          "thumb": "assets/pulse/boring-company/p08-t.webp",
+          "title": "How fast is Prufrock, really?",
+          "w": 1600,
+          "h": 2150,
+          "kw": "sheet works fast prufrock really goals results standard tbm mile weeks boring vegas drive encore incl setup today month director jul goal week since reality quarter mile-a-week fix logistics reliability says wren made journal added second question mark source company faq archived page quoted ground engineering mike baier arithmetic wren's notes card"
+        },
+        {
+          "file": "assets/pulse/boring-company/p09.webp",
+          "thumb": "assets/pulse/boring-company/p09-t.webp",
+          "title": "Prufrock: goal vs today",
+          "w": 1600,
+          "h": 2586,
+          "kw": "sheet works prufrock goal today company jul cost mile one tube hard rock soft ground yet nobody underground designed still fully close non-stop digging prufrock-mb digs nashville limestone psi dug launch pit tbm source boring page loop tunnel mike baier director music city blog oct goals company's results art generic sketch card",
+          "takeaway": "Prufrock's goal is under $5 million a mile per tunnel tube; Boring says it is at about $5 million a mile in hard rock, but soft ground isn't there yet: it still has to fully close on zero-people tunnelling and continuous mining."
+        },
+        {
+          "file": "assets/pulse/boring-company/p10.webp",
+          "thumb": "assets/pulse/boring-company/p10-t.webp",
+          "title": "Riding the Vegas Loop",
+          "w": 1600,
+          "h": 2706,
+          "kw": "sheet works riding vegas loop station parking spaces hotel tesla driver takes rides self-drive watching since oct stops straight arrive minutes stations open company count riders first convention center apr 0.8-mile route tunnel 50m source boring tunnels pages propublica driver-operated teslas las review-journal million self-driving nov art generic sketch card",
+          "takeaway": "The Vegas Loop moves riders in Teslas, mostly driver-operated, with no stops between stations: 14 stations open and 4 million+ riders since 2021."
+        },
+        {
+          "file": "assets/pulse/boring-company/p11.webp",
+          "thumb": "assets/pulse/boring-company/p11-t.webp",
+          "title": "Loop vs subway",
+          "w": 1600,
+          "h": 2100,
+          "kw": "sheet what's different loop subway london's newest line vegas elizabeth vehicle teslas riders trains tunnel inside stops none between every station stations small parking spaces big underground halls day company claim actual weekdays matters wins win crowds read source boring page music city faq tfl train quarterly report crossrail learning legacy card",
+          "takeaway": "Loop wins on tiny stations and no stops; a subway wins on crowds: one Elizabeth line train carries up to 1,500 people."
+        },
+        {
+          "file": "assets/pulse/boring-company/p12.webp",
+          "thumb": "assets/pulse/boring-company/p12-t.webp",
+          "title": "How many people an hour?",
+          "w": 1600,
+          "h": 2100,
+          "kw": "sheet what's different many people hour peak riders one direction loop audited test company claim claimed las vegas monorail buses elizabeth line way goal dashed matters full train holds three-rider cars read source lvcva review-journal music city faq propublica bus figures convention authority chief jan tfl trains boring page arithmetic card",
+          "takeaway": "The Loop moved 4,431 people an hour in its 2021 audited test and Boring claims 6,500+ since, against up to 36,000 an hour each way on the Elizabeth line and a 90,000 Loop goal."
+        },
+        {
+          "file": "assets/pulse/boring-company/p13.webp",
+          "thumb": "assets/pulse/boring-company/p13-t.webp",
+          "title": "What one mile costs",
+          "w": 1600,
+          "h": 2733,
+          "kw": "sheet what's different one mile costs cost route nyc second ave phase building 4.4b 2.7b london crossrail 1.4b paris grand express 440m madrid line extension 130m vegas first loop stations 60m prufrock goal tubes tunnel 10m log scale step 10x apples subways big signals train-size tunnels small twin tell full avenue 1's price without shrinking read wren's million billion running example source transit project purchasing-power-adjusted fta 7.7b miles year-of-expenditure dollars boring page 47m lvcva review-journal 52.5m tube per-mile figures arithmetic card",
+          "takeaway": "Tunnel lines cost from about $130 million a route mile (Madrid) to $2.7 to $4.4 billion (New York); the first Vegas Loop cost about $60 million a route mile, with small twin tunnels and three stations."
+        },
+        {
+          "file": "assets/pulse/boring-company/p14.webp",
+          "thumb": "assets/pulse/boring-company/p14-t.webp",
+          "title": "Other machines, other makers",
+          "w": 1600,
+          "h": 2308,
+          "kw": "sheet what's different machines makers herrenknecht boring german sells tbms builders builds big job crossrail vegas nashville dubai pilot signed size gotthard wheels long one inside longest drive miles getting launch shaft soft ground surface rock pit physics cut spinning wheel line concrete rings differs new ideas mostly logistics pits stopping nobody underground read source london base tunnel references epb shield prufrock tunnels pages music city loop blog oct teslarati mar card"
+        },
+        {
+          "file": "assets/pulse/boring-company/p15.webp",
+          "thumb": "assets/pulse/boring-company/p15-t.webp",
+          "title": "Promised vs delivered: speed and cost",
+          "w": 1600,
+          "h": 2100,
+          "kw": "sheet checking claims promised delivered speed cost topic ride mph self-driving still site mostly human drivers since oct digging mile week month jul 10m first loop 60m route stations boring says tunnel now hyperloop pods tubes one short test source company faq archived tunnels pages propublica jan review-journal rides nov mike baier contract card",
+          "takeaway": "Promised 150 mph self-driving cars, a mile dug every week and about $10 million a mile; delivered mostly human-driven Teslas at about 35 mph on one ride, about a mile dug a month and about $60 million per route mile for the first Loop."
+        },
+        {
+          "file": "assets/pulse/boring-company/p16.webp",
+          "thumb": "assets/pulse/boring-company/p16-t.webp",
+          "title": "Promised vs delivered: riders and reach",
+          "w": 1600,
+          "h": 2526,
+          "kw": "sheet checking claims promised delivered riders reach topic capacity hour vegas goal audited claimed network miles approved dug company aug counted propublica jan stations cities chicago airport baltimore dodger stadium dropped pulled site credit due passed test runs every convention source boring loop tunnels pages las review-journal music city faq nbc news bloomberg apr wren's journal sketch made card",
+          "takeaway": "The 90,000-an-hour goal compares with 4,431 audited and 6,500+ claimed; over 10 miles of Vegas tunnel are dug by the company's count, and Chicago, DC-Baltimore and LA plans were dropped by 2021."
+        },
+        {
+          "file": "assets/pulse/boring-company/p17.webp",
+          "thumb": "assets/pulse/boring-company/p17-t.webp",
+          "title": "Safety questions",
+          "w": 1600,
+          "h": 2425,
+          "kw": "sheet checking claims safety questions critiques boring's side worker burns nevada osha fined boring workers got chemical rashes contested every citation firefighter case dec two firefighters chemically burned training exercise fines withdraws next day feb federal withdrawal reasonable willfulness proven state staff removed altered case-file documents showed records gear receipts said wore part required source ktnv fine las vegas sun letter dept business industry report legislature jan card",
+          "takeaway": "Nevada OSHA fined Boring over chemical burns in 2023 (contested) and withdrew $425,000 in fines over a firefighter incident, which federal OSHA called reasonable while faulting altered state case files; Boring points to its training records."
+        },
+        {
+          "file": "assets/pulse/boring-company/p18.webp",
+          "thumb": "assets/pulse/boring-company/p18-t.webp",
+          "title": "Oversight questions",
+          "w": 1600,
+          "h": 2624,
+          "kw": "sheet checking claims oversight questions critiques boring's side water settlement groundwater storm drains without permit untreated sewer permits tunnelled twice county request dropped injury-reporting boring must hire outside engineer yearly audits breaches outsiders cars included got times late ridership transit agency data check exits fire detection suppression two-way ventilation full cameras control center top federal security rating source propublica jan incl fortune tunnel loop page music city faq card",
+          "takeaway": "Critics cite water-permit violations, reduced county oversight, tunnel breaches and unverifiable ridership; Boring points to exits, ventilation, cameras, a 24/7 control center and a top federal security rating."
+        },
+        {
+          "file": "assets/pulse/boring-company/p19.webp",
+          "thumb": "assets/pulse/boring-company/p19-t.webp",
+          "title": "What's next",
+          "w": 1600,
+          "h": 2100,
+          "kw": "sheet it's heading what's next oct new vegas twin tunnel nashville planned dubai pilot stations las paradise road due nov grand prix convention authority chief boring's goal year end tubes mile route airport downtown minutes privately funded two rock machines digging third starts late source review-journal boring loop page music city faq blogs tdot permit miles arithmetic tunnels card"
+        },
+        {
+          "file": "assets/pulse/boring-company/p20.webp",
+          "thumb": "assets/pulse/boring-company/p20-t.webp",
+          "title": "Wren's verdict",
+          "w": 1600,
+          "h": 2748,
+          "kw": "sheet it's heading wren's verdict problem big tunnels 100m mile fix small pits soft ground stopping far busy vegas system first loop 60m route boring says digging now costs 10m tunnel question cars carry subway-size crowds 000-an-hour goal unproven read wren made get cheaper beating traffic whole city still open i'm marks source cards mike baier jul page card"
+        }
+      ],
+      "recap": [
+        "Problem: big tunnels cost $100 million to $1 billion+ a mile and dig slower than a snail.",
+        "How: a TBM cuts, balances, pushes and lines; Prufrock aims to skip pits and stops, and digs about a mile a month vs a mile-a-week goal.",
+        "Different: about $60 million a route mile for the first Vegas Loop vs $130 million (Madrid) to $4.4 billion (New York), but far lower capacity.",
+        "Next: Paradise Road extension, Nashville and Dubai; the 90,000-an-hour goal is unproven."
+      ],
+      "recap_pages": 20,
+      "sources": [
+        {
+          "title": "Boring Company – Prufrock",
+          "url": "https://www.boringcompany.com/prufrock"
+        },
+        {
+          "title": "Boring Company – Loop",
+          "url": "https://www.boringcompany.com/loop"
+        },
+        {
+          "title": "Boring Company – Tunnels and LVCC Loop facts",
+          "url": "https://www.boringcompany.com/tunnels"
+        },
+        {
+          "title": "Boring Company – Vegas Loop project page",
+          "url": "https://boringcompany.com/projects/las-vegas-loop"
+        },
+        {
+          "title": "Boring Company – Music City Loop project page and FAQ",
+          "url": "https://boringcompany.com/projects/music-city-loop"
+        },
+        {
+          "title": "Boring Company – FAQ, archived Nov 2020",
+          "url": "https://web.archive.org/web/20201112053938/https://www.boringcompany.com/faq/"
+        },
+        {
+          "title": "Transit Costs Project – Cost per km by project",
+          "url": "https://transitcosts.com/projects/"
+        },
+        {
+          "title": "Transit Costs Project – Final report",
+          "url": "https://transitcosts.com/wp-content/uploads/TCP_Final_Report.pdf"
+        },
+        {
+          "title": "ProPublica – Boring is tunnelling beneath Las Vegas with little oversight",
+          "url": "https://www.propublica.org/article/elon-musk-boring-company-las-vegas-loop-oversight"
+        },
+        {
+          "title": "Las Vegas Review-Journal – Boring transit system passes LVCVA capacity tests",
+          "url": "https://www.reviewjournal.com/business/tourism/boring-co-s-transit-system-passes-lvcva-capacity-tests-2373803/"
+        },
+        {
+          "title": "Mike Baier on X – About a mile a month, $5M to $10M per mile",
+          "url": "https://x.com/Mike__Baier/status/2081926475742167487"
+        },
+        {
+          "title": "Herrenknecht – Crossrail London reference",
+          "url": "https://www.herrenknecht.com/en/references/referencesdetail/crossrail-london/"
+        },
+        {
+          "title": "INRIX – 2025 Global Traffic Scorecard",
+          "url": "https://inrix.com/press-releases/2025-global-traffic-scorecard-us/"
+        },
+        {
+          "title": "Las Vegas Sun – Federal regulators uphold Nevada OSHA withdrawal",
+          "url": "https://lasvegassun.com/news/2026/feb/14/federal-regulators-uphold-nevada-oshas-withdrawal/"
+        }
+      ]
     }
   ],
   "moved": {
