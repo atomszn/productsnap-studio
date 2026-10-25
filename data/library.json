@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-24",
+  "updated": "2026-10-25",
   "books": [
     {
       "id": "ai-basics",
@@ -2514,7 +2514,7 @@
       "id": "how-starlink-works",
       "title": "How Starlink Works",
       "topic": "Frontier Tech",
-      "blurb": "Follow Ila, on a farm 40 km from town, as her data leaves a dish on the roof, hops to a moving satellite, lands at a ground station and joins the internet. Then see how her phone reaches space, how Starlink differs from its rivals, who pays, and where it is heading.",
+      "blurb": "Follow Ila, on a farm 40 km from town, as her data leaves a dish on the roof, hops to a moving satellite, lands at a ground station and joins the internet. Then see how her phone reaches space, how Starlink differs from its rivals, who pays, where it is heading and what could stop it.",
       "gist": [
         "Starlink beams internet from thousands of satellites flying about 480 km up, so homes far from cables can get online with a small dish.",
         "Each satellite passes overhead in minutes; the dish hands off between them, and the data drops to ground stations wired to fiber.",
@@ -2529,203 +2529,168 @@
           "thumb": "assets/pulse/how-starlink-works/p01-t.webp",
           "title": "Ila's internet from space",
           "w": 1600,
-          "h": 3546,
-          "kw": "ila ila's internet space cell tower problem made lives farm town cable reaches nearest back phone signal home weak fine calls slow video family get online sky starlink service rocket company spacex fiber dish satellite ground station nearby companies like us vodafone uk europe airtel india work way talks carries data reach first hop differs card sources technology page safety press release",
-          "takeaway": "Ila's farm is too far for cable, and her phone signal there is weak, so her dish talks to a satellite about 480 km up; the data then goes down to a ground station and onto the same internet everyone uses."
+          "h": 3118,
+          "kw": "ila ila's internet space cell tower problem made lives farm town cable reaches far video family gets online sky starlink service rocket company spacex phone fiber dish satellite ground station nearby next low many card sources technology page safety facts oct",
+          "takeaway": "Ila's farm is too far for cable, so her dish talks to a satellite about 480 km up; the data goes down to a ground station and onto the same internet everyone uses."
         },
         {
           "file": "assets/pulse/how-starlink-works/p02.webp",
           "thumb": "assets/pulse/how-starlink-works/p02-t.webp",
           "title": "How low? How many?",
           "w": 1600,
-          "h": 2790,
-          "kw": "key words low many know follow ila's data orbit means anything below starlink flies 75x closer internet satellites height drawn scale tv-style ground higher lag high delay page reacts shorter trip thousandths second constellation thousands one always overhead others pass dish flat antenna size large pizza box steers beam electronically motors card sources technology specifications space safety apnic labs arithmetic ila made",
-          "takeaway": "Low orbit means short trips and little lag: Starlink flies about 480 km up, about 75x closer than TV-style satellites, so lag is about 25 ms instead of 600+ ms."
+          "h": 2632,
+          "kw": "key words low many satellite feels fast orbit starlink flies 75x closer satellites height drawn scale tv-style ground higher lag high delay page reacts shorter trip milliseconds thousandths second constellation thousands one always overhead dish flat antenna size large pizza box steers beam electronically motors next radio lanes data rides card sources technology specifications space safety apnic labs internet-address registry's research team arithmetic ila made",
+          "takeaway": "Starlink flies about 480 km up, about 75x closer than TV-style satellites, so lag is about 25 ms (thousandths of a second) instead of 600+ ms."
         },
         {
           "file": "assets/pulse/how-starlink-works/p03.webp",
           "thumb": "assets/pulse/how-starlink-works/p03-t.webp",
           "title": "Radio lanes",
           "w": 1600,
-          "h": 3208,
-          "kw": "key words radio lanes know spectrum bandwidth full range frequencies like every station dial cut lane hands governments license us fcc federal communications commission uk ofcom india telecom department licensed one company transmit place wi-fi uses free shared much get going 1-lane road 6-lane highway data moves ila's dish made far higher wide enough lots phone companies cell card sources dot licensing starlink licence band specifications simplified ila",
-          "takeaway": "Spectrum is the radio dial cut into licensed lanes; bandwidth is how much of the dial you get."
+          "h": 2498,
+          "kw": "key words radio lanes spectrum bandwidth full range frequencies like every station dial cut governments license one company lane place much get 6-lane highway instead 1-lane road ila's dish made wide far phone companies cell next catching satellite never stops card sources us federal communications commission fcc uk ofcom licensing pages starlink licence specifications simplified ila",
+          "takeaway": "Spectrum is the radio dial cut into licensed lanes; bandwidth is how much of the dial you get, like a 6-lane highway vs a 1-lane road."
         },
         {
           "file": "assets/pulse/how-starlink-works/p04.webp",
           "thumb": "assets/pulse/how-starlink-works/p04-t.webp",
           "title": "Catching a moving satellite",
           "w": 1600,
-          "h": 3386,
-          "kw": "ila's dish catching moving satellite never sits still next now leaving switches one satellites move left right shown post clarity hands off parked laps earth every minutes cross india guess first long sky answer upside handoff slips away beam open trees roof edge block causing short dropouts needs clear view card sources apnic labs pass times starlink space safety height support obstructions orbit time speed crossing arithmetic ila made",
-          "takeaway": "Each satellite crosses Ila's sky in a few minutes, so her dish keeps handing off to the next one; trees or roofs that block the sky cause dropouts."
+          "h": 3264,
+          "kw": "ila's dish catching moving satellite never sits still next now leaving switches one satellites move left right shown post clarity hands off parked laps earth every minutes guess first long sky answer upside handoff beam old slips away open trees roof edge block needs clear view data lands card sources apnic labs pass times starlink space safety height support obstructions orbit time arithmetic ila made",
+          "takeaway": "Each satellite laps Earth about every 94 minutes and crosses Ila's sky in a few minutes, so her dish keeps handing off; trees or roofs can block the beam."
         },
         {
           "file": "assets/pulse/how-starlink-works/p05.webp",
           "thumb": "assets/pulse/how-starlink-works/p05-t.webp",
           "title": "Down to the ground",
           "w": 1600,
-          "h": 3188,
-          "kw": "ila's data ground goes satellite dish station far stations laser hops fiber internet drops straight lasers fill gaps time doesn't keep passes like relay runner beams called gateway fenced yard antennas wired oceans remote land satellites pass until one reach video call made friend's screen card sources starlink improving starlink's latency path technology page ila",
-          "takeaway": "Ila's satellite doesn't keep her data: it passes it straight down to a ground station wired to fiber; lasers between satellites only fill gaps far from any station."
+          "h": 2688,
+          "kw": "ila's data ground goes satellite dish station far stations laser hops fiber internet drops straight lasers fill gaps time passes like relay runner fenced yard antennas wired oceans satellites pass until one reach next card sources starlink improving starlink's latency path technology page ila made",
+          "takeaway": "Satellites relay Ila's data straight down to ground stations wired to fiber; over oceans they pass it to each other by laser."
         },
         {
           "file": "assets/pulse/how-starlink-works/p06.webp",
           "thumb": "assets/pulse/how-starlink-works/p06-t.webp",
           "title": "A phone that talks to space",
           "w": 1600,
-          "h": 3112,
-          "kw": "ila's phone talks space ordinary dish big antenna tower range ila hike far beyond last cell direct hikes hills gets signal texts satellite acts weak reaches can't shout louder listens harder catches faint flies lower home-internet satellites today card sources starlink page safety made",
-          "takeaway": "An ordinary phone can text through a satellite that acts as a cell tower in space; the satellite has a big antenna and flies about 360 km up, lower than most home-internet satellites today."
+          "h": 3242,
+          "kw": "ila's phone talks space ordinary dish big antenna tower range ila hike far beyond last cell direct hikes texts satellite acts can't shout louder listens harder whose lanes starlink borrows partner carriers t-mobile's us spacex buying works today photos apps yet video browsing next else beams internet sky card sources page t-mobile t-satellite echostar company filing made",
+          "takeaway": "Ordinary phones can text via satellites with very big antennas, using partner carriers' lanes (T-Mobile in the US); video and browsing are not there yet."
         },
         {
           "file": "assets/pulse/how-starlink-works/p07.webp",
           "thumb": "assets/pulse/how-starlink-works/p07-t.webp",
-          "title": "Whose lanes?",
+          "title": "How it's different",
           "w": 1600,
           "h": 2400,
-          "kw": "ila's phone whose lanes lends radio ila today cell carrier company like t-mobile vodafone team starlink others back rival see card now borrows partner carriers t-mobile's us that's needs spacex buying echostar satellite works texts photos location apps whatsapp google maps slowly yet video browsing best open sky sources t-satellite page 8-k releases made",
-          "takeaway": "For now Starlink borrows a partner carrier's cell lanes (T-Mobile's in the US) and is buying its own from EchoStar; texts, photos, location and a few apps work today, video and browsing don't yet."
+          "kw": "rivals it's different four ways get online oct ground fiber cable cell towers fastest reach often farms high satellites hughesnet viasat lag lost home customers year low orbit amazon leo says plans start service phones space ast spacemobile backed verizon targets first end real rival yet read starlink low-orbit internet families order today next pays card sources hughes court filing aug update releases ila made",
+          "takeaway": "Ground networks are fastest where they reach, high satellites lag 600+ ms (HughesNet lost about 1 in 5 home customers), Amazon Leo and AST SpaceMobile start in 2026; Starlink is the only low-orbit home internet most families can order today (our read)."
         },
         {
           "file": "assets/pulse/how-starlink-works/p08.webp",
           "thumb": "assets/pulse/how-starlink-works/p08-t.webp",
-          "title": "How it's different",
+          "title": "Who pays for Ila's internet?",
           "w": 1600,
-          "h": 2400,
-          "kw": "rivals it's different part others beam internet sky twist starlink stands flies low has thousands satellites already serves homes phones ground fiber cable cell towers vodafone airtel fastest wires reach often stop short farms like ila's high viasat hughesnet cover huge areas lag lost home customers year says low-orbit card sources hughes court filing del genio declaration aug carrier sites ila made",
-          "takeaway": "Others beam internet from the sky too: ground networks stop short of farms, and high satellites lag; HughesNet lost about 1 in 5 home customers in a year and blames low-orbit rivals."
+          "h": 2954,
+          "kw": "pays ila's internet follow money oct ila dad check bill family home starlink rockets new satellites dish fee read cash helps phone company plan amount private lends cell lanes monthly month average july september big picture brought billion three months third spacex's sales next spacex says heading card sources third-quarter earnings release filed us securities exchange commission stock-listing filing s-1 figured carrier fees made",
+          "takeaway": "Starlink averaged about $69 a month per regular customer (July to September 2026) and brought in $5.2 billion in those three months, about a third of SpaceX's sales."
         },
         {
           "file": "assets/pulse/how-starlink-works/p09.webp",
           "thumb": "assets/pulse/how-starlink-works/p09-t.webp",
-          "title": "How it's different",
+          "title": "More lanes in the sky",
           "w": 1600,
-          "h": 2534,
-          "kw": "rivals it's different part low orbit phones dates cards oct label covers every figure eutelsat oneweb sells mostly businesses governments amazon leo has launched satellites says plans start service space ast spacemobile dozen big phone far backed verizon vodafone first patchy targeted end real rival yet read today starlink low-orbit internet families like ila's order home phone-from-space running hundreds iphones android already text satellite through globalstar skylo texts sos card sources annual report update releases apple spacex call ila made",
-          "takeaway": "Other low-orbit networks are smaller or just starting; today Starlink is the only low-orbit service most homes can order, and the biggest phone-from-space network (our read)."
+          "h": 2470,
+          "kw": "spacex lanes sky says heading today goal satellite bandwidth 10x satellites 100x bar math arithmetic elon musk probably within three years promise using starship spacex's giant new rocket further wants ai artificial intelligence computers orbit powered sunlight built yet next stop card sources third-quarter earnings call musk's forecast update orbital data centers feb ila made",
+          "takeaway": "SpaceX's goal is about 100x more capacity (10x satellites x 10x bandwidth each), 'probably within three years' per Musk; AI (artificial intelligence) computers in orbit are an idea, not built."
         },
         {
           "file": "assets/pulse/how-starlink-works/p10.webp",
           "thumb": "assets/pulse/how-starlink-works/p10-t.webp",
-          "title": "Who pays for Ila's internet?",
-          "w": 1600,
-          "h": 2752,
-          "kw": "pays ila's internet follow money family ila dad check bill home starlink rockets new satellites dish fee read cash helps phone company plan amount private lends cell lanes monthly across countries averages month regular customer homes businesses ready-made plans july september real price depends country card sources spacex earnings release sec s-1 average figured made",
-          "takeaway": "Ila's family pays for the dish once, then a monthly fee; across all countries Starlink averages about $69 a month per regular customer (July to September 2026)."
-        },
-        {
-          "file": "assets/pulse/how-starlink-works/p11.webp",
-          "thumb": "assets/pulse/how-starlink-works/p11-t.webp",
-          "title": "Phone bill, big picture",
-          "w": 1600,
-          "h": 2400,
-          "kw": "pays phone bill big picture else money goes satellite texting comes ila's plan t-mobile included top month company starlink fee amount private lends cell lanes airlines ships governments pay much bigger bills altogether brought billion three months july september third spacex's sales read cash helps rockets new satellites card sources spacex earnings release sec call s-1 carrier fees t-satellite page ila family made",
-          "takeaway": "Her phone company pays Starlink a fee (amount private) and lends it lanes; Starlink brought in $5.2 billion in three months, and that cash helps pay for rockets and satellites (our read)."
-        },
-        {
-          "file": "assets/pulse/how-starlink-works/p12.webp",
-          "thumb": "assets/pulse/how-starlink-works/p12-t.webp",
-          "title": "More lanes in the sky",
-          "w": 1600,
-          "h": 3330,
-          "kw": "spacex lanes sky says heading today goal satellite bandwidth 10x satellites 100x bar math total arithmetic boss elon musk's forecast probably within three years promise starship spacex's giant new rocket built carry bigger faster phones next us regulators cleared phone none launched yet start flying aims service early ila notice read speeds evening everyone nearby online data hikes texts card sources earnings call shotwell plans fcc order made",
-          "takeaway": "About 10x more satellites with about 10x more bandwidth each would mean about 100x more capacity (our arithmetic), a goal, not a promise; new phone satellites start flying in 2027."
-        },
-        {
-          "file": "assets/pulse/how-starlink-works/p13.webp",
-          "thumb": "assets/pulse/how-starlink-works/p13-t.webp",
-          "title": "Data centers in orbit?",
-          "w": 1600,
-          "h": 2400,
-          "kw": "spacex data centers orbit idea working center building full computers wants put ai space powered sunlight built yet big ifs read heat hard get rid repairs launches cost lot ila nothing notice isn't card sources update orbital feb made",
-          "takeaway": "SpaceX also wants AI data centers in orbit, powered by sunlight; heat, repairs and launch costs are big ifs (our read), and nothing is built yet."
-        },
-        {
-          "file": "assets/pulse/how-starlink-works/p14.webp",
-          "thumb": "assets/pulse/how-starlink-works/p14-t.webp",
           "title": "What could stop it?",
           "w": 1600,
-          "h": 3036,
-          "kw": "world stop limits countries weather space itself heavy rain slow ila's dish while set rules namibia said requires local ownership among reasons india data kept crowded sky thousands satellites need careful traffic control starlink moving fleet lower partly dead drop back burn air within months years bottom line moves tower ground first homes next ordinary phones read subscribers monthly fees help pay rockets make bigger card sources reuters cran namibia's regulator licence decision hindu permit support michael nicolls jan lowering decay times ila made",
-          "takeaway": "Country rules, heavy rain and a crowded sky limit Starlink. Bottom line: the tower moves from the ground to the sky."
+          "h": 2544,
+          "kw": "world stop limits ila's verdict heavy rain slow dish while countries set rules namibia said india data kept crowded sky starlink moving fleet lower partly dead satellites burn months years bottom line moves tower ground homes first phones next farm read video calls home today faster evenings phone hikes still goals card sources reuters cran namibia's regulator licence decision hindu permit support weather michael nicolls jan lowering spacex third-quarter earnings call ila made",
+          "takeaway": "Countries, rain and a crowded sky limit Starlink; it moves the tower to the sky, homes first and phones next. For Ila's farm: video calls today, faster evenings and phone data still goals."
         }
       ],
       "recap": [
         "Dish, moving satellite, ground station, internet: one first hop from the sky.",
         "Spectrum is the radio dial, bandwidth is how much of it you get, and phones reach space because the satellite listens harder.",
         "Starlink is low, large and already serving homes and phones; most low-orbit rivals are just starting. Fees from homes and phone companies pay for it.",
-        "Next: more lanes in the sky (and maybe data centers in orbit), limited by country rules, weather and a crowded sky."
+        "Next: about 100x more capacity is the goal, limited by country rules, weather and a crowded sky."
       ],
-      "recap_pages": 14,
+      "recap_pages": 10,
       "sources": [
         {
-          "title": "SpaceX Q3 2026 earnings release, 8-K Exhibit 99.1",
+          "title": "SpaceX – Third-quarter 2026 earnings release, filed with the US Securities and Exchange Commission",
           "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026066482/spaceexplorationtechnologi.htm"
         },
         {
-          "title": "SpaceX S-1",
+          "title": "SpaceX – Stock-listing filing, how the average monthly bill is figured",
           "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm"
         },
         {
-          "title": "FCC order DA 26-1078, 15,000 phone satellites",
-          "url": "https://docs.fcc.gov/public/attachments/DA-26-1078A1.pdf"
-        },
-        {
-          "title": "Amazon Leo mission updates",
-          "url": "https://www.aboutamazon.com/news/innovation-at-amazon/project-kuiper-satellite-rocket-launch-progress-updates"
-        },
-        {
-          "title": "AST SpaceMobile release",
-          "url": "https://www.businesswire.com/news/home/20261020527793/en/AST-SpaceMobile-Advances-Service-Readiness-Ahead-of-Initial-Space-Based-Cellular-Broadband-Coverage-in-Key-Global-Markets"
-        },
-        {
-          "title": "Hughes court filing, Del Genio declaration",
-          "url": "https://document.epiq11.com/document/getdocumentbycode?docId=4597286&projectCode=HSQ"
-        },
-        {
-          "title": "Starlink technology page",
-          "url": "https://www.starlink.com/technology"
-        },
-        {
-          "title": "Starlink Space Safety, constellation altitudes",
-          "url": "https://space-safety.starlink.com/docs/space-safety-articles/constellation_altitudes/"
-        },
-        {
-          "title": "Starlink Direct to Cell page",
-          "url": "https://starlink.com/us/business/direct-to-cell"
-        },
-        {
-          "title": "T-Mobile T-Satellite page",
-          "url": "https://www.t-mobile.com/coverage/satellite-phone-service"
-        },
-        {
-          "title": "EchoStar 8-K",
-          "url": "https://www.sec.gov/Archives/edgar/data/1533758/000141540426000013/sats-20260522x8k.htm"
-        },
-        {
-          "title": "SpaceX Q3 2026 call transcript",
+          "title": "SpaceX – Third-quarter 2026 earnings call transcript",
           "url": "https://www.fool.com/earnings/call-transcripts/2026/10/20/spacex-spcx-q3-2026-earnings-call-transcript/"
         },
         {
-          "title": "Michael Nicolls on X",
+          "title": "SpaceX – Update with the Orbital Data Centers section",
+          "url": "https://www.spacex.com/updates"
+        },
+        {
+          "title": "Amazon – Amazon Leo mission updates",
+          "url": "https://www.aboutamazon.com/news/innovation-at-amazon/project-kuiper-satellite-rocket-launch-progress-updates"
+        },
+        {
+          "title": "AST SpaceMobile – Service readiness release",
+          "url": "https://www.businesswire.com/news/home/20261020527793/en/AST-SpaceMobile-Advances-Service-Readiness-Ahead-of-Initial-Space-Based-Cellular-Broadband-Coverage-in-Key-Global-Markets"
+        },
+        {
+          "title": "Hughes – Court filing, Del Genio declaration",
+          "url": "https://document.epiq11.com/document/getdocumentbycode?docId=4597286&projectCode=HSQ"
+        },
+        {
+          "title": "Starlink – Technology page",
+          "url": "https://www.starlink.com/technology"
+        },
+        {
+          "title": "Starlink – Space Safety, constellation altitudes",
+          "url": "https://space-safety.starlink.com/docs/space-safety-articles/constellation_altitudes/"
+        },
+        {
+          "title": "Starlink – Direct to Cell page",
+          "url": "https://starlink.com/us/business/direct-to-cell"
+        },
+        {
+          "title": "T-Mobile – T-Satellite page",
+          "url": "https://www.t-mobile.com/coverage/satellite-phone-service"
+        },
+        {
+          "title": "EchoStar – Company filing on its spectrum sale",
+          "url": "https://www.sec.gov/Archives/edgar/data/1533758/000141540426000013/sats-20260522x8k.htm"
+        },
+        {
+          "title": "Michael Nicolls on X – Moving the fleet lower",
           "url": "https://x.com/michaelnicollsx/status/2006790372681220530"
         },
         {
-          "title": "CRAN decision on Starlink, Namibia Gazette No. 8872",
+          "title": "CRAN – Decision on Starlink, Namibia Gazette No. 8872",
           "url": "https://www.lac.org.na/laws/2026/8872.pdf"
         }
-      ]
+      ],
+      "updated": "2026-10-25"
     },
     {
       "id": "spacex-rockets",
       "title": "How SpaceX Rockets Work",
       "topic": "Frontier Tech",
-      "blurb": "Nia follows the money and the hardware for her science-fair poster: why a $74 million rocket is mostly hardware, how landing and tower catches make reuse pay, what Starship is, why a Moon trip needs 6 to 22 launches to refill in orbit, and how NASA's 2026 plan changes reshape the 2028 landing.",
+      "blurb": "Nia follows the money and the hardware for her science-fair poster: why a $74 million rocket is mostly hardware, how landing and tower catches make reuse pay, how SpaceX compares with the world's big rockets, why a Moon trip needs 6 to 22 launches to refill in orbit, and how the 2028 landing would work.",
       "gist": [
-        "A Falcon 9 launch lists at $74 million, and about 90% of the cost is hardware. Propellant is under 1%.",
-        "Reuse means only the upper stage is lost. One booster has flown 37 times; Super Heavy is caught by its tower.",
-        "Starship needs 6 to 22 launches to refill in orbit for the Moon. NASA made Artemis III a 2027 docking test (Feb 2026) with the first landing on Artemis IV in early 2028, and changed the lander route on Oct 23."
+        "A Falcon 9 launch lists at $74 million; propellant (fuel plus oxygen) is under 1% and the raw materials about 2%, so the cost is mostly hardware.",
+        "Reuse means only the upper stage is lost. One booster has flown 37 times; Starship's Super Heavy booster is caught by its tower.",
+        "Starship needs 6 to 22 launches to refill in orbit for the Moon; NASA plans a 2027 docking test and a first landing in early 2028."
       ],
       "added": "2026-10-24",
       "added_at": "2026-10-24T10:41",
@@ -2736,141 +2701,116 @@
           "thumb": "assets/pulse/spacex-rockets/p01-t.webp",
           "title": "Why does SpaceX land its rockets?",
           "w": 1600,
-          "h": 3166,
-          "kw": "hook spacex land rockets nia's science-fair question project nia making poster work follows money hardware plan made us rocket company flies falcon test-flying starship giant new big number flew times world's orbital combined cost reuse landing refilling orbit rivals moon mars used spacex's come back matter much source pages space.com launch count facts oct card"
+          "h": 2974,
+          "kw": "hook spacex land rockets nia's science-fair question project nia making poster work made big number falcon flew times world's orbital combined plan cost reuse landing starship rivals refilling moon mars used spacex's come back matter much next source pages space.com launch count facts oct card",
+          "takeaway": "Falcon 9 flew 165 times in 2025, more than all the world's other orbital rockets combined; Nia's poster goes cost, reuse, landing, Starship, rivals, refilling, Moon, Mars."
         },
         {
           "file": "assets/pulse/spacex-rockets/p02.webp",
           "thumb": "assets/pulse/spacex-rockets/p02-t.webp",
-          "title": "Words to know",
+          "title": "Why rockets cost so much",
           "w": 1600,
-          "h": 2756,
-          "kw": "key words know every rocket book has basic parts upper stage booster engines section tanks empty stages drop off bottom gives first big push separates top carries payload rest way satellites cargo crew capsule propellant fuel plus oxygen burn falcon kerosene liquid starship methane orbit circling earth fast keep falling around leo low below mass put tonnes super heavy spacex's giant whole stack called source spacex pages esa art generic two-stage card"
+          "h": 2352,
+          "kw": "problem rockets cost much start raw materials price tag million falcon launch propellant fuel plus oxygen musk's test priced metals carbon fiber inside share answer flip phone building rocket thrown away wow next flew source spacex capabilities services musk cnbc transcript elon interview wired's chris anderson arithmetic card",
+          "takeaway": "A Falcon 9 launch lists at $74 million and propellant (fuel plus oxygen) is under 1% of that; Musk found the raw materials were about 2% of a rocket's price."
         },
         {
           "file": "assets/pulse/spacex-rockets/p03.webp",
           "thumb": "assets/pulse/spacex-rockets/p03-t.webp",
-          "title": "What a Falcon 9 launch costs",
+          "title": "Thrown away vs flown again",
           "w": 1600,
-          "h": 2112,
-          "kw": "cost falcon launch costs money goes musk's breakdown list price million spacex standard plan through payload leo booster thrown away lands upper stage nose cone fairing share 9's elon musk spacex's founder propellant cheap said much hardware rocket itself rockets throw source capabilities services page cnbc transcript inverse spaceflight now arithmetic card",
-          "takeaway": "A $74 million Falcon 9 launch is about 90% hardware (booster ~60%, upper stage ~20%, fairing ~10%, per Musk in 2018); propellant is under 1% of the price."
+          "h": 2758,
+          "kw": "big idea thrown away flown reuse changes rocket nasa us space agency musk's plane line imagine had have new every flight people fly like nasa's launch system reused falcon lost whole upper top stage flights booster record aug fastest turnaround build one days nia made trips that's lot tally marks next bottom gets home source musk wired space.com b1067's 37th spaceflight now 9-day mar card",
+          "takeaway": "Reuse means only the upper (top) stage is lost; one Falcon 9 booster has flown 37 times and the fastest turnaround was 9 days (2025)."
         },
         {
           "file": "assets/pulse/spacex-rockets/p04.webp",
           "thumb": "assets/pulse/spacex-rockets/p04-t.webp",
-          "title": "Why rockets cost so much",
+          "title": "How a Falcon 9 booster lands",
           "w": 1600,
-          "h": 2656,
-          "kw": "problem rockets cost much start raw materials nia's model kit made what's inside card wood glue first principles reason basic facts others charge musk priced rocket's aerospace aluminum titanium copper carbon fiber share price answer flip phone far cheaper wow rest goes playing safe parts designed 1960s layers suppliers adding profit source elon interview wired's chris anderson prices"
+          "h": 2330,
+          "kw": "works falcon booster lands four steps one matters separate drops upper stage keeping propellant trip home flip arc burns back land arcs drone ship robot barge entry burn engines relight slow waffle-shaped grid fins steer landing legs swing must hit zero speed right ground next starship's skips source spacex page space explored return launch site zlsa design profile card",
+          "takeaway": "A Falcon 9 booster separates, flips back or arcs to a drone ship (robot barge), relights to slow down, steers with grid fins and lands on legs."
         },
         {
           "file": "assets/pulse/spacex-rockets/p05.webp",
           "thumb": "assets/pulse/spacex-rockets/p05-t.webp",
-          "title": "Thrown away vs flown again",
+          "title": "Starship: caught by the tower",
           "w": 1600,
-          "h": 2931,
-          "kw": "big idea thrown away flown reuse changes numbers musk's plane line imagine had have new every flight people fly nia tapes poster like nasa's sls space launch system reused falcon lost whole rocket upper stage cost flights booster record aug fastest turnaround build one days between launches spacex doesn't publish musk said reusing part push launch's toward million made trips that's lot tally marks source wired cnbc transcript space.com b1067's 37th spaceflight now 9-day mar card",
-          "takeaway": "Reuse means only the upper stage is lost each launch: one Falcon 9 booster has flown 37 times, and the fastest turnaround between launches is 9 days."
+          "h": 2694,
+          "kw": "works starship caught tower biggest rocket ever built has legs fly back super heavy booster burns catch two giant arms nicknamed chopsticks close hold stack upper stage falcon tonnes orbit fully reusable spacex's goal status still test-flying catching next stacks against rivals source spacex page third-quarter call ars technica nasaspaceflight art scale card",
+          "takeaway": "Starship's Super Heavy booster has no legs: the launch tower's 'chopsticks' arms catch it; the full stack is 124 m tall vs 70 m for Falcon 9, with a goal of 100+ tonnes to orbit, fully reusable."
         },
         {
           "file": "assets/pulse/spacex-rockets/p06.webp",
           "thumb": "assets/pulse/spacex-rockets/p06-t.webp",
-          "title": "How a Falcon 9 booster lands",
+          "title": "SpaceX vs the world's big rockets",
           "w": 1600,
-          "h": 2539,
-          "kw": "works falcon booster lands four steps one matters separate shuts drops upper stage keeps propellant back trip home flip boost land burns launch site sea usually arcs drone ship robot barge payload entry burn engines relight slow grid fins waffle-shaped steer speed means heating landing last typically legs swing seconds touchdown must reach zero right ground source spacex page space explored rtls zlsa design profile heights typical fixed card"
+          "h": 2258,
+          "kw": "rivals spacex world's big rockets tonnes lifted low earth orbit high rocket maker lifts gets reused sls space launch system nasa us nothing ariane europe yet new glenn blue origin booster flew long march 10b china net catch jul falcon starship goal flights fine print thrown away cost one million billion nasa's watchdog said next twist refilling source reference guide european agency aerospace science technology corporation reuters office inspector general report ig-22-003 card",
+          "takeaway": "Lift to low Earth orbit: NASA's SLS (Space Launch System) 95 tonnes, reuses nothing; New Glenn 45; Falcon 9 22.8 (booster thrown away), and its boosters fly up to 37 times; one SLS launch costs about $4.1 billion vs $74 million for Falcon 9."
         },
         {
           "file": "assets/pulse/spacex-rockets/p07.webp",
           "thumb": "assets/pulse/spacex-rockets/p07-t.webp",
-          "title": "Super Heavy: caught by the tower",
+          "title": "Refilling in orbit",
           "w": 1600,
-          "h": 3425,
-          "kw": "works super heavy caught tower legs launch catches fly back turns burns landing pad skips slow ship ride home hover engines beside arms need nearly still target catch two giant nicknamed chopsticks close hold build carry reuse already spacex aims refly quickly refurbishment falcon booster gear none ends moved status routine next starship upper stage source page call ars technica nasaspaceflight card"
+          "h": 2622,
+          "kw": "twist refilling orbit moon trip starts gas station space tanker depot fill it's needed reaching burns starship's propellant land needs full tanks starship waits tankers starships launch one another transfer moves super-cold across nasa similar earth lander fuels moon-lander hard part never done scale first ship-to-ship test early next many source update oct spacex page ars technica card",
+          "takeaway": "To land on the Moon, Starship must refill in orbit: tanker Starships fill a depot, which fuels the lander; the first ship-to-ship test is due in early 2027."
         },
         {
           "file": "assets/pulse/spacex-rockets/p08.webp",
           "thumb": "assets/pulse/spacex-rockets/p08-t.webp",
-          "title": "Starship by the numbers",
+          "title": "6 to 8 fill-ups, or about 22?",
           "w": 1600,
-          "h": 2748,
-          "kw": "meet starship numbers powerful rocket ever built next falcon full stack whole tall wide payload orbit fully reusable spacex's design goal booster thrown away thrust super heavy tonnes force liftoff upper stage height engines raptors space propellant comes back tower catch planned raptor engine burns methane liquid oxygen has twice status still test flights book catches done ship source spacex page art exactly scale card"
+          "h": 2218,
+          "kw": "big question fill-ups starship launches needed fuel one moon landing musk oct charlie precourt nasa safety panel musk's reply that's way high actual number like differ tanker loads boil-off propellant warming escaping new route nasa's plan needs guesses came nobody knows yet depends first transfer tests read nia made i'm drawing wide arrow next work source x.com elonmusk status ars technica lander update card",
+          "takeaway": "How many tanker launches for one Moon landing? Musk says 6 to 8; a NASA safety panel member says about 22; nobody knows until transfer tests fly."
         },
         {
           "file": "assets/pulse/spacex-rockets/p09.webp",
           "thumb": "assets/pulse/spacex-rockets/p09-t.webp",
-          "title": "Refilling in orbit",
+          "title": "How a 2028 landing would work",
           "w": 1600,
-          "h": 2840,
-          "kw": "twist refilling orbit moon trip starts gas station space tanker depot fill it's needed climbing leo burns starship's propellant land needs full tanks refills first starship launches waits tankers starships without windows launch one another transfer meets moves super-cold across nasa similar earth lander fuels hls human landing system moon-lander version hard parts cryogenic slowly boils off moving between ships scale has never done ship-to-ship test early source update oct spacex page oig ig-26-004 ars technica card"
+          "h": 2771,
+          "kw": "mission landing work nasa's new route spacex's lander moon orion fill tankers depot earth orbit meet four astronauts capsule dock pushes itself low around land two days fly home changed meeting near far needs significantly propellant nasa says docking test first early artemis program next mars source update oct updates feb mar ars technica card",
+          "takeaway": "In NASA's new route the lander fills up and meets Orion in Earth orbit, then pushes both to low orbit around the Moon; a docking test is due in 2027 and the first landing in early 2028."
         },
         {
           "file": "assets/pulse/spacex-rockets/p10.webp",
           "thumb": "assets/pulse/spacex-rockets/p10-t.webp",
-          "title": "6 to 8 fill-ups, or about 22?",
+          "title": "Moon first, then Mars",
           "w": 1600,
-          "h": 3196,
-          "kw": "big question fill-ups starship launches needed fuel one moon landing musk oct nasa's watchdog inspector general mar spaceflight now news site charlie precourt nasa safety panel ex-astronaut musk's reply that's way high actual number like estimates differ load much propellant tanker carries bigger means fewer trips boil-off warms escapes while depot waits transfer lost moving ship route new plan needs four came time takes even two week months fill ars technica nobody knows yet depends first tests read nia made i'm drawing wide arrow source x.com elonmusk status oig ig-26-004 lander update card",
-          "takeaway": "Estimates for a Moon landing range from 6 to 8 Starship launches (Musk) to about 22 (NASA safety panel), depending on tanker load, boil-off and transfer losses, and all predate NASA's Oct 23 route change."
+          "h": 2220,
+          "kw": "it's heading moon first mars takes much longer trip time days months next chance every musk planets line price list spacex offers starship cargo earliest million tonne trips short frequent problems get fixed faster read nia tells class source nasa long take jupiter feb pages card",
+          "takeaway": "The Moon is about 3 days away with a chance to go about every 10 days; Mars takes 6 to 10 months with a window every 26 months; SpaceX lists cargo at $100 million per tonne."
         },
         {
           "file": "assets/pulse/spacex-rockets/p11.webp",
           "thumb": "assets/pulse/spacex-rockets/p11-t.webp",
-          "title": "SpaceX vs the world's big rockets",
-          "w": 1600,
-          "h": 2947,
-          "kw": "rivals spacex world's big rockets payload leo comes back plain numbers rocket maker gets reused sls nasa us nothing ariane europe yet reusable test coming vulcan ula plans save engines new glenn blue origin booster landed ship flew long march 10b china caught net jul falcon fairing flights starship goal built reuse fine print biggest versions shown 9's thrown away 10b's cost one launch lists million nasa's watchdog put orion capsule billion estimate lifts times still tonne startup landspace legs aug government's catch lab building source reference guide esa casc reuters oig ig-22-003 xinhua per-tonne comparison arithmetic card"
-        },
-        {
-          "file": "assets/pulse/spacex-rockets/p12.webp",
-          "thumb": "assets/pulse/spacex-rockets/p12-t.webp",
-          "title": "NASA changed the route",
-          "w": 1600,
-          "h": 2899,
-          "kw": "moon plan nasa changed route nasa's artemis program old far stretched orbit new low orion meets spacex's lander around near-rectilinear halo earth pushes lunar propellant starship needs significantly says iii first landing docking test announced early versions landers two hls blue origin's origin skips refilling using three transfer stages polar picks whichever ready source feb mar updates update oct ars technica drawing schematic scale card",
-          "takeaway": "In 2026 NASA made Artemis III a 2027 docking test in Earth orbit (announced Feb 27) with the first landing on Artemis IV in early 2028, and on Oct 23 moved SpaceX's lander-Orion meeting to Earth orbit with a push to low lunar orbit."
-        },
-        {
-          "file": "assets/pulse/spacex-rockets/p13.webp",
-          "thumb": "assets/pulse/spacex-rockets/p13-t.webp",
-          "title": "How a 2028 landing would work",
-          "w": 1600,
-          "h": 2620,
-          "kw": "mission landing work spacex's lander starship hls orion fill tankers depot leo tops waits earth orbit meet four astronauts launch sls nasa's crew capsule dock moon fires engines pushes itself low lunar land two several days wait fly home it's quicker means shorter trip back surface nasa says source update oct ars technica docking card"
-        },
-        {
-          "file": "assets/pulse/spacex-rockets/p14.webp",
-          "thumb": "assets/pulse/spacex-rockets/p14-t.webp",
-          "title": "Moon first, then Mars",
-          "w": 1600,
-          "h": 2563,
-          "kw": "it's heading moon first mars takes much longer trip time days months musk nasa next chance every planets line make propellant starship's methane oxygen made spacex's plan feb self-growing city price list spacex offers starship cargo earliest million tonne trips short frequent problems get fixed faster read source long take jupiter pages card"
-        },
-        {
-          "file": "assets/pulse/spacex-rockets/p15.webp",
-          "thumb": "assets/pulse/spacex-rockets/p15-t.webp",
           "title": "What Nia tells her class",
           "w": 1600,
-          "h": 2954,
-          "kw": "ending nia tells class poster three numbers problem rocket's cost hardware rockets thrown away one flight fix land refly booster has flown times twist refill orbit launches estimated watch tests work moon trips get far cheaper read meanwhile spacex's landing waits blue origin's first lander doesn't need refills next artemis iii docking test landings planned made done cardboard rocket still reusable source recap book nasa update feb oct card"
+          "h": 2594,
+          "kw": "ending nia tells class poster three numbers problem rockets cost million mostly hardware thrown away fix land refly one booster has flown times twist refill orbit launches estimated watch tests work moon trips get far cheaper spacex's landing waits read next docking test landings planned made done cardboard rocket still reusable source recap book nasa artemis update feb lander oct card",
+          "takeaway": "Nia's poster: rockets cost $74 million and up, mostly hardware; one booster has flown 37 times; refilling needs 6 to 22 launches; landings are planned for 2028."
         }
       ],
       "recap": [
-        "Problem: about 90% of a rocket's cost is hardware, and most rockets are thrown away after one flight.",
-        "Fix: land and refly; one booster has flown 37 times.",
+        "Problem: a rocket's cost is mostly hardware, and most rockets are thrown away after one flight.",
+        "Fix: land and refly; one booster has flown 37 times, and Starship's booster is caught by its tower.",
         "Twist: refill in orbit; 6 to 22 launches estimated, all before NASA's Oct 23 route change.",
-        "Next: Artemis III docking test in 2027, first landing on Artemis IV in early 2028, then Mars every 26 months."
+        "Next: a 2027 docking test, a first landing in early 2028, then Mars every 26 months."
       ],
-      "recap_pages": 15,
+      "recap_pages": 11,
       "sources": [
-        {
-          "title": "Elon Musk on X – 6 to 8 refills",
-          "url": "https://x.com/elonmusk/status/2113377866478231647"
-        },
         {
           "title": "NASA – Moon lander update for 2028 missions",
           "url": "https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/"
+        },
+        {
+          "title": "Elon Musk on X – 6 to 8 refills",
+          "url": "https://x.com/elonmusk/status/2113377866478231647"
         },
         {
           "title": "NASA – Artemis III becomes a 2027 test mission",
@@ -2881,6 +2821,10 @@
           "url": "https://www.spacex.com/vehicles/starship/"
         },
         {
+          "title": "SpaceX – Capabilities and Services, launch price list",
+          "url": "https://new.spacex.com/media/Capabilities&Services.pdf"
+        },
+        {
           "title": "CNBC – Musk on Falcon 9 costs, May 2018 transcript",
           "url": "https://www.cnbc.com/2018/05/11/full-elon-musk-transcript-about-spacex-falcon-9-block-5.html"
         },
@@ -2889,7 +2833,7 @@
           "url": "https://www.wired.com/2012/10/ff-elon-musk-qa/"
         },
         {
-          "title": "Ars Technica – latest estimate, 22 Starship launches",
+          "title": "Ars Technica – Latest estimate, 22 Starship launches to support a Moon landing",
           "url": "https://arstechnica.com/space/2026/10/latest-estimate-for-starship-launches-required-to-support-a-moon-landing-22/"
         },
         {
@@ -2901,15 +2845,11 @@
           "url": "https://arstechnica.com/space/2026/10/spacex-will-attempt-to-reach-weekly-starship-launches-by-early-2027/"
         },
         {
-          "title": "NASA OIG – Human Landing System contracts report, IG-26-004",
-          "url": "https://oig.nasa.gov/wp-content/uploads/2026/03/final-report-ig-26-004-nasas-management-of-the-human-landing-system-contracts.pdf"
-        },
-        {
           "title": "Space.com – Falcon 9 booster's record 37th flight",
           "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starship-record-37th-booster-flight-100-falcon-9-launches"
         },
         {
-          "title": "NASA OIG – Artemis missions cost report, IG-22-003",
+          "title": "NASA Office of Inspector General – Artemis missions cost report IG-22-003",
           "url": "https://oig.nasa.gov/wp-content/uploads/2024/02/IG-22-003.pdf"
         },
         {
@@ -2920,17 +2860,18 @@
           "title": "NASA – How long does it take to get to the Moon and Mars?",
           "url": "https://www.nasa.gov/directorates/smd/how-long-does-it-take-to-get-to-the-moon-mars-jupiter-we-asked-a-nasa-expert-episode-51/"
         }
-      ]
+      ],
+      "updated": "2026-10-25"
     },
     {
       "id": "boring-company",
       "title": "How The Boring Company Digs",
       "topic": "Frontier Tech",
-      "blurb": "Wren's field journal tests one mile of tunnel: why subways cost $100 million to $1 billion+ a mile, how a tunnel boring machine digs, Prufrock's tricks, how the Vegas Loop works, what a mile costs from Madrid to New York, and what Boring promised vs delivered.",
+      "blurb": "Wren's field journal tests one mile of tunnel: why subways cost $100 million to $1 billion+ a mile, how a TBM (tunnel boring machine) digs, Boring's smaller hole and Prufrock machine, how the Vegas Loop works, what a mile costs from Madrid to New York, what Boring promised vs delivered, and the critiques.",
       "gist": [
-        "Tunnels are slow and costly: a standard TBM digs a mile in 8 to 12 weeks, and big-city lines cost $100 million to $1 billion+ a mile, mostly in stations.",
-        "Boring shrinks the tunnel to 12 ft and builds its own Prufrock machines; the first Vegas Loop cost about $60 million a route mile, and Prufrock digs about a mile a month against a mile-a-week goal.",
-        "The Vegas Loop has 14 stations and 4 million+ riders, but cars at about 35 mph carry far fewer people than trains, several city projects were dropped, and safety and oversight questions remain."
+        "Tunnels are slow and costly: a standard TBM (tunnel boring machine) digs a mile in 8 to 12 weeks, and big-city lines cost $100 million to $1 billion+ a mile, mostly in stations.",
+        "Boring shrinks the tunnel to 12 feet and builds its own Prufrock machines; the first Vegas Loop cost about $60 million a route mile, and Prufrock digs about a mile a month against a mile-a-week goal.",
+        "The Vegas Loop has 14 stations and 4 million+ riders, but cars carry far fewer people than trains (4,431 an hour audited vs up to 36,000), and safety and oversight questions remain."
       ],
       "added": "2026-10-24",
       "added_at": "2026-10-24T15:06",
@@ -2941,183 +2882,117 @@
           "thumb": "assets/pulse/boring-company/p01-t.webp",
           "title": "Can a tunnel beat traffic?",
           "w": 1600,
-          "h": 2658,
-          "kw": "sheet hook tunnel beat traffic wren's field journal one mile question hours typical driver lost chicago new york los angeles boring company started dec elon musk twitter now driving nuts going build machine start digging wren made almost five days year car i'd rather spend underground probably source inrix global scorecard facts oct card"
+          "h": 2654,
+          "kw": "sheet hook tunnel beat traffic wren's field journal one mile question hours typical chicago driver lost boring company started dec elon musk twitter now driving nuts going build machine start digging wren made almost five days year car i'd rather spend underground probably next tunnels cost much source inrix traffic-data global scorecard facts oct card",
+          "takeaway": "A typical Chicago driver lost 112 hours to traffic in 2025, almost five days; in Dec 2016 Elon Musk tweeted he would build a tunnel boring machine and start digging."
         },
         {
           "file": "assets/pulse/boring-company/p02.webp",
           "thumb": "assets/pulse/boring-company/p02-t.webp",
-          "title": "Words to know",
+          "title": "Why tunnels cost so much",
           "w": 1600,
-          "h": 2100,
-          "kw": "sheet key words know tbm tunnel boring machine spinning wheel grinds soft ground lines hole muck dug-out soil rock loop boring's system cars small tunnels stops between stations cost mile total length systems included capacity people moved hour one direction route line has twin tubes miles source herrenknecht epb shield company prufrock pages transit costs project cost-per-length method music city faq card"
+          "h": 2924,
+          "kw": "sheet problem tunnels cost much three big costs every subway 100m usual mile million billion boring 10x boring's goal times cheaper stations underground halls biggest new york's second avenue width half means quarter dirt pits one deep pit start finish wren's york prices running example next guess slow digging source company faq frequently asked questions archived transit project case report data phase geometry journal sketch made card",
+          "takeaway": "Subway tunnels usually cost $100 million to $1 billion+ a mile, mostly in stations, width and deep pits; Wren's one mile at New York Second Avenue Subway prices is about $2.7 billion."
         },
         {
           "file": "assets/pulse/boring-company/p03.webp",
           "thumb": "assets/pulse/boring-company/p03-t.webp",
-          "title": "Why tunnels cost so much",
+          "title": "Guess first: snail or machine?",
           "w": 1600,
-          "h": 2100,
-          "kw": "sheet problem tunnels cost much 100m usual mile boring 10x boring's goal times cheaper stations hard costs new york's second avenue subway width half means quarter dirt pits one pit start finish big dig wren's phase prices billion running example source company faq archived transit project york case report data prufrock page geometry card",
-          "takeaway": "Big-city tunnels cost $100 million to $1 billion+ a mile, and much of it is stations: 77% of New York's Second Avenue Subway hard costs were stations."
+          "h": 2636,
+          "kw": "sheet problem guess first snail machine faster garden tbm tunnel boring tie answer flip phone times says company standard digs one mile weeks slow stops every feet build lining muck dug-out dirt rides back wren made timed porch won i'm leaving report next inside source faq archived comparison company's wren's race card",
+          "takeaway": "A garden snail is about 14 times faster than a standard TBM (tunnel boring machine), says the Boring Company: a TBM digs one mile in 8 to 12 weeks because it stops to build lining."
         },
         {
           "file": "assets/pulse/boring-company/p04.webp",
           "thumb": "assets/pulse/boring-company/p04-t.webp",
-          "title": "Guess first: snail or machine?",
+          "title": "How a TBM digs",
           "w": 1600,
-          "h": 2546,
-          "kw": "sheet problem guess first snail machine faster garden standard tbm tie answer flip phone times says boring company digs one mile weeks slow stops every feet build lining muck rides back wren made timed porch won i'm leaving report source faq archived comparison company's wren's race card",
-          "takeaway": "A standard tunnel boring machine digs a mile in 8 to 12 weeks, which the Boring Company says is about 14 times slower than a garden snail."
+          "h": 2634,
+          "kw": "sheet works tbm digs soft-ground tunnel boring machine balances dirt's pressure cutting wheel push cylinders concrete rings screw conveyor cut spinning steel discs knives loosens soil balance packed sealed chamber holds face ground above doesn't sink remove pulls muck line shove forward robot arm sets new ring next fix smaller hole source herrenknecht german maker earth shield art generic cutaway parts pulled apart scale card",
+          "takeaway": "A soft-ground TBM cuts with a spinning wheel, holds up the face with packed soil, pulls muck (dug-out dirt) out with a screw conveyor, then pushes forward and sets a concrete ring."
         },
         {
           "file": "assets/pulse/boring-company/p05.webp",
           "thumb": "assets/pulse/boring-company/p05-t.webp",
-          "title": "How a tunnel boring machine digs",
+          "title": "Fix 1: a smaller hole",
           "w": 1600,
-          "h": 2906,
-          "kw": "sheet works tunnel boring machine digs soft-ground earth pressure balance tbm cutting wheel push cylinders concrete rings screw conveyor cut spinning steel discs knives loosens soil packed sealed chamber holds face ground above doesn't sink remove pulls muck speed sets shove off last ring line robot arm new grout fills gap source herrenknecht shield art generic cutaway parts pulled apart scale card",
-          "takeaway": "An earth pressure balance TBM cuts soil with a spinning wheel, holds the face up with pressurised muck, pushes off the last concrete ring and builds the next one."
+          "h": 2438,
+          "kw": "sheet works fix smaller hole drawn scale person size loop feet inside crossrail london boring's choice narrower standard transport tunnels says boring dirt crossrail-size machine digs times much trade-off fits car full-size train next source company faq archived music city learning legacy dug propublica cubic yards foot document arithmetic card",
+          "takeaway": "Loop tunnels are 12 feet inside vs 20 feet for London's Crossrail, so a Crossrail-size machine digs about 2.6 times as much dirt (our arithmetic); the trade-off is cars, not trains."
         },
         {
           "file": "assets/pulse/boring-company/p06.webp",
           "thumb": "assets/pulse/boring-company/p06-t.webp",
-          "title": "Why tunnel size matters",
+          "title": "Fix 2: Prufrock, goal vs today",
           "w": 1600,
-          "h": 2540,
-          "kw": "sheet works tunnel size matters fix smaller hole loop inside crossrail london dug gotthard mountain rail bored boring's choice narrower standard transport tunnels says boring dirt cubic yards foot crossrail-size machine digs times much trade-off fits car full-size train source company faq archived music city learning legacy herrenknecht propublica document arithmetic card",
-          "takeaway": "Boring's 12 ft Loop tunnels remove about 6 cubic yards of soil per foot, about 2.6 times less than a Crossrail-size 7.1 m machine."
+          "h": 2815,
+          "kw": "sheet works fix prufrock goal today boring's tbm built texas trailer pits soft ground dives surface pops onto stopping lines tunnel while digs nobody underground run control center jul speed mile week month hard rock version now nashville limestone launch pit next riding vegas loop source boring company page oct mike baier director music city blog features design goals art generic sketch card",
+          "takeaway": "Boring's Prufrock machine is designed to dive in from the surface, line while digging and run with nobody underground; the goal is a mile a week, today it digs about a mile a month (Jul 2026)."
         },
         {
           "file": "assets/pulse/boring-company/p07.webp",
           "thumb": "assets/pulse/boring-company/p07-t.webp",
-          "title": "Prufrock's five tricks",
+          "title": "Riding the Vegas Loop",
           "w": 1600,
-          "h": 2601,
-          "kw": "sheet works prufrock's five tricks fix boring's tbm built texas prufrock trailer porpoising soft ground dives surface within hours pops onto pits continuous mining lines tunnel while digs stop every nobody underground designed zero people inside run control center make boring builds machines liners loop itself one size design job big safety margins source company page oct features work today see cards card",
-          "takeaway": "Prufrock is designed to dive in from the surface in soft ground, line the tunnel while it digs and run with nobody underground."
+          "h": 2516,
+          "kw": "sheet works riding vegas loop cars tunnels stops between stations station parking spaces hotel tesla driver takes rides self-drive watching straight arrive minutes open company count riders since million next subway source boring pages propublica driver-operated teslas las review-journal self-driving nov art generic sketch card",
+          "takeaway": "The Vegas Loop runs Teslas with drivers (some self-driving with a driver watching) between 14 stations with no stops, in 2 to 8 minutes, with 4 million+ riders since 2021."
         },
         {
           "file": "assets/pulse/boring-company/p08.webp",
           "thumb": "assets/pulse/boring-company/p08-t.webp",
-          "title": "How fast is Prufrock, really?",
+          "title": "Loop vs subway",
           "w": 1600,
-          "h": 2150,
-          "kw": "sheet works fast prufrock really goals results standard tbm mile weeks boring vegas drive encore incl setup today month director jul goal week since reality quarter plan logistics reliability says wren made journal added second question mark source company faq archived page quoted ground engineering mike baier arithmetic wren's notes card"
+          "h": 2200,
+          "kw": "sheet what's different loop subway london's elizabeth line built crossrail vegas vehicle teslas riders trains stops none between every station stations small parking spaces big underground halls people hour one direction audited test goal dashed matters wins win crowds read next mile costs source boring page las convention visitors authority review-journal transport london train arithmetic card",
+          "takeaway": "Loop vs London's Elizabeth line: an audited 4,431 people an hour (2021) vs up to 36,000, against a 90,000-an-hour Vegas goal; Loop wins on small stations, trains win on crowds."
         },
         {
           "file": "assets/pulse/boring-company/p09.webp",
           "thumb": "assets/pulse/boring-company/p09-t.webp",
-          "title": "Prufrock: goal vs today",
+          "title": "What one mile costs",
           "w": 1600,
-          "h": 2676,
-          "kw": "sheet works prufrock goal today company jul cost mile one tube hard rock soft ground yet nobody underground designed still fully close non-stop digging prufrock-mb digs nashville limestone psi launch pit tbm next usual machines source boring page loop tunnel mike baier director music city blog oct goals company's results art generic sketch card",
-          "takeaway": "Prufrock's goal is under $5 million a mile per tunnel tube; Boring says it is at about $5 million a mile in hard rock, but soft ground isn't there yet: it still has to fully close on zero-people tunnelling and continuous mining."
+          "h": 2100,
+          "kw": "sheet what's different one mile costs back wren's cost route new york second avenue subway 2.7b london crossrail 1.4b madrid line extension 130m vegas first loop stations 60m million billion log scale step 10x apples subways big train-size tunnels small twin tell full york's price without shrinking tunnel read next boring's promises checked source transit project purchasing-power-adjusted boring page 47m las review-journal 52.5m per-mile figures arithmetic card",
+          "takeaway": "Cost per route mile: New York Second Avenue Subway $2.7 billion, London Crossrail $1.4 billion, Madrid Line 9 extension $130 million, Vegas first Loop about $60 million (our arithmetic)."
         },
         {
           "file": "assets/pulse/boring-company/p10.webp",
           "thumb": "assets/pulse/boring-company/p10-t.webp",
-          "title": "Other machines, other makers",
+          "title": "Promised vs delivered",
           "w": 1600,
-          "h": 2398,
-          "kw": "sheet works machines makers herrenknecht boring german sells tbms builders builds big job crossrail vegas nashville dubai pilot signed size gotthard wheels long one inside longest drive miles getting launch shaft soft ground surface rock pit physics cut spinning wheel line concrete rings differs new ideas mostly logistics pits stopping nobody underground read next riding loop source london base tunnel references epb shield prufrock tunnels pages music city blog oct teslarati mar card"
+          "h": 2100,
+          "kw": "sheet checking claims promised delivered oct topic speed mph miles hour self-driving ride cost million mile first loop route riders audited vegas network approved dug company aug cities chicago washington baltimore dropped credit due passed test runs every convention next critiques boring's side source boring faq archived tunnels pages propublica jan las review-journal music city nbc news bloomberg apr card",
+          "takeaway": "Promised vs delivered: 150 mph vs about 35 mph; about $10 million a mile vs about $60 million; 90,000 riders an hour vs 4,431 audited; 68 miles approved vs 10+ dug; other cities dropped by 2021."
         },
         {
           "file": "assets/pulse/boring-company/p11.webp",
           "thumb": "assets/pulse/boring-company/p11-t.webp",
-          "title": "Riding the Vegas Loop",
+          "title": "The critiques, and Boring's side",
           "w": 1600,
-          "h": 2706,
-          "kw": "sheet works riding vegas loop station parking spaces hotel tesla driver takes rides self-drive watching since oct stops straight arrive minutes stations open company count riders first convention center apr 0.8-mile route tunnel 50m source boring tunnels pages propublica driver-operated teslas las review-journal million self-driving nov art generic sketch card",
-          "takeaway": "The Vegas Loop moves riders in Teslas, mostly driver-operated, with no stops between stations: 14 stations open and 4 million+ riders since 2021."
+          "h": 2306,
+          "kw": "sheet checking claims critiques boring's side safety oversight questions worker burns nevada's workplace-safety agency fined boring workers got chemical rashes contested firefighters two burned training state withdrew next day tunnelled twice without county permits outsiders times data check rider transit said exits fire suppression ventilation cameras control center wore part gear wren's verdict source ktnv las vegas station fine sun feb propublica jan incl fortune breaches loop page music city faq card",
+          "takeaway": "Critiques: a $112,000+ fine after worker chemical burns (2023), a $425,000 firefighter fine withdrawn the next day (2025), tunnelling without county permits and 67+ breaches; Boring cites its safety systems."
         },
         {
           "file": "assets/pulse/boring-company/p12.webp",
           "thumb": "assets/pulse/boring-company/p12-t.webp",
-          "title": "Loop vs subway",
-          "w": 1600,
-          "h": 2100,
-          "kw": "sheet what's different loop subway london's elizabeth line built crossrail vegas vehicle teslas riders trains tunnel inside stops none between every station stations small parking spaces big underground halls day company claim actual weekdays matters wins win crowds read source boring page music city faq tfl train quarterly report learning legacy card",
-          "takeaway": "Loop wins on tiny stations and no stops; a subway wins on crowds: one Elizabeth line train carries up to 1,500 people."
-        },
-        {
-          "file": "assets/pulse/boring-company/p13.webp",
-          "thumb": "assets/pulse/boring-company/p13-t.webp",
-          "title": "How many people an hour?",
-          "w": 1600,
-          "h": 2100,
-          "kw": "sheet what's different many people hour peak riders one direction loop audited test company claim claimed las vegas monorail buses elizabeth line way goal dashed matters full train holds three-rider cars read source lvcva review-journal music city faq propublica bus figures convention authority chief jan tfl trains boring page arithmetic card",
-          "takeaway": "The Loop moved 4,431 people an hour in its 2021 audited test and Boring claims 6,500+ since, against up to 36,000 an hour each way on the Elizabeth line and a 90,000 Loop goal."
-        },
-        {
-          "file": "assets/pulse/boring-company/p14.webp",
-          "thumb": "assets/pulse/boring-company/p14-t.webp",
-          "title": "What one mile costs",
-          "w": 1600,
-          "h": 2733,
-          "kw": "sheet what's different one mile costs back wren's cost route nyc second ave phase building 4.4b 2.7b london crossrail 1.4b paris grand express 440m madrid line extension 130m vegas first loop stations 60m prufrock goal tubes tunnel 10m log scale step 10x apples subways big signals train-size tunnels small twin tell full avenue 1's price without shrinking read million billion running example source transit project purchasing-power-adjusted fta 7.7b miles year-of-expenditure dollars boring page 47m lvcva review-journal 52.5m tube per-mile figures arithmetic card",
-          "takeaway": "Tunnel lines cost from about $130 million a route mile (Madrid) to $2.7 to $4.4 billion (New York); the first Vegas Loop cost about $60 million a route mile, with small twin tunnels and three stations."
-        },
-        {
-          "file": "assets/pulse/boring-company/p15.webp",
-          "thumb": "assets/pulse/boring-company/p15-t.webp",
-          "title": "Promised vs delivered: speed and cost",
-          "w": 1600,
-          "h": 2100,
-          "kw": "sheet checking claims promised delivered speed cost topic ride mph self-driving still site mostly human drivers since oct 10m mile first loop 60m route stations boring says tunnel now hyperloop pods tubes one short test source company faq archived tunnels pages propublica jan review-journal rides nov mike baier jul contract card",
-          "takeaway": "Promised 150 mph self-driving cars and about $10 million a mile; delivered mostly human-driven Teslas at about 35 mph on one ride and about $60 million per route mile for the first Loop, with Boring saying it now costs $5–10 million per tunnel mile."
-        },
-        {
-          "file": "assets/pulse/boring-company/p16.webp",
-          "thumb": "assets/pulse/boring-company/p16-t.webp",
-          "title": "Promised vs delivered: riders and reach",
-          "w": 1600,
-          "h": 2463,
-          "kw": "sheet checking claims promised delivered riders reach topic capacity hour vegas goal audited claimed network miles approved dug company aug counted propublica jan cities chicago airport baltimore dodger stadium dropped pulled site credit due passed test runs every convention source boring loop tunnels pages las review-journal music city faq nbc news bloomberg apr wren's journal sketch made card",
-          "takeaway": "The 90,000-an-hour goal compares with 4,431 audited and 6,500+ claimed; over 10 miles of Vegas tunnel are dug by the company's count, and Chicago, DC-Baltimore and LA plans were dropped by 2021."
-        },
-        {
-          "file": "assets/pulse/boring-company/p17.webp",
-          "thumb": "assets/pulse/boring-company/p17-t.webp",
-          "title": "Safety questions",
-          "w": 1600,
-          "h": 2425,
-          "kw": "sheet checking claims safety questions critiques boring's side worker burns nevada osha state workplace fined boring workers got chemical rashes contested every citation firefighter case dec two firefighters chemically burned training exercise fines withdraws next day feb federal withdrawal reasonable willfulness proven staff removed altered case-file documents showed records gear receipts said wore part required source ktnv fine las vegas sun letter dept business industry report legislature jan card",
-          "takeaway": "Nevada OSHA fined Boring over chemical burns in 2023 (contested) and withdrew $425,000 in fines over a firefighter incident, which federal OSHA called reasonable while faulting altered state case files; Boring points to its training records."
-        },
-        {
-          "file": "assets/pulse/boring-company/p18.webp",
-          "thumb": "assets/pulse/boring-company/p18-t.webp",
-          "title": "Oversight questions",
-          "w": 1600,
-          "h": 2624,
-          "kw": "sheet checking claims oversight questions critiques boring's side water settlement groundwater storm drains without permit untreated sewer permits tunnelled twice county request dropped injury-reporting boring must hire outside engineer yearly audits breaches outsiders cars included got times late ridership transit agency data check exits fire detection suppression two-way ventilation full cameras control center top federal security rating source propublica jan incl fortune tunnel loop page music city faq card",
-          "takeaway": "Critics cite water-permit violations, reduced county oversight, tunnel breaches and unverifiable ridership; Boring points to exits, ventilation, cameras, a 24/7 control center and a top federal security rating."
-        },
-        {
-          "file": "assets/pulse/boring-company/p19.webp",
-          "thumb": "assets/pulse/boring-company/p19-t.webp",
-          "title": "What's next",
-          "w": 1600,
-          "h": 2100,
-          "kw": "sheet it's heading what's next still digging oct new vegas twin tunnel nashville planned dubai pilot stations las paradise road due nov grand prix convention authority chief boring's goal year end tubes mile route airport downtown minutes privately funded two rock machines third starts late source review-journal boring loop page music city faq blogs tdot permit miles arithmetic tunnels card"
-        },
-        {
-          "file": "assets/pulse/boring-company/p20.webp",
-          "thumb": "assets/pulse/boring-company/p20-t.webp",
           "title": "Wren's verdict",
           "w": 1600,
-          "h": 2748,
-          "kw": "sheet it's heading wren's verdict problem big tunnels 100m mile fix small pits soft ground stopping far busy vegas system first loop 60m route boring says digging now costs 10m tunnel question cars carry subway-size crowds 000-an-hour goal unproven read wren made get cheaper beating traffic whole city still open i'm marks source cards mike baier jul page card"
+          "h": 2660,
+          "kw": "sheet it's heading wren's verdict what's next oct far busy vegas system first loop million route mile stations nashville airport downtown minutes privately funded big question cars tunnels carry subway-size crowds 000-an-hour goal unproven read wren made get cheaper beating traffic whole city still open i'm marks source cards las review-journal music page faq boring card",
+          "takeaway": "So far a busy Vegas system at about $60 million a route mile; next, more Vegas stations and a privately funded Nashville Loop; the 90,000-an-hour goal is unproven."
         }
       ],
       "recap": [
         "Problem: big tunnels cost $100 million to $1 billion+ a mile and dig slower than a snail.",
-        "How: a TBM cuts, balances, pushes and lines; Prufrock aims to skip pits and stops, and digs about a mile a month vs a mile-a-week goal.",
-        "Different: about $60 million a route mile for the first Vegas Loop vs $130 million (Madrid) to $4.4 billion (New York), but far lower capacity.",
-        "Next: Paradise Road extension, Nashville and Dubai; the 90,000-an-hour goal is unproven."
+        "How: a TBM cuts, balances, removes dirt, pushes and lines; Prufrock aims to skip pits and stops, and digs about a mile a month vs a mile-a-week goal.",
+        "Different: about $60 million a route mile for the first Vegas Loop vs $130 million (Madrid) to $2.7 billion (New York), but far fewer riders an hour.",
+        "Next: more Vegas stations and Nashville; the 90,000-an-hour goal is unproven."
       ],
-      "recap_pages": 20,
+      "recap_pages": 12,
       "sources": [
         {
           "title": "Boring Company – Prufrock",
@@ -3128,7 +3003,7 @@
           "url": "https://www.boringcompany.com/loop"
         },
         {
-          "title": "Boring Company – Tunnels and LVCC Loop facts",
+          "title": "Boring Company – Tunnels and Las Vegas Convention Center Loop facts",
           "url": "https://www.boringcompany.com/tunnels"
         },
         {
@@ -3156,36 +3031,37 @@
           "url": "https://www.propublica.org/article/elon-musk-boring-company-las-vegas-loop-oversight"
         },
         {
-          "title": "Las Vegas Review-Journal – Boring transit system passes LVCVA capacity tests",
+          "title": "Las Vegas Review-Journal – Boring transit system passes Las Vegas Convention and Visitors Authority capacity tests",
           "url": "https://www.reviewjournal.com/business/tourism/boring-co-s-transit-system-passes-lvcva-capacity-tests-2373803/"
         },
         {
-          "title": "Mike Baier on X – About a mile a month, $5M to $10M per mile",
+          "title": "Mike Baier on X – About a mile a month",
           "url": "https://x.com/Mike__Baier/status/2081926475742167487"
         },
         {
-          "title": "Herrenknecht – Crossrail London reference",
-          "url": "https://www.herrenknecht.com/en/references/referencesdetail/crossrail-london/"
+          "title": "Herrenknecht – Earth Pressure Balance Shield, how a soft-ground machine works",
+          "url": "https://www.herrenknecht.com/en/products/productdetail/epb-shield/"
         },
         {
           "title": "INRIX – 2025 Global Traffic Scorecard",
           "url": "https://inrix.com/press-releases/2025-global-traffic-scorecard-us/"
         },
         {
-          "title": "Las Vegas Sun – Federal regulators uphold Nevada OSHA withdrawal",
+          "title": "Las Vegas Sun – Federal regulators uphold the Nevada workplace-safety agency's fine withdrawal",
           "url": "https://lasvegassun.com/news/2026/feb/14/federal-regulators-uphold-nevada-oshas-withdrawal/"
         }
-      ]
+      ],
+      "updated": "2026-10-25"
     },
     {
       "id": "how-neuralink-works",
       "title": "How Neuralink Works",
       "topic": "Frontier Tech",
-      "blurb": "Juno's lab sketchbook uses one text message as a yardstick: how the brain says \"move\", why it is hard to read, Neuralink's implant, robot and decoder, the real trial speeds, how it compares with Synchron, Precision, Paradromics, the Utah array, EEG and China's BCIs, and what was promised vs delivered.",
+      "blurb": "Juno's lab sketchbook uses one text message as a yardstick: how the brain says \"move\", Neuralink's implant, robot surgeon and decoder, the real trial speeds, how it compares with the Utah array, Synchron and EEG (brain-wave) caps, where trials and safety stand, and what was promised vs delivered.",
       "gist": [
-        "Paralysis cuts the path from brain to muscle, but the motor cortex still fires; a BCI reads those spikes and turns them into actions.",
-        "Neuralink's N1 puts 1,000+ electrodes on hair-thin threads placed by a robot; participants reach about 10 BPS, close to engineers using a mouse, and type up to 40 words a minute.",
-        "Rivals range from a 16-electrode stent to China's approved NEO; Neuralink had 21 participants enrolled (Jan 2026) across six trials but no approval, and faces safety, animal-welfare, privacy and access questions."
+        "Paralysis cuts the path from brain to muscle, but the motor cortex still fires; a BCI (brain-computer interface) reads those spikes and turns them into actions.",
+        "Neuralink's N1 puts 1,000+ electrodes on hair-thin threads placed by a robot; the record is 11.32 BPS (bits per second), close to a mouse, and typing reaches 40 words a minute.",
+        "Neuralink had 21 people enrolled (Jan 2026) but no approval to sell; safety, animal welfare, price and Musk's timelines are still open questions."
       ],
       "added": "2026-10-24",
       "added_at": "2026-10-24T15:28",
@@ -3196,180 +3072,117 @@
           "thumb": "assets/pulse/how-neuralink-works/p01-t.webp",
           "title": "Moving a cursor just by thinking",
           "w": 1600,
-          "h": 2835,
-          "kw": "plate hook moving cursor thinking juno's sketchbook neuralink elon musk's brain-implant company question hands stop working brain still send text test meet library six made americans live quadriplegia arms legs paralysed estimates new us spinal cord injuries year als nerve disease take away speech neuralink's first participant used stick held teeth source prime update willett nature aug reuters cnbc mar facts oct juno card",
-          "takeaway": "About 180,000 Americans live with quadriplegia; a brain-computer interface aims to turn the brain's own movement signals into clicks, cursor moves or words."
+          "h": 2494,
+          "kw": "plate hook moving cursor thinking juno's sketchbook neuralink elon musk's brain-implant company question hands stop working brain still send text test meet library six made americans live quadriplegia arms legs paralysed estimates neuralink's first participant used stick held teeth tools like need surgery next says move source prime human trial update facts oct juno card",
+          "takeaway": "About 180,000 Americans live with quadriplegia (arms and legs paralysed), Neuralink estimates; its first participant used a stick held in his teeth, a tool that needs no surgery."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p02.webp",
           "thumb": "assets/pulse/how-neuralink-works/p02-t.webp",
-          "title": "Words to know",
+          "title": "How the brain says \"move\"",
           "w": 1600,
-          "h": 2141,
-          "kw": "plate key words know brain-tech book neuron nerve cell have billion spike quick electrical pulse fires electrode tiny metal contact picks signals motor cortex brain strip plans movement bci brain-computer interface device commands decoder software turns actions bps bits second one bit choice fda us regulator medical devices source ninds basics azevedo comp neurol neuralink prime update clinicaltrials.gov nct06429735 card",
-          "takeaway": "Neurons fire spikes, electrodes pick them up, and a decoder turns them into actions; speed is scored in bits per second (BPS)."
+          "h": 2592,
+          "kw": "plate problem brain says move listening hard motor cortex injury spinal cord hand path strip plans movement fires spikes quick electrical pulses nerve cells run als disease block still billion electrodes tiny metal contacts skull blurs scalp sensors hear crowd single need inside next neuralink's implant source hochberg nature azevedo journal comparative neurology neuralink technology page art generic sketch scale card",
+          "takeaway": "The motor cortex (the brain strip that plans movement) still fires spikes after an injury or ALS (a nerve disease) cuts the spinal cord; a brain has 86 billion nerve cells vs about 1,000 electrodes listening, and the skull blurs signals."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p03.webp",
           "thumb": "assets/pulse/how-neuralink-works/p03-t.webp",
-          "title": "How the brain says \"move\"",
+          "title": "The implant: a coin with 1,000+ electrodes",
           "w": 1600,
-          "h": 2358,
-          "kw": "plate problem brain says move message gets cut motor cortex injury spinal cord hand path fires spikes run als block hope still study imagined moves changed years source hochberg nature art generic sketch scale card",
-          "takeaway": "The motor cortex fires spikes that travel down the spinal cord; an injury or ALS can block them, but the spikes are still there years later."
+          "h": 2460,
+          "kw": "plate works implant coin electrodes neuralink's outside threads size coin-wide sealed skull power battery charged wirelessly through skin data sent app hand area motor cortex next robot puts source neuralink technology page prime update apr jul art scale real one small patch card",
+          "takeaway": "Neuralink's N1 is a coin-wide sealed implant with 1,000+ electrodes on threads, a wirelessly charged battery and a wireless link, placed in the hand area of the motor cortex."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p04.webp",
           "thumb": "assets/pulse/how-neuralink-works/p04-t.webp",
-          "title": "Why reading the brain is hard",
+          "title": "The robot surgeon",
           "w": 1600,
-          "h": 2148,
-          "kw": "plate problem reading brain hard four problems bci has beat billion billions neurons listens electrodes skull blurs scalp sensors hear blurred crowd single spikes need moves it's soft shifts neuralink's surgery robot card adjusts real time signals drift change day fade next attempt starting implant source azevedo jama neurology switch study jan neuralink oct",
-          "takeaway": "Reading the brain is hard: 86 billion neurons vs about 1,000 electrodes, a blurring skull, a moving brain and drifting signals."
+          "h": 2450,
+          "kw": "plate works robot surgeon threads fine human hands camera head needle surgery steps open small hole skull places thread dodging blood vessels implant seals home next day first two people five cameras light scan guide hair-thin new toronto left brain's tough cover closed cursor control came within hour spike click source neuralink technology page jun prime updates apr aug art generic sketch card",
+          "takeaway": "A robot with five cameras and a light scan places each hair-thin thread, dodging blood vessels; the first two people went home the next day."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p05.webp",
           "thumb": "assets/pulse/how-neuralink-works/p05-t.webp",
-          "title": "The implant: a coin with 1,000+ electrodes",
+          "title": "From spike to cursor",
           "w": 1600,
-          "h": 2911,
-          "kw": "plate works implant coin electrodes neuralink's outside threads size coin-wide sealed skull power battery charged wirelessly through skin data sent app hand area motor cortex year prototype jul plan jan source neuralink technology page prime update apr two years telepathy pretraining oct musk jmir art scale real one small patch card",
-          "takeaway": "Neuralink's N1 is a coin-sized, sealed, wireless implant with 1,000+ electrodes on hair-thin threads (64 threads in 2024, over 100 by July 2026)."
+          "h": 2368,
+          "kw": "plate works spike cursor happens between thought click steps listen electrodes catch spikes person imagines moving hand process chips turn numbers send wirelessly app decode software maps patterns left right recalibrate signals drift day users retrain new oct hours recordings user's decoder now pretrains past next guess fast source neuralink technology page pretraining update art reuses card sketch",
+          "takeaway": "Five steps turn a thought into a click: listen, process, send, decode, recalibrate; by Oct 2026 Neuralink had 50,000+ hours of recordings and pretrains each user's decoder."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p06.webp",
           "thumb": "assets/pulse/how-neuralink-works/p06-t.webp",
-          "title": "The robot that places the threads",
+          "title": "Guess first: how fast is thought?",
           "w": 1600,
-          "h": 2476,
-          "kw": "plate works robot places threads fine human hands camera head needle surgery steps open small hole skull thread dodging blood vessels implant seals home next day first two people five cameras light scan oct guide hair-thin new toronto left dura brain's tough cover closed cursor control came within hour source neuralink technology page jun prime updates apr aug art generic sketch card",
-          "takeaway": "A robot places threads too fine for human hands; the first two participants went home the next day, and a 2026 surgery left the dura closed."
+          "h": 2374,
+          "kw": "plate works guess first fast thought cursor speed neuralink's grid test bps bits second bit one choice engineers mouse score best implant answer flip phone record count session it's scored correct clicks earn wrong cancel divide time next beyond source neuralink prime update pretraining oct bar participant card",
+          "takeaway": "On Neuralink's grid test, scored in BPS (bits per second), the first session hit 4.6, engineers with a mouse score about 10, and the 2026 record is 11.32 by Neuralink's count."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p07.webp",
           "thumb": "assets/pulse/how-neuralink-works/p07-t.webp",
-          "title": "From spike to cursor",
+          "title": "Beyond the cursor",
           "w": 1600,
-          "h": 2118,
-          "kw": "plate works spike cursor happens between thought click steps listen electrodes catch spikes person imagines moving hand process chips boost numbers send wirelessly app decode model maps patterns left right recalibrate signals drift users retrain average user pretrained retraining min week day new oct neuralink has hours recordings user's thousands source technology page pretraining update jul musk jmir card",
-          "takeaway": "Spikes are recorded, digitised, sent wirelessly and decoded into cursor moves; users spend about 55 minutes a week recalibrating, and pretrained models cut that to 10 minutes a week for some."
+          "h": 2471,
+          "kw": "plate works beyond cursor typing robot arm first voice words minute imagining fingers jan participant fed himself thought sep demo heard natural talking runs university speech implants reached found published neuralink speed yet next ways listen brain source two years telepathy metzger willett nature aug art generic sketch card",
+          "takeaway": "Participants type up to 40 words a minute and fed themselves with a robot arm; a Sep 2026 demo turned thought words into a natural voice, with no published speed yet (talking runs about 160 words a minute)."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p08.webp",
           "thumb": "assets/pulse/how-neuralink-works/p08-t.webp",
-          "title": "Guess first: how fast is thought?",
+          "title": "Ways to listen to the brain",
           "w": 1600,
-          "h": 2718,
-          "kw": "plate works guess first fast thought cursor speed neuralink's grid test engineers mouse score bps best implant answer flip phone record count median participant session threads pulled back software fixes it's scored correct clicks earn bits targets wrong cancel divide time source neuralink prime update read chart pretraining oct three bars card",
-          "takeaway": "The median Neuralink participant scores about 10 BPS, close to engineers using a mouse; the record is 11.32 BPS (2026) by Neuralink's count, after a dip to about 2 when threads pulled back."
+          "h": 2642,
+          "kw": "plate what's different ways listen brain deeper hears needs surgery oct needle array utah stent thin film eeg brain-wave cap device electrodes status neuralink trials countries needles research since synchron vein met safety goal people scalp blurred signals neuralink's bets contacts nothing through skin robot scale read next stands source technology page hochberg nature braingate journal american medical association jama neurology switch study art generic sketch card",
+          "takeaway": "Ways to listen: Neuralink (1,000+ electrodes in the brain), the Utah array (96 needles, since 2004), Synchron's stent in a vein (16) and an EEG (brain-wave) cap on the scalp; deeper hears more but needs more surgery."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p09.webp",
           "thumb": "assets/pulse/how-neuralink-works/p09-t.webp",
-          "title": "Beyond the cursor",
+          "title": "Where Neuralink stands",
           "w": 1600,
-          "h": 2495,
-          "kw": "plate works beyond cursor typing robot arm first voice words minute imagining fingers jan participant fed himself thought trial started oct texas people goal sep demo mimed heard natural grok found published speed accuracy yet source neuralink two years telepathy clinicaltrials.gov nct07224256 convoy nct06710626 art new generic sketch card",
-          "takeaway": "Neuralink participants type up to 40 words a minute and control a robotic arm; the VOICE speech trial (Oct 2025) showed a demo in Sep 2026 but no published numbers."
+          "h": 2393,
+          "kw": "plate it's heading neuralink stands status oct people enrolled jan trials us canada uk uae united arab emirates hours use total approval fda medical-device regulator allowed first study approved sale yet says china implanted bci brain-computer interface neuracle's neo mar state media said next safe source two years telepathy pretraining update clinicaltrials.gov records xinhua art generic sketch card",
+          "takeaway": "21 people enrolled by Jan 2026 in trials in the US, Canada, UK and UAE; the FDA (US medical-device regulator) allowed a first study in May 2023, Neuralink is not approved for sale, and China approved Neuracle's NEO in Mar 2026."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p10.webp",
           "thumb": "assets/pulse/how-neuralink-works/p10-t.webp",
-          "title": "Neuralink vs the oldest rival",
+          "title": "Safety and open questions",
           "w": 1600,
-          "h": 2600,
-          "kw": "plate what's different neuralink oldest rival four ways listen utah array needle stent thin film eeg cap brain vein surface scalp neuralink's threads fifth kind electrodes flexible rigid needles placed robot surgeon hardware fully implanted wireless plug through people since braingate three bets channels nothing skin surgery scale read source technology page hochberg nature rubin neurology art generic sketch card",
-          "takeaway": "Unlike the Utah array (96 rigid needles, a plug through the scalp, in people since 2004), Neuralink uses 1,000+ electrodes on flexible threads, a robot inserter and a fully implanted wireless design."
+          "h": 2236,
+          "kw": "plate it's heading safety open questions sides first two years went wrong neuralink's side threads slid participant speed dropped software fixes beat score fda raised battery moving safe removal staff told reuters zero serious device-related adverse events jan animals put since rough estimate us department agriculture found violations beyond one self-reported incident price trials published next musk's promises checked source neuralink prime update telepathy cnbc mar guardian dec economic times jul figures card",
+          "takeaway": "Threads slid out in the first participant before software fixes beat the first score; the FDA raised battery and removal concerns in 2022; Reuters estimated about 1,500 animals put down; no price is published."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p11.webp",
           "thumb": "assets/pulse/how-neuralink-works/p11-t.webp",
-          "title": "Six ways to read the brain",
+          "title": "Promised vs delivered",
           "w": 1600,
-          "h": 2422,
-          "kw": "plate what's different six ways read brain plain numbers oct device electrodes status neuralink cortex trials countries utah array research since synchron vein met safety goal people precision surface fda-cleared days paradromics first trial implant eeg cap scalp surgery labs deeper shallower hears single neurons blurred groups none apples speller reached bps test source hochberg braingate jama neurology switch medical design outsourcing sep apr jun wired chen pnas card",
-          "takeaway": "Six ways to read the brain range from 16 electrodes in a vein (Synchron) to 1,024 on the surface (Precision) and 1,000+ in the cortex (Neuralink); deeper hears more but needs more surgery."
+          "h": 2100,
+          "kw": "plate it's heading promised delivered claims elon musk company checked claim human trials soon times first implant jan fda go-ahead spring nov blindsight sight later year mar ready oct memories save replay nothing shown pattern dates slipped promises still unmet read next juno's verdict source reuters cnbc neuralink newsweek homepage card",
+          "takeaway": "Musk's promises vs delivery: human trials 'soon' from 2019 (first implant Jan 2024), FDA go-ahead 'this spring' (May 2023), Blindsight 'ready' (no human implant by Oct 2026), memories 'save and replay' (nothing shown)."
         },
         {
           "file": "assets/pulse/how-neuralink-works/p12.webp",
           "thumb": "assets/pulse/how-neuralink-works/p12-t.webp",
-          "title": "Reading words, not just clicks",
-          "w": 1600,
-          "h": 2434,
-          "kw": "plate what's different reading words clicks time say juno's 7-word sentence university labs neuralink talking min ucsf stanford finger typing davis synchron eye-tracker characters minute log scale step 10x accuracy word wrong huge vocabulary right months output text voice like source metzger willett nature aug card nejm two years telepathy jan jama neurology switch brackets times arithmetic",
-          "takeaway": "Speech BCIs reached 62 to 78 words a minute (2023) and 97.5% accuracy (2024); Neuralink reports typing up to 40 words a minute (2026)."
-        },
-        {
-          "file": "assets/pulse/how-neuralink-works/p13.webp",
-          "thumb": "assets/pulse/how-neuralink-works/p13-t.webp",
-          "title": "Other tools, most with no surgery",
-          "w": 1600,
-          "h": 2626,
-          "kw": "plate what's different tools surgery people use today tool mouth stick tap screen teeth sip-and-puff breathe straw click eye-tracker gaze moves cursor switch scanning options light twitch picks one deep brain stimulation pulses calm tremor kind senses arc-ex skin pads spine fda approved dbs parkinson's adaptive adjusts improved trial juno made tried mostly giggles don't count clicks source neuralink prime updates aug jama neurology ninds pma p960009 s478 feb novo den240014 dec onward juno's demo card",
-          "takeaway": "Mouth sticks, sip-and-puff, eye-trackers and switches need no surgery; deep brain stimulation (FDA 1997, 2002; adaptive, sensing DBS 2025) and ARC-EX (Dec 2024) are approved but do different jobs."
-        },
-        {
-          "file": "assets/pulse/how-neuralink-works/p14.webp",
-          "thumb": "assets/pulse/how-neuralink-works/p14-t.webp",
-          "title": "The race beyond the US",
-          "w": 1600,
-          "h": 2481,
-          "kw": "plate what's different race beyond us back implants china moved fast neuralink went abroad neuracle neo approved mar first market approval invasive implanted bci state media said dura drives grasping glove beinao-1 jun stairmed china's in-brain trial trials canada uk london newcastle uae yet says found thought-to-command implant sale oct source xinhua global times shanghai government daily clinicaltrials.gov prime can-prime uae-prime gb-prime pretraining update art new generic sketch card",
-          "takeaway": "China approved Neuracle's NEO in March 2026, which state media called the first market approval of an invasive (implanted) BCI; Neuralink runs trials in 4 countries but has no approval."
-        },
-        {
-          "file": "assets/pulse/how-neuralink-works/p15.webp",
-          "thumb": "assets/pulse/how-neuralink-works/p15-t.webp",
-          "title": "Where Neuralink stands",
-          "w": 1600,
-          "h": 2511,
-          "kw": "plate it's heading neuralink stands status oct people enrolled worldwide jan hours use total trial goal start size prime us cursor control can-prime toronto nov uae-prime abu dhabi gb-prime london newcastle implanted dec convoy robot arm voice speech fda rejected first human-trial request staff told reuters approved study breakthrough tags faster review approval vision blindsight source two years telepathy pretraining update clinicaltrials.gov records uclh cnbc mar sep card",
-          "takeaway": "As of Oct 2026 Neuralink had 21 participants enrolled (Jan 2026), 50,000+ hours of use and six trials; the FDA rejected its first request in 2022 and approved a study in May 2023."
-        },
-        {
-          "file": "assets/pulse/how-neuralink-works/p16.webp",
-          "thumb": "assets/pulse/how-neuralink-works/p16-t.webp",
-          "title": "Safety: what went wrong, and the company's side",
-          "w": 1600,
-          "h": 2188,
-          "kw": "plate it's heading safety went wrong company's side sides first two years neuralink's threads slid participant speed dropped software fixes beat score signals fewer working electrodes better next surgery changes fda raised battery moving safe removal staff told reuters zero serious device-related adverse events jan words through neuralink found work says noland source prime update telepathy trials page cnbc mar figures independent data published card",
-          "takeaway": "Threads slid out in the first participant and the FDA raised safety worries in 2022; Neuralink says signals improved in 18 of the next 20 and it has had zero serious device-related adverse events."
-        },
-        {
-          "file": "assets/pulse/how-neuralink-works/p17.webp",
-          "thumb": "assets/pulse/how-neuralink-works/p17-t.webp",
-          "title": "Animals, data and price",
-          "w": 1600,
-          "h": 2100,
-          "kw": "plate it's heading animals data price questions still open animal testing federal watchdog probed welfare reuters put since rough estimate many labs studies staff said rushed tests raised count usda found violations beyond one self-reported incident brain us senators asked ftc check neurotech firms use trials published source guardian dec economic times jul senate commerce committee apr card",
-          "takeaway": "Open questions: an animal-welfare probe and a rough Reuters estimate of 1,500 animals put down (USDA later found no violations beyond one 2019 incident), brain-data privacy, and no published price."
-        },
-        {
-          "file": "assets/pulse/how-neuralink-works/p18.webp",
-          "thumb": "assets/pulse/how-neuralink-works/p18-t.webp",
-          "title": "Promised vs delivered",
-          "w": 1600,
-          "h": 2100,
-          "kw": "plate it's heading promised delivered claims elon musk company checked claim human trials soon times first implant jan fda go-ahead spring nov mar document reuters weeks blindsight sight later year months jun ready oct next gen capability launch found memories save replay nothing shown source cnbc neuralink newsweek mobihealthnews homepage card",
-          "takeaway": "Musk's timelines ran ahead of results on trials, Blindsight, the next-gen implant and memories; FDA approval came in spring 2023 as he said, though after the company's Mar 7 target."
-        },
-        {
-          "file": "assets/pulse/how-neuralink-works/p19.webp",
-          "thumb": "assets/pulse/how-neuralink-works/p19-t.webp",
           "title": "Juno's verdict",
           "w": 1600,
           "h": 2715,
-          "kw": "plate it's heading juno's verdict real far trials near-mouse cursor control typing words minute text top speed robot arm yet published speech numbers vision price big question work safely years people reach read juno made cursors early demo shown still can't notes source neuralink prime update pretraining oct two telepathy jan sep arithmetic card",
-          "takeaway": "Delivered so far for people in trials: near-mouse cursor control, typing up to 40 words a minute and a robot arm; speech has an early demo, and vision and a price are not shown."
+          "kw": "plate it's heading juno's verdict real far trials near-mouse cursor control typing words minute text robot arm yet published speech numbers vision price big question work safely years people reach read juno made cursors early demo shown still can't notes source neuralink pretraining update oct two telepathy jan sep arithmetic card",
+          "takeaway": "So far, in trials: near-mouse cursor control, typing up to 40 words a minute and a robot arm; not yet: published speech numbers, vision and a price."
         }
       ],
       "recap": [
-        "Problem: injury blocks the brain's move signals, and reading 86 billion neurons through a skull is hard.",
-        "How: a sealed implant, 1,000+ electrodes on threads, a robot inserter and a machine-learning decoder.",
-        "Different: more channels and fully wireless vs the Utah array, Synchron, Precision, Paradromics, EEG and China's NEO.",
-        "Next: speech (VOICE, demo only) and Blindsight; long-term safety, price and promises still to be proven."
+        "Problem: injury blocks the brain's move signals, and listening to 86 billion nerve cells through a skull is hard.",
+        "How: a sealed implant, 1,000+ electrodes on threads, a robot surgeon and decoder software.",
+        "Different: more contacts and fully wireless vs the Utah array, Synchron's stent and EEG (brain-wave) caps.",
+        "Next: speech (demo only) and vision; long-term safety, price and promises still to be proven."
       ],
-      "recap_pages": 19,
+      "recap_pages": 12,
       "sources": [
         {
           "title": "Neuralink – PRIME Study Progress Update, User Experience",
@@ -3384,20 +3197,16 @@
           "url": "https://neuralink.com/updates/two-years-of-telepathy/"
         },
         {
-          "title": "Neuralink – PRIME Study Progress Update, Second Participant",
-          "url": "https://neuralink.com/updates/prime-study-progress-update-second-participant/"
-        },
-        {
           "title": "Neuralink – Technology page, implant and robot",
           "url": "https://neuralink.com/technology/"
         },
         {
-          "title": "ClinicalTrials.gov – PRIME study record NCT06429735",
-          "url": "https://clinicaltrials.gov/study/NCT06429735"
+          "title": "Neuralink – PRIME Study Progress Update, Second Participant",
+          "url": "https://neuralink.com/updates/prime-study-progress-update-second-participant/"
         },
         {
-          "title": "UCLH – Seven GB-PRIME patients now participating in Neuralink trial",
-          "url": "https://www.uclh.nhs.uk/news/seven-gb-prime-patients-now-participating-neuralink-trial"
+          "title": "ClinicalTrials.gov – PRIME study record NCT06429735",
+          "url": "https://clinicaltrials.gov/study/NCT06429735"
         },
         {
           "title": "Reuters via CNBC – US regulators rejected Elon Musk's bid to test brain chips in humans",
@@ -3408,7 +3217,15 @@
           "url": "https://www.theguardian.com/technology/2022/dec/05/neuralink-animal-testing-elon-musk-investigation"
         },
         {
-          "title": "JAMA Neurology – Safety of a fully implanted endovascular brain-computer interface, the SWITCH study",
+          "title": "Reuters via Economic Times – US Department of Agriculture found no animal-welfare breaches beyond a 2019 incident",
+          "url": "https://m.economictimes.com/tech/technology/regulator-says-found-no-animal-welfare-breaches-at-elon-musk-firm-beyond-2019-incident/articleshow/101965058.cms"
+        },
+        {
+          "title": "Nature – Hochberg et al., Neuronal ensemble control of prosthetic devices by a human with tetraplegia",
+          "url": "https://www.nature.com/articles/nature04970"
+        },
+        {
+          "title": "JAMA Neurology – Safety of a fully implanted brain-computer interface in a blood vessel, the SWITCH study",
           "url": "https://jamanetwork.com/journals/jamaneurology/fullarticle/2799839"
         },
         {
@@ -3416,18 +3233,585 @@
           "url": "https://www.nature.com/articles/s41586-023-06377-x"
         },
         {
-          "title": "NEJM via PubMed – Card et al., An accurate and rapidly calibrating speech neuroprosthesis",
-          "url": "https://pubmed.ncbi.nlm.nih.gov/39141853/"
-        },
-        {
-          "title": "Xinhua – China grants world's first market approval for invasive BCI product",
+          "title": "Xinhua – China grants world's first market approval for an invasive brain-computer interface product",
           "url": "https://english.news.cn/20260313/0d8d04954ef845c4b6de502c725c832f/c.html"
         },
         {
-          "title": "Paradromics – First Connexus BCI implant in the Connect-One clinical study",
-          "url": "https://paradromics.com/news/paradromics-completes-first-human-brain-computer-interface-bci-implantation/"
+          "title": "Newsweek – Musk says Blindsight first human implant later this year",
+          "url": "https://www.newsweek.com/elon-musk-neuralink-blindsight-brain-chip-2052917"
         }
-      ]
+      ],
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "how-electric-cars-work",
+      "title": "How Electric Cars Work",
+      "topic": "Frontier Tech",
+      "blurb": "Remy's road-trip log uses one 400-mile drive to Grandma's as a yardstick: why EVs (electric vehicles) were stuck, how batteries and motors work, how Tesla's plan and chargers changed the game, what the trip costs vs gas, how the world (and China's BYD) switched, and cameras vs lidar (laser radar) for self-driving.",
+      "gist": [
+        "Around 2010 EVs (electric vehicles) were stuck on short range, costly batteries and slow charging; battery packs are now 93% cheaper.",
+        "A battery shuttles lithium ions, a motor chases a spinning magnetic field, and an EV turns 87 to 91% of its energy into motion vs about 30% for gas.",
+        "Tesla proved the cars and chargers; now China and BYD lead sales, and the next race is self-driving, Waymo's lidar (laser radar) vs Tesla's cameras."
+      ],
+      "added": "2026-10-24",
+      "added_at": "2026-10-24T21:37",
+      "tagline": "Lithium on a shuttle, magnets that chase, and one 400-mile road trip.",
+      "pages": [
+        {
+          "file": "assets/pulse/how-electric-cars-work/p01.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p01-t.webp",
+          "title": "Why did cars go electric?",
+          "w": 1600,
+          "h": 2473,
+          "kw": "mile hook cars electric remy's road-trip log work tesla got world switch question grandma lives miles away car get cheaply made new sold worldwide ev vehicle range nissan leaf model next evs stuck long source international energy agency iea global outlook counts include plug-in hybrids fueleconomy.gov standard facts oct remy trip card",
+          "takeaway": "1 in 4 new cars sold worldwide in 2025 was an EV (electric vehicle, counting plug-in hybrids); a 2011 Nissan Leaf went 73 miles, a 2026 Model Y is rated at 321."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p02.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p02-t.webp",
+          "title": "Why EVs were stuck",
+          "w": 1600,
+          "h": 2482,
+          "kw": "mile problem evs stuck three roadblocks around range leaf went miles remy's trip need charging stops price kwh battery cost today's dollars kilowatt-hour microwave uses hour full recharge took hours next what's inside ev source fueleconomy.gov nissan all-electric vehicles bloombergnef bnef energy-storage.news dec pack 000-watt arithmetic art generic sketch card",
+          "takeaway": "Around 2010 EVs were stuck: 73 miles of range, a 60 kWh (kilowatt-hour) battery at about $88,000 in today's dollars, and 3 to 12 hour recharges."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p03.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p03-t.webp",
+          "title": "What's inside an electric car",
+          "w": 1600,
+          "h": 2652,
+          "kw": "mile works what's inside electric car remy's see-through battery pack motor charge port power electronics energy path grid's back-and-forth current becomes one-way stores turn back coils make spinning magnetic field rotor chases turning wheels fuel tank tailpipe regen regenerative braking slowing acts generator winning next part sets range price source alternative fuels data center afdc us department doe all-electric cars work renault group jun fact week sep art generic sketch real model card",
+          "takeaway": "An EV is a battery, power electronics, a motor and a charge port; the motor chases a spinning magnetic field, and regen (regenerative) braking wins back about 22% of the energy."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p04.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p04-t.webp",
+          "title": "The battery: lithium on a shuttle",
+          "w": 1600,
+          "h": 2350,
+          "kw": "mile works battery lithium shuttle pack stores remy's miles anode separator cathode motor driving ions charged atoms cross electrons take outside path through charging flow runs backwards return repeats hundreds cycles much model uses kwh trip next guess gas car burns source argonne national laboratory science batteries fueleconomy.gov standard rear-wheel drive arithmetic art generic sketch card",
+          "takeaway": "Lithium ions shuttle between anode and cathode while electrons run through the motor; a 2026 Model Y uses 24 kWh per 100 miles, so Remy's 400 miles take 96 kWh."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p05.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p05-t.webp",
+          "title": "Guess first: where does the energy go?",
+          "w": 1600,
+          "h": 2456,
+          "kw": "mile works guess first energy remy's miles two ways ev uses kwh gas car mpg gallon burns answer flip phone gallons leaves heat electric wall fuel turns motion next evs efficient made one people wanted source environmental protection agency epa economy range testing automotive trends report feb doe fact week regen arithmetic card",
+          "takeaway": "A gas car at 27.2 mpg (miles per gallon) burns about 495 kWh of fuel for Remy's trip vs 96 kWh for the EV (our arithmetic): EVs are 87 to 91% efficient, gas cars about 30%."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p06.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p06-t.webp",
+          "title": "How Tesla made people want one",
+          "w": 1600,
+          "h": 2450,
+          "kw": "mile turn tesla made people want one start expensive cheaper plan step car showed sports roadster miles charge affordable model range even chargers supercharger stations sep world's best-selling next charging works remy's trip source secret motors master aug wikipedia first generation press release second-quarter update third-quarter jato dynamics car-sales data firm jun art generic sketch card",
+          "takeaway": "Tesla's 2006 plan went sports car, then cheaper cars (Model S 2012, Model 3 2017 at $35,000); it built its own chargers, from 6 Supercharger stations in 2012 to 8,904 by Sep 2026."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p07.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p07-t.webp",
+          "title": "Charging on Remy's trip",
+          "w": 1600,
+          "h": 2767,
+          "kw": "mile works charging remy's trip three speeds wall socket highway charger adds level miles hour plugged home public volts fast minutes plan charge overnight drive one 30-minute read leave buffer plug tesla's nacs north american standard now norm brands use chargers next costs source afdc electric vehicle stations fueleconomy.gov 321-mile rated range tesla support supercharging evs oct made art generic sketch card",
+          "takeaway": "A wall socket adds about 5 miles per hour, a 240-volt charger about 25, a highway fast charger 100 to 200+ miles in 30 minutes; Tesla's NACS (North American Charging Standard) plug is now the norm."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p08.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p08-t.webp",
+          "title": "What Remy's 400 miles cost",
+          "w": 1600,
+          "h": 2416,
+          "kw": "mile what's different remy's miles cost priced three ways us averages oct kwh home public chargers gas car gallons prices move track priciest october ever power year next full scorecard ev source energy information administration eia electric monthly residential aug aaa american automobile association epa automotive trends report feb trip costs arithmetic art generic sketch card",
+          "takeaway": "Remy's 96 kWh costs about $17 at home and $39 at public chargers; a 27.2 mpg gas car needs about $63 of gas (US averages, Oct 2026; our arithmetic)."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p09.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p09-t.webp",
+          "title": "EV vs gas car",
+          "w": 1600,
+          "h": 2140,
+          "kw": "mile what's different ev gas car scorecard oct electric energy motion remy's miles home average us price sep new cars tailpipe none battery life years mild climates doe estimate big watch power plants still pollute depending grid costly next world switching evenly source fact week fueleconomy.gov all-electric vehicles kelley blue book trip costs card arithmetic",
+          "takeaway": "EVs win on efficiency, running cost and tailpipe; they cost more up front ($55,879 vs $50,562 for all new cars, Sep 2026) and power plants can still pollute."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p10.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p10-t.webp",
+          "title": "The world switches, China leads",
+          "w": 1600,
+          "h": 2794,
+          "kw": "mile what's different world switches china leads ev share new cars sold nearly europe united states tesla byd china's million battery evs musk don't think have great product us tax credit ended bought sep next tesla's bet drive themselves source iea global outlook counts include plug-in hybrids cnbc jan electrive irs internal revenue service clean vehicle questions answers chinese carmaker art generic sketch card",
+          "takeaway": "In 2025 EVs were nearly 55% of new cars in China, 28% in Europe and just under 10% in the US; China's BYD sold 2.26 million battery EVs vs Tesla's 1.64 million."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p11.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p11-t.webp",
+          "title": "Self-driving: Tesla vs Waymo",
+          "w": 1600,
+          "h": 2478,
+          "kw": "mile it's heading self-driving tesla waymo cameras plus lidar laser radar dome sees today full supervised driver must watch one driver's seat us cities paid rides published week tesla's gamble leads prove enough millions teslas join unproven far read next remy's verdict source verge oct blog aug techcrunch sep support fsd ride counts company's art generic sketch card",
+          "takeaway": "Tesla bets on cameras only and sells FSD (Full Self-Driving) Supervised, which needs a watching driver; Waymo uses cameras, lidar (laser radar) and radar with no one in the driver's seat, at 500,000 paid rides a week."
+        },
+        {
+          "file": "assets/pulse/how-electric-cars-work/p12.webp",
+          "thumb": "assets/pulse/how-electric-cars-work/p12-t.webp",
+          "title": "Remy's verdict",
+          "w": 1600,
+          "h": 2774,
+          "kw": "mile it's heading remy's verdict electric cars far batteries cheaper miles home power yet us price match self-driving car cybercab tesla's robotaxi now giving rides austin big question keep evs growing without tax credits read remy made one fast charge hot chocolate grandma's pie didn't drive itself singing badly source bnef energy-storage.news dec kelley blue book oct tesla third-quarter update techcrunch arithmetic card",
+          "takeaway": "So far: batteries 93% cheaper than in 2010 and 400 miles on about $17 of home power; not yet: a US price match, self-driving in your own car and a Cybercab price."
+        }
+      ],
+      "recap": [
+        "Problem: early EVs (electric vehicles) had short range, costly batteries and slow charging.",
+        "How: a lithium-ion battery, power electronics and a motor turn most of the energy into motion; chargers add 5 to 200+ miles at a time.",
+        "Different: Tesla's plan, Superchargers and NACS (North American Charging Standard) plug; cheaper to run than gas, pricier to buy in the US; China and BYD now lead.",
+        "Next: robotaxis (Waymo's lidar vs Tesla's cameras), with price and safety still to prove."
+      ],
+      "recap_pages": 12,
+      "sources": [
+        {
+          "title": "International Energy Agency – Global EV Outlook 2026, trends in electric car markets",
+          "url": "https://www.iea.org/reports/global-ev-outlook-2026"
+        },
+        {
+          "title": "Tesla – Third-quarter 2026 update, shareholder deck filed with the US Securities and Exchange Commission",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828026066738/exhibit9914.htm"
+        },
+        {
+          "title": "BloombergNEF – Lithium-ion battery pack prices fall to $108 per kilowatt-hour despite rising metal prices",
+          "url": "https://about.bnef.com/insights/clean-transport/lithium-ion-battery-pack-prices-fall-to-108-per-kilowatt-hour-despite-rising-metal-prices-bloombergnef/"
+        },
+        {
+          "title": "US Department of Energy – Fact of the Week 1360, a typical EV is 87 to 91 percent efficient compared to 30 percent for a gasoline vehicle",
+          "url": "https://www.energy.gov/cmei/vehicles/articles/fotw-1360-sept-16-2024-typical-ev-87-91-efficient-compared-30-conventional"
+        },
+        {
+          "title": "fueleconomy.gov – All-Electric Vehicles, how they work, pros and cons",
+          "url": "https://www.fueleconomy.gov/feg/evtech.shtml"
+        },
+        {
+          "title": "Alternative Fuels Data Center, US DOE – Electric Vehicle Charging Stations, charging levels and speeds",
+          "url": "https://afdc.energy.gov/fuels/electricity-stations"
+        },
+        {
+          "title": "Tesla Support – Supercharging Other EVs, the North American Charging Standard plug",
+          "url": "https://www.tesla.com/support/charging/supercharging-other-evs"
+        },
+        {
+          "title": "Tesla – Tesla Motors launches revolutionary Supercharger, press release",
+          "url": "https://ir.tesla.com/press-release/tesla-motors-launches-revolutionary-supercharger-enabling"
+        },
+        {
+          "title": "CNBC – China's BYD to overtake Tesla as world's top EV seller for first time",
+          "url": "https://www.cnbc.com/2026/01/02/chinas-byd-to-overtake-tesla-as-worlds-top-ev-seller-for-first-time.html"
+        },
+        {
+          "title": "TechCrunch – Waymo is scaling fast, here's what the fleet data shows",
+          "url": "https://techcrunch.com/2026/09/24/waymo-is-scaling-fast-heres-what-the-fleet-data-shows/"
+        },
+        {
+          "title": "Waymo – Meet the 6th-generation Waymo Driver",
+          "url": "https://waymo.com/blog/2024/08/meet-the-6th-generation-waymo-driver"
+        },
+        {
+          "title": "TechCrunch – Tesla says it will start selling Cybercabs by end of year",
+          "url": "https://techcrunch.com/2026/10/21/tesla-says-it-will-start-selling-cybercabs-by-end-of-year/"
+        },
+        {
+          "title": "American Automobile Association – National average falls 6 cents but crude oil nears $100 a barrel",
+          "url": "https://newsroom.aaa.com/2026/10/national-average-falls-6-cents-but-crude-oil-nears-100-barrel/"
+        },
+        {
+          "title": "Cox Automotive and Kelley Blue Book – September 2026 average transaction price report",
+          "url": "https://www.coxautoinc.com/insights/sept-2026-atp-report/"
+        }
+      ],
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "how-humanoid-robots-work",
+      "title": "How Humanoid Robots Work",
+      "topic": "Frontier Tech",
+      "blurb": "Mo's workshop log tests humanoid robots against three chores: why robots get human shapes, the hard parts (balance, hands, motors and batteries), how AI (artificial intelligence) brains think and learn, the 2026 line-up from Optimus to Unitree, real work vs promises, demos, and safety, cost and hype.",
+      "gist": [
+        "Humanoids are shaped like us because the world is built for us, but walking, hands and battery life are still hard.",
+        "Robots learn in simulation, from human drivers and videos, and from big AI (artificial intelligence) models that split thinking slow from moving fast.",
+        "As of Oct 2026 only 13,000 to 18,000 shipped in 2025, mostly from China; real jobs are in factories and warehouses, and homes are still a promise."
+      ],
+      "added": "2026-10-24",
+      "added_at": "2026-10-24T22:01",
+      "tagline": "Controlled falling, fussy hands and chores that still wait.",
+      "pages": [
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p01.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p01-t.webp",
+          "title": "Can a robot do my chores?",
+          "w": 1600,
+          "h": 2608,
+          "kw": "step hook robot chores mo's workshop log humanoid human-shaped robots work question carry laundry upstairs fold load dishwasher shaped like made shipped worldwide depending counts starting price unitree's home deliveries confirm next build us source omdia forbes jan idc international data corporation market research firm unitree online store read oct order page facts card",
+          "takeaway": "13,000 to 18,000 humanoid (human-shaped) robots shipped worldwide in 2025 depending on who counts; Unitree's R1 starts at $4,900, and we found no confirmed home deliveries."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p02.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p02-t.webp",
+          "title": "Why shaped like a person?",
+          "w": 1600,
+          "h": 2454,
+          "kw": "step problem shaped like person because world built people us stairs mo's door handles shelves human height legs hands fit one body many jobs robot sort parts morning move boxes lunch read catch fixed job arm wheeled cart usually simpler cheaper next hard part falling source agility robotics humanoid robots need figure f.03 arrives bmw jun art generic sketch card",
+          "takeaway": "Robots get human shapes because stairs, handles and shelves are built for people; for one fixed job an arm or wheeled cart is usually simpler (our read)."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p03.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p03-t.webp",
+          "title": "Walking is controlled falling",
+          "w": 1600,
+          "h": 2364,
+          "kw": "step hard parts walking controlled falling part one balance tip forward starts small fall catch swing foot land body keep point tipping forces cancel slips outside robot falls race day beijing humanoids finished half-marathon winner fell needed three battery swaps next two hands source mit massachusetts institute technology underactuated robotics zero-moment wired apr art generic sketch card",
+          "takeaway": "Walking is controlled falling: tip, catch, and keep the balance point inside the foot; in Beijing's 2025 half-marathon only 6 of 21 humanoids finished."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p04.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p04-t.webp",
+          "title": "Hands: the hardest few inches",
+          "w": 1600,
+          "h": 2524,
+          "kw": "step hard parts hands hardest inches part two holding egg without crushing bones fingertip sensors tendons hand separate ways move skin feels pressure robot 1x's neo has joint motions figure adds touch palm cameras still oct musk said optimus's need work next what's inside long lasts source biological cybernetics human modelling degrees freedom specs introducing verge art generic sketch card",
+          "takeaway": "Your hand has 27 bones and 20 to 24 separate ways to move; NEO has 22 joint motions per hand, Figure 03 adds touch sensors, and Musk says Optimus hands still need work."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p05.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p05-t.webp",
+          "title": "What's inside: muscles and batteries",
+          "w": 1600,
+          "h": 2506,
+          "kw": "step works what's inside muscles batteries generic robot see-through cameras computer battery actuators motor gears hands spins fast weakly trade speed force joint turns slower stronger hours charge atlas figure neo swaps next guess chore harder source boston dynamics product page specs company figures art sketch real model card",
+          "takeaway": "Inside a humanoid: cameras, a computer, a battery and actuators (motor plus gears that trade speed for force); Atlas, Figure 03 and NEO run about 4 to 5 hours a charge (company figures)."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p06.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p06-t.webp",
+          "title": "Guess first: chess or laundry?",
+          "w": 1600,
+          "h": 2162,
+          "kw": "step hard parts guess first chess laundry harder robot beating world champion folding mo's t-shirt answer flip phone computer beat skills feel easy us took millions years evolve moravec's paradox hans moravec thinking tests computers toddler's seeing moving cloth changes shape every time two folds start read next ai artificial intelligence brains built stuff source ibm deep blue wikipedia card",
+          "takeaway": "Moravec's paradox: a computer beat the chess champion in 1997, but folding a T-shirt is still hard because seeing and moving took millions of years to evolve."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p07.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p07-t.webp",
+          "title": "How robots think and learn",
+          "w": 1600,
+          "h": 2468,
+          "kw": "step works robots think learn ai artificial intelligence brains trained practice people teleoperation simulation slow brain fast figure's system big model understands put cup sink small one moves joints times second video-game world rewarded success person virtual reality headset drives robot recording becomes lesson imitation copy videos doing chores next building source figure helix company figures boston dynamics training humanoid hard work business insider nov mo's example made art generic sketch card",
+          "takeaway": "Robot AI (artificial intelligence) splits a slow brain that understands the scene from a fast one that moves joints 200 times a second, and learns from simulation, people driving in VR (virtual reality) headsets and videos."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p08.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p08-t.webp",
+          "title": "The line-up, as of Oct 2026",
+          "w": 1600,
+          "h": 2550,
+          "kw": "step players line-up oct makes costs robot maker status price optimus tesla early production 20k 30k someday musk figure sorting parts bmw published digit agility customer sites month unitree china sale neo pre-orders homes ships chinese makers far idc says humanoids went shows schools labs tours next real jobs promises source third-quarter update jun sep store order page techcrunch omdia forbes art generic card",
+          "takeaway": "As of Oct 2026: Optimus in early production, Figure 03 at BMW, Digit at 9 sites for about $8,500 a month, Unitree from $4,900 and NEO on pre-order at $20,000; most humanoids came from China."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p09.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p09-t.webp",
+          "title": "Real work vs promises",
+          "w": 1600,
+          "h": 2701,
+          "kw": "step today real work promises factories warehouses oct working now digit moved totes plastic bins gxo logistics firm warehouse figure helped build bmw cars company figures still waiting musk promised thousands optimus robots early production began said neo home deliveries start found none confirmed small money agility sites had million sales next tell demo thing source sep jun fortune jan call transcript techcrunch order page robot report filing art generic sketch card",
+          "takeaway": "Real work so far: Digit moved 100,000 totes and Figure 02 helped build 30,000 BMW cars, yet Agility had $1.8 million in 2025 sales, and promised Optimus volumes and NEO home deliveries have not arrived."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p10.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p10-t.webp",
+          "title": "Demo or the real thing?",
+          "w": 1600,
+          "h": 2884,
+          "kw": "step today demo real thing look behind curtain human inside tesla's event optimus bartenders assisted expert mode neo owners book worker steer through new chores company says stunt figure walked miles treadmill plugged power cable ask three questions driving video sped often fail lab success stalls next safety cost hype source techcrunch oct citing bloomberg heise figure's chief executive verge quoting ken goldberg read art generic sketch card",
+          "takeaway": "Demos can hide humans or tricks (Optimus bartenders were human-assisted); ask who is driving, whether the video is sped up and how often it fails."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p11.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p11-t.webp",
+          "title": "Safety, cost and hype",
+          "w": 1600,
+          "h": 2684,
+          "kw": "step what's different safety cost hype robots still work behind fences heavy fall figure weighs grown adult makers add soft covers rulebook yet international standard walking factory draft oct building one goldman sachs check valued billion whole world shipped humanoids read next mo's verdict source page iso organization standardization feb series sep art generic sketch card",
+          "takeaway": "A 61 kg robot falling is a real hazard, the safety standard is still a draft, building one cost $30,000 to $150,000 (2024), and Figure's $39 billion value dwarfs 2025 shipments (our read)."
+        },
+        {
+          "file": "assets/pulse/how-humanoid-robots-work/p12.webp",
+          "thumb": "assets/pulse/how-humanoid-robots-work/p12-t.webp",
+          "title": "Mo's verdict",
+          "w": 1600,
+          "h": 2532,
+          "kw": "step it's heading mo's verdict robot chores yet road company plans optimus outside buyers end atlas parts work hyundai factories first homes later read big question robots learn data fast enough earn price made carry boxes basket socks dishes still mine i'm folding source tesla third-quarter update boston dynamics sep motor group cited cards dates card",
+          "takeaway": "Company plans put factories first (Optimus outside sales about end of 2027, Atlas parts work in 2028) and homes later; Mo's chores are still his."
+        }
+      ],
+      "recap": [
+        "Problem: a world built for humans needs robots that can walk, reach and grip like us.",
+        "How: actuators (motors with gears), batteries and cameras in a fast loop, with AI brains trained by simulation, remote human driving and imitation.",
+        "Different: China ships the most; US makers have big valuations, real factory pilots and many demos.",
+        "Next: factory work first (Optimus outside sales about end of 2027, Atlas parts work 2028), homes later, with safety rules still in draft."
+      ],
+      "recap_pages": 12,
+      "sources": [
+        {
+          "title": "Omdia via Forbes – Top 10 humanoid robot companies by shipments revealed",
+          "url": "https://www.forbes.com/sites/johnkoetsier/2026/01/09/top-10-humanoid-robot-companies-by-shipments-revealed/"
+        },
+        {
+          "title": "International Data Corporation – Humanoid robotics commercialization trends 2026",
+          "url": "https://www.idc.com/resource-center/blog/humanoid-robotics-commercialization-2026/"
+        },
+        {
+          "title": "TechCrunch – Tesla starts Optimus robot production in California as profit falls 43%",
+          "url": "https://techcrunch.com/2026/10/21/tesla-stars-optimus-robot-production-in-california-as-profit-falls-43/"
+        },
+        {
+          "title": "The Verge – Just because Tesla's Optimus is in production doesn't mean it's actually ready",
+          "url": "https://www.theverge.com/tech/1016492/tesla-optimus-robots-production-musk-q3-earnings"
+        },
+        {
+          "title": "Figure – Helix, a vision-language-action model for generalist humanoid control",
+          "url": "https://www.figure.ai/news/helix"
+        },
+        {
+          "title": "Figure – Introducing Figure 03",
+          "url": "https://www.figure.ai/news/introducing-figure-03"
+        },
+        {
+          "title": "Agility Robotics – Agility unveils Digit 5, built for cooperatively safe work at scale",
+          "url": "https://www.agilityrobotics.com/content/agility-unveils-digit-5-humanoid-robot-built-for-cooperatively-safe-work-at-scale"
+        },
+        {
+          "title": "The Robot Report – Agility Robotics reports $1.8M revenue ahead of humanoid SPAC deal",
+          "url": "https://www.therobotreport.com/agility-robotics-reports-18m-revenue-ahead-of-humanoid-spac/"
+        },
+        {
+          "title": "Boston Dynamics – Training a humanoid robot for hard work, blog",
+          "url": "https://bostondynamics.com/blog/training-a-humanoid-robot-for-hard-work/"
+        },
+        {
+          "title": "Hyundai Motor Group – Inside the robotics race, Atlas learns the real world",
+          "url": "https://www.hyundaimotorgroup.com/en/story/hyundai-motor-group-bloomberg-atlas-boston-dynamics-rmac"
+        },
+        {
+          "title": "1X – NEO home robot, specs and order page",
+          "url": "https://www.1x.tech/neo"
+        },
+        {
+          "title": "Unitree – Official online store, humanoid prices",
+          "url": "https://shop.unitree.com/"
+        },
+        {
+          "title": "TechCrunch – Tesla Optimus bots were controlled by humans during the We, Robot event",
+          "url": "https://techcrunch.com/2024/10/14/tesla-optimus-bots-were-controlled-by-humans-during-the-we-robot-event/"
+        },
+        {
+          "title": "Goldman Sachs – The global market for humanoid robots could reach $38 billion by 2035",
+          "url": "https://www.goldmansachs.com/insights/articles/the-global-market-for-robots-could-reach-38-billion-by-2035"
+        }
+      ],
+      "updated": "2026-10-25"
+    },
+    {
+      "id": "nuclear-for-ai",
+      "title": "Nuclear for AI",
+      "topic": "Frontier Tech",
+      "blurb": "Pip's lab notes follow AI's (artificial intelligence's) electricity hunger back to nuclear power: the 24/7 firm-power problem, how a reactor works, why big plants got slow, small modular reactors' promise vs reality, the fuel and permit gates, big-tech deals, a nuclear vs gas vs solar vs wind comparison, waste and honest risks, as of Oct 2026.",
+      "gist": [
+        "AI (artificial intelligence) data centres need huge amounts of power around the clock, and nuclear runs about 91% of the time with no carbon emissions.",
+        "A reactor is a kettle: splitting atoms makes heat, steam spins a turbine, and control rods keep the chain reaction on a leash.",
+        "As of Oct 2026 big tech has signed gigawatts of deals, but new small reactors are still years away, so old plants, restarts and gas fill the gap."
+      ],
+      "added": "2026-10-24",
+      "added_at": "2026-10-24T22:26",
+      "tagline": "Chatbots, chain reactions and a very long waiting line.",
+      "pages": [
+        {
+          "file": "assets/pulse/nuclear-for-ai/p01.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p01-t.webp",
+          "title": "Why does AI need a power plant?",
+          "w": 1600,
+          "h": 2858,
+          "kw": "card hook ai need power plant pip's lab notes artificial intelligence nuclear question chatbot answers second plants made planned one meta campus gigawatt big reactor us homes arithmetic electricity data centres buildings full computers next hour matters source techcrunch jul meta's hyperion electric research institute epri powering energy information administration eia kwh kilowatt-hours home year hours facts oct pip cat neutron",
+          "takeaway": "AI (artificial intelligence) needs huge, round-the-clock power: one planned Meta campus wants 5 GW (gigawatts), 1 GW could power about 810,000 US homes (our arithmetic), and data centres could use 9 to 17% of US electricity by 2030 (EPRI, Electric Power Research Institute)."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p02.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p02-t.webp",
+          "title": "The 24/7 problem",
+          "w": 1600,
+          "h": 2894,
+          "kw": "card problem data centres hum night sun nuclear gas wind solar share full output kind really made us firm power count hour even still dark ai campuses want waiting line new plants waited years grid connection next reactor runs nonstop source eia electric monthly tables 6.07.a 6.07.b capacity factors lawrence berkeley national laboratory lbnl queued 61-month median art generic sketch",
+          "takeaway": "Data centres need firm power at every hour: in 2025 US nuclear plants ran 91% of the time, gas 59%, wind 34% and solar 24% (EIA, US Energy Information Administration), and new plants waited about 5 years to connect."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p03.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p03-t.webp",
+          "title": "Inside a reactor: atoms boil water",
+          "w": 1600,
+          "h": 2714,
+          "kw": "card works inside reactor atoms boil water pressurized common kind core steam generator turbine cooling tower split fission releasing heat boils second loop spin spins cool cools repeat leash frees neutrons tiny particles control rods soak slow speed next something goes wrong source eia nuclear explained regulatory commission nrc reactors energy institute nei fuel pellet coal industry figure art generic sketch",
+          "takeaway": "A pressurized water reactor splits uranium atoms (fission) to make heat, boils water into steam, spins a turbine and cools the steam back to water; control rods soak up neutrons to slow or stop the chain reaction."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p04.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p04-t.webp",
+          "title": "Four walls of safety",
+          "w": 1600,
+          "h": 2588,
+          "kw": "card works four walls safety layer backs last pellet fuel rod vessel containment layers ceramic pellets trap radioactive material sealed metal tubes hold thick steel holds core concrete dome covers history lesson three mile island unit partly melted ran until microsoft wants back newer designs many cool themselves pumps company claim next new big plants get slow source nrc defense depth backgrounder accident nuscale passive cooling art generic sketch",
+          "takeaway": "Four layers keep radioactive material in: ceramic pellets, sealed fuel rods, a steel vessel and a concrete dome; Three Mile Island Unit 2 partly melted down in 1979, while Unit 1 ran until 2019."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p05.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p05-t.webp",
+          "title": "Why big plants got slow",
+          "w": 1600,
+          "h": 2725,
+          "kw": "card stalled big plants got slow vogtle georgia plan happened cost billion online built started done years later first kind crews learned job plant custom megaproject interest power sells pip made i'd college next fix offer small many source eia unit begins commercial operation three reasons read art generic sketch",
+          "takeaway": "Vogtle 3 and 4 in Georgia were planned at $14 billion for 2016 and 2017 and finished in 2023 and 2024 at more than $30 billion, 15 years after work began (EIA)."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p06.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p06-t.webp",
+          "title": "Small reactors: pitch vs reality",
+          "w": 1600,
+          "h": 2825,
+          "kw": "card big bet small reactors pitch reality smrs modular plant reactor size megawatts one giant custom build factory copies get cheaper design status nuscale water approved buyer yet hitachi bwrx-300 being built canada terrapower natrium liquid sodium permit wyoming kairos oklo test units check nuscale's first cancelled billion next two gates every new must pass source international atomic energy agency iaea eia vogtle nrc approval federal register construction mar ontario power generation reuters nov industry's claim art generic sketch",
+          "takeaway": "SMRs (small modular reactors, about 50 to 300 MW, megawatts) promise cheaper factory copies, but none runs in the US yet and NuScale's first plant was cancelled in 2023 at $9.3 billion."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p07.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p07-t.webp",
+          "title": "Fuel and permits",
+          "w": 1600,
+          "h": 2792,
+          "kw": "card two gates fuel permits new reactors waiting gate many designs need haleu higher-enriched uranium us made kilograms year doe department energy says tonnes needed since nrc nuclear regulator must decide within months got build permit plant none sends power grid yet read pip neutron took learn sit next who's paying big tech source questions answers centrus reaches mark white house executive order federal register mar natrium oct clinch river art generic sketch",
+          "takeaway": "New reactors face two gates: HALEU fuel (higher-enriched uranium; the US made about 900 kg a year vs 40+ tonnes needed by 2030, says the DOE, Department of Energy) and permits, which the NRC (Nuclear Regulatory Commission) must now decide within 18 months."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p08.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p08-t.webp",
+          "title": "Big tech goes shopping",
+          "w": 1600,
+          "h": 2401,
+          "kw": "card deals big tech goes shopping oct buyer deal microsoft restart three mile island unit now crane target amazon power talen's existing plant full google duane arnold kairos reactors meta old plants new read fine print deliver new-reactor targets restarts fastest closed return next nuclear stacks against rest source constellation 20-year federal register sep review talen energy jun nextera jan dates sizes company figures art generic sketch",
+          "takeaway": "Big tech signed nuclear deals: Microsoft (restarting Three Mile Island Unit 1, 835 MW), Amazon (1.92 GW from Talen), Google (Duane Arnold restart and Kairos) and Meta (up to 6.6 GW by 2035); old plants deliver now, new ones are targets (our read)."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p09.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p09-t.webp",
+          "title": "Nuclear vs gas vs sun vs wind",
+          "w": 1600,
+          "h": 2267,
+          "kw": "card compare nuclear gas sun wind us numbers oct option cost mwh runs build time new years carbon plant turbines sold emits solar batteries 5-year grid wait stored hours onshore megawatt-hour month one home's power arithmetic mix winner now later read next nuclear's biggest worry waste source lazard levelized energy unsubsidized excludes backup costs eia capacity factors utility dive vernova turbine backlog lbnl queued kwh months",
+          "takeaway": "Cost per MWh (megawatt-hour) from Lazard 2026: new nuclear $175 to $255, gas $51 to $129, solar plus batteries $61 to $156 and onshore wind $37 to $99; nuclear is firm but slowest to build."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p10.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p10-t.webp",
+          "title": "Guess first: how much waste?",
+          "w": 1600,
+          "h": 2434,
+          "kw": "card risks guess first much waste every used fuel rod since 1950s piled us nuclear size city stadium mountain answer flip phone football field yards deep tonnes heavy big sits cooling pools steel-and-concrete casks reactor sites still has permanent underground store next one risk rest source doe fast facts spent nei happens government accountability office gao disposal art generic sketch",
+          "takeaway": "All US used nuclear fuel since the 1950s, about 90,000 tonnes, would cover one football field less than 10 yards deep (DOE); it sits in pools and casks with no permanent store."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p11.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p11-t.webp",
+          "title": "The honest risks",
+          "w": 1600,
+          "h": 2604,
+          "kw": "card risks honest beyond waste cost overruns vogtle twice plan us small reactor built yet real price unknown timelines every new-reactor date say hype deals announced gigawatts new reactors far deliver zero read safety rules faster reviews must mean weaker checks one accident stall everything next pip's verdict source eia nrc company dates cards art generic sketch",
+          "takeaway": "The honest risks: cost overruns, slipping timelines, gigawatt deals with no new power yet, and faster reviews that must not mean weaker safety checks (our read)."
+        },
+        {
+          "file": "assets/pulse/nuclear-for-ai/p12.webp",
+          "thumb": "assets/pulse/nuclear-for-ai/p12-t.webp",
+          "title": "Pip's verdict",
+          "w": 1600,
+          "h": 2860,
+          "kw": "card it's heading pip's verdict nuclear powering chatbot road restarts first small reactors big-tech targets timing gap data centres years new take gas fills read big question factory-built get cheap ai finds power elsewhere pip made runs old today maybe ones neutron says warm laptop plant source company cards white house executive order dates plans",
+          "takeaway": "Restarts come from 2027, first small reactors about 2028 to 2030 and big-tech targets by 2035; data centres go up faster than reactors, so gas fills the gap (our read)."
+        }
+      ],
+      "recap": [
+        "Problem: AI campuses need gigawatts of firm, 24/7 power, and the grid has a five-year waiting line.",
+        "How: fission heats water to steam that spins a turbine, inside four layers of safety.",
+        "Different: small modular reactors promise factory copies, new fuels and faster permits, but none sends power to a US grid yet.",
+        "Next: restarts from 2027, first small reactors around 2028 to 2030, big-tech targets by 2035, with cost, fuel and waste still open questions."
+      ],
+      "recap_pages": 12,
+      "sources": [
+        {
+          "title": "US Energy Information Administration – Electric Power Monthly table 6.07.B, non-fossil capacity factors",
+          "url": "https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=table_6_07_b"
+        },
+        {
+          "title": "Electric Power Research Institute – Powering Intelligence 2026, executive summary",
+          "url": "https://powering-intelligence.epri.com/executive-summary.html"
+        },
+        {
+          "title": "Lawrence Berkeley National Laboratory – Queued Up 2026 edition, grid connection queues",
+          "url": "https://emp.lbl.gov/queues/"
+        },
+        {
+          "title": "US Energy Information Administration – Plant Vogtle Unit 4 begins commercial operation",
+          "url": "https://www.eia.gov/todayinenergy/detail.php?id=61963"
+        },
+        {
+          "title": "Nuclear Regulatory Commission – Backgrounder on the Three Mile Island accident",
+          "url": "https://www.nrc.gov/reading-rm/doc-collections/fact-sheets/3mile-isle.html"
+        },
+        {
+          "title": "Lazard – Levelized cost of energy plus 2026",
+          "url": "https://www.lazard.com/media/lrecseyq/lazards-lcoeplus-v190_vf.pdf"
+        },
+        {
+          "title": "Federal Register – Kemmerer Unit 1 construction permit and record of decision",
+          "url": "https://www.federalregister.gov/documents/2026/03/16/2026-05067/us-sfr-owner-llc-kemmerer-power-station-unit-1-construction-permit-and-record-of-decision"
+        },
+        {
+          "title": "Department of Energy – Centrus reaches 900 kilogram mark for HALEU production",
+          "url": "https://www.energy.gov/ne/articles/centrus-reaches-900-kilogram-mark-haleu-production"
+        },
+        {
+          "title": "Federal Register – Crane Clean Energy Center environmental assessment",
+          "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19603/constellation-energy-generation-llc-christopher-m-crane-clean-energy-center-environmental-assessment"
+        },
+        {
+          "title": "Talen Energy – Talen expands nuclear energy relationship with Amazon",
+          "url": "https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon"
+        },
+        {
+          "title": "NextEra Energy – NextEra and Google collaborate to restart Duane Arnold",
+          "url": "https://www.investor.nexteraenergy.com/news-and-events/news-releases/2025/10-27-2025-203948689"
+        },
+        {
+          "title": "Meta – Nuclear energy projects unlocking up to 6.6 GW",
+          "url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/"
+        },
+        {
+          "title": "TechCrunch – Mark Zuckerberg says Meta is building a 5GW AI data center",
+          "url": "https://techcrunch.com/2025/07/14/mark-zuckerberg-says-meta-is-building-a-5gw-ai-data-center/"
+        },
+        {
+          "title": "Department of Energy – 5 fast facts about spent nuclear fuel",
+          "url": "https://www.energy.gov/ne/articles/5-fast-facts-about-spent-nuclear-fuel"
+        }
+      ],
+      "updated": "2026-10-25"
     }
   ],
   "moved": {
