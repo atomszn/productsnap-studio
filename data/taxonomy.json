@@ -396,9 +396,9 @@
         "page": 1,
         "box": [
           0,
-          960,
+          830,
           1600,
-          2160
+          2030
         ]
       }
     },
@@ -562,6 +562,174 @@
           455,
           1380,
           1215
+        ]
+      }
+    },
+    "how-electric-cars-work": {
+      "sub": "Getting around",
+      "tags": [
+        "big-names"
+      ],
+      "aka": [
+        "ev",
+        "evs",
+        "electric car",
+        "electric cars",
+        "electric vehicle",
+        "electric vehicles",
+        "tesla",
+        "model y",
+        "model 3",
+        "byd",
+        "nacs",
+        "supercharger",
+        "superchargers",
+        "charging",
+        "ev charging",
+        "fast charging",
+        "battery",
+        "batteries",
+        "lithium",
+        "lithium-ion",
+        "kwh",
+        "range",
+        "regen",
+        "waymo",
+        "lidar",
+        "cybercab",
+        "robotaxi",
+        "robotaxis",
+        "fsd",
+        "self-driving",
+        "self driving cars",
+        "gas vs electric",
+        "elon",
+        "elon musk"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          520,
+          440,
+          1500,
+          1175
+        ]
+      }
+    },
+    "how-humanoid-robots-work": {
+      "sub": "Robots & brains",
+      "tags": [
+        "big-names"
+      ],
+      "aka": [
+        "humanoid",
+        "humanoids",
+        "humanoid robot",
+        "humanoid robots",
+        "robot",
+        "robots",
+        "optimus",
+        "tesla bot",
+        "tesla optimus",
+        "figure",
+        "figure 03",
+        "figure ai",
+        "helix",
+        "digit",
+        "agility",
+        "agility robotics",
+        "atlas",
+        "boston dynamics",
+        "hyundai",
+        "unitree",
+        "g1",
+        "r1",
+        "agibot",
+        "ubtech",
+        "1x",
+        "neo",
+        "apptronik",
+        "apollo",
+        "teleoperation",
+        "reinforcement learning",
+        "simulation",
+        "vla",
+        "gr00t",
+        "gemini robotics",
+        "robot hands",
+        "walking robot",
+        "robot brains",
+        "elon",
+        "elon musk"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          249,
+          470,
+          1262,
+          1230
+        ]
+      }
+    },
+    "nuclear-for-ai": {
+      "sub": "Energy",
+      "tags": [
+        "big-names"
+      ],
+      "aka": [
+        "nuclear",
+        "nuclear power",
+        "nuclear energy",
+        "nuclear for ai",
+        "smr",
+        "smrs",
+        "small modular reactor",
+        "small modular reactors",
+        "fission",
+        "reactor",
+        "reactors",
+        "uranium",
+        "haleu",
+        "three mile island",
+        "tmi",
+        "crane",
+        "crane clean energy center",
+        "microsoft",
+        "amazon",
+        "google",
+        "meta",
+        "nuscale",
+        "x-energy",
+        "xe-100",
+        "kairos",
+        "kairos power",
+        "terrapower",
+        "natrium",
+        "oklo",
+        "aurora",
+        "bwrx-300",
+        "palisades",
+        "duane arnold",
+        "talen",
+        "constellation",
+        "data center power",
+        "data centre power",
+        "ai power",
+        "ai electricity",
+        "gigawatt",
+        "nrc",
+        "vogtle",
+        "nuclear waste",
+        "firm power"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          280,
+          444,
+          1284,
+          1197
         ]
       }
     }
