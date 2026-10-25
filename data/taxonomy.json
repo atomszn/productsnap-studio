@@ -390,7 +390,13 @@
         "data centers in orbit",
         "ground station",
         "spectrum",
-        "bandwidth"
+        "bandwidth",
+        "kuiper",
+        "project kuiper",
+        "laser",
+        "lasers",
+        "laser links",
+        "ila"
       ],
       "cover": {
         "page": 1,
@@ -451,7 +457,8 @@
         "long march",
         "raptor",
         "launch cost",
-        "reuse"
+        "reuse",
+        "nia"
       ],
       "cover": {
         "page": 1,
@@ -498,9 +505,8 @@
         "transit cost",
         "digging",
         "hyperloop",
-        "tesla",
-        "self-driving",
-        "osha"
+        "osha",
+        "wren"
       ],
       "cover": {
         "page": 1,
@@ -553,7 +559,16 @@
         "robot arm",
         "fda",
         "electrodes",
-        "motor cortex"
+        "motor cortex",
+        "neuron",
+        "neurons",
+        "nerve cells",
+        "brain cells",
+        "spikes",
+        "r1 robot",
+        "surgical robot",
+        "robot surgeon",
+        "juno"
       ],
       "cover": {
         "page": 1,
@@ -604,7 +619,11 @@
         "self driving cars",
         "gas vs electric",
         "elon",
-        "elon musk"
+        "elon musk",
+        "inverter",
+        "power electronics",
+        "electric motor",
+        "remy"
       ],
       "cover": {
         "page": 1,
@@ -660,7 +679,10 @@
         "walking robot",
         "robot brains",
         "elon",
-        "elon musk"
+        "elon musk",
+        "mo",
+        "actuator",
+        "actuators"
       ],
       "cover": {
         "page": 1,
@@ -721,7 +743,8 @@
         "nrc",
         "vogtle",
         "nuclear waste",
-        "firm power"
+        "firm power",
+        "pip"
       ],
       "cover": {
         "page": 1,
