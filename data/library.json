@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-25",
+  "updated": "2026-10-28",
   "books": [
     {
       "id": "ai-basics",
@@ -2297,7 +2297,7 @@
       "id": "stablecoins",
       "title": "Stablecoins",
       "topic": "Fintech",
-      "blurb": "Follow Ana's $100 as it becomes a digital dollar: what backs it, who earns the interest, the rules around the world, and what it means for you.",
+      "blurb": "Follow Ana's $100 as it becomes a digital dollar: what backs it, who earns the interest, the rules around the world, how an AI agent can spend it, and what it means for you.",
       "gist": [
         "A stablecoin is a digital claim ticket worth $1, backed mostly by short US government IOUs and cash.",
         "The interest on that backing goes to the issuer and its partners; holders get none, by law in the US and EU.",
@@ -2305,6 +2305,7 @@
       ],
       "added": "2026-10-20",
       "added_at": "2026-10-20T10:08",
+      "tagline": "A $1 ticket that never sleeps.",
       "pages": [
         {
           "file": "assets/pulse/stablecoins/p01.webp",
@@ -2312,7 +2313,7 @@
           "title": "Ana's $100 gets a coat-check ticket",
           "w": 1600,
           "h": 2400,
-          "kw": "ana's $100 gets a coat-check ticket stablecoin = digital token built to stay worth $1, like circle's usdc or tether's usdt. coat check ana hands over and 100 tokens. the issuer (the coin's maker) keeps her dollars. where lives on blockchain: shared public record, open 24/7. bring back hand in tokens, get $100. no bonus, interest. source: circle tether terms. is made up.",
+          "kw": "ana's gets coat-check ticket stablecoin digital token built stay worth like circle's usdc tether's usdt coat check ana hands tokens issuer coin's maker keeps dollars lives blockchain shared public record open bring back hand get bonus interest next backs source circle tether terms made card",
           "takeaway": "A stablecoin is a claim ticket: the dollars sit with the issuer, and you get exactly $1 back per token, nothing more."
         },
         {
@@ -2321,8 +2322,7 @@
           "title": "What sits in the vault",
           "w": 1600,
           "h": 2400,
-          "kw": "what sits in the vault mostly short us government ious treasury bills (t-bills): loans to government, repaid within months. safe and easy sell. plus plain cash some banks, so people can out fast. india, uk australia sell same kind of short, iou. who counts it? under law, issuers post a checked report monthly. source: genius act (pub. l. 119-27) s.4; circle usdc transparency page.",
-          "takeaway": null
+          "kw": "sits vault mostly short us government ious treasury bills t-bills loans repaid within months safe easy sell plus plain cash banks people fast india uk australia kind iou counts law issuers post checked report monthly next earns ana's source genius act pub s.4 circle usdc transparency page card"
         },
         {
           "file": "assets/pulse/stablecoins/p03.webp",
@@ -2330,7 +2330,7 @@
           "title": "Who earns on Ana's $100?",
           "w": 1600,
           "h": 2400,
-          "kw": "who earns on ana's $100? example the vault interest t-bills pay about 3.5% a year: $3.50 $100. guess first: how much does ana get? $0! issuer keeps it. us law bans just for holding. then it gets split circle (usdc's maker) pays 60 cents of each $1 to partners like coinbase and other costs. under dime is profit. our read that slice why apps push stablecoins so hard. source: quarterly filing (10-q); genius act. example.",
+          "kw": "earns ana's example vault interest t-bills pay year guess first much ana get issuer keeps us law bans holding gets split circle usdc's maker pays cents partners like coinbase costs dime profit read slice apps push stablecoins hard next writes rules source quarterly filing 10-q genius act card",
           "takeaway": "The interest on the backing goes to the issuer and its partners, not to you; that is the business model."
         },
         {
@@ -2339,8 +2339,7 @@
           "title": "Five referees, five rulebooks",
           "w": 1600,
           "h": 2400,
-          "kw": "five referees, rulebooks us: the genius act $1 of safe assets per coin and a license. fully in force by early 2027. eu: mica (markets crypto-assets) rules, live since mid-2024: licensed issuers, full backing, no interest. uk fca (financial conduct authority) rules start late india rbi (reserve bank india) is wary backs its own digital rupee instead. australia draft law would require not yet, as oct 2026. source: act; eu reg. 2023/1114; ps26/10; rbi; australian treasury bill.",
-          "takeaway": null
+          "kw": "five referees rulebooks us genius act safe assets coin license fully force early eu mica markets crypto-assets rules live since mid-2024 licensed issuers full backing interest uk fca financial conduct authority start late india rbi reserve bank wary backs digital rupee instead australia draft law require yet oct next coins actually travel source reg ps26 australian treasury bill card"
         },
         {
           "file": "assets/pulse/stablecoins/p05.webp",
@@ -2348,54 +2347,94 @@
           "title": "Open roads vs private highway",
           "w": 1600,
           "h": 2400,
-          "kw": "open roads vs private highway stablecoins ride public blockchains anyone can use. banks build networks, members only. payments are growing about $480 billion in stablecoin the first nine months of 2026, up by nearly half. honest context only 1 5 dollars moved is a payment. most rest trading. at shop some debit cards spend checkout, through card network. source: allium, state and payments, q3 2026.",
-          "takeaway": null
+          "kw": "open roads private highway stablecoins ride public blockchains anyone use banks build networks members payments growing billion stablecoin first nine months nearly half honest context dollars moved payment rest trading shop debit cards spend checkout through card network next ana lets ai agent hers source allium state"
         },
         {
           "file": "assets/pulse/stablecoins/p06.webp",
           "thumb": "assets/pulse/stablecoins/p06-t.webp",
-          "title": "Four people, one $100",
+          "title": "Ana gives her agent a budget",
           "w": 1600,
           "h": 2400,
-          "kw": "four people, one $100 the bank if ana moves savings into tokens, i have less to lend. shop owner maybe cheaper than card fees, but pay rent in local money. sending money home $200 abroad costs about $13 fees. tokens can be cheaper, cash-out fees count. regulator everyone cashes out at once (a run), vault must fast. source: world remittance prices worldwide. quotes are made up.",
-          "takeaway": null
+          "kw": "ana gives agent budget ai app shops pays since oct stripe's link balance lets one spend stablecoins top adds debit card time dollars coins onramp held usdc set limit picks purchase without asking bigger buys still need ok checkout one-time never sees ana's real next holds keys mistakes source help pages tempo payments blockchain runs us first instinct made",
+          "takeaway": "An AI agent can spend a stablecoin balance for you, but only up to the per-purchase limit you set; bigger buys still need your OK."
         },
         {
           "file": "assets/pulse/stablecoins/p07.webp",
           "thumb": "assets/pulse/stablecoins/p07-t.webp",
-          "title": "Good news, bad news",
+          "title": "Who holds the keys?",
           "w": 1600,
           "h": 2400,
-          "kw": "good news, bad news good: never closes works nights and weekends crosses borders in minutes. bad: it can slip below $1 march 2023, usdc dipped to about 87 cents when its cash got stuck at a failed bank. recovered within days. no safety net government deposit insurance, unlike bank account the us, uk, india or australia. fees scams send wrong address scammer is usually gone. source: circle statements, 2023; fdic, fscs, dicgc apra deposit-insurance pages.",
-          "takeaway": "A stablecoin is not a bank account: no deposit insurance, and it can briefly slip below $1."
+          "kw": "holds keys private key secret code moves coins custodial company non-custodial bridge stripe stay ana's wallet set help privy lose login recovery money gone good wrong item ana still pays limit caps much returns through shop read safer handing card check buys next four people look source link pages terms oct",
+          "takeaway": "Custodial means a company holds your keys; non-custodial means you do, and losing access can mean losing the money. Wrong buys are still on you."
         },
         {
           "file": "assets/pulse/stablecoins/p08.webp",
           "thumb": "assets/pulse/stablecoins/p08-t.webp",
+          "title": "Four people, one $100",
+          "w": 1600,
+          "h": 2400,
+          "kw": "four people one bank ana moves savings tokens have lend shop owner maybe cheaper card fees pay rent local money sending home abroad costs cash-out count regulator everyone cashes run vault must fast next good news bad source world remittance prices worldwide quotes made"
+        },
+        {
+          "file": "assets/pulse/stablecoins/p09.webp",
+          "thumb": "assets/pulse/stablecoins/p09-t.webp",
+          "title": "Good news, bad news",
+          "w": 1600,
+          "h": 2400,
+          "kw": "good news bad never closes works nights weekends crosses borders minutes slip below march usdc dipped cents cash got stuck failed bank recovered within days safety net government deposit insurance unlike account us uk india australia fees scams send wrong address scammer usually gone next ana's start finish source circle statements fdic fscs dicgc apra deposit-insurance pages card",
+          "takeaway": "A stablecoin is not a bank account: no deposit insurance, and it can briefly slip below $1."
+        },
+        {
+          "file": "assets/pulse/stablecoins/p10.webp",
+          "thumb": "assets/pulse/stablecoins/p10-t.webp",
           "title": "Ana's $100, start to finish",
           "w": 1600,
           "h": 2400,
-          "kw": "ana's $100, start to finish 1. dollars in, tokens out a coat-check ticket worth $1 each. 2. the vault mostly t-bills and cash. 3. who earns issuer its partners, not ana. 4. rules us eu set; uk next; others wary or drafting. our read handy plumbing for moving dollars, savings account. source: cards 1-7. ana is made up.",
-          "takeaway": null
+          "kw": "ana's start finish dollars tokens coat-check ticket worth vault mostly t-bills cash earns issuer partners ana rules us eu set uk next others wary drafting spending agent within limit mistakes still hers read handy plumbing moving savings account source cards made card"
         }
       ],
       "recap": [
-        "Dollars in, tokens out; the vault is mostly T-bills plus cash.",
-        "The issuer keeps the interest.",
-        "US and EU rules set; UK next; India wary; Australia drafting.",
+        "Dollars in, tokens out; the vault holds mostly T-bills and cash.",
+        "The issuer keeps the interest; US and EU rules are set, others still coming.",
+        "An AI agent can spend it within Ana's limit; mistakes are still hers.",
         "Handy plumbing, not a savings account."
       ],
-      "recap_pages": 8,
-      "tagline": "A $1 ticket that never sleeps.",
-      "palette": "comic strip: cream #FFF7E8 base, navy ink #1B2A4A, coral #D64E40, mint #1E8264, butter #F2C14E, mustard #A06900, plum #783C78",
-      "layout": "bold ink + halftone comic panels with black frames and navy drop shadows, yellow caption-box badge top-left, starburst headings, halftone dot strip bottom edge; takeaways live in the page caption",
-      "format": "phone cards, portrait 1600x2400 (2:3), 8 cards",
-      "updated": "2026-10-22",
+      "recap_pages": 10,
       "gist_lead": [
         "A stablecoin is a digital claim ticket worth $1",
         "The interest on that backing goes to the issuer",
         "It is fast and works 24/7, but it is not a bank account"
-      ]
+      ],
+      "sources": [
+        {
+          "title": "Link – Set up a balance for agent wallet purchases",
+          "url": "https://support.link.com/questions/set-up-a-balance-for-agent-wallet-purchases"
+        },
+        {
+          "title": "Link – Link agent wallet FAQ",
+          "url": "https://support.link.com/questions/link-agent-wallet-faq"
+        },
+        {
+          "title": "Tempo – Link gives personal agents a budget to spend, powered by stablecoins on Tempo",
+          "url": "https://tempo.xyz/customer-stories/link/"
+        },
+        {
+          "title": "Defiprime – Link balance brings USDC-funded agent spending to Instinct",
+          "url": "https://defiprime.com/link-balance-instinct-usdc-agent-spending"
+        },
+        {
+          "title": "The Defiant – Instinct rolls out Link balance for AI shopping with spending limits",
+          "url": "https://thedefiant.io/converge/tradfi-and-fintech/instinct-rolls-out-link-balance-for-ai-shopping-with-spending-limits"
+        },
+        {
+          "title": "GovInfo – Public Law 119-27, the GENIUS Act",
+          "url": "https://www.govinfo.gov/app/details/PLAW-119publ27"
+        }
+      ],
+      "updated": "2026-10-28",
+      "palette": "comic strip: cream #FFF7E8 base, navy ink #1B2A4A, coral #D64E40, mint #1E8264, butter #F2C14E, mustard #A06900, plum #783C78",
+      "layout": "bold ink + halftone comic panels with black frames and navy drop shadows, yellow caption-box badge top-left, starburst headings, halftone dot strip bottom edge; takeaways live in the page caption",
+      "format": "phone cards, portrait 1600x2400 (2:3), 10 cards"
     },
     {
       "id": "inflation",
