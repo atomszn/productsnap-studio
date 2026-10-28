@@ -61,10 +61,14 @@ def build(write=True):
              "sub": t.get("sub"), "tags": t.get("tags", []), "aka": t.get("aka", [])}
         for k in ("updated", "start_here", "vol"):
             if b.get(k): e[k] = b[k]
+        if t.get("pairs"): e["pairs"] = list(t["pairs"])  # hand-picked "See also" books for the end card
         if t.get("sub") and t["sub"] not in tax["_subs"].get(b["topic"], []):
             errs.append("%s: sub-topic %r is not in taxonomy _subs[%s]" % (b["id"], t["sub"], b["topic"]))
         out.append(e)
     ids = {b["id"] for b in lib["books"]}
+    for e in out:
+        for k in e.get("pairs", []):
+            if k not in ids or k == e["id"]: errs.append("%s: pairs %r is not another book id" % (e["id"], k))
     warns = ["taxonomy _path: no book %r yet (skipped)" % k for k in tax.get("_path", []) if k not in ids]
     shelf = {"version": 1, "updated": lib.get("updated"),
              "topics": [dict(t, slug=slug(t["name"]), subs=tax["_subs"].get(t["name"], [])) for t in TOPICS],

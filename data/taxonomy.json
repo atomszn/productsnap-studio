@@ -1,5 +1,5 @@
 {
-  "_note": "Curated reader vocabulary. sub = one sub-topic (shown as a chip on the shelf page once the shelf has 8+ books and the chip has 3+). tags = cross-cutting rows/search. aka = words readers actually type (names, synonyms, everyday phrases). Edited by hand or by Explainiac at build; merged into data/shelf.json by scripts/build_shelf.py.",
+  "_note": "Curated reader vocabulary. sub = one sub-topic (shown as a chip on the shelf page once the shelf has 8+ books and the chip has 3+). tags = cross-cutting rows/search. aka = words readers actually type (names, synonyms, everyday phrases). pairs = optional hand-picked 'See also' books (ids), shown first under Pairs with on the end card. Edited by hand or by Explainiac at build; merged into data/shelf.json by scripts/build_shelf.py.",
   "_subs": {
     "AI": [
       "Basics",
@@ -131,6 +131,9 @@
         "agent pays",
         "card",
         "returns"
+      ],
+      "pairs": [
+        "stablecoins"
       ]
     },
     "health": {
@@ -284,7 +287,26 @@
         "circle",
         "crypto dollar",
         "digital dollar",
-        "genius act"
+        "genius act",
+        "link balance",
+        "stripe link",
+        "stripe",
+        "agent spending",
+        "agent wallet",
+        "tempo",
+        "instinct",
+        "custodial",
+        "non-custodial",
+        "self-custody",
+        "private key",
+        "privy",
+        "bridge stripe",
+        "onramp",
+        "t-bills",
+        "treasury bills"
+      ],
+      "pairs": [
+        "ai-shopping"
       ]
     },
     "mortgage-rates": {

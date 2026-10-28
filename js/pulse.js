@@ -789,10 +789,12 @@
       return { b: x, s: sc / Math.sqrt(Object.keys(th).length || 1) * 10, same: x.topic === b.topic };
     });
     var by = function (a, c) { return c.s - a.s || lib.books.indexOf(a.b) - lib.books.indexOf(c.b); };
-    var same = all.filter(function (r) { return r.same; }).sort(by).slice(0, 3);
+    var pick = (b.pairs || []).map(find).filter(function (x) { return x && x !== b && x !== skip; }).map(function (x) { return { b: x, s: 0, same: x.topic === b.topic, pick: true }; }); // hand-picked "See also" (taxonomy pairs) come first
+    all = all.filter(function (r) { return !pick.some(function (p) { return p.b === r.b; }); });
+    var same = all.filter(function (r) { return r.same; }).sort(by).slice(0, 3 - pick.length);
     var door = nextDoor(b.topic);
     var cross = all.filter(function (r) { return !r.same && door.indexOf(r.b.topic) >= 0; }).sort(by);
-    return same.concat(cross.slice(0, Math.max(0, 3 - same.length)));
+    return pick.concat(same, cross.slice(0, Math.max(0, 3 - pick.length - same.length)));
   }
   function pairsNode(b, skip) {
     var rel = related(b, skip); if (rel.length < 2) return null;
@@ -803,7 +805,7 @@
       a.setAttribute("aria-label", "Open " + r.b.title + " — " + tagline(r.b));
       a.appendChild(el("span", "nbr-sp"));
       var t = el("span", "nbr-tx"); t.appendChild(el("span", "nbr-t", r.b.title));
-      t.appendChild(el("span", "nbr-why", (r.same ? "Same shelf · " : "Next door · ") + r.b.topic));
+      t.appendChild(el("span", "nbr-why", (r.pick ? "See also · " : r.same ? "Same shelf · " : "Next door · ") + r.b.topic));
       a.appendChild(t); li.appendChild(a); ul.appendChild(li);
     });
     w.appendChild(ul); return w;

@@ -911,8 +911,9 @@
     "On a blockchain: a shared public record, open 24/7.",
     "Bring the ticket back",
     "Hand in 100 tokens, get $100. No bonus, no interest.",
+    "Next: what backs each ticket.",
     "Source: Circle and Tether terms. Ana is made up.",
-    "card 1 of 8"
+    "card 1 of 10"
    ],
    [
     "What sits in the vault",
@@ -923,8 +924,9 @@
     "India, the UK and Australia sell the same kind of short, safe IOU.",
     "Who counts it?",
     "Under US law, issuers post a checked vault report monthly.",
+    "Next: who earns on Ana's $100.",
     "Source: GENIUS Act (Pub. L. 119-27) s.4; Circle USDC transparency page.",
-    "card 2 of 8"
+    "card 2 of 10"
    ],
    [
     "Who earns on Ana's $100?",
@@ -937,8 +939,9 @@
     "Circle (USDC's maker) pays about 60 cents of each $1 it earns to partners like Coinbase and other costs. Under a dime is profit.",
     "Our read",
     "That slice is why apps push stablecoins so hard.",
+    "Next: who writes the rules.",
     "Source: Circle quarterly filing (10-Q); GENIUS Act. $3.50 is our example.",
-    "card 3 of 8"
+    "card 3 of 10"
    ],
    [
     "Five referees, five rulebooks",
@@ -952,8 +955,9 @@
     "The RBI (Reserve Bank of India) is wary and backs its own digital rupee instead.",
     "Australia",
     "A draft law would require a license. Not law yet, as of Oct 2026.",
+    "Next: where the coins actually travel.",
     "Source: GENIUS Act; EU MiCA Reg. 2023/1114; FCA PS26/10; RBI; Australian Treasury draft bill.",
-    "card 4 of 8"
+    "card 4 of 10"
    ],
    [
     "Open roads vs private highway",
@@ -965,8 +969,37 @@
     "Only about 1 in 5 stablecoin dollars moved is a payment. Most of the rest is trading.",
     "At the shop",
     "Some debit cards can spend stablecoins at checkout, through the card network.",
+    "Next: Ana lets an AI agent spend hers.",
     "Source: Allium, State of Stablecoins and Payments, Q3 2026.",
-    "card 5 of 8"
+    "card 5 of 10"
+   ],
+   [
+    "Ana gives her agent a budget",
+    "AI agent = an app that shops and pays for you. Since Oct 26, 2026, Stripe's Link balance lets one spend stablecoins.",
+    "Top up",
+    "Ana adds $100 from a debit card, up to $150 at a time. Dollars in, coins out (an onramp). It is held as USDC.",
+    "Set a limit",
+    "She picks the most it may spend per purchase without asking. Bigger buys still need her OK.",
+    "At checkout",
+    "The agent pays with a one-time card. It never sees Ana's real card.",
+    "Next: who holds the keys, and who pays for mistakes.",
+    "Source: Link help pages; Tempo (the payments blockchain it runs on). US only, first in the Instinct app, as of Oct 2026. Ana is made up.",
+    "card 6 of 10"
+   ],
+   [
+    "Who holds the keys?",
+    "Private key = the secret code that moves coins. Custodial: a company holds it. Non-custodial: you do.",
+    "Custodial",
+    "Bridge, a Stripe company, holds the key. The coins stay Ana's.",
+    "Non-custodial",
+    "Her own wallet, set up with help from Privy. Lose the login and recovery, and the money can be gone for good.",
+    "Wrong item?",
+    "Ana still pays. A limit caps how much, not what. Returns go through the shop.",
+    "Our read",
+    "Safer than handing over a card. Still, check what it buys.",
+    "Next: four people look at Ana's $100.",
+    "Source: Link help pages and terms. Our read, as of Oct 2026.",
+    "card 7 of 10"
    ],
    [
     "Four people, one $100",
@@ -978,8 +1011,9 @@
     "Sending $200 abroad costs about $13 in fees. Tokens can be cheaper, but cash-out fees count.",
     "The regulator",
     "\"If everyone cashes out at once (a run), the vault must pay fast.\"",
+    "Next: the good news and the bad.",
     "Source: World Bank Remittance Prices Worldwide. Quotes are made up.",
-    "card 6 of 8"
+    "card 8 of 10"
    ],
    [
     "Good news, bad news",
@@ -991,8 +1025,9 @@
     "No government deposit insurance, unlike a bank account in the US, UK, India or Australia.",
     "Bad: fees and scams",
     "Send to a wrong address or a scammer and it is usually gone.",
+    "Next: Ana's $100, start to finish.",
     "Source: Circle statements, March 2023; FDIC, FSCS, DICGC and APRA deposit-insurance pages.",
-    "card 7 of 8"
+    "card 9 of 10"
    ],
    [
     "Ana's $100, start to finish",
@@ -1004,10 +1039,12 @@
     "The issuer and its partners, not Ana.",
     "4. The rules",
     "US and EU set; UK next; others wary or drafting.",
+    "5. Spending it",
+    "An agent can, within Ana's limit. Mistakes are still hers.",
     "Our read",
     "Handy plumbing for moving dollars, not a savings account.",
-    "Source: Cards 1-7. Ana is made up.",
-    "card 8 of 8"
+    "Source: Cards 1-9. Ana is made up.",
+    "card 10 of 10"
    ]
   ],
   "inflation": [
