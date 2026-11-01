@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-28",
+  "updated": "2026-11-01",
   "books": [
     {
       "id": "ai-basics",
@@ -3851,6 +3851,198 @@
         }
       ],
       "updated": "2026-10-25"
+    },
+    {
+      "id": "ai-compute",
+      "title": "How AI Compute Works",
+      "topic": "AI",
+      "blurb": "Chef Kai's kitchen explains AI (artificial intelligence) compute: chips as stoves (Nvidia's Hopper, Blackwell and Rubin), electricity as the gas line, high bandwidth memory (HBM) as counter space, cooling the building, scarce land, and orbital data centers as the long shot, as of Nov 2026.",
+      "gist": [
+        "Compute is the math chips do to cook each AI (artificial intelligence) answer: GPUs (graphics processing units) are the stoves, and Nvidia makes most of them.",
+        "Each new Nvidia chip burns more power but, Nvidia says, uses less per answer; electricity, memory, cooling and land are now the tight spots.",
+        "As of Nov 2026, builders chase power with nuclear deals, their own gas plants and spare grid room, while orbit is still a test kitchen."
+      ],
+      "added": "2026-11-01",
+      "added_at": "2026-11-01T08:39",
+      "tagline": "Stoves, gas lines, counter space and a kitchen in orbit.",
+      "pages": [
+        {
+          "file": "assets/pulse/ai-compute/p01.webp",
+          "thumb": "assets/pulse/ai-compute/p01-t.webp",
+          "title": "Inside the AI kitchen",
+          "w": 1600,
+          "h": 3000,
+          "kw": "inside ai kitchen map every answer meal time ask artificial intelligence chatbot something computers cook compute cooking math chips chef kai's serves millions meals day stove chip gpu graphics processing unit gas line electricity counter high bandwidth memory hbm stacked right next data moves fast building center plus heat vents pipes lot land near power cables orbit space long shot kai new powers has basics meet source made way picture real parts facts nov card",
+          "takeaway": "Compute is the math chips do to cook each AI (artificial intelligence) answer; picture a kitchen where chips (GPUs, graphics processing units) are stoves, electricity is the gas line, high bandwidth memory (HBM), stacked memory chips right next to the chip, is counter space, the data center is the building, land is the lot and orbit is the long shot."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p02.webp",
+          "thumb": "assets/pulse/ai-compute/p02-t.webp",
+          "title": "The stove: an AI chip",
+          "w": 1600,
+          "h": 2596,
+          "kw": "stove ai chip many small flames beat big ones laptop's main cpu central processing unit burners gpu graphics has thousands math millions tiny sums wins kitchen word accelerator built speed like gpus google's tpus tensor units forecast builds stoves nvidia makes bloomberg intelligence expects keep market through amd next google amazon others design three models side source press release jan nov card",
+          "takeaway": "A GPU (graphics processing unit) has thousands of small cores that run AI's tiny sums at once; Bloomberg Intelligence expects Nvidia to keep 70 to 75% of the AI chip market through 2030 (a forecast)."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p03.webp",
+          "thumb": "assets/pulse/ai-compute/p03-t.webp",
+          "title": "Three stove models",
+          "w": 1600,
+          "h": 2954,
+          "kw": "three stove models compare hopper blackwell rubin h100 newest sale late counter memory speed power chip final gas meal starting point 25x energy 10x work watt hour new burns watts cooks far meals takes gigabytes size terabytes second fast food moves nvidia claim nvidia's numbers best-case tests whole racks real gains vary next line feeds source dgx b200 vera nvl72 spec pages early target press releases mar semianalysis trendforce ramp nov card",
+          "takeaway": "Nvidia's Hopper H100 (80 GB of memory, 3.35 TB/s of memory speed, 700 watts), Blackwell (180 GB, 8 TB/s) and newest Rubin (288 GB, 19.2 TB/s, ramping in 2027) each burn more power but, Nvidia claims, use far less energy per answer."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p04.webp",
+          "thumb": "assets/pulse/ai-compute/p04-t.webp",
+          "title": "The gas line: electricity",
+          "w": 1600,
+          "h": 2744,
+          "kw": "gas line electricity 10x two years openai's finance chief sarah friar says computing power grew rounds gigawatt billion watts math big one year us homes million next company can't keep source openai blog jan rowe price interview energy information administration kilowatt-hours home arithmetic nov card",
+          "takeaway": "OpenAI's computing power grew from 0.2 GW in 2023 to about 1.9 GW in 2025, says finance chief Sarah Friar; 1.9 GW is about 1.5 million US homes' worth (our arithmetic)."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p05.webp",
+          "thumb": "assets/pulse/ai-compute/p05-t.webp",
+          "title": "Waiting on the gas company",
+          "w": 1600,
+          "h": 2894,
+          "kw": "waiting gas company wait hookup line long giant kitchen needs new lines substation fenced yard steps grid power hookups now take far longer builders try three shortcuts nuclear deals big tech pays restart build plants steady slow plant behind meter means making site cleanview counts announced running mid-2026 xai's colossus sites use turbines grid's spare room duke researchers roughly estimate fit powered year hours math read fastest cleanest path see ai next counter beside stove source behind-the-meter data centers report nicholas institute rethinking load growth feb nov card",
+          "takeaway": "Grid hookups are slow, so builders sign nuclear deals, build their own gas plants (about 90 GW announced, about 2 GW running in mid-2026, per Cleanview) or use spare grid room (Duke: 76 GW if loads power down 0.25% of the year)."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p06.webp",
+          "thumb": "assets/pulse/ai-compute/p06-t.webp",
+          "title": "Counter space: memory",
+          "w": 1600,
+          "h": 2928,
+          "kw": "counter space memory fast stove food waits chip needs ai model's numbers right beside high bandwidth hbm stack thin chips set next gpu like piled ingredients bottleneck years math sped every two speed 1.6x gholami team chatbots often wait three makers sales share april june tight supply trendforce hynix samsung micron cooking makes heat source wall ieee micro counterpoint research shares nov card",
+          "takeaway": "High bandwidth memory (HBM) sits beside the GPU like counter space; chip math has grown about 3x every two years vs memory speed 1.6x, and SK hynix (50%), Samsung (33%) and Micron (18%) make it (April to June 2026)."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p07.webp",
+          "thumb": "assets/pulse/ai-compute/p07-t.webp",
+          "title": "The building runs hot",
+          "w": 1600,
+          "h": 2870,
+          "kw": "building runs hot heat air fans vents liquid pipes chip kitchen word rack fridge-sized shelf computers guess first one ai uses power many normal racks average almost kilowatts uptime nvidia gb200 nvl72 math water every watt becomes move direct-to-chip cooling cool through plate carries outside microsoft claim closed loop says fairwater sites fill homes use year reuse years next put source institute global data center survey hpe supermicro datasheets blog nov card",
+          "takeaway": "An AI rack uses about 132 kW vs almost 9 kW for an average rack, about 15x (our arithmetic), so direct-to-chip liquid cooling carries the heat out; Microsoft says its closed loops reuse one fill for 6+ years."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p08.webp",
+          "thumb": "assets/pulse/ai-compute/p08-t.webp",
+          "title": "The lot: land near power",
+          "w": 1600,
+          "h": 2392,
+          "kw": "lot land near power field big site needs flat room grow nearby substation fiber glass cables carry data spots three rare almost left eight top north american markets center space empty northern virginia biggest what's being built rented it's done cbre approvals now set pace next kitchen earth source america trends press release aug nov card",
+          "takeaway": "Data centers need flat land near a substation and fiber; only 1.4% of space is empty in top North American markets and 0.2% in Northern Virginia, says CBRE (H1 2026)."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p09.webp",
+          "thumb": "assets/pulse/ai-compute/p09-t.webp",
+          "title": "A kitchen in orbit",
+          "w": 1600,
+          "h": 2398,
+          "kw": "kitchen orbit google claim right sun almost never sets grid line fights cooling water says solar panels make power ground who's trying starcloud flew nvidia h100 nov trained small ai model google's suncatcher test satellite online tpus spacex plans million satellites paper next fine print source project sep techcrunch oct cnbc dec ars technica jul card",
+          "takeaway": "Orbit offers near-constant sun (up to 8x more solar power, Google says), no grid line and no water fights; Starcloud trained a small model on an H100 in orbit and Google's Suncatcher test is online."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p10.webp",
+          "thumb": "assets/pulse/ai-compute/p10-t.webp",
+          "title": "Orbit's fine print",
+          "w": 1600,
+          "h": 2460,
+          "kw": "orbit's fine print catch launch heat radiation has nowhere space air leaves glowing off radiators big flat panels station needs tonnes shed half ai rack math orbit pays rockets like spacex's starship get far cheaper flips bits wears chips five years repair crew read still test kitchen nov runs gigawatts starcloud's next satellite slipped every gas option side source ars technica hard build orbital data centers jul google project suncatcher dcd starcloud-2 card",
+          "takeaway": "Orbit's catch: heat leaves only through big radiators (the space station needs about 6 tonnes for 70 kW), launches must get much cheaper, and radiation wears chips out in about five years with no repairs."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p11.webp",
+          "thumb": "assets/pulse/ai-compute/p11-t.webp",
+          "title": "Five ways to get gas",
+          "w": 1600,
+          "h": 2326,
+          "kw": "five ways get gas compare option status nov catch wait grid usual way slower hookups plant running announced pollution pipeline fights nuclear deal first restarts aimed new plants take years spare room study fit must power peaks orbit test chips heat launch cost radiation read single fix expect mix deals long bet next kai's whole kitchen start finish source cleanview duke nicholas institute ars technica dates ai constellation federal register card",
+          "takeaway": "Five ways to get power for the next data center, the grid, own gas, nuclear deals, spare grid room and orbit, each with a status and a catch as of Nov 2026; our read: expect a mix."
+        },
+        {
+          "file": "assets/pulse/ai-compute/p12.webp",
+          "thumb": "assets/pulse/ai-compute/p12-t.webp",
+          "title": "Kai's kitchen, start to finish",
+          "w": 1600,
+          "h": 2446,
+          "kw": "kai's kitchen start finish recap stove gpus ai's math nvidia model uses power answer says gas openai's grew 10x two years counter hbm memory often real bottleneck building ai racks use 15x liquid carries heat lot flat land substation fiber almost none empty orbit endless sun launch cost radiation read hard part moved stoves next nuclear powers source sources end card opinion nov",
+          "takeaway": "Recap: stoves (GPUs), gas (power), counter (HBM), building (cooling), lot (land) and orbit; our read: AI's hard part moved from building chips to finding power and land."
+        }
+      ],
+      "recap": [
+        "Stove: GPUs do AI's math; each Nvidia model uses more power but less per answer (Nvidia's claim).",
+        "Gas and counter: OpenAI's power grew about 10x in two years, and high bandwidth memory (HBM) is often the real bottleneck.",
+        "Building and lot: AI racks use about 15x the power of an average rack, and land near power is nearly full.",
+        "Orbit: endless sun but heat, launch cost and radiation; our read: the hard part moved from chips to power and land."
+      ],
+      "recap_pages": 12,
+      "sources": [
+        {
+          "title": "OpenAI – A business that scales with the value of intelligence",
+          "url": "https://openai.com/index/a-business-that-scales-with-the-value-of-intelligence/"
+        },
+        {
+          "title": "NVIDIA – Blackwell platform arrives to power a new era of computing",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing"
+        },
+        {
+          "title": "NVIDIA – Vera Rubin opens the agentic AI frontier",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-vera-rubin-platform"
+        },
+        {
+          "title": "NVIDIA – Vera Rubin NVL72 specs: Rubin GPU 288 GB HBM4, 19.2 TB/s",
+          "url": "https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/"
+        },
+        {
+          "title": "Bloomberg Intelligence – AI accelerator market set to exceed $600 billion by 2033",
+          "url": "https://www.bloomberg.com/company/press/ai-accelerator-market-looks-set-to-exceed-600-billion-by-2033-driven-by-hyperscale-spending-and-asic-adoption-according-to-bloomberg-intelligence/"
+        },
+        {
+          "title": "Counterpoint Research – Global DRAM and HBM market share, Q2 2026",
+          "url": "https://counterpointresearch.com/en/insights/global-dram-and-hbm-market-share"
+        },
+        {
+          "title": "arXiv – AI and Memory Wall",
+          "url": "https://arxiv.org/abs/2403.14123"
+        },
+        {
+          "title": "TrendForce – Nvidia's memory shake-up: Rubin GPU bandwidth cut 13%",
+          "url": "https://www.trendforce.com/news/2026/10/27/news-nvidias-memory-shake-up-rubin-ultra-rethinks-12-hi-hbm4e-for-8-hi-hbm4-rubin-gpu-bandwidth-cut-13/"
+        },
+        {
+          "title": "Uptime Institute – Global Data Center Survey 2025, rack density",
+          "url": "https://datacenter.uptimeinstitute.com/rs/711-RIA-145/images/2025.Annual.Survey.Report.pdf"
+        },
+        {
+          "title": "Microsoft – Infinite scale: the architecture behind the Azure AI superfactory",
+          "url": "https://blogs.microsoft.com/blog/2025/11/12/infinite-scale-the-architecture-behind-the-azure-ai-superfactory/"
+        },
+        {
+          "title": "Cleanview – Data center developers are building their own power plants",
+          "url": "https://cleanview.co/reports/behind-the-meter-data-centers"
+        },
+        {
+          "title": "Duke Nicholas Institute – Rethinking Load Growth",
+          "url": "https://nicholasinstitute.duke.edu/publications/rethinking-load-growth"
+        },
+        {
+          "title": "CBRE – North American data center demand continues to outpace supply",
+          "url": "https://www.cbre.com/press-releases/north-american-data-center-demand-continues-to-outpace-supply-despite-record-construction-activity"
+        },
+        {
+          "title": "Ars Technica – How hard is it to build orbital data centers, actually?",
+          "url": "https://arstechnica.com/space/2026/07/how-hard-is-it-to-build-orbital-data-centers-actually/"
+        }
+      ],
+      "palette": "bright cookbook / kitchen-blueprint: cream paper #FFFDF6 with a light-blue blueprint grid; ink #22313F; tomato #D64826, teal #0E877C, sunflower #FFC93C, sky #2A76C4; pencil sketch art with flat watercolor washes.",
+      "layout": "recipe card: tomato 'RECIPE nn/12' tab and a coloured badge pill, Fredoka titles with a sunflower highlighter stroke, Lexend body, Kalam sticky-note lines for Kai and Our read, rounded taped photo frames with numbered map badges, dark-header comparison tables, rounded bar charts, dashed footer rule.",
+      "format": "phone cards, 1600 wide, 2326-3000 tall, 12 cards"
     }
   ],
   "moved": {
