@@ -229,6 +229,9 @@
         "energy",
         "compute",
         "cooling"
+      ],
+      "pairs": [
+        "ai-compute"
       ]
     },
     "robots": {
@@ -775,6 +778,80 @@
           444,
           1284,
           1197
+        ]
+      },
+      "pairs": [
+        "ai-compute"
+      ]
+    },
+    "ai-compute": {
+      "sub": "How it's built",
+      "tags": [],
+      "aka": [
+        "ai compute",
+        "compute",
+        "computing power",
+        "how ai compute works",
+        "gpu",
+        "gpus",
+        "nvidia",
+        "blackwell",
+        "hopper",
+        "h100",
+        "rubin",
+        "vera rubin",
+        "b200",
+        "gb200",
+        "nvl72",
+        "ai chip",
+        "ai chips",
+        "accelerator",
+        "tpu",
+        "tpus",
+        "hbm",
+        "high-bandwidth memory",
+        "memory wall",
+        "sk hynix",
+        "samsung hbm",
+        "micron",
+        "rack",
+        "racks",
+        "liquid cooling",
+        "direct-to-chip",
+        "cooling",
+        "heat",
+        "behind the meter",
+        "gas turbines",
+        "spare grid",
+        "flexible load",
+        "substation",
+        "fiber",
+        "data center land",
+        "vacancy",
+        "cbre",
+        "orbital data center",
+        "orbital data centers",
+        "space data center",
+        "data centers in space",
+        "suncatcher",
+        "project suncatcher",
+        "starcloud",
+        "radiators",
+        "sarah friar",
+        "chef kai",
+        "kai"
+      ],
+      "pairs": [
+        "what-powers-ai",
+        "nuclear-for-ai"
+      ],
+      "cover": {
+        "page": 1,
+        "box": [
+          130,
+          710,
+          1510,
+          1745
         ]
       }
     }
