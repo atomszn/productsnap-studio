@@ -999,3 +999,66 @@ body.searching .lib-title{position:absolute;width:1px;height:1px;overflow:hidden
 @media (max-width:640px){.props{gap:9px}.pr-end svg{width:18px;height:86px}.pr-rocket svg{width:36px;height:84px}.pr-piggy svg{width:62px;height:46px}.pr-coins svg{width:58px;height:48px}.pr-plant svg{width:42px;height:84px}.pr-quote span{font-size:1.02rem;padding:8px 8px 9px}}
 @media (prefers-reduced-motion:reduce){.pr-plant svg{animation:none}.spines .sp.is-lean-left .sp-body{rotate:-5deg}.spines .sp.is-lean-right .sp-body{rotate:5deg}}
 @media (max-width:380px){.pr-quote.sm span{font-size:.84rem;padding:5px 6px}}
+
+/* ---- book surroundings: the open field borrows that book's paper ----
+   The sheet stays light (or night-dark) enough for the footer ink.
+   Buttons, the page card and Ask stay on --card. Closing removes .is-sur. */
+@property --sur-paper{syntax:"<color>";inherits:true;initial-value:#f6efe1}
+@property --sur-paper-dark{syntax:"<color>";inherits:true;initial-value:#1f1b16}
+.reader.is-sur{background:var(--sur-paper);transition:--sur-paper .4s ease,--sur-paper-dark .4s ease}
+[data-theme="dark"] .reader.is-sur{background:var(--sur-paper-dark)}
+.reader.is-sur::before,.reader.is-sur::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.reader.is-sur::before{
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.25  0 0 0 0 0.2  0 0 0 0 0.14  0 0 0 0.05 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(72% 58% at 100% 0%, color-mix(in srgb, var(--sur-wash) 22%, transparent), transparent 64%),
+    radial-gradient(64% 52% at 0% 100%, color-mix(in srgb, var(--sur-ink) 16%, transparent), transparent 60%);
+}
+[data-theme="dark"] .reader.is-sur::before{
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.86  0 0 0 0.045 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+    radial-gradient(72% 58% at 100% 0%, color-mix(in srgb, var(--sur-wash-lite) 26%, transparent), transparent 66%),
+    radial-gradient(64% 52% at 0% 100%, color-mix(in srgb, var(--sur-ink-lite) 18%, transparent), transparent 62%);
+}
+/* fiber: a quiet paper tooth. rules / grid / dots follow the palette words. */
+.reader.is-sur::after{
+  background:
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--sur-ink) 7%, transparent) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--sur-ink) 12%, transparent) 0 1px, transparent 1px 64px);
+}
+.reader.is-sur[data-sur="rules"]::after{
+  background:repeating-linear-gradient(0deg, color-mix(in srgb, var(--sur-ink) 14%, transparent) 0 1px, transparent 1px 26px);
+}
+.reader.is-sur[data-sur="grid"]::after{
+  background:
+    linear-gradient(color-mix(in srgb, var(--sur-ink) 18%, transparent) 1px, transparent 1px) 0 0/34px 34px,
+    linear-gradient(90deg, color-mix(in srgb, var(--sur-ink) 18%, transparent) 1px, transparent 1px) 0 0/34px 34px;
+}
+.reader.is-sur[data-sur="dots"]::after{
+  background:radial-gradient(circle, color-mix(in srgb, var(--sur-ink) 32%, transparent) 0 1.1px, transparent 1.7px) 0 0/16px 16px;
+}
+[data-theme="dark"] .reader.is-sur::after{
+  background:
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--sur-ink-lite) 9%, transparent) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--sur-ink-lite) 14%, transparent) 0 1px, transparent 1px 64px);
+}
+[data-theme="dark"] .reader.is-sur[data-sur="rules"]::after{
+  background:repeating-linear-gradient(0deg, color-mix(in srgb, var(--sur-ink-lite) 16%, transparent) 0 1px, transparent 1px 26px);
+}
+[data-theme="dark"] .reader.is-sur[data-sur="grid"]::after{
+  background:
+    linear-gradient(color-mix(in srgb, var(--sur-ink-lite) 20%, transparent) 1px, transparent 1px) 0 0/34px 34px,
+    linear-gradient(90deg, color-mix(in srgb, var(--sur-ink-lite) 20%, transparent) 1px, transparent 1px) 0 0/34px 34px;
+}
+[data-theme="dark"] .reader.is-sur[data-sur="dots"]::after{
+  background:radial-gradient(circle, color-mix(in srgb, var(--sur-ink-lite) 28%, transparent) 0 1.1px, transparent 1.7px) 0 0/16px 16px;
+}
+.reader.is-sur .rd-top{
+  background:color-mix(in srgb, var(--sur-paper) 86%, transparent);
+  border-bottom-color:color-mix(in srgb, var(--sur-ink) 18%, transparent);
+}
+[data-theme="dark"] .reader.is-sur .rd-top{
+  background:color-mix(in srgb, var(--sur-paper-dark) 88%, transparent);
+  border-bottom-color:color-mix(in srgb, var(--sur-ink-lite) 22%, transparent);
+}
+@media (prefers-reduced-motion:reduce){.reader.is-sur{transition:none}}
