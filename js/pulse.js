@@ -954,6 +954,7 @@
     $("rd-title").textContent = b.title; $("rd-topic").textContent = b.topic;
     var vtOn = document.documentElement.hasAttribute("data-vt");
     $("reader").className = "reader " + tcls(b.topic) + (first && !vtOn && !reduce() ? " rd-enter" : "");
+    applySurround(b); // className above wipes the field; put this book's paper back
     $("book").dataset.ar = (b.pages[0].w / b.pages[0].h).toFixed(4); $("book").style.setProperty("--ar", $("book").dataset.ar); // the book takes its pages' shape
     $("reader").hidden = false; document.body.classList.add("reading");
     if (first) {
@@ -970,8 +971,30 @@
     setBackLabel(); onScrollTop();
     paint(); return true;
   }
+  function applySurround(b) {
+    var rd = $("reader");
+    try {
+      var c = window.PulseSurround && PulseSurround.forBook(b);
+      if (!c) { clearSurround(); return; }
+      rd.style.setProperty("--sur-paper", c.paper);
+      rd.style.setProperty("--sur-paper-dark", c.paperDark);
+      rd.style.setProperty("--sur-ink", c.ink);
+      rd.style.setProperty("--sur-ink-lite", c.inkLite);
+      rd.style.setProperty("--sur-wash", c.wash);
+      rd.style.setProperty("--sur-wash-lite", c.washLite);
+      rd.dataset.sur = c.kind || "fiber";
+      rd.classList.add("is-sur");
+    } catch (e) { clearSurround(); }
+  }
+  function clearSurround() {
+    var rd = $("reader"); if (!rd) return;
+    rd.classList.remove("is-sur");
+    rd.removeAttribute("data-sur");
+    ["--sur-paper", "--sur-paper-dark", "--sur-ink", "--sur-ink-lite", "--sur-wash", "--sur-wash-lite"].forEach(function (k) { rd.style.removeProperty(k); });
+  }
   function hideReader(was) {
     if (window.PulseSig) PulseSig.stop();
+    clearSurround();
     $("reader").hidden = true; document.body.classList.remove("reading"); cur = null;
     $("rd-askp").hidden = true; $("rd-ask").setAttribute("aria-expanded", "false"); $("rd-ask").setAttribute("aria-pressed", "false");
     renderLib();
@@ -1280,7 +1303,7 @@
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
       .then(function (d) {
         var byId = {}; d.books.forEach(function (x) { byId[x.id] = x; });
-        lib.books.forEach(function (b) { var x = byId[b.id]; if (!x) return; ["pages", "recap", "recap_pages", "sources", "gist_lead", "gist"].forEach(function (k) { if (x[k] != null) b[k] = x[k]; }); b._ix = null; b._rw = null; });
+        lib.books.forEach(function (b) { var x = byId[b.id]; if (!x) return; ["pages", "recap", "recap_pages", "sources", "gist_lead", "gist", "palette"].forEach(function (k) { if (x[k] != null) b[k] = x[k]; }); b._ix = null; b._rw = null; });
         lib.moved = d.moved; lib._full = true; lib._df = null; VOC = null;
         return lib;
       })
