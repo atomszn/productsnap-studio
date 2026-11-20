@@ -148,7 +148,7 @@
 .pf-n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font:700 .9rem var(--body);flex:none}
 :root[data-theme="dark"] .pf-n{color:#10221f}
 .pf-step p{margin:0;color:var(--ink-soft);line-height:1.55;font-size:.98rem}
-.pf-more{display:inline-flex;align-items:center;gap:4px;min-height:44px;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:3px}
+.pf-more{display:inline-block;padding:10px 0;line-height:1.35;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:3px}
 @media (max-width:980px){.pf-steps{grid-template-columns:1fr}.pf-step{flex-direction:row;align-items:flex-start}.pf-step-shot{flex:0 0 130px;height:150px}}
 @media (max-width:480px){.pf-step-shot{flex-basis:96px;height:120px}.pf-step h3{font-size:1.1rem}}
 
@@ -225,8 +225,6 @@
   .pf-steps::before{content:"";position:absolute;left:8%;right:8%;top:96px;height:2px;z-index:0;
     background:repeating-linear-gradient(90deg,color-mix(in srgb,var(--ink) 35%,transparent) 0 10px,transparent 10px 18px)}
   .pf-step{position:relative;z-index:1}
-  .pf-step:nth-child(2){transform:translateY(14px)}
-  .pf-step:nth-child(3){transform:translateY(-6px)}
 }
 @media (max-width:980px){
   .pf-steps::before{content:"";position:absolute;left:28px;top:20px;bottom:20px;width:2px;z-index:0;
@@ -235,15 +233,47 @@
 }
 
 /* quick-jump pills: the four ideas, one tap from the hero */
-.pf-jump{display:flex;flex-wrap:wrap;gap:8px 10px;margin:24px 0 0}
-.pf-jump a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border-radius:999px;background:var(--card);
-  border:1.5px dashed color-mix(in srgb,var(--pj) 55%,transparent);color:var(--ink);font-weight:600;font-size:.95rem;text-decoration:none;
-  transition:transform .2s cubic-bezier(.3,1.6,.5,1),border-color .2s ease}
-.pf-jump a:hover,.pf-jump a:focus-visible{border-style:solid;border-color:var(--pj);transform:translateY(-2px) rotate(-1.5deg)}
-.pf-dot{width:9px;height:9px;border-radius:50%;background:var(--pj);flex:none}
-:root[data-theme="dark"] .pf-dot{box-shadow:0 0 8px var(--pj)}
-@media (prefers-reduced-motion:reduce){.pf-jump a,.pf-jump a:hover{transition:none;transform:none}}
-@media (max-width:430px){.pf-jump{gap:8px}.pf-jump a{padding:6px 12px;font-size:.9rem}}
+/* idea chips: one size, four shapes. Each shape is the product's own object:
+   ProductSnap = a camera viewfinder, FlickMango = a ticket stub, Run It Back = a play badge, Pulse = a book with a spine. */
+.pj-ps{--pj:#6c33c9}.pj-fm{--pj:#b8650f}.pj-rib{--pj:#15605a}.pj-pulse{--pj:#2c3e66}
+:root[data-theme="dark"] .pj-ps{--pj:#b39af5}:root[data-theme="dark"] .pj-fm{--pj:#f0a24a}:root[data-theme="dark"] .pj-rib{--pj:#5cc4b6}:root[data-theme="dark"] .pj-pulse{--pj:#9db3ea}
+.pf-jump{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:26px 0 0;max-width:640px}
+.pj{--bg:color-mix(in srgb,var(--pj) 11%,var(--card));position:relative;display:flex;align-items:center;justify-content:center;gap:8px;height:56px;padding:0 12px;
+  color:var(--ink);font-weight:650;font-size:.95rem;line-height:1.1;text-decoration:none;white-space:nowrap;background:var(--bg);
+  transition:transform .22s cubic-bezier(.3,1.6,.5,1),background-color .2s ease}
+:root[data-theme="dark"] .pj{--bg:color-mix(in srgb,var(--pj) 16%,var(--card))}
+.pj .pj-ico{color:var(--pj);flex:none}
+.pj:hover,.pj:focus-visible{--bg:color-mix(in srgb,var(--pj) 20%,var(--card))}
+.pj:focus-visible{outline:2.5px solid var(--pj);outline-offset:3px}
+/* camera viewfinder: squircle with four corner brackets */
+.pj.pj-ps{border-radius:16px;
+  background:
+    linear-gradient(var(--pj),var(--pj)) 7px 7px/12px 2px no-repeat,linear-gradient(var(--pj),var(--pj)) 7px 7px/2px 12px no-repeat,
+    linear-gradient(var(--pj),var(--pj)) calc(100% - 7px) 7px/12px 2px no-repeat,linear-gradient(var(--pj),var(--pj)) calc(100% - 7px) 7px/2px 12px no-repeat,
+    linear-gradient(var(--pj),var(--pj)) 7px calc(100% - 7px)/12px 2px no-repeat,linear-gradient(var(--pj),var(--pj)) 7px calc(100% - 7px)/2px 12px no-repeat,
+    linear-gradient(var(--pj),var(--pj)) calc(100% - 7px) calc(100% - 7px)/12px 2px no-repeat,linear-gradient(var(--pj),var(--pj)) calc(100% - 7px) calc(100% - 7px)/2px 12px no-repeat,
+    var(--bg)}
+/* ticket stub: notched ends + a perforation after the icon */
+.pj.pj-fm{border-radius:6px;-webkit-mask:radial-gradient(circle 8px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 8px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 8px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 8px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
+.pj.pj-fm .pj-ico{padding-right:8px;margin-right:2px;border-right:2px dashed color-mix(in srgb,var(--pj) 55%,transparent);box-sizing:content-box}
+/* play badge: rounded on the left, pointed on the right like a play button */
+.pj.pj-rib{border-radius:28px 0 0 28px;padding-right:22px;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%)}
+/* book: a coloured spine on the left, page edges at the bottom */
+.pj.pj-pulse{border-radius:3px 12px 12px 3px;box-shadow:inset 7px 0 0 var(--pj),inset 0 -3px 0 color-mix(in srgb,var(--pj) 22%,transparent),inset 0 -5px 0 var(--bg),inset 0 -6px 0 color-mix(in srgb,var(--pj) 18%,transparent);padding-left:18px}
+/* a small, product-true hover for each */
+.pj.pj-ps:hover,.pj.pj-ps:focus-visible{transform:scale(1.04)}
+.pj.pj-fm:hover,.pj.pj-fm:focus-visible{transform:rotate(-2.5deg) translateY(-2px)}
+.pj.pj-rib:hover,.pj.pj-rib:focus-visible{transform:translateX(4px)}
+.pj.pj-pulse:hover,.pj.pj-pulse:focus-visible{transform:perspective(300px) rotateY(-12deg)}
+.pj.pj-ps::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#fff;opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){.pj.pj-ps:hover::after{animation:pj-flash .45s ease-out}@keyframes pj-flash{0%{opacity:.7}100%{opacity:0}}}
+@media (prefers-reduced-motion:reduce){.pj,.pj:hover,.pj:focus-visible{transition:none;transform:none}}
+@media (max-width:760px){.pf-jump{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:420px}}
+@media (max-width:360px){.pj{font-size:.88rem;gap:6px}}
+/* the same object, small, on each work card */
+.pj-badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-right:8px;vertical-align:-8px;color:var(--pj);background:color-mix(in srgb,var(--pj) 13%,var(--card))}
+.pj-badge.pj-ps{border-radius:8px}.pj-badge.pj-fm{border-radius:4px}.pj-badge.pj-rib{border-radius:13px 3px 3px 13px}.pj-badge.pj-pulse{border-radius:2px 7px 7px 2px;box-shadow:inset 3px 0 0 var(--pj)}
 .pw-card{scroll-margin-top:76px}
 
 /* contact: LinkedIn only, with a hand-drawn nudge */
@@ -255,7 +285,84 @@
 @media (prefers-reduced-motion:no-preference){
   .pf-li-big:hover .pf-wave,.pf-li-big:focus-visible .pf-wave{animation:pf-wave .9s ease-in-out}
   @keyframes pf-wave{0%,100%{transform:none}20%{transform:rotate(16deg)}40%{transform:rotate(-10deg)}60%{transform:rotate(14deg)}80%{transform:rotate(-6deg)}}
-  .pf-ask-arrow path{stroke-dasharray:80;stroke-dashoffset:80;animation:pf-draw 1s .3s ease-out forwards}
-  @keyframes pf-draw{to{stroke-dashoffset:0}}
+  .pf-ask-arrow path{stroke-dasharray:80;stroke-dashoffset:80;animation:pf-ink 1s .3s ease-out forwards}
+  @keyframes pf-ink{to{stroke-dashoffset:0}}
 }
 @media (max-width:600px){.pf-cta-solo .pf-li-big{width:100%;justify-content:center}}
+.pj.pj-fm:focus-visible,.pj.pj-rib:focus-visible{outline-offset:-5px}
+
+/* ================= North Star: the metric each idea is steered by (never a value) ================= */
+.pw-ns{margin:14px 0 4px;padding:12px 14px 12px;border-radius:12px;border:1.5px dashed color-mix(in srgb,var(--pj,var(--teal)) 45%,transparent);
+  background:color-mix(in srgb,var(--pj,var(--teal)) 6%,var(--card))}
+.pw-ns-k{display:flex;align-items:center;gap:6px;margin:0 0 4px;font:700 .72rem/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--pj,var(--teal)) 80%,var(--ink))}
+.pw-ns-k svg{color:var(--pj,var(--teal));flex:none}
+.pw-ns-k span{font-weight:500;letter-spacing:.02em;text-transform:none;color:var(--ink-soft);font-size:.78rem}
+.pw-ns-k span::before{content:"\00b7";margin-right:6px}
+.pw-ns-m{margin:0;font-family:var(--serif);font-weight:600;font-size:1.12rem;line-height:1.25;color:var(--ink)}
+.pw-ns-s,.pw-ns-why{margin:6px 0 0;font-size:.86rem;line-height:1.45;color:var(--ink-soft)}
+.pw-ns-lg .pw-ns-m{font-size:1.3rem}
+:root[data-theme="dark"] .pw-ns-k{color:color-mix(in srgb,var(--pj,var(--teal-2)) 55%,#fff)}
+:root[data-theme="dark"] .pw-ns-k svg{color:color-mix(in srgb,var(--pj,var(--teal-2)) 60%,#fff)}
+
+/* ================= Ask the studio ================= */
+.ask-card{padding:clamp(22px,4vw,44px);border-radius:22px;border:1.5px solid var(--ink);background:var(--card);box-shadow:4px 4px 0 var(--ink);position:relative;overflow:hidden}
+.ask-card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(color-mix(in srgb,var(--teal) 9%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--teal) 9%,transparent) 1px,transparent 1px);
+  background-size:22px 22px;-webkit-mask-image:linear-gradient(120deg,#000,transparent 60%);mask-image:linear-gradient(120deg,#000,transparent 60%)}
+.ask-head,.ask-form,.ask-sugs,.ask-out{position:relative}
+.ask-note{display:flex;align-items:center;gap:8px;margin:6px 0 0;font-size:.9rem;color:var(--ink-soft)}
+.ask-dot{width:8px;height:8px;border-radius:50%;background:var(--teal-2);box-shadow:0 0 0 0 color-mix(in srgb,var(--teal-2) 60%,transparent)}
+@media (prefers-reduced-motion:no-preference){.ask-dot{animation:ask-ping 2.4s ease-out infinite}@keyframes ask-ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--teal-2) 55%,transparent)}80%,100%{box-shadow:0 0 0 9px transparent}}}
+.ask-form{display:flex;align-items:center;gap:8px;margin-top:18px;padding:6px 6px 6px 14px;border-radius:14px;border:1.6px solid var(--ink);background:var(--paper)}
+.ask-form:focus-within{box-shadow:0 0 0 3px color-mix(in srgb,var(--teal) 30%,transparent)}
+.ask-prompt{font:700 1rem ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--teal)}
+.ask-form input{flex:1;min-width:0;height:44px;border:0;background:transparent;color:var(--ink);font:500 1rem var(--body);outline:none}
+.ask-go{flex:none;width:44px;height:44px;border-radius:10px;border:0;cursor:pointer;display:grid;place-items:center;background:var(--teal);color:#fff}
+.ask-go:hover{background:var(--teal-2)}
+.ask-sugs{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.ask-sugs button{min-height:44px;padding:6px 14px;border-radius:12px;cursor:pointer;font:600 .88rem var(--body);color:var(--ink);background:transparent;border:1.3px dashed color-mix(in srgb,var(--ink) 40%,transparent)}
+.ask-sugs button:hover{border-style:solid;border-color:var(--teal);color:var(--teal)}
+.ask-out{margin-top:16px;padding:14px 16px;border-radius:14px;background:color-mix(in srgb,var(--teal) 8%,var(--card));border-left:4px solid var(--teal)}
+.ask-a{margin:0;font-size:1rem;line-height:1.55;color:var(--ink)}
+.ask-a.is-typing::after{content:"";display:inline-block;width:.5em;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--teal);animation:ask-caret .8s steps(1) infinite}
+@keyframes ask-caret{50%{opacity:0}}
+.ask-src{margin:8px 0 0;font-size:.85rem;color:var(--ink-soft)}
+.ask-src a{color:var(--teal);font-weight:600}
+:root[data-theme="dark"] .ask-go{color:#0f2421}
+:root[data-theme="dark"] .ask-src a,:root[data-theme="dark"] .ask-prompt{color:var(--teal-2)}
+@media (max-width:560px){.ask-sugs button{flex:1 1 calc(50% - 8px)}}
+
+/* ================= friction removers, every page ================= */
+html{scroll-padding-top:84px}
+:focus-visible{outline:2.5px solid var(--teal-2);outline-offset:3px;border-radius:6px}
+/* paper-plane back to top: bottom-right, clear of content, fades in after a screen of scrolling */
+.totop{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:60;width:52px;height:52px;border-radius:50%;
+  display:grid;place-items:center;align-content:center;gap:0;cursor:pointer;color:var(--ink);background:var(--card);border:1.6px solid var(--ink);box-shadow:3px 3px 0 var(--ink);
+  opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+.totop.is-on{opacity:1;transform:none;pointer-events:auto}
+.totop svg{margin-top:2px}
+.totop-l{font:600 .62rem/1 var(--hand,"Caveat",cursive);font-size:.8rem;margin-top:-1px}
+.totop:hover{background:var(--teal-soft)}
+:root[data-theme="dark"] .totop:hover{background:color-mix(in srgb,var(--teal) 35%,var(--card))}
+@media (prefers-reduced-motion:no-preference){
+  .totop:hover svg{transform:translate(2px,-2px) rotate(-6deg);transition:transform .2s ease}
+  .totop.is-flying svg{animation:totop-fly .9s cubic-bezier(.5,0,.6,1)}
+  @keyframes totop-fly{0%{transform:none}45%{transform:translate(26px,-40px) rotate(-14deg);opacity:0}55%{transform:translate(-20px,24px);opacity:0}100%{transform:none;opacity:1}}
+}
+@media (prefers-reduced-motion:reduce){.totop{transition:none}}
+@media (max-width:600px){.totop{width:46px;height:46px;right:12px;bottom:max(14px,env(safe-area-inset-bottom))}}
+body.reading .totop{display:none}
+/* reading progress on case studies: a thin teal line under the header */
+.read-bar{position:fixed;left:0;top:0;height:3px;width:100%;z-index:70;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--teal),var(--teal-2));pointer-events:none}
+/* landed: a quick glow on the card a chip just jumped you to */
+.pw-card.is-landed{animation:pw-land 1.6s ease-out}
+@keyframes pw-land{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--pj) 70%,transparent),var(--shadow-1)}30%{box-shadow:0 0 0 8px color-mix(in srgb,var(--pj) 35%,transparent),var(--shadow-1)}100%{box-shadow:0 0 0 14px transparent,var(--shadow-1)}}
+@media (prefers-reduced-motion:reduce){.pw-card.is-landed{animation:none;outline:3px solid var(--pj);outline-offset:4px}}
+
+/* design pass */
+.section-title-sm{line-height:1.14}
+.pw-feature .pw-shot img{object-position:left top}
+/* every page title in the same display serif (home, Pulse, notes and case studies already were) */
+.app-h1,.page-sketches h1.section-title,h1.sk-h1{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+/* Ask the studio: tidy wrapping */
+.ask-note{align-items:flex-start}.ask-dot{flex:none;margin-top:.5em}
