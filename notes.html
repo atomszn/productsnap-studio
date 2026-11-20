@@ -34,11 +34,11 @@
     <meta name="theme-color" content="#f6efe1" />
 
     <title>Notes — ProductSnap Studio</title>
-    <meta name="description" content="How a thing goes from a messy thought to something real — the inputs, the questions, the experiments, and what actually shipped. The thinking behind ProductSnap Studio." />
+    <meta name="description" content="My messy product notebook: ideas get argued with, a few survive, and the dog supervises." />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Notes — ProductSnap Studio" />
-    <meta property="og:description" content="How a thing goes from a messy thought to something real — the inputs, the questions, the experiments, and what actually shipped. The thinking behind ProductSnap Studio." />
+    <meta property="og:description" content="My messy product notebook: ideas get argued with, a few survive, and the dog supervises." />
     <meta property="og:site_name" content="ProductSnap Studio" />
     <meta property="og:url" content="https://productsnap.studio/notes" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -48,7 +48,7 @@
     <meta property="og:image:alt" content="Notes — how a thing goes from a messy thought to something real" />
     <meta name="twitter:image" content="https://productsnap.studio/assets/og-default.png" />
     <meta name="twitter:title" content="Notes — ProductSnap Studio" />
-    <meta name="twitter:description" content="How a thing goes from a messy thought to something real — the inputs, the questions, the experiments, and what actually shipped. The thinking behind ProductSnap Studio." />
+    <meta name="twitter:description" content="My messy product notebook: ideas get argued with, a few survive, and the dog supervises." />
 
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="canonical" href="https://productsnap.studio/notes" />
@@ -82,6 +82,7 @@
       ]
 }
     </script>
+      <link rel="stylesheet" href="css/portfolio.css" />
   </head>
   <body class="page-notes">
     <!-- Paper texture background -->
@@ -113,11 +114,12 @@
 
       <!-- Desktop nav (>760px) -->
       <nav class="nav-links" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="sketches.html">Sketches</a>
-        <a href="app.html">App</a>
-        <a href="notes.html" class="is-active" aria-current="page">Notes</a>
+        <a href="index.html#work">Work</a>
         <a href="pulse.html">Pulse</a>
+        <a href="app.html">App</a>
+        <a href="sketches.html">Sketches</a>
+        <a href="notes.html" class="is-active" aria-current="page">Notes</a>
+        <a href="https://www.linkedin.com/in/jeevan99" class="nav-li" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg><span class="nav-li-t">LinkedIn</span></a>
       </nav>
 
       <button class="theme-toggle theme-toggle-desktop" type="button"
@@ -126,6 +128,8 @@
         <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
         <span class="tt-label">Late Night Mode</span>
       </button>
+
+      <a href="https://www.linkedin.com/in/jeevan99" class="nav-li-m" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
 
       <button class="theme-toggle theme-toggle-compact" type="button"
               aria-pressed="false" aria-label="Switch to Late Night Mode.">
@@ -150,11 +154,12 @@
           <svg class="tt-icon tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12H5M19 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg>
           <span class="tt-label">Late Night Mode</span>
         </button>
-        <a href="index.html">Home</a>
-        <a href="sketches.html">Sketches</a>
-        <a href="app.html">App</a>
-        <a href="notes.html" class="is-active" aria-current="page">Notes</a>
+        <a href="index.html#work">Work</a>
         <a href="pulse.html">Pulse</a>
+        <a href="app.html">App</a>
+        <a href="sketches.html">Sketches</a>
+        <a href="notes.html" class="is-active" aria-current="page">Notes</a>
+        <a href="https://www.linkedin.com/in/jeevan99" class="nav-panel-li" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">&#8599;</span></a>
       </nav>
     </div>
     </header>
@@ -163,10 +168,10 @@
       <!-- ===== Intro: short, sets the mood, then gets out of the way ===== -->
       <section class="section notes-intro">
         <div class="notes-intro-inner">
-          <span class="kicker">Chapter 05 · the messy part</span>
+          <span class="kicker">the messy part</span>
           <h1 class="notes-headline">You opened my <span class="hl-circle">product notebook</span>.</h1>
-          <p class="notes-deck">This is where ideas show up messy and slowly turn into something real. Signals in, a lot of arguing in the middle, a few things that survive.</p>
-          <p class="notes-rail pencil-note"><span class="caret">↳</span> Follow the arrows. It's not tidy. That's the honest part.</p>
+          <p class="notes-deck">Ideas show up messy here. Lots of arguing in the middle. A few make it out alive.</p>
+          <p class="notes-rail pencil-note"><span class="caret">↳</span> Follow the arrows. Tidy, it is not.</p>
         </div>
       </section>
 
@@ -338,7 +343,7 @@
                   <li>+ AI speed</li>
                   <li>built in plain English</li>
                 </ul>
-                <span class="pin-aside">(the AI is fast. the taste is mine.)</span>
+                <span class="pin-aside">(the AI types fast. I say &ldquo;nope&rdquo; a lot.)</span>
               </div>
             </div>
           </div>
@@ -352,7 +357,7 @@
               <li class="park-tag" style="--rot:1.2deg;">an AI product coach inside the app</li>
               <li class="park-tag" style="--rot:-0.8deg;">agent-readable portfolios</li>
             </ul>
-            <p class="ink-note ink-3">parking ≠ giving up. it's waiting for the right reason.</p>
+            <p class="ink-note ink-3">parked, not forgotten.</p>
           </div>
         </div>
 
@@ -364,7 +369,7 @@
               </span>
             </span>
             <a href="index.html" class="chapter-turn-link">↳ back to the beginning — start the notebook over&nbsp;<span class="ct-arrow" aria-hidden="true">→</span></a>
-            <span class="chapter-whisper">every product starts as noise. read it again.</span>
+            <span class="chapter-whisper">it was always a loop.</span>
           </div>
         </nav>
       </section>
@@ -389,6 +394,7 @@
     </footer>
 
     <script src="js/nav.js"></script>
+    <script src="js/touches.js" defer></script>
     <script src="js/theme.js"></script>
     <script src="js/reveal.js"></script>
     <!-- Privacy-friendly analytics (Umami) — cookieless, deferred, no-op until configured. See README. -->

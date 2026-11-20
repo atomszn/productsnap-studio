@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      /* works on the custom domain (/) and on a GitHub Pages sub-path (/repo/) */
+      (function () {
+        var seg = location.pathname.split("/")[1], base = /github\.io$/.test(location.hostname) && seg ? "/" + seg + "/" : "/";
+        document.write('<base href="' + base + '">');
+        try {
+          var t = localStorage.getItem("psnap-theme");
+          if (t !== "dark" && t !== "light") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          if (t === "dark") document.documentElement.setAttribute("data-theme", "dark");
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <title>This page wandered off · ProductSnap Studio</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <style>
+      .nf{min-height:100svh;display:grid;place-items:center;padding:32px 20px}
+      .nf-card{max-width:560px;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--ink);border-radius:22px;padding:clamp(24px,5vw,44px);box-shadow:4px 4px 0 var(--ink)}
+      .nf-doodle{display:block;margin:0 0 10px;color:var(--teal)}
+      .nf h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,6vw,2.4rem);line-height:1.1;margin:6px 0 10px}
+      .nf p{margin:0 0 18px;color:var(--ink-soft);line-height:1.55}
+      .nf-go{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+      .nf-go a{display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 12px;border-radius:12px;font-weight:600;text-decoration:none;color:var(--ink);border:1.5px solid var(--ink);background:var(--paper)}
+      .nf-go a:first-child{background:var(--teal);border-color:var(--teal);color:#fff}
+      .nf-go a:hover{transform:translateY(-1px)}
+      @media (max-width:420px){.nf-go{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <main class="nf" id="main">
+      <div class="nf-card">
+        <svg class="nf-doodle" viewBox="0 0 120 60" width="120" height="60" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 50c18-4 30-22 46-20s16 18 30 10" stroke-dasharray="3 6"/><path d="M112 10 88 20l9 3 3 9z"/><path d="m112 10-15 13"/>
+        </svg>
+        <span class="kicker">404 &middot; wrong turn</span>
+        <h1>This page wandered off.</h1>
+        <p>Even the paper plane got lost. Here&rsquo;s the way back:</p>
+        <nav class="nf-go" aria-label="Ways back">
+          <a href="./">Back to the studio</a>
+          <a href="./#work">See the four ideas</a>
+          <a href="pulse.html">Open the Pulse shelf</a>
+          <a href="./#ask">Ask the studio</a>
+        </nav>
+      </div>
+    </main>
+  </body>
+</html>

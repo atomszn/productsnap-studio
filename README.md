@@ -14,7 +14,7 @@ experience.
 | File | Purpose |
 | --- | --- |
 | `llms.txt` | Plain-text overview for LLMs: what the studio is, who built it, key pages, themes. |
-| `context.json` | Structured profile: person, projects, pages, themes, focus areas. Only intentionally-public info. |
+| `context.json` | Structured profile: person, products, pages, themes, focus areas. Only intentionally-public info. |
 | `data/library.json` | The Pulse sketch library (books, pages, gists) — built by `scripts/add_book.py`. |
 | `sitemap.xml` | Lists the five important pages. |
 | `robots.txt` | Welcomes legitimate crawlers; points to the sitemap and discovery resources. |
@@ -121,3 +121,12 @@ automatically by Umami — no extra setup.
 node scripts/qa-visual.mjs                  # honest visual QA (hidden/overflow/JS errors). Exit 0 = pass.
 node scripts/validate-pulse-data.js --check # read-only Pulse content gate. Exit 0 = pass.
 ```
+
+## Seasonal layer (winter)
+
+`js/season.js` holds one config: `on`, `start`, `end` (first day OFF), and the
+"Year in review" picks. Between the dates it sets `html[data-season="winter"]`:
+warmer Pulse paper, a lamp glow, frost on shelf planks, snow over the shelves
+(off switch under the library stats, saved in `localStorage["psnap-snow"]`,
+never under reduced motion) and the Year in review shelf. After `end` it does
+nothing. QA: add `?season=on` or `?season=off` to any URL. Styles: `css/season.css`.

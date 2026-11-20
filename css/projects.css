@@ -53,3 +53,4 @@
 :root[data-theme="dark"] .cs-shot{box-shadow:0 0 26px -8px color-mix(in srgb,var(--pj) 60%,transparent)}
 :root[data-theme="dark"] .cs-sec li.ph{color:var(--ink)}
 #built{scroll-margin-top:80px}
+.cs-story p{margin:0;line-height:1.65;font-size:1.05rem}
