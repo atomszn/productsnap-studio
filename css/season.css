@@ -57,3 +57,75 @@ html[data-season="winter"] .year-sec .rw-h::after{content:" \2744";font-size:.8e
 .snow-toggle[hidden]{display:none}
 .snow-toggle{position:relative}
 .snow-toggle::before{content:"";position:absolute;inset:-4px 0}  /* 44px tall hit area */
+
+/* ===== v2: make the season felt on phones too (still holiday-neutral) ===== */
+
+/* snow-capped header: a soft drift along the header's bottom edge, every page that loads the season */
+html[data-season="winter"] header.topnav-wrap::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:11px;pointer-events:none;
+  background:
+    radial-gradient(circle at 11px 0,#fff 0 7px,rgba(255,255,255,0) 7.6px) 0 0/22px 11px repeat-x,
+    radial-gradient(circle at 6px 0,#fff 0 4.5px,rgba(255,255,255,0) 5px) 9px 0/35px 9px repeat-x;
+  filter:drop-shadow(0 1.5px 1px rgba(90,115,150,.35))}
+html[data-season="winter"][data-theme="dark"] header.topnav-wrap::after{opacity:.88;filter:drop-shadow(0 0 4px rgba(180,205,240,.35))}
+
+/* snow-capped logo */
+html[data-season="winter"] .brand-mark{position:relative;overflow:visible}
+html[data-season="winter"] .brand-mark::before{content:"";position:absolute;left:-4px;right:-3px;top:-7px;height:11px;pointer-events:none;
+  background:#fff;border-radius:12px 14px 6px 8px/9px 10px 5px 6px;box-shadow:0 1.5px 0 rgba(110,135,170,.55),inset 0 -2px 0 rgba(205,220,240,.9)}
+html[data-season="winter"] .brand-mark::after{content:"";position:absolute;left:8px;top:2px;width:5px;height:7px;border-radius:0 0 4px 4px;background:#fff;pointer-events:none;box-shadow:16px -2px 0 -1px #fff}
+
+/* homepage: a light snow band drifting through the top of the hero */
+html[data-season="winter"] .pf-hero{position:relative}
+html[data-season="winter"] .pf-hero-grid{position:relative;z-index:1}
+html[data-season="winter"] .pf-hero::before{content:"";position:absolute;left:0;right:0;top:0;height:300px;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(circle,rgba(150,172,205,.75) 0 2.2px,rgba(150,172,205,0) 2.8px),
+    radial-gradient(circle,rgba(150,172,205,.55) 0 1.5px,rgba(150,172,205,0) 2px),
+    radial-gradient(circle,rgba(150,172,205,.45) 0 3px,rgba(150,172,205,0) 3.6px);
+  background-size:97px 89px,61px 57px,151px 139px;background-position:0 0,23px 31px,71px 11px;
+  -webkit-mask-image:linear-gradient(#000 30%,transparent);mask-image:linear-gradient(#000 30%,transparent)}
+html[data-season="winter"][data-theme="dark"] .pf-hero::before{
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.7) 0 2.2px,rgba(255,255,255,0) 2.8px),
+    radial-gradient(circle,rgba(255,255,255,.5) 0 1.5px,rgba(255,255,255,0) 2px),
+    radial-gradient(circle,rgba(255,255,255,.4) 0 3px,rgba(255,255,255,0) 3.6px)}
+@media (prefers-reduced-motion:no-preference){
+  html[data-season="winter"] .pf-hero::before{animation:hero-snow 14s linear infinite}
+  @keyframes hero-snow{to{background-position:-20px 89px,13px 145px,51px 150px}}
+}
+
+/* Pulse, phones: a clearly warm lamp glow + a small lamp that fits beside the kicker */
+@media (max-width:899px){
+  html[data-season="winter"] body.page-pulse::before{
+    background:radial-gradient(130vw 90vw at 92% -4%,rgba(255,186,96,.36),rgba(255,186,96,0) 64%),
+               radial-gradient(90vw 80vw at 0% 105%,rgba(150,180,215,.16),rgba(150,180,215,0) 60%)}
+  html[data-season="winter"][data-theme="dark"] body.page-pulse::before{
+    background:radial-gradient(130vw 90vw at 92% -4%,rgba(255,168,80,.24),rgba(255,168,80,0) 64%),
+               radial-gradient(90vw 80vw at 0% 105%,rgba(120,150,200,.10),rgba(120,150,200,0) 60%)}
+  html[data-season="winter"] body.page-pulse .lib{position:relative}
+  html[data-season="winter"] body.page-pulse .lib::after{content:"";position:absolute;top:-10px;right:14px;width:56px;height:74px;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(30px 22px at 28px 58px,rgba(255,214,140,.7),rgba(255,214,140,0) 72%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 74' fill='none' stroke='%233a3a36' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M28 0v34'/><path d='M14 52c1-10 7-17 14-18 7 1 13 8 14 18z' fill='%23e9c98f'/><path d='M12 52h32'/><path d='M24 52c1 4 7 4 8 0' fill='%23fff3c8'/></svg>") center/56px 74px no-repeat}
+  html[data-season="winter"][data-theme="dark"] body.page-pulse .lib::after{
+    background:
+      radial-gradient(34px 26px at 28px 58px,rgba(255,196,110,.6),rgba(255,196,110,0) 72%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 74' fill='none' stroke='%23d8cdb9' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M28 0v34'/><path d='M14 52c1-10 7-17 14-18 7 1 13 8 14 18z' fill='%238a5c0e'/><path d='M12 52h32'/><path d='M24 52c1 4 7 4 8 0' fill='%23ffd88a'/></svg>") center/56px 74px no-repeat}
+  html[data-season="winter"] body.page-pulse .lib-kicker{padding-right:70px}
+}
+
+/* snow drifts on every book top (spines and covers) */
+html[data-season="winter"] .sp-topic{position:static}
+html[data-season="winter"] .sp-topic::before{content:"";position:absolute;left:-2px;right:-2px;top:-5px;height:10px;z-index:4;pointer-events:none;
+  background:#fff;border-radius:9px 11px 4px 6px/8px 9px 3px 4px;box-shadow:0 1.5px 0 rgba(110,135,170,.5),inset 0 -2px 0 rgba(205,220,240,.85)}
+html[data-season="winter"] .bk{position:relative}
+html[data-season="winter"] .bk::before{content:"";position:absolute;left:6px;right:8px;top:-6px;height:12px;z-index:5;pointer-events:none;
+  background:#fff;border-radius:12px 16px 5px 7px/9px 10px 3px 4px;box-shadow:0 1.5px 0 rgba(110,135,170,.5),inset 0 -2px 0 rgba(205,220,240,.85)}
+html[data-season="winter"][data-theme="dark"] .sp-topic::before,html[data-season="winter"][data-theme="dark"] .bk::before{background:#eef3fb;box-shadow:0 0 5px rgba(190,215,255,.35),inset 0 -2px 0 rgba(170,190,220,.7)}
+
+/* thicker drifts on the planks */
+html[data-season="winter"] .plank::before{top:-5px;height:12px;
+  background:
+    linear-gradient(to bottom,rgba(255,255,255,0) 4px,#fff 4px,rgba(255,255,255,.85) 8px,rgba(255,255,255,0) 9px),
+    radial-gradient(ellipse 9px 5px at 9px 5px,#fff 0 98%,rgba(255,255,255,0)) 0 0/26px 12px repeat-x,
+    radial-gradient(ellipse 6px 4px at 6px 5px,#fff 0 98%,rgba(255,255,255,0)) 13px 0/41px 12px repeat-x}

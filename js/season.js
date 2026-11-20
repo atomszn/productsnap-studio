@@ -59,16 +59,16 @@
       dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       W = innerWidth; H = innerHeight;
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-      var n = Math.min(70, Math.max(14, Math.round(W * H / 22000)));
+      var phone = W < 600, n = phone ? 46 : Math.min(80, Math.max(30, Math.round(W * H / 18000)));
       while (flakes.length < n) flakes.push(flake(true));
       flakes.length = n;
     }
     function flake(anywhere) {
-      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -6, r: 1 + Math.random() * 1.9,
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : -6, r: (W < 600 ? 1.7 : 1.3) + Math.random() * (W < 600 ? 2.3 : 2),
                v: 14 + Math.random() * 26, a: Math.random() * 6.28, w: .4 + Math.random() * .8 };
     }
     function clipRect() {
-      var r = host.getBoundingClientRect(), lh = host.querySelector(".lib-h"), top = lh ? lh.getBoundingClientRect().top : r.top;
+      var lib = document.getElementById("lib") || host, r = lib.getBoundingClientRect(), top = r.top;
       var bar = document.getElementById("lib-bar");
       if (bar) { var b = bar.getBoundingClientRect(); if (b.top <= 1) top = Math.max(top, b.bottom); }
       return { x: r.left, y: Math.max(0, top), w: r.width, h: Math.min(H, r.bottom) - Math.max(0, top) };
@@ -84,8 +84,8 @@
         var dark = document.documentElement.getAttribute("data-theme") === "dark";
         ctx.save(); ctx.beginPath(); ctx.rect(c.x, c.y, c.w, c.h); ctx.clip();
         ctx.fillStyle = dark ? "rgba(255,255,255,.78)" : "rgba(255,255,255,.95)";
-        ctx.strokeStyle = dark ? "rgba(255,255,255,0)" : "rgba(120,140,170,.45)";
-        ctx.lineWidth = .8;
+        ctx.strokeStyle = dark ? "rgba(255,255,255,0)" : "rgba(105,130,168,.7)";
+        ctx.lineWidth = 1;
         for (var i = 0; i < flakes.length; i++) {
           var f = flakes[i];
           f.y += f.v * dt; f.a += f.w * dt; f.x += Math.sin(f.a) * 8 * dt;

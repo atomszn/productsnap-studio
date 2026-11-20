@@ -143,6 +143,8 @@
 }
     </script>
       <link rel="stylesheet" href="css/portfolio.css" />
+    <link rel="stylesheet" href="css/season.css" />
+    <script src="js/season.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -243,12 +245,12 @@
               AI did the typing.
             </p>
 
-            <ul class="pf-proof" aria-label="At a glance">
-              <li><b>4</b><span>ideas, all live</span></li>
-              <li><b>iOS + Android</b><span>one app, both stores</span></li>
-              <li><b data-pulse-count>30</b><span>picture books</span></li>
-              <li><b>1 + AI</b><span>person, plus a build crew</span></li>
-            </ul>
+            <nav class="pf-jump" aria-label="Jump to an idea">
+              <a href="#idea-productsnap" style="--pj:#6c33c9"><span class="pf-dot" aria-hidden="true"></span>ProductSnap</a>
+              <a href="#idea-flickmango" style="--pj:#c9771a"><span class="pf-dot" aria-hidden="true"></span>FlickMango</a>
+              <a href="#idea-runitback" style="--pj:#15605a"><span class="pf-dot" aria-hidden="true"></span>Run It Back</a>
+              <a href="#idea-pulse" style="--pj:#2c3e66"><span class="pf-dot" aria-hidden="true"></span>Pulse</a>
+            </nav>
 
             <div class="pf-cta">
               <a href="#work" class="btn btn-primary pf-go">
@@ -261,10 +263,6 @@
                 <span class="ext" aria-hidden="true">&#8599;</span><span class="sr-only"> (opens in a new tab)</span>
               </a>
             </div>
-            <p class="pf-scribble" aria-hidden="true">
-              <svg viewBox="0 0 90 40" width="70" height="32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M86 30c-20 6-48 4-66-10"/><path d="M26 14l-8 5 9 3"/></svg>
-              four ideas, one tap away
-            </p>
           </div>
 
           <!-- Things I believe: sticky notes. Every line is a principle already in the case studies. -->
@@ -309,7 +307,7 @@
 
         <div class="pw-grid">
           <!-- ProductSnap -->
-          <article class="pw-card pw-feature" style="--pj:#6c33c9" aria-labelledby="pw-ps">
+          <article class="pw-card pw-feature" style="--pj:#6c33c9" id="idea-productsnap" aria-labelledby="pw-ps">
             <a class="pw-shot" href="projects/productsnap.html" tabindex="-1" aria-hidden="true">
               <picture>
                 <source media="(min-width: 561px) and (max-width: 980px)" srcset="assets/projects/productsnap-phone.webp" />
@@ -333,7 +331,7 @@
           </article>
 
           <!-- FlickMango -->
-          <article class="pw-card" style="--pj:#c9771a" aria-labelledby="pw-fm">
+          <article class="pw-card" style="--pj:#c9771a" id="idea-flickmango" aria-labelledby="pw-fm">
             <a class="pw-shot" href="projects/flickmango.html" tabindex="-1" aria-hidden="true">
               <picture>
                 <source media="(min-width: 561px) and (max-width: 980px)" srcset="assets/projects/flickmango-phone.webp" />
@@ -356,7 +354,7 @@
           </article>
 
           <!-- Run It Back -->
-          <article class="pw-card" style="--pj:#15605a" aria-labelledby="pw-rib">
+          <article class="pw-card" style="--pj:#15605a" id="idea-runitback" aria-labelledby="pw-rib">
             <a class="pw-shot" href="projects/runitback.html" tabindex="-1" aria-hidden="true">
               <picture>
                 <source media="(min-width: 561px) and (max-width: 980px)" srcset="assets/projects/runitback-phone.webp" />
@@ -366,10 +364,11 @@
             <div class="pw-body">
               <p class="pw-type">Web app &middot; seventh grade math</p>
               <h3 class="pw-name" id="pw-rib"><a href="projects/runitback.html">Run It Back</a></h3>
-              <p class="pw-idea"><span>What if math practice let you miss, shrug and run it back?</span></p>
+              <p class="pw-idea"><span>What if math homework felt less like a test and more like play?</span></p>
               <dl class="pw-rows">
-                <div><dt>Who it helps</dt><dd>Seventh graders who try first and open a hint only when they want one. No timer, no account, start in seconds.</dd></div>
-                <div><dt>What's live</dt><dd><span class="pw-live">Live</span> with every grade 7 topic: lessons, practice and short three-question rounds.</dd></div>
+                <div><dt>The spark</dt><dd>My son came home one day tense about math tests, stuck on homework that wasn't fun. So I built a friendlier way in: pictures, plain words, hints only when he asks.</dd></div>
+                <div><dt>Who it helps</dt><dd>Any seventh grader who&rsquo;d rather try, miss and run it back than sit through a timer.</dd></div>
+                <div><dt>What's live</dt><dd><span class="pw-live">Live</span> with every grade 7 topic. No account needed.</dd></div>
               </dl>
               <p class="pw-links">
                 <a href="projects/runitback.html">The story <span aria-hidden="true">&rarr;</span></a>
@@ -379,7 +378,7 @@
           </article>
 
           <!-- Pulse -->
-          <article class="pw-card" style="--pj:#2c3e66" aria-labelledby="pw-pulse">
+          <article class="pw-card" style="--pj:#2c3e66" id="idea-pulse" aria-labelledby="pw-pulse">
             <a class="pw-shot" href="pulse.html" tabindex="-1" aria-hidden="true">
               <picture>
                 <source media="(min-width: 561px) and (max-width: 980px)" srcset="assets/projects/pulse-phone.webp" />
@@ -387,12 +386,12 @@
               </picture>
             </a>
             <div class="pw-body">
-              <p class="pw-type">Picture books &middot; right here</p>
+              <p class="pw-type">Picture books &middot; on this site</p>
               <h3 class="pw-name" id="pw-pulse"><a href="pulse.html">Pulse</a></h3>
               <p class="pw-idea"><span>What if big shifts in tech and money fit in a five-minute picture book?</span></p>
               <dl class="pw-rows">
                 <div><dt>Who it helps</dt><dd>Anyone who wants the gist of rockets, AI or stablecoins without the jargon, then the pages if they're hooked.</dd></div>
-                <div><dt>What's live</dt><dd><span class="pw-live">Live</span> with <span data-pulse-count>30</span> books on <span data-pulse-shelves>4</span> shelves, and more on the way.</dd></div>
+                <div><dt>What's live</dt><dd><span class="pw-live">Live</span> right here: frontier tech, AI, fintech and macro shelves.</dd></div>
               </dl>
               <p class="pw-links">
                 <a href="pulse.html">Open the shelf <span aria-hidden="true">&rarr;</span></a>
@@ -427,10 +426,9 @@
           <p class="pf-newest" id="home-pulse-live" aria-live="polite">
             <span class="plc-eyebrow">fresh off the pencil</span>
             <a href="pulse.html" class="pf-newest-t" id="home-pulse-title">How AI Compute Works</a>
-            <span class="plc-stats" id="home-pulse-stats"></span>
             <span id="home-pulse-line" hidden></span>
           </p>
-          <a href="pulse.html" class="btn btn-primary"><span>See all <span data-pulse-count>30</span> books</span> <span aria-hidden="true">&rarr;</span></a>
+          <a href="pulse.html" class="btn btn-primary"><span>Browse the whole shelf</span> <span aria-hidden="true">&rarr;</span></a>
           <a href="pulse.html#year" class="btn btn-link pf-yir" hidden>Best of 2026 shelf <span class="link-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </section>
@@ -481,15 +479,17 @@
             <h2 class="section-title-sm" id="contact-title">Got a messy problem? I'm listening.</h2>
             <p>
               I'm Jeevan. I like big questions, simple answers and shipping
-              things people actually use. Making all this was the most fun
-              I've had in product. LinkedIn is the fastest way to reach me.
+              things people actually use. LinkedIn is the fastest way to reach me.
             </p>
             <div class="pf-cta">
               <a href="https://www.linkedin.com/in/jeevan99" class="btn btn-primary pf-li" target="_blank" rel="noopener noreferrer">
                 <svg class="li-ico" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
                 Connect on LinkedIn<span class="sr-only"> (opens in a new tab)</span>
               </a>
-              <a href="mailto:atomszn.ai@gmail.com" class="btn btn-ghost">Or send an email</a>
+              <a href="#contact" class="pf-mail" data-u="atomszn.ai" data-d="gmail.com" aria-label="Copy my email address">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
+                <span class="pf-mail-l">Copy my email</span><span class="pf-mail-ok" aria-hidden="true">Copied! <span class="pf-mail-pop">&#10024;</span></span>
+              </a>
             </div>
           </div>
           <figure class="atom-doodle pf-atom">
@@ -517,7 +517,7 @@
         <p class="foot-contact">
           <a class="foot-li" href="https://www.linkedin.com/in/jeevan99" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span aria-hidden="true">&middot;</span>
-          <a href="mailto:atomszn.ai@gmail.com">atomszn.ai@gmail.com</a><span class="foot-paw" aria-hidden="true">🐾</span>
+          <a href="#contact" class="pf-mail pf-mail-sm" data-u="atomszn.ai" data-d="gmail.com" aria-label="Copy my email address"><span class="pf-mail-l">Copy my email</span><span class="pf-mail-ok" aria-hidden="true">Copied!</span></a><span class="foot-paw" aria-hidden="true">🐾</span>
         </p>
       </div>
     </footer>
@@ -527,7 +527,6 @@
     <script src="js/reveal.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/projects.js" defer></script>
-    <script src="js/season.js" defer></script>
     <script src="js/portfolio.js" defer></script>
     <!-- Privacy-friendly analytics (Umami) — cookieless, deferred, no-op until configured. See README. -->
     <script src="js/analytics.js" defer></script>
