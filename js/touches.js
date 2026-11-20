@@ -63,7 +63,7 @@
       { k: "flickmango movie movies film films watch streaming indian telugu hindi tamil ott", a: "FlickMango answers \u201cwhere can I watch this?\u201d for Indian films. Pick your language, region and the services you already pay for. Live in Hindi, Telugu, Tamil, Malayalam and Kannada.", href: "projects/flickmango.html", src: "FlickMango case study" },
       { k: "run it back runitback math kids school seventh grade homework learning education", a: "Run It Back makes seventh grade math feel more like play than a test: pictures, plain words, hints only when you ask. No timer, no account.", href: "projects/runitback.html", src: "Run It Back case study" },
       { k: "pulse books book picture shelf macro fintech tech economy read reading", a: "Pulse turns big shifts in tech and money into five-minute picture books. One idea per page. A story, not a lecture.", href: "pulse.html", src: "Pulse shelf" },
-      { k: "design sketch sketches ux ui pencil wireframe process simple simplicity friction", a: "Pencil first. Every screen here started as a scribble. My eraser has seen things.", href: "sketches.html", src: "The sketchbook" },
+      { k: "design sketch sketches ux ui pencil wireframe process simple simplicity friction", a: "Pencil first. Every screen here started as a scribble, usually with coffee nearby.", href: "sketches.html", src: "The sketchbook" },
       { k: "contact hire hiring reach talk connect linkedin email chat role job", a: "LinkedIn. Door's open, kettle's on.", href: "https://www.linkedin.com/in/jeevan99", src: "LinkedIn", ext: true }
     ];
     var STOP = ["how","what","who","why","do","does","did","you","your","is","are","the","an","to","of","in","on","for","and","me","tell","about","can","with"];
