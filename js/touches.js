@@ -97,7 +97,7 @@
       }, 16);
     }
     form.addEventListener("submit", function (ev) { ev.preventDefault(); if (input.value.trim()) show(input.value); });
-    form.querySelectorAll("[data-q]").forEach(function (b) {
+    (form.closest(".ask-card") || document).querySelectorAll("[data-q]").forEach(function (b) {
       b.addEventListener("click", function () { input.value = b.getAttribute("data-q"); show(input.value); });
     });
   }
