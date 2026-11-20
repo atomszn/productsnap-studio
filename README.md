@@ -14,7 +14,7 @@ experience.
 | File | Purpose |
 | --- | --- |
 | `llms.txt` | Plain-text overview for LLMs: what the studio is, who built it, key pages, themes. |
-| `context.json` | Structured profile: person, projects, pages, themes, focus areas. Only intentionally-public info. |
+| `context.json` | Structured profile: person, products, pages, themes, focus areas. Only intentionally-public info. |
 | `data/library.json` | The Pulse sketch library (books, pages, gists) — built by `scripts/add_book.py`. |
 | `sitemap.xml` | Lists the five important pages. |
 | `robots.txt` | Welcomes legitimate crawlers; points to the sitemap and discovery resources. |

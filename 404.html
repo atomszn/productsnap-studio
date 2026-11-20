@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <script>
-      /* works on the custom domain (/) and on a GitHub project path (/repo/) */
+      /* works on the custom domain (/) and on a GitHub Pages sub-path (/repo/) */
       (function () {
         var seg = location.pathname.split("/")[1], base = /github\.io$/.test(location.hostname) && seg ? "/" + seg + "/" : "/";
         document.write('<base href="' + base + '">');
