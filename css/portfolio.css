@@ -28,17 +28,12 @@
 .pf-work,.pf-think,.pf-build,.pf-contact{padding-top:clamp(48px,6vw,84px);padding-bottom:clamp(48px,6vw,84px)}
 .pf-head .section-lead{max-width:62ch}
 .ext{font-size:.9em;opacity:.7}
-/* staging placeholders: loud on purpose, never ship */
-.pf-ph .ph-tag,.pw-ph{font:600 .78rem/1.3 var(--body);letter-spacing:.01em;color:#7a4b00;background:#fff1c9;border:1.5px dashed #b7791f;border-radius:8px;padding:3px 8px}
-.pf-ph .ph-tag{margin-left:6px}
-.pw-ph{display:inline-block;margin:2px 0 0;align-self:flex-start}
-:root[data-theme="dark"] .pf-ph .ph-tag,:root[data-theme="dark"] .pw-ph{color:#ffe1a1;background:#3d2f12;border-color:#d39b3a}
 
 /* ---------- hero ---------- */
 .pf-hero{padding-top:clamp(28px,5vw,64px);padding-bottom:clamp(40px,6vw,72px)}
 .pf-hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(28px,5vw,64px);align-items:center}
-.pf-hi{margin:0 0 4px;font-family:var(--hand);font-size:clamp(24px,2.4vw,30px);color:var(--teal);transform:rotate(-2deg);transform-origin:left}
-.pf-name{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(46px,7.2vw,88px);line-height:1;letter-spacing:-.025em;color:var(--ink)}
+.pf-hi{margin:0 0 10px;font-family:var(--hand);font-size:clamp(24px,2.4vw,30px);color:var(--teal);transform:rotate(-2deg);transform-origin:left}
+.pf-name{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(40px,5.8vw,74px);line-height:1.04;letter-spacing:-.025em;color:var(--ink);text-wrap:balance}
 .pf-role{margin:14px 0 0;font:600 clamp(18px,1.9vw,23px)/1.3 var(--body);color:var(--ink-soft);letter-spacing:-.005em}
 .pf-pitch{margin:18px 0 0;font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:var(--ink-soft);max-width:54ch}
 .pf-pitch a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:3px}
@@ -178,4 +173,63 @@
 /* notes board: the 5-column spread overflowed at 900-1139px (seen at 1024). Let the columns shrink. */
 @media (min-width:900px) and (max-width:1139px){
   .notebook-canvas{grid-template-columns:minmax(0,1fr) 44px minmax(0,1.6fr) 44px minmax(0,1.1fr);padding-left:60px}
+}
+
+/* =====================================================================
+   Playful layer (v2): small sketchbook delights. All motion is short,
+   one-shot or hover-only, and off under prefers-reduced-motion.
+   ===================================================================== */
+.pf-hi b{font-weight:700;color:var(--ink)}
+/* hand-drawn marks on the headline: an underline and a loose circle that draw in once */
+.pf-mark{position:relative;display:inline-block;white-space:nowrap;z-index:0}
+.pf-mark-c{margin-left:.18em}
+.pf-mark::after{content:"";position:absolute;z-index:-1;pointer-events:none;background-repeat:no-repeat;background-size:100% 100%}
+.pf-mark-u::after{left:-2%;right:-2%;bottom:-.08em;height:.32em;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 20' preserveAspectRatio='none'><path d='M3 14 C 50 5, 110 4, 197 9' stroke='%23e85aa3' stroke-width='7' stroke-linecap='round' fill='none' opacity='.55'/></svg>")}
+.pf-mark-c::after{left:-6%;right:-5%;top:-.1em;bottom:-.14em;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' preserveAspectRatio='none'><path d='M30 12 C 90 -2, 190 8, 194 38 C 198 70, 70 80, 18 62 C -6 52, 6 22, 46 10' stroke='%2315605a' stroke-width='3.2' stroke-linecap='round' fill='none'/></svg>")}
+:root[data-theme="dark"] .pf-mark-c::after{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' preserveAspectRatio='none'><path d='M30 12 C 90 -2, 190 8, 194 38 C 198 70, 70 80, 18 62 C -6 52, 6 22, 46 10' stroke='%233fb8a8' stroke-width='3.2' stroke-linecap='round' fill='none'/></svg>")}
+@media (prefers-reduced-motion:no-preference){
+  .pf-mark::after{clip-path:inset(0 100% 0 0);animation:pf-draw .7s cubic-bezier(.6,.1,.3,1) forwards}
+  .pf-mark-u::after{animation-delay:.25s}
+  .pf-mark-c::after{animation-delay:.75s}
+  @keyframes pf-draw{to{clip-path:inset(0 0 0 0)}}
+  /* the CTA arrow nods down on hover */
+  .pf-go:hover .pf-go-arrow{animation:pf-nod .6s ease-in-out 2}
+  @keyframes pf-nod{50%{transform:translateY(3px)}}
+  /* sticky notes: a little wiggle when you poke them */
+  .pf-note.sticky:hover{animation:pf-wiggle .45s ease-in-out 1}
+  @keyframes pf-wiggle{0%,100%{transform:rotate(var(--rot,0deg)) translateY(-4px)}35%{transform:rotate(calc(var(--rot,0deg) - 3deg)) translateY(-4px)}70%{transform:rotate(calc(var(--rot,0deg) + 2deg)) translateY(-4px)}}
+  /* step numbers spin like a pencil when the step is hovered */
+  .pf-step:hover .pf-n{transform:rotate(-12deg) scale(1.12)}
+  .pf-n{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+}
+/* the scribbled "four ideas, one tap away" arrow pointing back up at the buttons */
+.pf-scribble{display:flex;align-items:center;gap:6px;margin:10px 0 0 18px;font:600 1.15rem/1 var(--hand);color:var(--ink-faded);transform:rotate(-1.5deg)}
+.pf-scribble svg{transform:scaleY(-1);color:var(--teal);flex:none}
+@media (max-width:760px){.pf-scribble{display:none}}
+
+/* idea line: big, handwritten, with a highlighter that sweeps in on hover */
+.pw-idea{margin:2px 0 4px;font:600 clamp(1.25rem,1.9vw,1.5rem)/1.25 var(--hand-2);color:var(--ink)}
+.pw-idea span{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--pj) 22%,transparent) 62%) no-repeat 0 0/0% 100%;transition:background-size .5s ease;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.pw-card:hover .pw-idea span,.pw-card:focus-within .pw-idea span{background-size:100% 100%}
+@media (hover:none){.pw-idea span{background-size:100% 100%}}
+@media (prefers-reduced-motion:reduce){.pw-idea span{transition:none;background-size:100% 100%}}
+.pw-feature .pw-idea{font-size:clamp(1.35rem,2.1vw,1.7rem)}
+.pw-rows>div{grid-template-columns:96px minmax(0,1fr)}
+@media (max-width:560px){.pw-rows>div{grid-template-columns:1fr}}
+
+/* idea-to-shipped path: a dashed pencil line runs behind the three steps */
+.pf-steps{position:relative}
+@media (min-width:981px){
+  .pf-steps::before{content:"";position:absolute;left:8%;right:8%;top:96px;height:2px;z-index:0;
+    background:repeating-linear-gradient(90deg,color-mix(in srgb,var(--ink) 35%,transparent) 0 10px,transparent 10px 18px)}
+  .pf-step{position:relative;z-index:1}
+  .pf-step:nth-child(2){transform:translateY(14px)}
+  .pf-step:nth-child(3){transform:translateY(-6px)}
+}
+@media (max-width:980px){
+  .pf-steps::before{content:"";position:absolute;left:28px;top:20px;bottom:20px;width:2px;z-index:0;
+    background:repeating-linear-gradient(180deg,color-mix(in srgb,var(--ink) 30%,transparent) 0 10px,transparent 10px 18px)}
+  .pf-step{position:relative;z-index:1}
 }
