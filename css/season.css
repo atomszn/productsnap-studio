@@ -1,0 +1,59 @@
+/* Winter layer for Pulse. Everything is scoped to html[data-season="winter"],
+   which js/season.js sets only between its start and end dates. Subtle by design:
+   the books stay the brightest thing on the page. */
+
+/* cozy evening palette: a touch warmer paper */
+html[data-season="winter"] body.page-pulse{--paper:#f3ebdf;background:#f3ebdf}
+html[data-season="winter"][data-theme="dark"] body.page-pulse{--paper:#1d1814;background:#1d1814}
+
+/* warm lamp glow from the top right, behind everything */
+html[data-season="winter"] body.page-pulse::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(1000px 640px at 88% -8%,rgba(255,190,105,.26),rgba(255,190,105,0) 62%),
+             radial-gradient(700px 500px at 4% 110%,rgba(150,180,215,.12),rgba(150,180,215,0) 60%)}
+html[data-season="winter"][data-theme="dark"] body.page-pulse::before{
+  background:radial-gradient(1000px 660px at 88% -8%,rgba(255,168,80,.17),rgba(255,168,80,0) 62%),
+             radial-gradient(700px 500px at 4% 110%,rgba(120,150,200,.08),rgba(120,150,200,0) 60%)}
+
+/* a small pendant lamp hanging beside the title (decorative; wide screens only) */
+html[data-season="winter"] .lib-hero{position:relative}
+@media (min-width:900px){
+  html[data-season="winter"] body.page-pulse .lib{position:relative}
+  html[data-season="winter"] body.page-pulse .lib::after{content:"";position:absolute;top:-8px;right:clamp(16px,6vw,90px);width:120px;height:170px;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(60px 46px at 60px 128px,rgba(255,214,140,.55),rgba(255,214,140,0) 70%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 170' fill='none' stroke='%233a3a36' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M60 0v84'/><path d='M38 112c2-16 10-26 22-28 12 2 20 12 22 28z' fill='%23e9c98f'/><path d='M36 112h48'/><path d='M54 112c1 6 11 6 12 0' fill='%23fff3c8'/></svg>") center/120px 170px no-repeat;
+    opacity:.9}
+  html[data-season="winter"][data-theme="dark"] body.page-pulse .lib::after{
+    background:
+      radial-gradient(70px 54px at 60px 128px,rgba(255,196,110,.45),rgba(255,196,110,0) 72%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 170' fill='none' stroke='%23d8cdb9' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M60 0v84'/><path d='M38 112c2-16 10-26 22-28 12 2 20 12 22 28z' fill='%238a5c0e'/><path d='M36 112h48'/><path d='M54 112c1 6 11 6 12 0' fill='%23ffd88a'/></svg>") center/120px 170px no-repeat}
+}
+
+/* light frost on each shelf plank's top edge */
+html[data-season="winter"] .plank{position:relative}
+html[data-season="winter"] .plank::before{content:"";position:absolute;left:0;right:0;top:-2px;height:9px;pointer-events:none;border-radius:2px 2px 0 0;
+  background:
+    linear-gradient(to bottom,rgba(255,255,255,.95),rgba(255,255,255,.75) 3px,rgba(255,255,255,0) 4px),
+    radial-gradient(circle at 7px 3px,rgba(255,255,255,.85) 0 2.6px,rgba(255,255,255,0) 3px) 0 0/23px 9px repeat-x,
+    radial-gradient(circle at 15px 3px,rgba(255,255,255,.7) 0 1.8px,rgba(255,255,255,0) 2.2px) 0 0/37px 9px repeat-x;
+  filter:drop-shadow(0 1px 0 rgba(140,160,190,.35))}
+html[data-season="winter"][data-theme="dark"] .plank::before{opacity:.8;filter:drop-shadow(0 0 3px rgba(190,215,255,.35))}
+
+/* the seasonal shelf picks up a little frost and lamp light */
+html[data-season="winter"] .year-sec{position:relative;padding:14px 16px 6px;margin-left:calc(-1 * 16px);margin-right:calc(-1 * 16px);border-radius:16px;
+  background:linear-gradient(180deg,rgba(255,236,200,.45),rgba(255,236,200,0) 70%);border:1px solid rgba(190,160,110,.25)}
+html[data-season="winter"][data-theme="dark"] .year-sec{background:linear-gradient(180deg,rgba(255,180,90,.09),rgba(255,180,90,0) 70%);border-color:rgba(255,200,130,.14)}
+html[data-season="winter"] .year-sec .rw-h::after{content:" \2744";font-size:.8em;opacity:.55}
+
+/* snow: a fixed, click-through canvas; js clips it to the shelves */
+.snow-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:40;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.snow-canvas{display:none}}
+
+/* the small off switch, under the library stats */
+.snow-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:8px;min-height:36px;padding:4px 12px;border-radius:999px;cursor:pointer;
+  font:600 .82rem var(--body);color:var(--ink-soft);background:color-mix(in srgb,var(--card) 80%,transparent);border:1.3px solid color-mix(in srgb,var(--ink) 22%,transparent)}
+.snow-toggle:hover{color:var(--ink);border-color:color-mix(in srgb,var(--ink) 45%,transparent)}
+.snow-toggle[aria-pressed="false"]{opacity:.8}
+.snow-toggle[hidden]{display:none}
+.snow-toggle{position:relative}
+.snow-toggle::before{content:"";position:absolute;inset:-4px 0}  /* 44px tall hit area */

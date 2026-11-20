@@ -435,6 +435,7 @@
     var c = continueCard(); if (c) host.appendChild(c);
     var p = pathRow(); if (p) host.appendChild(p);
     var n = newRow(); if (n) host.appendChild(n);
+    var y = yearRow(); if (y) { host.appendChild(y); if (location.hash === "#year") requestAnimationFrame(function () { y.scrollIntoView({ block: "start", behavior: reduce() ? "auto" : "smooth" }); }); }
     host.appendChild(el("h2", "lib-h", "The shelves"));
     TOPICS.forEach(function (t) { var bs = booksOf(t.name); if (bs.length) host.appendChild(shelfRow(t, bs)); });
   }
@@ -563,6 +564,16 @@
     var h = el("h2", "rw-h", "New to Pulse? Start here"); h.id = "path-h";
     s.appendChild(rowHead(h, "One easy book from each shelf, in this order."));
     s.appendChild(swipeRow("Start here", P.map(function (b, i) { return cover(b, { step: i + 1, eager: i < 3 }); }), "covers path"));
+    return s;
+  }
+  /* seasonal "Year in review" shelf: only while js/season.js says the season is on (it retires itself on its end date) */
+  function yearRow() {
+    var S = window.PSNAP_SEASON; if (!S || !S.active || !S.best) return null;
+    var B = S.best.map(find).filter(Boolean); if (B.length < 3) return null;
+    var s = el("section", "year-sec"); s.id = "year"; s.setAttribute("aria-labelledby", "year-h");
+    var h = el("h2", "rw-h", S.bestTitle || "Year in review"); h.id = "year-h";
+    s.appendChild(rowHead(h, S.bestSub || ""));
+    s.appendChild(swipeRow(S.bestTitle || "Year in review", B.map(function (b) { return cover(b); }), "covers"));
     return s;
   }
   function newRow() {
