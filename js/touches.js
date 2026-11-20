@@ -56,7 +56,7 @@
     var input = document.getElementById("ask-in"), out = document.getElementById("ask-out");
     /* every answer is a line already on this site, with the page it came from */
     var KB = [
-      { k: "who what build built make ideas projects products studio jeevan you", a: "Four ideas, all live: ProductSnap (iOS and Android), FlickMango, Run It Back and Pulse. I make the product calls, the design and the QA. AI does the typing.", href: "#work", src: "The studio wall" },
+      { k: "build built make making ideas projects products studio jeevan work portfolio", a: "Four ideas, all live: ProductSnap (iOS and Android), FlickMango, Run It Back and Pulse. I make the product calls, the design and the QA. AI does the typing.", href: "#work", src: "The studio wall" },
       { k: "ai artificial intelligence grok llm agent code coding tools crew future", a: "AI is my build crew. It brings speed, options and code. I bring taste, the product calls and the \u201cnope, that feels wrong.\u201d Pulse books even have Ask built in: answers pulled from the page, nothing invented.", href: "#process", src: "Scribble. Argue. Ship." },
       { k: "measure metric metrics north star data success kpi numbers growth signal", a: "Every idea gets a North Star, the one metric I steer by. ProductSnap: practice reps finished each week. FlickMango: searches that end in \u201cpress play.\u201d Run It Back: practice sessions finished without tears. Pulse: books read to the last page.", href: "#work", src: "North Star on each card" },
       { k: "productsnap snap pm product managers judgment app ios android flashcards gym", a: "ProductSnap trains product judgment like a muscle: a concept, a real story, a quick practice set. Live on the App Store and Google Play. Free, no paywall.", href: "projects/productsnap.html", src: "ProductSnap case study" },
@@ -66,7 +66,8 @@
       { k: "design sketch sketches ux ui pencil wireframe process simple simplicity friction", a: "Pencil first. Every screen here started as a scribble: boxes, arrows, margin notes. If it doesn't make sense in pencil, it won't make sense in pixels.", href: "sketches.html", src: "The sketchbook" },
       { k: "contact hire hiring reach talk connect linkedin email chat role job", a: "LinkedIn is the one door, and it's open.", href: "https://www.linkedin.com/in/jeevan99", src: "LinkedIn", ext: true }
     ];
-    function words(s) { return s.toLowerCase().replace(/[^a-z0-9 ]+/g, " ").split(/\s+/).filter(function (w) { return w.length > 1; }); }
+    var STOP = ["how","what","who","why","do","does","did","you","your","is","are","the","an","to","of","in","on","for","and","me","tell","about","can","with"];
+    function words(s) { return s.toLowerCase().replace(/[^a-z0-9 ]+/g, " ").split(/\s+/).filter(function (w) { return w.length > 1 && STOP.indexOf(w) < 0; }); }
     function best(q) {
       var qs = words(q), top = null, score = 0;
       KB.forEach(function (e) {
