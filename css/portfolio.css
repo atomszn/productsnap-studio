@@ -336,22 +336,22 @@
 html{scroll-padding-top:84px}
 :focus-visible{outline:2.5px solid var(--teal-2);outline-offset:3px;border-radius:6px}
 /* paper-plane back to top: bottom-right, clear of content, fades in after a screen of scrolling */
-.totop{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:60;width:52px;height:52px;border-radius:50%;
+.ps-totop{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:60;width:52px;height:52px;border-radius:50%;
   display:grid;place-items:center;align-content:center;gap:0;cursor:pointer;color:var(--ink);background:var(--card);border:1.6px solid var(--ink);box-shadow:3px 3px 0 var(--ink);
   opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;transition:opacity .25s ease,transform .25s ease}
-.totop.is-on{opacity:1;transform:none;pointer-events:auto}
-.totop svg{margin-top:2px}
-.totop-l{font:600 .62rem/1 var(--hand,"Caveat",cursive);font-size:.8rem;margin-top:-1px}
-.totop:hover{background:var(--teal-soft)}
-:root[data-theme="dark"] .totop:hover{background:color-mix(in srgb,var(--teal) 35%,var(--card))}
+.ps-totop.is-on{opacity:1;transform:none;pointer-events:auto}
+.ps-totop svg{margin-top:2px}
+.ps-totop-l{font:600 .62rem/1 var(--hand,"Caveat",cursive);font-size:.8rem;margin-top:-1px}
+.ps-totop:hover{background:var(--teal-soft)}
+:root[data-theme="dark"] .ps-totop:hover{background:color-mix(in srgb,var(--teal) 35%,var(--card))}
 @media (prefers-reduced-motion:no-preference){
-  .totop:hover svg{transform:translate(2px,-2px) rotate(-6deg);transition:transform .2s ease}
-  .totop.is-flying svg{animation:totop-fly .9s cubic-bezier(.5,0,.6,1)}
+  .ps-totop:hover svg{transform:translate(2px,-2px) rotate(-6deg);transition:transform .2s ease}
+  .ps-totop.is-flying svg{animation:totop-fly .9s cubic-bezier(.5,0,.6,1)}
   @keyframes totop-fly{0%{transform:none}45%{transform:translate(26px,-40px) rotate(-14deg);opacity:0}55%{transform:translate(-20px,24px);opacity:0}100%{transform:none;opacity:1}}
 }
-@media (prefers-reduced-motion:reduce){.totop{transition:none}}
-@media (max-width:600px){.totop{width:46px;height:46px;right:12px;bottom:max(14px,env(safe-area-inset-bottom))}}
-body.reading .totop{display:none}
+@media (prefers-reduced-motion:reduce){.ps-totop{transition:none}}
+@media (max-width:600px){.ps-totop{width:46px;height:46px;right:12px;bottom:max(14px,env(safe-area-inset-bottom))}}
+body.reading .ps-totop{display:none}
 /* reading progress on case studies: a thin teal line under the header */
 .read-bar{position:fixed;left:0;top:0;height:3px;width:100%;z-index:70;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--teal),var(--teal-2));pointer-events:none}
 /* landed: a quick glow on the card a chip just jumped you to */
@@ -361,7 +361,7 @@ body.reading .totop{display:none}
 
 /* design pass */
 .section-title-sm{line-height:1.14}
-.pw-feature .pw-shot img{object-position:left top}
+.pw-feature .pw-shot img{object-position:center}
 /* every page title in the same display serif (home, Pulse, notes and case studies already were) */
 .app-h1,.page-sketches h1.section-title,h1.sk-h1{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
 /* Ask the studio: tidy wrapping */
