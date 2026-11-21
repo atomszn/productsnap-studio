@@ -1062,3 +1062,37 @@ body.searching .lib-title{position:absolute;width:1px;height:1px;overflow:hidden
   border-bottom-color:color-mix(in srgb, var(--sur-ink-lite) 22%, transparent);
 }
 @media (prefers-reduced-motion:reduce){.reader.is-sur{transition:none}}
+
+
+/* Static library list for no-JS visitors and raw-HTML crawlers.
+   Hidden once the pre-paint script adds `.js` to <html>, so JS users
+   never see a second shelf. */
+.js .pulse-static-catalog { display: none; }
+.pulse-static-catalog {
+  max-width: 720px;
+  margin: 24px auto 64px;
+  padding: 0 20px 40px;
+  color: var(--ink);
+}
+.pulse-static-catalog h2 {
+  font-family: var(--serif, "Fraunces", Georgia, serif);
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 12px 0 8px;
+}
+.pulse-static-catalog h3 {
+  font-family: var(--serif, "Fraunces", Georgia, serif);
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 28px 0 8px;
+}
+.pulse-static-catalog > p,
+.pulse-static-catalog li p {
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+.pulse-static-catalog ul { padding-left: 1.15em; margin: 0 0 8px; }
+.pulse-static-catalog > ul > li { margin: 0 0 16px; }
+.pulse-static-catalog cite { font-style: normal; font-weight: 650; }
+.pulse-static-gist { margin: 6px 0 0; color: var(--ink-soft); }

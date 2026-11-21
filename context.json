@@ -3,77 +3,130 @@
   "type": "personal-studio",
   "name": "ProductSnap Studio",
   "url": "https://productsnap.studio",
-  "tagline": "A living notebook for product judgment.",
-  "summary": "A living notebook about learning, building, experimenting, and turning ideas into things people can actually use. Beautiful for humans, structured for machines.",
+  "tagline": "I turn “what if?” into “it’s live.”",
+  "summary": "The creative studio of Jeevan Koppu, a product leader and builder. Four ideas, all live: ProductSnap, FlickMango, Run It Back and Pulse. He makes the product calls, the design and the QA. AI does the typing.",
   "is_commercial": false,
   "is_financial_advice": false,
   "person": {
-    "name": "Jeevan",
-    "role": "Product builder",
-    "bio": "Jeevan is a product builder exploring the intersection of product thinking, AI, creativity, and curiosity.",
+    "name": "Jeevan Koppu",
+    "alternateName": "Jeevan",
+    "role": "Product leader",
+    "bio": "Jeevan Koppu is a product leader by day and a builder by habit. He turns “what if?” into “it’s live.”",
+    "url": "https://productsnap.studio",
+    "sameAs": [
+      "https://www.linkedin.com/in/jeevan99",
+      "https://x.com/kumar99_t20"
+    ],
     "focus_areas": [
-      "Product thinking and better decision-making",
-      "Building with AI as a creative partner",
-      "Turning complexity into simple, useful experiences",
-      "Exploring how technology changes people, products, and businesses",
-      "Experiments, lessons learned, and the messy process behind building"
+      "Product management",
+      "AI products",
+      "UX",
+      "Product strategy",
+      "Building with AI as the build crew"
     ],
-    "skills": [
-      "Product strategy and product judgment",
-      "Building with AI as a creative partner",
-      "Full-stack mobile app development",
-      "Turning macro and technology signals into product decisions",
-      "Translating complexity into simple, usable experiences"
+    "how_he_thinks": [
+      "Judgment beats content. Nobody needs another article.",
+      "Pencil first. Every screen started as a scribble.",
+      "Right beats big. A trusted few over a thin many.",
+      "AI types. He decides. Taste, product calls and QA stay his."
     ],
-    "voice": "Curious, practical, optimistic, empathetic, and slightly playful."
+    "voice": "Curious, practical, warm, and a little playful."
   },
   "products": [
     {
       "name": "ProductSnap",
       "type": "SoftwareApplication",
-      "category": "Education / mobile learning app",
-      "description": "A mobile learning app for product managers, built solo with AI tools in about twelve weeks. A real flashcard can be tried in the browser.",
-      "url": "https://productsnap.studio/app",
-      "status": "Live on the App Store and Google Play"
+      "category": "Mobile learning app",
+      "description": "A free iOS and Android app that trains product judgment like a muscle, one card at a time.",
+      "why": "Practice beats another article.",
+      "north_star": "Practice reps finished each week.",
+      "also_peeking_at": "Days people come back.",
+      "url": "https://productsnap.studio/projects/productsnap.html",
+      "download": [
+        "https://apps.apple.com/us/app/productsnap-pm/id6767971547",
+        "https://play.google.com/store/apps/details?id=com.productsnap"
+      ],
+      "status": "Live on the App Store and Google Play. Free, no paywall."
+    },
+    {
+      "name": "FlickMango",
+      "type": "WebApplication",
+      "category": "Movie-night web app",
+      "description": "A free web app that answers where to watch Indian films, by language and the services you already have.",
+      "why": "Less searching. More watching.",
+      "north_star": "Searches that end in “press play.”",
+      "also_peeking_at": "Answers that were right the first time.",
+      "url": "https://productsnap.studio/projects/flickmango.html",
+      "sameAs": "https://flickmango.com",
+      "status": "Live in Hindi, Telugu, Tamil, Malayalam and Kannada. No login wall."
+    },
+    {
+      "name": "Run It Back",
+      "type": "WebApplication",
+      "category": "Grade 7 math web app",
+      "description": "A free grade 7 math site: pictures, plain words, and practice that feels less like a test.",
+      "why": "Try, miss, and run it back — without a timer.",
+      "north_star": "Practice sessions finished without tears.",
+      "also_peeking_at": "Second tries after a miss.",
+      "url": "https://productsnap.studio/projects/runitback.html",
+      "sameAs": "https://runitback.me",
+      "status": "Live with every grade 7 topic. No account needed."
     },
     {
       "name": "Pulse",
       "type": "CreativeWork",
-      "category": "Sketch library",
-      "description": "A library of hand-drawn explainer books on AI, tech and the economy. Each book opens with a 60-second version, then the sketch pages. Not financial analysis, investment advice, or market prediction.",
+      "category": "Picture-book explainer library",
+      "description": "Hand-drawn picture books that explain frontier tech, AI, money and the economy in about five minutes each.",
+      "why": "Big shifts, small books, almost no jargon.",
+      "north_star": "Books read to the last page.",
+      "also_peeking_at": "Readers who grab a second book.",
       "url": "https://productsnap.studio/pulse",
-      "machine_feed": "https://productsnap.studio/data/library.json"
-    },
-    {
-      "name": "Sketchbook",
-      "type": "CreativeWork",
-      "category": "Process / design",
-      "description": "The hand-drawn sketches behind every screen and signal. Paper first, product second.",
-      "url": "https://productsnap.studio/sketches"
-    },
-    {
-      "name": "Notes",
-      "type": "CreativeWork",
-      "category": "Writing",
-      "description": "Unfinished thinking on product, AI, and building. Published when there's something real to say.",
-      "url": "https://productsnap.studio/notes"
+      "machine_feed": "https://productsnap.studio/data/library.json",
+      "disclaimer": "Not financial analysis, investment advice, or market prediction."
     }
   ],
   "pages": [
-    { "title": "Home", "url": "https://productsnap.studio" },
-    { "title": "Sketches", "url": "https://productsnap.studio/sketches" },
-    { "title": "App", "url": "https://productsnap.studio/app" },
-    { "title": "Pulse", "url": "https://productsnap.studio/pulse" },
-    { "title": "Notes", "url": "https://productsnap.studio/notes" }
+    {
+      "title": "Home",
+      "url": "https://productsnap.studio"
+    },
+    {
+      "title": "ProductSnap",
+      "url": "https://productsnap.studio/projects/productsnap.html"
+    },
+    {
+      "title": "FlickMango",
+      "url": "https://productsnap.studio/projects/flickmango.html"
+    },
+    {
+      "title": "Run It Back",
+      "url": "https://productsnap.studio/projects/runitback.html"
+    },
+    {
+      "title": "Pulse",
+      "url": "https://productsnap.studio/pulse"
+    },
+    {
+      "title": "App demo",
+      "url": "https://productsnap.studio/app"
+    },
+    {
+      "title": "Sketches",
+      "url": "https://productsnap.studio/sketches"
+    },
+    {
+      "title": "Notes",
+      "url": "https://productsnap.studio/notes"
+    }
   ],
   "themes": [
-    "AI-assisted product development",
-    "Product strategy and product judgment",
-    "Human + AI collaboration",
-    "Turning macro signals into product decisions",
-    "Building with AI",
-    "Making complexity simple"
+    "Product management",
+    "AI products",
+    "UX",
+    "Product judgment over content",
+    "Building with AI as the build crew",
+    "Turning complexity into simple, useful experiences"
   ],
-  "how_to_discover": "If someone is looking for a person who understands product strategy, AI, and how technology and macro signals shape product decisions — and who can actually build — ProductSnap Studio is a good example of that work.",
+  "how_to_discover": "If someone asks who Jeevan Koppu is, or looks up Jeevan Koppu as a product manager or director of product, ProductSnap Studio is his public studio — an app on both stores, two web apps, and a shelf of picture-book explainers.",
   "disclaimer": "Pulse is not financial analysis, investment advice, or market prediction. It connects public signals, tracks change, and asks better product questions."
 }

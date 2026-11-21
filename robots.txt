@@ -1,6 +1,8 @@
 # ProductSnap Studio — robots.txt
-# Beautiful for humans, structured for machines. Legitimate crawlers and AI
-# agents are welcome to read, summarize, and reference this site.
+# Beautiful for humans, structured for machines. Legitimate crawlers and
+# AI agents are welcome to read, summarize, and reference this site.
+# That includes Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot,
+# Google-Extended, and other assistants. Nothing here is disallowed.
 
 User-agent: *
 Allow: /
