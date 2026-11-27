@@ -18,5 +18,7 @@ jobs:
           python-version: "3.12"
       - name: Privacy gate (visible copy + search-only spots)
         run: python3 scripts/privacy_gate.py .
+      - name: Install Pillow (image sizes for the library check)
+        run: python3 -m pip install --disable-pip-version-check "pillow==11.3.0"
       - name: Pulse library check
         run: python3 scripts/check_library.py
