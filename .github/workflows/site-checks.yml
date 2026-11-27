@@ -1,0 +1,24 @@
+name: Site checks
+# Free GitHub-hosted runner (public repo). Runs on every PR and push to main.
+# Make "Site checks / privacy-and-library" a required status check on main to block merges that fail.
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  privacy-and-library:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Privacy gate (visible copy + search-only spots)
+        run: python3 scripts/privacy_gate.py .
+      - name: Install Pillow (image sizes for the library check)
+        run: python3 -m pip install --disable-pip-version-check "pillow==11.3.0"
+      - name: Pulse library check
+        run: python3 scripts/check_library.py
