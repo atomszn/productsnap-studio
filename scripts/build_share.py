@@ -66,7 +66,7 @@ try:
               let st = document.getElementById('og-stage'); if (st) st.remove();
               st = document.createElement('div'); st.id = 'og-stage';
               st.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;gap:56px;padding:0 80px;background:var(--paper)';
-              const c = src.cloneNode(true); c.querySelectorAll('.bk-newdot').forEach(n => n.remove());
+              const c = src.cloneNode(true); c.querySelectorAll('.bk-newdot, .cv-state, .cv-stamp').forEach(n => n.remove());
               const w = document.createElement('div'); w.className = src.closest('a').className.replace('is-new','');
               w.style.cssText = 'width:330px;flex:none;transform:rotate(-2deg)'; c.style.animation = 'none'; w.append(c);
               const t = document.createElement('div');
@@ -76,7 +76,7 @@ try:
                 '<div style="font:600 22px var(--body);color:var(--ink-soft);margin-top:34px">productsnap.studio/pulse</div>';
               st.append(w, t); document.body.append(st);
               if (!document.getElementById('og-css')) { const k = document.createElement('style'); k.id = 'og-css';
-                k.textContent = '#og-stage .cv-ico{display:none}#og-stage .cv{container-type:normal}#og-stage .cv-topic{font-size:17px}#og-stage .cv-title{font-size:38px;hyphens:manual}#og-stage .cv-stamp{display:none}#og-stage .cv-tag{font-size:25px}#og-stage .cv-foot{font-size:14px}#og-stage .cv-vol{font-size:22px}#og-stage .cv-start{font-size:15px}';
+                k.textContent = '#og-stage .cv-ico{display:none}#og-stage .cv{container-type:normal}#og-stage .cv-topic{font-size:17px}#og-stage .cv-title{font-size:38px;hyphens:manual}#og-stage .cv-stamp,#og-stage .cv-state{display:none}#og-stage .cv-tag{font-size:25px}#og-stage .cv-foot{font-size:14px}#og-stage .cv-vol{font-size:22px}#og-stage .cv-start{font-size:15px}';
                 document.head.append(k); }
             }""", b["id"])
             pg.wait_for_timeout(120)

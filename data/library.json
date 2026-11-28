@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-01",
+  "updated": "2026-11-28",
   "books": [
     {
       "id": "ai-basics",
@@ -4043,6 +4043,595 @@
       "palette": "bright cookbook / kitchen-blueprint: cream paper #FFFDF6 with a light-blue blueprint grid; ink #22313F; tomato #D64826, teal #0E877C, sunflower #FFC93C, sky #2A76C4; pencil sketch art with flat watercolor washes.",
       "layout": "recipe card: tomato 'RECIPE nn/12' tab and a coloured badge pill, Fredoka titles with a sunflower highlighter stroke, Lexend body, Kalam sticky-note lines for Kai and Our read, rounded taped photo frames with numbered map badges, dark-header comparison tables, rounded bar charts, dashed footer rule.",
       "format": "phone cards, 1600 wide, 2326-3000 tall, 12 cards"
+    },
+    {
+      "id": "where-the-money-goes",
+      "title": "Where the Money Goes",
+      "topic": "Money Talk",
+      "blurb": "Arlo has been paying for Uber rides for years and wants to know whether any of the money stuck. Real figures from Uber's $10.6B accumulated deficit (Dec 31, 2025, down from $32.8B in 2022) to $9.8B of free cash flow (2025) explain revenue vs gross bookings, the three margins, cash flow, and unit economics, with Amazon vs Walmart, Netflix and Carillion as the supporting cases.",
+      "story": {
+        "href": "stories/where-the-money-goes/",
+        "label": "See it as a story",
+        "sub": "8 steps · 1 min"
+      },
+      "gist": [
+        "Revenue is only the slice the company gets to count as its own; Uber took $52.0B of the $193.5B customers paid in 2025, and kept $5.6B of operating profit after costs.",
+        "A margin is profit as a share of revenue, but net profit can jump for non-cash reasons, and profit is not the same as cash in the bank.",
+        "Four gauges tell you whether a company keeps its money: revenue, margins, cash flow and unit economics. Uber went from years of losses to $9.8B of free cash flow in 2025."
+      ],
+      "added": "2026-11-27",
+      "added_at": "2026-11-27T18:58",
+      "tagline": "A ride, a receipt, and the four gauges that show whether a company keeps its money.",
+      "pages": [
+        {
+          "file": "assets/pulse/where-the-money-goes/p01.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p01-t.webp",
+          "title": "$10.6 billion still in the red",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes billion still red famous company grow years keep uber 10.6b hole overall losses minus profits since start dec 32.8b made 5.6b operating profit arlo i've paying rides stick next first even counts uber's source full year results balance sheet annual report card",
+          "takeaway": "A company can grow for years and still not keep any money. Uber is still $10.6B in the hole overall (all its losses minus all its profits since the start) at Dec 31, 2025, down from $32.8B at Dec 31, 2022; in 2025 it made $5.6B of operating profit."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p02.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p02-t.webp",
+          "title": "Your fare isn't Uber's revenue",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes fare isn't uber's revenue 193b people paid through uber much answer below upside 52b gross bookings everything customers pay part company gets count 193.5b 52.0b math rest mostly drivers couriers restaurants arlo made next spend source full year results card",
+          "takeaway": "Gross bookings are everything customers pay; revenue is the part the company counts as its own. In 2025 Uber's gross bookings were $193.5B and its revenue was $52.0B (26.9%, our math)."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p03.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p03-t.webp",
+          "title": "From revenue to profit, step by step",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes revenue profit step minus costs come off layers like waterfall cost operations support sales marketing research development general admin depreciation amortization operating green bar left next dollars hard compare turn percentage source uber annual report income statement card",
+          "takeaway": "Profit is revenue minus costs, taken off in layers. Uber's 2025 revenue of $52.0B became $5.6B of operating profit after cost of revenue, operations, marketing, R&D (research and development), and depreciation and amortization."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p04.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p04-t.webp",
+          "title": "Three margins, three questions",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes three margins questions margin profit revenue uber 52.0b gross minus cost math doesn report line operating net next wait bigger source full year results reports card",
+          "takeaway": "A margin is profit divided by revenue. Uber 2025, as a share of $52.0B revenue: gross about 40% (our math; Uber reports no gross line), operating 10.7%, net 19.3%."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p05.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p05-t.webp",
+          "title": "The twist: about half the profit wasn't from rides",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes twist half profit wasn't rides net jump reasons have nothing business tax accounting change income 10.1b includes 5.0b one-time benefit 6.4b math operating 5.6b uber calls valuation release credits past losses get booked asset profits look reliable partly offset normal taxes total 4.3b arlo sticky plot next companies keep dollar source full year results annual report note card",
+          "takeaway": "Net profit can jump for reasons that have nothing to do with the business. Uber's 2025 net income of $10.1B includes a $5.0B one-time, non-cash tax benefit, 49.5% of net income (our math); that release was partly offset by normal taxes, so the total tax benefit was $4.3B. Operating profit was $5.6B."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p06.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p06-t.webp",
+          "title": "Same sales, very different margins",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes sales different margins sell decides margin even size amazon 716.9b operating net walmart fy2026 fiscal year jan revenue 713.2b ended makes profit math aws web services cloud arm earned 45.6b next zoom here's world's map source income statement segment results fy26 earnings release card",
+          "takeaway": "What you sell decides your margin, even when sales are the same size. Amazon 2025 and Walmart FY2026 both had about $715B of sales, but Amazon's operating margin was 11.2% vs Walmart's 4.2%. AWS (Amazon Web Services) was 18% of Amazon's sales and earned 57% of its operating profit."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p07.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p07-t.webp",
+          "title": "The margin map",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes margin map chips software keep dollar cars groceries little gross nvidia fy2026 jan apple sep walmart net sales operating tcs tata consultancy services india fy26 mar unadjusted math toyota japan year next still cash bank source fiscal results statements earnings release audited card",
+          "takeaway": "Chips and software keep most of each dollar; cars and groceries keep little. Gross margin: Nvidia FY2026 71.1%, Apple FY2026 48.8%, Walmart FY2026 24.2% on net sales. Operating margin: TCS (Tata Consultancy Services) FY26 23.3% unadjusted (our math), Toyota 7.4%."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p08.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p08-t.webp",
+          "title": "Profit is an opinion; cash is a fact",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes profit opinion cash fact common saying flow tracks actually moving count sales arrives spread big costs years steps operating running business minus capex capital expenditure buildings machines fcf free uber 10.1b 9.8b net income 9.9b 6.9b because tax benefit brought next netflix shows far apart two jars get source full year results title card",
+          "takeaway": "Cash flow tracks money actually moving; profit can count sales before the cash arrives. FCF (free cash flow) is operating cash flow minus capex (capital expenditure). Uber 2025: operating cash $10.1B, FCF $9.8B. In 2024 net income was $9.9B but FCF was $6.9B, because a tax benefit brought in no cash."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p09.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p09-t.webp",
+          "title": "Netflix: profitable and still short of cash",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes netflix profitable still short cash spending now something expense slowly opens gap between profit net income 1.9b fcf free flow 3.3b paid 13.9b shows while booking 9.2b cost year 11.0b 9.5b next never source shareholder letter exhibit card",
+          "takeaway": "Spending cash now on something you expense slowly opens a gap between profit and cash. Netflix in 2019: net income $1.9B, but FCF (free cash flow) was -$3.3B, after paying $13.9B in cash for shows and booking only $9.2B as cost. In 2025: net income $11.0B, FCF $9.5B."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p10.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p10-t.webp",
+          "title": "Carillion: profit on paper, empty till",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes carillion profit paper empty till company report profits still bust cash doesn arrive uk builder mar reported 146.7m tax 5.2bn revenue raised dividend jul 845m contract write-down jan liquidation 29m against nearly 7bn liabilities commons committees owed 2bn suppliers next zoom way one ride source final results house card",
+          "takeaway": "A company can report profits and still go bust if the cash never arrives. UK builder Carillion reported £146.7m profit before tax on Mar 1, 2017, then an £845m write-down on Jul 10, and went into liquidation on Jan 15, 2018 with £29m cash against nearly £7bn of liabilities."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p11.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p11-t.webp",
+          "title": "Unit economics: one ride at a time",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes unit economics one ride time asks whether single sale makes average everything uber 13.57b trips math rider pays revenue operating profit trip arlo made funds cents welcome next cost win first place source full year results per-trip figures card",
+          "takeaway": "Unit economics asks whether a single sale makes money once you average everything. Uber 2025, divided by 13.57B trips (our math): the rider pays $14.26, Uber's revenue is $3.83, and operating profit is $0.41 per trip."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p12.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p12-t.webp",
+          "title": "CAC vs LTV: is a customer worth winning?",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes cac ltv customer worth winning acquisition cost spend win one lifetime value profit bring time works far above furniture maker lovesac ipo initial public offering prospectus disclosed 3-year gross calls clv math work sales marketing new customers years stay compare next put together uber's long road source card",
+          "takeaway": "CAC (customer acquisition cost) is what you spend to win one customer; LTV (lifetime value) is the profit they bring over time. Lovesac's 2018 IPO prospectus showed CAC of $283 and a 3-year LTV of $1,236 in gross profit, about 4.4 times (our math). The filing calls this CLV (customer lifetime value)."
+        },
+        {
+          "file": "assets/pulse/where-the-money-goes/p13.webp",
+          "thumb": "assets/pulse/where-the-money-goes/p13-t.webp",
+          "title": "Uber's road, and your four gauges",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money goes uber's road four gauges show whether company keeps revenue margins cash flow unit economics uber net loss 8.5b first full year positive fcf free 390m full-year operating profit public 1.1b 5.6b 9.8b third quarter 2.5b one arlo made keep eventually source results card",
+          "takeaway": "Four gauges show whether a company keeps its money: revenue, margins, cash flow and unit economics. Uber went from an $8.5B net loss in 2019 to $5.6B of operating profit and $9.8B of FCF (free cash flow) in 2025, and $2.5B of FCF in Q3 (the third quarter) of 2026 alone."
+        }
+      ],
+      "recap": [
+        "Revenue: what the company actually gets to count, not everything customers pay.",
+        "Margins: the slice kept after costs; watch one-time items that puff up net profit.",
+        "Cash flow: money that actually arrives, after capex; profit can look fine while the till is empty.",
+        "Unit economics: whether one sale, and one customer, is worth winning."
+      ],
+      "recap_pages": 13,
+      "sources": [
+        {
+          "title": "Uber – Q4 and full year 2025 results",
+          "url": "https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx"
+        },
+        {
+          "title": "Uber – 2025 annual report income statement",
+          "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/R5.htm"
+        },
+        {
+          "title": "Uber – Q4 and full year 2024 results",
+          "url": "https://investor.uber.com/news-events/news/press-release-details/2025/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2024/default.aspx"
+        },
+        {
+          "title": "Uber – full year 2022 results",
+          "url": "https://investor.uber.com/news-events/news/press-release-details/2023/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2022/"
+        },
+        {
+          "title": "Uber – Q3 2026 results",
+          "url": "https://www.sec.gov/Archives/edgar/data/1543151/000154315126000039/uberq326earningspressrelea.htm"
+        },
+        {
+          "title": "Amazon – 2025 income statement",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/R4.htm"
+        },
+        {
+          "title": "Amazon – 2025 segment results",
+          "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/R87.htm"
+        },
+        {
+          "title": "Walmart – Q4 FY26 earnings release",
+          "url": "https://corporate.walmart.com/content/dam/corporate/documents/newsroom/2026/02/19/walmart-releases-q4-fy26-earnings/q4-fy26-earnings-release.pdf"
+        },
+        {
+          "title": "Apple – FY2026 Q4 statements",
+          "url": "https://www.apple.com/newsroom/pdfs/fy2026q4/FY26_Q4_Consolidated_Financial_Statements.pdf"
+        },
+        {
+          "title": "Nvidia – Q4 and fiscal 2026 results",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/default.aspx"
+        },
+        {
+          "title": "TCS – FY26 results press release",
+          "url": "https://www.tcs.com/who-we-are/newsroom/press-release/tcs-financial-results-q4-fy-2026"
+        },
+        {
+          "title": "Netflix – Q4 2019 shareholder letter",
+          "url": "https://s22.q4cdn.com/959853165/files/doc_financials/2019/q4/FINAL-Q4-19-Shareholder-Letter.pdf"
+        },
+        {
+          "title": "Carillion – 2016 final results",
+          "url": "https://shareprices.com/rns/final-results-qwehssax4rlcy23/"
+        },
+        {
+          "title": "House of Commons Library – The collapse of Carillion",
+          "url": "https://commonslibrary.parliament.uk/research-briefings/cbp-8206/"
+        }
+      ],
+      "vol": 1,
+      "updated": "2026-11-28"
+    },
+    {
+      "id": "priced-before-profit",
+      "title": "Priced Before Profit",
+      "topic": "Money Talk",
+      "blurb": "Suki owns a sliver of Anthropic through her employee share plan, and her slice keeps shrinking while she gets richer. Real numbers from Anthropic's Series E (Mar 2025) to its IPO (Nov 2026) explain run rate, ARR, burn rate, runway, valuation, pre-money vs post-money and dilution, plus WeWork's fall as the warning.",
+      "gist": [
+        "Investors price a startup on where it is heading: run rate and ARR measure the speed of sales, burn rate and runway measure how long the cash lasts.",
+        "A valuation is price per share times all the shares, set by the last deal; Anthropic's went from $61.5B (Mar 2025) to about $1.5T at its Nov 2026 IPO.",
+        "Every funding round and the IPO dilute existing owners' percentages, but the stake can still be worth far more; WeWork shows a valuation can also collapse."
+      ],
+      "added": "2026-11-27",
+      "added_at": "2026-11-27T18:59",
+      "tagline": "How a company that burned $474M a month was priced at $1.5 trillion.",
+      "pages": [
+        {
+          "file": "assets/pulse/priced-before-profit/p01.webp",
+          "thumb": "assets/pulse/priced-before-profit/p01-t.webp",
+          "title": "From $61.5 billion to $1.5 trillion",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit hook billion trillion 61.5b mar private funding round series anthropic maker claude ai artificial intelligence chatbot 1.5t nov ipo price tag counting every promised share initial public offering company first sale shares fully diluted staff options suki made owns sliver employee plan slice keeps shrinking keep getting richer pays loses next investors start fast sales growing card source value post pricing reuters"
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p02.webp",
+          "thumb": "assets/pulse/priced-before-profit/p02-t.webp",
+          "title": "Run rate: a speedometer, not an odometer",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit speed run rate speedometer odometer revenue distance far 81b oct recent sales stretched year 33.2b actual nine months sep 17.0b third quarter jul pay-per-use take last days multiply subscriptions one month add two added together company measure checked outside auditors forecast next locked card source anthropic final ipo filing 424b4 nov run-rate definition company-defined",
+          "takeaway": "Run rate stretches a recent stretch of sales into a full year, like a speedometer reading; actual revenue is the odometer. Anthropic's run rate was about $81B at Oct 31, 2026, while its actual revenue for the nine months to Sep 30, 2026 was $33.2B (Q3, the third quarter, alone: $17.0B). The run rate is the company's own measure, not checked by outside auditors and not a forecast."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p03.webp",
+          "thumb": "assets/pulse/priced-before-profit/p03-t.webp",
+          "title": "ARR: only the regulars count",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit speed arr regulars count walk-ins run rate spelled annual recurring revenue recent sales stretched year counts subscription repeats repeat plus pay-per-use behaves steady easier predict jumps every busy stretch shopify mrr monthly 230m million 2.8b math openai mar ai artificial intelligence company said now generating month words run-rate-style figure next growing fast costs cash burn card source results nov accelerating phase",
+          "takeaway": "ARR (annual recurring revenue) counts only subscription money that repeats; a run rate also counts pay-per-use walk-ins. Shopify's MRR (monthly recurring revenue) of $230M in Q3 2026 is about $2.8B of ARR (our math, times 12)."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p04.webp",
+          "thumb": "assets/pulse/priced-before-profit/p04-t.webp",
+          "title": "Burn rate: cash out minus cash in",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit cash clock burn rate minus much leaves arrives usually month below operations business itself brought spent 1.6b 5.7b 2.6b 6.6b first months needle left burned right earned 474m math next long company keep burning card source anthropic final ipo filing 424b4 nov",
+          "takeaway": "Burn rate is how much more cash leaves than arrives, usually per month. Anthropic's cash from operations was -$1.6B in 2023, -$5.7B in 2024 (about $474M a month, our math), -$2.6B in 2025 and +$6.6B in the first nine months of 2026."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p05.webp",
+          "thumb": "assets/pulse/priced-before-profit/p05-t.webp",
+          "title": "Guess first: how long is the runway?",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit guess first long runway months until cash runs monthly burn 3.1b dec 474m month many anthropic have left kept burning pace year years answer turn phone upside math ignoring new funding two later raised 3.5b series next happens hourglass card source 424b4 3.141b post mar ignores",
+          "takeaway": "Runway = cash divided by monthly burn. With $3.1B in cash at Dec 31, 2024 and about $474M burned a month, Anthropic had about 6.6 months of runway (our math, ignoring new funding). It raised $3.5B (Series E) two months later."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p06.webp",
+          "thumb": "assets/pulse/priced-before-profit/p06-t.webp",
+          "title": "When the runway ends",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit cash clock runway ends one week raised northvolt swedish battery maker jan 30m left filed chapter us bankruptcy protection nov anthropic months dec math approximately court filing 3.5b two later read check headline next investors keep writing checks price tag card source first-day declaration case 424b4"
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p07.webp",
+          "thumb": "assets/pulse/priced-before-profit/p07-t.webp",
+          "title": "What a valuation is",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit price tag valuation share shares last deal sets someone agreed pay measured fact series private funding rounds named letter post-money value right new cash 61.5b mar 183b sep 380b feb 965b ipo 1.5t nov times months math next valued mean goes card source anthropic posts reuters",
+          "takeaway": "A valuation is price per share times all the shares, set by the last deal: a price someone agreed to pay, not a measured fact. Anthropic's post-money value went from $61.5B (Series E, Mar 2025) to $183B, $380B and $965B (Series H, May 2026), then about $1.5T at its Nov 2026 IPO: about 24 times in 20.5 months (our math)."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p08.webp",
+          "thumb": "assets/pulse/priced-before-profit/p08-t.webp",
+          "title": "Pre-money vs post-money",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit price tag pre-money post-money 350b value new cash 30b series feb 380b investors share anthropic right round everyone math simplified ignores promised earlier employee pools next check european deal card source post reuters",
+          "takeaway": "Pre-money value plus new cash equals post-money value, and new investors own new cash divided by post-money. Series G (Feb 12, 2026): $350B + $30B = $380B, so new investors got 7.9% of Anthropic right after the round (our math, simplified)."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p09.webp",
+          "thumb": "assets/pulse/priced-before-profit/p09-t.webp",
+          "title": "Check it yourself: Mistral",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit price tag check yourself mistral deal ai french artificial intelligence company series sep 1.7b 11.7b post-money pre-money 10.0b math asml dutch lead investor put 1.3b right round release says holds approximately percent fully diluted counting every promised share next new slice comes someone dilution card source post"
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p10.webp",
+          "thumb": "assets/pulse/priced-before-profit/p10-t.webp",
+          "title": "Dilution: smaller slice, bigger cake",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit cost dilution smaller slice bigger cake new shares shrink every owner percentage suki started company price tag post-money 61.5b series mar 183b took 380b 965b round bought share right doing nothing kept original times worth math simplified made take next biggest cut going public card source anthropic posts sep",
+          "takeaway": "Dilution means new shares shrink every owner's percentage even when the company is worth more. Across Series F, G and H an owner who did nothing kept about 80% of their original percentage while the price tag grew about 16 times, so the stake was worth over 12 times more (our math, simplified)."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p11.webp",
+          "thumb": "assets/pulse/priced-before-profit/p11-t.webp",
+          "title": "The IPO: the last big cut",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit cost ipo last big cut set price nov initial public offering share sell 980m shares million make 81.3b size sale cash company everyone old owners existing next trust valuation remember wework card source anthropic pricing post 424b4 prospectus reuters",
+          "takeaway": "In an IPO the company sells shares to the public, which dilutes the old owners once more. Anthropic's Nov 18, 2026 IPO was an $81.3B offering (980 million shares at $83), the size of the sale rather than cash to the company; existing owners went from 100% to 90.2% of the shares."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p12.webp",
+          "thumb": "assets/pulse/priced-before-profit/p12-t.webp",
+          "title": "The twist: valuations can fall",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit twist valuations fall jan wework private peak value 47b aug ipo filing shows 1.9b loss sep withdrawn oct rescue deal mar spac listing nov bankruptcy special purpose acquisition company ready-made listed shell merges firm math below read valuation strong business backs next back anthropic buy card source reuters timeline softbank bets",
+          "takeaway": "A private valuation can vanish when the business cannot back it up. WeWork went from a $47B peak (Jan 2019) to a withdrawn IPO (Sep 2019), an $8B rescue (Oct 2019), a $9B SPAC (special purpose acquisition company) listing (2021) and bankruptcy (Nov 2023); $8B is 83% below the peak (our math)."
+        },
+        {
+          "file": "assets/pulse/priced-before-profit/p13.webp",
+          "thumb": "assets/pulse/priced-before-profit/p13-t.webp",
+          "title": "What the money bought",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk priced profit payoff bought sep cash operations 5.7b 474m month math 6.6b first months bank 3.1b dec 131.8b short-term investments ipo run rate recent sales stretched year 81b oct arr annual recurring revenue repeats burn minus runway monthly left valuation price share shares pre-money new post-money dilution shrink every owner percentage suki made turns shrinking slice deal big idea funding buys time business has turn card source anthropic 424b4 prospectus nov flow",
+          "takeaway": "Funding buys time, and the business has to turn it into cash. Anthropic went from burning about $474M a month in 2024 to +$6.6B of cash from operations in the first nine months of 2026, with $131.8B of cash and short-term investments at Sep 30, 2026 (before the IPO cash). Six terms: run rate, ARR, burn rate, runway, valuation, dilution."
+        }
+      ],
+      "recap": [
+        "Speed: run rate stretches recent sales into a year; ARR counts only the money that repeats.",
+        "Clock: burn rate is cash out minus cash in; runway is cash divided by monthly burn.",
+        "Price: valuation is price per share times all shares; pre-money plus new cash is post-money.",
+        "Cost: new shares dilute everyone's percentage, but a smaller slice of a much bigger company can be worth more."
+      ],
+      "recap_pages": 13,
+      "sources": [
+        {
+          "title": "Anthropic – Final IPO prospectus",
+          "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026074944/anthropicpbc-424b4.htm"
+        },
+        {
+          "title": "Anthropic – Anthropic prices initial public offering",
+          "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"
+        },
+        {
+          "title": "Reuters – Anthropic valued at $1.5 trillion as IPO raises record $81 billion",
+          "url": "https://www.investing.com/news/stock-market-news/anthropic-valued-at-15-trillion-as-ipo-raises-record-81-billion-5037110"
+        },
+        {
+          "title": "Anthropic – Series E at $61.5B post-money",
+          "url": "https://www.anthropic.com/news/anthropic-raises-series-e-at-usd61-5b-post-money-valuation"
+        },
+        {
+          "title": "Anthropic – Series F at $183B post-money",
+          "url": "https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation"
+        },
+        {
+          "title": "Anthropic – Series G, $30 billion at $380B post-money",
+          "url": "https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation"
+        },
+        {
+          "title": "Anthropic – Series H, $65 billion at $965B post-money",
+          "url": "https://www.anthropic.com/news/series-h"
+        },
+        {
+          "title": "Shopify – Q3 2026 results",
+          "url": "https://www.shopify.com/investors/press-releases/shopify-sustains-rapid-growth-revenue-32-and-free-cash-flow"
+        },
+        {
+          "title": "OpenAI – Accelerating the next phase of AI",
+          "url": "https://openai.com/index/accelerating-the-next-phase-ai/"
+        },
+        {
+          "title": "Northvolt – Chapter 11 first-day declaration",
+          "url": "https://cases.stretto.com/public/x382/13325/PLEADINGS/1332511212480000000208.pdf"
+        },
+        {
+          "title": "Mistral AI – Series C",
+          "url": "https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai/"
+        },
+        {
+          "title": "ASML – ASML and Mistral AI enter strategic partnership",
+          "url": "https://investor.asml.com/news-releases/news-release-details/asml-mistral-ai-enter-strategic-partnership"
+        },
+        {
+          "title": "Reuters – Timeline of SoftBank's WeWork bets",
+          "url": "https://finance.yahoo.com/news/timeline-softbanks-bets-wework-totaled-194817277.html"
+        },
+        {
+          "title": "Reuters – WeWork $9 billion SPAC deal",
+          "url": "https://www.reuters.com/article/business/wework-agrees-9-billion-spac-merger-to-finally-get-stock-market-listing-idUSKBN2BI1DD/"
+        }
+      ],
+      "vol": 2
+    },
+    {
+      "id": "same-price-different-story",
+      "title": "Same Price, Different Story",
+      "topic": "Money Talk",
+      "blurb": "Bea opens a stock app and sees two companies with almost the same price tag: Coca-Cola at $419B and Palantir at $415B, yet Coca-Cola earned about 4 times the profit. Trading-card stat lines walk through market cap, enterprise value (EV), P/E and EV/revenue, show why AI companies get high multiples (growth and margins), how a multiple can shrink as profits catch up, and how fast it can fall. All market data is as of the Nov 27, 2026 close.",
+      "gist": [
+        "Market cap is price × shares; EV adds debt and subtracts cash, so two companies with the same market cap can cost about $40B apart (Coca-Cola $445B vs Palantir $405B EV).",
+        "P/E is share price ÷ profit per share (Coca-Cola ≈ 29, Palantir ≈ 121); with no profit, EV/revenue compares the whole price to sales (Toyota 1.3×, Coca-Cola 8.7×, Anthropic ≈ 36×, Palantir 56×).",
+        "AI companies get high multiples because of fast growth (Palantir Q3 2026 sales +96% vs Q3 2025) and high margins (gross margin 84.7%); the multiple shrinks as profits catch up (P/E ≈ 261 to ≈ 121 in 11 months at a flat price) and can fall fast when doubts appear (−65% in 2022)."
+      ],
+      "added": "2026-11-27",
+      "added_at": "2026-11-27T18:59",
+      "tagline": "Same price tag. Four times the profit. Why?",
+      "pages": [
+        {
+          "file": "assets/pulse/same-price-different-story/p01.webp",
+          "thumb": "assets/pulse/same-price-different-story/p01-t.webp",
+          "title": "Twins with nothing in common",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story twins nothing common guess first almost tag company earned profit last months sales minus costs billion coca-cola market value 419b sells fizzy drinks palantir 415b ai artificial intelligence data software answer turn phone upside 14.6b 3.7b much 51.1b 7.3b bea made must earn right next come nov close source stock analysis global statistics card"
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p02.webp",
+          "thumb": "assets/pulse/same-price-different-story/p02-t.webp",
+          "title": "Market cap = price × shares",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story market cap shares capitalisation company's worth today's share one small slice ownership coca-cola 4.30b 419b palantir 2.41b 415b next buying whole company means taking debts nov close source stock analysis global intelligence data statistics multiplication math rounded card",
+          "takeaway": "Market cap (market capitalisation) = share price × number of shares. As of the Nov 27, 2026 close: Coca-Cola $97.40 × 4.30B shares ≈ $419B; Palantir $172.17 × 2.41B ≈ $415B (our math, rounded)."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p03.webp",
+          "thumb": "assets/pulse/same-price-different-story/p03-t.webp",
+          "title": "Enterprise value: buy the house, take the mortgage",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story enterprise value buy house take mortgage ev whole business shares market cap debt cash left inside comes coca-cola 419b 42.5b 16.6b 445b palantir 415b 0.2b 10.6b 405b gap 40b next sometimes enormous nov close source stock analysis global intelligence data statistics sums math rounded card",
+          "takeaway": "EV (enterprise value) = market cap + debt − cash. As of the Nov 27, 2026 close, Coca-Cola's EV is about $445B and Palantir's about $405B: the same market cap, but a gap of about $40B, because Coca-Cola carries $42.5B of debt and Palantir holds $10.6B of cash."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p04.webp",
+          "thumb": "assets/pulse/same-price-different-story/p04-t.webp",
+          "title": "When EV and market cap split wide",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story ev market cap split wide toyota carmaker lot debt makes cost far 248b 436b gap 190b math total 275b owed lenders nov close financing arm interest-bearing mar borrows fund car loans leases buyers repay next now compare profit source stock analysis global intelligence data toyota's us-listed shares statistics fy2026 year financial summary card",
+          "takeaway": "Debt can make a company cost far more than its market cap: as of the Nov 27, 2026 close, Toyota's EV is $436B against a $248B market cap. About 94% of its interest-bearing debt (Mar 31, 2026, our math) sits in the financing arm that funds car loans and leases."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p05.webp",
+          "thumb": "assets/pulse/same-price-different-story/p05-t.webp",
+          "title": "P/E: years of profit you are paying for",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story years profit paying price-to-earnings share eps earnings split across every roughly many today's equals coca-cola palantir's stack taller math palantir coin year next companies sit nov close source stock analysis global market intelligence data statistics division rounded card",
+          "takeaway": "P/E (price-to-earnings) = share price ÷ EPS (earnings per share), roughly the years of last-12-month profit the price equals. As of the Nov 27, 2026 close: Coca-Cola ≈ 29, Palantir ≈ 121."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p06.webp",
+          "thumb": "assets/pulse/same-price-different-story/p06-t.webp",
+          "title": "The P/E scoreboard",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story scoreboard last months profit four companies toyota carmaker coca-cola drinks palantir ai data software eternal india food delivery earned 4.9b 780b sales net margin share tiny makes huge indian rupees bea made years i'll wait next nov close source stock analysis global market intelligence nse india's exchange statistics card"
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p07.webp",
+          "thumb": "assets/pulse/same-price-different-story/p07-t.webp",
+          "title": "No profit? Use EV/revenue",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story profit use ev revenue breaks sales last months toyota coca-cola anthropic palantir ai company listed nov has net loss p's estimate read tens times next companies get high numbers close source stock analysis global market intelligence data statistics anthropic's stock-market debut prospectus form 424b4 reports card",
+          "takeaway": "When a company has no profit, P/E does not work, so EV/revenue compares the whole price to sales over the last 12 months. As of the Nov 27, 2026 close: Toyota 1.3×, Coca-Cola 8.7×, Anthropic about 36× (S&P's estimate), Palantir 56×."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p08.webp",
+          "thumb": "assets/pulse/same-price-different-story/p08-t.webp",
+          "title": "Why AI gets high multiples: growth",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story ai gets high multiples growth investors pay today profits expect years now fast lifts palantir sales coca-cola third quarter july september math forecast kept growing yearly pace big next matters extra dollar nearly profit source results compared year earlier extrapolation card",
+          "takeaway": "Investors pay now for expected future profits. Palantir's Q3 2026 sales grew 96% vs Q3 2025; Coca-Cola's grew 7%. At those yearly paces for 3 years, sales would be about 7.5× and 1.2× as big (our math, not a forecast)."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p09.webp",
+          "thumb": "assets/pulse/same-price-different-story/p09-t.webp",
+          "title": "Why AI gets high multiples: margins",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story ai gets high multiples margins gross margin share sales dollar left direct cost making product software keeps extra palantir kept coca-cola toyota last months palantir's net profit quarter's next twist multiple melt even stock fall nov close source analysis global market intelligence data statistics results card",
+          "takeaway": "Gross margin is the share of each sales dollar left after the direct cost of making the product. Last 12 months, as of the Nov 27, 2026 close: Palantir 84.7%, Coca-Cola 62.3%, Toyota 16.9% of sales."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p10.webp",
+          "thumb": "assets/pulse/same-price-different-story/p10-t.webp",
+          "title": "The twist: profits catch up",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story twist profits catch grow faster falls palantir three dates dec nov share flat since price-to-earnings profit eps halved rose months math next growth wobbles high multiples fall hard close source stock analysis global market intelligence data ratios financials reports rounded card",
+          "takeaway": "Palantir's share price was about flat from Dec 31, 2025 ($177.75) to the Nov 27, 2026 close ($172.17), yet its P/E fell from about 261 to about 121, because EPS rose from $0.63 to $1.42 (about 2.25×, our math)."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p11.webp",
+          "thumb": "assets/pulse/same-price-different-story/p11-t.webp",
+          "title": "The risk: high multiples fall fast",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story risk high multiples fall fast multiple bet future doubts appear far faster profits change palantir end share end-2021 market cap 36.5b 13.4b lost million ev revenue still end-2022 parachute kept growing 1.54b 1.91b next put four gauges together source stock analysis global intelligence data ratios year-ends results past nov close card",
+          "takeaway": "High multiples can fall fast: from the end of 2021 to the end of 2022, Palantir's share price fell 65% ($18.21 → $6.42) while its revenue grew 24%."
+        },
+        {
+          "file": "assets/pulse/same-price-different-story/p12.webp",
+          "thumb": "assets/pulse/same-price-different-story/p12-t.webp",
+          "title": "Your four-gauge price check",
+          "w": 1600,
+          "h": 2400,
+          "kw": "money talk price different story four-gauge check coca-cola palantir market cap sticker 419b 415b ev true 445b 405b years profit revenue sales read bet pays coke's steadiness palantir's growth bea made totally nov close source stock analysis global intelligence data statistics card",
+          "takeaway": "Four gauges: market cap (the sticker), EV (the true price), P/E (years of profit), EV/revenue (price per $1 of sales). As of the Nov 27, 2026 close: Coca-Cola $419B / $445B / 29 / 8.7× vs Palantir $415B / $405B / 121 / 56×."
+        }
+      ],
+      "recap": [
+        "Market cap is the sticker price: price × shares.",
+        "EV is the true price: market cap + debt − cash.",
+        "P/E is years of profit; EV/revenue is price per $1 of sales.",
+        "Read all four together: same sticker, different bet."
+      ],
+      "recap_pages": 12,
+      "sources": [
+        {
+          "title": "Stock Analysis – Coca-Cola statistics, S&P Global data at the Nov 27, 2026 close",
+          "url": "https://stockanalysis.com/stocks/ko/statistics/"
+        },
+        {
+          "title": "Stock Analysis – Palantir statistics, S&P Global data at the Nov 27, 2026 close",
+          "url": "https://stockanalysis.com/stocks/pltr/statistics/"
+        },
+        {
+          "title": "Stock Analysis – Palantir ratio history, P/E and prices at year-ends",
+          "url": "https://stockanalysis.com/stocks/pltr/financials/ratios/"
+        },
+        {
+          "title": "Stock Analysis – Palantir financials, EPS and revenue by year",
+          "url": "https://stockanalysis.com/stocks/pltr/financials/"
+        },
+        {
+          "title": "Palantir – Q3 2026 results, revenue growth and net margin",
+          "url": "https://investors.palantir.com/news-details/2026/Palantir-Reports-Q3-2026"
+        },
+        {
+          "title": "Coca-Cola – Q3 2026 results, net revenues growth",
+          "url": "https://www.coca-colacompany.com/media-center/coca-cola-reports-third-quarter-2026-results"
+        },
+        {
+          "title": "Stock Analysis – Toyota statistics, US-listed shares in dollars at the Nov 27, 2026 close",
+          "url": "https://stockanalysis.com/stocks/tm/statistics/"
+        },
+        {
+          "title": "Toyota – FY2026 Financial Summary, interest-bearing debt split at Mar 31",
+          "url": "https://global.toyota/pages/global_toyota/ir/financial-results/2026_4q_summary_en.pdf"
+        },
+        {
+          "title": "Stock Analysis – Eternal statistics, NSE listing, P/E, profit and revenue in rupees",
+          "url": "https://stockanalysis.com/quote/nse/ETERNAL/statistics/"
+        },
+        {
+          "title": "Stock Analysis – Anthropic statistics, EV/revenue and revenue",
+          "url": "https://stockanalysis.com/stocks/ant/statistics/"
+        },
+        {
+          "title": "Anthropic – stock-market debut prospectus, form 424B4, net loss",
+          "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026074944/anthropicpbc-424b4.htm"
+        },
+        {
+          "title": "CBC News – Anthropic prices its stock-market debut",
+          "url": "https://www.cbc.ca/news/business/anthropic-ipo-share-price-nasdaq-9.7426856"
+        },
+        {
+          "title": "Palantir – Q4 and full year 2022 results, 2022 revenue growth and net loss",
+          "url": "https://www.sec.gov/Archives/edgar/data/1321655/000132165523000005/a2022q4ex991pressrelease.htm"
+        },
+        {
+          "title": "Toyota – April to March 2026 financial results, context for the Toyota figures",
+          "url": "https://pressroom.toyota.com/tmc-announces-april-through-march-2026-financial-results/"
+        }
+      ],
+      "vol": 3
     }
   ],
   "moved": {

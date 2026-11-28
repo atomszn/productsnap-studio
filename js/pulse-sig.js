@@ -1,4 +1,4 @@
-/* Pulse signature "open book" moments, one per shelf (Frontier Tech, AI, Fintech, Macro).
+/* Pulse signature "open book" moments, one per shelf (Frontier Tech, AI, Fintech, Macro, Money Talk).
    cover(book, topic, info): puts a closed cloth cover over the book the moment it opens (so the shelf morph lands on it).
    play(): the shelf's moment plays ACROSS the whole cover (rocket streaks across it, a neural network lights up layer by
            layer into a spark, coins rain into a full-width chart, a card rides a subway map), then the cover swings open onto the 60-second page. Under ~1.15s in all.
@@ -179,7 +179,27 @@
     var ok = S("path", { d: "M252 " + (y2 - 58) + " l9 9 l17 -20", "class": "sg-okmark", "stroke-width": 5 }, g); drawOn([ok], 730, 140, "ease-out");
   }
 
-  var PLAY = { "Frontier Tech": rocket, "AI": neural, "Fintech": swipe, "Macro": null };
+  /* ---------- Money Talk: a till receipt unspools; amount lines draw on; a green tick lands ---------- */
+  function receipt(svg, W, H) {
+    var g = S("g", {}, svg), x0 = 86, w = 128, y0 = Math.round(H * .40), h = Math.round(H * .48);
+    var zig = "M" + x0 + " " + (y0 + 7);
+    for (var i = 0; i <= 10; i++) zig += " L" + (x0 + i * (w / 10)) + " " + (y0 + (i % 2 ? 0 : 7));
+    var body = zig + " L" + (x0 + w) + " " + (y0 + h) + " L" + x0 + " " + (y0 + h) + " Z";
+    var rec = S("path", { d: body, "class": "sg-receipt" }, g);
+    rec.style.transformBox = "view-box"; rec.style.transformOrigin = x0 + "px " + y0 + "px";
+    A(rec, [{ opacity: 0, transform: "translateY(-18px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 260, easing: "ease-out", fill: "both" });
+    var lines = [18, 32, 46, 60, 74];
+    lines.forEach(function (yy, i) {
+      var p = S("path", { d: "M" + (x0 + 12) + " " + (y0 + 16 + yy) + " h" + (i === 4 ? 72 : 100), "class": "sg-tick", "stroke-width": i === 4 ? 2.6 : 1.8 }, g);
+      var L = p.getTotalLength(); p.style.strokeDasharray = L + " " + L; p.style.strokeDashoffset = L;
+      A(p, [{ strokeDashoffset: L, opacity: 0 }, { strokeDashoffset: 0, opacity: 1 }], { duration: 200, delay: 180 + i * 70, easing: "ease-out", fill: "both" });
+    });
+    var ok = S("path", { d: "M" + (x0 + w - 28) + " " + (y0 + h - 22) + " l6 7 12 -14", "class": "sg-okmark", "stroke-width": 3.4 }, g);
+    var Lo = ok.getTotalLength(); ok.style.strokeDasharray = Lo + " " + Lo; ok.style.strokeDashoffset = Lo;
+    A(ok, [{ strokeDashoffset: Lo, opacity: 0 }, { strokeDashoffset: 0, opacity: 1 }], { duration: 220, delay: 560, easing: "ease-out", fill: "both" });
+  }
+
+  var PLAY = { "Frontier Tech": rocket, "AI": neural, "Fintech": swipe, "Macro": null, "Money Talk": receipt };
   function sceneFor(topic) { if (topic === "Macro") return (macroFlip++ % 2) ? oil : coins; return PLAY[topic]; }
   function has(topic) { return topic === "Macro" || !!PLAY[topic]; }
 
@@ -241,6 +261,11 @@
       for (var j = 0; j < 6; j++) { var ang = j * Math.PI / 3, q = P[2], ray = S("path", { d: "M" + (q[0] + Math.cos(ang) * 14) + " " + (q[1] + Math.sin(ang) * 14) + " L " + (q[0] + Math.cos(ang) * 27) + " " + (q[1] + Math.sin(ang) * 27), "class": "sg-spark", "stroke-width": 2.6 }, svg); go(ray, [{ opacity: 0 }, { opacity: 1, offset: .3 }, { opacity: 0 }], { duration: 220, delay: 130, fill: "both" }); }
     } else if (topic === "Macro") {
       [-18, 0, 18].forEach(function (dx, i) { var c = S("ellipse", { cx: 0, cy: 0, rx: 9, ry: 3.2, "class": "sg-coin-face" }, svg); go(c, [{ transform: "translate(" + cx + "px," + (top + 20) + "px)", opacity: 0 }, { transform: "translate(" + (cx + dx * 1.6) + "px," + (top - 18 - i % 2 * 10) + "px)", opacity: 1, offset: .5 }, { transform: "translate(" + (cx + dx * 2) + "px," + (top - 6) + "px)", opacity: 0 }], { duration: 300, delay: i * 25, easing: "ease-out", fill: "both" }); });
+    } else if (topic === "Money Talk") {
+      var zig = "M" + (cx - 22) + " " + (top + 8); for (var i = 0; i <= 8; i++) zig += " L" + (cx - 22 + i * 5.5) + " " + (top + (i % 2 ? 2 : 8));
+      var rec = S("path", { d: zig + " L" + (cx + 22) + " " + (top + 46) + " L" + (cx - 22) + " " + (top + 46) + " Z", "class": "sg-receipt", "stroke-width": 2 }, svg);
+      go(rec, [{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "translateY(0)", offset: .4 }, { opacity: 0, transform: "translateY(-10px)" }], { duration: 300, easing: "ease-out", fill: "both" });
+      [16, 26, 36].forEach(function (yy, i) { var p = S("path", { d: "M" + (cx - 14) + " " + (top + yy) + " h" + (i === 2 ? 16 : 24), "class": "sg-line", "stroke-width": 2.2 }, svg); var l = p.getTotalLength(); p.style.strokeDasharray = l; go(p, [{ strokeDashoffset: l, opacity: 1 }, { strokeDashoffset: 0, opacity: 1, offset: .5 }, { strokeDashoffset: 0, opacity: 0 }], { duration: 280, delay: 40 + i * 30, fill: "both" }); });
     } else {
       [0, 1, 2].forEach(function (i) { var p = S("path", { d: "M" + (cx - 30) + " " + (top - 6 + i * 9) + " h" + (40 - i * 8), "class": "sg-line", "stroke-width": 3.4 }, svg); var l = p.getTotalLength(); p.style.strokeDasharray = l; go(p, [{ strokeDashoffset: l, opacity: 1 }, { strokeDashoffset: 0, opacity: 1, offset: .5 }, { strokeDashoffset: -l, opacity: 0 }], { duration: 280, delay: i * 30, fill: "both" }); });
     }

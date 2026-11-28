@@ -21,6 +21,11 @@
       "Getting around",
       "Robots & brains",
       "Energy"
+    ],
+    "Money Talk": [
+      "Profit & cash",
+      "Valuation",
+      "Market prices"
     ]
   },
   "_path": [
@@ -854,6 +859,100 @@
           1745
         ]
       }
+    },
+    "where-the-money-goes": {
+      "sub": "Profit & cash",
+      "tags": [],
+      "aka": [
+        "Money Talk",
+        "valuation",
+        "margin",
+        "margins",
+        "gross margin",
+        "operating margin",
+        "net margin",
+        "revenue",
+        "gross bookings",
+        "cash flow",
+        "free cash flow",
+        "FCF",
+        "EBITDA",
+        "unit economics",
+        "CAC",
+        "LTV",
+        "CLV",
+        "IPO",
+        "Uber",
+        "Walmart",
+        "Amazon",
+        "AWS",
+        "Netflix",
+        "Carillion",
+        "receipt",
+        "profit",
+        "operating profit"
+      ],
+      "pairs": [
+        "priced-before-profit",
+        "same-price-different-story"
+      ]
+    },
+    "priced-before-profit": {
+      "sub": "Valuation",
+      "tags": [],
+      "aka": [
+        "Money Talk",
+        "valuation",
+        "run rate",
+        "ARR",
+        "annual recurring revenue",
+        "burn rate",
+        "runway",
+        "dilution",
+        "IPO",
+        "initial public offering",
+        "pre-money",
+        "post-money",
+        "Anthropic",
+        "Claude",
+        "WeWork",
+        "Series E",
+        "fully diluted",
+        "share",
+        "funding round"
+      ],
+      "pairs": [
+        "where-the-money-goes",
+        "same-price-different-story"
+      ]
+    },
+    "same-price-different-story": {
+      "sub": "Market prices",
+      "tags": [],
+      "aka": [
+        "Money Talk",
+        "valuation",
+        "P/E",
+        "PE",
+        "price to earnings",
+        "EPS",
+        "earnings per share",
+        "market cap",
+        "market capitalization",
+        "enterprise value",
+        "EV",
+        "EV/revenue",
+        "multiple",
+        "multiples",
+        "Coca-Cola",
+        "Palantir",
+        "Toyota",
+        "EBITDA"
+      ],
+      "pairs": [
+        "where-the-money-goes",
+        "priced-before-profit"
+      ]
     }
   }
 }
