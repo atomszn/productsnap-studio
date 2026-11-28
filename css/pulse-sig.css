@@ -54,3 +54,7 @@
 .sg-ring2{stroke:#fff3c9;stroke-width:2.4;fill:none}
 .sg-burst .sg-wirehot{stroke:color-mix(in srgb,var(--tc) 80%,#8fe3ff)}
 .sg-burst .sg-spark{stroke:var(--sg-pen)}
+
+/* Money Talk: till receipt */
+.sg-receipt{fill:rgba(255,253,247,.94);stroke:#fbf5e8;stroke-width:2}
+.sg-burst .sg-receipt{fill:color-mix(in srgb,var(--sg-paper) 90%,transparent);stroke:var(--tc)}

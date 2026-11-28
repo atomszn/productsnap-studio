@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en" class="has-back">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Where the Money Goes: Uber's fare, in 8 steps</title>
+<script>document.documentElement.className+=" js"</script>
+<style>@font-face{font-family:"Plex Sans";src:url(assets/plex-sans.woff2) format("woff2");font-weight:100 700;font-display:swap}
+@font-face{font-family:"Archivo Black";src:url(assets/archivo-black.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url(assets/plex-mono.woff) format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url(assets/plex-mono-bold.woff) format("woff");font-weight:700;font-display:swap}
+@font-face{font-family:"Kalam";src:url(assets/kalam.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{
+  --bg:#FFFDF7; --card:#FFFAF0; --ink:#22262B; --soft:#4A5459; --rule:#D2D8D0; --frame:#3C4A43;
+  --green:#1F7A55; --greent:#CFE6D9; --red:#B23A2E; --redt:#F3D9D3; --redt2:#F8E6E1;
+  --sticky:#FFF1B8; --soil:#EADFC9; --glass:#EEF4EF;
+  --bill:#BBD9C5; --billedge:#4F8566; --restbill:#D5D9D2; --restedge:#7A857D;
+  --coin:#E8B93C; --coinedge:#9C7410; --hd:62px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#14181B; --card:#1D2327; --ink:#EDEAE1; --soft:#B7BEBA; --rule:#34403B; --frame:#8FA398;
+  --green:#5CC596; --greent:#1E4234; --red:#FF8F80; --redt:#43262A; --redt2:#391F23;
+  --sticky:#3F3A22; --soil:#2A2620; --glass:#1A2326;
+  --bill:#2F5B46; --billedge:#8CC9A8; --restbill:#33403A; --restedge:#8A988F;
+  --coin:#E8B93C; --coinedge:#F5D27A;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.4 "Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+b{font-weight:700}
+a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.num{font-family:"Plex Mono",ui-monospace,Menlo,monospace;font-weight:700}
+.pos{color:var(--green)} .neg{color:var(--red)}
+
+/* progress header */
+.top{position:fixed;z-index:50;top:0;left:0;right:0;background:var(--bg);border-bottom:2px solid var(--frame);padding:calc(6px + env(safe-area-inset-top)) 14px 0}
+.top .row1{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.book{font-family:"Archivo Black","Plex Sans",sans-serif;font-size:18px;line-height:1.2;white-space:nowrap}
+.stepno{display:none;font-family:"Plex Mono",monospace;font-weight:700;font-size:16px;white-space:nowrap}
+.js .stepno{display:block}
+.segs{display:flex;gap:4px;margin-top:2px}
+.segs .seg{flex:1;height:20px;display:flex;align-items:center}
+.segs .seg i{display:block;width:100%;height:6px;border-radius:3px;background:var(--rule)}
+.segs .seg.on i{background:var(--green)}
+.segs .seg.cur i{background:var(--ink)}
+.segs .seg:focus-visible{outline:2px solid var(--ink);outline-offset:1px}
+
+/* scroll stage */
+.beat{position:relative}
+.pin{height:calc(var(--len)*100vh);height:calc(var(--len)*100svh)}
+.tail{display:none}
+.stick{position:sticky;top:0;height:100vh;height:100svh;padding-top:calc(var(--hd) + env(safe-area-inset-top));display:grid;grid-template-rows:minmax(0,1fr) auto;background:var(--bg)}
+.scene{position:relative;min-height:0;min-width:0;display:grid;place-items:center;overflow:hidden}
+.box{position:relative;width:360px;height:460px;flex:none;transform:scale(var(--k,1));transform-origin:center center}
+.box>*{position:absolute;margin:0}
+
+/* caption */
+.cap{background:var(--card);border-top:2px solid var(--frame);padding:8px 16px calc(8px + env(safe-area-inset-bottom))}
+.cap h2{font-family:"Archivo Black","Plex Sans",sans-serif;font-weight:400;font-size:20px;line-height:1.15;margin:0 0 5px}
+.lead{font-size:16px;line-height:1.3;margin:0 0 6px}
+.say{display:flex;align-items:center;gap:10px;margin:4px 0 4px}
+.say .arlo{flex:none;width:56px;height:56px}
+.bubble{position:relative;flex:1;margin:0;background:var(--sticky);color:var(--ink);border:2px solid var(--frame);border-radius:12px;padding:6px 10px;font:400 19px/1.25 "Kalam","Plex Sans",cursive}
+.bubble::before{content:"";position:absolute;left:-9px;top:50%;width:14px;height:14px;background:var(--sticky);border-left:2px solid var(--frame);border-bottom:2px solid var(--frame);transform:translateY(-50%) rotate(45deg)}
+.tag{font:700 16px/1.2 "Plex Mono",monospace;margin-right:2px}
+.srcrow{display:flex;gap:10px;align-items:flex-end;margin-top:4px}
+.src{flex:1;margin:0;font-size:16px;line-height:1.28;color:var(--soft)}
+.stamp{flex:none;width:36px;height:48px;border-radius:6px;border:1px solid var(--rule);object-fit:contain;background:#FFFDF7}
+
+/* scene pieces */
+.soil{left:-80px;right:-80px;background:var(--soil)}
+.ground,.floor{left:-80px;right:-80px;height:3px;background:var(--ink)}
+.pit{background:repeating-linear-gradient(135deg,var(--redt) 0 8px,var(--redt2) 8px 16px);border:3px solid var(--red);border-top:0;border-radius:0 0 22px 22px;overflow:hidden}
+.pitlab{padding:10px 8px;font-size:16px;line-height:1.25}
+.pitlab span{display:block}
+.pitlab .num{font-size:30px;line-height:1.1;margin-bottom:4px}
+.tower{background:repeating-linear-gradient(0deg,var(--coin) 0 5px,var(--coinedge) 5px 7px);border:2px solid var(--coinedge);border-radius:5px 5px 0 0;border-bottom:0}
+.towlab{width:128px;font-size:16px;line-height:1.25}
+.towlab span{display:block}
+.towlab .num{font-size:30px;line-height:1.1}
+.note{font-size:16px;line-height:1.3}
+.note.scale{color:var(--soft)}
+.hint{right:8px;top:336px;background:var(--ink);color:var(--bg);font:700 16px/1 "Plex Mono",monospace;padding:6px 12px;border-radius:999px;white-space:nowrap}
+.stack{background:repeating-linear-gradient(0deg,var(--bill) 0 6px,var(--billedge) 6px 7px);border:2px solid var(--billedge);border-radius:4px;overflow:hidden}
+.stack.rest{background:repeating-linear-gradient(0deg,var(--restbill) 0 6px,var(--restedge) 6px 7px);border-color:var(--restedge)}
+.dollar{position:absolute;inset:0;display:grid;place-items:center;font:400 72px/1 "Archivo Black",sans-serif;color:var(--billedge);opacity:.55}
+.dollar.sm{font-size:40px}
+.fly{position:absolute;width:70px;height:34px;border-radius:4px;background:var(--bill);border:2px solid var(--billedge)}
+.bigwrap{z-index:3}
+.bigwrap .big{font-size:40px;line-height:1.1;margin-top:6px;color:var(--ink)}
+.sub{display:block;font-size:16px;line-height:1.25}
+.lab{font-size:16px;line-height:1.3}
+.lab span{display:block}
+.big2{font-size:32px;line-height:1.1}
+.counter{left:8px;top:0;width:344px}
+.clab{display:block;font-size:16px;line-height:1.25;color:var(--soft)}
+.cnum{display:block;font-size:36px;line-height:1.15;color:var(--ink)}
+.cnum[data-green="1"]{color:var(--green)} .cnum[data-green="1"].dim{color:var(--ink)}
+.ghost{border:2px dashed var(--soft);border-radius:2px}
+.seg.cost,.seg.prof{border-left:3px solid var(--red);border-right:3px solid var(--red);box-shadow:inset 0 -1.5px 0 var(--ink)}
+.seg.cost{background:repeating-linear-gradient(0deg,transparent 0 9px,rgba(120,100,90,.28) 9px 10px),var(--redt)}
+.seg.prof{background:var(--greent);border-color:var(--green);box-shadow:none}
+.ledger{left:104px;top:72px;width:248px;display:flex;flex-direction:column;gap:3px}
+.row{background:var(--card);border:2px solid var(--frame);border-left:5px solid var(--red);padding:2px 8px}
+.row b{display:block;font-size:16px;line-height:1.22}
+.row span{display:block;font-size:16px;line-height:1.3}
+.lidbar{height:14px;background:var(--ink);border-radius:6px 6px 0 0}
+.jar{border:4px solid var(--ink);border-radius:6px 6px 30px 30px;background:var(--glass)}
+.coinsvg{display:block}
+.barA,.barB{background:repeating-linear-gradient(0deg,var(--coin) 0 5px,var(--coinedge) 5px 7px);border:2px solid var(--coinedge);border-bottom:0;border-radius:5px 5px 0 0}
+.paper{background:repeating-linear-gradient(45deg,var(--card) 0 7px,var(--redt) 7px 14px);border:3px dashed var(--red);border-radius:4px}
+.chip{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:112px;text-align:center;background:var(--card);border:2px solid var(--red);border-radius:6px;padding:4px 6px;font-size:16px;line-height:1.2}
+.chip b{display:block;font-size:20px}
+.chip.rest{text-align:center;font-weight:700;padding:3px 6px;width:100px;height:auto;top:auto;transform:none}
+.bnum{font-size:28px;line-height:1.1;text-align:center}
+.nm{font-weight:700;font-size:16px;text-align:center}
+.hbar{height:18px;border-radius:3px;border:2px solid var(--billedge);background:var(--bill);min-width:10px}
+.hbar.b2{background:var(--green);border-color:var(--green)}
+.hbar.b3{background:var(--coin);border-color:var(--coinedge)}
+.twist{border:2px dashed var(--red);background:var(--card);padding:8px 10px;font-size:17px;line-height:1.3;border-radius:6px}
+.end{padding:20px 16px 40px;max-width:640px;margin:0 auto}
+.end p{font-size:16px;color:var(--soft);margin:0}
+.scene .box .lab,.scene .box .note{max-width:100%}
+
+/* back to the book (staged in Pulse only; the html.has-back class is set by build.py) */
+.backbtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;box-sizing:border-box;border:2px solid var(--frame);border-radius:10px;background:var(--card);color:var(--ink);font:700 16px/1.2 "Plex Sans",system-ui,sans-serif;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.backbtn:hover{background:var(--bg)}
+.backbtn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.has-back{--hd:74px}
+.has-back .top{padding-top:env(safe-area-inset-top)}
+.has-back .top .row1{align-items:center;min-height:44px}
+.has-back .top .book{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.end .backbtn{margin:0 0 18px}
+
+/* desktop: scene left, caption right */
+@media (min-width:900px){
+  .top{padding-left:max(14px,calc((100vw - 1240px)/2));padding-right:max(14px,calc((100vw - 1240px)/2))}
+  .stick{grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);padding-left:0}
+  .cap{border-top:0;border-left:2px solid var(--frame);display:flex;flex-direction:column;justify-content:center;padding:32px clamp(28px,4vw,64px)}
+  .cap h2{font-size:30px}.lead{font-size:20px}.say .arlo{width:72px;height:72px}.bubble{font-size:22px}.src{font-size:16px}
+  .cap>*{max-width:560px}
+}
+/* short phones (real browser chrome eats height): the pinned stage keeps only title + lead; Arlo and the source line sit in a strip right after it */
+html.compact .cap{padding-top:8px;padding-bottom:8px}
+html.compact .cap .say,html.compact .cap .srcrow{display:none}
+html.compact .cap .lead{margin-bottom:0;font-size:16px;line-height:1.3}
+html.compact .tail{display:block;background:var(--card);border-top:2px solid var(--frame);border-bottom:2px solid var(--frame);padding:8px 16px 10px}
+html.compact .tail .say{margin:0 0 6px}
+.tail .tt,.tail .tl{display:none}
+/* minimal: not even a compact caption fits next to a full-size scene, so the scene is all that is pinned and the whole caption follows right under it */
+html.minimal .cap{display:none}
+html.minimal .stick{grid-template-rows:minmax(0,1fr)}
+html.minimal .tail{display:block;background:var(--card);border-top:2px solid var(--frame);border-bottom:2px solid var(--frame);padding:10px 16px 12px}
+html.minimal .tail .tt{display:block;font-family:"Archivo Black","Plex Sans",sans-serif;font-weight:400;font-size:20px;line-height:1.15;margin:0 0 5px}
+html.minimal .tail .tl{display:block;margin:0 0 6px}
+html.minimal .tail .say{margin:6px 0}
+@media (prefers-reduced-motion:no-preference){
+  .hint{animation:bob 1.6s ease-in-out infinite}
+  @keyframes bob{50%{margin-top:5px}}
+}
+@media (prefers-reduced-motion:reduce){/* STATIC (reduced motion / no JS): every beat is a normal block showing its finished picture */
+:root .pin{height:auto}
+:root .tail{display:none!important}
+:root .stick{position:static;height:auto;display:block;padding-top:0;border-bottom:2px solid var(--rule)}
+:root main{padding-top:calc(var(--hd) + env(safe-area-inset-top))}
+:root .scene{height:auto;padding:16px 0;overflow:hidden}
+:root .box{transform:none}
+:root .hint{display:none}
+:root *{animation:none!important;transition:none!important}
+@media (min-width:900px){
+  :root .stick{display:grid}
+  :root .scene{padding:32px 0}
+}
+}/* STATIC (reduced motion / no JS): every beat is a normal block showing its finished picture */
+:root[data-static] .pin{height:auto}
+:root[data-static] .tail{display:none!important}
+:root[data-static] .stick{position:static;height:auto;display:block;padding-top:0;border-bottom:2px solid var(--rule)}
+:root[data-static] main{padding-top:calc(var(--hd) + env(safe-area-inset-top))}
+:root[data-static] .scene{height:auto;padding:16px 0;overflow:hidden}
+:root[data-static] .box{transform:none}
+:root[data-static] .hint{display:none}
+:root[data-static] *{animation:none!important;transition:none!important}
+@media (min-width:900px){
+  :root[data-static] .stick{display:grid}
+  :root[data-static] .scene{padding:32px 0}
+}
+</style>
+<noscript><style>/* STATIC (reduced motion / no JS): every beat is a normal block showing its finished picture */
+:root .pin{height:auto}
+:root .tail{display:none!important}
+:root .stick{position:static;height:auto;display:block;padding-top:0;border-bottom:2px solid var(--rule)}
+:root main{padding-top:calc(var(--hd) + env(safe-area-inset-top))}
+:root .scene{height:auto;padding:16px 0;overflow:hidden}
+:root .box{transform:none}
+:root .hint{display:none}
+:root *{animation:none!important;transition:none!important}
+@media (min-width:900px){
+  :root .stick{display:grid}
+  :root .scene{padding:32px 0}
+}
+</style></noscript>
+</head>
+<body>
+<header class="top">
+  <div class="row1"><a class="backbtn bk-top" href="../../pulse.html#book/where-the-money-goes/1" data-back><span aria-hidden="true">&larr;</span> Back to the book</a><span class="book">Where the Money Goes</span><span class="stepno" id="stepno" aria-live="polite"></span></div>
+  <nav class="segs" aria-label="Progress"><a class="seg" href="#b1" aria-label="Go to step 1"><i></i></a><a class="seg" href="#b2" aria-label="Go to step 2"><i></i></a><a class="seg" href="#b3" aria-label="Go to step 3"><i></i></a><a class="seg" href="#b4" aria-label="Go to step 4"><i></i></a><a class="seg" href="#b5" aria-label="Go to step 5"><i></i></a><a class="seg" href="#b6" aria-label="Go to step 6"><i></i></a><a class="seg" href="#b7" aria-label="Go to step 7"><i></i></a><a class="seg" href="#b8" aria-label="Go to step 8"><i></i></a></nav>
+</header>
+<main id="story">
+
+<section class="beat" id="b1" data-n="1" data-steps="0.08,0.5;0.5,0.8" style="--len:1.8" aria-label="Step 1 of 8: $10.6 billion still in the red">
+ <div class="pin">
+ <div class="stick">
+  <div class="scene"><div class="box">
+<div class="soil" style="top:194px;height:266px"></div>
+<div class="ground" style="top:190px"></div>
+<div class="pit" style="left:18px;top:194px;width:180px;height:calc(148.4px*var(--s1,1))">
+  <div class="pitlab" style="opacity:clamp(0,calc((var(--s1,1) - 0.6) / 0.30000000000000004),1)"><span class="num neg">&minus;$10.6B</span><span>all losses minus all profits since the start, at Dec 31, 2025</span></div>
+</div>
+<div class="tower" style="left:236px;bottom:270px;width:96px;height:calc(78.4px*var(--s2,1))"></div>
+<div class="towlab" style="left:222px;bottom:calc(270px + 78.4px*var(--s2,1) + 8px);opacity:clamp(0,calc((var(--s2,1) - 0.35) / 0.45000000000000007),1)"><span class="num pos">+$5.6B</span><span>2025 operating profit</span></div>
+<p class="note scale" style="left:0;right:0;top:378px;text-align:center">Heights to scale. The pit is a running total; the coins are one year.</p>
+<div class="hint" style="opacity:calc(1 - var(--p,0)*14)" aria-hidden="true">Scroll &darr;</div></div></div>
+  <div class="cap">
+   <h2>$10.6 billion still in the red</h2>
+   <p class="lead">Uber is still <b>$10.6B</b> (B = billion) in the hole overall (all its losses minus all its profits since the start) at Dec 31, 2025, down from $32.8B at Dec 31, 2022. In 2025 it made <b>$5.6B</b> of operating profit (profit from running the business).</p>
+   <div class="say"><svg class="arlo" viewBox="0 0 100 100" role="img" aria-label="Arlo, the made-up rider, looking hmm" width="64" height="64">
+<defs><clipPath id="clip-b1"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+<circle cx="50" cy="50" r="48" fill="#DCE9E1" stroke="#3C4A43" stroke-width="2"/>
+<g clip-path="url(#clip-b1)">
+<path d="M8 104 C8 84 26 76 50 76 C74 76 92 84 92 104 Z" fill="#4D6C92"/>
+<path d="M38 76 L50 90 L44 76 Z M62 76 L50 90 L56 76 Z" fill="#7C9BC0"/>
+<rect x="43" y="66" width="14" height="13" rx="4" fill="#7A4A30"/>
+<g fill="#2B2220"><circle cx="30" cy="40" r="9"/><circle cx="33" cy="29" r="11"/><circle cx="45" cy="22" r="12"/><circle cx="58" cy="22" r="12"/><circle cx="69" cy="29" r="11"/><circle cx="71" cy="41" r="9"/></g>
+<ellipse cx="29" cy="52" rx="4" ry="6" fill="#8A5636"/><ellipse cx="71" cy="52" rx="4" ry="6" fill="#8A5636"/>
+<ellipse cx="50" cy="52" rx="21" ry="23" fill="#935D3C"/>
+<g fill="#2B2220"><circle cx="36" cy="36" r="8"/><circle cx="46" cy="32" r="8.5"/><circle cx="57" cy="32" r="8.5"/><circle cx="66" cy="37" r="8"/></g>
+<path d="M37 45 Q42 41 47 41 M53 41 Q58 41 63 45" fill="none" stroke="#2B1B14" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="42" cy="50" r="2.8" fill="#2B1B14"/><circle cx="58" cy="50" r="2.8" fill="#2B1B14"/>
+<path d="M50 52 L48 57 L52 57" fill="none" stroke="#6E4128" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44 61 Q50 58 57 62" fill="none" stroke="#2B1B14" stroke-width="2.4" stroke-linecap="round"/>
+</g></svg><p class="bubble"><b class="tag">ARLO (made up):</b> &ldquo;I've been paying for rides for years. Did any of it stick?&rdquo;</p></div>
+   <div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber fourth quarter (Q4) and full year 2025 results</a> (Feb 4, 2026), balance sheet at Dec 31, 2025; 2022 figure from <a href="https://www.sec.gov/Archives/edgar/data/1543151/000154315123000010/uber-20221231.htm" target="_blank" rel="noopener">Uber 2022 annual report (10-K)</a>.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div>
+  </div>
+ </div>
+ </div>
+ <div class="tail" aria-label="Caption continued for step 1"><h2 class="tt">$10.6 billion still in the red</h2><p class="lead tl">Uber is still <b>$10.6B</b> (B = billion) in the hole overall (all its losses minus all its profits since the start) at Dec 31, 2025, down from $32.8B at Dec 31, 2022. In 2025 it made <b>$5.6B</b> of operating profit (profit from running the business).</p><div class="say"><svg class="arlo" viewBox="0 0 100 100" role="img" aria-label="Arlo, the made-up rider, looking hmm" width="64" height="64">
+<defs><clipPath id="clip-b1t"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+<circle cx="50" cy="50" r="48" fill="#DCE9E1" stroke="#3C4A43" stroke-width="2"/>
+<g clip-path="url(#clip-b1t)">
+<path d="M8 104 C8 84 26 76 50 76 C74 76 92 84 92 104 Z" fill="#4D6C92"/>
+<path d="M38 76 L50 90 L44 76 Z M62 76 L50 90 L56 76 Z" fill="#7C9BC0"/>
+<rect x="43" y="66" width="14" height="13" rx="4" fill="#7A4A30"/>
+<g fill="#2B2220"><circle cx="30" cy="40" r="9"/><circle cx="33" cy="29" r="11"/><circle cx="45" cy="22" r="12"/><circle cx="58" cy="22" r="12"/><circle cx="69" cy="29" r="11"/><circle cx="71" cy="41" r="9"/></g>
+<ellipse cx="29" cy="52" rx="4" ry="6" fill="#8A5636"/><ellipse cx="71" cy="52" rx="4" ry="6" fill="#8A5636"/>
+<ellipse cx="50" cy="52" rx="21" ry="23" fill="#935D3C"/>
+<g fill="#2B2220"><circle cx="36" cy="36" r="8"/><circle cx="46" cy="32" r="8.5"/><circle cx="57" cy="32" r="8.5"/><circle cx="66" cy="37" r="8"/></g>
+<path d="M37 45 Q42 41 47 41 M53 41 Q58 41 63 45" fill="none" stroke="#2B1B14" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="42" cy="50" r="2.8" fill="#2B1B14"/><circle cx="58" cy="50" r="2.8" fill="#2B1B14"/>
+<path d="M50 52 L48 57 L52 57" fill="none" stroke="#6E4128" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44 61 Q50 58 57 62" fill="none" stroke="#2B1B14" stroke-width="2.4" stroke-linecap="round"/>
+</g></svg><p class="bubble"><b class="tag">ARLO (made up):</b> &ldquo;I've been paying for rides for years. Did any of it stick?&rdquo;</p></div><div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber fourth quarter (Q4) and full year 2025 results</a> (Feb 4, 2026), balance sheet at Dec 31, 2025; 2022 figure from <a href="https://www.sec.gov/Archives/edgar/data/1543151/000154315123000010/uber-20221231.htm" target="_blank" rel="noopener">Uber 2022 annual report (10-K)</a>.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div></div>
+</section>
+<section class="beat" id="b2" data-n="2" data-steps="0.08,0.75" style="--len:1.6" aria-label="Step 2 of 8: Everyone's fare, in one pile">
+ <div class="pin">
+ <div class="stick">
+  <div class="scene"><div class="box">
+<div class="floor" style="top:340px"></div>
+<div class="stack" style="left:100px;width:160px;bottom:120px;height:calc(240px*var(--s1,1))"><span class="dollar">$</span></div>
+<div class="fly" style="left:104px;top:170px;--r:-14deg;opacity:calc(1 - var(--s1,1));transform:translate(calc((1 - var(--s1,1))*90px),calc((1 - var(--s1,1))*-10px)) rotate(calc(var(--r)*(1 - var(--s1,1))))"></div><div class="fly" style="left:140px;top:200px;--r:10deg;opacity:calc(1 - var(--s1,1));transform:translate(calc((1 - var(--s1,1))*100px),calc((1 - var(--s1,1))*--20px)) rotate(calc(var(--r)*(1 - var(--s1,1))))"></div><div class="fly" style="left:118px;top:230px;--r:-6deg;opacity:calc(1 - var(--s1,1));transform:translate(calc((1 - var(--s1,1))*70px),calc((1 - var(--s1,1))*--40px)) rotate(calc(var(--r)*(1 - var(--s1,1))))"></div>
+<div class="bigwrap" style="top:0;left:0;right:0;text-align:center"><div class="big num" data-count="193.5" data-step="1" data-pre="$" data-suf="B">$193.5B</div><div class="sub">gross bookings, 2025</div></div>
+<p class="note" style="left:0;right:0;top:354px;text-align:center"><b>Everything customers paid.</b><br>Your ride is in here somewhere.</p></div></div>
+  <div class="cap">
+   <h2>Everyone's fare, in one pile</h2>
+   <p class="lead">In 2025 people paid <b>$193.5B</b> through Uber. That pile has a name: <b>gross bookings</b>, everything customers pay.</p>
+   
+   <div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber Q4 and full year 2025 results</a> (Feb 4, 2026).</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div>
+  </div>
+ </div>
+ </div>
+ <div class="tail" aria-label="Caption continued for step 2"><h2 class="tt">Everyone's fare, in one pile</h2><p class="lead tl">In 2025 people paid <b>$193.5B</b> through Uber. That pile has a name: <b>gross bookings</b>, everything customers pay.</p><div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber Q4 and full year 2025 results</a> (Feb 4, 2026).</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div></div>
+</section>
+<section class="beat" id="b3" data-n="3" data-steps="0.1,0.35;0.35,0.58;0.58,0.82" style="--len:1.9" aria-label="Step 3 of 8: Your fare isn't Uber's revenue">
+ <div class="pin">
+ <div class="stick">
+  <div class="scene"><div class="box">
+<div class="floor" style="top:340px"></div>
+<div class="stack rest" style="left:110px;width:140px;bottom:120px;height:175.4px;transform:translateX(calc(-86px*var(--s1,1)))"></div>
+<div class="stack slice" style="left:110px;width:140px;bottom:calc(120px + 175.4px*(1 - var(--s2,1)));height:64.6px;transform:translateX(calc(86px*var(--s1,1)))"><span class="dollar sm">$</span></div>
+<div class="lab" style="left:24px;top:70px;width:150px;opacity:clamp(0,calc((var(--s3,1) - 0.1) / 0.6),1)"><b>The rest goes mostly to drivers, couriers and restaurants.</b></div>
+<div class="lab" style="left:196px;bottom:calc(120px + 64.6px + 10px);width:150px;opacity:clamp(0,calc((var(--s3,1) - 0.1) / 0.6),1)"><span class="num pos big2">$52.0B</span><span class="sub">Uber's revenue</span></div>
+<p class="note" style="left:24px;top:352px;width:150px;opacity:clamp(0,calc((var(--s3,1) - 0.3) / 0.6000000000000001),1)">The rest of the $193.5B</p>
+<p class="note" style="left:196px;top:352px;width:152px;opacity:clamp(0,calc((var(--s3,1) - 0.3) / 0.6000000000000001),1)"><b>26.9%</b> of gross bookings (our math)</p></div></div>
+  <div class="cap">
+   <h2>Your fare isn't Uber's revenue</h2>
+   <p class="lead"><b>Revenue</b> is the part Uber counts as its own: <b>$52.0B</b>, 26.9% of the $193.5B. The rest goes mostly to drivers, couriers and restaurants.</p>
+   <div class="say"><svg class="arlo" viewBox="0 0 100 100" role="img" aria-label="Arlo, the made-up rider, looking wow" width="64" height="64">
+<defs><clipPath id="clip-b3"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+<circle cx="50" cy="50" r="48" fill="#DCE9E1" stroke="#3C4A43" stroke-width="2"/>
+<g clip-path="url(#clip-b3)">
+<path d="M8 104 C8 84 26 76 50 76 C74 76 92 84 92 104 Z" fill="#4D6C92"/>
+<path d="M38 76 L50 90 L44 76 Z M62 76 L50 90 L56 76 Z" fill="#7C9BC0"/>
+<rect x="43" y="66" width="14" height="13" rx="4" fill="#7A4A30"/>
+<g fill="#2B2220"><circle cx="30" cy="40" r="9"/><circle cx="33" cy="29" r="11"/><circle cx="45" cy="22" r="12"/><circle cx="58" cy="22" r="12"/><circle cx="69" cy="29" r="11"/><circle cx="71" cy="41" r="9"/></g>
+<ellipse cx="29" cy="52" rx="4" ry="6" fill="#8A5636"/><ellipse cx="71" cy="52" rx="4" ry="6" fill="#8A5636"/>
+<ellipse cx="50" cy="52" rx="21" ry="23" fill="#935D3C"/>
+<g fill="#2B2220"><circle cx="36" cy="36" r="8"/><circle cx="46" cy="32" r="8.5"/><circle cx="57" cy="32" r="8.5"/><circle cx="66" cy="37" r="8"/></g>
+<path d="M37 40 Q42 36 47 40 M53 40 Q58 36 63 40" fill="none" stroke="#2B1B14" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="42" cy="50" r="2.8" fill="#2B1B14"/><circle cx="58" cy="50" r="2.8" fill="#2B1B14"/>
+<path d="M50 52 L48 57 L52 57" fill="none" stroke="#6E4128" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="50" cy="62" rx="4" ry="5" fill="#2B1B14"/>
+</g></svg><p class="bubble"><b class="tag">ARLO (made up):</b> &ldquo;So my fare isn't all Uber's?&rdquo;</p></div>
+   <div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber Q4 and full year 2025 results</a> (Feb 4, 2026). 26.9% is our math.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div>
+  </div>
+ </div>
+ </div>
+ <div class="tail" aria-label="Caption continued for step 3"><h2 class="tt">Your fare isn't Uber's revenue</h2><p class="lead tl"><b>Revenue</b> is the part Uber counts as its own: <b>$52.0B</b>, 26.9% of the $193.5B. The rest goes mostly to drivers, couriers and restaurants.</p><div class="say"><svg class="arlo" viewBox="0 0 100 100" role="img" aria-label="Arlo, the made-up rider, looking wow" width="64" height="64">
+<defs><clipPath id="clip-b3t"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+<circle cx="50" cy="50" r="48" fill="#DCE9E1" stroke="#3C4A43" stroke-width="2"/>
+<g clip-path="url(#clip-b3t)">
+<path d="M8 104 C8 84 26 76 50 76 C74 76 92 84 92 104 Z" fill="#4D6C92"/>
+<path d="M38 76 L50 90 L44 76 Z M62 76 L50 90 L56 76 Z" fill="#7C9BC0"/>
+<rect x="43" y="66" width="14" height="13" rx="4" fill="#7A4A30"/>
+<g fill="#2B2220"><circle cx="30" cy="40" r="9"/><circle cx="33" cy="29" r="11"/><circle cx="45" cy="22" r="12"/><circle cx="58" cy="22" r="12"/><circle cx="69" cy="29" r="11"/><circle cx="71" cy="41" r="9"/></g>
+<ellipse cx="29" cy="52" rx="4" ry="6" fill="#8A5636"/><ellipse cx="71" cy="52" rx="4" ry="6" fill="#8A5636"/>
+<ellipse cx="50" cy="52" rx="21" ry="23" fill="#935D3C"/>
+<g fill="#2B2220"><circle cx="36" cy="36" r="8"/><circle cx="46" cy="32" r="8.5"/><circle cx="57" cy="32" r="8.5"/><circle cx="66" cy="37" r="8"/></g>
+<path d="M37 40 Q42 36 47 40 M53 40 Q58 36 63 40" fill="none" stroke="#2B1B14" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="42" cy="50" r="2.8" fill="#2B1B14"/><circle cx="58" cy="50" r="2.8" fill="#2B1B14"/>
+<path d="M50 52 L48 57 L52 57" fill="none" stroke="#6E4128" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="50" cy="62" rx="4" ry="5" fill="#2B1B14"/>
+</g></svg><p class="bubble"><b class="tag">ARLO (made up):</b> &ldquo;So my fare isn't all Uber's?&rdquo;</p></div><div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber Q4 and full year 2025 results</a> (Feb 4, 2026). 26.9% is our math.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div></div>
+</section>
+<section class="beat" id="b4" data-n="4" data-steps="0.15,0.7" style="--len:1.7" aria-label="Step 4 of 8: Now the bills come out">
+ <div class="pin">
+ <div class="stick">
+  <div class="scene"><div class="box"><div class="counter"><span class="clab" data-opts="[&quot;Revenue, before costs&quot;, &quot;Still left of revenue (our math)&quot;]" data-n="1">Still left of revenue (our math)</span><span class="cnum num" data-opts="[&quot;$52.0B&quot;, &quot;$20.7B&quot;]" data-n="1" data-final="0">$20.7B</span></div><div class="ghost" style="left:8px;top:72px;width:84px;height:340px"></div>
+<div class="seg cost" style="left:8px;top:72.00px;width:84px;height:204.65px;opacity:clamp(0,calc(1 - var(--s1,1)*1.9),1);transform:translate(calc(var(--s1,1)*26px),calc(-1 * (0px) + var(--s1,1)*10px)) rotate(calc(var(--s1,1)*6deg));"></div>
+<div class="seg cost" style="left:8px;top:276.65px;width:84px;height:18.96px;transform:translateY(calc(-1 * (204.65px*var(--s1,1))))"></div>
+<div class="seg cost" style="left:8px;top:295.62px;width:84px;height:32.04px;transform:translateY(calc(-1 * (204.65px*var(--s1,1))))"></div>
+<div class="seg cost" style="left:8px;top:327.65px;width:84px;height:22.23px;transform:translateY(calc(-1 * (204.65px*var(--s1,1))))"></div>
+<div class="seg cost" style="left:8px;top:349.88px;width:84px;height:20.92px;transform:translateY(calc(-1 * (204.65px*var(--s1,1))))"></div>
+<div class="seg cost" style="left:8px;top:370.81px;width:84px;height:4.58px;transform:translateY(calc(-1 * (204.65px*var(--s1,1))))"></div>
+<div class="seg prof" style="left:8px;top:375.38px;width:84px;height:36.62px;transform:translateY(calc(-1 * (204.65px*var(--s1,1))))"></div><div class="ledger"><div class="row" style="opacity:clamp(0,calc((var(--s1,1) - 0.35) / 0.6),1);transform:translateX(calc((1 - var(--s1,1))*-16px));"><b>Cost of revenue</b><span class="num">&minus;$31.3B &rarr; $20.7B left</span></div></div></div></div>
+  <div class="cap">
+   <h2>Now the bills come out</h2>
+   <p class="lead">Profit = revenue minus costs, and costs come off in layers. First and biggest: <b>cost of revenue</b> (the direct cost of delivering the service): <b>$31.3B</b>.</p>
+   
+   <div class="srcrow"><p class="src">Source: <a href="https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/R5.htm" target="_blank" rel="noopener">Uber 2025 annual report income statement</a>. &ldquo;Left&rdquo; amounts are our math.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div>
+  </div>
+ </div>
+ </div>
+ <div class="tail" aria-label="Caption continued for step 4"><h2 class="tt">Now the bills come out</h2><p class="lead tl">Profit = revenue minus costs, and costs come off in layers. First and biggest: <b>cost of revenue</b> (the direct cost of delivering the service): <b>$31.3B</b>.</p><div class="srcrow"><p class="src">Source: <a href="https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/R5.htm" target="_blank" rel="noopener">Uber 2025 annual report income statement</a>. &ldquo;Left&rdquo; amounts are our math.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div></div>
+</section>
+<section class="beat" id="b5" data-n="5" data-steps="0.04,0.22;0.2,0.38;0.36,0.54;0.52,0.7;0.68,0.86" style="--len:2.6" aria-label="Step 5 of 8: Five smaller bites">
+ <div class="pin">
+ <div class="stick">
+  <div class="scene"><div class="box"><div class="counter"><span class="clab" data-opts="[&quot;Still left of revenue (our math)&quot;, &quot;Still left of revenue (our math)&quot;, &quot;Still left of revenue (our math)&quot;, &quot;Still left of revenue (our math)&quot;, &quot;Still left of revenue (our math)&quot;, &quot;Operating profit: what is left&quot;]" data-n="5">Operating profit: what is left</span><span class="cnum num" data-opts="[&quot;$20.7B&quot;, &quot;$17.8B&quot;, &quot;$12.9B&quot;, &quot;$9.5B&quot;, &quot;$6.3B&quot;, &quot;$5.6B&quot;]" data-n="5" data-final="1">$5.6B</span></div><div class="ghost" style="left:8px;top:72px;width:84px;height:340px"></div>
+<div class="seg cost" style="left:8px;top:72.00px;width:84px;height:204.65px;opacity:0;visibility:hidden;"></div>
+<div class="seg cost" style="left:8px;top:276.65px;width:84px;height:18.96px;opacity:clamp(0,calc(1 - var(--s1,1)*1.9),1);transform:translate(calc(var(--s1,1)*26px),calc(-1 * (204.65px*1) + var(--s1,1)*10px)) rotate(calc(var(--s1,1)*6deg));"></div>
+<div class="seg cost" style="left:8px;top:295.62px;width:84px;height:32.04px;opacity:clamp(0,calc(1 - var(--s2,1)*1.9),1);transform:translate(calc(var(--s2,1)*26px),calc(-1 * (204.65px*1 + 18.96px*var(--s1,1)) + var(--s2,1)*10px)) rotate(calc(var(--s2,1)*6deg));"></div>
+<div class="seg cost" style="left:8px;top:327.65px;width:84px;height:22.23px;opacity:clamp(0,calc(1 - var(--s3,1)*1.9),1);transform:translate(calc(var(--s3,1)*26px),calc(-1 * (204.65px*1 + 18.96px*var(--s1,1) + 32.04px*var(--s2,1)) + var(--s3,1)*10px)) rotate(calc(var(--s3,1)*6deg));"></div>
+<div class="seg cost" style="left:8px;top:349.88px;width:84px;height:20.92px;opacity:clamp(0,calc(1 - var(--s4,1)*1.9),1);transform:translate(calc(var(--s4,1)*26px),calc(-1 * (204.65px*1 + 18.96px*var(--s1,1) + 32.04px*var(--s2,1) + 22.23px*var(--s3,1)) + var(--s4,1)*10px)) rotate(calc(var(--s4,1)*6deg));"></div>
+<div class="seg cost" style="left:8px;top:370.81px;width:84px;height:4.58px;opacity:clamp(0,calc(1 - var(--s5,1)*1.9),1);transform:translate(calc(var(--s5,1)*26px),calc(-1 * (204.65px*1 + 18.96px*var(--s1,1) + 32.04px*var(--s2,1) + 22.23px*var(--s3,1) + 20.92px*var(--s4,1)) + var(--s5,1)*10px)) rotate(calc(var(--s5,1)*6deg));"></div>
+<div class="seg prof" style="left:8px;top:375.38px;width:84px;height:36.62px;transform:translateY(calc(-1 * (204.65px*1 + 18.96px*var(--s1,1) + 32.04px*var(--s2,1) + 22.23px*var(--s3,1) + 20.92px*var(--s4,1) + 4.58px*var(--s5,1))))"></div><div class="ledger"><div class="row" style=""><b>Cost of revenue</b><span class="num">&minus;$31.3B &rarr; $20.7B left</span></div><div class="row" style="opacity:clamp(0,calc((var(--s1,1) - 0.35) / 0.6),1);transform:translateX(calc((1 - var(--s1,1))*-16px));"><b>Operations and support</b><span class="num">&minus;$2.9B &rarr; $17.8B left</span></div><div class="row" style="opacity:clamp(0,calc((var(--s2,1) - 0.35) / 0.6),1);transform:translateX(calc((1 - var(--s2,1))*-16px));"><b>Sales and marketing</b><span class="num">&minus;$4.9B &rarr; $12.9B left</span></div><div class="row" style="opacity:clamp(0,calc((var(--s3,1) - 0.35) / 0.6),1);transform:translateX(calc((1 - var(--s3,1))*-16px));"><b>Research and development</b><span class="num">&minus;$3.4B &rarr; $9.5B left</span></div><div class="row" style="opacity:clamp(0,calc((var(--s4,1) - 0.35) / 0.6),1);transform:translateX(calc((1 - var(--s4,1))*-16px));"><b>General and administrative</b><span class="num">&minus;$3.2B &rarr; $6.3B left</span></div><div class="row" style="opacity:clamp(0,calc((var(--s5,1) - 0.35) / 0.6),1);transform:translateX(calc((1 - var(--s5,1))*-16px));"><b>Depreciation and amortization</b><span class="num">&minus;$0.7B &rarr; $5.6B left</span></div></div></div></div>
+  <div class="cap">
+   <h2>Five smaller bites</h2>
+   <p class="lead">Five smaller costs follow. <b>Depreciation and amortization</b> spreads the price of equipment and software over the years. What's left: <b>$5.6B</b>.</p>
+   
+   <div class="srcrow"><p class="src">Source: <a href="https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/R5.htm" target="_blank" rel="noopener">Uber 2025 annual report income statement</a>. &ldquo;Left&rdquo; amounts are our math.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div>
+  </div>
+ </div>
+ </div>
+ <div class="tail" aria-label="Caption continued for step 5"><h2 class="tt">Five smaller bites</h2><p class="lead tl">Five smaller costs follow. <b>Depreciation and amortization</b> spreads the price of equipment and software over the years. What's left: <b>$5.6B</b>.</p><div class="srcrow"><p class="src">Source: <a href="https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/R5.htm" target="_blank" rel="noopener">Uber 2025 annual report income statement</a>. &ldquo;Left&rdquo; amounts are our math.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div></div>
+</section>
+<section class="beat" id="b6" data-n="6" data-steps="0.08,0.32;0.28,0.5;0.46,0.68;0.64,0.88" style="--len:1.9" aria-label="Step 6 of 8: What Uber keeps: $5.6B">
+ <div class="pin">
+ <div class="stick">
+  <div class="scene"><div class="box">
+<div class="lidbar" style="left:34px;top:32px;width:110px"></div>
+<div class="jar" style="left:24px;top:46px;width:130px;height:360px"></div>
+<svg class="coinsvg" style="left:30px;top:358px" width="118" height="46" viewBox="0 0 118 46" aria-hidden="true"><g style="opacity:clamp(0,calc((var(--s1,1) - 0.1) / 0.4),1);transform:translateY(calc((1 - var(--s1,1))*-300px))"><g><ellipse cx="24" cy="40" rx="12" ry="7" fill="#9C7410"/><ellipse cx="24" cy="36" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="24" cy="35" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g><g><ellipse cx="48" cy="40" rx="12" ry="7" fill="#9C7410"/><ellipse cx="48" cy="36" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="48" cy="35" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g><g><ellipse cx="72" cy="40" rx="12" ry="7" fill="#9C7410"/><ellipse cx="72" cy="36" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="72" cy="35" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g><g><ellipse cx="96" cy="40" rx="12" ry="7" fill="#9C7410"/><ellipse cx="96" cy="36" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="96" cy="35" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g></g><g style="opacity:clamp(0,calc((var(--s2,1) - 0.1) / 0.4),1);transform:translateY(calc((1 - var(--s2,1))*-300px))"><g><ellipse cx="36" cy="30" rx="12" ry="7" fill="#9C7410"/><ellipse cx="36" cy="26" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="36" cy="25" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g><g><ellipse cx="60" cy="30" rx="12" ry="7" fill="#9C7410"/><ellipse cx="60" cy="26" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="60" cy="25" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g><g><ellipse cx="84" cy="30" rx="12" ry="7" fill="#9C7410"/><ellipse cx="84" cy="26" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="84" cy="25" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g></g><g style="opacity:clamp(0,calc((var(--s3,1) - 0.1) / 0.4),1);transform:translateY(calc((1 - var(--s3,1))*-300px))"><g><ellipse cx="48" cy="20" rx="12" ry="7" fill="#9C7410"/><ellipse cx="48" cy="16" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="48" cy="15" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g><g><ellipse cx="72" cy="20" rx="12" ry="7" fill="#9C7410"/><ellipse cx="72" cy="16" rx="12" ry="7" fill="#E8B93C" stroke="#9C7410" stroke-width="1.4"/><ellipse cx="72" cy="15" rx="6" ry="3" fill="none" stroke="#B88A1E" stroke-width="1.2"/></g></g></svg>
+<div class="lab" style="left:176px;top:46px;width:176px"><span class="num big2">$52.0B</span><span class="sub">revenue: the whole jar</span></div>
+<div class="lab" style="left:176px;top:180px;width:176px;opacity:clamp(0,calc((var(--s4,1) - 0.0) / 0.6),1)"><span class="sub"><b>Costs took the rest.</b></span></div>
+<div class="lab" style="left:176px;bottom:56px;width:176px;opacity:clamp(0,calc((var(--s4,1) - 0.2) / 0.7),1)"><span class="num pos big2">$5.6B</span><span class="sub">operating profit = <b>10.7%</b> of revenue</span></div>
+<p class="note scale" style="left:0;right:0;top:412px;text-align:center">Jar and coins to scale.</p></div></div>
+  <div class="cap">
+   <h2>What Uber keeps: $5.6B</h2>
+   <p class="lead">That's <b>operating profit</b>: <b>10.7%</b> of the $52.0B revenue, which Uber reports as its 2025 operating margin. Coins = what stayed.</p>
+   <div class="say"><svg class="arlo" viewBox="0 0 100 100" role="img" aria-label="Arlo, the made-up rider, looking grin" width="64" height="64">
+<defs><clipPath id="clip-b6"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+<circle cx="50" cy="50" r="48" fill="#DCE9E1" stroke="#3C4A43" stroke-width="2"/>
+<g clip-path="url(#clip-b6)">
+<path d="M8 104 C8 84 26 76 50 76 C74 76 92 84 92 104 Z" fill="#4D6C92"/>
+<path d="M38 76 L50 90 L44 76 Z M62 76 L50 90 L56 76 Z" fill="#7C9BC0"/>
+<rect x="43" y="66" width="14" height="13" rx="4" fill="#7A4A30"/>
+<g fill="#2B2220"><circle cx="30" cy="40" r="9"/><circle cx="33" cy="29" r="11"/><circle cx="45" cy="22" r="12"/><circle cx="58" cy="22" r="12"/><circle cx="69" cy="29" r="11"/><circle cx="71" cy="41" r="9"/></g>
+<ellipse cx="29" cy="52" rx="4" ry="6" fill="#8A5636"/><ellipse cx="71" cy="52" rx="4" ry="6" fill="#8A5636"/>
+<ellipse cx="50" cy="52" rx="21" ry="23" fill="#935D3C"/>
+<g fill="#2B2220"><circle cx="36" cy="36" r="8"/><circle cx="46" cy="32" r="8.5"/><circle cx="57" cy="32" r="8.5"/><circle cx="66" cy="37" r="8"/></g>
+<path d="M37 43 Q42 39 47 43 M53 43 Q58 39 63 43" fill="none" stroke="#2B1B14" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="42" cy="50" r="2.8" fill="#2B1B14"/><circle cx="58" cy="50" r="2.8" fill="#2B1B14"/>
+<path d="M50 52 L48 57 L52 57" fill="none" stroke="#6E4128" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42 58 Q50 70 58 58 Z" fill="#fff6ea" stroke="#2B1B14" stroke-width="2.2" stroke-linejoin="round"/>
+</g></svg><p class="bubble"><b class="tag">ARLO (made up):</b> &ldquo;So it does keep some. Eventually.&rdquo;</p></div>
+   <div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber Q4 and full year 2025 results</a> (Feb 4, 2026).</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div>
+  </div>
+ </div>
+ </div>
+ <div class="tail" aria-label="Caption continued for step 6"><h2 class="tt">What Uber keeps: $5.6B</h2><p class="lead tl">That's <b>operating profit</b>: <b>10.7%</b> of the $52.0B revenue, which Uber reports as its 2025 operating margin. Coins = what stayed.</p><div class="say"><svg class="arlo" viewBox="0 0 100 100" role="img" aria-label="Arlo, the made-up rider, looking grin" width="64" height="64">
+<defs><clipPath id="clip-b6t"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+<circle cx="50" cy="50" r="48" fill="#DCE9E1" stroke="#3C4A43" stroke-width="2"/>
+<g clip-path="url(#clip-b6t)">
+<path d="M8 104 C8 84 26 76 50 76 C74 76 92 84 92 104 Z" fill="#4D6C92"/>
+<path d="M38 76 L50 90 L44 76 Z M62 76 L50 90 L56 76 Z" fill="#7C9BC0"/>
+<rect x="43" y="66" width="14" height="13" rx="4" fill="#7A4A30"/>
+<g fill="#2B2220"><circle cx="30" cy="40" r="9"/><circle cx="33" cy="29" r="11"/><circle cx="45" cy="22" r="12"/><circle cx="58" cy="22" r="12"/><circle cx="69" cy="29" r="11"/><circle cx="71" cy="41" r="9"/></g>
+<ellipse cx="29" cy="52" rx="4" ry="6" fill="#8A5636"/><ellipse cx="71" cy="52" rx="4" ry="6" fill="#8A5636"/>
+<ellipse cx="50" cy="52" rx="21" ry="23" fill="#935D3C"/>
+<g fill="#2B2220"><circle cx="36" cy="36" r="8"/><circle cx="46" cy="32" r="8.5"/><circle cx="57" cy="32" r="8.5"/><circle cx="66" cy="37" r="8"/></g>
+<path d="M37 43 Q42 39 47 43 M53 43 Q58 39 63 43" fill="none" stroke="#2B1B14" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="42" cy="50" r="2.8" fill="#2B1B14"/><circle cx="58" cy="50" r="2.8" fill="#2B1B14"/>
+<path d="M50 52 L48 57 L52 57" fill="none" stroke="#6E4128" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M42 58 Q50 70 58 58 Z" fill="#fff6ea" stroke="#2B1B14" stroke-width="2.2" stroke-linejoin="round"/>
+</g></svg><p class="bubble"><b class="tag">ARLO (made up):</b> &ldquo;So it does keep some. Eventually.&rdquo;</p></div><div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber Q4 and full year 2025 results</a> (Feb 4, 2026).</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div></div>
+</section>
+<section class="beat" id="b7" data-n="7" data-steps="0.06,0.3;0.25,0.5;0.5,0.74;0.7,0.9" style="--len:2.0" aria-label="Step 7 of 8: The twist: about half the profit wasn't from rides">
+ <div class="pin">
+ <div class="stick">
+  <div class="scene"><div class="box">
+<div class="floor" style="top:330px"></div>
+<div class="num bnum pos" style="left:30px;width:130px;bottom:calc(130px + 112px*var(--s1,1) + 6px);opacity:clamp(0,calc((var(--s1,1) - 0.3) / 0.6000000000000001),1)">$5.6B</div>
+<div class="barA" style="left:30px;width:130px;bottom:130px;height:calc(112px*var(--s1,1))"></div>
+<div class="num bnum" style="left:200px;width:130px;bottom:calc(130px + 202px + 6px);opacity:clamp(0,calc((var(--s3,1) - 0.3) / 0.6000000000000001),1)">$10.1B</div>
+<div class="barB" style="left:200px;width:130px;bottom:130px;height:calc(102px*var(--s2,1))"></div>
+<div class="chip rest" style="left:215px;width:100px;bottom:calc(130px + 51px - 14px);opacity:clamp(0,calc((var(--s2,1) - 0.7) / 0.30000000000000004),1)">the rest</div>
+<div class="paper" style="left:200px;width:130px;bottom:232px;height:100px;opacity:clamp(0,calc((var(--s3,1) - 0.0) / 0.4),1);transform:translateY(calc((1 - var(--s3,1))*-150px)) rotate(calc((1 - var(--s3,1))*-6deg))">
+  <span class="chip" style="opacity:clamp(0,calc((var(--s4,1) - 0.0) / 0.7),1)"><b class="num">$5.0B</b> one-time tax benefit</span></div>
+<div class="nm" style="left:30px;width:130px;top:336px">Operating profit</div>
+<div class="nm" style="left:200px;width:130px;top:336px">Net income</div>
+<p class="note" style="left:8px;right:8px;top:364px;text-align:center;opacity:clamp(0,calc((var(--s4,1) - 0.2) / 0.7),1)">2025 bars. The gap between $5.6B and $10.1B comes from interest, investments and taxes.</p></div></div>
+  <div class="cap">
+   <h2>The twist: about half the profit wasn't from rides</h2>
+   <p class="lead"><b>Net income</b> (profit after everything, taxes too) was <b>$10.1B</b>. A <b>$5.0B</b> one-time tax benefit is <b>49.5%</b> of it (our math, of $10.1B). Uber calls it a &ldquo;tax valuation release&rdquo;: credits from past losses booked as an asset once profits look reliable.</p>
+   <div class="say"><svg class="arlo" viewBox="0 0 100 100" role="img" aria-label="Arlo, the made-up rider, looking wow" width="64" height="64">
+<defs><clipPath id="clip-b7"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+<circle cx="50" cy="50" r="48" fill="#DCE9E1" stroke="#3C4A43" stroke-width="2"/>
+<g clip-path="url(#clip-b7)">
+<path d="M8 104 C8 84 26 76 50 76 C74 76 92 84 92 104 Z" fill="#4D6C92"/>
+<path d="M38 76 L50 90 L44 76 Z M62 76 L50 90 L56 76 Z" fill="#7C9BC0"/>
+<rect x="43" y="66" width="14" height="13" rx="4" fill="#7A4A30"/>
+<g fill="#2B2220"><circle cx="30" cy="40" r="9"/><circle cx="33" cy="29" r="11"/><circle cx="45" cy="22" r="12"/><circle cx="58" cy="22" r="12"/><circle cx="69" cy="29" r="11"/><circle cx="71" cy="41" r="9"/></g>
+<ellipse cx="29" cy="52" rx="4" ry="6" fill="#8A5636"/><ellipse cx="71" cy="52" rx="4" ry="6" fill="#8A5636"/>
+<ellipse cx="50" cy="52" rx="21" ry="23" fill="#935D3C"/>
+<g fill="#2B2220"><circle cx="36" cy="36" r="8"/><circle cx="46" cy="32" r="8.5"/><circle cx="57" cy="32" r="8.5"/><circle cx="66" cy="37" r="8"/></g>
+<path d="M37 40 Q42 36 47 40 M53 40 Q58 36 63 40" fill="none" stroke="#2B1B14" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="42" cy="50" r="2.8" fill="#2B1B14"/><circle cx="58" cy="50" r="2.8" fill="#2B1B14"/>
+<path d="M50 52 L48 57 L52 57" fill="none" stroke="#6E4128" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="50" cy="62" rx="4" ry="5" fill="#2B1B14"/>
+</g></svg><p class="bubble"><b class="tag">ARLO (made up):</b> &ldquo;Plot twist.&rdquo;</p></div>
+   <div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber Q4 and full year 2025 results</a>; <a href="https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm" target="_blank" rel="noopener">Uber 2025 annual report (10-K)</a>. 49.5% is our math. $5.0B one-time release, partly offset by normal taxes; total tax benefit $4.3B.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div>
+  </div>
+ </div>
+ </div>
+ <div class="tail" aria-label="Caption continued for step 7"><h2 class="tt">The twist: about half the profit wasn't from rides</h2><p class="lead tl"><b>Net income</b> (profit after everything, taxes too) was <b>$10.1B</b>. A <b>$5.0B</b> one-time tax benefit is <b>49.5%</b> of it (our math, of $10.1B). Uber calls it a &ldquo;tax valuation release&rdquo;: credits from past losses booked as an asset once profits look reliable.</p><div class="say"><svg class="arlo" viewBox="0 0 100 100" role="img" aria-label="Arlo, the made-up rider, looking wow" width="64" height="64">
+<defs><clipPath id="clip-b7t"><circle cx="50" cy="50" r="48"/></clipPath></defs>
+<circle cx="50" cy="50" r="48" fill="#DCE9E1" stroke="#3C4A43" stroke-width="2"/>
+<g clip-path="url(#clip-b7t)">
+<path d="M8 104 C8 84 26 76 50 76 C74 76 92 84 92 104 Z" fill="#4D6C92"/>
+<path d="M38 76 L50 90 L44 76 Z M62 76 L50 90 L56 76 Z" fill="#7C9BC0"/>
+<rect x="43" y="66" width="14" height="13" rx="4" fill="#7A4A30"/>
+<g fill="#2B2220"><circle cx="30" cy="40" r="9"/><circle cx="33" cy="29" r="11"/><circle cx="45" cy="22" r="12"/><circle cx="58" cy="22" r="12"/><circle cx="69" cy="29" r="11"/><circle cx="71" cy="41" r="9"/></g>
+<ellipse cx="29" cy="52" rx="4" ry="6" fill="#8A5636"/><ellipse cx="71" cy="52" rx="4" ry="6" fill="#8A5636"/>
+<ellipse cx="50" cy="52" rx="21" ry="23" fill="#935D3C"/>
+<g fill="#2B2220"><circle cx="36" cy="36" r="8"/><circle cx="46" cy="32" r="8.5"/><circle cx="57" cy="32" r="8.5"/><circle cx="66" cy="37" r="8"/></g>
+<path d="M37 40 Q42 36 47 40 M53 40 Q58 36 63 40" fill="none" stroke="#2B1B14" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="42" cy="50" r="2.8" fill="#2B1B14"/><circle cx="58" cy="50" r="2.8" fill="#2B1B14"/>
+<path d="M50 52 L48 57 L52 57" fill="none" stroke="#6E4128" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="50" cy="62" rx="4" ry="5" fill="#2B1B14"/>
+</g></svg><p class="bubble"><b class="tag">ARLO (made up):</b> &ldquo;Plot twist.&rdquo;</p></div><div class="srcrow"><p class="src">Source: <a href="https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Fourth-Quarter-and-Full-Year-2025/default.aspx" target="_blank" rel="noopener">Uber Q4 and full year 2025 results</a>; <a href="https://www.sec.gov/Archives/edgar/data/1543151/000154315126000015/uber-20251231.htm" target="_blank" rel="noopener">Uber 2025 annual report (10-K)</a>. 49.5% is our math. $5.0B one-time release, partly offset by normal taxes; total tax benefit $4.3B.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div></div>
+</section>
+<section class="beat" id="b8" data-n="8" data-steps="0.08,0.35;0.3,0.58;0.54,0.78;0.76,0.95" style="--len:1.7" aria-label="Step 8 of 8: So where did the money go?">
+ <div class="pin">
+ <div class="stick">
+  <div class="scene"><div class="box"><div class="lab" style="left:15px;top:8px;width:330px;opacity:clamp(0,calc((var(--s1,1) - 0.0) / 0.5),1)"><span class="num"><b>$193.5B</b></span> gross bookings: everything customers paid</div><div class="hbar b1" style="left:15px;top:58px;width:calc(330px*var(--s1,1))"></div><div class="lab" style="left:15px;top:104px;width:330px;opacity:clamp(0,calc((var(--s2,1) - 0.0) / 0.5),1)"><span class="num pos"><b>$52.0B</b></span> revenue: <b>26.9%</b> of bookings (our math)</div><div class="hbar b2" style="left:15px;top:154px;width:calc(88.8px*var(--s2,1))"></div><div class="lab" style="left:15px;top:200px;width:330px;opacity:clamp(0,calc((var(--s3,1) - 0.0) / 0.5),1)"><span class="num pos"><b>$5.6B</b></span> operating profit: <b>10.7%</b> of revenue</div><div class="hbar b3" style="left:15px;top:250px;width:calc(9.6px*var(--s3,1))"></div><div class="twist" style="left:15px;top:312px;width:330px;opacity:clamp(0,calc((var(--s4,1) - 0.0) / 0.6),1)"><b class="num">$10.1B</b> net income includes a <b class="num">$5.0B</b> one-time tax benefit.</div><p class="note scale" style="left:0;right:0;top:420px;text-align:center">Bar lengths to scale.</p></div></div>
+  <div class="cap">
+   <h2>So where did the money go?</h2>
+   <p class="lead">Of everything customers paid, Uber counted $52.0B as revenue and kept $5.6B as operating profit. <b>Our read:</b> when you see a profit, ask where it came from.</p>
+   
+   <div class="srcrow"><p class="src">Sources: the Uber results and filings linked above; full list in sources.md. 26.9% is our math.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div>
+  </div>
+ </div>
+ </div>
+ <div class="tail" aria-label="Caption continued for step 8"><h2 class="tt">So where did the money go?</h2><p class="lead tl">Of everything customers paid, Uber counted $52.0B as revenue and kept $5.6B as operating profit. <b>Our read:</b> when you see a profit, ask where it came from.</p><div class="srcrow"><p class="src">Sources: the Uber results and filings linked above; full list in sources.md. 26.9% is our math.</p><img class="stamp" src="assets/atom-stamp.webp" width="36" height="48" alt="Atom stamp"></div></div>
+</section>
+</main>
+<footer class="end"><a class="backbtn bk-end" href="../../pulse.html#book/where-the-money-goes/1" data-back><span aria-hidden="true">&larr;</span> Back to the book</a><p>Money Talk 1 &middot; Where the Money Goes. Arlo and everything he says are made up.</p></footer>
+<script>(function () {
+  'use strict';
+  var root = document.documentElement;
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var secs = [].slice.call(document.querySelectorAll('.beat'));
+  var segs = [].slice.call(document.querySelectorAll('.segs .seg'));
+  var stepno = document.getElementById('stepno');
+  var N = secs.length;
+  var pins = secs.map(function (s) { return s.querySelector('.pin'); });
+  var cfg = secs.map(function (s) {
+    return (s.getAttribute('data-steps') || '').split(';').filter(Boolean).map(function (r) {
+      var p = r.split(','); return [parseFloat(p[0]), parseFloat(p[1])];
+    });
+  });
+  var visible = {};
+  var cur = -1, ticking = false;
+  function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function ease(x) { return x * x * (3 - 2 * x); }
+  function isStatic() { return !!(mq && mq.matches); }
+
+  function setSection(i, p) {
+    var s = secs[i], c = cfg[i], vals = [];
+    s.style.setProperty('--p', p.toFixed(4));
+    for (var k = 0; k < c.length; k++) {
+      var v = ease(clamp((p - c[k][0]) / (c[k][1] - c[k][0])));
+      vals.push(v);
+      s.style.setProperty('--s' + (k + 1), v.toFixed(4));
+    }
+    var counts = s.querySelectorAll('[data-count]');
+    for (var a = 0; a < counts.length; a++) {
+      var el = counts[a], sv = vals[parseInt(el.getAttribute('data-step'), 10) - 1] || 0;
+      el.textContent = el.getAttribute('data-pre') + (parseFloat(el.getAttribute('data-count')) * sv).toFixed(1) + el.getAttribute('data-suf');
+    }
+    var picks = s.querySelectorAll('[data-opts]');
+    for (var b = 0; b < picks.length; b++) {
+      var pe = picks[b], opts = JSON.parse(pe.getAttribute('data-opts')), n = parseInt(pe.getAttribute('data-n'), 10), idx = 0;
+      for (var j = 0; j < n; j++) if ((vals[j] || 0) >= 0.5) idx++;
+      pe.textContent = opts[idx];
+      if (pe.classList.contains('cnum')) pe.classList.toggle('dim', idx < n);
+    }
+  }
+  function clearSection(i) {
+    var s = secs[i];
+    s.style.removeProperty('--p');
+    for (var k = 1; k <= cfg[i].length; k++) s.style.removeProperty('--s' + k);
+  }
+  function progressOf(i) {
+    var r = pins[i].getBoundingClientRect(), range = r.height - window.innerHeight;
+    return clamp(range > 0 ? -r.top / range : 1);
+  }
+  function chooseMode() {        // full caption -> compact caption -> scene only; text never shrinks, the scene never drops below 1x
+    root.classList.remove('compact'); root.classList.remove('minimal');
+    if (isStatic() || window.innerWidth >= 900) return;
+    var caps = document.querySelectorAll('.cap'), hd = parseFloat(getComputedStyle(document.querySelector('.stick')).paddingTop) || 62, avail = window.innerHeight - hd;
+    function tallest() { var t = 0; for (var i = 0; i < caps.length; i++) t = Math.max(t, caps[i].offsetHeight); return t; }
+    if (avail - tallest() >= 420) return;
+    root.classList.add('compact');
+    if (avail - tallest() >= 420) return;
+    root.classList.remove('compact'); root.classList.add('minimal');
+  }
+  function fit() {
+    chooseMode();
+    var scenes = document.querySelectorAll('.scene');
+    for (var i = 0; i < scenes.length; i++) {
+      var sc = scenes[i], box = sc.firstElementChild;
+      if (isStatic()) { box.style.removeProperty('--k'); continue; }
+      var k = Math.min(sc.clientWidth / 360, sc.clientHeight / 460);
+      box.style.setProperty('--k', Math.max(1, Math.min(1.6, k)).toFixed(3));   // never below 1x: text must stay 16px+
+    }
+  }
+  function header() {
+    var mid = window.innerHeight * 0.5, now = 0;
+    for (var i = 0; i < N; i++) {
+      var r = secs[i].getBoundingClientRect();
+      if (r.top <= mid) now = i;
+    }
+    if (now === cur) return;
+    cur = now;
+    stepno.textContent = 'step ' + (now + 1) + ' of ' + N;
+    for (var j = 0; j < N; j++) {
+      segs[j].classList.toggle('on', j <= now);
+      segs[j].classList.toggle('cur', j === now);
+      if (j === now) segs[j].setAttribute('aria-current', 'step'); else segs[j].removeAttribute('aria-current');
+    }
+  }
+  function frame() {
+    ticking = false;
+    if (!isStatic()) {
+      for (var i = 0; i < N; i++) if (visible[i]) setSection(i, progressOf(i));
+    }
+    header();
+  }
+  function req() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+  function settleAll() {      // after fast jumps, park every off-screen beat at its start or end
+    if (isStatic()) { for (var i = 0; i < N; i++) clearSection(i); return; }
+    for (var j = 0; j < N; j++) setSection(j, progressOf(j));
+  }
+  function modeChanged() { if (isStatic()) root.setAttribute('data-static', ''); else root.removeAttribute('data-static'); fit(); settleAll(); header(); }
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var i = secs.indexOf(e.target);
+        visible[i] = e.isIntersecting;
+        if (!e.isIntersecting && !isStatic()) setSection(i, progressOf(i) > 0.5 ? 1 : 0);
+      });
+      req();
+    }, { rootMargin: '25% 0px 25% 0px' });
+    secs.forEach(function (s) { io.observe(s); });
+  } else {
+    secs.forEach(function (s, i) { visible[i] = true; });
+  }
+  window.addEventListener('scroll', req, { passive: true });
+  window.addEventListener('resize', function () { fit(); req(); });
+  if (mq) { if (mq.addEventListener) mq.addEventListener('change', modeChanged); else if (mq.addListener) mq.addListener(modeChanged); }
+  modeChanged();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { fit(); req(); });
+  window.addEventListener('load', function () { fit(); settleAll(); header(); });
+})();
+
+/* Progress segments and the back button: keep ONE history entry for the story, so browser Back leaves it in one step */
+(function () {
+  var segs = document.querySelectorAll('.segs a[href^="#"]');
+  for (var i = 0; i < segs.length; i++) segs[i].addEventListener('click', function (e) {
+    var t = document.getElementById(this.getAttribute('href').slice(1));
+    if (!t || !history.replaceState) return;
+    e.preventDefault(); t.scrollIntoView(); history.replaceState(null, '', this.getAttribute('href'));
+  });
+  var backs = document.querySelectorAll('a[data-back]');
+  for (var j = 0; j < backs.length; j++) backs[j].addEventListener('click', function (e) {
+    try {
+      var r = document.referrer && new URL(document.referrer), u = new URL(this.href);
+      if (r && r.origin === u.origin && r.pathname === u.pathname && history.length > 1) { e.preventDefault(); history.back(); }
+    } catch (x) {}
+  });
+})();
+</script>
+</body>
+</html>

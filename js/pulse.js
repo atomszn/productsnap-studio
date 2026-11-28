@@ -292,7 +292,7 @@
     opt = opt || {};
     var c = el("span", "cv cloth " + tcls(b.topic) + (opt.small ? " cv-sm" : ""));
     c.setAttribute("aria-hidden", "true");
-    var top = el("span", "cv-top"), tk = el("span", "cv-topic", TOP[b.topic].short); if (opt.step) tk.insertBefore(el("span", "cv-step", String(opt.step)), tk.firstChild); top.appendChild(tk); top.appendChild(el("span", "cv-title", b.title)); c.appendChild(top);
+    var top = el("span", "cv-top"), tk = el("span", "cv-topic", TOP[b.topic].short); if (opt.step) tk.insertBefore(el("span", "cv-step", String(opt.step)), tk.firstChild); top.appendChild(tk); top.appendChild(el("span", "cv-title", b.title)); if (b.vol) top.appendChild(el("span", "cv-vol", "Vol. " + b.vol)); c.appendChild(top);
     var art = el("span", "cv-art"); var im = el("img"); im.src = b.thumb; im.alt = ""; im.width = b.tw; im.height = b.th; im.loading = opt.eager ? "eager" : "lazy"; if (opt.eager) im.setAttribute("fetchpriority", "high"); im.decoding = "async"; art.appendChild(im);
     art.appendChild(el("span", "cv-min", mins(b))); c.appendChild(art);
     if (!opt.small) c.appendChild(el("span", "cv-tag", tagline(b)));
@@ -326,7 +326,7 @@
     var body = el("span", "sp-body cloth");
     body.appendChild(el("span", "sp-topic", TOP[b.topic].short));
     body.appendChild(el("span", "sp-title", b.title));
-    body.appendChild(el("span", "sp-vol", mins(b)));
+    body.appendChild(el("span", "sp-vol", b.vol ? ("Vol. " + b.vol) : mins(b)));
     body.appendChild(ticks(b, "sp-prog"));
     if (savedFor(b).length) { var mk = el("span", "sp-mark"); mk.setAttribute("aria-hidden", "true"); body.appendChild(mk); }
     if (isDone(b)) body.appendChild(el("span", "sp-ck", "\u2713"));
@@ -382,7 +382,8 @@
     AI: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 9.5h5v5h-5zM9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>',
     Fintech: '<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14.5h4"/>',
     Macro: '<path d="M3 20h18"/><path d="M4 16l5-5 4 3 7-8"/><path d="M15 6h5v5"/>',
-    "Frontier Tech": '<path d="M14.5 4.5c3-1 5-1 5-1s0 2-1 5l-6.5 6.5-4-4z"/><path d="M8 11l-3 .5-2 2.5 4 .5M13 16l-.5 3-2.5 2-.5-4M15.5 8.5h.01"/><path d="M5 19c.5-1.5 1.5-2.5 3-3" stroke-dasharray="1.5 2"/>'
+    "Frontier Tech": '<path d="M14.5 4.5c3-1 5-1 5-1s0 2-1 5l-6.5 6.5-4-4z"/><path d="M8 11l-3 .5-2 2.5 4 .5M13 16l-.5 3-2.5 2-.5-4M15.5 8.5h.01"/><path d="M5 19c.5-1.5 1.5-2.5 3-3" stroke-dasharray="1.5 2"/>',
+    "Money Talk": '<rect x="6" y="3" width="12" height="18" rx="1"/><path d="M6 6h12M9 10h6M9 13h6M9 16h4"/>'
   };
   function ico(k, cls) { return '<svg class="' + (cls || "ci") + '" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICO[k] || ICO.All) + '</svg>'; }
   /* page dots: each has a 44x44 hit area (::after) that overlaps its neighbours on long books, so a tap goes to the dot nearest the finger */
@@ -772,7 +773,7 @@
   function find(id) { return lib.books.filter(function (b) { return b.id === id; })[0]; }
   /* a source with no title shows a clean site name ("sec.gov"), never the raw URL */
   function srcHost(u) { try { return new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return "Source"; } }
-  /* shelves after this one in shelf order (Frontier Tech, AI, Fintech, Macro), wrapping round */
+  /* shelves after this one in shelf order (Frontier Tech, AI, Fintech, Macro, Money Talk), wrapping round */
   function shelvesAfter(topic) { var N = TOPICS.map(function (t) { return t.name; }), i = N.indexOf(topic); return i < 0 ? N : N.slice(i + 1).concat(N.slice(0, i)); }
   /* "Up next": the next unread book on the same shelf (in the shelf's order), else the first unread one on the NEXT shelf in order, and so on */
   function nextBook(b) {
@@ -863,6 +864,14 @@
   }
   /* "Scroll for more" lives in the footer next to the counter, so it never covers a page's source line or takeaway */
   function syncMore(d) { var m = $("rd-more"); if (m && d && d.isConnected) m.hidden = !d.classList.contains("g-more"); }
+  /* Re-check after the takeaway box is resized, otherwise a stale pill can linger once the card already fits. */
+  function refreshMore() {
+    var d = document.querySelector("#page .pg"); if (!d) return;
+    var sc = d.classList.contains("pg-end") ? d : (d.querySelector(".g-scroll, .pg-zoom") || d);
+    var pad = d.classList.contains("pg-gist") ? 3 : 12;
+    d.classList.toggle("g-more", sc.scrollHeight - sc.scrollTop - sc.clientHeight > pad);
+    syncMore(d);
+  }
   function pageNode(b, i) {
     var P = pages(b);
     if (i >= P.length) return endNode(b);
@@ -880,7 +889,10 @@
       }); sc.appendChild(ol);
       d.appendChild(sc);
       /* the page-turn button lives outside the scrolling text, so it is always on screen, however short the phone */
-      var ft = el("div", "g-foot"), go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); }; ft.appendChild(go); d.appendChild(ft);
+      var ft = el("div", "g-foot"), go = el("button", "g-go", "Turn the page →"); go.type = "button"; go.onclick = function () { turn(1); };
+      /* a book can offer a scroll-driven story ("See it as a story"): a plain link, so the browser's Back button returns here */
+      if (b.story && b.story.href) { var sb = el("a", "g-go g-story"); sb.href = b.story.href; sb.appendChild(el("span", "g-story-t", b.story.label || "See it as a story")); if (b.story.sub) sb.appendChild(el("span", "g-story-sub", b.story.sub)); ft.classList.add("g-foot-2"); ft.appendChild(sb); }
+      ft.appendChild(go); d.appendChild(ft);
       var more = function () { d.classList.toggle("g-more", sc.scrollHeight - sc.scrollTop - sc.clientHeight > 3); syncMore(d); };
       sc.addEventListener("scroll", more, { passive: true }); requestAnimationFrame(more); setTimeout(more, 400);
     } else {
@@ -888,22 +900,52 @@
       var img = el("img"); img.src = p.file; img.alt = "Sketch page from " + b.title + ": " + p.title + ". " + tagline(b) + "."; img.width = p.w; img.height = p.h; img.decoding = "async"; if (Math.abs(i - idx) > 1) img.loading = "lazy";
       btn.appendChild(img); btn.onclick = function () { if (Date.now() - askBlurAt < 800) { if ($("askp-in").value.trim() && !$("askp-out").textContent) askPage($("askp-in").value); return; } zoom(p, b); }; d.appendChild(btn); // a tap meant for Ask can land here after the keyboard drops
       /* taller than the screen: the sketch fits the card's width and scrolls inside it; a small "Scroll" pill says so */
-      var more = function () { d.classList.toggle("g-more", btn.scrollHeight - btn.scrollTop - btn.clientHeight > 6); syncMore(d); };
+      var more = function () { d.classList.toggle("g-more", btn.scrollHeight - btn.scrollTop - btn.clientHeight > 12); syncMore(d); };
       btn.addEventListener("scroll", more, { passive: true }); img.addEventListener("load", more); requestAnimationFrame(more); setTimeout(more, 500);
       var nx = P[i + 1]; if (nx) { var pre = new Image(); pre.src = nx.file; }
     }
     var pn = el("span", "pg-num", p.gist ? "Summary" : "page " + i + " of " + b.pages.length); pn.setAttribute("aria-hidden", "true"); d.appendChild(pn); // kept in the page for scripts; shown in the footer (#rd-count) so it never covers the art // drawn pages count on their own, so the number matches the art (gist = "Summary", end card has none)
     return d;
   }
-  /* reserve the tallest caption once per book + screen size, so the card never moves between pages (re-measured once web fonts land) */
+  /* How tall the takeaway can be without shrinking a 1600×2400 card off the screen.
+     Uses the reader chrome (not the book box) so it is correct even on the first layout frame.
+     If the viewport is already too short (or the art is taller than 2:3), leave the box alone — the card scrolls, as designed. */
+  function takeCap(mh) {
+    var book = $("book"), stage = $("rd-stage"), take = $("rd-take");
+    var reader = document.querySelector(".reader"), head = document.querySelector(".rd-top"), foot = document.querySelector(".rd-foot");
+    if (!book || !stage || !take || !reader || !head || !foot) return mh;
+    var ar = parseFloat(book.dataset.ar || "0.6667") || 0.6667;
+    var bookW = book.offsetWidth; /* layout width; getBoundingClientRect shrinks during the open animation */
+    if (bookW < 8) bookW = Math.max(0, stage.clientWidth - 16);
+    if (bookW < 8) return mh;
+    var nat = bookW / ar;
+    var stagePad = (parseFloat(getComputedStyle(stage).paddingTop) || 0) + (parseFloat(getComputedStyle(stage).paddingBottom) || 0);
+    var footChrome = foot.offsetHeight - take.offsetHeight;
+    var raw = reader.clientHeight - head.offsetHeight - footChrome - stagePad - nat;
+    return raw >= 72 ? raw : mh;
+  }
+  /* reserve the tallest caption once per book + screen size, so the card never moves between pages (re-measured once web fonts land).
+     Long takeaways are capped to that budget so a standard 2:3 card still fits; leftover lines scroll inside the box. */
   function reserveTake(b, tk) {
     var tb = $("rd-take"), t = $("rd-take-t"), was = [tb.hidden, tb.className, t.textContent], mh = 0;
-    tb.style.minHeight = ""; tb.hidden = false; tb.classList.remove("rd-take-ghost");
+    tb.style.minHeight = ""; tb.style.maxHeight = ""; tb.style.height = ""; tb.removeAttribute("data-clip");
+    tb.hidden = false; tb.classList.remove("rd-take-ghost");
     b.pages.forEach(function (q) { if (q.takeaway) { t.textContent = q.takeaway; mh = Math.max(mh, tb.offsetHeight); } });
-    tb.style.minHeight = mh + "px"; tb.hidden = was[0]; tb.className = was[1]; t.textContent = was[2];
+    var used = Math.max(0, Math.floor(Math.min(mh, takeCap(mh))));
+    tb.style.minHeight = used + "px";
+    tb.style.height = used + "px";
+    tb.style.maxHeight = used < mh ? used + "px" : "";
+    if (used < mh) tb.setAttribute("data-clip", "");
+    tb.hidden = was[0]; tb.className = was[1]; t.textContent = was[2];
     var fontsDone = !document.fonts || document.fonts.status === "loaded";
-    tb.dataset.book = fontsDone ? b.id + "@" + innerWidth + "x" + innerHeight : "";
+    var laidOut = $("book") && $("book").offsetWidth > 8;
+    tb.dataset.book = fontsDone && laidOut ? b.id + "@" + innerWidth + "x" + innerHeight : "";
     if (!fontsDone) document.fonts.ready.then(function () { if (cur === b) reserveTake(b); });
+    else if (!laidOut || !reserveTake._done) {
+      reserveTake._done = true;
+      requestAnimationFrame(function () { if (cur === b) reserveTake(b); });
+    }
+    requestAnimationFrame(refreshMore); setTimeout(refreshMore, 500); setTimeout(refreshMore, 1200);
   }
   function paint() {
     var P = pages(cur), end = idx >= P.length, host = $("page");
@@ -931,8 +973,8 @@
     if (!end) ls(LS.last, { id: cur.id, p: idx + 1 });
     var pg = !end && idx > 0 ? cur.pages[idx - 1] : null, tk = pg && pg.takeaway;
     var tb = $("rd-take"), anyTk = cur.pages.some(function (q) { return q.takeaway; });
-    if (anyTk && tb.dataset.book !== cur.id + "@" + innerWidth + "x" + innerHeight) reserveTake(cur, tk);
-    if (!anyTk) { tb.style.minHeight = ""; tb.dataset.book = ""; }
+    if (anyTk && tb.dataset.book !== cur.id + "@" + innerWidth + "x" + innerHeight) { reserveTake._done = false; reserveTake(cur, tk); }
+    if (!anyTk) { tb.style.minHeight = ""; tb.style.maxHeight = ""; tb.style.height = ""; tb.removeAttribute("data-clip"); tb.dataset.book = ""; }
     tb.hidden = !tk && !anyTk; tb.classList.toggle("rd-take-ghost", !tk && anyTk); tb.setAttribute("aria-hidden", String(!tk));
     $("rd-take-t").textContent = tk || "";
     askReset();
@@ -1314,7 +1356,7 @@
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
       .then(function (d) {
         var byId = {}; d.books.forEach(function (x) { byId[x.id] = x; });
-        lib.books.forEach(function (b) { var x = byId[b.id]; if (!x) return; ["pages", "recap", "recap_pages", "sources", "gist_lead", "gist", "palette"].forEach(function (k) { if (x[k] != null) b[k] = x[k]; }); b._ix = null; b._rw = null; });
+        lib.books.forEach(function (b) { var x = byId[b.id]; if (!x) return; ["pages", "recap", "recap_pages", "sources", "gist_lead", "gist", "palette", "story"].forEach(function (k) { if (x[k] != null) b[k] = x[k]; }); b._ix = null; b._rw = null; });
         lib.moved = d.moved; lib._full = true; lib._df = null; VOC = null;
         return lib;
       })

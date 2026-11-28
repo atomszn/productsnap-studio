@@ -3,7 +3,7 @@ version: alpha
 name: ProductSnap Pulse
 description: >-
   Picture-led explainer books on a hand-drawn bookshelf at productsnap.studio/pulse.html.
-  Four topics, in shelf order: Frontier Tech, AI, Fintech, Macro. Light and dark themes. Phone-first.
+  Five topics, in shelf order: Frontier Tech, AI, Fintech, Macro, Money Talk. Light and dark themes. Phone-first.
   Every value below comes from css/style.css, css/pulse.css or css/pulse-sig.css
   (approved Oct 24 2026; shipped to productsnap.studio from pulse-redesign-frontier).
 colors:
@@ -11,6 +11,7 @@ colors:
   secondary: "#7535b6"          # --t-fintech (light): Fintech plum
   tertiary: "#3b7436"           # --t-macro (light): Macro green
   frontier: "#83580b"           # --t-frontier (light): Frontier launch amber
+  money-talk: "#165a5e"         # --t-money-talk (light): Money Talk ledger teal
   neutral: "#f3efe7"            # Pulse paper (light)
   paper: "#f3efe7"
   paper-2: "#ece6da"
@@ -199,18 +200,19 @@ The journey, start to finish (every step must work in light and dark at 375/390/
 1. **Land:** the shelf follows the device theme on first visit. A short hero ("Small books for big shifts."), then a sticky search bar with topic chips. Below it: "Continue reading" (only when a book is half-read), **"New to Pulse? Start here"** (one easy book per shelf, numbered 1–4 in shelf order: How Starlink Works, AI Basics, Stablecoins, Why Your Mortgage Moves), **"New this week"**, then one swipe row per topic, in shelf order.
 2. **Choose:** swipe a topic row, tap "See all" for the topic page (sub-chips, Suggested/Newest/Shortest, a Hide-read switch), or search, which lands on the best page. Empty search always offers a way out.
 3. **Open:** the book opens with a morph (a simple fade under reduced motion) onto a gist page: title, 3-line gist and a Go button.
-4. **Read:** one card per page, with a takeaway caption under the card (never drawn on it), page dots, prev/next arrows that never cover the card, and "Scroll for more ↓" where a card runs long.
-5. **Finish:** a "Finished!" stamp, a recap that covers *all* pages, "<Shelf>: k of n read" progress, and the next **unread** book (same shelf first, then the **next shelf in order**: Frontier Tech → AI → Fintech → Macro → back to Frontier Tech). The book now shows "✓ Read" on its cover and spine and leaves "Continue reading".
+4. **Read:** one card per page, with a takeaway caption under the card (never drawn on it), page dots, prev/next arrows that never cover the card, and "Scroll for more ↓" where a card runs long. Long takeaways are capped so a standard 1600×2400 card still fits at phone height (375/390/430); leftover lines scroll inside the box. The reserved box keeps page sizes consistent within a book, including on pages with no takeaway.
+5. **Finish:** a "Finished!" stamp, a recap that covers *all* pages, "<Shelf>: k of n read" progress, and the next **unread** book (same shelf first, then the **next shelf in order**: Frontier Tech → AI → Fintech → Macro → Money Talk → back to Frontier Tech). The book now shows "✓ Read" on its cover and spine and leaves "Continue reading".
 6. **Return:** save pages (star), share (each book has a share page + OG image), bookmark, "Continue reading" on the next visit. Old or retired links redirect with a short "X is now part of Y" note. A bad link falls back to the shelf.
 
 ## Colors
 
-Four topics, **in this order everywhere** (rows, chips, Start here, See all, Next shelf): **Frontier Tech, AI, Fintech, Macro** (set Oct 24 2026). The order and the list live in one place, `scripts/topics.py` (copied into `shelf.json`); class names come from a slug (`t-frontier-tech`), never from the raw name. An unknown topic is **never** coerced to another shelf: `add_book.py` and `check_library.py` reject it, and `pulse.js` drops the book with a console error.
+Five topics, **in this order everywhere** (rows, chips, Start here, See all, Next shelf): **Frontier Tech, AI, Fintech, Macro, Money Talk** (Money Talk added Nov 27 2026, G1). The order and the list live in one place, `scripts/topics.py` (copied into `shelf.json`); class names come from a slug (`t-frontier-tech`), never from the raw name. An unknown topic is **never** coerced to another shelf: `add_book.py` and `check_library.py` reject it, and `pulse.js` drops the book with a console error.
 
 - **AI navy** (#2c3e66 light / #8fa6d6 dark; cloth #2c3e66 / #33497a). Calm and technical.
 - **Fintech plum** (#7535b6 / #b779d8; cloth #683296 / #7c45ae). Money with a modern edge.
 - **Macro green** (#3b7436 / #8fd08a; cloth #3a6e35 / #3d7637). Economies, growth, the big picture.
 - **Frontier launch amber** (#83580b / #e3b45a; cloth #7d5309 / #8a5c0e). Rockets, satellites, robots, brain chips, new power. Spine label "FRONTIER".
+- **Money Talk ledger teal** (#165a5e / #7ec9c4; cloth #145256 / #1d6c71). How a company keeps, or loses, its money, and what a price tag really means. Spine and chip label "MONEY"; the shelf name is Money Talk.
 - **Paper and ink:** paper #f3efe7, card #fbf9f4 and ink #1d1f1d in light; paper #1c1916, card #27221c and ink #f3ead9 in dark. Never pure black on pure white.
 - **Pink is only for the New badge:** "New" marks only the latest batch (books added within 2 days of the newest addition, at most 10 days old, **max 6**), and disappears once you've opened the book. #bf4579 with white text in light (4.84:1), #f08bb5 with #1c1916 text in dark (7.55:1). The #e0679a `--new` tint is used only for its glow ring.
 
@@ -222,9 +224,11 @@ Measured contrast (WCAG ratio; light / dark):
 | Topic text on paper | 9.21 / 7.16 | 6.23 / 5.62 | 4.90 / 9.63 | 5.44 / 9.12 |
 | Cover text #fbf5e8 on cloth | 9.72 / 8.14 | 7.78 / 5.82 | 5.58 / 5.03 | 6.21 / 5.34 |
 
-Topics must stay clearly distinct in both themes. Current ΔE76 (light/dark): AI–Fintech 57/40, AI–Macro 68/68, Fintech–Macro 120/103, Frontier–AI 74/79, Frontier–Fintech 111/98, Frontier–Macro 47/47. Don't ship a topic colour within ΔE ~25 of another, or below 4.5:1 for text.
+Money Talk topic text on paper is 6.89 / 9.20; cover text #fbf5e8 on cloth is 8.15 / 5.63.
 
-**Cloth weave per shelf**, so shelves differ by texture as well as hue (never colour alone): AI a fine grid, Fintech a pinstripe, Macro a linen cross-hatch, Frontier a star-dot field.
+Topics must stay clearly distinct in both themes. Current ΔE76 (light/dark): AI–Fintech 57/40, AI–Macro 68/68, Fintech–Macro 120/103, Frontier–AI 74/79, Frontier–Fintech 111/98, Frontier–Macro 47/47, Money Talk–AI 31/36, Money Talk–Fintech 86/76, Money Talk–Macro 40/35, Money Talk–Frontier 63/65. Don't ship a topic colour within ΔE ~25 of another, or below 4.5:1 for text.
+
+**Cloth weave per shelf**, so shelves differ by texture as well as hue (never colour alone): AI a fine grid, Fintech a pinstripe, Macro a linen cross-hatch, Frontier a star-dot field, Money Talk a ledger (horizontal rules and a thin red margin).
 
 **Inside books**, palettes vary freely per book, following the 60-30-10 rule (60% base, 30% panels, 10% one accent for the thing to notice). Never use colour alone for meaning (pair it with an icon or label), and avoid red-vs-green-only pairs.
 
@@ -260,9 +264,9 @@ Topics must stay clearly distinct in both themes. Current ΔE76 (light/dark): AI
 
 ## Motion: per-shelf signatures
 
-- When a book opens, a **cover-wide signature** plays across the cover art area, then the cover swings open onto the summary: **Frontier** a rocket arcing across a star field with a smoke trail; **Macro** rising coin stacks with a trend arrow (alternating with an oil drop and price line); **AI** a hand-drawn neural network that fills the art area and lights up layer by layer (signals run along the wires, nodes glow), ending in a spark from the answer node; **Fintech** a card and a payment dot riding a subway map to the shop, then ✓. Every shelf has one.
+- When a book opens, a **cover-wide signature** plays across the cover art area, then the cover swings open onto the summary: **Frontier** a rocket arcing across a star field with a smoke trail; **Macro** rising coin stacks with a trend arrow (alternating with an oil drop and price line); **AI** a hand-drawn neural network that fills the art area and lights up layer by layer (signals run along the wires, nodes glow), ending in a spark from the answer node; **Fintech** a card and a payment dot riding a subway map to the shop, then ✓; **Money Talk** a till receipt unspools, amount lines draw on, then a green tick. Every shelf has one.
 - Budget **≤ 1.15s** total (820ms scene + 320ms open). Plays **once per book per visit**. Any tap, key or scroll **skips** it (120ms fade). It never covers text once reading starts, and is **off under `prefers-reduced-motion`** (the reader simply opens).
-- On the shelf, tapping a cover or spine plays a ~300ms **burst** (rocket streak, coin pop, swoosh) before the open (AI: three nodes pop above the spine, wires flash and the top node sparks).
+- On the shelf, tapping a cover or spine plays a ~300ms **burst** (rocket streak, coin pop, swoosh, a short receipt) before the open (AI: three nodes pop above the spine, wires flash and the top node sparks).
 
 ## Elevation & Depth
 
@@ -326,7 +330,7 @@ Hand-made, slightly imperfect: covers 3px 9px 9px 3px (bound spine edge), sketch
 
 ## Do's and Don'ts
 
-- Don't add a fifth topic without sign-off, don't coerce an unknown topic onto another shelf, and don't use pink anywhere but the New badge.
+- Don't add a new topic without sign-off (Money Talk was signed off by G1 on Nov 27 2026), don't coerce an unknown topic onto another shelf, and don't use pink anywhere but the New badge.
 - Don't write paragraph cards; don't shrink text to fit (split the card).
 - Don't let a signature animation run past ~1.2s, block a tap, or play under reduced motion.
 - Don't let search "fix" a word into something unrelated; show "Did you mean" and label related results.
